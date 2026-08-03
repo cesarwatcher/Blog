@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estratos — Historia de las religiones del Cercano Oriente</title>
+<style>
+  :root{
+    --ink:#1c1814;
+    --clay:#b5613a;
+    --clay-deep:#8a3d20;
+    --sand:#e8ddc7;
+    --sand-light:#f2ead7;
+    --parchment:#f6efe0;
+    --slate:#3a4a52;
+    --slate-deep:#26333a;
+    --gold:#c19a3e;
+    --rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:8vh 0 5vh;text-align:center;position:relative}
+  .eyebrow{
+    font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;
+    letter-spacing:.42em;font-size:.72rem;color:var(--clay-deep);font-weight:700;
+    margin-bottom:2rem;display:inline-block;padding-left:.42em;
+  }
+  .hero h1{
+    font-size:clamp(2.8rem,8vw,5.4rem);line-height:1;font-weight:400;
+    letter-spacing:-.02em;margin-bottom:1.2rem;
+  }
+  .hero h1 .em{font-style:italic;color:var(--clay-deep)}
+  .glyphs{
+    font-size:clamp(1.3rem,3.6vw,2rem);letter-spacing:.28em;color:var(--slate);
+    margin:1rem 0 1.6rem;direction:rtl;
+  }
+  .hero p.lede{
+    max-width:600px;margin:0 auto;font-size:clamp(1.05rem,2.2vw,1.24rem);color:#4a3f33;
+  }
+  .rule-orn{
+    display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto 0;max-width:340px;
+  }
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--clay);transform:rotate(45deg)}
+
+  /* ---------- SECTION LABEL ---------- */
+  .section-label{
+    text-align:center;margin:4.5rem 0 2.5rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:#8a7a5e;font-weight:700;
+  }
+
+  /* ---------- ARTICLE GRID ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.6rem;padding-bottom:2rem}
+
+  .card{
+    position:relative;display:block;text-decoration:none;color:inherit;
+    background:var(--sand-light);border:1px solid rgba(180,150,100,.4);
+    border-radius:10px;overflow:hidden;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(40,28,16,.26)}
+  .card:focus-visible{outline:3px solid var(--clay);outline-offset:3px}
+
+  /* the "stratum" colored cap on each card */
+  .card .cap{height:8px;width:100%}
+  .cap-featured{background:linear-gradient(90deg,#2b1810,#8a3d20,#c19a3e)}
+  .cap-essay{background:linear-gradient(90deg,#3a4a52,#7c9aa6)}
+  .cap-analysis{background:linear-gradient(90deg,#8a6d2a,#c19a3e)}
+
+  .card .body{padding:1.7rem 1.7rem 1.9rem}
+  .card .kicker{
+    font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.18em;
+    text-transform:uppercase;font-weight:700;margin-bottom:.9rem;display:inline-block;
+  }
+  .kicker.featured{color:var(--clay-deep)}
+  .kicker.essay{color:var(--slate)}
+  .kicker.analysis{color:#8a6d2a}
+  .card h2{font-size:1.42rem;font-weight:400;line-height:1.2;margin-bottom:.7rem}
+  .card p{font-size:.96rem;color:#564936;margin-bottom:1.3rem}
+  .card .go{
+    font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.05em;
+    color:var(--clay-deep);font-weight:700;display:inline-flex;align-items:center;gap:.5rem;
+  }
+  .card .go .arrow{transition:transform .3s}
+  .card:hover .go .arrow{transform:translateX(5px)}
+
+  /* placeholder / upcoming cards */
+  .card.soon{background:transparent;border:1.5px dashed var(--rule);box-shadow:none;cursor:default}
+  .card.soon:hover{transform:none;box-shadow:none}
+  .card.soon .body{opacity:.72}
+  .card.soon .kicker{color:#a08a63}
+  .card.soon h2{color:#7a6b52}
+  .card.soon .go{color:#a08a63}
+
+  /* ---------- ABOUT STRIP ---------- */
+  .about{background:linear-gradient(180deg,var(--slate-deep),var(--slate));color:var(--sand-light);
+    margin-top:5rem;padding:4.5rem 0}
+  .about .wrap{max-width:720px;text-align:center}
+  .about h3{font-size:1.7rem;font-weight:400;color:#fff;margin-bottom:1.2rem}
+  .about p{color:#d9cfba;font-size:1.06rem;margin-bottom:1rem}
+  .about .key{color:var(--gold);font-style:italic}
+
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--clay);font-size:1rem}
+
+  @media(max-width:520px){
+    .grid{grid-template-columns:1fr}
+    header.hero{padding:6vh 0 3vh}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .card,.card .go .arrow{transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Historia de las religiones · Cercano Oriente antiguo</span>
+    <h1>Estratos</h1>
+    <div class="glyphs">אלהים · יהוה</div>
+    <p class="lede">Un blog sobre los orígenes de las tradiciones abrahámicas, leídos capa por capa: arqueología, crítica textual y la larga historia de cómo <em>muchos dioses</em> se volvieron uno.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="section-label">Artículos</div>
+
+  <div class="grid">
+
+    <!-- FEATURED: la línea de tiempo -->
+    <a class="card" href="timeline.html">
+      <div class="cap cap-featured"></div>
+      <div class="body">
+        <span class="kicker featured">Pieza interactiva · Destacado</span>
+        <h2>De muchos dioses a uno solo</h2>
+        <p>Una línea de tiempo navegable: el viaje de Elohim y YHWH desde el panteón cananeo hasta el monoteísmo del exilio, hito por hito.</p>
+        <span class="go">Explorar la línea de tiempo <span class="arrow">→</span></span>
+      </div>
+    </a>
+
+    <!-- ejemplo de artículo de ensayo (cuando lo subas) -->
+    <a class="card soon" href="#" onclick="return false;">
+      <div class="cap cap-essay"></div>
+      <div class="body">
+        <span class="kicker essay">Ensayo · Próximamente</span>
+        <h2>Elohim: de la pluralidad a un solo nombre</h2>
+        <p>La genealogía léxica de la palabra que empezó significando “dioses” y terminó nombrando a un Dios único.</p>
+        <span class="go">Muy pronto</span>
+      </div>
+    </a>
+
+    <!-- ejemplo de artículo de análisis (cuando lo subas) -->
+    <a class="card soon" href="#" onclick="return false;">
+      <div class="cap cap-analysis"></div>
+      <div class="body">
+        <span class="kicker analysis">Análisis · Próximamente</span>
+        <h2>Los “dioses” del Salmo 82</h2>
+        <p>¿Jueces humanos o asamblea divina? El debate entre la lectura tradicional y el consenso académico actual.</p>
+        <span class="go">Muy pronto</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<section class="about">
+  <div class="wrap">
+    <h3>Sobre este blog</h3>
+    <p>Aquí se explora la historia de las religiones del Cercano Oriente con enfoque <span class="key">histórico-crítico</span>: no para afirmar ni negar creencias, sino para entender cómo se formaron los textos y las ideas sobre lo divino.</p>
+    <p>Cada entrada distingue con cuidado entre el <span class="key">consenso académico</span>, las hipótesis en debate y la especulación.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="glyph">✦</span><br>
+  Estratos · Historia de las religiones del Cercano Oriente
+</footer>
+
+</body>
+</html>

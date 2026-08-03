@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El que sobrevive en el jardín — Estratos</title>
+<style>
+  :root{
+    --ink:#1c1814;--clay:#b5613a;--clay-deep:#8a3d20;--sand:#e8ddc7;--sand-light:#f2ead7;
+    --parchment:#f6efe0;--slate:#3a4a52;--slate-deep:#26333a;--gold:#c19a3e;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:#4a2416;background:rgba(242,234,215,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(180,150,100,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px rgba(40,28,16,.18);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);box-shadow:0 8px 24px rgba(40,28,16,.28);background:rgba(242,234,215,1)}
+  .back-home:focus-visible{outline:3px solid var(--clay);outline-offset:3px}
+  .back-home .arrow{font-size:1.05rem;line-height:1;transition:transform .3s}
+  .back-home:hover .arrow{transform:translateX(-3px)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--clay),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 5vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.36em;
+    font-size:.7rem;color:var(--clay-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.36em}
+  header.masthead h1{font-size:clamp(2.1rem,5.5vw,3.4rem);line-height:1.08;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--clay-deep)}
+  .glyphs{font-size:clamp(1.2rem,3.4vw,1.7rem);letter-spacing:.24em;color:var(--slate);margin:.6rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f33;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--clay);transform:rotate(45deg)}
+
+  article{padding-bottom:4rem}
+  article h2{font-size:1.72rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--slate-deep);letter-spacing:-.01em}
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.9rem;font-weight:700;color:var(--clay);letter-spacing:.1em;display:block;margin-bottom:.4rem}
+  article h3{font-size:1.24rem;font-weight:700;font-style:italic;color:var(--clay-deep);margin:2rem 0 .8rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--clay-deep)}
+  article strong{font-weight:700;color:var(--slate-deep)}
+  article .lead{font-size:1.16rem;color:#3a3025}
+
+  .pullquote{margin:2rem 0;padding:1.3rem 1.6rem;background:var(--sand-light);border-left:4px solid var(--clay);
+    border-radius:0 8px 8px 0;font-style:italic;font-size:1.1rem;color:#3a3025;box-shadow:0 4px 14px var(--shadow)}
+  .pullquote .src{display:block;margin-top:.7rem;font-style:normal;font-size:.82rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em;color:#7a6b52}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(58,74,82,.06);border:1px solid rgba(58,74,82,.18);border-radius:8px;font-size:1rem}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d31}
+
+  .evidence{display:block;margin:1.4rem 0;padding:.9rem 1.2rem;background:rgba(193,154,62,.1);border-radius:8px;
+    font-size:.94rem;color:#5a4a24;font-family:"Trebuchet MS",sans-serif}
+  .evidence b{color:var(--clay-deep)}
+
+  ul.clean{margin:0 0 1.3rem;padding-left:0;list-style:none}
+  ul.clean li{position:relative;padding-left:1.5rem;margin-bottom:.7rem;font-size:1.04rem}
+  ul.clean li::before{content:"◆";position:absolute;left:0;top:.15rem;color:var(--clay);font-size:.7rem}
+
+  /* comparison table: El vs YHWH del jardín */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:2rem 0}
+  .compare .col{border-radius:10px;padding:1.4rem;box-shadow:0 4px 14px var(--shadow)}
+  .compare .col.a{background:rgba(58,74,82,.08);border:1px solid rgba(58,74,82,.2)}
+  .compare .col.b{background:rgba(181,97,58,.09);border:1px solid rgba(181,97,58,.28)}
+  .compare .col h4{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.7rem}
+  .compare .col.a h4{color:var(--slate)}
+  .compare .col.b h4{color:var(--clay-deep)}
+  .compare .col p{font-size:.98rem;margin:0}
+  @media(max-width:560px){.compare{grid-template-columns:1fr}}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3.5rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--clay);font-size:.9rem}
+
+  .note-block{background:var(--slate-deep);color:var(--sand-light);border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-style:normal;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#d4c9b4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--clay-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5e;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 22px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.back-home .arrow,.progress,.article-foot a.home-link{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Ensayo · Historia de las religiones</span>
+    <h1>El que sobrevive<br>en el <span class="em">jardín</span></h1>
+    <div class="glyphs">אל · יהוה</div>
+    <p class="standfirst">El YHWH que modela barro y pasea al fresco del día no es un dios nuevo: es, en buena medida, el viejo El cananeo con otro nombre. Rastro de una divinidad dentro de otra.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<article>
+  <div class="wrap">
+
+    <p class="lead">Todo el blog empezó con una observación: hay <em>dos</em> relatos de la creación, y el Dios de cada uno se comporta distinto. El de Génesis 1 es un arquitecto trascendente que ordena el cosmos con la palabra. El de Génesis 2 es otra cosa: un artesano que se agacha, moldea barro con las manos, planta un jardín y camina por él en la brisa de la tarde. Este ensayo cierra ese círculo. Porque ese segundo Dios, el del jardín, tiene un parecido de familia inquietante con una figura muy anterior: <strong>El</strong>, el patriarca del panteón cananeo.</p>
+
+    <h2><span class="n">01</span>El Dios que se puede ver moverse</h2>
+    <p>Lea despacio Génesis 2–3 y note cuántas veces YHWH hace algo <strong>físico</strong>. <em>Forma</em> al hombre del polvo (<span class="term">yatsar</span>, el verbo del alfarero). <em>Sopla</em> aliento en su nariz. <em>Planta</em> un jardín. <em>Pasea</em> por él “al fresco del día” (<span class="term">lĕrûaḥ hayyôm</span>), y el sonido de sus pasos se oye. <em>Cose</em> túnicas de piel para vestir a la pareja. Es un Dios con manos, con pies, con una hora preferida para caminar.</p>
+    <p>Esto no es un descuido poético. Es una <strong>manera concreta y arcaica de imaginar lo divino</strong>, muy distinta del Elohim incorpóreo de Génesis 1 que crea desde la distancia. Y encaja con una figura conocida.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>El Dios de Génesis 2 no da órdenes desde el cielo: trabaja con las manos, como un artesano. Esa forma de imaginarlo —cercano, corporal, doméstico— es una herencia antigua, no una casualidad del estilo.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">02</span>Quién era El, en detalle</h2>
+    <p>Ya lo conociste en el ensayo sobre Elohim, pero aquí importan sus rasgos <em>de carácter</em>, no solo su nombre. En los textos de <strong>Ugarit</strong> (ss. XIV–XIII a.C.), El no es un dios de la tormenta ni un guerrero. Es un <strong>anciano</strong>, y esto lo define todo:</p>
+    <ul class="clean">
+      <li>Es <span class="term">ʾab ʾadm</span>, “padre de la humanidad”, y <span class="term">bny bnwt</span>, “creador de las criaturas” —un dios <strong>creador y paternal</strong>.</li>
+      <li>Es <span class="term">ṯr ʾil</span>, “el Toro El”, pero también <span class="term">ʾab šnm</span>, algo así como “padre de años”: un <strong>patriarca canoso y sabio</strong>, no un joven fogoso.</li>
+      <li>Se le llama <span class="term">lṭpn ʾil dpʾid</span>: “el Bondadoso, el de corazón compasivo”. Su temperamento es <strong>benévolo y misericordioso</strong>.</li>
+      <li>Habita “en la fuente de los ríos”, en una <strong>tienda o pabellón</strong>, y ahí recibe a los otros dioses y decide.</li>
+      <li>Se comunica con los humanos por <strong>sueños y apariciones</strong>, de forma íntima y personal.</li>
+    </ul>
+    <p>Retenga esa imagen: un dios anciano, artesano de la vida, compasivo, que vive en una tienda y se aparece en sueños. Ahora vuelva al jardín.</p>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">03</span>Los parecidos, uno a uno</h2>
+    <p>Puestos lado a lado, El y el YHWH de Génesis 2 comparten un aire de familia difícil de ignorar.</p>
+
+    <div class="compare">
+      <div class="col a">
+        <h4>El de Ugarit</h4>
+        <p>Anciano creador que modela y da vida a las criaturas; “padre de la humanidad”.</p>
+      </div>
+      <div class="col b">
+        <h4>YHWH en el jardín</h4>
+        <p>Modela al hombre del barro con sus manos y le insufla aliento de vida.</p>
+      </div>
+    </div>
+    <div class="compare">
+      <div class="col a">
+        <h4>El de Ugarit</h4>
+        <p>Benévolo y compasivo (<em>lṭpn dpʾid</em>); tolerante con las faltas de sus criaturas.</p>
+      </div>
+      <div class="col b">
+        <h4>YHWH en el jardín</h4>
+        <p>Tras la falta, no fulmina: viste a la pareja con túnicas de piel antes de expulsarla. Castiga, pero también protege.</p>
+      </div>
+    </div>
+    <div class="compare">
+      <div class="col a">
+        <h4>El de Ugarit</h4>
+        <p>Vive en una tienda junto a la fuente de los ríos; se le encuentra en un lugar concreto.</p>
+      </div>
+      <div class="col b">
+        <h4>YHWH en el jardín</h4>
+        <p>Camina por el Edén, un jardín regado por cuatro ríos; tiene un espacio propio por donde transita.</p>
+      </div>
+    </div>
+    <p>El paralelo del <strong>jardín regado por ríos</strong> es especialmente sugerente: la morada de El “en la fuente de los ríos” (<span class="term">mbk nhrm</span>) y el Edén del que “salía un río que se repartía en cuatro brazos” pertenecen al mismo imaginario de la montaña-jardín divina del Cercano Oriente, el lugar fértil donde habita el dios anciano.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>No es que Génesis copie a Ugarit línea por línea. Es que el <em>tipo</em> de dios —anciano, artesano, compasivo, que vive en un jardín con ríos y se aparece en persona— es el mismo molde. YHWH ocupa el lugar que antes ocupaba El, y arrastra consigo su personalidad.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">04</span>Los nombres lo confirman</h2>
+    <p>Si el parecido fuera solo de carácter, sería sugestivo pero discutible. Lo que lo ancla es que el texto bíblico <strong>llama a YHWH con los títulos de El</strong>, como vimos en el ensayo anterior: <em>El Shadday</em>, <em>El Elyon</em>, <em>El Olam</em>. Éxodo 6:3 llega a admitir que los patriarcas lo conocían como <em>El Shadday</em> y no como YHWH.</p>
+    <p>Y hay un detalle que redondea el argumento: la Biblia <strong>nunca ataca a El</strong>. Contra Baal —el dios de la tormenta, el rival— los profetas descargan siglos de furia. Pero a El no lo combaten jamás, porque no es un rival: es la <strong>identidad heredada</strong>. No se destruye aquello con lo que uno se ha fundido.</p>
+    <div class="evidence">
+      <b>Consenso académico:</b> la continuidad El–YHWH es una de las tesis más sólidas de la crítica, articulada por <b>Frank Moore Cross</b> (<i>Canaanite Myth and Hebrew Epic</i>, 1973) y <b>Mark S. Smith</b> (<i>The Early History of God</i>). YHWH no desplazó a El: lo absorbió, heredando sus títulos y su perfil de dios creador y paternal.
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">05</span>Por qué quedaron dos dioses distintos en la misma Biblia</h2>
+    <p>Si YHWH heredó a El, ¿por qué el Dios de Génesis 1 es tan diferente —incorpóreo, trascendente, que crea por decreto? Porque los dos capítulos vienen de <strong>momentos distintos</strong> de esa larga evolución, y un editor los puso juntos sin alisarlos.</p>
+    <p>Génesis 2, con su YHWH artesano, conserva la <strong>capa arcaica</strong>: el Dios todavía cercano al El cananeo, corporal y doméstico. Génesis 1, de la fuente Sacerdotal y redactado hacia el exilio, refleja la <strong>capa tardía</strong>: el Dios ya abstracto, único y trascendente, depurado de todo antropomorfismo para responder a Babilonia. Los dos relatos, uno detrás del otro, son como dos estratos geológicos: el viejo El asoma bajo el YHWH del jardín; el monoteísmo maduro habla en el del cosmos.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>Los dos primeros capítulos de la Biblia son una fotografía doble: en uno se ve todavía al viejo dios artesano cananeo; en el otro, al Dios único y abstracto del final del camino. Leer Génesis 1 y 2 seguidos es leer, sin querer, mil años de evolución religiosa comprimidos en dos páginas.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">06</span>Síntesis</h2>
+    <p>El YHWH que pasea por el Edén al fresco de la tarde es una <strong>puerta trasera</strong> a la prehistoria del Dios de Israel. Su corporalidad no es ingenuidad literaria: es memoria. En sus manos de alfarero, en su compasión al vestir a la pareja, en su jardín regado por ríos, sobrevive el perfil del <strong>El cananeo</strong> —el anciano creador y benévolo del panteón de Ugarit— sobre el que YHWH se superpuso.</p>
+    <p>Así se cierra el arco que este blog abrió con los dos relatos de la creación. La pregunta “¿por qué hay dos dioses distintos en Génesis 1 y 2?” tiene ahora una respuesta con nombre propio: porque el segundo todavía lleva puesta la piel del dios al que reemplazó. El monoteísmo no borró del todo su pasado; lo dejó dormido, visible aún, en un jardín.</p>
+
+    <div class="note-block">
+      <h3>Nota sobre el rigor y las fuentes</h3>
+      <p>La continuidad El–YHWH es <span class="key">consenso amplio</span>; las referencias centrales son <span class="key">Frank Moore Cross</span>, <span class="key">Mark S. Smith</span> y los estudios sobre la religión ugarítica. Los rasgos de El citados proceden del corpus de Ugarit (KTU).</p>
+      <p>Conviene una cautela: leer paralelos entre textos antiguos exige prudencia. Que El y el YHWH del jardín compartan un perfil <em>no</em> prueba una copia directa capítulo a capítulo, sino una <span class="key">herencia cultural compartida</span>. Algunos paralelos (el jardín de los ríos) son más firmes; otros (matices de temperamento) son más interpretativos. Se ha señalado dónde el terreno es sólido y dónde es sugerente.</p>
+      <p>Las citas y transliteraciones deben verificarse en ediciones críticas antes de citarse en un trabajo formal. Nada de esto afirma ni niega la validez religiosa del texto.</p>
+    </div>
+
+  </div>
+</article>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max>0 ? (h.scrollTop/max)*100 : 0) + '%';
+  }
+  document.addEventListener('scroll', upd, {passive:true});
+  window.addEventListener('resize', upd); upd();
+</script>
+
+</body>
+</html>

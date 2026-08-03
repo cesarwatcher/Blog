@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De muchos dioses a uno solo — La evolución de Elohim y YHWH</title>
+<style>
+  :root{
+    --ink:#1c1814;
+    --clay:#b5613a;
+    --clay-deep:#8a3d20;
+    --sand:#e8ddc7;
+    --sand-light:#f2ead7;
+    --parchment:#f6efe0;
+    --slate:#3a4a52;
+    --slate-deep:#26333a;
+    --gold:#c19a3e;
+    --rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* subtle grain */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:9vh 0 7vh;text-align:center;position:relative;
+  }
+  .eyebrow{
+    font-family:"Trebuchet MS",system-ui,sans-serif;
+    text-transform:uppercase;letter-spacing:.42em;font-size:.72rem;
+    color:var(--clay-deep);font-weight:700;margin-bottom:2rem;
+    display:inline-block;padding-left:.42em;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem,6.5vw,4.6rem);
+    line-height:1.02;font-weight:400;letter-spacing:-.01em;
+    margin-bottom:1.4rem;
+  }
+  .hero h1 .em{font-style:italic;color:var(--clay-deep)}
+  .glyphs{
+    font-size:clamp(1.4rem,4vw,2.3rem);letter-spacing:.25em;color:var(--slate);
+    margin:1.2rem 0 1.8rem;direction:rtl;font-weight:400;
+  }
+  .hero p.lede{
+    max-width:640px;margin:0 auto;font-size:clamp(1.05rem,2.2vw,1.28rem);
+    color:#4a3f33;
+  }
+  .scroll-cue{
+    margin-top:3.5rem;font-family:"Trebuchet MS",sans-serif;font-size:.7rem;
+    letter-spacing:.3em;text-transform:uppercase;color:#8a7a5e;
+  }
+  .scroll-cue span{display:block;font-size:1.4rem;margin-top:.4rem;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+  /* ---------- INTRO STRIP ---------- */
+  .intro{
+    background:linear-gradient(180deg,var(--slate-deep),var(--slate));
+    color:var(--sand-light);padding:4.5rem 0;margin:2rem 0 0;
+    position:relative;
+  }
+  .intro .wrap{max-width:760px}
+  .intro h2{font-size:1.7rem;font-weight:400;margin-bottom:1.2rem;color:#fff}
+  .intro p{color:#d9cfba;font-size:1.08rem;margin-bottom:1rem}
+  .intro .key{color:var(--gold);font-style:italic}
+  .paradox{
+    border-left:3px solid var(--clay);padding:1rem 0 1rem 1.5rem;margin:1.6rem 0 0;
+    font-size:1.15rem;color:#f0e7d4;
+  }
+
+  /* ---------- LEGEND ---------- */
+  .legend{
+    display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:center;
+    padding:2.4rem 0 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;
+  }
+  .legend .item{display:flex;align-items:center;gap:.5rem;color:#5a4c3a}
+  .swatch{width:16px;height:16px;border-radius:3px;box-shadow:0 1px 2px var(--shadow)}
+  .sw-poly{background:linear-gradient(135deg,#7c9aa6,#3a4a52)}
+  .sw-fusion{background:linear-gradient(135deg,#c19a3e,#8a6d2a)}
+  .sw-mono{background:linear-gradient(135deg,#b5613a,#8a3d20)}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{padding:1rem 0 5rem;position:relative}
+  .spine{
+    position:absolute;left:50%;top:0;bottom:0;width:2px;
+    background:linear-gradient(180deg,transparent,var(--rule) 6%,var(--rule) 94%,transparent);
+    transform:translateX(-50%);
+  }
+  .era-band{
+    text-align:center;margin:3.5rem 0 1rem;position:relative;
+  }
+  .era-band .tag{
+    display:inline-block;font-family:"Trebuchet MS",sans-serif;
+    font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;
+    padding:.5rem 1.4rem;border-radius:2rem;background:var(--sand);
+    color:var(--slate-deep);box-shadow:0 2px 6px var(--shadow);font-weight:700;
+    position:relative;z-index:3;
+  }
+
+  .node{
+    position:relative;width:calc(50% - 42px);margin:1.6rem 0;
+    background:var(--sand-light);border-radius:10px;padding:1.6rem 1.7rem;
+    box-shadow:0 6px 20px var(--shadow);
+    border:1px solid rgba(180,150,100,.35);
+    opacity:0;transform:translateY(28px);
+    transition:opacity .7s ease,transform .7s ease;
+  }
+  .node.in{opacity:1;transform:translateY(0)}
+  .node.left{margin-right:auto}
+  .node.right{margin-left:auto}
+  /* connector dot on spine */
+  .node::after{
+    content:"";position:absolute;top:1.9rem;width:17px;height:17px;border-radius:50%;
+    background:var(--parchment);border:3px solid var(--clay);z-index:4;
+    box-shadow:0 0 0 4px var(--parchment);
+  }
+  .node.left::after{right:-51px}
+  .node.right::after{left:-51px}
+  /* little pointer */
+  .node::before{
+    content:"";position:absolute;top:2.1rem;width:22px;height:2px;background:var(--rule);
+  }
+  .node.left::before{right:-30px}
+  .node.right::before{left:-30px}
+
+  .node[data-band="poly"]{border-top:4px solid #3a4a52}
+  .node[data-band="fusion"]{border-top:4px solid var(--gold)}
+  .node[data-band="mono"]{border-top:4px solid var(--clay)}
+
+  .node .date{
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.78rem;
+    letter-spacing:.08em;color:var(--clay-deep);margin-bottom:.5rem;
+    text-transform:uppercase;
+  }
+  .node[data-band="poly"] .date{color:var(--slate)}
+  .node[data-band="fusion"] .date{color:#8a6d2a}
+  .node h3{font-size:1.28rem;font-weight:400;margin-bottom:.7rem;line-height:1.2}
+  .node p{font-size:.98rem;color:#483d31;margin-bottom:.7rem}
+  .node p:last-child{margin-bottom:0}
+  .node .term{
+    font-style:italic;color:var(--clay-deep);font-weight:600;
+    white-space:nowrap;
+  }
+  .node .plain{
+    display:block;margin-top:.8rem;padding-top:.8rem;
+    border-top:1px dashed var(--rule);font-size:.9rem;color:#6b5c47;
+  }
+  .node .plain b{color:var(--slate-deep);font-style:normal}
+  .node .evidence{
+    display:inline-block;margin-top:.9rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.03em;background:rgba(58,74,82,.09);
+    color:var(--slate-deep);padding:.35rem .7rem;border-radius:4px;line-height:1.4;
+  }
+  .node .evidence b{color:var(--clay-deep)}
+
+  /* pivot node — the exile, made larger */
+  .node.pivot{
+    background:linear-gradient(160deg,#2b1810,#4a2416);color:#f4ead6;
+    border:1px solid var(--clay-deep);border-top:4px solid var(--gold);
+  }
+  .node.pivot h3{color:#fff}
+  .node.pivot p{color:#e6d6bd}
+  .node.pivot .date{color:var(--gold)}
+  .node.pivot .term{color:#e8b962}
+  .node.pivot .plain{border-top-color:rgba(200,170,110,.4);color:#d8c4a4}
+  .node.pivot .plain b{color:#fff}
+  .node.pivot .evidence{background:rgba(230,200,140,.14);color:#eeddba}
+  .node.pivot .evidence b{color:#f0c46e}
+  .node.pivot::after{border-color:var(--gold);width:22px;height:22px}
+  .node.pivot.left::after{right:-53px}
+
+  /* ---------- CLOSING SYNTHESIS ---------- */
+  .synthesis{
+    background:var(--slate-deep);color:var(--sand-light);padding:5rem 0;margin-top:2rem;
+  }
+  .synthesis .wrap{max-width:780px}
+  .synthesis .eyebrow{color:var(--gold)}
+  .synthesis h2{font-size:2rem;font-weight:400;color:#fff;margin-bottom:1.8rem}
+  .arc{display:grid;gap:1.2rem;margin:2rem 0}
+  .arc .step{
+    display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:start;
+    background:rgba(255,255,255,.04);padding:1.3rem 1.5rem;border-radius:8px;
+    border-left:3px solid var(--clay);
+  }
+  .arc .num{
+    font-size:1.9rem;color:var(--gold);font-style:italic;line-height:1;
+    font-family:Georgia,serif;
+  }
+  .arc .step h4{font-size:1.15rem;font-weight:400;color:#fff;margin-bottom:.35rem}
+  .arc .step p{color:#cdbfa8;font-size:.98rem}
+  .closing-line{
+    margin-top:2.4rem;font-size:1.25rem;font-style:italic;color:#f0e7d4;
+    text-align:center;line-height:1.5;
+  }
+  .closing-line b{color:var(--gold);font-style:normal;font-weight:400}
+
+  /* ---------- CAVEAT ---------- */
+  .caveat{padding:3.5rem 0;max-width:720px;margin:0 auto}
+  .caveat h3{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--clay-deep);margin-bottom:1rem}
+  .caveat p{font-size:.95rem;color:#5a4c3a;margin-bottom:.8rem}
+  footer{text-align:center;padding:2.5rem 0 4rem;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:760px){
+    .spine{left:22px}
+    .node{width:calc(100% - 46px);margin-left:auto!important;margin-right:0!important}
+    .node.left::after,.node.right::after{left:-37px;right:auto}
+    .node.pivot.left::after{left:-39px}
+    .node.left::before,.node.right::before{left:-16px;right:auto}
+    .era-band{text-align:left;padding-left:6px}
+    .legend{gap:1rem}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .node{opacity:1;transform:none;transition:none}
+    .scroll-cue span{animation:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Historia de las religiones · Cercano Oriente antiguo</span>
+    <h1>De <span class="em">muchos dioses</span><br>a uno solo</h1>
+    <div class="glyphs">אלהים · יהוה</div>
+    <p class="lede">Cómo una palabra que significaba <em>“dioses”</em> en plural terminó siendo el nombre de un único Dios. El viaje de <strong>Elohim</strong> y <strong>YHWH</strong>, contado como lo que es: una historia de capas.</p>
+    <div class="scroll-cue">Baja para excavar<span>↓</span></div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <h2>La idea en una frase</h2>
+    <p>La religión de Israel no empezó siendo monoteísta. Empezó dentro del mundo <span class="key">cananeo</span>, poblado de dioses, y a lo largo de unos ochocientos años fue transformándose hasta afirmar que solo existe <span class="key">un</span> Dios.</p>
+    <p>La huella de ese viaje quedó fosilizada en una rareza del idioma: la palabra <strong>Elohim</strong> es, en gramática, un <em>plural</em> —literalmente “dioses”—, pero casi siempre se usa con verbos en singular para hablar de un solo Dios.</p>
+    <div class="paradox">Un plural que designa a uno solo. Esa contradicción no es un error del hebreo: es la <strong>cicatriz</strong> visible de toda esta historia.</div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="legend">
+    <div class="item"><span class="swatch sw-poly"></span> Etapa politeísta / muchos dioses</div>
+    <div class="item"><span class="swatch sw-fusion"></span> Fusión y ascenso de YHWH</div>
+    <div class="item"><span class="swatch sw-mono"></span> Camino al monoteísmo</div>
+  </div>
+</div>
+
+<section class="timeline">
+  <div class="wrap" style="position:relative">
+    <div class="spine"></div>
+
+    <!-- BAND: BEFORE ISRAEL -->
+    <div class="era-band"><span class="tag">Antes de Israel</span></div>
+
+    <div class="node left" data-band="poly">
+      <div class="date">Bronce Tardío · siglos XIV–XIII a.C.</div>
+      <h3>El punto de partida: el panteón de Ugarit</h3>
+      <p>En la ciudad de <b>Ugarit</b> (costa de la actual Siria) se hallaron tablillas que describen el mundo divino cananeo del que Israel es heredero cultural. En la cima manda <span class="term">El</span>: un dios anciano, sabio y paternal, “padre de los dioses”, que preside una <span class="term">asamblea divina</span> —un consejo de dioses.</p>
+      <span class="plain"><b>En simple:</b> antes de Israel ya existía un “directorio” de dioses cananeos, con un presidente llamado El. Israel nace dentro de ese mundo, no fuera de él.</span>
+      <span class="evidence">Evidencia: tablillas de <b>Ugarit</b> (corpus KTU), en lengua ugarítica, hermana del hebreo.</span>
+    </div>
+
+    <div class="node right" data-band="poly">
+      <div class="date">La familia divina</div>
+      <h3>Los “hijos de los dioses”</h3>
+      <p>Alrededor de El estaban su consorte, la diosa madre <span class="term">Aserá</span>, y sus hijos, los <span class="term">bene elim</span> (“hijos de los dioses”). Esa misma corte celestial reaparece luego en la Biblia: los “hijos de Dios” de Génesis 6, Job 1–2 y el Salmo 82 son su eco directo.</p>
+      <span class="plain"><b>En simple:</b> el vocabulario y los personajes divinos de Canaán no desaparecen. Se cuelan dentro de la Biblia y siguen ahí, si uno sabe mirar.</span>
+    </div>
+
+    <!-- BAND: BIRTH OF ISRAEL -->
+    <div class="era-band"><span class="tag">Nacimiento de Israel</span></div>
+
+    <div class="node left" data-band="fusion">
+      <div class="date">Un dios que viene del sur</div>
+      <h3>Aparece YHWH</h3>
+      <p>Mientras El es un dios del norte cananeo, el nombre <span class="term">YHWH</span> parece venir del <b>sur árido</b>: Madián, Edom, Seír. Los textos bíblicos más antiguos lo describen “saliendo de Seír”, como un dios guerrero y de la tormenta. Inscripciones egipcias mencionan a nómadas ligados a un nombre parecido (los <em>shasu de Yhw</em>).</p>
+      <span class="plain"><b>En simple:</b> YHWH y El empiezan siendo <b>dos dioses distintos</b>, de dos regiones distintas. Todavía no son la misma figura.</span>
+      <span class="evidence">Hipótesis <b>quenita/madianita</b> · en debate, no probada al 100%.</span>
+    </div>
+
+    <div class="node right" data-band="fusion">
+      <div class="date">Edad del Hierro · siglos XII–X a.C. · INFLEXIÓN I</div>
+      <h3>La gran fusión: YHWH “se vuelve” El</h3>
+      <p>Aquí ocurre el primer giro decisivo. YHWH, el dios del sur, es <b>identificado con El</b>, el dios cananeo local. No lo destruye: lo <b>absorbe</b>. Hereda sus títulos (El Altísimo, El Todopoderoso), su asamblea divina y su vocabulario genérico: <span class="term">Elohim</span>.</p>
+      <p>Dato clave: la Biblia nunca ataca a El. A Baal sí lo combate con furia; a El lo integra sin conflicto. Esa es la firma de una fusión.</p>
+      <span class="plain"><b>En simple:</b> es como cuando una empresa compra a otra y se queda con su marca y sus oficinas. YHWH “adquiere” a El y se queda con su nombre común, <b>Elohim</b>.</span>
+      <span class="evidence">Huella textual: <b>Éxodo 6:2–3</b> admite que los patriarcas conocían a Dios como “El Todopoderoso”, no como YHWH.</span>
+    </div>
+
+    <!-- BAND: MONARCHY -->
+    <div class="era-band"><span class="tag">La monarquía y los profetas</span></div>
+
+    <div class="node left" data-band="mono">
+      <div class="date">Siglos IX–VIII a.C. · INFLEXIÓN II</div>
+      <h3>“Solo YHWH” — pero todavía no “solo existe YHWH”</h3>
+      <p>Los profetas (Elías, Oseas) exigen adorar <b>únicamente</b> a YHWH y chocan con el culto a Baal. Pero aún no niegan que los otros dioses existan: solo prohíben rendirles culto. Los expertos llaman a esta etapa <span class="term">monolatría</span> o <span class="term">henoteísmo</span>.</p>
+      <span class="plain"><b>En simple:</b> la regla no es todavía “hay un solo Dios”, sino “tú adora únicamente a este”. Es un paso intermedio, no el destino final.</span>
+    </div>
+
+    <div class="node right" data-band="mono">
+      <div class="date">c. 800 a.C. · la prueba en el barro</div>
+      <h3>“YHWH y su Aserá”</h3>
+      <p>En dos yacimientos —<b>Kuntillet ʿAjrud</b> y <b>Khirbet el-Qôm</b>— aparecieron inscripciones que bendicen “por YHWH… y por su <span class="term">Aserá</span>”. Se discute si Aserá es aquí una <b>diosa consorte</b> (herencia de El) o un objeto sagrado. Sea lo que sea, prueba que el culto real todavía no era el monoteísmo estricto posterior.</p>
+      <span class="plain"><b>En simple:</b> la arqueología muestra que, en la práctica, mucha gente veneraba a YHWH <b>junto a</b> otra figura divina. El monoteísmo “de manual” aún no existía en la calle.</span>
+      <span class="evidence">Evidencia física: inscripciones sobre vasijas y en una tumba, s. VIII a.C. · lectura <b>en debate</b>.</span>
+    </div>
+
+    <div class="node left" data-band="mono">
+      <div class="date">622 a.C. · INFLEXIÓN III</div>
+      <h3>La reforma del rey Josías</h3>
+      <p>Se “descubre” un libro de la Ley en el Templo y el rey Josías centraliza todo el culto en Jerusalén, purgando los cultos rivales —Aserá incluida. Aquí se acuña la fórmula del <span class="term">Shemá</span>: “YHWH nuestro Dios, YHWH es <b>uno</b>” (Deuteronomio 6:4).</p>
+      <span class="plain"><b>En simple:</b> el Estado impone por decreto lo que antes era una tendencia. <b>Elohim</b> deja de ser una categoría abierta y queda amarrado a un solo nombre: YHWH.</span>
+    </div>
+
+    <!-- BAND: THE PIVOT -->
+    <div class="era-band"><span class="tag">El punto de quiebre</span></div>
+
+    <div class="node right pivot" data-band="mono">
+      <div class="date">587–539 a.C. · INFLEXIÓN IV · LA BISAGRA</div>
+      <h3>El exilio en Babilonia y el nacimiento del monoteísmo</h3>
+      <p>Babilonia destruye Jerusalén y su Templo, y deporta al pueblo. La crisis obliga a una decisión teológica radical: si YHWH permitió la derrota, o es un dios <b>impotente</b> —inaceptable— o es el <b>único</b> Dios que gobierna la historia entera y usó a Babilonia como instrumento.</p>
+      <p>Es entonces cuando un profeta (el llamado <span class="term">Segundo Isaías</span>) lo dice por primera vez sin rodeos: <em>“Fuera de mí no hay Dios… no hay otro.”</em> Los demás dioses ya no son rivales subordinados: son <b>nada</b>, ídolos de madera.</p>
+      <span class="plain"><b>En simple:</b> paradójicamente, es <b>perdiéndolo todo</b> cuando nace la idea de un Dios único. La derrota se reinterpreta como prueba de que YHWH manda sobre el mundo entero.</span>
+      <span class="evidence">Aquí se redacta <b>Génesis 1</b>: un Elohim que crea con la palabra, sin consorte y sin lucha, en respuesta al mito babilónico del <em>Enuma Elish</em>.</span>
+    </div>
+
+    <div class="node left" data-band="mono">
+      <div class="date">Un fósil que casi borran</div>
+      <h3>La huella que delata el cambio: Deut. 32:8–9</h3>
+      <p>Un mismo versículo se conserva en dos versiones. En la más antigua (hallada en <b>Qumrán</b> y en la traducción griega) El Altísimo reparte las naciones “según el número de los <span class="term">hijos de Dios</span>”, y a YHWH le toca Israel como su porción —YHWH aparece como <b>uno de los hijos</b> de El. La versión hebrea estándar cambió esa frase por “hijos de Israel”, suavizando el politeísmo.</p>
+      <span class="plain"><b>En simple:</b> tenemos <b>atrapado en el acto</b> el momento en que un copista editó el texto para que sonara más monoteísta. La versión vieja todavía dejaba ver a los muchos dioses.</span>
+      <span class="evidence">Comparación: <b>4QDeut<sup>j</sup></b> (Qumrán) y <b>Septuaginta</b> (griego) frente al Texto Masorético (hebreo).</span>
+    </div>
+
+    <!-- BAND: AFTER -->
+    <div class="era-band"><span class="tag">Consolidación y después</span></div>
+
+    <div class="node right" data-band="mono">
+      <div class="date">Siglo V a.C. en adelante · INFLEXIÓN V</div>
+      <h3>El Nombre que dejó de pronunciarse</h3>
+      <p>Bajo dominio persa, el monoteísmo se fija como identidad del pueblo. Con el tiempo el nombre <span class="term">YHWH</span> se vuelve tan sagrado que se deja de pronunciar: al leer se sustituye por <span class="term">Adonай</span> (“Señor”). Siglos después, mezclar las consonantes de YHWH con las vocales de Adonay producirá la forma híbrida <b>“Jehová”</b>.</p>
+      <span class="plain"><b>En simple:</b> el nombre propio del Dios se “apaga” por respeto. “Jehová” no es la pronunciación original: es un cruce tardío de dos palabras.</span>
+      <span class="evidence">Dato de contraste: los papiros de <b>Elefantina</b> (Egipto, s. V a.C.) muestran que en la diáspora aún se veneraba a YHW junto a otras figuras. El cambio no fue uniforme.</span>
+    </div>
+
+    <div class="node left" data-band="mono">
+      <div class="date">Eco tardío · el Salmo 82</div>
+      <h3>Cuando los dioses son condenados a muerte</h3>
+      <p>El <b>Salmo 82</b> guarda una escena reveladora: Dios se levanta en la asamblea divina y <b>sentencia a muerte</b> a los otros dioses (“moriréis como hombres”). Es la dramatización del momento en que YHWH absorbe las funciones de todo el panteón y se queda con todas las naciones. Siglos más tarde, tradiciones judías y cristianas releerían a esos “dioses” como simples <b>jueces humanos</b>, incómodas con el trasfondo politeísta original.</p>
+      <span class="plain"><b>En simple:</b> el texto viejo mostraba a muchos dioses siendo destronados por uno. La relectura posterior los convirtió en “humanos” para que no sonara a politeísmo.</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="synthesis">
+  <div class="wrap">
+    <span class="eyebrow">La historia completa en tres tiempos</span>
+    <h2>El arco, de principio a fin</h2>
+    <div class="arc">
+      <div class="step">
+        <div class="num">I</div>
+        <div>
+          <h4>Un plural abierto</h4>
+          <p>“Elohim” nombraba genéricamente <em>lo divino</em> en un mundo lleno de dioses: El, Aserá, Baal y la corte celestial. Era una categoría, no un nombre propio.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">II</div>
+        <div>
+          <h4>Una convergencia</h4>
+          <p>El dios sureño YHWH se fusiona con el El cananeo, hereda su vocabulario —Elohim incluido— y asciende mediante los profetas y las reformas reales, aunque por siglos convive con una consorte y una corte de dioses menores.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">III</div>
+        <div>
+          <h4>Una fijación monoteísta</h4>
+          <p>El trauma del exilio babilónico fuerza la afirmación de que YHWH no es <em>un</em> dios, sino <em>el único</em>. El plural queda amarrado a un solo referente; y el nombre propio, YHWH, enmudece hasta dar lugar, muy tarde, a “Jehová”.</p>
+        </div>
+      </div>
+    </div>
+    <p class="closing-line">Un sustantivo plural que significaba “dioses” terminó nombrando, en singular, a <b>un único Dios</b>. Esa contradicción gramatical es la cicatriz de un viaje de ochocientos años.</p>
+  </div>
+</section>
+
+<div class="caveat">
+  <h3>Nota honesta sobre la certeza</h3>
+  <p>Esto es un <b>modelo</b> que ordena evidencia fragmentaria, no una crónica con fechas exactas. Buena parte pertenece al consenso académico amplio: la composición por capas de la Biblia, el trasfondo cananeo, la centralidad del exilio.</p>
+  <p>Pero varios puntos siguen <b>en debate</b>: el origen sureño y la etimología de YHWH, si “su Aserá” es una diosa o un objeto de culto, y la datación exacta de cada capa. Donde la historia dice “en debate”, conviene no tomar una sola opción como probada.</p>
+</div>
+
+<footer>
+  Línea de tiempo elaborada a partir de la conversación · Basada en Cross, Smith, Römer, Finkelstein, van der Toorn, Sommer y la crítica histórica actual
+</footer>
+
+<script>
+  const nodes = document.querySelectorAll('.node');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:0.18, rootMargin:'0px 0px -60px 0px'});
+    nodes.forEach(n=>io.observe(n));
+  } else {
+    nodes.forEach(n=>n.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>

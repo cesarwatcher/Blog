@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los “dioses” del Salmo 82 — Estratos</title>
+<style>
+  :root{
+    --ink:#1c1814;--clay:#b5613a;--clay-deep:#8a3d20;--sand:#e8ddc7;--sand-light:#f2ead7;
+    --parchment:#f6efe0;--slate:#3a4a52;--slate-deep:#26333a;--gold:#c19a3e;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:#4a2416;background:rgba(242,234,215,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(180,150,100,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px rgba(40,28,16,.18);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);box-shadow:0 8px 24px rgba(40,28,16,.28);background:rgba(242,234,215,1)}
+  .back-home:focus-visible{outline:3px solid var(--clay);outline-offset:3px}
+  .back-home .arrow{font-size:1.05rem;line-height:1;transition:transform .3s}
+  .back-home:hover .arrow{transform:translateX(-3px)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--clay),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 5vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.36em;
+    font-size:.7rem;color:var(--clay-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.36em}
+  header.masthead h1{font-size:clamp(2.1rem,5.5vw,3.4rem);line-height:1.08;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--clay-deep)}
+  .glyphs{font-size:clamp(1.2rem,3.4vw,1.7rem);letter-spacing:.22em;color:var(--slate);margin:.6rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f33;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--clay);transform:rotate(45deg)}
+
+  article{padding-bottom:4rem}
+  article h2{font-size:1.72rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--slate-deep);letter-spacing:-.01em}
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.9rem;font-weight:700;color:var(--clay);letter-spacing:.1em;display:block;margin-bottom:.4rem}
+  article h3{font-size:1.24rem;font-weight:700;font-style:italic;color:var(--clay-deep);margin:2rem 0 .8rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--clay-deep)}
+  article strong{font-weight:700;color:var(--slate-deep)}
+  article .lead{font-size:1.16rem;color:#3a3025}
+
+  .pullquote{margin:2rem 0;padding:1.3rem 1.6rem;background:var(--sand-light);border-left:4px solid var(--clay);
+    border-radius:0 8px 8px 0;font-style:italic;font-size:1.1rem;color:#3a3025;box-shadow:0 4px 14px var(--shadow)}
+  .pullquote .src{display:block;margin-top:.7rem;font-style:normal;font-size:.82rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em;color:#7a6b52}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(58,74,82,.06);border:1px solid rgba(58,74,82,.18);border-radius:8px;font-size:1rem}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d31}
+
+  .evidence{display:block;margin:1.4rem 0;padding:.9rem 1.2rem;background:rgba(193,154,62,.1);border-radius:8px;
+    font-size:.94rem;color:#5a4a24;font-family:"Trebuchet MS",sans-serif}
+  .evidence b{color:var(--clay-deep)}
+
+  ul.clean{margin:0 0 1.3rem;padding-left:0;list-style:none}
+  ul.clean li{position:relative;padding-left:1.5rem;margin-bottom:.7rem;font-size:1.04rem}
+  ul.clean li::before{content:"◆";position:absolute;left:0;top:.15rem;color:var(--clay);font-size:.7rem}
+
+  /* two-reading comparison */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:2rem 0}
+  .compare .col{border-radius:10px;padding:1.4rem 1.4rem;box-shadow:0 4px 14px var(--shadow)}
+  .compare .col.a{background:rgba(58,74,82,.08);border:1px solid rgba(58,74,82,.2)}
+  .compare .col.b{background:rgba(181,97,58,.09);border:1px solid rgba(181,97,58,.28)}
+  .compare .col h4{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.7rem}
+  .compare .col.a h4{color:var(--slate)}
+  .compare .col.b h4{color:var(--clay-deep)}
+  .compare .col p{font-size:.98rem;margin:0}
+  @media(max-width:560px){.compare{grid-template-columns:1fr}}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3.5rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--clay);font-size:.9rem}
+
+  .note-block{background:var(--slate-deep);color:var(--sand-light);border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-style:normal;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#d4c9b4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--clay-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5e;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 22px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.back-home .arrow,.progress,.article-foot a.home-link{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Análisis · Historia de las religiones</span>
+    <h1>Los “dioses” del <span class="em">Salmo 82</span></h1>
+    <div class="glyphs">אלהים</div>
+    <p class="standfirst">¿Jueces humanos o una asamblea de dioses? Un salmo breve encierra uno de los debates más reveladores sobre el origen del monoteísmo de Israel.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<article>
+  <div class="wrap">
+
+    <p class="lead">El Salmo 82 abre con una escena desconcertante: “Dios (<em>Elohim</em>) se yergue en la asamblea divina; en medio de los dioses (<em>elohim</em>) juzga.” ¿Quiénes son esos “dioses” a los que Dios juzga y condena a muerte? La respuesta divide a la tradición religiosa y a la crítica académica, y en esa división se juega nada menos que la historia del paso del politeísmo al monoteísmo.</p>
+
+    <h2><span class="n">01</span>Las dos lecturas en disputa</h2>
+    <p>Existen dos maneras de entender a los <em>elohim</em> de este salmo, y conviene ponerlas cara a cara antes de pesar la evidencia.</p>
+
+    <div class="compare">
+      <div class="col a">
+        <h4>Lectura tradicional</h4>
+        <p>Los “dioses” son <strong>jueces humanos</strong> de Israel, llamados así honoríficamente por el cargo que ocupaban como representantes de Dios. Es la lectura del Targum, del midrash rabínico, de Rashi y de gran parte del comentario cristiano antiguo. Es también la que sostiene el diccionario bíblico de los Testigos de Jehová.</p>
+      </div>
+      <div class="col b">
+        <h4>Consenso académico actual</h4>
+        <p>Los <em>elohim</em> son <strong>seres divinos</strong>, miembros de la asamblea celestial —los “hijos del Altísimo”— condenados a “morir como hombres”. Es la lectura del “consejo divino”, mayoritaria en la crítica desde mediados del siglo XX.</p>
+      </div>
+    </div>
+
+    <div class="simple">
+      <span class="tag">Lo primero, y lo más importante</span>
+      <p>La lectura de “jueces humanos” <em>no</em> es una invención sectaria: es la interpretación judía tradicional y precrítica, con siglos de pedigrí. El desacuerdo académico no es con su antigüedad, sino con si captura el sentido <em>original</em> del texto.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">02</span>La lectura de los jueces humanos: de dónde viene</h2>
+    <p>Esta interpretación tiene raíces profundas y apoyos textuales reales:</p>
+    <ul class="clean">
+      <li><strong>El Targum de los Salmos</strong> desmitifica la escena: traduce el versículo 1 como “Dios… juzga en medio de los jueces justos”. El traductor arameo elimina deliberadamente el panteón para evitar el sentido politeísta.</li>
+      <li><strong>Midrash Tehillim, Rashi, Ibn Ezra:</strong> la tradición rabínica lee mayoritariamente “jueces”, aunque Ibn Ezra se inclina más por “ángeles”.</li>
+      <li><strong>El tema de la justicia (vv. 2–4):</strong> los <em>elohim</em> son reprendidos por juzgar injustamente y no defender “al débil y al huérfano”, lo que sugiere magistrados humanos.</li>
+      <li><strong>El precedente de Éxodo 21:6 y 22:8–9,</strong> donde <em>ha-elohim</em> se ha traducido a veces como “los jueces”; y Éxodo 4:16; 7:1, donde Moisés es hecho “Dios” ante Aarón y el Faraón.</li>
+    </ul>
+    <p>El diccionario <em>Perspicacia</em> de los Testigos de Jehová se apoya justamente en estos puntos: los jueces serían “dioses” por el puesto que ocupaban como representantes y voceros de Jehová. Donde su uso se distingue no es en la exégesis, sino en su función dogmática: negar que un ser creado pueda compartir el título divino en sentido ontológico.</p>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">03</span>Por qué la crítica se movió al “consejo divino”</h2>
+    <p>Cuatro argumentos explican el giro académico. Como resume el especialista Daniel McClellan, “una ambientación de asamblea divina se ha aceptado ampliamente desde mediados del siglo XX”.</p>
+
+    <h3>1. El “ʿadat-El” del versículo 1</h3>
+    <p>El hebreo dice <span class="term">elohim nitsav ba-ʿadat-El</span>: “Dios se yergue en la <strong>asamblea de El</strong>”. <em>ʿadat-El</em> es el cognado hebreo exacto del ugarítico <span class="term">ʿdt ʾilm</span> (“asamblea de los dioses”), un término técnico para un concilio de deidades, no para una sala de magistrados.</p>
+
+    <h3>2. El argumento de la mortalidad (v. 7) — el punto decisivo</h3>
+    <p>Aquí está el flanco que la lectura de “jueces humanos” no logra explicar. El erudito Matitiahu Tsevat argumentó que la sentencia “moriréis como hombres” solo tiene sentido como <strong>degradación de seres inmortales</strong>: la inmortalidad es el sello de lo divino, la mortalidad el de lo humano. Advertir a unos <em>humanos</em> que “morirán como humanos” sería una redundancia vacía. La amenaza solo muerde si los destinatarios no eran naturalmente mortales.</p>
+    <div class="pullquote">
+      “Yo dije: ‘Sois dioses, hijos del Altísimo todos vosotros; sin embargo, como hombres moriréis, y caeréis como cualquiera de los príncipes.’”
+      <span class="src">Salmo 82:6–7</span>
+    </div>
+
+    <h3>3. El colapso léxico de “elohim = jueces”</h3>
+    <p>El artículo de Cyrus Gordon (1935) mostró que <em>ha-elohim</em> en Éxodo 21:6 se refería a dioses domésticos, no a magistrados. Para la academia, esto “prácticamente zanjó la cuestión” lingüística.</p>
+
+    <h3>4. Los paralelos del consejo divino</h3>
+    <p>El Salmo 89:6–8 (el “consejo de los santos”), el Salmo 29:1, Job 1–2, 1 Reyes 22:19–22 y —crucialmente— <strong>Deuteronomio 32:8–9</strong> en su forma de Qumrán y la Septuaginta, apuntan todos a una asamblea celestial de seres divinos.</p>
+
+    <div class="evidence">
+      <b>Evidencia del Segundo Templo:</b> el texto de Qumrán <b>11QMelquisedec</b> (s. I a.C.) aplica el Salmo 82:1 a una figura celestial exaltada a la que titula <em>elohim</em>. Prueba directa de que algunos judíos antiguos oían esos <em>elohim</em> como seres divinos, no como jueces humanos.
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">04</span>El nudo de Juan 10:34–35</h2>
+    <p>Los Testigos argumentan que, como Jesús cita este salmo aplicándolo a oyentes humanos, los <em>elohim</em> deben ser humanos. La respuesta académica distingue tres planos que suelen confundirse:</p>
+    <ul class="clean">
+      <li><strong>El referente original</strong> del salmo (a quién se refería en su contexto).</li>
+      <li><strong>Su recepción</strong> en el siglo I (cómo se leía entonces).</li>
+      <li><strong>Su reutilización</strong> cristológica (cómo lo emplea el Evangelio).</li>
+    </ul>
+    <p>La cita de Jesús es un argumento <em>de menor a mayor</em> (una jugada retórica), no un comentario léxico sobre el sentido original del salmo. Juan 10 muestra cómo <em>podía aplicarse</em> el versículo en el debate del siglo I, no lo que el texto significaba en su origen.</p>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">05</span>Lo que está en juego</h2>
+    <p>El Salmo 82 es considerado un testigo clave de la evolución del monoteísmo. Dramatiza el momento en que YHWH “depone la teología antigua” (Mark Smith): se levanta en la asamblea de El, <strong>sentencia a muerte a los otros dioses</strong> y hereda todas las naciones que antes les estaban repartidas —conectando directamente con Deuteronomio 32:8–9.</p>
+    <p>Visto así, las lecturas desmitificadoras —el Targum, la tradición rabínica de los jueces, la de los Testigos— son, históricamente, interpretaciones <em>posteriores</em> que leen el panteón <em>fuera</em> de un texto que en origen lo presuponía. Reflejan la incomodidad monoteísta tardía ante el sustrato politeísta.</p>
+
+    <div class="simple">
+      <span class="tag">Un detalle revelador</span>
+      <p>La propia <em>Traducción del Nuevo Mundo</em> de los Testigos vierte el versículo 1 como “Dios ocupa su lugar en la asamblea divina; en medio de los dioses él juzga” —conservando la imaginería del concilio en el texto—, mientras el comentario de <em>Perspicacia</em> la reduce a magistrados humanos. La tensión interna es la misma que recorre toda la historia de Elohim.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">06</span>Balance</h2>
+    <p><strong>Lo que la lectura tradicional capta bien:</strong> que <em>elohim</em> es un término elástico y que un oficio puede dignificarse con lenguaje divino; y tiene un pedigrí antiguo y respetable, no es una fabricación moderna.</p>
+    <p><strong>Lo que aplana:</strong> el trasfondo cananeo, el marco <em>ʿadat-El</em> del v. 1, el reparto de Deuteronomio 32 y —sobre todo— no puede explicar por qué unos “hijos del Altísimo” de sonido inmortal deben ser <em>sentenciados</em> a una mortalidad que los humanos ya poseen.</p>
+    <p>Por eso la mayoría de la crítica favorece hoy la lectura del consejo divino como mejor reconstrucción del sentido original, reconociendo a la vez que la lectura tradicional es una alternativa antigua y coherente.</p>
+
+    <div class="note-block">
+      <h3>Nota sobre el rigor y las fuentes</h3>
+      <p>La lectura del consejo divino es <span class="key">mayoritaria</span>, no unánime. Sus referencias incluyen a <span class="key">Matitiahu Tsevat</span>, <span class="key">Cyrus Gordon</span>, <span class="key">Mark S. Smith</span>, <span class="key">Michael Heiser</span> y <span class="key">Carl Mosser</span>. Hay debate interno: Heiser, por ejemplo, disputa la tesis de que YHWH y El se distingan en el salmo como padre e hijo.</p>
+      <p>Las citas bíblicas son traducción propia orientativa; las referencias (Targum, Septuaginta, 4QDeut<sup>j</sup>, 11QMelquisedec) deben verificarse en ediciones críticas antes de citarse en un trabajo formal.</p>
+      <p>Nada de esto afirma ni niega la validez religiosa del texto: el análisis histórico-crítico y la fe responden a preguntas distintas.</p>
+    </div>
+
+  </div>
+</article>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max>0 ? (h.scrollTop/max)*100 : 0) + '%';
+  }
+  document.addEventListener('scroll', upd, {passive:true});
+  window.addEventListener('resize', upd); upd();
+</script>
+
+</body>
+</html>

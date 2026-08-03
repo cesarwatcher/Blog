@@ -20,6 +20,29 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
+  /* ---------- BOTÓN VOLVER ---------- */
+  .back-home{
+    position:fixed;top:20px;left:20px;z-index:50;
+    display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;
+    letter-spacing:.04em;text-decoration:none;color:#4a2416;
+    background:rgba(242,234,215,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(180,150,100,.5);border-radius:2rem;
+    padding:.6rem 1.1rem .6rem .95rem;box-shadow:0 4px 16px rgba(40,28,16,.18);
+    transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,background .3s;
+  }
+  .back-home:hover{transform:translateX(-3px);box-shadow:0 8px 24px rgba(40,28,16,.28);background:rgba(242,234,215,1)}
+  .back-home:focus-visible{outline:3px solid #b5613a;outline-offset:3px}
+  .back-home .arrow{font-size:1.05rem;line-height:1;transition:transform .3s}
+  .back-home:hover .arrow{transform:translateX(-3px)}
+  @media(max-width:600px){
+    .back-home{top:12px;left:12px;padding:.5rem .85rem;font-size:.76rem}
+    .back-home .label{display:none}
+    .back-home{padding:.6rem;border-radius:50%}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .back-home,.back-home .arrow{transition:none}
+  }
   body{
     font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
     background:var(--parchment);
@@ -234,6 +257,10 @@
 </style>
 </head>
 <body>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
 
 <header class="hero">
   <div class="wrap">

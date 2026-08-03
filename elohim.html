@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elohim: de la pluralidad cananea al nombre único de YHWH — Estratos</title>
+<style>
+  :root{
+    --ink:#1c1814;
+    --clay:#b5613a;
+    --clay-deep:#8a3d20;
+    --sand:#e8ddc7;
+    --sand-light:#f2ead7;
+    --parchment:#f6efe0;
+    --slate:#3a4a52;
+    --slate-deep:#26333a;
+    --gold:#c19a3e;
+    --rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.72;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply;
+  }
+
+  /* ---------- BOTÓN VOLVER ---------- */
+  .back-home{
+    position:fixed;top:20px;left:20px;z-index:50;
+    display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;
+    letter-spacing:.04em;text-decoration:none;color:#4a2416;
+    background:rgba(242,234,215,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(180,150,100,.5);border-radius:2rem;
+    padding:.6rem 1.1rem .6rem .95rem;box-shadow:0 4px 16px rgba(40,28,16,.18);
+    transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,background .3s;
+  }
+  .back-home:hover{transform:translateX(-3px);box-shadow:0 8px 24px rgba(40,28,16,.28);background:rgba(242,234,215,1)}
+  .back-home:focus-visible{outline:3px solid var(--clay);outline-offset:3px}
+  .back-home .arrow{font-size:1.05rem;line-height:1;transition:transform .3s}
+  .back-home:hover .arrow{transform:translateX(-3px)}
+  @media(max-width:600px){
+    .back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}
+    .back-home .label{display:none}
+  }
+
+  /* ---------- READING PROGRESS BAR ---------- */
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--clay),var(--gold));z-index:60;transition:width .1s linear}
+
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* ---------- ARTICLE HEADER ---------- */
+  header.masthead{padding:14vh 0 5vh;text-align:center}
+  .eyebrow{
+    font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;
+    letter-spacing:.36em;font-size:.7rem;color:var(--clay-deep);font-weight:700;
+    margin-bottom:1.8rem;display:inline-block;padding-left:.36em;
+  }
+  header.masthead h1{
+    font-size:clamp(2.1rem,5.5vw,3.4rem);line-height:1.08;font-weight:400;
+    letter-spacing:-.01em;margin-bottom:1.2rem;
+  }
+  header.masthead h1 .em{font-style:italic;color:var(--clay-deep)}
+  .glyphs{font-size:clamp(1.2rem,3.4vw,1.7rem);letter-spacing:.28em;color:var(--slate);margin:.6rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f33;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--clay);transform:rotate(45deg)}
+
+  /* ---------- BODY TYPOGRAPHY ---------- */
+  article{padding-bottom:4rem}
+  article h2{
+    font-size:1.72rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;
+    color:var(--slate-deep);letter-spacing:-.01em;
+  }
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.9rem;font-weight:700;
+    color:var(--clay);letter-spacing:.1em;display:block;margin-bottom:.4rem}
+  article h3{font-size:1.24rem;font-weight:700;font-style:italic;color:var(--clay-deep);margin:2rem 0 .8rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--clay-deep)}
+  article strong{font-weight:700;color:var(--slate-deep)}
+  article .lead{font-size:1.16rem;color:#3a3025}
+
+  /* pull quote / cita destacada */
+  .pullquote{
+    margin:2rem 0;padding:1.3rem 1.6rem;background:var(--sand-light);
+    border-left:4px solid var(--clay);border-radius:0 8px 8px 0;
+    font-style:italic;font-size:1.1rem;color:#3a3025;box-shadow:0 4px 14px var(--shadow);
+  }
+  .pullquote .src{display:block;margin-top:.7rem;font-style:normal;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em;color:#7a6b52}
+
+  /* "en simple" box */
+  .simple{
+    margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(58,74,82,.06);
+    border:1px solid rgba(58,74,82,.18);border-radius:8px;font-size:1rem;
+  }
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--slate);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d31}
+
+  /* evidence tag inline */
+  .evidence{
+    display:block;margin:1.4rem 0;padding:.9rem 1.2rem;
+    background:rgba(193,154,62,.1);border-radius:8px;
+    font-size:.94rem;color:#5a4a24;font-family:"Trebuchet MS",sans-serif;letter-spacing:.01em;
+  }
+  .evidence b{color:var(--clay-deep)}
+
+  ul.clean{margin:0 0 1.3rem;padding-left:0;list-style:none}
+  ul.clean li{position:relative;padding-left:1.5rem;margin-bottom:.7rem;font-size:1.04rem}
+  ul.clean li::before{content:"◆";position:absolute;left:0;top:.15rem;color:var(--clay);font-size:.7rem}
+
+  /* section divider */
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3.5rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--clay);font-size:.9rem}
+
+  /* ---------- CAVEAT / NOTE ---------- */
+  .note-block{background:var(--slate-deep);color:var(--sand-light);border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#d4c9b4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  /* ---------- FOOTER NAV ---------- */
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{
+    display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;
+    color:var(--clay-deep);padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;
+    transition:background .3s,transform .3s;
+  }
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5e;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){
+    header.masthead{padding:12vh 0 3vh}
+    .wrap{padding:0 22px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .back-home,.back-home .arrow,.progress,.article-foot a.home-link{transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Ensayo · Historia de las religiones</span>
+    <h1><span class="em">Elohim</span><br>de la pluralidad cananea al nombre único de YHWH</h1>
+    <div class="glyphs">אלהים · יהוה</div>
+    <p class="standfirst">Cómo una palabra que en gramática es un plural —literalmente “dioses”— terminó nombrando a un solo Dios. Genealogía léxica, aplicación y puntos de inflexión.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<article>
+  <div class="wrap">
+
+    <p class="lead">El “problema de Elohim” es una de las puertas de entrada más limpias a la historia crítica de la religión de Israel. Un sustantivo que en su origen designaba genéricamente <em>lo divino</em>, y que gramaticalmente es un plural, acabó fijándose como designación de un único Dios identificado con el nombre propio YHWH. El recorrido es a la vez lingüístico, epigráfico y teológico.</p>
+
+    <div class="simple">
+      <span class="tag">Nota sobre el nombre “Jehová”</span>
+      <p>“Jehová” es un híbrido tardío que combina las consonantes del nombre YHWH con las vocales de <em>Adonay</em> (“mi Señor”), la palabra que los lectores judíos pronunciaban en su lugar. No es la vocalización original, que probablemente sonaba <em>Yahvé</em>. Aquí usamos “YHWH” para el nombre histórico.</p>
+    </div>
+
+    <h2><span class="n">01</span>Qué es realmente “Elohim”</h2>
+    <p>El término hebreo <span class="term">ʾĕlōhîm</span> es, morfológicamente, un <strong>plural</strong>. Deriva de la raíz semítica común <span class="term">ʾl</span>, presente en todo el Cercano Oriente: el ugarítico <span class="term">ʾil</span>, el acadio <span class="term">ilu(m)</span>, el árabe <span class="term">ʾilāh</span> (de donde <span class="term">al-ilāh &gt; Allāh</span>). La forma singular hebrea es <span class="term">ʾēl</span> o la ampliada <span class="term">ʾĕlôah</span>.</p>
+    <p>La paradoja fundacional está aquí: un sustantivo formalmente plural se aplica, en la mayoría del texto bíblico, a un único Dios y rige verbos en singular. Esta tensión gramatical no es un accidente; es el <strong>fósil lingüístico</strong> de una historia religiosa.</p>
+
+    <h3>Los sentidos de un mismo vocablo</h3>
+    <p>La Biblia hebrea usa la palabra en registros distintos, y distinguirlos es indispensable:</p>
+    <ul class="clean">
+      <li><strong>Plural genérico y real (“dioses”):</strong> otras deidades. “No tendrás otros <em>ʾelohim</em> delante de mí” (Ex 20:3) presupone su existencia como objetos de culto rivales.</li>
+      <li><strong>Seres divinos de la corte celestial:</strong> en el Salmo 82, <em>ʾelohim</em> se levanta “en la asamblea divina” y juzga en medio de los <em>ʾelohim</em>. Aquí hay varios seres divinos.</li>
+      <li><strong>Singular por concordancia (el Dios de Israel):</strong> el uso mayoritario, con verbo en singular (<em>bārāʾ ʾelohim</em>, “Elohim creó”, Gn 1:1).</li>
+      <li><strong>Uso honorífico o superlativo:</strong> el llamado “plural de majestad”. Probablemente describe cómo se leyó el plural una vez consolidado el monoteísmo, no por qué la palabra era plural en origen.</li>
+    </ul>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>La religión de Israel recorrió el camino que va del primer sentido al tercero: lo que empezó siendo un término abierto a la pluralidad divina del entorno cananeo terminó anclado, por gramática y por decisión teológica, a un único referente.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">02</span>El trasfondo: El, cabeza del panteón cananeo</h2>
+    <p>Para entender la evolución de <em>Elohim</em> hay que empezar antes de Israel, en los textos de <strong>Ugarit</strong> (Ras Shamra, costa siria), descubiertos desde 1929. Escritos en ugarítico —lengua hermana del hebreo— y datables en el Bronce Tardío (ss. XIV–XIII a.C.), nos dan el panteón cananeo del que Israel es heredero cultural.</p>
+    <p>En la cúspide está <strong>ʾEl</strong>: un dios anciano, sabio, benévolo, “padre de los dioses”, “creador de las criaturas”, “el Toro”, que preside la asamblea divina. Los epítetos son decisivos, porque varios reaparecen aplicados a YHWH en la Biblia.</p>
+
+    <h3>Epítetos de El que la Biblia hereda</h3>
+    <ul class="clean">
+      <li><span class="term">ʾĒl ʿElyôn</span> (“El Altísimo”): aparece en Gn 14:18–22, como “creador del cielo y de la tierra”, fórmula con paralelo casi exacto en fuentes fenicias.</li>
+      <li><span class="term">ʾĒl Šadday</span> (“Dios Todopoderoso”): el nombre por el que, según Ex 6:3, los patriarcas conocieron a la divinidad <em>antes</em> de la revelación del nombre YHWH.</li>
+      <li><span class="term">ʾĒl ʿÔlām, ʾĒl Bêt-ʾĒl</span>: epítetos locales asociados a santuarios patriarcales, que sugieren un culto a El de carácter regional.</li>
+      <li><strong>La asamblea divina:</strong> los <em>bĕnê ʾĕlōhîm</em> (“hijos de Dios”) de Gn 6, Job 1–2 y Sal 82 son el reflejo directo de los <em>bn ʾil</em> ugaríticos, la progenie divina de El.</li>
+    </ul>
+    <p>El dato crucial: <strong>la Biblia nunca polemiza contra El</strong>. A diferencia de Baal —combatido con ferocidad por los profetas—, El se integra sin conflicto. De ahí el consenso de <strong>Frank Moore Cross</strong> y <strong>Mark S. Smith</strong>: <strong>YHWH fue identificado con El</strong>. No lo desplazó, lo absorbió. El nombre genérico de El —<em>ʾelohim</em>— pasó a designar a YHWH.</p>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">03</span>El otro origen: YHWH, un dios del sur</h2>
+    <p>Si <em>Elohim</em> viene del norte cananeo (El), el nombre <strong>YHWH</strong> parece venir del sur. La <strong>hipótesis quenita o madianita</strong> sostiene que su culto se originó en las regiones áridas al sudeste de Canaán —Madián, Edom, Seír— y fue introducido en Israel desde fuera.</p>
+    <ul class="clean">
+      <li><strong>Poesía arcaica:</strong> los textos más antiguos (Jue 5:4–5, Dt 33:2, Hab 3:3) describen a YHWH “saliendo de Seír”, “viniendo de Temán”. Su geografía originaria es meridional.</li>
+      <li><strong>Epigrafía egipcia:</strong> inscripciones mencionan a los <em>šꜣsw yhwꜣ</em> —“los shasu de Yhw(a)”—, nómadas de una región hacia Edom/Madián. Posible testimonio del s. XIV a.C., aunque la identificación permanece <em>en debate</em>.</li>
+    </ul>
+    <p>Autores como <strong>Thomas Römer</strong> han sintetizado esta línea: YHWH habría sido en origen un dios-tormenta y guerrero del desierto meridional, cuyo culto ascendió con grupos que se integraron en el Israel de las tierras altas, donde se fusionó con el El local.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>El y YHWH empiezan siendo <em>dos dioses distintos</em>, de dos regiones distintas: El, el patriarca cananeo del norte; YHWH, un dios-tormenta del sur. La fusión que en la historia real tomó siglos, el relato la resolvería después en una sola escena (la zarza ardiente).</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">04</span>La fusión: cómo YHWH “se volvió” Elohim</h2>
+    <p>Dos divinidades de orígenes distintos convergen en una sola figura. El mecanismo tiene apoyos textuales concretos dentro del propio canon.</p>
+
+    <h3>Éxodo 6:2–3: la confesión de la fusión</h3>
+    <div class="pullquote">
+      “Yo soy YHWH. Me aparecí a Abraham, a Isaac y a Jacob como ʾĒl Šadday, pero con mi nombre YHWH no me di a conocer a ellos.”
+      <span class="src">Éxodo 6:2–3 · atribuido a la fuente Sacerdotal (P)</span>
+    </div>
+    <p>Es una pieza de <strong>arqueología teológica dentro del propio texto</strong>. La fuente Sacerdotal admite explícitamente que los patriarcas adoraban a la divinidad bajo el nombre de El (Šadday) y que el nombre YHWH es una revelación posterior. Es la Biblia <em>reconociendo su propia estratigrafía</em>.</p>
+
+    <h3>Deuteronomio 32:8–9: la reasignación de las naciones</h3>
+    <p>El texto más revelador. En la lectura reconstruida a partir de un manuscrito de <strong>Qumrán</strong> y de la Septuaginta —frente al Texto Masorético, que aquí fue alterado— se lee:</p>
+    <div class="pullquote">
+      “Cuando ʿElyôn repartió las naciones… fijó las fronteras de los pueblos según el número de los <em>hijos de Dios</em>. Pues la porción de YHWH es su pueblo, Jacob su heredad.”
+      <span class="src">Deuteronomio 32:8–9 · versión de Qumrán / Septuaginta</span>
+    </div>
+    <p>En esta versión <strong>El Altísimo y YHWH parecen distinguibles</strong>: El Altísimo distribuye los pueblos entre los seres divinos, y a YHWH le corresponde Israel como “porción”. Es un fósil de una teología <strong>henoteísta</strong> previa, en la que YHWH era uno de los hijos de El. El Texto Masorético cambió “hijos de Dios” por “hijos de Israel”, suavizando el politeísmo.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>Tenemos aquí, casi con las manos en la masa, el proceso de edición monoteísta en acto: la versión antigua repartía los pueblos entre <em>varios dioses</em>, con YHWH a cargo de Israel. Una edición posterior retocó la frase para que sonara monoteísta.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">05</span>La etapa henoteísta: “no hay otro como tú entre los dioses”</h2>
+    <p>Antes del monoteísmo estricto, Israel atravesó siglos de <strong>monolatría</strong> y <strong>henoteísmo</strong>: la adoración exclusiva de un dios <em>sin negar la existencia</em> de los demás.</p>
+    <ul class="clean">
+      <li><strong>Politeísmo:</strong> culto a múltiples dioses reconocidos como reales.</li>
+      <li><strong>Henoteísmo:</strong> elevación de un dios supremo por encima de otros que siguen existiendo.</li>
+      <li><strong>Monolatría:</strong> culto exclusivo a un dios sin afirmar que sea el único que existe.</li>
+      <li><strong>Monoteísmo:</strong> afirmación de que solo existe un Dios; los demás son <em>nada</em>.</li>
+    </ul>
+    <p>Los rastros henoteístas abundan: “¿Quién como tú entre los dioses, YHWH?” (Ex 15:11); “grande es YHWH sobre todos los dioses” (Sal 95:3). Estos textos no niegan a los otros dioses: los subordinan.</p>
+
+    <h3>La evidencia epigráfica: YHWH “y su Aserá”</h3>
+    <p>El testimonio material más discutido procede de <strong>Kuntillet ʿAjrud</strong> (c. 800 a.C.) y de <strong>Khirbet el-Qôm</strong> (s. VIII a.C.). Las inscripciones invocan bendiciones “por YHWH… y por su <span class="term">ʾašērâ</span>”.</p>
+    <ul class="clean">
+      <li><strong>Lectura “diosa consorte”:</strong> Aserá —consorte de El en Ugarit— sería la pareja de YHWH, herencia de su identificación con El.</li>
+      <li><strong>Lectura “objeto cultual”:</strong> <em>ʾašērâ</em> designaría el objeto de culto —un poste o árbol sagrado— y no la diosa personal.</li>
+    </ul>
+    <div class="evidence">
+      <b>Evidencia física:</b> inscripciones sobre vasijas (pithoi) y en una tumba, s. VIII a.C. La lectura correcta sigue <b>en debate</b>. Sea cual sea, hacia el 800 a.C. el culto a YHWH no era todavía el monoteísmo aniconico posterior.
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">06</span>Los cinco puntos de inflexión</h2>
+    <p>Si hay que responder con precisión dónde se generan los cambios, pueden identificarse cinco umbrales. No son fechas exactas sino procesos, pero cada uno marca un desplazamiento reconocible.</p>
+
+    <h3>Inflexión I — Convergencia El / YHWH (Hierro I–II, ss. XII–X a.C.)</h3>
+    <p>YHWH es identificado con el El cananeo. <em>Elohim</em> —el vocabulario genérico de El— empieza a designar a YHWH. Se heredan los epítetos y la asamblea divina.</p>
+
+    <h3>Inflexión II — La crisis profética y la monolatría militante (ss. IX–VIII a.C.)</h3>
+    <p>El conflicto con Baal (Elías, Oseas) fuerza una exigencia de exclusividad: “solo YHWH”. No se niega aún la existencia de otros dioses, pero se prohíbe su culto. Es la etapa que ilumina Kuntillet ʿAjrud.</p>
+
+    <h3>Inflexión III — La reforma deuteronómica y josiánica (finales s. VII a.C.)</h3>
+    <p>El “descubrimiento” del libro de la Ley bajo Josías (622 a.C.) y la centralización del culto en Jerusalén imponen el <em>Šĕmaʿ</em>: “YHWH nuestro Elohim, YHWH es uno” (Dt 6:4). <em>Elohim</em> queda amarrado a YHWH como una identidad, no ya como una categoría abierta.</p>
+
+    <h3>Inflexión IV — El exilio babilónico y el monoteísmo estricto (587–539 a.C.)</h3>
+    <p>El punto decisivo. La destrucción del Templo obliga a una reconfiguración total: si YHWH permitió la derrota, o es impotente —inaceptable— o es el <strong>único</strong> Dios que usó a Babilonia como instrumento. El <strong>Deutero-Isaías</strong> formula el monoteísmo explícito: “fuera de mí no hay <em>ʾelohim</em>” (Is 44:6). Los otros dioses ya no son subordinados: son <em>nada</em>.</p>
+    <div class="evidence">
+      Aquí se sitúa la redacción de <b>Génesis 1</b> (fuente P): un Elohim trascendente que crea por la palabra, sin consorte ni teomaquia, en polémica desmitologizadora contra el <em>Enuma Elish</em> babilónico. El <em>tehom</em> (abismo) es el eco de Tiamat, reducido a materia inerte.
+    </div>
+
+    <h3>Inflexión V — Consolidación postexílica e impronunciabilidad del Nombre (s. V a.C. en adelante)</h3>
+    <p>Bajo dominio persa, la comunidad fija el monoteísmo como identidad. El tetragrámaton YHWH deja de pronunciarse: se sustituye por <em>ʾAdonay</em> (“el Señor”). De ahí, siglos después, el híbrido “Jehová”.</p>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">07</span>Síntesis</h2>
+    <p>La palabra <em>Elohim</em> es el testigo lingüístico de una de las transformaciones religiosas más profundas de la Antigüedad. Su historia es un arco en tres tiempos.</p>
+    <p><strong>Primero, un plural abierto:</strong> <em>ʾelohim</em> nombraba genéricamente “lo divino” en un mundo cananeo poblado por El, Aserá, Baal y la asamblea de los <em>bĕnê ʾēlîm</em>.</p>
+    <p><strong>Segundo, una convergencia:</strong> el dios meridional YHWH fue identificado con el El local, heredó sus epítetos y su vocabulario —<em>Elohim</em> entre ellos— y ascendió mediante la monolatría profética y las reformas deuteronómicas, aunque durante siglos convivió con una consorte (Aserá) y una corte divina.</p>
+    <p><strong>Tercero, una fijación monoteísta:</strong> el trauma del exilio forzó la afirmación de que YHWH no es <em>un</em> dios sino <em>el único</em> Dios. El plural quedó amarrado a un referente único; y el nombre propio se volvió tan santo que enmudeció.</p>
+    <p>El resultado es la <strong>inversión completa</strong> del punto de partida: un sustantivo que significaba “dioses” en plural pasó a designar, con verbo en singular y nombre propio único, al único Dios. La paradoja gramatical con la que empezamos —un plural que designa a uno solo— es la cicatriz, todavía visible, de esa larga travesía del politeísmo cananeo al monoteísmo de Israel.</p>
+
+    <div class="note-block">
+      <h3>Nota sobre el rigor y las fuentes</h3>
+      <p>Este ensayo refleja el marco de la crítica histórica, hoy mayoritario. Sus referencias incluyen a <span class="key">Frank Moore Cross</span>, <span class="key">Mark S. Smith</span>, <span class="key">Thomas Römer</span>, <span class="key">Israel Finkelstein</span> y <span class="key">Karel van der Toorn</span>.</p>
+      <p>Debe distinguirse el <span class="key">consenso amplio</span> (composición por capas del Pentateuco, trasfondo cananeo, centralidad del exilio) de las <span class="key">hipótesis en debate</span> (el origen quenita y la etimología de YHWH, la lectura de <em>ʾšrth</em> como diosa o como poste cultual, la identificación de los <em>shasu</em>).</p>
+      <p>Nada de esto afirma ni niega la validez religiosa de los textos: el análisis histórico-crítico y la fe responden a preguntas distintas.</p>
+    </div>
+
+  </div>
+</article>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  // barra de progreso de lectura
+  const bar = document.getElementById('progress');
+  function upd(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max>0 ? (h.scrollTop/max)*100 : 0;
+    bar.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', upd, {passive:true});
+  window.addEventListener('resize', upd);
+  upd();
+</script>
+
+</body>
+</html>

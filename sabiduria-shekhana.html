@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Sabiduría y la Shekhaná — Estratos</title>
+<style>
+  :root{
+    --ink:#1c1814;--clay:#b5613a;--clay-deep:#8a3d20;--sand:#e8ddc7;--sand-light:#f2ead7;
+    --parchment:#f6efe0;--slate:#3a4a52;--slate-deep:#26333a;--gold:#c19a3e;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--rose:#9c5a6c;--rose-deep:#6e3546;
+    --wisdom:#3d6b5e;--wisdom-deep:#274a40;--violet:#6a5a8c;--violet-deep:#463a63;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.3;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);background-size:4px 4px;mix-blend-mode:multiply}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:#4a2416;background:rgba(242,234,215,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(180,150,100,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px rgba(40,28,16,.18);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(242,234,215,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--wisdom),var(--violet));z-index:60;transition:width .1s linear}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 3vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--rose-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--rose-deep)}
+  .glyphs{font-size:clamp(1.2rem,3.4vw,1.6rem);letter-spacing:.14em;color:var(--rose);margin:.6rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f33;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--rose);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a3025;margin:2rem 0}
+
+  /* ---------- DIPTYCH ---------- */
+  .diptych{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin:2.5rem 0}
+  .panel{border-radius:14px;padding:2rem 1.7rem;box-shadow:0 6px 22px var(--shadow);position:relative}
+  .panel.wis{background:linear-gradient(172deg,#eef3ef,#dfeae4);border:1px solid rgba(61,107,94,.3)}
+  .panel.shek{background:linear-gradient(172deg,#efecf4,#e2dcee);border:1px solid rgba(106,90,140,.3)}
+  .panel .fig-label{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:.4rem}
+  .panel.wis .fig-label{color:var(--wisdom-deep)}
+  .panel.shek .fig-label{color:var(--violet-deep)}
+  .panel h2{font-size:1.5rem;font-weight:400;margin-bottom:.3rem;line-height:1.15}
+  .panel.wis h2{color:var(--wisdom-deep)}
+  .panel.shek h2{color:var(--violet-deep)}
+  .panel .heb{font-size:1.1rem;direction:rtl;margin-bottom:1rem;opacity:.7}
+  .panel.wis .heb{color:var(--wisdom)}
+  .panel.shek .heb{color:var(--violet)}
+  .panel p{font-size:1rem;line-height:1.6;margin-bottom:.9rem}
+  .panel p:last-child{margin-bottom:0}
+  .panel .term{font-style:italic}
+  .panel.wis .term{color:var(--wisdom-deep)}
+  .panel.shek .term{color:var(--violet-deep)}
+  .panel .trait{display:block;margin:1rem 0 0;padding-top:.9rem;border-top:1px dashed rgba(0,0,0,.15);font-size:.92rem;font-family:"Trebuchet MS",sans-serif;color:#5a4c3a}
+  @media(max-width:620px){.diptych{grid-template-columns:1fr}}
+
+  .bridge{text-align:center;margin:1.5rem auto;max-width:600px;font-size:1.05rem;color:#4a3f33;font-style:italic;padding:1rem}
+  .bridge b{color:var(--rose-deep);font-style:normal}
+
+  /* ---------- PROSE ---------- */
+  article{padding-bottom:3rem;margin-top:2rem}
+  article h2.sec{font-size:1.6rem;font-weight:400;color:var(--slate-deep);margin:2.6rem 0 1rem}
+  article h2.sec .n{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;font-weight:700;color:var(--rose);letter-spacing:.12em;display:block;margin-bottom:.4rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--rose-deep)}
+  article strong{color:var(--slate-deep)}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(156,90,108,.08);border:1px solid rgba(156,90,108,.24);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d31}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--rose);font-size:.9rem}
+
+  .note-block{background:var(--slate-deep);color:#d4c9b4;border-radius:12px;padding:2rem 1.9rem;margin:2.5rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#c6bca8;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--sand-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--rose-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#5a4c3a;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:3rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--rose-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5e;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 2vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Las diosas que no desaparecieron · Entrega III</span>
+    <h1>La Sabiduría<br>y la <span class="em">Shekhaná</span></h1>
+    <div class="glyphs">חׇכְמָה · שְׁכִינָה</div>
+    <p class="standfirst">Expulsada como diosa, lo femenino divino aprendió a sobrevivir por dentro: convertido en un atributo de Dios personificado. Dos hermanas de esa larga astucia.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Las dos entregas anteriores mostraron a lo femenino divino siendo <strong>expulsado</strong>: Aserá borrada de la memoria, la Reina del Cielo condenada por el profeta. Pero una fuerza cultural tan honda no se apaga por decreto. Simplemente <strong>cambia de forma</strong>. Ya no puede ser una diosa <em>junto a</em> Dios —el monoteísmo lo prohíbe—, pero sí puede reaparecer como algo <em>de</em> Dios: un atributo suyo, personificado, casi una persona. Este es el relato de dos figuras que hicieron exactamente eso.</p>
+
+  <div class="diptych">
+    <div class="panel wis">
+      <div class="fig-label">Primera hermana</div>
+      <h2>Hokhmah</h2>
+      <div class="heb">חׇכְמָה</div>
+      <p>La <span class="term">Sabiduría</span>. En Proverbios 8 habla en primera persona y afirma haber existido <strong>antes de la creación</strong>, jugando junto a Dios mientras él hacía el mundo.</p>
+      <p>Es la <strong>Sabiduría de Dios</strong>, pero se comporta como una persona: femenina, activa, mediadora entre el cielo y los humanos.</p>
+      <span class="trait">Su vía de supervivencia: la <b>creación</b>. Se vuelve el agente por el que Dios ordena el mundo.</span>
+    </div>
+    <div class="panel shek">
+      <div class="fig-label">Segunda hermana</div>
+      <h2>Shekhaná</h2>
+      <div class="heb">שְׁכִינָה</div>
+      <p>La <span class="term">Presencia</span>. Del verbo <em>shakhán</em>, “habitar”. Es la manera en que Dios <strong>mora entre su pueblo</strong>: la gloria que llenaba el Templo, la que acompaña a Israel en el destierro.</p>
+      <p>En la tradición rabínica y luego en la <strong>mística (Cábala)</strong>, se vuelve claramente femenina: la novia, la reina, la faceta de Dios que sufre y se exilia con su pueblo.</p>
+      <span class="trait">Su vía de supervivencia: la <b>presencia</b>. Se vuelve el modo en que Dios está cerca y habita en el mundo.</span>
+    </div>
+  </div>
+
+  <div class="bridge">Dos figuras, una misma astucia: <b>lo femenino divino no desaparece; se reubica dentro de Dios mismo.</b></div>
+</div>
+
+<article>
+  <div class="wrap">
+
+    <h2 class="sec"><span class="n">El mecanismo</span>La diosa que se vuelve atributo</h2>
+    <p>Aquí está la clave de toda la serie. Cuando una cultura pasa del politeísmo al monoteísmo estricto, se queda con un problema: los dioses cumplían <strong>funciones</strong> —crear, proteger, acompañar, dar sabiduría, personificar la presencia— y esas funciones no desaparecen porque el dios que las encarnaba haya sido suprimido. Hay que <strong>reasignarlas</strong>.</p>
+    <p>Con lo femenino divino, la solución fue elegante: no negarlo del todo, sino <strong>absorberlo dentro del único Dios</strong> como aspectos o atributos suyos, personificados hasta casi volverse figuras propias. La Sabiduría se convierte en “la sabiduría <em>de</em> YHWH”; la Presencia, en “la gloria <em>de</em> YHWH que habita”. Gramaticalmente son atributos; poéticamente son casi personas; históricamente son <strong>el refugio donde sobrevivió la diosa</strong>.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>No se puede tener otra diosa junto al único Dios. Pero sí se puede decir que Dios <em>tiene</em> sabiduría y <em>tiene</em> una presencia que habita —y describirlas como figuras femeninas casi vivas. Así, lo que no cabía fuera de Dios se coló dentro de él.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2 class="sec"><span class="n">La Shekhaná en la mística</span>La faceta femenina de Dios</h2>
+    <p>La Shekhaná tuvo un destino especialmente notable. En la <strong>Cábala</strong> medieval, la mística judía, dejó de ser un simple modo de hablar de la presencia divina para convertirse en algo mucho más audaz: una de las <em>sefirot</em>, las diez facetas de Dios, y precisamente la <strong>faceta femenina</strong>. Se la describe como la <strong>novia</strong> de Dios, la <strong>reina del sábado</strong>, y —de forma conmovedora— como la parte de Dios que <strong>se exilia junto a su pueblo</strong> y anhela reunirse con su parte masculina.</p>
+    <p>Piénsese en lo lejos que llega esto: en el corazón de una de las tradiciones monoteístas más estrictas, reaparece un <strong>elemento femenino dentro de la propia divinidad</strong>, con una relación casi conyugal en el interior de Dios. La diosa expulsada por la puerta de Aserá regresa, transfigurada, por la ventana de la mística.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>Siglos después de borrar a Aserá, la mística judía volvió a hablar de una dimensión femenina <em>dentro</em> de Dios: la Shekhaná como novia y reina, que acompaña al pueblo en su dolor. El impulso femenino divino encontró, una vez más, cómo volver.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2 class="sec"><span class="n">Qué revela</span>La memoria que no se deja borrar</h2>
+    <p>Hokhmah y la Shekhaná demuestran que el monoteísmo no fue una simple <strong>resta</strong> —quitar dioses hasta quedarse con uno—. Fue una <strong>reorganización</strong>: las funciones y las figuras del viejo mundo plural se replegaron hacia el interior del Dios único, donde siguieron viviendo como aspectos, nombres y personificaciones.</p>
+    <p>Por eso esta serie no trata de “supersticiones derrotadas”, sino de una <strong>continuidad tenaz</strong>. Lo femenino divino atraviesa toda la historia religiosa de Israel: como diosa abierta (Aserá), como culto resistente (la Reina del Cielo), como atributo personificado (Hokhmah, Shekhaná)… y, en la última entrega, saltará las fronteras del judaísmo para reaparecer donde menos se espera.</p>
+
+    <div class="next-teaser">
+      <div class="lbl">Última entrega</div>
+      <div class="ttl">La herencia inesperada: María</div>
+      <p>Madre, intercesora, “reina del cielo”, coronada de estrellas: cómo muchos de los atributos de las viejas diosas encontraron, siglos después, un nuevo hogar en una figura cristiana.</p>
+    </div>
+
+    <div class="note-block">
+      <h3>Nota sobre el rigor y las fuentes</h3>
+      <p>La personificación de la Sabiduría (Proverbios 8; Sabiduría de Salomón; Eclesiástico 24) es <span class="key">consenso amplio</span>. El desarrollo de la Shekhaná como figura femenina es más <span class="key">tardío</span>: el término es rabínico, y su plena feminización pertenece a la <span class="key">Cábala</span> medieval (el <i>Zóhar</i>, s. XIII) —no debe proyectarse sin más sobre el texto bíblico. Referencia útil: los estudios sobre la Shekhaná de <span class="key">Gershom Scholem</span>.</p>
+      <p><span class="key">En debate:</span> hasta qué punto estas figuras “recuerdan” literalmente a diosas concretas frente a ser desarrollos internos de la teología israelita. Se ha presentado como continuidad de <em>función</em>, sin afirmar una identificación directa.</p>
+      <p>Las citas son traducción propia orientativa. Nada de esto afirma ni niega la validez religiosa de los textos.</p>
+    </div>
+
+  </div>
+</article>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Sabiduría que estaba junto a Dios — Estratos</title>
+<style>
+  :root{
+    --ink:#1c1814;--clay:#b5613a;--clay-deep:#8a3d20;--sand:#e8ddc7;--sand-light:#f2ead7;
+    --parchment:#f6efe0;--slate:#3a4a52;--slate-deep:#26333a;--gold:#c19a3e;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);
+    --wisdom:#3d6b5e;--wisdom-deep:#274a40;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.3;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:#4a2416;background:rgba(242,234,215,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(180,150,100,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px rgba(40,28,16,.18);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(242,234,215,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--wisdom),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--wisdom-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--wisdom-deep)}
+  .glyphs{font-size:clamp(1.2rem,3.4vw,1.7rem);letter-spacing:.2em;color:var(--wisdom);margin:.6rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f33;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--wisdom);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a3025;margin-bottom:.6rem}
+
+  /* ---------- MANUSCRIPT ---------- */
+  .manuscript-intro{text-align:center;margin:3rem 0 1.2rem}
+  .manuscript-intro .label{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--wisdom-deep);font-weight:700}
+  .manuscript-intro .hint{font-size:.92rem;color:#7a6b52;font-style:italic;margin-top:.5rem}
+
+  .manuscript{background:linear-gradient(178deg,#faf5e8,#f0e7d2);border:1px solid var(--rule);border-radius:14px;
+    padding:2.4rem 2.2rem;box-shadow:0 8px 30px var(--shadow);position:relative;margin:1.5rem 0 2.5rem}
+  .manuscript::before{content:"פרקי חכמה";position:absolute;top:1rem;right:1.4rem;font-size:.8rem;color:#bfa877;direction:rtl;letter-spacing:.1em}
+
+  .verse{position:relative;cursor:pointer;padding:.7rem .9rem;border-radius:8px;margin:.2rem 0;
+    transition:background .3s;border-left:3px solid transparent}
+  .verse:hover{background:rgba(61,107,94,.07);border-left-color:var(--wisdom)}
+  .verse.open{background:rgba(61,107,94,.09);border-left-color:var(--wisdom)}
+  .verse .vnum{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;font-weight:700;color:var(--wisdom-deep);vertical-align:super;margin-right:.4rem}
+  .verse .vtext{font-size:1.14rem;line-height:1.7;color:#2e2820}
+  .verse .vtext em{color:var(--wisdom-deep);font-style:italic}
+  .verse .tap{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+    color:#a8946a;margin-left:.6rem;opacity:0;transition:opacity .3s}
+  .verse:hover .tap{opacity:1}
+  .verse.open .tap{opacity:0}
+  .gloss{max-height:0;overflow:hidden;transition:max-height .45s ease,margin .3s,padding .3s;
+    background:var(--wisdom-deep);border-radius:8px;margin-top:0;padding:0 1.2rem}
+  .verse.open .gloss{max-height:340px;margin-top:.8rem;padding:1rem 1.2rem}
+  .gloss .g-label{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.5rem;display:block}
+  .gloss p{font-size:.98rem;line-height:1.6;color:#dce8e2;margin-bottom:.6rem}
+  .gloss p:last-child{margin-bottom:0}
+  .gloss .term{font-style:italic;color:#e8c46a}
+
+  .expand-all{display:block;margin:0 auto 2rem;font-family:"Trebuchet MS",sans-serif;font-size:.78rem;font-weight:700;
+    letter-spacing:.04em;color:var(--wisdom-deep);background:none;border:1px solid var(--rule);border-radius:2rem;
+    padding:.6rem 1.4rem;cursor:pointer;transition:background .3s}
+  .expand-all:hover{background:rgba(61,107,94,.08)}
+
+  /* ---------- COMMENTARY SECTIONS ---------- */
+  article h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--slate-deep)}
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--wisdom);letter-spacing:.12em;display:block;margin-bottom:.4rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--wisdom-deep)}
+  article strong{font-weight:700;color:var(--slate-deep)}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(61,107,94,.07);border:1px solid rgba(61,107,94,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--wisdom-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d31}
+
+  .evidence{display:block;margin:1.4rem 0;padding:.9rem 1.2rem;background:rgba(193,154,62,.1);border-radius:8px;
+    font-size:.94rem;color:#5a4a24;font-family:"Trebuchet MS",sans-serif}
+  .evidence b{color:var(--clay-deep)}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3.5rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--wisdom);font-size:.9rem}
+
+  .note-block{background:var(--wisdom-deep);color:#dce8e2;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#c6d6cf;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--wisdom-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5e;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}.manuscript{padding:1.8rem 1.3rem}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress,.verse,.gloss{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">La corte celestial y sus criaturas · Entrega III</span>
+    <h1>La Sabiduría que estaba<br>junto a <span class="em">Dios</span></h1>
+    <div class="glyphs">חָכְמָה</div>
+    <p class="standfirst">En Proverbios 8, una figura femenina afirma que existía antes de la creación y jugaba junto a Dios mientras hacía el mundo. ¿Quién es Hokhmah? Un texto para leer despacio.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <p class="intro-text">Entre los muchos seres que pueblan la corte celestial de la Biblia hay uno especialmente enigmático, y además femenino. En el libro de los Proverbios, la <strong>Sabiduría</strong> —en hebreo <span class="term" style="font-style:italic;color:var(--wisdom-deep)">Hokhmah</span> (חָכְמָה), un sustantivo femenino— deja de ser una cualidad abstracta y se pone a <strong>hablar en primera persona</strong>. Y lo que dice es asombroso: afirma haber existido antes que el mundo, y haber estado junto a Dios en el acto de crear.</p>
+
+  <div class="manuscript-intro">
+    <div class="label">Proverbios 8 · el testimonio de la Sabiduría</div>
+    <div class="hint">Toca cada versículo para revelar su comentario</div>
+  </div>
+
+  <button class="expand-all" id="expandAll">Abrir todos los comentarios</button>
+
+  <div class="manuscript" id="manuscript">
+
+    <div class="verse" data-v>
+      <span class="vnum">22</span><span class="vtext">«YHWH me <em>engendró</em> al principio de su camino, antes de sus obras, desde entonces.»<span class="tap">tocar ›</span></span>
+      <div class="gloss">
+        <span class="g-label">La palabra clave</span>
+        <p>El verbo hebreo es <span class="term">qanani</span>, y ahí está el enigma. Puede significar “me <strong>poseyó / adquirió</strong>” o “me <strong>engendró / creó</strong>”. La diferencia es enorme: ¿es la Sabiduría eterna como Dios, o la primera de sus criaturas?</p>
+        <p>Esta ambigüedad desatará, siglos después, uno de los mayores debates teológicos del cristianismo primitivo.</p>
+      </div>
+    </div>
+
+    <div class="verse" data-v>
+      <span class="vnum">23</span><span class="vtext">«Desde la eternidad fui <em>establecida</em>, desde el principio, antes que la tierra.»<span class="tap">tocar ›</span></span>
+      <div class="gloss">
+        <span class="g-label">Antes del mundo</span>
+        <p>La Sabiduría reclama <strong>preexistencia</strong>: estaba antes de que existiera nada material. Es una afirmación audaz para una figura que no es, formalmente, Dios mismo.</p>
+      </div>
+    </div>
+
+    <div class="verse" data-v>
+      <span class="vnum">27</span><span class="vtext">«Cuando afirmó los cielos, allí estaba yo; cuando trazó un círculo sobre la faz del abismo (<em>tehom</em>)…»<span class="tap">tocar ›</span></span>
+      <div class="gloss">
+        <span class="g-label">Testigo de la creación</span>
+        <p>Aparece de nuevo el <span class="term">tehom</span>, el abismo primordial que vimos en el Enuma Elish. La Sabiduría se presenta como <strong>testigo presencial</strong> del momento en que Dios ordenó el caos.</p>
+      </div>
+    </div>
+
+    <div class="verse" data-v>
+      <span class="vnum">30</span><span class="vtext">«…yo estaba junto a él como <em>amón</em>, y era su delicia día tras día, jugando en su presencia en todo tiempo.»<span class="tap">tocar ›</span></span>
+      <div class="gloss">
+        <span class="g-label">La palabra más discutida</span>
+        <p><span class="term">Amón</span> es un enigma filológico. Puede significar “<strong>artesano / arquitecto</strong>” (la Sabiduría como co-creadora que diseña junto a Dios) o “<strong>niño pequeño / criatura</strong>” (la Sabiduría como una hija que juega a sus pies mientras él trabaja).</p>
+        <p>Las dos lecturas dibujan escenas opuestas: una maestra de obras, o una niña danzante. El texto hebreo permite ambas.</p>
+      </div>
+    </div>
+
+    <div class="verse" data-v>
+      <span class="vnum">31</span><span class="vtext">«…jugando en su mundo, en la tierra, y teniendo mis delicias con los hijos de los hombres.»<span class="tap">tocar ›</span></span>
+      <div class="gloss">
+        <span class="g-label">Puente entre cielo y tierra</span>
+        <p>La Sabiduría no se queda en el cielo: se deleita <strong>entre los humanos</strong>. Es una figura mediadora, que conecta al Dios trascendente con el mundo de las personas —un papel que tendrá enorme futuro.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<article>
+  <div class="wrap">
+
+    <h2><span class="n">Lo que acabas de leer</span>Una diosa domesticada</h2>
+    <p>Detente en lo extraordinario de este pasaje. En un libro de la Biblia hebrea, una <strong>figura femenina</strong> preexistente afirma haber acompañado a Dios en la creación. En cualquier otra cultura del entorno, esto describiría a una <strong>diosa</strong> —y no cualquiera, sino algo muy parecido a las diosas de la sabiduría del Cercano Oriente, como la egipcia <span class="term">Maat</span> (orden, verdad, justicia cósmica) o las diosas semíticas.</p>
+    <p>Muchos estudiosos leen a Hokhmah precisamente así: como el <strong>eco domesticado</strong> de una diosa. En una religión que ya no admitía otras deidades —recordemos el largo camino al monoteísmo de la primera serie—, la antigua diosa no podía sobrevivir como tal. Pero sí podía reaparecer <strong>reducida a un atributo de Dios personificado</strong>: no “una diosa junto a YHWH”, sino “la Sabiduría <em>de</em> YHWH”, casi una persona pero técnicamente una cualidad suya.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>Es la misma jugada que vimos con Aserá: el monoteísmo no puede tener otra diosa, pero la figura femenina divina reaparece por la puerta de atrás, convertida en la “Sabiduría de Dios” —una persona y a la vez un atributo. Se la conserva vaciándola de su rango divino.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">El futuro de la figura</span>De Hokhmah al Logos</h2>
+    <p>Aquí la historia se abre hacia adelante de forma espectacular. Esa idea —una entidad preexistente, junto a Dios, agente de la creación, mediadora hacia los humanos— se convirtió en una de las plantillas conceptuales más influyentes de la Antigüedad.</p>
+    <p>En el judaísmo de lengua griega, Hokhmah se tradujo como <span class="term">Sophía</span>, y pensadores como <strong>Filón de Alejandría</strong> la vincularon con el <span class="term">Logos</span> (la “Palabra” o “Razón” divina), un concepto que venía de la filosofía griega. La Sabiduría femenina y el Logos racional empezaron a fundirse.</p>
+    <p>Y de ahí el salto final: cuando el <strong>Evangelio de Juan</strong> se abre con “En el principio era el <em>Logos</em>, y el Logos estaba <strong>junto a Dios</strong>… todo fue hecho por él”, está usando —casi palabra por palabra— el molde de Proverbios 8. La Sabiduría que jugaba junto a Dios en la creación se ha convertido en el marco para expresar quién es Cristo.</p>
+    <div class="evidence">
+      El vínculo Proverbios 8 → Sabiduría de Salomón / Filón → prólogo de Juan es <b>ampliamente reconocido</b> en los estudios del Nuevo Testamento. El verbo <em>qanani</em> (v. 22) fue central en la <b>controversia arriana</b> del siglo IV: si la Sabiduría fue “creada”, ¿lo fue también el Hijo? El concilio de Nicea se jugó, en parte, en esa palabra.
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">Síntesis</span>La criatura más sutil de la corte</h2>
+    <p>Hokhmah es quizá la figura más elegante de toda la corte celestial, porque encarna a la perfección el mecanismo que este blog ha rastreado una y otra vez: <strong>nada se pierde del todo, todo se transforma</strong>. La diosa de la sabiduría del mundo antiguo no fue borrada por el monoteísmo; fue <strong>reabsorbida</strong> como un atributo personificado del Dios único, y desde ahí, siglos después, floreció en dos direcciones: el Logos de la filosofía y la cristología del Nuevo Testamento.</p>
+    <p>Con ella se cierra esta segunda serie. Si la primera contó cómo muchos dioses se volvieron uno, esta ha mostrado el reverso: cómo, dentro de ese Dios único, siguieron habitando figuras —el acusador, los ecos de los viejos mitos, la Sabiduría femenina— que son la memoria viva de un mundo más poblado. El monoteísmo no vació el cielo. Lo reorganizó.</p>
+
+    <div class="note-block">
+      <h3>Nota sobre el rigor y las fuentes</h3>
+      <p>La lectura de Hokhmah como figura personificada con posible trasfondo en las diosas de la sabiduría es <span class="key">ampliamente sostenida</span>; referencias útiles son los trabajos sobre la “Diosa Sabiduría” y estudios de Proverbios 1–9. El puente hacia el Logos joánico es <span class="key">consenso amplio</span> en los estudios neotestamentarios.</p>
+      <p><span class="key">En debate:</span> el grado de “divinidad” real que el autor de Proverbios atribuía a la Sabiduría —¿poesía, personificación literaria, o eco teológico de una diosa?— y la traducción exacta de <em>qanani</em> (v. 22) y <em>amón</em> (v. 30). Se han presentado las opciones sin forzar una sola.</p>
+      <p>Las citas de Proverbios 8 son traducción propia orientativa y deben cotejarse con ediciones críticas. Nada de esto afirma ni niega la validez religiosa de los textos.</p>
+    </div>
+
+  </div>
+</article>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  // progress bar
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+
+  // verse toggles
+  const verses = Array.from(document.querySelectorAll('.verse'));
+  verses.forEach(v=>{
+    v.addEventListener('click',()=>v.classList.toggle('open'));
+  });
+
+  // expand all
+  const btn = document.getElementById('expandAll');
+  btn.addEventListener('click',()=>{
+    const anyClosed = verses.some(v=>!v.classList.contains('open'));
+    verses.forEach(v=>v.classList.toggle('open',anyClosed));
+    btn.textContent = anyClosed ? 'Cerrar todos los comentarios' : 'Abrir todos los comentarios';
+  });
+</script>
+
+</body>
+</html>

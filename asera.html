@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aserá, la consorte borrada — Estratos</title>
+<style>
+  :root{
+    --ink:#1c1814;--clay:#b5613a;--clay-deep:#8a3d20;--sand:#e8ddc7;--sand-light:#f2ead7;
+    --parchment:#f6efe0;--slate:#3a4a52;--slate-deep:#26333a;--gold:#c19a3e;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);
+    --rose:#9c5a6c;--rose-deep:#6e3546;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:#4a2416;background:rgba(242,234,215,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(180,150,100,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px rgba(40,28,16,.18);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(242,234,215,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--rose),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* ---------- MASTHEAD ---------- */
+  header.masthead{padding:14vh 0 3vh;text-align:center;position:relative}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--rose-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2.1rem,5.5vw,3.4rem);line-height:1.08;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--rose-deep)}
+  .glyphs{font-size:clamp(1.2rem,3.4vw,1.7rem);letter-spacing:.2em;color:var(--rose);margin:.6rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f33;max-width:600px;margin:0 auto;font-style:italic}
+  .dig-cue{margin-top:2.4rem;font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#8a7a5e}
+  .dig-cue span{display:block;font-size:1.3rem;margin-top:.4rem;animation:sink 2.2s ease-in-out infinite}
+  @keyframes sink{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+  .intro-text{font-size:1.1rem;color:#3a3025;margin:2rem 0}
+
+  /* ---------- EXCAVATION LAYERS ---------- */
+  .dig{margin:2rem 0}
+  .layer{position:relative;border-radius:12px;padding:2rem 1.9rem;margin-bottom:.5rem;box-shadow:0 6px 22px var(--shadow);
+    opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+  .layer.in{opacity:1;transform:translateY(0)}
+  .layer .depth{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}
+  .layer .depth .bar{flex:1;height:1px;background:currentColor;opacity:.4}
+  .layer h2{font-size:1.5rem;font-weight:400;line-height:1.2;margin-bottom:.9rem}
+  .layer p{font-size:1.04rem;margin-bottom:.9rem}
+  .layer p:last-child{margin-bottom:0}
+  .layer .term{font-style:italic}
+
+  /* progressively darker/deeper strata */
+  .layer.l1{background:var(--sand-light);border:1px solid rgba(180,150,100,.4)}
+  .layer.l1 .depth{color:var(--clay-deep)}
+  .layer.l1 h2{color:var(--slate-deep)}
+  .layer.l1 .term{color:var(--clay-deep)}
+
+  .layer.l2{background:linear-gradient(178deg,#e6d9c5,#dccbb0);border:1px solid rgba(160,130,90,.4)}
+  .layer.l2 .depth{color:var(--clay-deep)}
+  .layer.l2 h2{color:var(--slate-deep)}
+  .layer.l2 .term{color:var(--clay-deep)}
+
+  .layer.l3{background:linear-gradient(178deg,#b89f95,#9c8074);color:#f4ece2;border:1px solid #8a6d60}
+  .layer.l3 .depth{color:#f0d9c8}
+  .layer.l3 h2{color:#fff}
+  .layer.l3 .term{color:#f0c46e}
+  .layer.l3 p{color:#f0e4d8}
+
+  .layer.l4{background:linear-gradient(178deg,#6e3546,#4a2230);color:#f2e0e6;border:1px solid var(--rose-deep)}
+  .layer.l4 .depth{color:#e0a9b8}
+  .layer.l4 h2{color:#fff}
+  .layer.l4 .term{color:#f0c46e}
+  .layer.l4 p{color:#ecd6dd}
+
+  .layer.l5{background:linear-gradient(178deg,#3a2028,#241318);color:#e8d4da;border:1px solid #5a2f3c}
+  .layer.l5 .depth{color:#d89aac}
+  .layer.l5 h2{color:#fff}
+  .layer.l5 .term{color:#f0c46e}
+  .layer.l5 p{color:#e0cad1}
+
+  .find{margin-top:1.2rem;padding:.9rem 1.2rem;border-radius:8px;font-size:.95rem;font-family:"Trebuchet MS",sans-serif;line-height:1.5}
+  .layer.l1 .find,.layer.l2 .find{background:rgba(110,53,70,.09);color:#5a3340}
+  .layer.l1 .find b,.layer.l2 .find b{color:var(--rose-deep)}
+  .layer.l3 .find,.layer.l4 .find,.layer.l5 .find{background:rgba(255,255,255,.1);color:#f4e6ea}
+  .layer.l3 .find b,.layer.l4 .find b,.layer.l5 .find b{color:var(--gold)}
+
+  .connector{display:flex;justify-content:center;padding:.3rem 0}
+  .connector::before{content:"";width:2px;height:26px;background:linear-gradient(180deg,var(--rule),transparent)}
+
+  /* ---------- CLOSING PROSE ---------- */
+  article{padding-bottom:3rem;margin-top:3rem}
+  article h2.sec{font-size:1.65rem;font-weight:400;color:var(--slate-deep);margin:2.5rem 0 1rem}
+  article h2.sec .n{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;font-weight:700;color:var(--rose);letter-spacing:.12em;display:block;margin-bottom:.4rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--rose-deep)}
+  article strong{color:var(--slate-deep)}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(156,90,108,.08);border:1px solid rgba(156,90,108,.24);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d31}
+
+  .note-block{background:var(--slate-deep);color:#d4c9b4;border-radius:12px;padding:2rem 1.9rem;margin:2.5rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#c6bca8;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--sand-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--rose-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#5a4c3a;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:3rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--rose-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5e;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 2vh}.wrap{padding:0 20px}.layer{padding:1.6rem 1.3rem}}
+  @media(prefers-reduced-motion:reduce){.layer{opacity:1;transform:none;transition:none}.dig-cue span{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Las diosas que no desaparecieron · Entrega I</span>
+    <h1>Aserá,<br>la consorte <span class="em">borrada</span></h1>
+    <div class="glyphs">אֲשֵׁרָה</div>
+    <p class="standfirst">Durante siglos, YHWH tuvo una esposa. Su nombre aparece en la piedra, en el barro y —a regañadientes— en la propia Biblia. Esta es una excavación hasta encontrarla.</p>
+    <div class="dig-cue">Desciende por las capas<span>↓</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Vamos a hacer una excavación. No en la tierra, sino en el texto y en los hallazgos: bajaremos capa por capa, de lo que se ve en la superficie a lo que quedó enterrado en el fondo. Al final de este descenso hay una diosa —y la historia de cómo alguien intentó, casi con éxito, borrarla.</p>
+
+  <div class="dig">
+
+    <!-- CAPA 1 -->
+    <div class="layer l1" data-layer>
+      <div class="depth"><span>Capa 1 · La superficie</span><span class="bar"></span></div>
+      <h2>Una palabra incómoda en la Biblia</h2>
+      <p>Si uno lee el Antiguo Testamento con atención, tropieza una y otra vez con la palabra <span class="term">Aserá</span> —unas cuarenta veces. Casi siempre en un tono de condena: los reyes “buenos” <strong>cortan</strong> las aserás, los reyes “malos” las <strong>erigen</strong>. Aparece como algo que hay que destruir, un objeto de culto prohibido plantado junto a los altares.</p>
+      <p>A primera vista parece solo un poste o un árbol sagrado. Pero, ¿por qué tanta insistencia en destruirlo? ¿Por qué un objeto de madera merece semejante furia? La superficie esconde algo. Sigamos bajando.</p>
+      <div class="find"><b>Primer indicio:</b> la Biblia no ataca las cosas neutras. La intensidad de la condena delata que aquí había algo importante en juego.</div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- CAPA 2 -->
+    <div class="layer l2" data-layer>
+      <div class="depth"><span>Capa 2 · El objeto y el nombre</span><span class="bar"></span></div>
+      <h2>El poste que llevaba el nombre de una diosa</h2>
+      <p>Aquí aparece la primera sorpresa. La palabra <span class="term">aserá</span> designa dos cosas a la vez: un <strong>objeto de culto</strong> (un poste o árbol sagrado) y el <strong>nombre propio de una diosa</strong>. El objeto se llama así porque <em>la representa</em> —igual que una cruz representa algo más que dos maderos.</p>
+      <p>Y esa diosa no era una figura menor. Ya la conocimos en la primera serie de este blog: en los textos de <strong>Ugarit</strong>, <span class="term">Aṯiratu</span> (Aserá) es la <strong>gran diosa madre</strong>, la consorte del dios El, “la que camina sobre el mar”, madre de los setenta dioses. Una reina del panteón.</p>
+      <div class="find"><b>Lo que encontramos:</b> el objeto que los reyes cortaban no era un palo cualquiera. Llevaba el nombre —y la presencia— de la diosa madre más importante de Canaán.</div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- CAPA 3 -->
+    <div class="layer l3" data-layer>
+      <div class="depth"><span>Capa 3 · La evidencia en la piedra</span><span class="bar"></span></div>
+      <h2>“Por YHWH… y por su Aserá”</h2>
+      <p>Descendemos a la evidencia que no pasó por manos de editores religiosos: la <strong>epigrafía</strong>, las inscripciones escritas por gente común. Y aquí el hallazgo es sísmico.</p>
+      <p>En <strong>Kuntillet ʿAjrud</strong> (un cruce de caravanas en el Sinaí, hacia 800 a.C.) y en <strong>Khirbet el-Qom</strong> (cerca de Hebrón), aparecieron inscripciones de bendición que dicen, textualmente: <em>“Te bendigo por YHWH… y por su Aserá.”</em></p>
+      <p>Léelo de nuevo. <strong>Su Aserá.</strong> El dios de Israel, nombrado junto a una figura que se presenta como <em>suya</em> —su consorte, o el símbolo de ella—, en una fórmula de bendición cotidiana. No en un texto de idólatras condenados, sino en la escritura espontánea de israelitas corrientes.</p>
+      <div class="find"><b>El hallazgo central:</b> hacia el 800 a.C., para mucha gente en Israel, YHWH no estaba solo. Tenía a Aserá a su lado. El monoteísmo estricto todavía no era la realidad de la calle.</div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- CAPA 4 -->
+    <div class="layer l4" data-layer>
+      <div class="depth"><span>Capa 4 · Dentro del Templo</span><span class="bar"></span></div>
+      <h2>La diosa estuvo en el Templo de Jerusalén</h2>
+      <p>Ahora bajamos al lugar más sagrado, y la propia Biblia —sin querer— nos da la prueba. En su afán por condenar el culto a Aserá, los textos <strong>confiesan hasta qué punto estuvo presente</strong>.</p>
+      <p>El rey <strong>Manasés</strong> “puso una imagen de Aserá en el Templo” (2 Reyes 21:7). Había en el Templo <strong>mujeres que tejían vestiduras</strong> para ella (2 Reyes 23:7). Durante la reforma de <strong>Josías</strong> (622 a.C.), hubo que <strong>sacar del Templo</strong> los objetos de Aserá y quemarlos fuera de la ciudad (2 Reyes 23:6).</p>
+      <p>Piénsalo: no se puede <em>sacar</em> de un lugar algo que nunca estuvo dentro. La reforma que la expulsó es, paradójicamente, la mejor prueba de que <strong>estuvo dentro durante generaciones</strong>.</p>
+      <div class="find"><b>La confesión involuntaria:</b> la Aserá no era un culto marginal de las afueras. Estuvo en el corazón del Templo de Jerusalén, con su imagen y su clero, hasta que una reforma la arrancó.</div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- CAPA 5 -->
+    <div class="layer l5" data-layer>
+      <div class="depth"><span>Capa 5 · El fondo · el borrado</span><span class="bar"></span></div>
+      <h2>Cómo se borra a una diosa</h2>
+      <p>Hemos llegado al fondo. Y lo que hay aquí no es la diosa: es <strong>el acto de borrarla</strong>. Porque la Aserá que encontramos en las capas superiores no desapareció por olvido natural. Fue <strong>suprimida deliberadamente</strong>.</p>
+      <p>La reforma de Josías y la teología que la acompañó (la del Deuteronomio) hicieron dos cosas. Primero, <strong>destruir</strong> los objetos y las imágenes. Segundo, y más duradero, <strong>reescribir la memoria</strong>: en los textos que se conservaron, Aserá quedó reducida a un “poste” abominable, a una nota de idolatría condenada, despojada de su rango de diosa madre. El nombre sobrevivió, pero rebajado a insulto.</p>
+      <p>Y aun así, no lograron borrarla del todo. Quedó su nombre en la piedra del desierto, quedó su huella en las propias condenas bíblicas, quedó —como veremos en los próximos episodios— su <strong>función</strong>, que reapareció una y otra vez bajo otros nombres.</p>
+      <div class="find"><b>En el fondo de la excavación:</b> no una diosa muerta, sino una diosa <b>enterrada viva</b> por una reforma teológica. Y las cosas enterradas vivas tienen la costumbre de volver.</div>
+    </div>
+
+  </div>
+</div>
+
+<article>
+  <div class="wrap">
+
+    <h2 class="sec"><span class="n">Lo que revela la excavación</span>El monoteísmo tuvo que construirse</h2>
+    <p>La lección de Aserá es la más importante de todo el blog, y por eso abre esta serie. Demuestra, con evidencia material que no pasó por censura, que el monoteísmo de Israel <strong>no fue su punto de partida, sino su punto de llegada</strong>. Durante siglos, la religión real —la de la gente, la del propio Templo— incluyó a una diosa junto a YHWH.</p>
+    <p>El “un solo Dios, sin nadie más” no describía la fe original de Israel: era un <strong>proyecto</strong>, impulsado por reformadores y profetas, que tuvo que imponerse <em>contra</em> una realidad más plural y antigua. Y Aserá es la prueba viviente de esa realidad, precisamente porque hubo que hacer tanto esfuerzo para borrarla.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>Aserá demuestra que YHWH no fue siempre soltero. Tuvo, en la práctica religiosa real, una consorte —la vieja diosa madre—. El monoteísmo llegó después, y para llegar tuvo que borrarla. Pero el borrado dejó huellas, y por eso hoy podemos reconstruirla.</p>
+    </div>
+
+    <h2 class="sec"><span class="n">Hacia dónde va la serie</span>La primera de muchas</h2>
+    <p>Aserá es solo la primera. A lo largo de esta serie veremos que lo femenino divino, expulsado por la puerta, vuelve una y otra vez por la ventana: como una <strong>Reina del Cielo</strong> a la que unas mujeres se negarán a abandonar, como la <strong>Sabiduría</strong> que juega junto a Dios, como la <strong>Shekhaná</strong> que habita entre su pueblo, y —siglos después— con rasgos heredados por una figura que quizá no esperarías.</p>
+
+    <div class="next-teaser">
+      <div class="lbl">Próxima entrega</div>
+      <div class="ttl">La Reina del Cielo</div>
+      <p>En Jeremías 44, un grupo de mujeres exiliadas se enfrenta al profeta y se niega a dejar de adorar a su diosa. Una de las escenas más extraordinarias —y silenciadas— de la Biblia.</p>
+    </div>
+
+    <div class="note-block">
+      <h3>Nota sobre el rigor y las fuentes</h3>
+      <p>La existencia del culto a Aserá en Israel y su asociación epigráfica con YHWH son <span class="key">consenso amplio</span>; las inscripciones de Kuntillet ʿAjrud y Khirbet el-Qom son reales y muy estudiadas. Referencias: los trabajos de <span class="key">William Dever</span> (<i>¿Tenía Dios una esposa?</i>) y <span class="key">Mark S. Smith</span>.</p>
+      <p><span class="key">En debate:</span> si “su Aserá” designa a la <em>diosa</em> en persona o al <em>objeto de culto</em> que la simbolizaba (el sufijo posesivo hebreo raramente se une a nombres propios, lo que alimenta la segunda lectura). Ambas mantienen la conclusión de fondo —una presencia femenina divina junto a YHWH—, pero conviene no afirmar más de lo que la evidencia permite.</p>
+      <p>Las citas bíblicas son traducción propia orientativa. Nada de esto afirma ni niega la validez religiosa de los textos.</p>
+    </div>
+
+  </div>
+</article>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+
+  const layers = document.querySelectorAll('[data-layer]');
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.2,rootMargin:'0px 0px -50px 0px'});
+    layers.forEach(l=>io.observe(l));
+  } else { layers.forEach(l=>l.classList.add('in')); }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Reina del Cielo — Estratos</title>
+<style>
+  :root{
+    --ink:#1c1814;--clay:#b5613a;--clay-deep:#8a3d20;--sand:#e8ddc7;--sand-light:#f2ead7;
+    --parchment:#f6efe0;--slate:#3a4a52;--slate-deep:#26333a;--gold:#c19a3e;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--rose:#9c5a6c;--rose-deep:#6e3546;
+    --sky:#4a6a82;--sky-deep:#2f4658;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.3;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);background-size:4px 4px;mix-blend-mode:multiply}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:#4a2416;background:rgba(242,234,215,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(180,150,100,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px rgba(40,28,16,.18);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(242,234,215,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--rose),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 3vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--rose-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2.1rem,5.5vw,3.4rem);line-height:1.08;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--rose-deep)}
+  .glyphs{font-size:clamp(1.2rem,3.4vw,1.7rem);letter-spacing:.14em;color:var(--rose);margin:.6rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f33;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--rose);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a3025;margin:2rem 0}
+
+  /* ---------- SCENE SETTING ---------- */
+  .scene-set{background:var(--slate-deep);color:#d4c9b4;border-radius:12px;padding:1.6rem 1.8rem;margin:2rem 0;font-style:italic;font-size:1rem;line-height:1.6}
+  .scene-set .marker{font-family:"Trebuchet MS",sans-serif;font-style:normal;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;margin-bottom:.7rem}
+
+  /* ---------- DIALOGUE ---------- */
+  .dialogue{margin:2.5rem 0}
+  .turn{margin-bottom:1.6rem;display:flex;flex-direction:column}
+  .turn .who{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem}
+  .turn .line{padding:1.1rem 1.4rem;border-radius:12px;font-size:1.08rem;line-height:1.6;max-width:88%;box-shadow:0 4px 14px var(--shadow)}
+
+  .turn.prophet{align-items:flex-start}
+  .turn.prophet .who{color:var(--sky-deep);padding-left:.3rem}
+  .turn.prophet .line{background:linear-gradient(160deg,var(--sky-deep),var(--sky));color:#eaf1f6;border-bottom-left-radius:3px}
+
+  .turn.women{align-items:flex-end}
+  .turn.women .who{color:var(--rose-deep);padding-right:.3rem}
+  .turn.women .line{background:linear-gradient(160deg,var(--rose-deep),var(--rose));color:#f6eaef;border-bottom-right-radius:3px}
+
+  .turn .ref{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.04em;color:#8a7a5e;margin-top:.45rem;padding:0 .3rem}
+
+  .aside{margin:1.4rem 0;padding:1rem 1.3rem;background:rgba(156,90,108,.08);border-left:3px solid var(--rose);border-radius:0 8px 8px 0;font-size:1rem;color:#463d31}
+  .aside b{color:var(--rose-deep)}
+
+  /* ---------- PROSE ---------- */
+  article{padding-bottom:3rem;margin-top:2rem}
+  article h2{font-size:1.6rem;font-weight:400;color:var(--slate-deep);margin:2.6rem 0 1rem}
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;font-weight:700;color:var(--rose);letter-spacing:.12em;display:block;margin-bottom:.4rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--rose-deep)}
+  article strong{color:var(--slate-deep)}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(156,90,108,.08);border:1px solid rgba(156,90,108,.24);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d31}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--rose);font-size:.9rem}
+
+  .note-block{background:var(--slate-deep);color:#d4c9b4;border-radius:12px;padding:2rem 1.9rem;margin:2.5rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#c6bca8;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--sand-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--rose-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#5a4c3a;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:3rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--rose-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5e;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 2vh}.wrap{padding:0 20px}.turn .line{max-width:96%}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Las diosas que no desaparecieron · Entrega II</span>
+    <h1>La Reina<br>del <span class="em">Cielo</span></h1>
+    <div class="glyphs">מְלֶכֶת הַשָּׁמַיִם</div>
+    <p class="standfirst">En una de las escenas más extraordinarias de la Biblia, un grupo de mujeres exiliadas se enfrenta al profeta Jeremías y se niega, en voz alta, a dejar de adorar a su diosa.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">La Biblia hebrea casi nunca deja hablar a quienes contradicen a sus profetas —y menos aún a mujeres. Por eso el capítulo 44 de <strong>Jeremías</strong> es tan asombroso: conserva, casi como una transcripción, una <strong>discusión real</strong> entre el profeta y un grupo de mujeres judías refugiadas en Egipto. Ellas no solo desobedecen: <strong>argumentan</strong>, y lo hacen bien. Reconstruyamos la escena como lo que fue: un cara a cara.</p>
+
+  <div class="scene-set">
+    <span class="marker">La escena</span>
+    Egipto, hacia el 585 a.C. Jerusalén ha caído. Un grupo de judíos ha huido al sur, al delta del Nilo, llevándose consigo sus costumbres. Entre ellos, muchas mujeres siguen ofreciendo culto a una diosa a la que llaman <em>la Reina del Cielo</em>. El profeta Jeremías, también refugiado, las confronta. Lo que sigue es su intercambio.
+  </div>
+
+  <div class="dialogue">
+
+    <div class="turn prophet">
+      <div class="who">Jeremías acusa</div>
+      <div class="line">Ustedes vieron la desgracia que traje sobre Jerusalén: hoy es una ruina deshabitada. ¿Y por qué? Por el mal que hicieron quemando incienso a otros dioses. Yo les envié profeta tras profeta diciendo: “No hagan esta abominación.”</div>
+      <div class="ref">Jeremías 44 · 2–4, parafraseado</div>
+    </div>
+
+    <div class="turn women">
+      <div class="who">Las mujeres responden</div>
+      <div class="line">No vamos a escucharte. Seguiremos haciendo lo que prometimos: quemar incienso a <strong>la Reina del Cielo</strong> y derramarle libaciones, como hacíamos nosotras, nuestros padres y nuestros reyes en las ciudades de Judá. <strong>Entonces teníamos pan de sobra, estábamos bien y no veíamos ninguna desgracia.</strong></div>
+      <div class="ref">Jeremías 44 · 16–17</div>
+    </div>
+
+    <div class="aside">
+      <b>El giro inesperado:</b> las mujeres invierten por completo el argumento del profeta. Él dice: “la catástrofe vino <em>porque</em> adoraban a otros dioses”. Ellas responden: “al contrario —<em>mientras</em> adorábamos a la Reina del Cielo teníamos abundancia; la desgracia empezó <em>cuando dejamos de hacerlo</em>”. Leen la misma historia al revés.
+    </div>
+
+    <div class="turn women">
+      <div class="who">Las mujeres continúan</div>
+      <div class="line">Desde que dejamos de quemarle incienso y de derramarle libaciones, nos falta todo y perecemos por la espada y el hambre. Y cuando le hacíamos ofrendas, <strong>¿acaso lo hacíamos a escondidas de nuestros maridos?</strong> Ellos lo sabían y lo aprobaban.</div>
+      <div class="ref">Jeremías 44 · 18–19</div>
+    </div>
+
+    <div class="aside">
+      <b>Un culto familiar, no clandestino:</b> las mujeres insisten en que su devoción era <b>pública, doméstica y compartida</b> —con el conocimiento de sus maridos, con tortas hechas a imagen de la diosa. No era una secta marginal: era religión de hogar, transmitida de generación en generación.
+    </div>
+
+    <div class="turn prophet">
+      <div class="who">Jeremías responde</div>
+      <div class="line">¡Precisamente ese incienso que quemaban en las ciudades de Judá es lo que YHWH recordó y lo que provocó la ruina! La desgracia vino por eso. Por seguir con estos votos, serán consumidos.</div>
+      <div class="ref">Jeremías 44 · 21–27, parafraseado</div>
+    </div>
+
+  </div>
+</div>
+
+<article>
+  <div class="wrap">
+
+    <h2 class="sec"><span class="n">Quién era la Reina del Cielo</span>Una diosa con muchos nombres</h2>
+    <p>La <span class="term">Reina del Cielo</span> (en hebreo <em>Melekhet ha-shamayim</em>) no era un invento de estas mujeres. Era una <strong>diosa del amor y la fertilidad</strong> ampliamente adorada en todo el Cercano Oriente, conocida bajo distintos nombres según el lugar: la mesopotámica <span class="term">Ishtar</span>, la cananea <span class="term">Astarté</span> (Ashtoret). Su culto incluía ofrendas de incienso, libaciones y las célebres <strong>tortas</strong> con su figura estampada.</p>
+    <p>El detalle de las tortas es revelador porque aparece <em>en la boca de las propias mujeres</em>: “le hacíamos tortas para representarla”. Es un rito doméstico, femenino, transmitido de madres a hijas —el tipo de religión que rara vez deja monumentos, pero que sostenía la vida espiritual cotidiana de la mayoría.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>La Reina del Cielo era una gran diosa internacional (Ishtar / Astarté), y su culto vivía sobre todo en las casas y en manos de las mujeres. Por eso deja poca huella oficial pero muchísima huella humana: era la religión del día a día.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2 class="sec"><span class="n">Por qué esta escena es única</span>La voz que la Biblia no silenció</h2>
+    <p>Lo verdaderamente excepcional de Jeremías 44 no es que haya “idolatría” —de eso está lleno el Antiguo Testamento—. Es que, por una vez, <strong>los adoradores de la diosa responden y su respuesta queda escrita</strong>. Casi siempre la Biblia describe estos cultos desde fuera, con la voz del que condena. Aquí, en cambio, escuchamos a las mujeres <strong>en primera persona</strong>, con su propia lógica, su propia lectura de la historia y su propia dignidad.</p>
+    <p>Y su argumento es <strong>teológicamente sofisticado</strong>: apelan a la experiencia (“teníamos pan”), a la tradición (“como nuestros padres”), a la comunidad (“nuestros maridos lo sabían”). No son ingenuas ni pasivas. Son creyentes convencidas defendiendo una fe que consideran <em>más antigua y más probada</em> que la del profeta que las recrimina.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>Es casi el único lugar de la Biblia donde los que adoran a otra divinidad hablan por sí mismos y defienden su postura con argumentos. Por un instante, oímos el otro lado de la historia religiosa de Israel —el lado que normalmente solo conocemos por sus enemigos.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2 class="sec"><span class="n">Qué revela</span>El monoteísmo, visto desde abajo</h2>
+    <p>Esta escena conecta directamente con la excavación de Aserá. Allí veíamos la evidencia material de que YHWH tuvo una consorte; aquí <strong>oímos las voces</strong> de quienes vivían esa religión más plural y se resistían al cambio. Para estas mujeres, el monoteísmo estricto de los profetas no era “la fe verdadera recuperada”: era una <strong>novedad</strong> que les había arrebatado a una diosa querida y —según su lectura— traído la desgracia.</p>
+    <p>La historia, por supuesto, la escribieron los otros: el bando de Jeremías, el del monoteísmo, que resultó vencedor y compiló los textos. Por eso este pasaje es un tesoro: es una <strong>grieta en el relato oficial</strong> por la que se cuela, todavía audible, la voz de las vencidas.</p>
+
+    <div class="next-teaser">
+      <div class="lbl">Próxima entrega</div>
+      <div class="ttl">La Sabiduría y la Shekhaná</div>
+      <p>Expulsada como diosa, lo femenino divino encontró la manera de sobrevivir <em>dentro</em> del monoteísmo: como la Sabiduría que juega junto a Dios y como la presencia que habita entre su pueblo.</p>
+    </div>
+
+    <div class="note-block">
+      <h3>Nota sobre el rigor y las fuentes</h3>
+      <p>Jeremías 44 es un texto real y muy estudiado; la identificación de la “Reina del Cielo” con Ishtar/Astarté es <span class="key">consenso amplio</span>, aunque algunos proponen matices (una fusión de rasgos de varias diosas). Referencias: los estudios sobre religión popular israelita de <span class="key">Susan Ackerman</span> (<i>Under Every Green Tree</i>) y <span class="key">William Dever</span>.</p>
+      <p>Los diálogos de esta página <span class="key">parafrasean y reordenan</span> el texto bíblico para hacer legible la estructura de la discusión; no son cita literal. El sentido y los argumentos son fieles al capítulo, pero para el tenor exacto conviene leer Jeremías 44 en una edición crítica.</p>
+      <p>Nada de esto afirma ni niega la validez religiosa de los textos.</p>
+    </div>
+
+  </div>
+</article>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

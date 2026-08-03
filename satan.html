@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El nacimiento de Satán — Estratos</title>
+<style>
+  :root{
+    --ink:#1c1814;--clay:#b5613a;--clay-deep:#8a3d20;--sand:#e8ddc7;--sand-light:#f2ead7;
+    --parchment:#f6efe0;--slate:#3a4a52;--slate-deep:#26333a;--gold:#c19a3e;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:#4a2416;background:rgba(242,234,215,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(180,150,100,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px rgba(40,28,16,.18);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);box-shadow:0 8px 24px rgba(40,28,16,.28);background:rgba(242,234,215,1)}
+  .back-home:focus-visible{outline:3px solid var(--clay);outline-offset:3px}
+  .back-home .arrow{font-size:1.05rem;line-height:1;transition:transform .3s}
+  .back-home:hover .arrow{transform:translateX(-3px)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--clay),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 5vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.34em;
+    font-size:.7rem;color:var(--clay-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.34em}
+  header.masthead h1{font-size:clamp(2.1rem,5.5vw,3.4rem);line-height:1.08;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--clay-deep)}
+  .glyphs{font-size:clamp(1.2rem,3.4vw,1.7rem);letter-spacing:.2em;color:var(--slate);margin:.6rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f33;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--clay);transform:rotate(45deg)}
+
+  article{padding-bottom:4rem}
+  article h2{font-size:1.72rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--slate-deep);letter-spacing:-.01em}
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.9rem;font-weight:700;color:var(--clay);letter-spacing:.1em;display:block;margin-bottom:.4rem}
+  article h3{font-size:1.24rem;font-weight:700;font-style:italic;color:var(--clay-deep);margin:2rem 0 .8rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--clay-deep)}
+  article strong{font-weight:700;color:var(--slate-deep)}
+  article .lead{font-size:1.16rem;color:#3a3025}
+
+  .pullquote{margin:2rem 0;padding:1.3rem 1.6rem;background:var(--sand-light);border-left:4px solid var(--clay);
+    border-radius:0 8px 8px 0;font-style:italic;font-size:1.1rem;color:#3a3025;box-shadow:0 4px 14px var(--shadow)}
+  .pullquote .src{display:block;margin-top:.7rem;font-style:normal;font-size:.82rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em;color:#7a6b52}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(58,74,82,.06);border:1px solid rgba(58,74,82,.18);border-radius:8px;font-size:1rem}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d31}
+
+  .evidence{display:block;margin:1.4rem 0;padding:.9rem 1.2rem;background:rgba(193,154,62,.1);border-radius:8px;
+    font-size:.94rem;color:#5a4a24;font-family:"Trebuchet MS",sans-serif}
+  .evidence b{color:var(--clay-deep)}
+
+  ul.clean{margin:0 0 1.3rem;padding-left:0;list-style:none}
+  ul.clean li{position:relative;padding-left:1.5rem;margin-bottom:.7rem;font-size:1.04rem}
+  ul.clean li::before{content:"◆";position:absolute;left:0;top:.15rem;color:var(--clay);font-size:.7rem}
+
+  /* stages timeline within article */
+  .stage{position:relative;padding:0 0 .3rem 1.6rem;margin:1.6rem 0;border-left:2px solid var(--rule)}
+  .stage::before{content:"";position:absolute;left:-7px;top:.3rem;width:12px;height:12px;border-radius:50%;background:var(--parchment);border:3px solid var(--clay)}
+  .stage .when{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:.3rem}
+  .stage h4{font-size:1.12rem;font-weight:700;color:var(--slate-deep);margin-bottom:.4rem}
+  .stage p{margin:0;font-size:1rem}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3.5rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--clay);font-size:.9rem}
+
+  .note-block{background:var(--slate-deep);color:var(--sand-light);border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-style:normal;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#d4c9b4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--clay-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5e;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 22px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.back-home .arrow,.progress,.article-foot a.home-link{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Análisis · La corte celestial y sus criaturas</span>
+    <h1>El nacimiento<br>de <span class="em">Satán</span></h1>
+    <div class="glyphs">הַשָּׂטָן</div>
+    <p class="standfirst">En los textos más antiguos, “el satán” no es el diablo: es un fiscal al servicio de Dios. El enemigo cósmico que conocemos se forjó siglos después. Historia de una mutación.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<article>
+  <div class="wrap">
+
+    <p class="lead">Casi todo el mundo cree saber quién es Satán: el enemigo de Dios, el príncipe del mal, el ángel caído que arrastró a un tercio del cielo en su rebelión. Pero si uno abre la Biblia hebrea en orden y busca a ese personaje, no lo encuentra. Lo que encuentra, en cambio, es algo mucho más extraño y revelador: un <strong>funcionario de la corte celestial</strong> que trabaja <em>para</em> Dios. El Satán que imaginamos hoy es el resultado de una larga mutación, y reconstruirla es una de las historias más fascinantes de la religión antigua.</p>
+
+    <div class="simple">
+      <span class="tag">Una aclaración de partida</span>
+      <p>En hebreo antiguo, <em>satán</em> (שָׂטָן) no es un nombre propio, sino un sustantivo común: significa “adversario”, “acusador” u “obstructor”. Y casi siempre aparece con artículo: <em>ha-satan</em>, “<strong>el</strong> acusador” —es decir, un <em>cargo</em>, no una persona. Como decir “el fiscal”, no “Fernando”.</p>
+    </div>
+
+    <h2><span class="n">01</span>Cuando “satán” era un rol, no un villano</h2>
+    <p>En los textos más antiguos, la palabra se usa incluso para <strong>seres humanos</strong> y hasta para el propio ángel de YHWH cumpliendo una misión. Cuando David se ofrece a luchar del lado filisteo, los jefes temen que se les vuelva un <em>satán</em>, un adversario en la batalla (1 Samuel 29:4). Y en el episodio de Balaam (Números 22), el propio <strong>ángel de YHWH</strong> se planta en el camino “como un <em>satán</em>” —como un obstructor— enviado por Dios. El término describe una <strong>función</strong>: el que se interpone, el que acusa, el que pone a prueba.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>Al principio, “satán” es un papel que cualquiera puede desempeñar —un soldado enemigo, un ángel bloqueando un camino—. No es un ser maligno con nombre; es una <em>tarea</em>: la de oponerse o acusar.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">02</span>El fiscal de la corte: Job y Zacarías</h2>
+    <p>El paso siguiente es clave, y conecta directamente con la <strong>asamblea divina</strong> que ya conocimos en el Salmo 82. En dos textos, <em>ha-satan</em> aparece como un <strong>miembro de la corte celestial</strong> con un puesto específico: el de acusador o fiscal.</p>
+
+    <h3>El libro de Job</h3>
+    <p>La escena es una reunión de la corte: “los hijos de Dios (<em>bene ha-elohim</em>) se presentaron ante YHWH, y <em>ha-satan</em> vino también entre ellos” (Job 1:6). No es un intruso ni un enemigo: es <strong>uno más de la asamblea</strong>, con derecho a estar ahí. YHWH incluso conversa con él con familiaridad, le pregunta de dónde viene. Su función es <strong>patrullar la tierra y examinar a los humanos</strong>: sospecha que la piedad de Job es interesada y propone ponerla a prueba. Pero —esto es decisivo— <strong>no puede actuar sin permiso de Dios</strong>. Es un fiscal celoso, no un rival.</p>
+    <div class="pullquote">
+      “¿De dónde vienes?” Y ha-satan respondió a YHWH: “De rodear la tierra y andar por ella.”
+      <span class="src">Job 1:7</span>
+    </div>
+
+    <h3>La visión de Zacarías</h3>
+    <p>Similar escena judicial (Zacarías 3): el sumo sacerdote Josué está de pie ante el ángel de YHWH, y <em>ha-satan</em> está “a su derecha para acusarlo” —exactamente la posición del fiscal en un tribunal antiguo. De nuevo es un <strong>acusador oficial</strong>, parte del aparato de justicia divino, no una fuerza del mal.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>En Job y Zacarías, “el satán” es como el fiscal de un juicio: su trabajo es acusar y buscar defectos, pero forma parte del tribunal de Dios y obedece sus reglas. Está del lado de la corte, no en contra de ella.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">03</span>El giro: cuando el censo de David cambia de autor</h2>
+    <p>Hay un experimento revelador que se puede hacer comparando dos versiones del mismo suceso. En el libro más antiguo (2 Samuel 24:1), es <strong>YHWH</strong> quien, airado, incita a David a hacer un censo —un acto que luego se castiga. Siglos después, el mismo episodio se reescribe en Crónicas (1 Crónicas 21:1), y el autor cambia el sujeto: ahora es <strong>“un satán”</strong> quien incita a David.</p>
+    <p>El cambio es pequeño en apariencia y enorme en el fondo. El Cronista, incómodo con la idea de que Dios impulsara directamente una acción reprochable, <strong>traslada esa función a otra figura</strong>. Estamos viendo, casi en tiempo real, cómo <em>ha-satan</em> empieza a absorber los aspectos oscuros o problemáticos que antes se atribuían sin reparo a YHWH.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>El mismo hecho tiene dos versiones: en la vieja lo provoca Dios; en la nueva, un “satán”. La divinidad va quedando “limpia” de lo incómodo, que se le pasa a otra figura. Es el primer paso hacia un Satán independiente.</p>
+    </div>
+    <div class="evidence">
+      Este contraste entre <b>2 Samuel 24:1</b> y <b>1 Crónicas 21:1</b> es uno de los ejemplos más citados en los estudios sobre el desarrollo de la figura satánica, precisamente porque muestra el desplazamiento por escrito.
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">04</span>El Segundo Templo y la influencia persa</h2>
+    <p>La transformación decisiva ocurre en el <strong>período del Segundo Templo</strong> (tras el exilio, bajo dominio persa y luego helenístico). Es la misma época en que, como vimos en la primera serie, el monoteísmo se consolida. Y aquí surge un problema teológico: si solo hay <strong>un</strong> Dios, y ese Dios es bueno, ¿de dónde viene el mal?</p>
+    <p>El monoteísmo estricto crea, sin querer, un vacío. Ya no se puede repartir el bien y el mal entre dioses rivales. Ese vacío es el que la figura de Satán vendrá a llenar: un <strong>principio del mal personificado</strong>, subordinado pero cada vez más autónomo.</p>
+    <h3>El dualismo persa</h3>
+    <p>El contacto con la religión <strong>zoroástrica</strong> de Persia aportó un modelo poderoso: un cosmos dividido entre un principio del bien (Ahura Mazda) y uno del mal (Angra Mainyu / Ahriman) enfrentados en una batalla cósmica. Muchos estudiosos ven en este <strong>dualismo</strong> una influencia que ayudó a que el discreto fiscal hebreo se transformara en un enemigo cósmico con reino y ejército propios.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>Al afirmarse que hay un solo Dios bueno, quedó una pregunta sin responder: ¿y el mal? La cultura persa ofrecía una respuesta —un poder del mal enfrentado al del bien— y esa idea ayudó a que “el fiscal” se convirtiera en “el enemigo”.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">05</span>El enemigo cósmico: la literatura del Segundo Templo</h2>
+    <p>En los textos judíos de este período —muchos no incluidos en la Biblia hebrea— Satán ya es otra cosa. Aparecen nombres propios y una mitología elaborada:</p>
+    <ul class="clean">
+      <li>En el <strong>Libro de los Vigilantes</strong> (parte de <em>1 Enoc</em>, s. III–II a.C.) se desarrolla el mito de los ángeles caídos que, a partir de un breve pasaje de Génesis 6, descienden, se corrompen y engendran el mal en la tierra. Su líder es <strong>Semyaza</strong> o <strong>Azazel</strong>.</li>
+      <li>Aparecen nombres como <strong>Mastema</strong> (en el <em>Libro de los Jubileos</em>), “el príncipe” de los espíritus hostiles, que ya actúa con notable independencia aunque sigue rindiendo cuentas.</li>
+      <li>Se recupera y reinterpreta el nombre <strong>Belial / Beliar</strong> como jefe de las fuerzas de las tinieblas, sobre todo en los textos de <strong>Qumrán</strong>, donde el cosmos se describe como una guerra entre “los hijos de la luz” y “los hijos de las tinieblas”.</li>
+    </ul>
+    <p>Para cuando escriben los autores del <strong>Nuevo Testamento</strong>, esta transformación ya está consumada: Satán es “el príncipe de este mundo”, el tentador, el adversario cósmico de Dios y de la humanidad. El fiscal de Job se ha convertido en el enemigo.</p>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">06</span>El arco completo, de un vistazo</h2>
+    <div class="stage">
+      <div class="when">Textos más antiguos</div>
+      <h4>Una función, no un ser</h4>
+      <p>“Satán” es un rol —adversario, obstructor— que desempeñan humanos e incluso el ángel de YHWH. Sin carga maligna.</p>
+    </div>
+    <div class="stage">
+      <div class="when">Job y Zacarías</div>
+      <h4>El fiscal de la corte</h4>
+      <p><em>Ha-satan</em> es un miembro de la asamblea divina con un cargo: acusar y poner a prueba. Trabaja para Dios y bajo su permiso.</p>
+    </div>
+    <div class="stage">
+      <div class="when">Crónicas (postexilio)</div>
+      <h4>El desplazamiento</h4>
+      <p>Empieza a absorber acciones antes atribuidas a Dios. La divinidad se “limpia” de lo incómodo.</p>
+    </div>
+    <div class="stage">
+      <div class="when">Segundo Templo</div>
+      <h4>El enemigo cósmico</h4>
+      <p>Con el monoteísmo consolidado y la influencia del dualismo persa, se convierte en el principio del mal personificado, con nombres, mitología y ejército.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2><span class="n">07</span>Síntesis</h2>
+    <p>La historia de Satán es, en el fondo, la <strong>otra cara</strong> de la historia que contó la primera serie de este blog. Allí vimos cómo muchos dioses se fundieron en uno solo. Aquí vemos la consecuencia inevitable: al concentrar todo el poder y toda la bondad en un único Dios, hubo que <strong>reubicar el mal</strong> en algún sitio. Ese sitio fue un antiguo funcionario de la corte celestial —el acusador— que, década tras década, texto tras texto, fue cargando con lo que ya no cabía atribuir a Dios.</p>
+    <p>El diablo de la imaginación posterior no está, en realidad, en el Antiguo Testamento hebreo. Lo que hay es un fiscal celoso convirtiéndose lentamente en enemigo. Satán, como YHWH y como Elohim, no es una figura estática caída del cielo ya formada: es una <strong>construcción histórica</strong>, moldeada por las necesidades teológicas de cada época y por el encuentro con las culturas vecinas.</p>
+
+    <div class="note-block">
+      <h3>Nota sobre el rigor y las fuentes</h3>
+      <p>La evolución de la figura satánica es <span class="key">consenso amplio</span> en los estudios bíblicos; una referencia accesible y clásica es <span class="key">Elaine Pagels</span>, <i>El origen de Satanás</i>. El contraste 2 Samuel 24 / 1 Crónicas 21 y las escenas de Job y Zacarías son los apoyos textuales centrales.</p>
+      <p>Un punto <span class="key">en debate</span>: el grado exacto de la influencia persa. Que el dualismo zoroástrico jugó un papel es ampliamente aceptado; su <em>peso</em> preciso y las vías de transmisión siguen discutiéndose, en parte por la difícil datación de las fuentes zoroástricas. Se ha presentado como factor contribuyente, no como causa única.</p>
+      <p>Las citas son traducción propia orientativa; los textos del Segundo Templo (1 Enoc, Jubileos, Qumrán) deben consultarse en ediciones críticas. Nada de esto afirma ni niega la validez religiosa de los textos.</p>
+    </div>
+
+  </div>
+</article>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max>0 ? (h.scrollTop/max)*100 : 0) + '%';
+  }
+  document.addEventListener('scroll', upd, {passive:true});
+  window.addEventListener('resize', upd); upd();
+</script>
+
+</body>
+</html>

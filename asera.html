@@ -106,8 +106,8 @@
 
   /* SVG map figure */
   figure.mapfig{margin:1.5rem 0 .5rem}
-  figure.mapfig svg{display:block;width:100%;height:auto;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
-  figure.mapfig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;color:#f0e4d8;text-align:center}
+  figure.mapfig svg{display:block;width:100%;height:auto;border-radius:10px}
+  figure.mapfig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;color:#f0e4d8;text-align:center;background:rgba(58,32,40,.4);border-radius:0 0 8px 8px}
 
   .connector{display:flex;justify-content:center;padding:.3rem 0}
   .connector::before{content:"";width:2px;height:26px;background:linear-gradient(180deg,var(--rule),transparent)}
@@ -210,29 +210,43 @@
         <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa esquemático con la ubicación de Jerusalén, Khirbet el-Qom y Kuntillet ʿAjrud">
           <defs>
             <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#c9a87e" stop-opacity=".22"/>
-              <stop offset="1" stop-color="#8a6d55" stop-opacity=".14"/>
+              <stop offset="0" stop-color="#3a2a22"/>
+              <stop offset="1" stop-color="#241a15"/>
             </linearGradient>
+            <radialGradient id="glowGold" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#f0c46e" stop-opacity=".7"/>
+              <stop offset="1" stop-color="#f0c46e" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="glowRose" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#e08aa0" stop-opacity=".6"/>
+              <stop offset="1" stop-color="#e08aa0" stop-opacity="0"/>
+            </radialGradient>
           </defs>
-          <rect x="0" y="0" width="480" height="300" fill="url(#land)"/>
+          <!-- panel de fondo sólido y definido -->
+          <rect x="0" y="0" width="480" height="300" rx="10" fill="url(#land)"/>
+          <rect x="0" y="0" width="480" height="300" rx="10" fill="none" stroke="#6a4d3e" stroke-width="1.5"/>
           <!-- costa mediterránea estilizada -->
-          <path d="M60 0 Q90 80 70 150 Q55 220 90 300" fill="none" stroke="#9ab" stroke-opacity=".4" stroke-width="2" stroke-dasharray="2 5"/>
-          <text x="30" y="150" fill="#9ab" font-family="Trebuchet MS, sans-serif" font-size="11" opacity=".6" transform="rotate(-90 30 150)">Mar Mediterráneo</text>
+          <path d="M58 0 Q92 80 68 150 Q50 220 92 300" fill="none" stroke="#7fa8c0" stroke-opacity=".85" stroke-width="2.5" stroke-dasharray="3 5"/>
+          <text x="26" y="150" fill="#8fb8d0" font-family="Trebuchet MS, sans-serif" font-size="11.5" font-weight="700" opacity=".9" transform="rotate(-90 26 150)">Mar Mediterráneo</text>
+          <!-- líneas punteadas de relación (debajo de los puntos) -->
+          <line x1="250" y1="90" x2="238" y2="132" stroke="#e08aa0" stroke-width="1.6" stroke-dasharray="4 3" opacity=".8"/>
+          <line x1="238" y1="132" x2="200" y2="245" stroke="#e08aa0" stroke-width="1.6" stroke-dasharray="4 3" opacity=".8"/>
           <!-- Jerusalén -->
-          <circle cx="250" cy="90" r="6" fill="#d4af5a"/>
-          <text x="262" y="88" fill="#f0e4d8" font-family="Trebuchet MS, sans-serif" font-size="14" font-weight="700">Jerusalén</text>
-          <text x="262" y="103" fill="#c9a9b4" font-family="Trebuchet MS, sans-serif" font-size="10">el Templo</text>
+          <circle cx="250" cy="90" r="17" fill="url(#glowGold)"/>
+          <circle cx="250" cy="90" r="7" fill="#f4c860" stroke="#fff5e0" stroke-width="1.5"/>
+          <text x="264" y="87" fill="#ffffff" font-family="Trebuchet MS, sans-serif" font-size="15" font-weight="700">Jerusalén</text>
+          <text x="264" y="103" fill="#e8c9a0" font-family="Trebuchet MS, sans-serif" font-size="10.5">el Templo</text>
           <!-- Khirbet el-Qom -->
-          <circle cx="238" cy="132" r="5" fill="#9c5a6c"/>
-          <text x="248" y="136" fill="#f0e4d8" font-family="Trebuchet MS, sans-serif" font-size="12">Khirbet el-Qom</text>
-          <text x="248" y="149" fill="#c9a9b4" font-family="Trebuchet MS, sans-serif" font-size="9.5">cerca de Hebrón</text>
+          <circle cx="238" cy="132" r="13" fill="url(#glowRose)"/>
+          <circle cx="238" cy="132" r="6" fill="#e88aa0" stroke="#fff0f4" stroke-width="1.3"/>
+          <text x="250" y="130" fill="#ffffff" font-family="Trebuchet MS, sans-serif" font-size="12.5" font-weight="700">Khirbet el-Qom</text>
+          <text x="250" y="144" fill="#e0b0bc" font-family="Trebuchet MS, sans-serif" font-size="10">cerca de Hebrón</text>
           <!-- Kuntillet Ajrud -->
-          <circle cx="200" cy="245" r="5" fill="#9c5a6c"/>
-          <text x="210" y="242" fill="#f0e4d8" font-family="Trebuchet MS, sans-serif" font-size="12">Kuntillet ʿAjrud</text>
-          <text x="210" y="255" fill="#c9a9b4" font-family="Trebuchet MS, sans-serif" font-size="9.5">Sinaí · cruce de caravanas</text>
-          <!-- líneas punteadas de relación -->
-          <line x1="250" y1="90" x2="238" y2="132" stroke="#9c5a6c" stroke-width="1.2" stroke-dasharray="3 3" opacity=".55"/>
-          <line x1="238" y1="132" x2="200" y2="245" stroke="#9c5a6c" stroke-width="1.2" stroke-dasharray="3 3" opacity=".55"/>
+          <circle cx="200" cy="245" r="13" fill="url(#glowRose)"/>
+          <circle cx="200" cy="245" r="6" fill="#e88aa0" stroke="#fff0f4" stroke-width="1.3"/>
+          <text x="212" y="243" fill="#ffffff" font-family="Trebuchet MS, sans-serif" font-size="12.5" font-weight="700">Kuntillet ʿAjrud</text>
+          <text x="212" y="257" fill="#e0b0bc" font-family="Trebuchet MS, sans-serif" font-size="10">Sinaí · cruce de caravanas</text>
+        </svg>
         </svg>
         <figcaption>Los dos yacimientos donde apareció la fórmula “YHWH y su Aserá”, respecto a Jerusalén. Mapa esquemático.</figcaption>
       </figure>

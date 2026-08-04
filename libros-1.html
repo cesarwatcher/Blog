@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quién decidió qué era la Biblia? — Estratos</title>
+<style>
+  :root{
+    --ink:#241c14;--parch:#efe6d2;--parch-deep:#e2d5b8;--parch-light:#f6efdd;
+    --sepia:#7a5c38;--sepia-deep:#5a4226;--ochre:#b08344;--gold:#c19a3e;
+    --wine:#7a3b3b;--wine-deep:#5a2828;--rule:#c9b48a;--shadow:rgba(60,42,20,.2);
+    --green-ink:#4a5a3a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parch);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.4;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.1) 1px, transparent 0);background-size:4px 4px;mix-blend-mode:multiply}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--sepia-deep);background:rgba(246,239,221,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(150,120,70,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,239,221,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--sepia),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--sepia-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--sepia-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.12em;color:var(--sepia);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f2d;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--sepia);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a3020;margin:2rem 0}
+
+  /* ---------- SIEVE / SELECTION ---------- */
+  .sieve-intro{text-align:center;margin:2.5rem 0 1.2rem}
+  .sieve-intro .label{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sepia-deep);font-weight:700}
+  .sieve-intro .hint{font-size:.92rem;color:#7a6b4a;font-style:italic;margin-top:.5rem}
+
+  .scriptorium{background:linear-gradient(178deg,#f2ebd8,#e6dabb);border:1px solid var(--rule);border-radius:14px;
+    padding:2rem 1.8rem;margin:1.5rem 0 2.5rem;box-shadow:0 8px 26px var(--shadow)}
+  .shelf{margin-bottom:1.6rem}
+  .shelf:last-child{margin-bottom:0}
+  .shelf-label{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}
+  .shelf-label .bar{flex:1;height:1px}
+  .shelf.in .shelf-label{color:var(--green-ink)}
+  .shelf.out .shelf-label{color:var(--wine)}
+  .shelf.in .shelf-label .bar{background:rgba(74,90,58,.35)}
+  .shelf.out .shelf-label .bar{background:rgba(122,59,59,.35)}
+  .scrolls{display:flex;flex-wrap:wrap;gap:.6rem}
+  .scroll{position:relative;padding:.5rem .9rem;border-radius:6px;font-size:.92rem;font-family:"Trebuchet MS",sans-serif;
+    cursor:default;transition:transform .2s}
+  .scroll:hover{transform:translateY(-2px)}
+  .shelf.in .scroll{background:rgba(74,90,58,.14);border:1px solid rgba(74,90,58,.4);color:#3a4a2a}
+  .shelf.out .scroll{background:rgba(122,59,59,.1);border:1px dashed rgba(122,59,59,.45);color:#6a3232}
+  .scroll .tick{font-weight:700;margin-right:.35rem}
+  .shelf.in .scroll .tick{color:var(--green-ink)}
+  .shelf.out .scroll .tick{color:var(--wine)}
+
+  article h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--sepia-deep)}
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;margin-bottom:.4rem}
+  article h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--wine);margin:2rem 0 .8rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--sepia-deep)}
+  article strong{color:var(--sepia-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(122,92,56,.09);border:1px solid rgba(122,92,56,.25);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sepia-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d2b}
+
+  .myth{margin:1.6rem 0;padding:1.2rem 1.4rem;background:rgba(122,59,59,.08);border:1px solid rgba(122,59,59,.28);border-radius:8px}
+  .myth .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);display:block;margin-bottom:.5rem}
+  .myth p{margin:0;font-size:1rem;color:#4a2e2e}
+  .myth p+p{margin-top:.6rem}
+
+  .criteria{margin:1.6rem 0;display:grid;gap:.8rem}
+  .crit{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1rem 1.2rem;background:var(--parch-light);border:1px solid var(--rule);border-radius:8px}
+  .crit .num{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:1rem;color:#fff;background:var(--sepia);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .crit .txt{font-size:1rem;color:#463d2b}
+  .crit .txt b{color:var(--sepia-deep)}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--sepia);font-size:.9rem}
+
+  .note-block{background:var(--sepia-deep);color:#e8dcc4;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#d4c4a4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--parch-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a7a5a;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--sepia-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#5a4c34;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--sepia-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--parch-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5a;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}.scriptorium{padding:1.5rem 1.3rem}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress,.scroll{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Los libros perdidos · Entrega I</span>
+    <h1>¿Quién decidió qué<br>era la <span class="em">Biblia</span>?</h1>
+    <div class="glyphs">κανών · ספר</div>
+    <p class="standfirst">La Biblia no llegó al mundo como un libro cerrado. Fue una biblioteca que tardó siglos en decidir qué guardaba y qué dejaba fuera. Y esa decisión tiene una historia.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Solemos imaginar la Biblia como un objeto único, entregado de una vez. Pero la palabra misma delata otra cosa: <span class="term">Biblia</span> viene del griego <em>ta biblia</em>, “los libros”, en plural. Es una <strong>colección</strong> —una biblioteca reunida a lo largo de más de mil años—. Y como toda biblioteca, alguien tuvo que decidir qué entraba en el estante y qué se quedaba fuera. Esta serie trata de esa decisión, y de los libros que no la pasaron. Empecemos por la pregunta de fondo: ¿cómo, cuándo y quién cerró la lista?</p>
+
+  <h2><span class="n">01</span>La palabra que significa “regla”</h2>
+  <p>El término técnico es <span class="term">canon</span>, del griego <em>kanón</em>: originalmente una <strong>caña de medir</strong>, una regla de carpintero. De ahí pasó a significar “norma” o “lista oficial”. Aplicado a los textos sagrados, el canon es la <strong>lista cerrada</strong> de libros reconocidos como Escritura —los que están “dentro de la regla”—. Todo lo demás queda fuera.</p>
+  <p>Pero esa lista no cayó del cielo. Durante siglos, el judaísmo del Segundo Templo tuvo muchísimos textos religiosos en circulación —relatos, profecías, salmos, apocalipsis— sin una frontera nítida entre “sagrado” y “no sagrado”. La criba fue gradual.</p>
+
+  <div class="sieve-intro">
+    <div class="label">La criba de los textos</div>
+    <div class="hint">De muchos escritos en circulación, solo algunos quedaron “dentro de la regla”</div>
+  </div>
+
+  <div class="scriptorium">
+    <div class="shelf in">
+      <div class="shelf-label"><span>Quedaron dentro (canon hebreo)</span><span class="bar"></span></div>
+      <div class="scrolls">
+        <span class="scroll"><span class="tick">✓</span>Génesis</span>
+        <span class="scroll"><span class="tick">✓</span>Isaías</span>
+        <span class="scroll"><span class="tick">✓</span>Salmos</span>
+        <span class="scroll"><span class="tick">✓</span>Daniel</span>
+        <span class="scroll"><span class="tick">✓</span>Job</span>
+        <span class="scroll"><span class="tick">✓</span>Ester</span>
+      </div>
+    </div>
+    <div class="shelf out">
+      <div class="shelf-label"><span>Quedaron fuera (o solo para algunos)</span><span class="bar"></span></div>
+      <div class="scrolls">
+        <span class="scroll"><span class="tick">✗</span>1 Enoc</span>
+        <span class="scroll"><span class="tick">✗</span>Jubileos</span>
+        <span class="scroll"><span class="tick">✗</span>Eclesiástico (Sirácida)</span>
+        <span class="scroll"><span class="tick">✗</span>1–2 Macabeos</span>
+        <span class="scroll"><span class="tick">✗</span>Judit</span>
+        <span class="scroll"><span class="tick">✗</span>Sabiduría de Salomón</span>
+        <span class="scroll"><span class="tick">✗</span>Tobías</span>
+      </div>
+    </div>
+  </div>
+  <p>La segunda estantería es la protagonista de esta serie. Algunos de esos libros eran tan leídos y respetados como los de la primera —Eclesiástico se citaba con reverencia; Enoc influyó en el Nuevo Testamento—. Su exclusión no siempre fue por “falsos”, sino por razones más complejas que iremos viendo.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>El mito del gran concilio</h2>
+  <p>Aquí hay que desmontar una idea muy extendida. Se suele contar que un <strong>“Concilio de Jamnia”</strong> (hacia el 90 d.C.) reunió a los rabinos y <em>fijó de una vez</em> el canon hebreo, decidiendo en una sesión qué entraba y qué no. Es una historia ordenada y satisfactoria. Y es, en su mayor parte, <strong>falsa</strong>.</p>
+  <div class="myth">
+    <span class="tag">Mito vs. lo que sostiene la erudición</span>
+    <p><strong>El mito:</strong> un concilio de rabinos se reunió en Jamnia hacia el 90 d.C. y cerró oficialmente la Biblia hebrea en una decisión formal.</p>
+    <p><strong>Lo que hoy se sostiene:</strong> no hay evidencia de que en Jamnia se tomara ninguna decisión canónica vinculante. Hubo, como mucho, discusiones sobre unos pocos libros ya discutidos (como Eclesiastés o el Cantar). El canon se había ido formando <em>gradualmente durante siglos</em>, y para esa época ya existía un consenso amplio sobre la mayoría de los libros. La idea del “concilio” es una reconstrucción del siglo XIX que se repitió hasta volverse leyenda.</p>
+  </div>
+  <p>Este matiz importa, y mucho, porque cambia toda la imagen. El canon no fue <strong>decretado</strong> en una reunión; fue <strong>decantándose</strong>, como un sedimento, a lo largo de generaciones de uso, copia, lectura litúrgica y debate. Nadie firmó un acta fundacional. La Torá se reconoció como sagrada muy pronto; los Profetas, después; y los Escritos —la tercera sección— tardaron más y con más discusión.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>No hubo un día en que un comité decidiera “esto es la Biblia y esto no”. Fue un proceso lento de siglos: los libros más usados y respetados se fueron consolidando, los dudosos se debatieron, y la lista se cerró poco a poco. El “Concilio de Jamnia” que muchos citan es, en gran parte, un mito.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>¿Con qué vara se medía?</h2>
+  <p>Si no hubo un concilio, ¿cómo se decidió en la práctica qué era sagrado? No con una lista de reglas oficial, pero sí con criterios que operaban de fondo, más o menos compartidos:</p>
+  <div class="criteria">
+    <div class="crit"><span class="num">1</span><span class="txt"><b>Antigüedad y origen profético.</b> Se valoraba que un texto fuera antiguo y atribuible al periodo de la profecía, que se consideraba cerrado tras Esdras (hacia el 400 a.C.). Un libro demasiado reciente era sospechoso.</span></div>
+    <div class="crit"><span class="num">2</span><span class="txt"><b>Lengua.</b> Se prefería el hebreo (o arameo para algunas partes). Muchos libros excluidos del canon hebreo circulaban sobre todo en griego, lo que jugó en su contra.</span></div>
+    <div class="crit"><span class="num">3</span><span class="txt"><b>Coherencia con la Torá.</b> Un texto que contradijera la enseñanza central de Moisés difícilmente sería aceptado.</span></div>
+    <div class="crit"><span class="num">4</span><span class="txt"><b>Uso comunitario.</b> El factor más decisivo y menos formal: los libros que las comunidades <em>ya</em> leían, copiaban y usaban en el culto se consolidaban solos. La autoridad venía del uso, no de un decreto.</span></div>
+  </div>
+  <p>Nótese que ninguno de estos criterios es un botón que se pulsa. Son tendencias, y por eso el resultado fue borroso durante mucho tiempo: había libros “dentro” para unos y “fuera” para otros, según la comunidad.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Tres Biblias, no una</h2>
+  <p>La prueba de que la criba no fue única es que <strong>distintas comunidades cerraron listas distintas</strong>, y esas diferencias siguen vivas hoy en tu estantería:</p>
+  <p>El <strong>canon judío</strong> (y, tras la Reforma, el <strong>protestante</strong>) se quedó con la lista hebrea más corta: 24 libros (contados de otro modo, los 39 del “Antiguo Testamento” protestante). La Iglesia <strong>católica</strong> incluyó además varios de los libros de la segunda estantería —Tobías, Judit, Macabeos, Eclesiástico, Sabiduría—, los llamados <span class="term">deuterocanónicos</span>, porque los heredó de la Biblia griega (la Septuaginta). Y las Iglesias <strong>ortodoxas</strong> aceptan algunos más todavía.</p>
+  <p>Es decir: la pregunta “¿cuántos libros tiene la Biblia?” <strong>no tiene una sola respuesta</strong>. Depende de qué criba adoptó tu tradición. Los “libros perdidos” de esta serie no se perdieron para todos: muchos siguen dentro para unos y fuera para otros.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Católicos, protestantes, judíos y ortodoxos no tienen exactamente los mismos libros en su Biblia. Esa diferencia no es un error: es la huella de que la criba de los textos se hizo de forma distinta en cada comunidad. La Biblia “completa” es distinta según a quién preguntes.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">05</span>Síntesis</h2>
+  <p>La Biblia es una biblioteca con portero, pero el portero no fue una persona ni un concilio: fue el <strong>tiempo, el uso y la comunidad</strong>, operando durante siglos. Lo que llamamos “canon” es el resultado sedimentado de ese largo proceso de selección —una criba lenta, a veces contradictoria, que distintas tradiciones cerraron en puntos distintos.</p>
+  <p>Y toda selección tiene una cara oculta: lo <strong>descartado</strong>. Por cada libro que entró, otros quedaron en la estantería de fuera —algunos olvidados, otros prohibidos, otros simplemente relegados a “segunda categoría”—. Esos son los protagonistas de las próximas entregas. Empezaremos por los más notables: los que fueron enormemente influyentes y aun así no entraron.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Próxima entrega</div>
+    <div class="ttl">Los libros expulsados: Enoc, Jubileos y los demás</div>
+    <p>Textos leídos, citados y venerados —algunos incluso por autores del Nuevo Testamento— que sin embargo quedaron fuera del canon. Qué decían y por qué se los dejó atrás.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>Que la canonización fue un proceso <span class="key">gradual y no un acto único</span> es consenso académico amplio. El llamado “Concilio de Jamnia” como evento que cerró el canon está <span class="key">hoy ampliamente desacreditado</span> entre los estudiosos (Jack P. Lewis, Sid Z. Leiman, Lee M. McDonald, F. F. Bruce): a lo sumo hubo discusiones sobre libros concretos, no una decisión canónica formal.</p>
+    <p><span class="key">En debate:</span> las fechas exactas del cierre de cada sección (Torá, Profetas, Escritos) y hasta qué punto había consenso antes del 70 d.C. Referencias: <span class="key">Lee M. McDonald</span> y <span class="key">James A. Sanders</span> (eds.), <i>The Canon Debate</i> (2002).</p>
+    <p>Los criterios de canonicidad se presentan como tendencias reconstruidas, no como una lista oficial que existiera como tal. Este artículo describe historia de los textos y no emite juicio sobre la inspiración religiosa de ninguna Biblia.</p>
+  </div>
+
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#7a5c38;--accent-deep:#5a4226">
+    <a class="epnav-series" href="serie-libros.html">↑ Serie: Los libros perdidos</a>
+    <div class="epnav-row">
+      <span class="epnav-btn empty"></span>
+      <span class="epnav-btn empty"></span>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

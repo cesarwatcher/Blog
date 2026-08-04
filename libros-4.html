@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los evangelios que no entraron — Estratos</title>
+<style>
+  :root{
+    --ink:#241c14;--parch:#efe6d2;--parch-deep:#e2d5b8;--parch-light:#f6efdd;
+    --sepia:#7a5c38;--sepia-deep:#5a4226;--ochre:#b08344;--gold:#c19a3e;
+    --wine:#7a3b3b;--wine-deep:#5a2828;--rule:#c9b48a;--shadow:rgba(60,42,20,.2);--green-ink:#4a5a3a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parch);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.4;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.1) 1px, transparent 0);background-size:4px 4px;mix-blend-mode:multiply}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--sepia-deep);background:rgba(246,239,221,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(150,120,70,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,239,221,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--sepia),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--sepia-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--sepia-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--sepia);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f2d;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--sepia);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a3020;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:10px;overflow:hidden;background:rgba(122,92,56,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.42) saturate(1.08) contrast(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#4a3a24;background:rgba(122,92,56,.1)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#8a7050}
+  figure.fig figcaption .credit a{color:var(--ochre)}
+
+  article h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--sepia-deep)}
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;margin-bottom:.4rem}
+  article h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--wine);margin:2rem 0 .8rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--sepia-deep)}
+  article strong{color:var(--sepia-deep);font-weight:700}
+
+  /* gospel cards */
+  .gospels{display:grid;gap:1rem;margin:1.6rem 0}
+  .gcard{background:var(--parch-light);border:1px solid var(--rule);border-radius:10px;padding:1.3rem 1.4rem;box-shadow:0 4px 14px var(--shadow)}
+  .gcard h3{font-size:1.2rem;font-weight:700;font-style:normal;color:var(--sepia-deep);margin:0 0 .3rem}
+  .gcard .tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ochre);margin-bottom:.6rem;display:block}
+  .gcard p{font-size:.98rem;margin:0 0 .5rem;color:#3a3020}
+  .gcard p:last-child{margin-bottom:0}
+  .gcard .why{margin-top:.7rem;padding-top:.7rem;border-top:1px dashed var(--rule);font-size:.92rem;color:#5a2e2e}
+  .gcard .why b{color:var(--wine-deep);font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(122,92,56,.09);border:1px solid rgba(122,92,56,.25);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sepia-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d2b}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--sepia);font-size:.9rem}
+
+  .note-block{background:var(--sepia-deep);color:#e8dcc4;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#d4c4a4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .series-end{margin-top:2.5rem;padding:2.2rem 1.9rem;background:linear-gradient(160deg,#5a4226,#3a2a18);color:#f2e8d4;border-radius:14px;text-align:center}
+  .series-end .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#d9b874;font-weight:700;margin-bottom:.8rem}
+  .series-end p{font-size:1.06rem;color:#f2e8d4;margin-bottom:.8rem;line-height:1.6}
+  .series-end p:last-child{margin-bottom:0}
+  .series-end .em{font-style:italic;color:var(--gold)}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--sepia-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--parch-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5a;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Los libros perdidos · Entrega IV · Final</span>
+    <h1>Los evangelios<br>que no <span class="em">entraron</span></h1>
+    <div class="glyphs">εὐαγγέλιον</div>
+    <p class="standfirst">Hubo muchos más de cuatro. Evangelios de Tomás, de María, de Judas: relatos sobre Jesús que circularon, se leyeron y luego se quedaron fuera. Qué decían y por qué.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Hasta ahora esta serie recorrió el mundo judío. Cerramos en el cristiano, con una pregunta que sorprende a mucha gente: <strong>¿por qué cuatro evangelios?</strong> No fue el número inevitable. En los primeros siglos circularon <em>muchos</em> textos que narraban dichos y hechos de Jesús. La criba del Nuevo Testamento eligió cuatro y dejó fuera el resto. Esos descartados —los <span class="term">evangelios apócrifos</span>— son el último capítulo de los libros perdidos.</p>
+
+  <figure class="fig">
+    <img src="nag-hammadi-codex.jpg" alt="Códice de la biblioteca de Nag Hammadi que contiene el Evangelio de Tomás">
+    <figcaption>
+      <span class="desc">El Códice II de Nag Hammadi, que contiene el comienzo del Evangelio de Tomás. Parte de la biblioteca copta hallada en Egipto en 1945.</span>
+      <span class="credit">Reproducción de un manuscrito de autor desconocido. Dominio público, vía Wikimedia Commons. Tratada en tono sepia.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">01</span>Un hallazgo gemelo del de Qumrán</h2>
+  <p>Curiosamente, dos años antes de los rollos del Mar Muerto, en <strong>1945</strong>, unos campesinos egipcios que buscaban fertilizante cerca de <strong>Nag Hammadi</strong> desenterraron una vasija con trece códices de papiro encuadernados en cuero: <strong>52 textos coptos</strong>, muchos de ellos <span class="term">gnósticos</span> y desconocidos hasta entonces. Entre ellos, la joya: el <strong>Evangelio de Tomás</strong>. Como Qumrán, Nag Hammadi nos devolvió textos que la historia había enterrado —en este caso, probablemente escondidos cuando la Iglesia empezó a fijar su canon y a perseguir lo que quedaba fuera.</p>
+
+  <h2><span class="n">02</span>Tres evangelios que no entraron</h2>
+  <div class="gospels">
+    <div class="gcard">
+      <span class="tag">Evangelio de dichos</span>
+      <h3>El Evangelio de Tomás</h3>
+      <p>El más importante de los apócrifos. No es un relato: son <strong>114 dichos</strong> (logia) atribuidos a Jesús, sin narración, sin milagros, sin pasión ni resurrección. Algunos coinciden con los evangelios canónicos; otros son enigmáticos y de sabor <span class="term">gnóstico</span>: la salvación viene del <em>conocimiento</em> (gnosis) del propio origen divino.</p>
+      <p class="why"><b>Por qué no entró:</b> su teología gnóstica —el yo secreto, el conocimiento salvador— chocaba con el cristianismo que se estaba volviendo mayoritario, centrado en la comunidad, los sacramentos y la muerte y resurrección de Cristo.</p>
+    </div>
+    <div class="gcard">
+      <span class="tag">Evangelio dialogado</span>
+      <h3>El Evangelio de María</h3>
+      <p>Presenta a <strong>María Magdalena</strong> como discípula predilecta, receptora de una enseñanza secreta de Jesús que ella transmite a los apóstoles —ante el recelo de Pedro—. Refleja corrientes donde una mujer podía tener autoridad espiritual de primer orden.</p>
+      <p class="why"><b>Por qué no entró:</b> tanto por su teología como, muy probablemente, por el papel de liderazgo femenino que la corriente dominante fue restringiendo.</p>
+    </div>
+    <div class="gcard">
+      <span class="tag">Evangelio gnóstico</span>
+      <h3>El Evangelio de Judas</h3>
+      <p>Redescubierto y publicado en <strong>2006</strong>, da un giro radical: presenta a <strong>Judas</strong> no como traidor, sino como el <em>único</em> discípulo que comprendió a Jesús, que le pidió entregarlo para liberar su espíritu del cuerpo. Una inversión total del relato conocido.</p>
+      <p class="why"><b>Por qué no entró:</b> abiertamente gnóstico y contrario a la narrativa central; nunca fue candidato serio, pero muestra la enorme diversidad de lo que se escribió.</p>
+    </div>
+  </div>
+  <p>Estos son solo tres de una lista larga: hubo evangelios “de la infancia” (que llenaban la niñez de Jesús con prodigios), evangelios de Pedro, de Felipe, de la Verdad… Un ecosistema riquísimo de textos, del que el canon seleccionó cuatro.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>¿Por qué precisamente cuatro?</h2>
+  <p>El cierre del canon cristiano fue, otra vez, un proceso gradual —no una decisión única—, pero con hitos más rastreables que en el hebreo. Durante el siglo II, los cuatro evangelios de <strong>Mateo, Marcos, Lucas y Juan</strong> fueron ganando aceptación general como los más antiguos y ligados a la tradición apostólica. Padres como Ireneo (hacia 180 d.C.) ya defendían que debían ser <em>exactamente</em> cuatro.</p>
+  <p>El momento simbólico llegó en el <strong>367 d.C.</strong>: en una carta pascual, el obispo <strong>Atanasio de Alejandría</strong> enumeró por primera vez los <strong>27 libros</strong> del Nuevo Testamento tal como los conocemos hoy, ni uno más ni uno menos. No “inventó” el canon —ratificó un consenso que ya se había ido formando—, pero su lista se volvió referencia. (Hay quien piensa que fue esa presión hacia un canon estricto la que llevó a esconder la biblioteca de Nag Hammadi.)</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>No hubo un día en que alguien decretara “solo estos cuatro evangelios”. Se fueron imponiendo por ser los más antiguos y ligados a los apóstoles, y hacia el año 367 un obispo puso por escrito la lista de 27 libros que ya se venía aceptando. Los demás evangelios quedaron fuera —y a veces, escondidos—.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Qué significan estos descartes</h2>
+  <p>Los evangelios que no entraron no prueban una “conspiración” que ocultó la verdad —una idea popular pero exagerada—. Lo que muestran es algo más real y más interesante: que el <strong>cristianismo primitivo fue extraordinariamente diverso</strong>. Hubo muchas maneras de entender a Jesús —gnósticas, ascéticas, apocalípticas—, y el canon fue el proceso por el cual una de ellas se consolidó como “ortodoxa” y las demás quedaron al margen.</p>
+  <p>Leer estos textos no revela un “Jesús secreto”, pero sí <strong>los caminos que el cristianismo no tomó</strong>: las corrientes derrotadas, las voces que perdieron. Es exactamente la misma lección que ha recorrido todo este blog —lo descartado también tiene historia—, aplicada ahora al nacimiento del Nuevo Testamento.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">05</span>El cierre de la serie</h2>
+  <p>La serie de los libros perdidos empezó con una pregunta —¿quién decidió qué era la Biblia?— y termina con su respuesta desplegada: <strong>nadie, y muchos, a lo largo de siglos</strong>. No un concilio ni un decreto, sino un lento proceso de uso, copia, debate y consenso que distintas comunidades cerraron en puntos distintos, dejando fuera una biblioteca entera de textos.</p>
+  <p>Esos libros perdidos —Enoc en las cuevas, los rollos de Qumrán, los evangelios de Nag Hammadi— no son basura descartada. Son el <strong>negativo fotográfico</strong> de la Biblia: la imagen de todo lo que <em>pudo</em> haber sido Escritura y no lo fue. Y en ese negativo se lee, quizá mejor que en el positivo, cómo se fabricó realmente el libro más influyente de la historia.</p>
+
+  <div class="series-end">
+    <div class="lbl">Fin de la serie · Los libros perdidos</div>
+    <p>Cuatro entregas, una verdad incómoda y luminosa: <span class="em">la Biblia es una selección, y toda selección deja fuera un mundo.</span></p>
+    <p>Lo perdido no siempre se perdió por falso. A veces solo llegó tarde, habló otra lengua, o soñó un Dios distinto.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>El hallazgo de Nag Hammadi (1945), la naturaleza del Evangelio de Tomás (114 dichos, copto, probable original griego) y la <span class="key">carta 39 de Atanasio (367 d.C.)</span> con los 27 libros son <span class="key">datos establecidos</span>. Referencias: <span class="key">Bart Ehrman</span> (<i>Lost Christianities</i>) y <span class="key">Elaine Pagels</span> (<i>Los evangelios gnósticos</i>).</p>
+    <p><span class="key">En debate:</span> la datación del Evangelio de Tomás (del s. I al II) y si depende de los canónicos o es en parte independiente; una minoría de estudiosos lo data muy temprano. Se ha presentado la horquilla sin cerrarla. La etiqueta “gnóstico” para Tomás también se discute.</p>
+    <p>Este artículo describe la formación histórica del canon con respeto por la tradición cristiana; no afirma ninguna “conspiración” ni juzga la verdad teológica de los evangelios canónicos o apócrifos.</p>
+  </div>
+
+</div>
+
+
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#7a5c38;--accent-deep:#5a4226">
+    <a class="epnav-series" href="serie-libros.html">↑ Serie: Los libros perdidos</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="libros-3.html"><span class="dir">← Anterior</span><span class="ttl">La biblioteca del desierto: Qumrán</span></a>
+      <span class="epnav-btn empty"></span>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

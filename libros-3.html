@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La biblioteca del desierto: Qumrán — Estratos</title>
+<style>
+  :root{
+    --ink:#241c14;--parch:#efe6d2;--parch-deep:#e2d5b8;--parch-light:#f6efdd;
+    --sepia:#7a5c38;--sepia-deep:#5a4226;--ochre:#b08344;--gold:#c19a3e;
+    --wine:#7a3b3b;--wine-deep:#5a2828;--rule:#c9b48a;--shadow:rgba(60,42,20,.2);--green-ink:#4a5a3a;
+    --desert:#c9a678;--desert-deep:#8a6d48;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parch);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.4;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.1) 1px, transparent 0);background-size:4px 4px;mix-blend-mode:multiply}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--sepia-deep);background:rgba(246,239,221,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(150,120,70,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,239,221,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--sepia),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--sepia-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--sepia-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.12em;color:var(--sepia);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f2d;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--sepia);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a3020;margin:2rem 0}
+
+  /* opening narrative */
+  .story{margin:2rem 0;padding:1.6rem 1.8rem;background:linear-gradient(160deg,rgba(201,166,120,.2),rgba(138,109,72,.1));border:1px solid rgba(138,109,72,.35);border-radius:12px;font-size:1.08rem;font-style:italic;color:#4a3820}
+  .story b{font-style:normal;color:var(--sepia-deep)}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:10px;overflow:hidden;background:rgba(122,92,56,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.42) saturate(1.08) contrast(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#4a3a24;background:rgba(122,92,56,.1)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#8a7050}
+  figure.fig figcaption .credit a{color:var(--ochre)}
+
+  article h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--sepia-deep)}
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;margin-bottom:.4rem}
+  article h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--wine);margin:2rem 0 .8rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--sepia-deep)}
+  article strong{color:var(--sepia-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(122,92,56,.09);border:1px solid rgba(122,92,56,.25);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sepia-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d2b}
+
+  .keyfind{margin:1.6rem 0;display:grid;gap:.8rem}
+  .kf{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1rem 1.2rem;background:var(--parch-light);border:1px solid var(--rule);border-radius:8px}
+  .kf .ic{font-size:1.3rem;flex-shrink:0}
+  .kf .txt{font-size:1rem;color:#463d2b}
+  .kf .txt b{color:var(--sepia-deep)}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--sepia);font-size:.9rem}
+
+  .note-block{background:var(--sepia-deep);color:#e8dcc4;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#d4c4a4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--parch-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a7a5a;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--sepia-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#5a4c34;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--sepia-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--parch-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5a;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Los libros perdidos · Entrega III</span>
+    <h1>La biblioteca<br>del <span class="em">desierto</span></h1>
+    <div class="glyphs">מְגִלּוֹת יָם הַמֶּלַח</div>
+    <p class="standfirst">En 1947, un pastor arrojó una piedra en una cueva junto al Mar Muerto y oyó romperse una vasija. Dentro estaba la biblioteca que cambiaría para siempre nuestra idea de la Biblia.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="story">
+    A comienzos de <b>1947</b>, un joven pastor beduino llamado <b>Muhammed edh-Dhib</b> buscaba una cabra extraviada entre los acantilados de piedra caliza de <b>Qumrán</b>, en la orilla noroeste del Mar Muerto. Para comprobar si el animal se había metido en una grieta, lanzó una piedra al interior oscuro de una cueva. En lugar de un balido, oyó el sonido inconfundible de <b>cerámica rompiéndose</b>. Al entrar, encontró unas vasijas de barro; dentro, envueltos en lino, tres fardos de pergamino antiguo. Aquel sonido, sin que nadie lo supiera todavía, resonaría en todo el mundo.
+  </div>
+
+  <p class="intro-text">Aquellos rollos eran los primeros <strong>Manuscritos del Mar Muerto</strong>: el mayor hallazgo de textos antiguos del siglo XX. Y para esta serie sobre los libros perdidos, son el episodio central —porque Qumrán no editó, no cribó, no censuró—. Simplemente <strong>guardó</strong>, tal cual, la biblioteca de una comunidad judía, sellada durante dos mil años. Al abrirla, vimos la Escritura tal como se leía <em>antes</em> de que el canon se cerrara.</p>
+
+  <figure class="fig">
+    <img src="qumran-cuevas.jpg" alt="Las cuevas de Qumrán en los acantilados junto al Mar Muerto">
+    <figcaption>
+      <span class="desc">Las cuevas de Qumrán, en los acantilados de la orilla noroeste del Mar Muerto, donde se hallaron los manuscritos.</span>
+      <span class="credit">Hoshvilim, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono sepia.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">01</span>Qué había en las cuevas</h2>
+  <p>La primera cueva dio siete rollos; la búsqueda que siguió, casi una década (1947–1956), reveló <strong>once cuevas</strong> con los restos de unos <strong>900 manuscritos</strong>, la mayoría en fragmentos. Databan de un arco amplio: del <strong>siglo III a.C. al 68 d.C.</strong>, cuando la comunidad escondió su biblioteca ante el avance del ejército romano. El clima extremadamente seco del desierto actuó como una cápsula del tiempo, preservando el pergamino durante dos milenios.</p>
+  <div class="keyfind">
+    <div class="kf"><span class="ic">📜</span><span class="txt"><b>Manuscritos bíblicos.</b> Se hallaron copias de <strong>todos los libros de la Biblia hebrea salvo Ester</strong>. El más célebre es el <span class="term">Gran Rollo de Isaías</span>, casi completo, de unos 7 metros de largo.</span></div>
+    <div class="kf"><span class="ic">✍️</span><span class="txt"><b>Textos “de los perdidos”.</b> Aparecieron copias de <strong>1 Enoc y Jubileos</strong> —los mismos libros expulsados de la entrega anterior—, demostrando cuánto se leían.</span></div>
+    <div class="kf"><span class="ic">📖</span><span class="txt"><b>Textos propios de la comunidad.</b> Reglas, himnos y comentarios que describen a una secta con su propia teología —muy probablemente los <span class="term">esenios</span>—, incluida la célebre visión dualista de “los hijos de la luz” contra “los hijos de las tinieblas”.</span></div>
+  </div>
+
+  <figure class="fig">
+    <img src="rollo-isaias.jpg" alt="El Gran Rollo de Isaías, uno de los Manuscritos del Mar Muerto">
+    <figcaption>
+      <span class="desc">El Gran Rollo de Isaías, el manuscrito bíblico mejor conservado de Qumrán, casi mil años más antiguo que las copias medievales conocidas hasta entonces.</span>
+      <span class="credit">Reproducción fotográfica de Ardon Bar Hama (Museo de Israel, Jerusalén). Dominio público, vía Wikimedia Commons. Tratada en tono sepia.</span>
+    </figcaption>
+  </figure>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>Por qué lo cambiaron todo</h2>
+  <p>Antes de 1947, las copias hebreas más antiguas de la Biblia que teníamos eran medievales (el texto masorético, del siglo IX-X d.C.). Los rollos de Qumrán retrocedieron ese reloj <strong>más de mil años</strong> de un solo golpe. Y aquí llegó la gran pregunta: al comparar el Isaías de Qumrán con el masorético, mil años posterior, ¿cuánto había cambiado el texto?</p>
+  <p>La respuesta fue sorprendente en dos direcciones a la vez. Por un lado, muchos textos eran <strong>asombrosamente estables</strong>: el Isaías de Qumrán coincide casi palabra por palabra con el medieval, prueba del cuidado extraordinario de los copistas. Pero por otro, aparecieron <strong>versiones distintas</strong> de algunos libros —pasajes más largos o más cortos, variantes—, mostrando que en aquella época <em>circulaban varias formas del mismo texto a la vez</em>. La Biblia todavía no era un objeto único y fijo: era un texto <strong>vivo y plural</strong>.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Qumrán nos dio la Biblia mil años más antigua de lo que teníamos. Y reveló dos cosas: que los copistas fueron increíblemente fieles con muchos textos, pero que en aquel tiempo aún convivían <em>varias versiones</em> de algunos libros. El texto sagrado todavía se estaba asentando.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>La foto de un mundo antes de la criba</h2>
+  <p>Aquí Qumrán conecta con toda esta serie. En la biblioteca de aquella comunidad, <strong>los libros bíblicos y los “apócrifos” convivían en el mismo estante</strong>, sin una frontera nítida. Enoc y Jubileos estaban junto a Isaías y los Salmos. Para los habitantes de Qumrán, la línea entre “canónico” y “no canónico” —que a nosotros nos parece obvia— <strong>simplemente no estaba trazada aún con claridad</strong>.</p>
+  <p>Es la confirmación material de lo que vimos en la primera entrega: el canon fue una criba <em>gradual</em>. Qumrán nos da la fotografía de un momento <strong>anterior</strong> a que esa criba terminara —una instantánea del judaísmo del Segundo Templo con toda su diversidad textual intacta, antes de que el tiempo y las comunidades cerraran la lista.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Síntesis</h2>
+  <p>Los Manuscritos del Mar Muerto son el testigo más elocuente de esta serie porque no son un texto <em>sobre</em> la Biblia, sino la Biblia misma <strong>congelada en un instante de su formación</strong>. Nos muestran un momento en que lo sagrado todavía era plural: varias versiones, varios libros, una frontera aún sin dibujar.</p>
+  <p>Por una casualidad —una cabra perdida, una piedra, una vasija— recuperamos la biblioteca que el tiempo había sellado, y con ella la prueba de que la Biblia que hoy damos por fija fue, durante siglos, un texto en movimiento. Nos queda un último territorio de libros perdidos, esta vez del lado cristiano: los evangelios que no entraron.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Última entrega de la serie</div>
+    <div class="ttl">Los evangelios que no entraron</div>
+    <p>Tomás, María, Judas: hubo muchos más evangelios de los cuatro que conocemos. Qué decían, por qué se excluyeron, y cómo se cerró el canon del Nuevo Testamento.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>El descubrimiento (1947), el número de cuevas (11) y manuscritos (~900), la datación (s. III a.C.–68 d.C.), la ausencia de Ester y el Gran Rollo de Isaías son <span class="key">datos establecidos</span>. La atribución de la comunidad a los <span class="key">esenios</span> es la hipótesis mayoritaria, aunque <span class="key">no unánime</span> —algunos estudiosos proponen otros orígenes—; se ha señalado como “muy probablemente”.</p>
+    <p><span class="key">Matiz importante:</span> la idea de que Qumrán prueba un texto bíblico “fluido” debe equilibrarse con la evidencia de gran estabilidad en muchos manuscritos. Se han presentado ambas caras. Referencias: <span class="key">Emanuel Tov</span> (crítica textual) y las ediciones oficiales de los <i>Discoveries in the Judaean Desert</i>.</p>
+    <p>Este artículo describe historia de los textos y no emite juicio sobre la inspiración de ninguno.</p>
+  </div>
+
+</div>
+
+
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#7a5c38;--accent-deep:#5a4226">
+    <a class="epnav-series" href="serie-libros.html">↑ Serie: Los libros perdidos</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="libros-2.html"><span class="dir">← Anterior</span><span class="ttl">Los libros expulsados: Enoc y los demás</span></a>
+      <a class="epnav-btn next" href="libros-4.html"><span class="dir">Siguiente →</span><span class="ttl">Los evangelios que no entraron</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El juicio final en las tres tradiciones — Estratos</title>
+<style>
+  :root{
+    --void:#0f1420;--void-2:#161d2e;--ink-light:#e8e2d4;--muted:#9aa3b8;
+    --gold:#d4af5a;--gold-soft:#c19a3e;--amber:#e0a860;
+    --star:#f0ead8;--violet:#8a7bb0;--violet-deep:#5a4d7a;--rule:#3a4258;
+    --jud:#5a8ca0;--chr:#a0785a;--isl:#5a9c78;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--void);color:var(--ink-light);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(1.5px 1.5px at 20% 30%, rgba(240,234,216,.6), transparent),
+      radial-gradient(1.5px 1.5px at 60% 70%, rgba(240,234,216,.4), transparent),
+      radial-gradient(1px 1px at 80% 20%, rgba(240,234,216,.5), transparent),
+      radial-gradient(1px 1px at 35% 80%, rgba(240,234,216,.4), transparent),
+      radial-gradient(1.5px 1.5px at 90% 55%, rgba(212,175,90,.5), transparent),
+      radial-gradient(1px 1px at 12% 60%, rgba(240,234,216,.35), transparent);
+    background-repeat:no-repeat}
+  body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%, rgba(138,123,176,.12), transparent 60%)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--gold);background:rgba(22,29,46,.85);backdrop-filter:blur(6px);
+    border:1px solid rgba(212,175,90,.35);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 20px rgba(0,0,0,.4);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(22,29,46,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--violet),var(--gold));z-index:60;transition:width .1s linear;box-shadow:0 0 8px var(--gold)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+  .wrap.narrow{max-width:720px}
+
+  header.masthead{padding:16vh 0 5vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.34em;
+    font-size:.7rem;color:var(--gold);font-weight:700;margin-bottom:2rem;display:inline-block;padding-left:.34em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.3rem;color:var(--star);text-shadow:0 0 30px rgba(212,175,90,.2)}
+  header.masthead h1 .em{font-style:italic;color:var(--gold)}
+  .glyphs{font-size:clamp(1rem,2.6vw,1.4rem);letter-spacing:.1em;color:var(--violet);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:var(--muted);max-width:600px;margin:0 auto;font-style:italic}
+  .descend{margin-top:3rem;font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet)}
+  .descend span{display:block;font-size:1.3rem;margin-top:.5rem;color:var(--gold);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.4;transform:translateY(0)}50%{opacity:1;transform:translateY(6px)}}
+
+  .intro-text{font-size:1.12rem;color:#c8cdda;margin:2rem 0}
+
+  /* ---------- TRIPLE COLUMN ---------- */
+  .tri-intro{text-align:center;margin:2.5rem 0 1.2rem}
+  .tri-intro .label{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .tri-intro .hint{font-size:.92rem;color:var(--muted);font-style:italic;margin-top:.5rem}
+
+  .compare-row{margin:1.4rem 0}
+  .compare-row .aspect{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold);text-align:center;margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule)}
+  .tri{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+  .col{border-radius:10px;padding:1.1rem 1.1rem;background:rgba(22,29,46,.55)}
+  .col.jud{border-top:3px solid var(--jud)}
+  .col.chr{border-top:3px solid var(--chr)}
+  .col.isl{border-top:3px solid var(--isl)}
+  .col .trad{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem}
+  .col.jud .trad{color:var(--jud)}
+  .col.chr .trad{color:var(--chr)}
+  .col.isl .trad{color:var(--isl)}
+  .col p{font-size:.92rem;color:#d2d7e2;margin:0;line-height:1.55}
+  .col .term{font-style:italic;color:var(--gold)}
+  @media(max-width:680px){
+    .tri{grid-template-columns:1fr;gap:.6rem}
+    .col{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:baseline}
+    .col .trad{margin-bottom:0;min-width:5.5rem}
+  }
+
+  article h2.sec{font-size:1.6rem;font-weight:400;color:var(--star);margin:2.8rem 0 1rem}
+  article h2.sec .n{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;font-weight:700;color:var(--gold);letter-spacing:.12em;display:block;margin-bottom:.4rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem;color:#d2d7e2}
+  article p .term{font-style:italic;color:var(--gold)}
+  article strong{color:var(--star);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(212,175,90,.08);border:1px solid rgba(212,175,90,.28);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#d8dae2}
+
+  .revelation{margin:2.2rem 0;padding:1.6rem 1.8rem;background:linear-gradient(160deg,rgba(90,77,122,.25),rgba(22,29,46,.6));
+    border:1px solid rgba(138,123,176,.35);border-radius:12px;position:relative;overflow:hidden}
+  .revelation::before{content:"";position:absolute;top:-30%;right:-10%;width:180px;height:180px;background:radial-gradient(circle,rgba(212,175,90,.18),transparent 70%);pointer-events:none}
+  .revelation .r-label{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.7rem}
+  .revelation p{font-size:1.1rem;color:#e4e0d0;font-style:italic;margin:0}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3.2rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--gold);font-size:.9rem}
+
+  .note-block{background:rgba(22,29,46,.8);border:1px solid var(--rule);color:#b8bfd0;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#a8b0c2;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--amber)}
+
+  .series-end{margin-top:2.5rem;padding:2.2rem 1.9rem;background:linear-gradient(160deg,rgba(90,77,122,.3),rgba(15,20,32,.5));border:1px solid rgba(212,175,90,.35);border-radius:14px;text-align:center}
+  .series-end .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet);font-weight:700;margin-bottom:.8rem}
+  .series-end p{font-size:1.06rem;color:#e8e2d4;margin-bottom:.8rem;line-height:1.6}
+  .series-end p:last-child{margin-bottom:0}
+  .series-end .em{font-style:italic;color:var(--gold)}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--gold);
+    padding:.8rem 1.6rem;border:1px solid rgba(212,175,90,.35);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:rgba(212,175,90,.1);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--muted);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:13vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress,.article-foot a.home-link{transition:none}.descend span{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">El fin del mundo · Entrega IV · Final</span>
+    <h1>El juicio final en las<br>tres <span class="em">tradiciones</span></h1>
+    <div class="glyphs">יוֹם הַדִּין · Κρίσις · يوم القيامة</div>
+    <p class="standfirst">Judaísmo, cristianismo e islam heredaron una misma imaginación del fin —resurrección, juicio, cielo e infierno— y cada uno la moldeó a su manera. Un cuadro comparado.</p>
+    <div class="descend">Desciende al juicio<span>↓</span></div>
+  </div>
+</header>
+
+<div class="wrap narrow">
+  <p class="intro-text">Hemos visto nacer la esperanza (de la derrota), su forma literaria (Daniel) y la resurrección (de la crisis de los mártires). En esta última entrega, esas piezas se ensamblan en el gran drama del <strong>fin de los tiempos</strong>, y seguimos su herencia en las tres religiones que brotaron de este tronco común. Compartieron los materiales; construyeron edificios distintos.</p>
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#8a7bb0;--accent-deep:#5a4d7a">
+    <a class="epnav-series" href="serie-apocalipsis.html">↑ Serie: El fin del mundo</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="apocalipsis-3.html"><span class="dir">← Anterior</span><span class="ttl">La resurrección de los muertos</span></a>
+      <span class="epnav-btn empty"></span>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="tri-intro">
+    <div class="label">El fin de los tiempos, cara a cara</div>
+    <div class="hint">Un mismo esquema, tres desarrollos</div>
+  </div>
+
+  <div class="compare-row">
+    <div class="aspect">La figura que trae el fin</div>
+    <div class="tri">
+      <div class="col jud"><div class="trad">Judaísmo</div><p>El <span class="term">Mashíaj</span> (Mesías), un rey humano de la línea de David que inaugurará una era de paz y restaurará a Israel. Generalmente <strong>no divino</strong>.</p></div>
+      <div class="col chr"><div class="trad">Cristianismo</div><p>El <strong>retorno de Cristo</strong> (la Segunda Venida) en gloria, ya no como siervo sufriente sino como juez del mundo.</p></div>
+      <div class="col isl"><div class="trad">Islam</div><p>Señales del fin y figuras como el <span class="term">Mahdí</span>; también el <strong>retorno de Jesús</strong> (Isa), respetado como profeta, para derrotar al engañador.</p></div>
+    </div>
+  </div>
+
+  <div class="compare-row">
+    <div class="aspect">La resurrección</div>
+    <div class="tri">
+      <div class="col jud"><div class="trad">Judaísmo</div><p>Resurrección de los muertos (<span class="term">tejiat ha-metim</span>) en el tiempo por venir; central para los fariseos y el judaísmo rabínico posterior.</p></div>
+      <div class="col chr"><div class="trad">Cristianismo</div><p>Resurrección universal de los muertos para el juicio, con la de Cristo como “primicia” y garantía.</p></div>
+      <div class="col isl"><div class="trad">Islam</div><p>El <span class="term">Yawm al-Qiyama</span>, Día de la Resurrección, es uno de los pilares de la fe: todos serán devueltos a la vida corporalmente.</p></div>
+    </div>
+  </div>
+
+  <div class="compare-row">
+    <div class="aspect">El juicio</div>
+    <div class="tri">
+      <div class="col jud"><div class="trad">Judaísmo</div><p>Dios juzga; el énfasis histórico recae más en <strong>este mundo</strong> y en la restauración colectiva que en el destino individual detallado.</p></div>
+      <div class="col chr"><div class="trad">Cristianismo</div><p>El <strong>Juicio Final</strong> ante el trono: cada persona responde por sus obras y su fe; separación de salvados y condenados.</p></div>
+      <div class="col isl"><div class="trad">Islam</div><p>Juicio individual minucioso: las obras se <strong>pesan en una balanza</strong> (<span class="term">mizan</span>) y cada uno recibe el registro de su vida.</p></div>
+    </div>
+  </div>
+
+  <div class="compare-row">
+    <div class="aspect">El destino: recompensa y castigo</div>
+    <div class="tri">
+      <div class="col jud"><div class="trad">Judaísmo</div><p>El <span class="term">Olam ha-Bá</span> (“mundo por venir”) y el Edén; nociones de purificación (Gehinnom) más que de infierno eterno detallado. Diversidad de opiniones.</p></div>
+      <div class="col chr"><div class="trad">Cristianismo</div><p>Cielo e infierno como destinos eternos; en algunas tradiciones, un estado intermedio de purificación.</p></div>
+      <div class="col isl"><div class="trad">Islam</div><p><span class="term">Yanna</span> (el Jardín) y <span class="term">Yahannam</span> (el Fuego), descritos con vívido detalle en el Corán como destinos tras el juicio.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<article>
+  <div class="wrap narrow">
+
+    <div class="revelation">
+      <div class="r-label">Lo que muestra el cuadro</div>
+      <p>Las tres columnas no son tres invenciones independientes. Son tres ramas de un mismo árbol, cuyo tronco es la apocalíptica judía del Segundo Templo que hemos recorrido en esta serie. Las diferencias son reales; el parentesco, innegable.</p>
+    </div>
+
+    <h2 class="sec"><span class="n">El tronco común</span>Una familia de imaginaciones del fin</h2>
+    <p>Lo notable no son las diferencias —naturales entre tradiciones distintas— sino <strong>cuánto comparten</strong>. Resurrección corporal, un juicio que separa a justos de malvados, destinos de recompensa y castigo, una figura que inaugura el fin, la victoria definitiva del bien: este <strong>esquema</strong> no existía en la religión más antigua de Israel. Se forjó, como vimos, entre el siglo III a.C. y los primeros siglos de nuestra era, y de ese depósito común bebieron las tres.</p>
+    <p>El cristianismo lo heredó directamente del judaísmo del Segundo Templo en el que nació. El islam, surgido después en un entorno donde circulaban ideas judías y cristianas, recogió y reelaboró el mismo repertorio. Por eso un lector de las tres escrituras reconoce, bajo las diferencias, un <strong>aire de familia</strong> inconfundible.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>Las tres religiones imaginan el fin de forma parecida —resurrección, juicio, cielo e infierno— porque heredaron el mismo “kit” de ideas, nacido en el judaísmo antiguo. Cada una lo armó a su modo, pero las piezas vienen del mismo sitio.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2 class="sec"><span class="n">El cierre de la serie</span>Cómo se inventó el fin del mundo</h2>
+    <p>Y así se cierra el arco. Empezamos con un reino en ruinas y una promesa rota; terminamos con tres religiones mundiales que comparten una misma visión del fin de los tiempos. Entre ambos extremos está toda la historia que esta serie ha contado: cómo la <strong>derrota</strong> engendró esperanza, cómo la <strong>persecución</strong> dio forma literaria a esa esperanza en Daniel, cómo la <strong>injusticia contra los mártires</strong> hizo nacer la resurrección, y cómo todo ello se ensambló en el gran drama del juicio.</p>
+    <p>La conclusión es la de todo el blog, llevada a su frontera última: la imaginación del fin del mundo —cielo, infierno, juicio, salvador— que hoy comparten miles de millones <strong>no estaba al principio</strong>. Se construyó, estrato sobre estrato, como respuesta humana al sufrimiento y a la sed de justicia. No cayó del cielo ya hecha: se fue haciendo en la tierra.</p>
+
+    <div class="series-end">
+      <div class="lbl">Fin de la serie · El fin del mundo</div>
+      <p>Cuatro entregas, un solo hallazgo: <span class="em">hasta el fin del mundo tiene una historia, y empieza en una derrota.</span></p>
+      <p>De las ruinas de Jerusalén a la balanza del juicio, la mayor esperanza de Occidente se forjó en sus horas más oscuras.</p>
+    </div>
+
+    <div class="note-block">
+      <h3>Nota sobre el rigor y las fuentes</h3>
+      <p>El origen común de la escatología abrahámica en la apocalíptica judía del Segundo Templo es <span class="key">consenso amplio</span>. El cuadro comparativo resume <span class="key">tendencias mayoritarias</span> de cada tradición, que internamente son <span class="key">diversas</span>: hay múltiples corrientes dentro del judaísmo, el cristianismo y el islam, y este resumen necesariamente simplifica. No debe tomarse como la posición única de ninguna.</p>
+      <p>Este artículo describe historia comparada de las religiones con respeto por las tres tradiciones; <span class="key">no juzga</span> la verdad de ninguna ni sugiere que una “copió” a otra de forma ilegítima —la herencia y reelaboración de ideas es como se desarrollan todas las tradiciones religiosas.</p>
+      <p>Para profundizar con rigor conviene acudir a fuentes propias de cada tradición y a estudios de escatología comparada. Las transliteraciones son orientativas.</p>
+    </div>
+
+  </div>
+</article>
+
+<div class="wrap narrow">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

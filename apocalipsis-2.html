@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel y la invención del apocalipsis — Estratos</title>
+<style>
+  :root{
+    --void:#0f1420;--void-2:#161d2e;--ink-light:#e8e2d4;--muted:#9aa3b8;
+    --gold:#d4af5a;--gold-soft:#c19a3e;--amber:#e0a860;
+    --star:#f0ead8;--violet:#8a7bb0;--violet-deep:#5a4d7a;
+    --blood:#a04858;--rule:#3a4258;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--void);color:var(--ink-light);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(1.5px 1.5px at 20% 30%, rgba(240,234,216,.7), transparent),
+      radial-gradient(1.5px 1.5px at 60% 70%, rgba(240,234,216,.5), transparent),
+      radial-gradient(1px 1px at 80% 20%, rgba(240,234,216,.6), transparent),
+      radial-gradient(1px 1px at 35% 80%, rgba(240,234,216,.5), transparent),
+      radial-gradient(1.5px 1.5px at 90% 55%, rgba(212,175,90,.5), transparent),
+      radial-gradient(1px 1px at 12% 60%, rgba(240,234,216,.4), transparent),
+      radial-gradient(1px 1px at 48% 15%, rgba(240,234,216,.5), transparent);
+    background-repeat:no-repeat}
+  body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 0%, rgba(138,123,176,.14), transparent 60%)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--gold);background:rgba(22,29,46,.85);backdrop-filter:blur(6px);
+    border:1px solid rgba(212,175,90,.35);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 20px rgba(0,0,0,.4);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(22,29,46,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--violet),var(--gold));z-index:60;transition:width .1s linear;box-shadow:0 0 8px var(--gold)}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:16vh 0 5vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.34em;
+    font-size:.7rem;color:var(--gold);font-weight:700;margin-bottom:2rem;display:inline-block;padding-left:.34em}
+  header.masthead h1{font-size:clamp(2.1rem,5.5vw,3.5rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.3rem;
+    color:var(--star);text-shadow:0 0 30px rgba(212,175,90,.2)}
+  header.masthead h1 .em{font-style:italic;color:var(--gold)}
+  .glyphs{font-size:clamp(1.2rem,3.4vw,1.7rem);letter-spacing:.18em;color:var(--violet);margin:.8rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:var(--muted);max-width:600px;margin:0 auto;font-style:italic}
+  .descend{margin-top:3rem;font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet)}
+  .descend span{display:block;font-size:1.3rem;margin-top:.5rem;color:var(--gold);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.4;transform:translateY(0)}50%{opacity:1;transform:translateY(6px)}}
+
+  .intro-text{font-size:1.12rem;color:#c8cdda;margin:2rem 0}
+
+  article h2{font-size:1.7rem;font-weight:400;line-height:1.2;margin:3rem 0 1.1rem;color:var(--star)}
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--gold);letter-spacing:.14em;display:block;margin-bottom:.4rem}
+  article h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--amber);margin:2rem 0 .8rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem;color:#d2d7e2}
+  article p .term{font-style:italic;color:var(--gold)}
+  article strong{color:var(--star);font-weight:700}
+
+  /* VISIONS — desplegables */
+  .visions-intro{text-align:center;margin:2.5rem 0 1rem}
+  .visions-intro .label{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .visions-intro .hint{font-size:.92rem;color:var(--muted);font-style:italic;margin-top:.5rem}
+
+  .vision{margin:1rem 0;border:1px solid rgba(138,123,176,.3);border-radius:12px;overflow:hidden;
+    background:linear-gradient(160deg,rgba(90,77,122,.18),rgba(22,29,46,.5));transition:border-color .3s}
+  .vision.open{border-color:rgba(212,175,90,.5)}
+  .vision-head{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;cursor:pointer;user-select:none}
+  .vision-head .beast-num{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.8rem;color:var(--void);background:var(--gold);
+    width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .vision-head .beast-name{flex:1;font-size:1.15rem;color:var(--star)}
+  .vision-head .beast-name .sub{display:block;font-size:.8rem;color:var(--muted);font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em;margin-top:.15rem}
+  .vision-head .toggle{font-size:1.2rem;color:var(--gold);transition:transform .3s}
+  .vision.open .vision-head .toggle{transform:rotate(45deg)}
+  .vision-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+  .vision.open .vision-body{max-height:400px}
+  .vision-body .inner{padding:0 1.4rem 1.4rem;border-top:1px solid rgba(138,123,176,.2)}
+  .vision-body .desc{font-size:1.02rem;color:#d2d7e2;margin:1rem 0 .8rem;font-style:italic}
+  .vision-body .decode{background:rgba(212,175,90,.1);border-radius:8px;padding:.9rem 1.1rem;font-size:.96rem;color:#e4dcc4;font-family:"Trebuchet MS",sans-serif}
+  .vision-body .decode b{color:var(--gold)}
+
+  .revelation{margin:2.2rem 0;padding:1.6rem 1.8rem;background:linear-gradient(160deg,rgba(90,77,122,.25),rgba(22,29,46,.6));
+    border:1px solid rgba(138,123,176,.35);border-radius:12px;position:relative;overflow:hidden}
+  .revelation::before{content:"";position:absolute;top:-30%;right:-10%;width:180px;height:180px;
+    background:radial-gradient(circle,rgba(212,175,90,.18),transparent 70%);pointer-events:none}
+  .revelation .r-label{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.7rem}
+  .revelation p{font-size:1.1rem;color:#e4e0d0;font-style:italic;margin:0}
+
+  .pullquote{margin:2rem 0;padding:1.3rem 1.7rem;background:rgba(22,29,46,.7);border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;font-style:italic;font-size:1.12rem;color:var(--star)}
+  .pullquote .src{display:block;margin-top:.7rem;font-style:normal;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em;color:var(--muted)}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(212,175,90,.08);border:1px solid rgba(212,175,90,.28);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#d8dae2}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3.2rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--gold);font-size:.9rem}
+
+  .note-block{background:rgba(22,29,46,.8);border:1px solid var(--rule);color:#b8bfd0;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#a8b0c2;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--amber)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:rgba(90,77,122,.18);border:1px solid rgba(138,123,176,.35);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--gold);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:var(--muted);margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--gold);
+    padding:.8rem 1.6rem;border:1px solid rgba(212,175,90,.35);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:rgba(212,175,90,.1);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--muted);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:13vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress,.article-foot a.home-link,.vision-body{transition:none}.descend span{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">El fin del mundo · Entrega II</span>
+    <h1>Daniel y la invención<br>del <span class="em">apocalipsis</span></h1>
+    <div class="glyphs">בַּר אֱנָשׁ</div>
+    <p class="standfirst">Bajo una persecución feroz, un autor anónimo escribió visiones de bestias monstruosas, tronos de fuego y una figura que venía entre las nubes. Nacía un género literario que cambiaría el mundo.</p>
+    <div class="descend">Desciende a las visiones<span>↓</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">La entrega anterior mostró <em>por qué</em> nació la esperanza apocalíptica: de siglos de derrota. Esta muestra <em>cómo</em> tomó forma literaria, en un libro concreto y en un momento concreto de crisis. El libro de <strong>Daniel</strong> —o al menos su segunda mitad, la de las visiones— es el primer gran apocalipsis de la Biblia hebrea, y para entenderlo hay que saber cuándo se escribió realmente.</p>
+
+  <div class="revelation">
+    <div class="r-label">La clave para entenderlo todo</div>
+    <p>Aunque el libro se ambienta en el exilio babilónico (siglo VI a.C.), los estudiosos coinciden en que sus visiones se escribieron mucho después: hacia el 165 a.C., durante la brutal persecución del rey griego Antíoco IV. No es historia del pasado: es un mensaje en clave para un presente desesperado.</p>
+  </div>
+
+  <h2><span class="n">I</span>Un mensaje en clave para tiempos de terror</h2>
+  <p>Hacia el 167 a.C., el rey seléucida <strong>Antíoco IV Epífanes</strong> intentó erradicar la religión judía: prohibió la Torá, profanó el Templo de Jerusalén y ejecutó a quienes resistían. Fue una de las primeras persecuciones religiosas documentadas de la historia. En ese contexto de terror, escribir abiertamente contra el rey era suicida. Así que el autor de Daniel hizo algo brillante: <strong>disfrazó su mensaje</strong>.</p>
+  <p>Ambientó sus visiones en un pasado lejano —el exilio, siglos atrás— y describió a los imperios como <strong>bestias simbólicas</strong>. Cualquier lector judío perseguido entendería el código; el censor griego, no. El apocalipsis nace, en parte, como <strong>literatura de resistencia cifrada</strong>.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Daniel es como una carta en clave escrita bajo una dictadura. Habla de “bestias” y “reyes antiguos”, pero todo lector perseguido sabía que se refería a su propio opresor. El disfraz histórico protegía al autor y a quien lo leía.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">II</span>Las cuatro bestias</h2>
+  <p>En su visión más famosa (Daniel 7), el vidente ve surgir del mar agitado —el viejo <span class="term">tehom</span>, el caos— cuatro bestias monstruosas, una tras otra. Cada una representa un <strong>imperio</strong>. Ábrelas para descifrarlas.</p>
+
+  <div class="visions-intro">
+    <div class="label">La visión de las cuatro bestias · Daniel 7</div>
+    <div class="hint">Toca cada bestia para descifrar su significado</div>
+  </div>
+
+  <div class="visions">
+
+    <div class="vision" data-vision>
+      <div class="vision-head">
+        <span class="beast-num">1</span>
+        <span class="beast-name">El león con alas de águila<span class="sub">La primera bestia</span></span>
+        <span class="toggle">+</span>
+      </div>
+      <div class="vision-body"><div class="inner">
+        <p class="desc">“La primera era como un león, y tenía alas de águila…”</p>
+        <div class="decode"><b>Se descifra como:</b> el imperio <b>babilónico</b>, el que destruyó Jerusalén. El león alado era un símbolo real de Babilonia, visible en sus propias puertas.</div>
+      </div></div>
+    </div>
+
+    <div class="vision" data-vision>
+      <div class="vision-head">
+        <span class="beast-num">2</span>
+        <span class="beast-name">El oso con costillas en la boca<span class="sub">La segunda bestia</span></span>
+        <span class="toggle">+</span>
+      </div>
+      <div class="vision-body"><div class="inner">
+        <p class="desc">“…semejante a un oso, que se alzaba de un costado y tenía tres costillas en la boca.”</p>
+        <div class="decode"><b>Se descifra como:</b> el imperio <b>medo</b>. Voraz, a medio incorporar, devorando conquistas.</div>
+      </div></div>
+    </div>
+
+    <div class="vision" data-vision>
+      <div class="vision-head">
+        <span class="beast-num">3</span>
+        <span class="beast-name">El leopardo de cuatro cabezas<span class="sub">La tercera bestia</span></span>
+        <span class="toggle">+</span>
+      </div>
+      <div class="vision-body"><div class="inner">
+        <p class="desc">“…como un leopardo, con cuatro alas y cuatro cabezas, y se le dio dominio.”</p>
+        <div class="decode"><b>Se descifra como:</b> el imperio <b>persa</b> (o, en otra lectura, el de Alejandro, dividido tras su muerte en cuatro reinos — las cuatro cabezas).</div>
+      </div></div>
+    </div>
+
+    <div class="vision" data-vision>
+      <div class="vision-head">
+        <span class="beast-num">4</span>
+        <span class="beast-name">La bestia terrible de los diez cuernos<span class="sub">La cuarta bestia</span></span>
+        <span class="toggle">+</span>
+      </div>
+      <div class="vision-body"><div class="inner">
+        <p class="desc">“…espantosa y terrible, con dientes de hierro; tenía diez cuernos, y entre ellos surgió un cuerno pequeño con ojos y boca que hablaba con arrogancia.”</p>
+        <div class="decode"><b>Se descifra como:</b> el imperio <b>griego</b>, y el “cuerno pequeño y arrogante” es <b>Antíoco IV</b> en persona —el perseguidor. Aquí el código apunta directo al enemigo real del autor.</div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">III</span>El trono de fuego y el “hijo de hombre”</h2>
+  <p>Tras las bestias, la visión da un giro sobrecogedor. Se instala un tribunal celestial: el <strong>Anciano de Días</strong> se sienta en un trono de llamas, con ruedas de fuego, y miles le sirven. Las bestias son juzgadas y despojadas de su poder. Y entonces aparece la figura que marcaría la historia:</p>
+  <div class="pullquote">
+    “Veía yo en la visión nocturna, y he aquí, con las nubes del cielo venía uno como un hijo de hombre… y le fue dado dominio, gloria y reino.”
+    <span class="src">Daniel 7:13–14</span>
+  </div>
+  <p>Ese <span class="term">bar enash</span> —“hijo de hombre”, es decir, “uno con figura humana”— recibe un reino eterno que no será destruido. En el contexto de Daniel, representa probablemente al <strong>pueblo fiel de Israel</strong> (o a su ángel protector, Miguel), que tras el sufrimiento recibe la victoria de manos de Dios. Frente a las bestias que suben del caos, esta figura baja del cielo: lo humano y lo divino frente a lo monstruoso.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>La visión promete a los perseguidos que los imperios-bestia serán juzgados y que el poder pasará a una figura “como humana” venida del cielo. Es un mensaje de esperanza: el terror presente tiene fecha de caducidad; Dios tendrá la última palabra.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">IV</span>El molde que heredaría el mundo</h2>
+  <p>Daniel fija los rasgos de un <strong>género nuevo</strong>, el apocalipsis (del griego <em>apokálypsis</em>, “revelación”), que otros textos imitarían durante siglos: visiones simbólicas, bestias e imperios, ángeles que interpretan, un juicio cósmico, la historia dividida en eras con un final inminente. Todo eso arranca aquí con fuerza.</p>
+  <p>Y su influencia fue inmensa. La expresión <strong>“hijo de hombre”</strong> sería retomada en los evangelios y aplicada a Jesús. Las imágenes de Daniel —los tronos, las bestias, el juicio— reaparecen transformadas en el <strong>Apocalipsis de Juan</strong> que cierra el Nuevo Testamento. Este texto, escrito para consolar a unos judíos perseguidos en el siglo II a.C., se convirtió en la cantera de casi toda la imaginación del fin del mundo posterior.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Próxima entrega</div>
+    <div class="ttl">La resurrección de los muertos</div>
+    <p>Al final de Daniel aparece, casi por primera vez en la Biblia hebrea, una idea nueva y explosiva: que los muertos despertarán. ¿De dónde salió una esperanza que los primeros israelitas no tenían?</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>La datación de las visiones de Daniel hacia el <span class="key">165 a.C.</span>, en la crisis de Antíoco IV, es <span class="key">consenso amplio</span> en los estudios críticos (por la precisión de sus “predicciones” hasta esa fecha y su vaguedad después). La identificación de las cuatro bestias con los imperios es estándar, aunque hay <span class="key">variantes</span> sobre cuál es cuál (el esquema Babilonia–Media–Persia–Grecia frente a otros). Referencia: <span class="key">John J. Collins</span>, <i>Daniel</i> (comentario Hermeneia).</p>
+    <p>La interpretación del “hijo de hombre” está <span class="key">en debate</span>: pueblo fiel, ángel Miguel, o figura mesiánica. Se ha presentado la lectura mayoritaria para el contexto original, distinta de su uso cristiano posterior.</p>
+    <p>Las citas son traducción propia orientativa. Nada de esto afirma ni niega la validez religiosa del texto.</p>
+  </div>
+
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#8a7bb0;--accent-deep:#5a4d7a">
+    <a class="epnav-series" href="serie-apocalipsis.html">↑ Serie: El fin del mundo</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="apocalipsis-1.html"><span class="dir">← Anterior</span><span class="ttl">La esperanza que nació de la derrota</span></a>
+      <a class="epnav-btn next" href="apocalipsis-3.html"><span class="dir">Siguiente →</span><span class="ttl">La resurrección de los muertos</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+
+  document.querySelectorAll('[data-vision]').forEach(v=>{
+    v.querySelector('.vision-head').addEventListener('click',()=>v.classList.toggle('open'));
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La resurrección de los muertos — Estratos</title>
+<style>
+  :root{
+    --void:#0f1420;--void-2:#161d2e;--ink-light:#e8e2d4;--muted:#9aa3b8;
+    --gold:#d4af5a;--gold-soft:#c19a3e;--amber:#e0a860;
+    --star:#f0ead8;--violet:#8a7bb0;--violet-deep:#5a4d7a;
+    --blood:#a04858;--rule:#3a4258;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--void);color:var(--ink-light);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(1.5px 1.5px at 20% 30%, rgba(240,234,216,.6), transparent),
+      radial-gradient(1.5px 1.5px at 60% 70%, rgba(240,234,216,.4), transparent),
+      radial-gradient(1px 1px at 80% 20%, rgba(240,234,216,.5), transparent),
+      radial-gradient(1px 1px at 35% 80%, rgba(240,234,216,.4), transparent),
+      radial-gradient(1.5px 1.5px at 90% 55%, rgba(212,175,90,.5), transparent),
+      radial-gradient(1px 1px at 12% 60%, rgba(240,234,216,.35), transparent);
+    background-repeat:no-repeat}
+  body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 0%, rgba(138,123,176,.12), transparent 60%)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--gold);background:rgba(22,29,46,.85);backdrop-filter:blur(6px);
+    border:1px solid rgba(212,175,90,.35);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 20px rgba(0,0,0,.4);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(22,29,46,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--violet),var(--gold));z-index:60;transition:width .1s linear;box-shadow:0 0 8px var(--gold)}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:16vh 0 5vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.34em;
+    font-size:.7rem;color:var(--gold);font-weight:700;margin-bottom:2rem;display:inline-block;padding-left:.34em}
+  header.masthead h1{font-size:clamp(2.1rem,5.5vw,3.5rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.3rem;
+    color:var(--star);text-shadow:0 0 30px rgba(212,175,90,.2)}
+  header.masthead h1 .em{font-style:italic;color:var(--gold)}
+  .glyphs{font-size:clamp(1.2rem,3.4vw,1.7rem);letter-spacing:.18em;color:var(--violet);margin:.8rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:var(--muted);max-width:600px;margin:0 auto;font-style:italic}
+  .descend{margin-top:3rem;font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet)}
+  .descend span{display:block;font-size:1.3rem;margin-top:.5rem;color:var(--gold);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.4;transform:translateY(0)}50%{opacity:1;transform:translateY(6px)}}
+
+  .intro-text{font-size:1.12rem;color:#c8cdda;margin:2rem 0}
+
+  /* ---------- DESCENT / STAGES ---------- */
+  .journey{margin:2.5rem 0;position:relative}
+  .journey::before{content:"";position:absolute;left:23px;top:10px;bottom:10px;width:2px;
+    background:linear-gradient(180deg,#1a1f2e,var(--violet-deep) 45%,var(--gold) 100%)}
+  .stage{position:relative;padding:0 0 2.2rem 4rem;opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .stage.in{opacity:1;transform:translateY(0)}
+  .stage .marker{position:absolute;left:12px;top:2px;width:24px;height:24px;border-radius:50%;
+    background:var(--void-2);border:3px solid var(--violet);display:flex;align-items:center;justify-content:center;z-index:2}
+  .stage.light .marker{border-color:var(--gold);box-shadow:0 0 14px rgba(212,175,90,.5)}
+  .stage .depth-label{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--violet);margin-bottom:.5rem}
+  .stage.light .depth-label{color:var(--gold)}
+  .stage h2{font-size:1.4rem;font-weight:400;color:var(--star);margin-bottom:.7rem;line-height:1.2}
+  .stage p{font-size:1.04rem;color:#d2d7e2;margin-bottom:.9rem}
+  .stage p:last-child{margin-bottom:0}
+  .stage .term{font-style:italic;color:var(--gold)}
+  .stage .verse{margin:1rem 0;padding:.9rem 1.2rem;background:rgba(22,29,46,.7);border-left:3px solid var(--violet);border-radius:0 8px 8px 0;font-style:italic;color:var(--star);font-size:1.02rem}
+  .stage.light .verse{border-left-color:var(--gold)}
+  .stage .verse .src{display:block;margin-top:.5rem;font-style:normal;font-size:.76rem;font-family:"Trebuchet MS",sans-serif;color:var(--muted)}
+
+  article h2.sec{font-size:1.6rem;font-weight:400;color:var(--star);margin:2.8rem 0 1rem}
+  article h2.sec .n{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;font-weight:700;color:var(--gold);letter-spacing:.12em;display:block;margin-bottom:.4rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem;color:#d2d7e2}
+  article p .term{font-style:italic;color:var(--gold)}
+  article strong{color:var(--star);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(212,175,90,.08);border:1px solid rgba(212,175,90,.28);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#d8dae2}
+
+  .revelation{margin:2.2rem 0;padding:1.6rem 1.8rem;background:linear-gradient(160deg,rgba(90,77,122,.25),rgba(22,29,46,.6));
+    border:1px solid rgba(138,123,176,.35);border-radius:12px;position:relative;overflow:hidden}
+  .revelation::before{content:"";position:absolute;top:-30%;right:-10%;width:180px;height:180px;background:radial-gradient(circle,rgba(212,175,90,.18),transparent 70%);pointer-events:none}
+  .revelation .r-label{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.7rem}
+  .revelation p{font-size:1.1rem;color:#e4e0d0;font-style:italic;margin:0}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3.2rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--gold);font-size:.9rem}
+
+  .note-block{background:rgba(22,29,46,.8);border:1px solid var(--rule);color:#b8bfd0;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#a8b0c2;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--amber)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:rgba(90,77,122,.18);border:1px solid rgba(138,123,176,.35);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--gold);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:var(--muted);margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--gold);
+    padding:.8rem 1.6rem;border:1px solid rgba(212,175,90,.35);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:rgba(212,175,90,.1);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--muted);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:13vh 0 3vh}.wrap{padding:0 20px}.stage{padding-left:3.4rem}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress,.article-foot a.home-link,.stage{transition:none;opacity:1;transform:none}.descend span{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">El fin del mundo · Entrega III</span>
+    <h1>La resurrección<br>de los <span class="em">muertos</span></h1>
+    <div class="glyphs">שְׁאוֹל</div>
+    <p class="standfirst">Puede sorprender: durante la mayor parte de su historia, Israel no esperó nada tras la muerte. La resurrección es una idea tardía y audaz. Este es el descenso hasta su origen.</p>
+    <div class="descend">Desciende al Sheol<span>↓</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Hoy asociamos las religiones abrahámicas con el cielo, el infierno y la vida eterna. Por eso resulta tan chocante descubrir que, en sus textos más antiguos, <strong>no hay casi nada de eso</strong>. La creencia en una resurrección de los muertos —tan central luego para el cristianismo y el islam— fue una <strong>llegada tardía</strong>, y podemos rastrear casi el momento exacto en que aparece. Bajemos, estrato por estrato, desde la vieja tierra de los muertos hasta el amanecer de la esperanza.</p>
+
+  <div class="journey">
+
+    <div class="stage" data-stage>
+      <div class="marker"></div>
+      <div class="depth-label">El fondo · lo más antiguo</div>
+      <h2>El Sheol: la tierra del silencio</h2>
+      <p>En la concepción más antigua de Israel, todos los muertos —buenos y malos— iban al mismo lugar: el <span class="term">Sheol</span>. No era un infierno de castigo ni un cielo de premio. Era una fosa común subterránea, oscura y polvorienta, donde las sombras de los difuntos llevaban una existencia apagada, sin fuerza y sin memoria.</p>
+      <div class="verse">“Los muertos no alaban a YAH, ni cuantos descienden al silencio.”<span class="src">Salmo 115:17</span></div>
+      <p>No había esperanza de salir. La muerte era, sencillamente, el final de la vida real. Lo que importaba se jugaba <strong>aquí</strong>: una vida larga, hijos, buen nombre.</p>
+    </div>
+
+    <div class="stage" data-stage>
+      <div class="marker"></div>
+      <div class="depth-label">Subiendo · el problema</div>
+      <h2>La grieta: ¿y la justicia?</h2>
+      <p>Mientras se creyó que Dios premiaba y castigaba <em>en esta vida</em>, el Sheol no era un problema. Pero llegó una crisis que lo cambió todo: la <strong>persecución de Antíoco IV</strong> que vimos en la entrega anterior. De pronto, los más fieles —los que morían mártires por no renunciar a su fe— eran precisamente los que peor acababan, torturados y ejecutados. Y los traidores prosperaban.</p>
+      <p>Esto abrió una grieta insoportable en la idea de un Dios justo. Si el mártir muere y el verdugo triunfa, y ambos terminan igual en el polvo del Sheol… <strong>¿dónde está la justicia de Dios?</strong> La vieja creencia ya no bastaba.</p>
+      <div class="simple">
+        <span class="tag">En simple</span>
+        <p>Mientras se pensó que Dios premiaba en vida, no hacía falta un “más allá”. Pero cuando los más justos empezaron a morir como mártires, surgió una pregunta que exigía respuesta: si no hay nada después, la injusticia gana. La resurrección nace para responder eso.</p>
+      </div>
+    </div>
+
+    <div class="stage light" data-stage>
+      <div class="marker"></div>
+      <div class="depth-label">El amanecer · la idea nueva</div>
+      <h2>El primer destello: Daniel 12</h2>
+      <p>Y entonces, en el mismo libro de Daniel —escrito en plena persecución—, aparece la <strong>primera afirmación clara de resurrección</strong> en la Biblia hebrea. Es una idea revolucionaria, y surge exactamente donde el problema la hacía necesaria:</p>
+      <div class="verse">“Muchos de los que duermen en el polvo de la tierra despertarán: unos para vida eterna, otros para vergüenza y confusión perpetua.”<span class="src">Daniel 12:2</span></div>
+      <p>Por primera vez, la muerte no es el final definitivo. Habrá un <strong>despertar</strong>, y con él una <strong>separación</strong>: los justos —los mártires— a la vida; los perversos, a la condena. La resurrección resuelve la grieta: la justicia que no llegó en vida, llegará después.</p>
+    </div>
+
+    <div class="stage light" data-stage>
+      <div class="marker"></div>
+      <div class="depth-label">La superficie · el florecimiento</div>
+      <h2>De destello a creencia central</h2>
+      <p>Lo que en Daniel es un destello, en los siglos siguientes se convierte en <strong>pilar</strong>. En tiempos de Jesús, la resurrección era ya la bandera de los <strong>fariseos</strong> —aunque otro grupo, los <strong>saduceos</strong>, la rechazaba justamente por ser una novedad sin raíces en la Torá antigua. El debate estaba vivo.</p>
+      <p>El <strong>cristianismo</strong> nació proclamando que esa resurrección ya había comenzado en Jesús, y la puso en su centro absoluto. El <strong>islam</strong> haría del Día de la Resurrección uno de sus artículos de fe fundamentales. Aquella idea nacida en una persecución del siglo II a.C. se volvió una de las creencias más influyentes de la humanidad.</p>
+    </div>
+
+  </div>
+</div>
+
+<article>
+  <div class="wrap">
+
+    <div class="revelation">
+      <div class="r-label">La forma del recorrido</div>
+      <p>Nótese el arco: la resurrección no cae del cielo como dogma eterno. Brota, en un momento histórico concreto, como respuesta al sufrimiento de los inocentes. Es una esperanza forjada en el peor de los fuegos.</p>
+    </div>
+
+    <h2 class="sec"><span class="n">Una influencia en debate</span>¿Y Persia?</h2>
+    <p>Como con Satán, muchos estudiosos señalan aquí también una posible influencia del <strong>zoroastrismo persa</strong>, que tenía una doctrina desarrollada de resurrección de los cuerpos y juicio final siglos antes. El contacto de los judíos con el imperio persa habría aportado materiales que, combinados con la crisis interna de la persecución, cristalizaron en la nueva esperanza. Es una hipótesis sólida y discutida, no una certeza: la <strong>datación</strong> exacta de las fuentes persas complica establecer quién influyó a quién y cuándo.</p>
+    <div class="simple">
+      <span class="tag">En simple</span>
+      <p>Probablemente confluyeron dos cosas: una necesidad interna (dar justicia a los mártires) y un modelo externo disponible (la religión persa, que ya tenía resurrección). No una sola causa, sino un encuentro.</p>
+    </div>
+
+    <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+    <h2 class="sec"><span class="n">Qué revela</span>Hasta el más allá tiene historia</h2>
+    <p>La lección es la misma que atraviesa todo el blog, aplicada ahora a la frontera última. Ni siquiera la idea de la vida tras la muerte es un dato eterno e inmóvil de la religión: <strong>también se construyó</strong>, en un tiempo y por unas razones que podemos reconstruir. Israel vivió más de mil años sin ella, y luego la desarrolló cuando la injusticia del mundo la hizo necesaria.</p>
+    <p>El polvo silencioso del Sheol y la promesa del despertar son dos estratos de una misma historia. Y entre ambos no hay una revelación caída del cielo, sino la lenta y humana búsqueda de un sentido frente a la muerte y la injusticia.</p>
+
+    <div class="next-teaser">
+      <div class="lbl">Última entrega de la serie</div>
+      <div class="ttl">El juicio final en las tres tradiciones</div>
+      <p>Cielo, infierno, balanza, resurrección: cómo judaísmo, cristianismo e islam heredaron una misma imaginación del fin y la moldearon cada uno a su manera.</p>
+    </div>
+
+    <div class="note-block">
+      <h3>Nota sobre el rigor y las fuentes</h3>
+      <p>Que la resurrección es una creencia <span class="key">tardía</span> en Israel, con <span class="key">Daniel 12:2</span> como su primera formulación clara, es <span class="key">consenso amplio</span>. Textos como Isaías 26:19 o Ezequiel 37 (los huesos secos) usan un lenguaje de resurrección pero se leen mayoritariamente como <em>metáforas de la restauración nacional</em>, no de individuos —un matiz importante y a veces debatido.</p>
+      <p><span class="key">En debate:</span> el peso de la influencia persa frente al desarrollo interno. Se ha presentado como confluencia, sin afirmar una derivación directa. Referencia: los estudios sobre el más allá en el judaísmo del Segundo Templo (p. ej. <span class="key">John J. Collins</span>, <span class="key">Jon Levenson</span>, <i>Resurrection and the Restoration of Israel</i>).</p>
+      <p>Las citas son traducción propia orientativa. Este es un tema sensible; el artículo describe una historia de las ideas y no afirma ni niega ninguna creencia religiosa.</p>
+    </div>
+
+  </div>
+</article>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#8a7bb0;--accent-deep:#5a4d7a">
+    <a class="epnav-series" href="serie-apocalipsis.html">↑ Serie: El fin del mundo</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="apocalipsis-2.html"><span class="dir">← Anterior</span><span class="ttl">Daniel y la invención del apocalipsis</span></a>
+      <a class="epnav-btn next" href="apocalipsis-4.html"><span class="dir">Siguiente →</span><span class="ttl">El juicio final en las tres tradiciones</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+
+  const stages=document.querySelectorAll('[data-stage]');
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.2,rootMargin:'0px 0px -40px 0px'});
+    stages.forEach(s=>io.observe(s));
+  } else { stages.forEach(s=>s.classList.add('in')); }
+</script>
+
+</body>
+</html>

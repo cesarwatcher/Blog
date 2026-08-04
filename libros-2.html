@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los libros expulsados — Estratos</title>
+<style>
+  :root{
+    --ink:#241c14;--parch:#efe6d2;--parch-deep:#e2d5b8;--parch-light:#f6efdd;
+    --sepia:#7a5c38;--sepia-deep:#5a4226;--ochre:#b08344;--gold:#c19a3e;
+    --wine:#7a3b3b;--wine-deep:#5a2828;--rule:#c9b48a;--shadow:rgba(60,42,20,.2);--green-ink:#4a5a3a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parch);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.4;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.1) 1px, transparent 0);background-size:4px 4px;mix-blend-mode:multiply}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--sepia-deep);background:rgba(246,239,221,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(150,120,70,.5);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,239,221,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--sepia),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--sepia-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--sepia-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.12em;color:var(--sepia);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f2d;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--sepia);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a3020;margin:2rem 0}
+
+  /* ---------- DOSSIER CARDS ---------- */
+  .dossier-intro{text-align:center;margin:2.5rem 0 1.2rem}
+  .dossier-intro .label{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sepia-deep);font-weight:700}
+  .dossier-intro .hint{font-size:.92rem;color:#7a6b4a;font-style:italic;margin-top:.5rem}
+
+  .file{background:var(--parch-light);border:1px solid var(--rule);border-radius:12px;margin:1.4rem 0;
+    box-shadow:0 6px 20px var(--shadow);overflow:hidden}
+  .file-head{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;background:linear-gradient(90deg,rgba(122,92,56,.14),rgba(122,92,56,.04));border-bottom:1px solid var(--rule)}
+  .file-head .stamp{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+    color:var(--wine);border:2px solid var(--wine);border-radius:5px;padding:.3rem .5rem;transform:rotate(-6deg);flex-shrink:0;opacity:.8}
+  .file-head .name{flex:1}
+  .file-head .name h3{font-size:1.28rem;font-weight:700;color:var(--sepia-deep);line-height:1.15;font-style:normal;margin:0}
+  .file-head .name .alias{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;color:#8a7a5a;letter-spacing:.03em;margin-top:.2rem}
+  .file-body{padding:1.3rem 1.4rem}
+  .file-body .row{display:grid;grid-template-columns:auto 1fr;gap:.9rem;margin-bottom:.7rem;font-size:.98rem}
+  .file-body .row:last-of-type{margin-bottom:0}
+  .file-body .row .k{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--ochre);padding-top:.15rem;min-width:5.5rem}
+  .file-body .row .v{color:#3a3020}
+  .file-body .row .v .term{font-style:italic;color:var(--sepia-deep)}
+  .file-body .verdict{margin-top:1rem;padding:.8rem 1.1rem;background:rgba(122,59,59,.08);border-left:3px solid var(--wine);border-radius:0 6px 6px 0;font-size:.96rem;color:#5a2e2e}
+  .file-body .verdict b{color:var(--wine-deep)}
+
+  figure.fig{margin:1.5rem 0 .5rem;border-radius:10px;overflow:hidden;background:rgba(122,92,56,.06);border:1px solid var(--rule)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.5) saturate(1.05) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#4a3a24;background:rgba(122,92,56,.1)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#8a7050}
+  figure.fig figcaption .credit a{color:var(--ochre)}
+
+  article h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--sepia-deep)}
+  article h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;margin-bottom:.4rem}
+  article p{margin-bottom:1.2rem;font-size:1.06rem}
+  article p .term{font-style:italic;color:var(--sepia-deep)}
+  article strong{color:var(--sepia-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(122,92,56,.09);border:1px solid rgba(122,92,56,.25);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sepia-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#463d2b}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--sepia);font-size:.9rem}
+
+  .note-block{background:var(--sepia-deep);color:#e8dcc4;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#d4c4a4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--parch-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a7a5a;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--sepia-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#5a4c34;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--sepia-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--parch-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:#8a7a5a;font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}.file-body .row{grid-template-columns:1fr;gap:.2rem}.file-head .stamp{display:none}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Los libros perdidos · Entrega II</span>
+    <h1>Los libros<br><span class="em">expulsados</span></h1>
+    <div class="glyphs">אֲפוֹקְרִיפָא</div>
+    <p class="standfirst">Fueron leídos, copiados y citados durante siglos —algunos hasta por autores del Nuevo Testamento—. Y aun así quedaron fuera. Expediente de los textos que casi entran.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">En la entrega anterior vimos la <em>criba</em>: cómo se decidió, lentamente, qué era la Biblia. Ahora abrimos la estantería de los descartados. Pero cuidado con la palabra “descartado”: muchos de estos textos no eran marginales ni heréticos. Eran <strong>influyentes, respetados y muy leídos</strong>. Su exclusión no siempre fue un rechazo, a veces fue solo quedar en “segunda categoría”. Dos términos técnicos para empezar: <span class="term">apócrifos</span> (“ocultos”) y <span class="term">pseudoepígrafos</span> (“de autor falsamente atribuido”). Abramos sus expedientes.</p>
+
+  <div class="dossier-intro">
+    <div class="label">Expediente de los textos expulsados</div>
+    <div class="hint">Cuatro casos, cuatro razones distintas para quedar fuera</div>
+  </div>
+
+  <div class="file">
+    <div class="file-head">
+      <span class="stamp">Fuera<br>del canon</span>
+      <div class="name">
+        <h3>1 Enoc</h3>
+        <div class="alias">El Libro de Enoc · el más notable de todos</div>
+      </div>
+    </div>
+    <div class="file-body">
+      <div class="row"><span class="k">Qué es</span><span class="v">Un compendio de visiones atribuidas a <span class="term">Enoc</span>, el patriarca que “caminó con Dios” (Génesis 5). Narra la caída de los ángeles <strong>Vigilantes</strong>, que descienden, se corrompen con humanas y engendran a los gigantes, sembrando el mal en la tierra.</span></div>
+      <div class="row"><span class="k">Antigüedad</span><span class="v">Su sección más antigua (el Libro de los Vigilantes) data de hacia el <strong>300 a.C.</strong> —más antiguo que Daniel.</span></div>
+      <div class="row"><span class="k">Su gran baza</span><span class="v">Es <strong>citado como profecía en el Nuevo Testamento</strong>: la carta de Judas (vv. 14–15) reproduce casi literalmente 1 Enoc 1:9, atribuyéndolo a “Enoc”. Varios Padres de la Iglesia lo tuvieron por inspirado.</span></div>
+      <div class="verdict"><b>Veredicto:</b> excluido por casi todos hacia el s. IV, en parte por sus audaces especulaciones sobre los ángeles caídos. Pero <b>sobrevivió canónico en la Iglesia etíope</b>, la única que lo conserva íntegro (en ge'ez). Occidente lo dio por perdido hasta que James Bruce lo trajo de Etiopía en 1773.</div>
+    </div>
+  </div>
+
+  <div class="file">
+    <div class="file-head">
+      <span class="stamp">Fuera<br>del canon</span>
+      <div class="name">
+        <h3>Jubileos</h3>
+        <div class="alias">“El pequeño Génesis”</div>
+      </div>
+    </div>
+    <div class="file-body">
+      <div class="row"><span class="k">Qué es</span><span class="v">Una reescritura del Génesis y parte del Éxodo, narrada a Moisés por un ángel, que divide la historia en “jubileos” de 49 años. Insiste en un <strong>calendario solar</strong> distinto del lunar oficial.</span></div>
+      <div class="row"><span class="k">Antigüedad</span><span class="v">S. II a.C. Muy popular en su tiempo; aparece entre los Manuscritos del Mar Muerto.</span></div>
+      <div class="row"><span class="k">Por qué importa</span><span class="v">Muestra un judaísmo alternativo, con su propia cronología sagrada. Es donde aparece <span class="term">Mastema</span>, el príncipe de los espíritus hostiles que tocamos en la serie de Satán.</span></div>
+      <div class="verdict"><b>Veredicto:</b> fuera del canon judío y de casi todos los cristianos; también canónico solo en la <b>tradición etíope</b>.</div>
+    </div>
+  </div>
+
+  <div class="file">
+    <div class="file-head">
+      <span class="stamp">Deutero-<br>canónico</span>
+      <div class="name">
+        <h3>Eclesiástico (Sirácida)</h3>
+        <div class="alias">La Sabiduría de Jesús ben Sirá</div>
+      </div>
+    </div>
+    <div class="file-body">
+      <div class="row"><span class="k">Qué es</span><span class="v">Un extenso libro de sabiduría práctica —proverbios, consejos, elogio de los antepasados— escrito por un sabio de Jerusalén hacia el <strong>180 a.C.</strong> Su nieto lo tradujo al griego.</span></div>
+      <div class="row"><span class="k">Su paradoja</span><span class="v">Era <strong>enormemente respetado</strong> y se citaba casi como Escritura. Pero se escribió “demasiado tarde” (tras el cierre supuesto de la profecía) y se conservaba en griego.</span></div>
+      <div class="verdict"><b>Veredicto:</b> quedó <b>fuera del canon judío y protestante</b>, pero <b>dentro del católico y ortodoxo</b> como deuterocanónico. Un caso perfecto de “dentro para unos, fuera para otros”.</div>
+    </div>
+  </div>
+
+  <div class="file">
+    <div class="file-head">
+      <span class="stamp">Deutero-<br>canónico</span>
+      <div class="name">
+        <h3>1–2 Macabeos</h3>
+        <div class="alias">La revuelta contra Antíoco</div>
+      </div>
+    </div>
+    <div class="file-body">
+      <div class="row"><span class="k">Qué es</span><span class="v">La crónica de la rebelión judía contra <strong>Antíoco IV</strong> (167 a.C.) —la misma persecución que, como vimos, dio origen al libro de Daniel y a la esperanza de resurrección—. Es el origen de la fiesta de <span class="term">Janucá</span>.</span></div>
+      <div class="row"><span class="k">Valor</span><span class="v">Fuente histórica de primer orden para el periodo, con menos elementos legendarios que otros textos del momento.</span></div>
+      <div class="verdict"><b>Veredicto:</b> <b>fuera del canon judío</b> (pese a narrar un episodio central de su historia) <b>y protestante</b>; <b>dentro del católico y ortodoxo</b>.</div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">Lo que revelan los expedientes</span>Exclusión no es condena</h2>
+  <p>La lección de conjunto desmonta una idea simplista. Solemos imaginar que los libros “fuera de la Biblia” lo están porque eran falsos, heréticos o sospechosos. Los expedientes muestran algo más matizado: <strong>quedaron fuera por razones muy diversas</strong>, y rara vez por ser “malos”.</p>
+  <p>Enoc, por ser demasiado audaz en su angelología. Jubileos, por defender un calendario alternativo. Eclesiástico y Macabeos, simplemente por ser <strong>demasiado tardíos o estar en griego</strong> —criterios formales, no de contenido—. De hecho, varios de ellos siguen siendo <strong>Escritura plena</strong> para millones de cristianos hoy (católicos, ortodoxos, etíopes). “Perdido” es, otra vez, una cuestión de perspectiva.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Estos libros no quedaron fuera por ser mentiras o herejías. Casi siempre fue por detalles técnicos: se escribieron tarde, estaban en griego, o defendían ideas incómodas. Muchos siguen dentro de la Biblia de buena parte del cristianismo. La frontera del canon es más borrosa y más humana de lo que parece.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">Síntesis</span>La estantería de al lado</h2>
+  <p>Los libros expulsados no son un submundo oscuro: son <strong>la estantería de al lado</strong>, tan cercana al canon que a veces solo un detalle los separó. Leerlos es asomarse a los caminos que el judaísmo y el cristianismo <em>no</em> tomaron —o tomaron solo en algunas de sus ramas—. Enoc nos muestra una obsesión por los ángeles que la corriente principal reprimió; Jubileos, un calendario perdido; los deuterocanónicos, la frontera misma entre las Biblias de hoy.</p>
+  <p>Pero hay un lugar donde estos textos no fueron descartados ni editados, sino <strong>simplemente guardados</strong>, tal como eran, durante dos mil años. Un lugar que, al ser descubierto, nos devolvió la Biblia tal como se leía <em>antes</em> de que la criba terminara. La próxima entrega baja a esas cuevas.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Próxima entrega</div>
+    <div class="ttl">La biblioteca del desierto: Qumrán</div>
+    <p>En 1947, un pastor beduino arrojó una piedra en una cueva junto al Mar Muerto y oyó romperse una vasija. Dentro había la biblioteca que cambiaría para siempre nuestra idea de la Biblia.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>La cita de 1 Enoc 1:9 en <span class="key">Judas 14–15</span>, la datación del Libro de los Vigilantes (~300 a.C.), su canonicidad en la <span class="key">Iglesia etíope</span> y su redescubrimiento por James Bruce (1773) son <span class="key">datos establecidos</span>. Referencias: los trabajos de <span class="key">George Nickelsburg</span> sobre 1 Enoc y <span class="key">James VanderKam</span> sobre Jubileos.</p>
+    <p><span class="key">Matices:</span> “apócrifo” y “deuterocanónico” significan cosas distintas según la tradición —lo que para católicos es deuterocanónico, para protestantes es apócrifo—. Se ha usado la terminología con cuidado, pero conviene tenerlo presente al leer otras fuentes. La lengua original de 1 Enoc (aramea/hebrea vs. la tesis etíope del ge'ez) sigue en discusión.</p>
+    <p>Este artículo describe historia de los textos y no emite juicio sobre la inspiración de ninguno.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#7a5c38;--accent-deep:#5a4226">
+    <a class="epnav-series" href="serie-libros.html">↑ Serie: Los libros perdidos</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="libros-1.html"><span class="dir">← Anterior</span><span class="ttl">¿Quién decidió qué era la Biblia?</span></a>
+      <a class="epnav-btn next" href="libros-3.html"><span class="dir">Siguiente →</span><span class="ttl">La biblioteca del desierto: Qumrán</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

@@ -89,6 +89,26 @@
   .layer.l3 .find,.layer.l4 .find,.layer.l5 .find{background:rgba(255,255,255,.1);color:#f4e6ea}
   .layer.l3 .find b,.layer.l4 .find b,.layer.l5 .find b{color:var(--gold)}
 
+  /* ---------- FIGURES / IMAGES ---------- */
+  figure.fig{margin:1.5rem 0 .5rem;border-radius:10px;overflow:hidden;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+  figure.fig img{display:block;width:100%;height:auto;
+    /* tratamiento sepia/duotono para integrarse a la paleta */
+    filter:sepia(.55) saturate(1.1) hue-rotate(-8deg) contrast(1.02) brightness(1.02);
+    mix-blend-mode:normal}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#f0e4d8;background:rgba(58,32,40,.55)}
+  figure.fig figcaption .desc{display:block;color:#f4ece2}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#c9a9b4}
+  figure.fig figcaption .credit a{color:#e0b8c4}
+  /* light layers: caption oscuro para contraste ya ok; en capas claras ajustamos */
+  .layer.l1 figure.fig figcaption,.layer.l2 figure.fig figcaption{background:rgba(110,53,70,.12);color:#4a2a34}
+  .layer.l1 figure.fig figcaption .desc,.layer.l2 figure.fig figcaption .desc{color:#3a1f28}
+  .layer.l1 figure.fig figcaption .credit,.layer.l2 figure.fig figcaption .credit{color:#7a5560}
+
+  /* SVG map figure */
+  figure.mapfig{margin:1.5rem 0 .5rem}
+  figure.mapfig svg{display:block;width:100%;height:auto;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+  figure.mapfig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;color:#f0e4d8;text-align:center}
+
   .connector{display:flex;justify-content:center;padding:.3rem 0}
   .connector::before{content:"";width:2px;height:26px;background:linear-gradient(180deg,var(--rule),transparent)}
 
@@ -177,6 +197,45 @@
       <h2>“Por YHWH… y por su Aserá”</h2>
       <p>Descendemos a la evidencia que no pasó por manos de editores religiosos: la <strong>epigrafía</strong>, las inscripciones escritas por gente común. Y aquí el hallazgo es sísmico.</p>
       <p>En <strong>Kuntillet ʿAjrud</strong> (un cruce de caravanas en el Sinaí, hacia 800 a.C.) y en <strong>Khirbet el-Qom</strong> (cerca de Hebrón), aparecieron inscripciones de bendición que dicen, textualmente: <em>“Te bendigo por YHWH… y por su Aserá.”</em></p>
+
+      <figure class="fig">
+        <img src="asera-inscripcion.jpg" alt="Transliteración de la inscripción de Kuntillet ʿAjrud que menciona a YHWH y su Aserá">
+        <figcaption>
+          <span class="desc">Transliteración al hebreo de parte de la primera línea de la inscripción del pithos de Kuntillet ʿAjrud, que menciona a YHWH “y su Aserá”.</span>
+          <span class="credit">Pashute, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons</span>
+        </figcaption>
+      </figure>
+
+      <figure class="mapfig">
+        <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa esquemático con la ubicación de Jerusalén, Khirbet el-Qom y Kuntillet ʿAjrud">
+          <defs>
+            <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#c9a87e" stop-opacity=".22"/>
+              <stop offset="1" stop-color="#8a6d55" stop-opacity=".14"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="480" height="300" fill="url(#land)"/>
+          <!-- costa mediterránea estilizada -->
+          <path d="M60 0 Q90 80 70 150 Q55 220 90 300" fill="none" stroke="#9ab" stroke-opacity=".4" stroke-width="2" stroke-dasharray="2 5"/>
+          <text x="30" y="150" fill="#9ab" font-family="Trebuchet MS, sans-serif" font-size="11" opacity=".6" transform="rotate(-90 30 150)">Mar Mediterráneo</text>
+          <!-- Jerusalén -->
+          <circle cx="250" cy="90" r="6" fill="#d4af5a"/>
+          <text x="262" y="88" fill="#f0e4d8" font-family="Trebuchet MS, sans-serif" font-size="14" font-weight="700">Jerusalén</text>
+          <text x="262" y="103" fill="#c9a9b4" font-family="Trebuchet MS, sans-serif" font-size="10">el Templo</text>
+          <!-- Khirbet el-Qom -->
+          <circle cx="238" cy="132" r="5" fill="#9c5a6c"/>
+          <text x="248" y="136" fill="#f0e4d8" font-family="Trebuchet MS, sans-serif" font-size="12">Khirbet el-Qom</text>
+          <text x="248" y="149" fill="#c9a9b4" font-family="Trebuchet MS, sans-serif" font-size="9.5">cerca de Hebrón</text>
+          <!-- Kuntillet Ajrud -->
+          <circle cx="200" cy="245" r="5" fill="#9c5a6c"/>
+          <text x="210" y="242" fill="#f0e4d8" font-family="Trebuchet MS, sans-serif" font-size="12">Kuntillet ʿAjrud</text>
+          <text x="210" y="255" fill="#c9a9b4" font-family="Trebuchet MS, sans-serif" font-size="9.5">Sinaí · cruce de caravanas</text>
+          <!-- líneas punteadas de relación -->
+          <line x1="250" y1="90" x2="238" y2="132" stroke="#9c5a6c" stroke-width="1.2" stroke-dasharray="3 3" opacity=".55"/>
+          <line x1="238" y1="132" x2="200" y2="245" stroke="#9c5a6c" stroke-width="1.2" stroke-dasharray="3 3" opacity=".55"/>
+        </svg>
+        <figcaption>Los dos yacimientos donde apareció la fórmula “YHWH y su Aserá”, respecto a Jerusalén. Mapa esquemático.</figcaption>
+      </figure>
       <p>Léelo de nuevo. <strong>Su Aserá.</strong> El dios de Israel, nombrado junto a una figura que se presenta como <em>suya</em> —su consorte, o el símbolo de ella—, en una fórmula de bendición cotidiana. No en un texto de idólatras condenados, sino en la escritura espontánea de israelitas corrientes.</p>
       <div class="find"><b>El hallazgo central:</b> hacia el 800 a.C., para mucha gente en Israel, YHWH no estaba solo. Tenía a Aserá a su lado. El monoteísmo estricto todavía no era la realidad de la calle.</div>
     </div>
@@ -237,6 +296,8 @@
 
   </div>
 </article>
+
+
 
 
 <div class="wrap">

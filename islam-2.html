@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Corán y los profetas que ya conoces — Estratos</title>
+<style>
+  :root{
+    --ink:#1a2420;--paper:#eef2ec;--paper-deep:#dde5da;--paper-light:#f5f8f3;
+    --green:#3a6b52;--green-deep:#264a38;--green-dark:#1a3327;--teal:#2f6b6b;
+    --gold:#b8944a;--gold-light:#d4b872;--sand:#c9b896;--rule:#a8bda8;
+    --shadow:rgba(30,55,40,.18);--script:#8a7a4a;--blue:#3a5a7a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(30deg, rgba(58,107,82,.04) 12%, transparent 12.5%, transparent 87%, rgba(58,107,82,.04) 87.5%, rgba(58,107,82,.04)),
+      linear-gradient(150deg, rgba(58,107,82,.04) 12%, transparent 12.5%, transparent 87%, rgba(58,107,82,.04) 87.5%, rgba(58,107,82,.04));
+    background-size:26px 46px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--green-deep);background:rgba(245,248,243,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(58,107,82,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(245,248,243,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--green),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--green-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--green-deep)}
+  .glyphs{font-size:clamp(1.3rem,3.4vw,1.8rem);letter-spacing:.08em;color:var(--green);margin:.8rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a4a40;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;border:1.5px solid var(--green);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#2a352d;margin:2rem 0}
+
+  /* ---------- FIGURES / IMAGES ---------- */
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(58,107,82,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.32) saturate(1.05) hue-rotate(8deg) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#2f4038;background:rgba(58,107,82,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#6a7a5a}
+  figure.fig figcaption .credit a{color:var(--green-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--green-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--gold);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--green-deep)}
+  .wrap strong{color:var(--green-deep);font-weight:700}
+
+  /* PROPHET NAME PAIRS */
+  .names{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.6rem 0}
+  .npair{background:var(--paper-light);border:1px solid var(--rule);border-radius:8px;padding:.6rem .9rem;font-size:.92rem;font-family:"Trebuchet MS",sans-serif}
+  .npair .bib{color:var(--blue);font-weight:700}
+  .npair .arr{color:var(--script);margin:0 .35rem}
+  .npair .qur{color:var(--green-deep);font-weight:700}
+
+  /* COMPARISON DIPTYCH */
+  .comp{margin:1.8rem 0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px var(--shadow)}
+  .comp-head{display:grid;grid-template-columns:1fr 1fr}
+  .comp-head .ch{padding:.8rem 1rem;font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+  .comp-head .ch.bib{background:rgba(58,90,122,.14);color:var(--blue)}
+  .comp-head .ch.qur{background:rgba(58,107,82,.16);color:var(--green-deep)}
+  .comp-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+  .comp-row .cell{padding:1rem 1.1rem;font-size:.96rem;color:#2a352d}
+  .comp-row .cell.bib{background:rgba(58,90,122,.05);border-right:1px solid var(--rule)}
+  .comp-row .cell.qur{background:rgba(58,107,82,.05)}
+  .comp-row .cell .who{display:block;font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--script);margin-bottom:.4rem}
+  @media(max-width:600px){.comp-head,.comp-row{grid-template-columns:1fr}.comp-row .cell.bib{border-right:none;border-bottom:1px solid var(--rule)}}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(58,107,82,.09);border:1px solid rgba(58,107,82,.25);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#2a352d}
+
+  .highlight{margin:1.8rem 0;padding:1.4rem 1.6rem;background:linear-gradient(160deg,rgba(184,148,74,.12),rgba(184,148,74,.04));border:1px solid rgba(184,148,74,.35);border-radius:10px}
+  .highlight .h{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+  .highlight p{margin:0;font-size:1rem;color:#3a3a24}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--green);font-size:.9rem}
+
+  .note-block{background:var(--green-dark);color:#d8e4d4;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b8ccb8;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold-light)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--script);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--green-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#3a4a3a;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--green-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--paper-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--script);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">El Islam y las raíces compartidas · Entrega II</span>
+    <h1>El Corán y los profetas<br>que <span class="em">ya conoces</span></h1>
+    <div class="glyphs">الأنبياء</div>
+    <p class="standfirst">Abrir el Corán es reencontrar a viejos conocidos: Adán, Noé, Abraham, Moisés, Jesús, María. Pero con nombres nuevos y giros que a veces sorprenden.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Si un lector de la Biblia abre el Corán, no entra en territorio desconocido: entra en un paisaje <strong>familiar pero reorganizado</strong>. Los mismos patriarcas, los mismos profetas, muchas de las mismas historias —el arca, el éxodo, el nacimiento virginal— reaparecen, aunque contadas con otra voz y con diferencias teológicas que importan. El Corán menciona <strong>veinticinco profetas por nombre</strong>, y veintiuno de ellos también están en la Biblia. Hagamos el reencuentro.</p>
+
+  <figure class="fig">
+    <img src="coran-manuscrito.jpg" alt="Doble página iluminada de un Corán del siglo XII">
+    <figcaption>
+      <span class="desc">Doble página iluminada de un Corán copiado por el calígrafo Zarin Qalam (“Pluma de Oro”), Irán, 1186. El arte coránico floreció en la caligrafía y la ornamentación.</span>
+      <span class="credit">Manuscrito de Zarin Qalam (1186), Biblioteca Chester Beatty. Dominio público, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">01</span>Los mismos nombres, otra lengua</h2>
+  <p>Lo primero que cambia es el sonido. Los nombres bíblicos llegan al Corán en su forma árabe —a veces a través del arameo—, reconocibles pero transformados:</p>
+  <div class="names">
+    <span class="npair"><span class="bib">Adán</span><span class="arr">→</span><span class="qur">Ādam</span></span>
+    <span class="npair"><span class="bib">Noé</span><span class="arr">→</span><span class="qur">Nūh</span></span>
+    <span class="npair"><span class="bib">Abraham</span><span class="arr">→</span><span class="qur">Ibrāhīm</span></span>
+    <span class="npair"><span class="bib">Ismael</span><span class="arr">→</span><span class="qur">Ismāʿīl</span></span>
+    <span class="npair"><span class="bib">Isaac</span><span class="arr">→</span><span class="qur">Isḥāq</span></span>
+    <span class="npair"><span class="bib">José</span><span class="arr">→</span><span class="qur">Yūsuf</span></span>
+    <span class="npair"><span class="bib">Moisés</span><span class="arr">→</span><span class="qur">Mūsā</span></span>
+    <span class="npair"><span class="bib">David</span><span class="arr">→</span><span class="qur">Dāwūd</span></span>
+    <span class="npair"><span class="bib">Salomón</span><span class="arr">→</span><span class="qur">Sulaymān</span></span>
+    <span class="npair"><span class="bib">Jonás</span><span class="arr">→</span><span class="qur">Yūnus</span></span>
+    <span class="npair"><span class="bib">Jesús</span><span class="arr">→</span><span class="qur">ʿĪsā</span></span>
+    <span class="npair"><span class="bib">María</span><span class="arr">→</span><span class="qur">Maryam</span></span>
+  </div>
+  <p>Bajo la piel del árabe, están todos. La <strong>continuidad de personajes</strong> es casi total en la línea principal de la historia sagrada. Lo interesante aparece cuando comparamos <em>qué se cuenta</em> de cada uno.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>Mismos relatos, distintos acentos</h2>
+  <p>Las grandes historias se conservan, pero el Corán las recuenta con su propia teología. Aquí, lado a lado, cuatro casos reveladores:</p>
+
+  <div class="comp">
+    <div class="comp-head">
+      <div class="ch bib">En la Biblia</div>
+      <div class="ch qur">En el Corán</div>
+    </div>
+    <div class="comp-row">
+      <div class="cell bib"><span class="who">El sacrificio de Abraham</span>Dios pide a Abraham sacrificar a <strong>Isaac</strong>, el hijo de la promesa; un ángel lo detiene (Génesis 22).</div>
+      <div class="cell qur"><span class="who">El sacrificio de Ibrahim</span>La tradición mayoritaria entiende que el hijo ofrecido es <strong>Ismael</strong>, no Isaac. Se conmemora cada año en la fiesta de <em>Eid al-Adha</em>.</div>
+    </div>
+    <div class="comp-row">
+      <div class="cell bib"><span class="who">Noé tras el diluvio</span>Noé planta una viña, se emborracha y queda expuesto (Génesis 9).</div>
+      <div class="cell qur"><span class="who">Nūh</span>Es un profeta intachable, un predicador paciente del monoteísmo; se omite el episodio de la embriaguez.</div>
+    </div>
+    <div class="comp-row">
+      <div class="cell bib"><span class="who">Moisés</span>Recibe la Ley y los Diez Mandamientos; libera a Israel de Egipto.</div>
+      <div class="cell qur"><span class="who">Mūsā</span>Es el profeta <strong>más mencionado del Corán</strong>. Se enfatizan sus diálogos con Dios y su perseverancia frente al Faraón.</div>
+    </div>
+    <div class="comp-row">
+      <div class="cell bib"><span class="who">El pecado de Adán</span>La caída introduce el <strong>pecado original</strong>, heredado por toda la humanidad (lectura cristiana).</div>
+      <div class="cell qur"><span class="who">Ādam</span>Adán peca, se arrepiente y es <strong>perdonado directamente</strong> por Dios (2:37). No hay pecado original heredado: cada persona nace sin culpa.</div>
+    </div>
+  </div>
+  <p>El patrón es claro: el Corán tiende a <strong>presentar a los profetas como modelos impecables</strong> (por eso omite la embriaguez de Noé o faltas similares), y reorganiza los relatos en torno a su mensaje central —la unicidad absoluta de Dios (<span class="term">tawhid</span>) y la responsabilidad individual—.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>Jesús y María: el caso más sorprendente</h2>
+  <p>Para muchos lectores, lo más inesperado es el enorme lugar que el Corán da a <strong>Jesús (ʿĪsā) y María (Maryam)</strong>. Lejos de ignorarlos, los honra profundamente —aunque desde una teología distinta de la cristiana—.</p>
+  <div class="comp">
+    <div class="comp-head">
+      <div class="ch bib">Cristianismo</div>
+      <div class="ch qur">Corán</div>
+    </div>
+    <div class="comp-row">
+      <div class="cell bib"><span class="who">Quién es Jesús</span><strong>Hijo de Dios</strong>, Dios encarnado; muere crucificado y resucita.</div>
+      <div class="cell qur"><span class="who">Quién es ʿĪsā</span>Un <strong>profeta y Mesías</strong> muy venerado, nacido de la virgen María, obrador de milagros por permiso de Dios —pero <strong>no divino</strong>—. El Corán afirma que no fue crucificado, sino que Dios lo elevó hacia sí.</div>
+    </div>
+    <div class="comp-row">
+      <div class="cell bib"><span class="who">María</span>Madre de Jesús, venerada sobre todo en las tradiciones católica y ortodoxa.</div>
+      <div class="cell qur"><span class="who">Maryam</span>Mencionada <strong>34 veces</strong> —más que en el Nuevo Testamento—. Es la <strong>única mujer nombrada</strong> en todo el Corán, y el <strong>capítulo 19 lleva su nombre</strong> (Surat Maryam). Modelo supremo de pureza y fe.</div>
+    </div>
+  </div>
+  <div class="highlight">
+    <div class="h">Un eco de los libros perdidos</div>
+    <p>Aquí conectamos con la serie anterior. Algunos detalles de la infancia de María y Jesús en el Corán —como María alimentada milagrosamente en el Templo, o Jesús hablando desde la cuna— tienen paralelos llamativos con los <strong>evangelios apócrifos de la infancia</strong> que quedaron fuera del canon cristiano. Aquellos “libros perdidos” no se perdieron para todos: parte de su imaginería siguió viva y reapareció en el Corán.</p>
+  </div>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>El Corán no rechaza a Jesús ni a María: los honra muchísimo. Pero los sitúa como un gran profeta y su santa madre, no como Dios y la madre de Dios. Y curiosamente, recoge detalles sobre ellos que venían de aquellos evangelios apócrifos que vimos en la serie de los libros perdidos.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Síntesis</h2>
+  <p>El Corán no borra la historia sagrada anterior: la <strong>reescribe desde dentro</strong>. Conserva a casi todos los personajes, mantiene las grandes tramas, y a la vez las depura y las reorienta hacia su mensaje propio. Para el islam esto no es plagio ni contradicción, sino <strong>corrección</strong>: la misma historia contada por fin “bien”, sin las alteraciones que —según su visión— habían introducido las comunidades anteriores.</p>
+  <p>Lo que emerge es una tercera versión de una épica compartida. Judaísmo, cristianismo e islam narran, en buena medida, <strong>el mismo elenco de personajes</strong> —discrepando en lo esencial de quién es Dios y quién es Jesús, pero de acuerdo en el reparto—. En la próxima entrega nos detendremos en esos personajes compartidos uno por uno.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Próxima entrega</div>
+    <div class="ttl">Los personajes que reconocerás</div>
+    <p>Un recorrido por las figuras que las tres tradiciones comparten —de Abraham a los ángeles— y por los sorprendentes caminos que siguieron sus historias.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>Los datos son <span class="key">verificables y de consenso</span>: el Corán nombra 25 profetas (21 bíblicos); María se menciona 34 veces y da nombre a la sura 19; ʿĪsā (Jesús) es profeta no divino y el Corán niega la crucifixión (sura 4:157); el hijo del sacrificio se entiende mayoritariamente como Ismael; el islam no sostiene el pecado original.</p>
+    <p><span class="key">Matices:</span> la identificación del hijo del sacrificio con Ismael es la lectura tradicional dominante, pero el texto coránico no lo nombra explícitamente en ese pasaje, y hubo debate entre los primeros exégetas. Los paralelos con evangelios apócrifos de la infancia (como el <i>Protoevangelio de Santiago</i> o el <i>Evangelio árabe de la infancia</i>) son señalados por los estudiosos como <span class="key">semejanzas</span>; el modo exacto de transmisión sigue en investigación.</p>
+    <p>Las referencias a versículos siguen la numeración estándar del Corán. Este artículo compara relatos con respeto por las tres tradiciones, sin juzgar la verdad teológica de ninguna.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#3a6b52;--accent-deep:#264a38">
+    <a class="epnav-series" href="serie-islam.html">↑ Serie: El Islam y las raíces compartidas</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="islam-1.html"><span class="dir">← Anterior</span><span class="ttl">El Dios de Abraham, otra vez</span></a>
+      <a class="epnav-btn next" href="islam-3.html"><span class="dir">Siguiente →</span><span class="ttl">Los personajes que reconocerás</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Dios de Abraham, otra vez — Estratos</title>
+<style>
+  :root{
+    --ink:#1a2420;--paper:#eef2ec;--paper-deep:#dde5da;--paper-light:#f5f8f3;
+    --green:#3a6b52;--green-deep:#264a38;--green-dark:#1a3327;--teal:#2f6b6b;
+    --gold:#b8944a;--gold-light:#d4b872;--sand:#c9b896;--rule:#a8bda8;
+    --shadow:rgba(30,55,40,.18);--script:#8a7a4a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* fondo con motivo geométrico sutil */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(30deg, rgba(58,107,82,.04) 12%, transparent 12.5%, transparent 87%, rgba(58,107,82,.04) 87.5%, rgba(58,107,82,.04)),
+      linear-gradient(150deg, rgba(58,107,82,.04) 12%, transparent 12.5%, transparent 87%, rgba(58,107,82,.04) 87.5%, rgba(58,107,82,.04));
+    background-size:26px 46px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--green-deep);background:rgba(245,248,243,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(58,107,82,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(245,248,243,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--green),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--green-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--green-deep)}
+  .glyphs{font-size:clamp(1.3rem,3.4vw,1.8rem);letter-spacing:.08em;color:var(--green);margin:.8rem 0 1.4rem;direction:rtl}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a4a40;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;border:1.5px solid var(--green);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#2a352d;margin:2rem 0}
+
+  /* ---------- FIGURES / IMAGES ---------- */
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(58,107,82,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.32) saturate(1.05) hue-rotate(8deg) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#2f4038;background:rgba(58,107,82,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#6a7a5a}
+  figure.fig figcaption .credit a{color:var(--green-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--green-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--gold);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--teal);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--green-deep)}
+  .wrap strong{color:var(--green-deep);font-weight:700}
+
+  /* ROOT TREE - genealogía del nombre divino */
+  .roottree{margin:2rem 0;padding:2rem 1.6rem;background:linear-gradient(165deg,var(--green-dark),var(--green-deep));border-radius:14px;box-shadow:0 8px 26px var(--shadow);text-align:center;color:#e8efe4}
+  .roottree .tt{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:1.6rem}
+  .roottree .root{font-size:1.5rem;color:var(--gold-light);font-weight:700;margin-bottom:.3rem;direction:rtl}
+  .roottree .root-lbl{font-size:.85rem;color:#a8c0a8;font-style:italic;margin-bottom:1.4rem}
+  .branches{display:flex;justify-content:center;gap:0;flex-wrap:wrap;margin-top:1rem}
+  .branch{flex:1;min-width:120px;padding:.9rem .6rem;position:relative}
+  .branch:not(:last-child)::after{content:"";position:absolute;right:0;top:20%;bottom:20%;width:1px;background:rgba(184,148,74,.3)}
+  .branch .glyph{font-size:1.5rem;color:var(--gold-light);margin-bottom:.3rem;font-weight:700}
+  .branch .nm{font-size:.95rem;color:#e8efe4;font-weight:700}
+  .branch .tr{font-size:.78rem;color:#9ab89a;font-style:italic;margin-top:.2rem}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(58,107,82,.09);border:1px solid rgba(58,107,82,.25);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#2a352d}
+
+  .keypts{margin:1.6rem 0;display:grid;gap:.8rem}
+  .kp{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1rem 1.2rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:8px}
+  .kp .ic{width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.95rem;flex-shrink:0}
+  .kp .txt{font-size:1rem;color:#2a352d}
+  .kp .txt b{color:var(--green-deep)}
+
+  .quote-box{margin:1.8rem 0;padding:1.4rem 1.6rem;border-left:3px solid var(--gold);background:rgba(184,148,74,.08);border-radius:0 8px 8px 0}
+  .quote-box .q{font-size:1.1rem;font-style:italic;color:var(--green-deep);line-height:1.6}
+  .quote-box .src{font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:var(--script);margin-top:.6rem;letter-spacing:.03em}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--green);font-size:.9rem}
+
+  .note-block{background:var(--green-dark);color:#d8e4d4;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b8ccb8;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold-light)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--script);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--green-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#3a4a3a;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--green-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--paper-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--script);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}.branch{min-width:45%}.roottree{padding:1.5rem 1.1rem}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">El Islam y las raíces compartidas · Entrega I</span>
+    <h1>El Dios de Abraham,<br><span class="em">otra vez</span></h1>
+    <div class="glyphs">الله · اللّٰه</div>
+    <p class="standfirst">El islam no se presentó como una religión nueva, sino como el regreso a la más antigua: la de Abraham. Para entenderlo, hay que empezar por un nombre que ya conoces.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Durante cinco series hemos seguido a un Dios que cambió de nombre y de rostro: de <span class="term">El</span>, el patriarca cananeo, a <span class="term">Elohim</span>, a <span class="term">YHWH</span>, el Dios único de Israel. En el siglo VII de nuestra era, en la península arábiga, ese mismo linaje divino recibió un nombre más —y con él, una tercera gran tradición—. Esta serie cierra el arco del blog: cómo el islam se entronca en la misma raíz abrahámica que el judaísmo y el cristianismo, y qué comparte con ellos. Empecemos, como siempre, por el nombre.</p>
+
+  <figure class="fig">
+    <img src="ala-caligrafia.png" alt="La palabra Alá escrita en caligrafía árabe">
+    <figcaption>
+      <span class="desc">La palabra <em>Allāh</em> (الله) en caligrafía árabe, en estilo <em>thuluth</em>. El islam, aniconista, canaliza su arte sacro en la caligrafía y la geometría en vez de la imagen figurativa.</span>
+      <span class="credit">Islam90, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">01</span>Un nombre que ya reconoces</h2>
+  <p>La palabra <span class="term">Alá</span> (الله) no la inventó el islam. Los estudiosos coinciden en que es, muy probablemente, una contracción del árabe <em>al-ilāh</em>: “el dios”, con el artículo determinado <em>al-</em> antepuesto a <em>ilāh</em>, “dios” o “deidad”. Y aquí está la conexión que recorre todo este blog: <em>ilāh</em> pertenece a la <strong>misma raíz semítica</strong> que el hebreo <em>eloah</em> / <em>elohim</em> y que el viejo <span class="term">El</span> cananeo con el que empezamos. Alá no es “otro Dios”: es, lingüísticamente, <strong>el mismo apelativo semítico para la divinidad</strong>, en su forma árabe.</p>
+
+  <div class="roottree">
+    <div class="tt">Una raíz, cuatro ramas</div>
+    <div class="root">إلٰه · אֵל</div>
+    <div class="root-lbl">la raíz semítica ʔl / ʔlh — “dios”</div>
+    <div class="branches">
+      <div class="branch"><div class="glyph">אֵל</div><div class="nm">El</div><div class="tr">Canaán / Ugarit</div></div>
+      <div class="branch"><div class="glyph">אֱלֹהִים</div><div class="nm">Elohim</div><div class="tr">Israel antiguo</div></div>
+      <div class="branch"><div class="glyph">ܐܰܠܳܗܳܐ</div><div class="nm">Alāhā</div><div class="tr">arameo / siríaco</div></div>
+      <div class="branch"><div class="glyph">الله</div><div class="nm">Allāh</div><div class="tr">árabe / islam</div></div>
+    </div>
+  </div>
+  <p>De hecho, <strong>Alá es la palabra árabe estándar para “Dios”</strong>, y la usan también los <strong>judíos y cristianos de habla árabe</strong> cuando hablan de Dios. Su asociación exclusiva con el islam se debe a que el árabe es la lengua del Corán, no a que designe una divinidad distinta.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>“Alá” significa, sencillamente, “Dios” en árabe. Comparte la misma raíz semítica antigua que el “El” y el “Elohim” con los que empezó este blog. No es un dios diferente con otro nombre: es el mismo apelativo para la divinidad, en otra lengua de la misma familia.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>La Arabia antes del islam</h2>
+  <p>Cuando Mahoma nació (hacia el 570 d.C.), la península arábiga era religiosamente diversa. Convivían tribus <strong>politeístas</strong> que veneraban numerosas deidades —con la Kaaba de La Meca como santuario de muchos ídolos—, junto a comunidades <strong>judías</strong> establecidas desde antiguo, <strong>cristianas</strong> de diversas ramas, y buscadores monoteístas independientes que la tradición llama <span class="term">hanif</span>. El monoteísmo no era ajeno a Arabia: estaba en el aire.</p>
+  <p>En ese mundo, "Alá" ya era conocido como una divinidad principal —el nombre del propio padre de Mahoma era <em>Abd Allāh</em>, “siervo de Alá”—. Lo que el islam predicará no es la existencia de Alá, sino que Alá es el <strong>único</strong> Dios, y que todas las demás deidades deben abandonarse. Es, estructuralmente, el mismo paso que Israel dio siglos antes: de un dios entre muchos, al Dios único.</p>
+  <div class="keypts">
+    <div class="kp"><span class="ic">570</span><span class="txt"><b>Nace Mahoma</b> en La Meca, en una Arabia de mayoría politeísta pero con fuerte presencia judía y cristiana.</span></div>
+    <div class="kp"><span class="ic">610</span><span class="txt"><b>Primera revelación.</b> Según la tradición, en la cueva de Hira, el ángel Yibril (Gabriel) comienza a transmitirle el Corán. Mahoma tiene unos 40 años.</span></div>
+    <div class="kp"><span class="ic">622</span><span class="txt"><b>La Hégira.</b> La emigración de La Meca a Medina marca el año 1 del calendario islámico y el nacimiento de la comunidad (<em>umma</em>).</span></div>
+    <div class="kp"><span class="ic">632</span><span class="txt"><b>Muere Mahoma.</b> El Corán se ha revelado a lo largo de unos 23 años. Para entonces, buena parte de Arabia se ha unificado bajo el islam.</span></div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>No una religión nueva, sino la restauración de la antigua</h2>
+  <p>Este es el punto teológico decisivo, y el que da título a la serie. El islam <strong>no se concibe a sí mismo como una fe inaugurada por Mahoma</strong>. Se presenta como la restauración del monoteísmo original y puro —el de Abraham (<span class="term">Ibrahim</span>)— que, según su relato, judíos y cristianos habrían recibido pero también alterado con el tiempo.</p>
+  <p>En esta visión, Mahoma no es el fundador de una religión, sino el <strong>último de una larga cadena de profetas</strong> —el “Sello de los Profetas”— que incluye a Adán, Noé, Abraham, Moisés y Jesús. Todos habrían predicado el mismo mensaje esencial: hay un solo Dios. El Corán, entonces, se ve a sí mismo no como un libro que contradice a la Torá y los Evangelios, sino como su <strong>confirmación y corrección definitiva</strong>.</p>
+  <div class="quote-box">
+    <div class="q">“Di: Creemos en Dios y en lo que se nos ha revelado, en lo revelado a Abraham, Ismael, Isaac, Jacob y las tribus, y en lo que Moisés, Jesús y los profetas recibieron de su Señor. No hacemos distinción entre ninguno de ellos.”</div>
+    <div class="src">Corán 3:84 (paráfrasis del sentido; las traducciones varían)</div>
+  </div>
+  <p>Por eso el islam llama a judíos y cristianos <span class="term">“gente del Libro”</span> (<em>ahl al-kitāb</em>): no como extraños, sino como poseedores de una revelación previa del mismo Dios. Toda la serie que aquí empieza explora esa continuidad —y también las divergencias, que son reales y profundas—.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>El islam no dice “traigo un Dios nuevo”. Dice “traigo de vuelta al Dios de siempre, el de Abraham, que la humanidad había ido olvidando o distorsionando”. Por eso reconoce a Moisés y a Jesús como profetas, y por eso comparte tantos relatos con la Biblia. Es la tercera rama del mismo árbol.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Síntesis</h2>
+  <p>Empezamos este blog con El, un dios cananeo cuyo nombre significaba, simplemente, “dios”. Lo terminamos —en esta última serie— con Alá, una palabra árabe que significa, exactamente igual, “el Dios”. Entre uno y otro median dos mil años y tres religiones, pero la raíz lingüística y la lógica monoteísta son continuas. El islam es la tercera respuesta a la misma pregunta que ha recorrido todas estas páginas: <strong>¿cómo muchos dioses se volvieron uno?</strong></p>
+  <p>En las próximas entregas veremos hasta qué punto llega esa continuidad: los profetas compartidos, los relatos bíblicos que reaparecen en el Corán —a veces con giros sorprendentes—, e incluso ecos de aquellos “libros perdidos” de la serie anterior. La familia abrahámica es más entrelazada de lo que suele contarse.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Próxima entrega</div>
+    <div class="ttl">El Corán y los profetas que ya conoces</div>
+    <p>Adán, Noé, Abraham, Moisés, Jesús, María: cómo el Corán vuelve a contar los grandes relatos bíblicos, qué mantiene igual y en qué se aparta.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>La etimología de <span class="key">Alá</span> como <em>al-ilāh</em> (“el dios”), su raíz semítica común con <em>el/eloah</em>, y su uso por cristianos y judíos arabófonos son <span class="key">consenso académico</span> (Britannica; estudios de lingüística semítica). Las fechas de la vida de Mahoma (c. 570–632), la primera revelación (c. 610) y la Hégira (622) son datos establecidos.</p>
+    <p><span class="key">Se evitan aquí</span> teorías especulativas y sin respaldo arqueológico, como la que identificaba a Alá con una antigua “deidad lunar” —rechazada por la erudición por falta de evidencia—. El relato de la revelación se presenta como lo que la <span class="key">tradición islámica</span> sostiene, sin afirmar ni negar su carácter sobrenatural, igual que se ha hecho con las demás tradiciones en este blog.</p>
+    <p>La cita del Corán se ofrece como paráfrasis del sentido; el texto árabe es intraducible de forma única y las versiones difieren. Este artículo describe historia y continuidad de ideas, con respeto por la fe de los creyentes.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#3a6b52;--accent-deep:#264a38">
+    <a class="epnav-series" href="serie-islam.html">↑ Serie: El Islam y las raíces compartidas</a>
+    <div class="epnav-row">
+      <span class="epnav-btn empty"></span>
+      <a class="epnav-btn next" href="islam-2.html"><span class="dir">Siguiente →</span><span class="ttl">El Corán y los profetas que ya conoces</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

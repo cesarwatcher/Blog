@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tres caminos desde una raíz — Estratos</title>
+<style>
+  :root{
+    --ink:#1a2420;--paper:#eef2ec;--paper-deep:#dde5da;--paper-light:#f5f8f3;
+    --green:#3a6b52;--green-deep:#264a38;--green-dark:#1a3327;--teal:#2f6b6b;
+    --gold:#b8944a;--gold-light:#d4b872;--sand:#c9b896;--rule:#a8bda8;
+    --shadow:rgba(30,55,40,.18);--script:#8a7a4a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(30deg, rgba(58,107,82,.04) 12%, transparent 12.5%, transparent 87%, rgba(58,107,82,.04) 87.5%, rgba(58,107,82,.04)),
+      linear-gradient(150deg, rgba(58,107,82,.04) 12%, transparent 12.5%, transparent 87%, rgba(58,107,82,.04) 87.5%, rgba(58,107,82,.04));
+    background-size:26px 46px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--green-deep);background:rgba(245,248,243,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(58,107,82,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(245,248,243,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--green),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--green-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--green-deep)}
+  .glyphs{font-size:clamp(1.2rem,3vw,1.6rem);letter-spacing:.08em;color:var(--green);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a4a40;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;border:1.5px solid var(--green);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#2a352d;margin:2rem 0}
+
+  /* ---------- FIGURES / IMAGES ---------- */
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(58,107,82,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.32) saturate(1.05) hue-rotate(8deg) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#2f4038;background:rgba(58,107,82,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#6a7a5a}
+  figure.fig figcaption .credit a{color:var(--green-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--green-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--gold);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--green-deep)}
+  .wrap strong{color:var(--green-deep);font-weight:700}
+
+  /* THE GREAT TIMELINE - río de la historia */
+  .river{margin:2rem 0;padding:2rem 1.6rem;background:linear-gradient(165deg,var(--green-dark),var(--green-deep));border-radius:14px;box-shadow:0 8px 26px var(--shadow);color:#e8efe4}
+  .river .tt{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:1.6rem;text-align:center}
+  .stage{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;padding:.7rem 0;position:relative}
+  .stage .when{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;font-weight:700;color:var(--gold-light);text-align:right;padding-top:.2rem;min-width:4.5rem;white-space:nowrap}
+  .stage .what{border-left:2px solid rgba(184,148,74,.4);padding-left:1.1rem;padding-bottom:.6rem;position:relative}
+  .stage .what::before{content:"";position:absolute;left:-6px;top:.4rem;width:10px;height:10px;border-radius:50%;background:var(--gold-light)}
+  .stage:last-child .what{border-left-color:transparent}
+  .stage .what .st{font-weight:700;color:#fff;font-size:1rem;margin-bottom:.15rem}
+  .stage .what .sd{font-size:.9rem;color:#b8ccb8;line-height:1.5}
+  .stage .what .serie{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;color:var(--gold-light);letter-spacing:.04em;margin-top:.25rem;opacity:.85}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(58,107,82,.09);border:1px solid rgba(58,107,82,.25);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#2a352d}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--green);font-size:.9rem}
+
+  .note-block{background:var(--green-dark);color:#d8e4d4;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b8ccb8;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold-light)}
+
+  .blog-end{margin-top:2.5rem;padding:2.4rem 2rem;background:linear-gradient(160deg,var(--gold),#9a7838);color:#fff;border-radius:14px;text-align:center}
+  .blog-end .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;opacity:.9;font-weight:700;margin-bottom:1rem}
+  .blog-end p{font-size:1.1rem;color:#fff;margin-bottom:.9rem;line-height:1.6}
+  .blog-end p:last-child{margin-bottom:0}
+  .blog-end .big{font-size:1.35rem;font-style:italic;font-weight:400}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--green-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--paper-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--script);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}.stage{grid-template-columns:1fr;gap:.2rem}.stage .when{text-align:left}.stage .what{border-left:none;padding-left:0}.stage .what::before{display:none}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">El Islam y las raíces compartidas · Entrega IV · Final</span>
+    <h1>Tres caminos<br>desde una <span class="em">raíz</span></h1>
+    <div class="glyphs">אֵל · Θεός · الله</div>
+    <p class="standfirst">El final del recorrido. Todo lo que hemos visto —seis series, milenios de historia— converge aquí: cómo de una sola raíz semítica brotaron tres religiones y un solo Dios.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Este es el último artículo del blog, y su cierre natural. Empezamos hace mucho con un dios llamado <span class="term">El</span> en las tablillas de Ugarit, y hemos llegado hasta <span class="term">Alá</span> en los versículos del Corán. Entre ambos se extiende toda la historia que hemos excavado, capa por capa. Es hora de mirarla entera, de una vez, y ver la forma que dibuja.</p>
+
+  <figure class="fig">
+    <img src="kaaba.jpg" alt="La Kaaba en La Meca durante la peregrinación">
+    <figcaption>
+      <span class="desc">La Kaaba, en La Meca, durante la peregrinación (<em>hajj</em>). Es el punto hacia el que rezan los musulmanes de todo el mundo y, según la tradición islámica, fue reconstruido por Abraham e Ismael —el broche del arco abrahámico—.</span>
+      <span class="credit">Adli Wahid, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">01</span>El río, de principio a fin</h2>
+  <p>Recojamos el recorrido completo en una sola línea —el hilo que ha atravesado las seis series de este blog—:</p>
+
+  <div class="river">
+    <div class="tt">El largo camino de un solo Dios</div>
+    <div class="stage">
+      <div class="when">s. XIII a.C.</div>
+      <div class="what"><div class="st">El, entre muchos dioses</div><div class="sd">En Canaán, El preside una asamblea de divinidades. YHWH aún es uno más entre los hijos de El.</div><div class="serie">Serie I · El nacimiento del Dios único</div></div>
+    </div>
+    <div class="stage">
+      <div class="when">s. VIII–VI a.C.</div>
+      <div class="what"><div class="st">YHWH absorbe a los demás</div><div class="sd">Israel funde a El con YHWH, reprime a la diosa Aserá y a la corte celestial, y avanza hacia el monoteísmo.</div><div class="serie">Series II y III · La corte y las diosas</div></div>
+    </div>
+    <div class="stage">
+      <div class="when">s. II a.C.–I d.C.</div>
+      <div class="what"><div class="st">El fin del mundo y el Mesías</div><div class="sd">Bajo persecución nacen el apocalipsis, la resurrección y la esperanza mesiánica que heredará el cristianismo.</div><div class="serie">Serie IV · El fin del mundo</div></div>
+    </div>
+    <div class="stage">
+      <div class="when">s. I–IV d.C.</div>
+      <div class="what"><div class="st">Se fija el canon</div><div class="sd">Judaísmo y cristianismo criban sus libros sagrados; quedan fuera Enoc, los apócrifos, los evangelios gnósticos.</div><div class="serie">Serie V · Los libros perdidos</div></div>
+    </div>
+    <div class="stage">
+      <div class="when">610–632 d.C.</div>
+      <div class="what"><div class="st">Alá, el mismo Dios, otra vez</div><div class="sd">En Arabia, el islam proclama el monoteísmo abrahámico restaurado. La tercera rama del árbol.</div><div class="serie">Serie VI · El Islam y las raíces compartidas</div></div>
+    </div>
+  </div>
+  <p>Visto así, de corrido, el patrón salta a la vista: no son historias separadas, sino <strong>tramos de un mismo río</strong>. Cada serie de este blog fue una estación de ese viaje de casi dos mil años —de la asamblea de dioses cananea al Dios único de tres religiones—.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>Por qué tres, y no una</h2>
+  <p>Si la raíz es común, ¿por qué tres religiones y no una? Porque en tres momentos distintos, tres comunidades <strong>trazaron la frontera en lugares diferentes</strong>. El judaísmo la cerró en la Torá y la alianza con Israel. El cristianismo la extendió para incluir a Jesús como Dios encarnado. El islam la reabrió para incluir a Mahoma como sello final de la profecía. Cada una dice ser la versión fiel del mensaje original; cada una considera a las otras parientes que se quedaron a medio camino o se desviaron.</p>
+  <p>Lo notable, desde la mirada histórica que ha guiado este blog, no es que discrepen —eso era esperable—, sino <strong>cuánto comparten sin siempre reconocerlo</strong>: el mismo Dios semítico, los mismos profetas, los mismos ángeles, la misma esperanza en un juicio final. Las tres son respuestas a una pregunta que empezó a formularse en Ugarit hace tres mil años.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Judaísmo, cristianismo e islam son tres ramas del mismo árbol. Se separaron porque cada una, en su momento, decidió dónde terminaba la revelación: en Moisés, en Jesús o en Mahoma. Pero las tres beben de la misma raíz: el viejo Dios semítico con el que empezó todo.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>Lo que hemos aprendido excavando</h2>
+  <p>Este blog se llamó <strong>Estratos</strong> porque su método fue el de la arqueología: leer la religión no como un bloque caído del cielo, sino como un terreno de <em>capas</em>, cada una depositada por una época, cada una todavía legible bajo las siguientes. Bajo el Dios único late el El cananeo. Bajo el ángel Gabriel, la vieja corte celestial. Bajo la Virgen, ecos de diosas antiguas. Bajo el Corán, los relatos de la Biblia y hasta de sus libros descartados.</p>
+  <p>Ninguna de estas capas <strong>desmiente</strong> la fe de nadie: describe su historia. Ver que una idea tiene raíces antiguas no la hace falsa —la hace humana, viva, transmitida de mano en mano a lo largo de milenios—. Esa ha sido la apuesta de todo el blog: que conocer de dónde viene una tradición es una forma de respetarla, no de disolverla.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>El final del recorrido</h2>
+  <p>Empezamos preguntando cómo <em>muchos dioses se volvieron uno</em>. La respuesta, después de seis series, no es una fórmula sino una historia: la de comunidades humanas que durante tres mil años fueron reinterpretando, unificando, discutiendo y transmitiendo su idea de lo divino, hasta legar al mundo tres grandes religiones que hoy comparten un mismo antepasado y, en buena medida, un mismo Dios —aunque lo llamen con nombres distintos y lo entiendan de maneras que ya no pueden reconciliarse—.</p>
+  <p>El, YHWH, Θεός, Alá: cuatro nombres, una larga conversación de la humanidad consigo misma sobre lo que está más allá de ella. Con eso cerramos las excavaciones.</p>
+
+  <div class="blog-end">
+    <div class="lbl">Fin del recorrido · Estratos</div>
+    <p class="big">De una raíz semítica brotaron tres religiones y un solo Dios con muchos nombres.</p>
+    <p>Seis series, tres mil años, una sola pregunta: cómo lo divino, imaginado y reimaginado por incontables generaciones, llegó a ser lo que hoy es.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>Este artículo es una <span class="key">síntesis interpretativa</span> del recorrido del blog; su valor está en articular lo ya expuesto, no en aportar datos nuevos. Cada afirmación puntual (la continuidad El–YHWH, la etimología de Alá, las fechas del islam) fue documentada en su serie correspondiente.</p>
+    <p>La tesis de las tres religiones como <span class="key">desarrollos de un tronco semítico común</span> es ampliamente compartida en el estudio histórico-crítico de las religiones. Los creyentes de cada tradición la interpretan de otro modo —como revelación progresiva o como desviación de las demás—, y este blog respeta esas lecturas sin arbitrar entre ellas.</p>
+    <p>Gracias por acompañar estas excavaciones. La historia de lo sagrado es, al final, la historia de nosotros mismos buscándole sentido al mundo.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#3a6b52;--accent-deep:#264a38">
+    <a class="epnav-series" href="serie-islam.html">↑ Serie: El Islam y las raíces compartidas</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="islam-3.html"><span class="dir">← Anterior</span><span class="ttl">Los personajes que reconocerás</span></a>
+      <span class="epnav-btn empty"></span>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

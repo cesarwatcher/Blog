@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El año que todo acabó: 70 d.C. — Estratos</title>
+<style>
+  :root{
+    --ink:#2a2028;--marble:#ece6e8;--marble-deep:#ddd4d8;--marble-light:#f5f0f2;
+    --purple:#6a3a5a;--purple-deep:#4e2842;--purple-bright:#8a5a7a;--gold:#b08a3a;--gold-light:#d0aa5a;
+    --bronze:#9a7a4a;--rule:#c4b4bc;
+    --shadow:rgba(60,30,50,.18);--mute:#8a7a84;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--marble);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45;
+    background-image:repeating-linear-gradient(90deg, rgba(106,58,90,.045) 0 3px, transparent 3px 26px)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--purple-deep);background:rgba(245,240,242,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(106,58,90,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(245,240,242,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--purple),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--purple-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--purple-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--purple);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3a44;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a2e36;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(106,58,90,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.1) saturate(1.02) contrast(1.03)}
+  figure.fig.no-treat img{filter:none}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#4a3a44;background:rgba(106,58,90,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6a74}
+  figure.fig figcaption .credit a{color:var(--purple)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--purple-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--gold);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--purple);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--purple-deep)}
+  .wrap strong{color:var(--purple-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(106,58,90,.07);border:1px solid rgba(106,58,90,.2);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#3a2e36}
+
+  /* ÁRBOL DE LA BIFURCACIÓN */
+  .fork{margin:2rem 0;padding:1.6rem 1.4rem;background:linear-gradient(165deg,var(--purple-deep),#3a1e32);border-radius:14px;box-shadow:0 8px 26px var(--shadow);color:#e8dce4}
+  .fork .fk-title{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);font-weight:700;text-align:center;margin-bottom:1.4rem}
+  .fork .fk-root{text-align:center;padding:.8rem 1rem;background:rgba(255,255,255,.08);border-radius:8px;margin-bottom:.5rem}
+  .fork .fk-root .rt-name{font-weight:700;color:#fff;font-size:1.05rem}
+  .fork .fk-root .rt-sub{font-size:.85rem;color:#c4a8bc;font-style:italic;margin-top:.15rem}
+  .fork .fk-split{display:flex;justify-content:center;color:var(--gold-light);font-size:1.4rem;margin:.3rem 0}
+  .fork .fk-branches{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+  .fork .fk-branch{padding:1rem 1.1rem;background:rgba(255,255,255,.07);border-radius:8px;border-top:2px solid var(--gold-light)}
+  .fork .fk-branch .br-name{font-weight:700;color:#fff;font-size:1rem;margin-bottom:.3rem}
+  .fork .fk-branch .br-text{font-size:.9rem;color:#cabcc4;line-height:1.5}
+  @media(max-width:600px){.fork .fk-branches{grid-template-columns:1fr}}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--gold);font-size:.9rem}
+
+  .note-block{background:var(--purple-deep);color:#e8dce4;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#cabcc4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold-light)}
+
+  .series-end{margin-top:2.5rem;padding:2.2rem 1.9rem;background:linear-gradient(160deg,var(--purple),var(--purple-deep));color:#f0e6ec;border-radius:14px;text-align:center}
+  .series-end .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:.8rem}
+  .series-end p{font-size:1.06rem;color:#f0e6ec;margin-bottom:.8rem;line-height:1.6}
+  .series-end p:last-child{margin-bottom:0}
+  .series-end p.big{font-size:1.24rem}
+  .series-end .em{font-style:italic;color:var(--gold-light)}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--purple-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--marble-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Grecia y Roma · Entrega IV · Final</span>
+    <h1>El año que todo<br>acabó: <span class="em">70 d.C.</span></h1>
+    <div class="glyphs">ט׳ באב</div>
+    <p class="standfirst">Roma quemó el Segundo Templo, y con él pareció terminar el judaísmo. En cambio, de aquellas cenizas se levantaron dos religiones que cambiarían el mundo: el judaísmo rabínico y el cristianismo.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Llegamos al final de la serie, y del gran arco histórico de todo el blog. La tensión entre Judea y Roma que vimos crecer estalló en el año 66 d.C. en una <strong>revuelta abierta</strong>. Cuatro años después, la respuesta de Roma sería total y definitiva. El año <strong>70 d.C.</strong> es, junto al exilio babilónico, la fecha más decisiva de la historia religiosa de Israel —el día en que un mundo terminó y dos nuevos empezaron—.</p>
+
+  <h2><span class="n">01</span>La gran revuelta</h2>
+  <p>Décadas de agravios acumulados —impuestos aplastantes, gobernadores romanos corruptos e insensibles, provocaciones religiosas, la agitación de los zelotes— hicieron saltar la chispa en el <strong>66 d.C.</strong> Judea se levantó en armas contra el Imperio romano. Al principio, sorprendentemente, los rebeldes lograron victorias. Pero desafiar a Roma era desafiar a la maquinaria militar más poderosa del mundo.</p>
+  <p>Roma envió a sus mejores generales, Vespasiano y luego su hijo <strong>Tito</strong>, con varias legiones. Aplastaron la revuelta metódicamente, región por región, hasta cercar Jerusalén. En el verano del <strong>70 d.C.</strong>, tras un asedio brutal, las legiones tomaron la ciudad, la arrasaron y <strong>quemaron el Segundo Templo</strong>. Según la tradición, ocurrió el <strong>9 de Av</strong> —la misma fecha en que, seis siglos antes, Babilonia había destruido el Primero—.</p>
+
+  <figure class="fig">
+    <img src="arco-tito.jpg" alt="Relieve del Arco de Tito con el saqueo del Templo">
+    <figcaption>
+      <span class="desc">Relieve del <em>Arco de Tito</em> en Roma (copia): los soldados romanos desfilan con el botín del Templo de Jerusalén, incluida la <strong>menorá</strong> de oro. Roma inmortalizó su victoria; para el judaísmo, es la imagen de la catástrofe.</span>
+      <span class="credit">Steerpike, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>El fin de un mundo</h2>
+  <p>Es difícil exagerar lo que significó la pérdida del Templo. Durante mil años, el culto judío había girado en torno a él: los sacrificios, las peregrinaciones, el sacerdocio, el calendario festivo. Sin Templo, <strong>todo ese sistema religioso quedó de golpe imposible</strong>. Los saduceos, la aristocracia sacerdotal ligada al Templo, simplemente <strong>desaparecieron</strong>. Los zelotes fueron aniquilados (Masada, su último bastión, cayó en el 73). Los esenios se esfumaron.</p>
+  <p>De la rica diversidad del judaísmo del Segundo Templo —fariseos, saduceos, esenios, zelotes, los primeros seguidores de Jesús— la catástrofe solo dejó en pie, con futuro, a <strong>dos grupos</strong>. Y de ellos nacerían las dos religiones que aún hoy configuran el mundo.</p>
+
+  <figure class="fig no-treat">
+    <img src="muro-occidental.jpg" alt="El Muro occidental del Monte del Templo en Jerusalén">
+    <figcaption>
+      <span class="desc">El <em>Muro occidental</em> de Jerusalén: parte del muro de contención de la explanada del Templo de Herodes, y lo único que quedó en pie tras el 70 d.C. Sigue siendo el lugar más sagrado del judaísmo.</span>
+      <span class="credit">Ralf Roletschek / Roletchek.at, CC BY-SA 4.0, vía Wikimedia Commons.</span>
+    </figcaption>
+  </figure>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>La bifurcación: dos religiones de las cenizas</h2>
+  <p>Este es el momento culminante de todo el blog. Del tronco del judaísmo del Segundo Templo, herido de muerte en el 70 d.C., brotaron <strong>dos ramas</strong> que sobrevivirían y florecerían —cada una reinventando la fe sin Templo a su manera—:</p>
+
+  <div class="fork">
+    <div class="fk-title">La bifurcación del año 70</div>
+    <div class="fk-root">
+      <div class="rt-name">Judaísmo del Segundo Templo</div>
+      <div class="rt-sub">diverso, centrado en el Templo — destruido en el 70 d.C.</div>
+    </div>
+    <div class="fk-split">↓</div>
+    <div class="fk-branches">
+      <div class="fk-branch">
+        <div class="br-name">Judaísmo rabínico</div>
+        <div class="br-text">De los <strong>fariseos</strong>. Rabí Johanan ben Zakkai, escapando de Jerusalén (según la leyenda, en un ataúd), fundó una academia en <strong>Yavne</strong>. Sustituyeron el Templo por el estudio de la Torá, la sinagoga y la oración. De ahí nace el judaísmo actual.</div>
+      </div>
+      <div class="fk-branch">
+        <div class="br-name">Cristianismo</div>
+        <div class="br-text">De los <strong>seguidores de Jesús</strong>. Sin Templo, con su mesías ya llegado, se separaron definitivamente del judaísmo y se expandieron por el mundo romano —en griego, con la Septuaginta como Biblia—, hasta volverse una religión propia.</div>
+      </div>
+    </div>
+  </div>
+
+  <p>Fíjate en la simetría con el exilio babilónico, que vimos en la serie de los imperios. Ambas veces, la destrucción del Templo forzó una <strong>reinvención creativa</strong>: entonces nació el monoteísmo maduro y la religión "portátil"; ahora nacen el judaísmo rabínico y el cristianismo. En la historia de Israel, <strong>las catástrofes son también partos</strong>.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>En el 70 d.C. Roma destruyó el Segundo Templo y con él el sistema religioso de mil años. Pero de esa catástrofe surgieron dos religiones: el judaísmo rabínico (de los fariseos, centrado ahora en la Torá y la sinagoga) y el cristianismo (de los seguidores de Jesús, que se expandió por el mundo romano). Ambas aprendieron a vivir sin Templo.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>El cierre de la serie</h2>
+  <p>"Grecia y Roma" empezó con Alejandro trayendo una cultura nueva, y termina con Roma cerrando una era. Entre ambos, cuatro siglos en los que el judaísmo se enfrentó al mundo clásico —lo absorbió, lo resistió, se rebeló contra él, y finalmente fue transformado por él—. De esa larga fricción salió el mundo religioso que aún habitamos: dos de las tres grandes tradiciones abrahámicas quedaron aquí definidas para siempre.</p>
+  <p>Y con esto, el blog ha recorrido el camino completo: desde El, el dios cananeo de la primera serie, hasta las dos religiones que nacieron de las cenizas del Templo de Herodes. De la asamblea de dioses del Bronce a las fes del mundo romano. Toda una historia de cómo lo sagrado se transforma, capa sobre capa, imperio tras imperio.</p>
+
+  <div class="series-end">
+    <div class="lbl">Fin de la serie · Grecia y Roma</div>
+    <p class="big"><span class="em">Roma quemó el Templo, y de sus cenizas se alzaron dos religiones que aún hoy dan forma al mundo.</span></p>
+    <p>Grecia trajo la lengua; Roma, el final de una era. Entre ambas, el judaísmo se bifurcó para siempre en dos caminos: la Torá de los rabinos y el evangelio de los cristianos.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>La <span class="key">gran revuelta judía</span> (66–73 d.C.), el asedio de Jerusalén y la <span class="key">destrucción del Segundo Templo en el 70 d.C.</span> por Tito son <span class="key">hechos históricos firmes</span>, documentados extensamente por el testigo Flavio Josefo y por la arqueología (incluido el Arco de Tito en Roma). La caída de Masada (c. 73/74 d.C.) es igualmente histórica.</p>
+    <p>El surgimiento del <span class="key">judaísmo rabínico</span> a partir del fariseísmo, con el papel de <span class="key">Yavne</span> y Johanan ben Zakkai, es el marco aceptado, aunque los detalles (como el episodio del ataúd) proceden de tradiciones rabínicas posteriores y se presentan como tales. La separación gradual entre judaísmo y cristianismo (el "parting of the ways") es objeto de <span class="key">investigación matizada</span>: fue un proceso de décadas, no un corte instantáneo en el 70.</p>
+    <p>Este artículo describe la historia de la formación del judaísmo rabínico y el cristianismo con respeto por ambas tradiciones vivas, sin arbitrar cuestiones de fe. Cierra el recorrido de este blog.</p>
+  </div>
+
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#8a5a7a;--accent-deep:#6a3a5a">
+    <a class="epnav-series" href="serie-grecia-roma.html">↑ Serie: Grecia y Roma</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="grecia-3.html"><span class="dir">← Anterior</span><span class="ttl">Roma y el rey Herodes</span></a>
+      <span class="epnav-btn empty"></span>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

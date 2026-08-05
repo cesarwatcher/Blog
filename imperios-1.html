@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La sombra de Egipto — Estratos</title>
+<style>
+  :root{
+    --ink:#1e2632;--stone:#d8dce2;--stone-deep:#c4cad4;--stone-light:#e8ebef;
+    --lapis:#2a4a6a;--lapis-deep:#1c3450;--lapis-bright:#3a6a9a;--gold:#c9a227;--gold-light:#e0c158;
+    --sand:#b8a678;--terra:#a8663e;--rule:#a4aec0;
+    --shadow:rgba(20,35,55,.22);--mute:#7a889c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--stone);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* MOTIVO FIRMA: relieve monumental (líneas verticales tipo bajorrelieve) */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:repeating-linear-gradient(90deg, rgba(42,74,106,.05) 0 2px, transparent 2px 22px)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--lapis-deep);background:rgba(232,235,239,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(42,74,106,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(232,235,239,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--lapis),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--lapis-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--lapis-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--lapis);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a4656;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#2e3a48;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(42,74,106,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(1.05) contrast(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a4656;background:rgba(42,74,106,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#6a7688}
+  figure.fig figcaption .credit a{color:var(--lapis)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--lapis-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--gold);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--lapis);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--lapis-deep)}
+  .wrap strong{color:var(--lapis-deep);font-weight:700}
+
+  /* ===== MAPA INTERACTIVO DE IMPERIOS ===== */
+  .empire-map{margin:2rem 0;padding:1.6rem 1.4rem;background:var(--stone-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .em-head{text-align:center;margin-bottom:1.2rem}
+  .em-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lapis-deep);font-weight:700}
+  .em-hint{font-size:.9rem;color:var(--mute);font-style:italic;margin-top:.4rem}
+  .em-tabs{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap}
+  .em-tab{flex:1;min-width:70px;padding:.6rem .4rem;border:1px solid var(--rule);cursor:pointer;background:var(--stone);color:var(--lapis-deep);font-family:"Trebuchet MS",sans-serif;font-weight:700;border-radius:8px;font-size:.8rem;transition:all .25s}
+  .em-tab:hover{background:var(--stone-deep)}
+  .em-tab.active{background:var(--lapis);color:#fff;border-color:var(--lapis)}
+  .em-stage{position:relative;height:320px;background:linear-gradient(165deg,#dfe3e8,#cfd5dc);border-radius:10px;overflow:hidden;border:1px solid var(--rule)}
+  .em-sea{position:absolute;left:0;top:0;width:34%;height:52%;background:rgba(58,106,154,.16);border-radius:0 0 40% 0}
+  .em-sea-label{position:absolute;left:6%;top:16%;font-size:.62rem;color:var(--lapis);font-style:italic;font-family:"Trebuchet MS",sans-serif;opacity:.7}
+  .em-region{position:absolute;border-radius:46% 54% 50% 50%;opacity:0;transition:opacity .55s,transform .55s;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.82rem;font-weight:700;font-family:"Trebuchet MS",sans-serif;text-align:center;transform:scale(.82);text-shadow:0 1px 3px rgba(0,0,0,.4);padding:.5rem}
+  .em-region.show{opacity:.86;transform:scale(1)}
+  .em-judah{position:absolute;left:39%;top:52%;width:15px;height:15px;background:var(--terra);border:2px solid #fff;border-radius:50%;z-index:5;box-shadow:0 0 0 3px rgba(168,102,62,.3)}
+  .em-judah-label{position:absolute;left:39%;top:58%;transform:translateX(-50%);font-size:.66rem;font-weight:700;color:var(--terra);font-family:"Trebuchet MS",sans-serif;z-index:5;white-space:nowrap;text-shadow:0 1px 2px rgba(255,255,255,.8)}
+  .em-info{margin-top:12px;padding:1rem 1.2rem;background:var(--stone);border-radius:8px;border-left:3px solid var(--gold)}
+  .em-info .ei-when{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.3rem}
+  .em-info .ei-text{font-size:.96rem;color:#2e3a48}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(42,74,106,.08);border:1px solid rgba(42,74,106,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lapis-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#2e3a48}
+
+  .consensus{margin:1.8rem 0;padding:1.3rem 1.5rem;background:var(--stone-light);border:1px solid var(--rule);border-radius:12px}
+  .consensus .c-claim{font-size:1rem;color:var(--ink);margin-bottom:.9rem;font-weight:600}
+  .consensus .c-claim .q{color:var(--lapis-deep);font-style:italic}
+  .c-bar{position:relative;height:34px;background:linear-gradient(90deg,#c25a3a 0%,#d9a860 50%,#3a7a6a 100%);border-radius:18px;overflow:hidden;opacity:.9}
+  .c-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;background:#fff;border:3px solid var(--lapis-deep);border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.3);z-index:2}
+  .c-scale{display:flex;justify-content:space-between;margin-top:.5rem;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:var(--mute);letter-spacing:.02em}
+  .c-verdict{margin-top:.7rem;font-size:.9rem;color:var(--lapis-deep);font-family:"Trebuchet MS",sans-serif}
+  .c-verdict b{color:var(--lapis-deep)}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--gold);font-size:.9rem}
+
+  .note-block{background:var(--lapis-deep);color:#d4dce6;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b0bccc;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold-light)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--stone-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--lapis-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#3a4656;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--lapis-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--stone-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}.em-stage{height:280px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress,.em-region{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Los vecinos imperiales · Entrega I</span>
+    <h1>La sombra<br>de <span class="em">Egipto</span></h1>
+    <div class="glyphs">𓊪 · מִצְרַיִם</div>
+    <p class="standfirst">Israel nunca estuvo solo. A su alrededor, imperios inmensos se alzaban y caían. El primero en proyectar su sombra —y del que, según el relato, Israel mismo salió— fue Egipto.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Empezamos una nueva etapa del blog, y con ella cambiamos de escala. Hasta ahora hemos mirado a Israel desde dentro: sus textos, su tierra, sus aldeas. Pero Israel fue siempre un actor pequeño en un escenario dominado por <strong>gigantes</strong>. Egipto al suroeste; Asiria, Babilonia y Persia al noreste. Esta serie cuenta cómo esas grandes potencias —los <em>vecinos imperiales</em>— moldearon la religión de Israel, a veces por la fuerza, a veces por contagio de ideas. Y empezamos por el primero y más antiguo: Egipto. Pero antes, para situarnos, un mapa.</p>
+
+  <div class="empire-map">
+    <div class="em-head">
+      <div class="em-title">Los imperios que rodearon a Israel</div>
+      <div class="em-hint">Toca cada imperio para ver cómo dominó la región en su turno</div>
+    </div>
+    <div class="em-tabs" id="emTabs"></div>
+    <div class="em-stage" id="emStage">
+      <div class="em-sea"></div>
+      <div class="em-sea-label">Mar<br>Mediterráneo</div>
+      <div class="em-judah" title="Israel / Judá"></div>
+      <div class="em-judah-label">Israel / Judá</div>
+    </div>
+    <div class="em-info" id="emInfo"></div>
+  </div>
+  <p>Fíjate en el punto rojo: Israel y Judá, siempre en el centro, siempre pequeños, siempre entre el yunque de un imperio y el martillo de otro. Esa posición —un corredor estrecho entre África y Asia, por el que pasaban todos los ejércitos— explica buena parte de su historia y de su religión. Empecemos por el gigante del sur.</p>
+
+  <h2><span class="n">01</span>El imperio del que se sale</h2>
+  <p>Egipto ocupa un lugar único en la memoria de Israel: es <strong>el imperio del que se sale</strong>. Todo el relato del Éxodo —que vimos en la serie anterior— sitúa a Egipto como la casa de la esclavitud, el poder opresor del que YHWH libera a su pueblo. Aunque la arqueología cuestione el Éxodo masivo, el <strong>peso simbólico</strong> de Egipto en la Biblia es enorme e innegable: es el "otro" por excelencia, la potencia contra la que Israel define su propia libertad.</p>
+  <p>Y es históricamente cierto que Egipto <strong>dominó Canaán durante siglos</strong>. En la Edad del Bronce tardío, las ciudades-estado cananeas —de las que, según Finkelstein, surgirían los israelitas— eran vasallas del faraón. La sombra de Egipto sobre la tierra de Israel es un hecho arqueológico, mucho antes de cualquier relato bíblico.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>Un faraón monoteísta, mil años antes</h2>
+  <p>Aquí una de las conexiones más fascinantes y debatidas. En el siglo XIV a.C., un faraón llamado <span class="term">Akhenatón</span> hizo algo sin precedentes: abolió el politeísmo egipcio e impuso el culto exclusivo a un solo dios, <strong>Atón</strong>, el disco solar. Fue una revolución monoteísta —o casi— más de <strong>medio milenio antes</strong> de que Israel consolidara la suya.</p>
+
+  <figure class="fig">
+    <img src="akhenaton.jpg" alt="Busto del faraón Akhenatón">
+    <figcaption>
+      <span class="desc">Busto de <em>Akhenatón</em> (c. 1340 a.C.), el faraón que impuso el culto a un solo dios, Atón. Su arte, de rasgos alargados e inconfundibles, rompió con siglos de convención egipcia.</span>
+      <span class="credit">Osama Shukir Muhammed Amin FRCP(Glasg), <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+  <p>¿Hay relación? Aquí hay que ser prudente. Existe un <strong>paralelo textual llamativo</strong>: el "Himno a Atón" de Akhenatón se parece notablemente al <strong>Salmo 104</strong> de la Biblia, en imágenes y estructura. Algunos han especulado incluso —siguiendo a Freud— que el monoteísmo israelita bebió del de Akhenatón. Pero la mayoría de los estudiosos son cautos: el culto a Atón fue <strong>abolido y borrado</strong> tras la muerte del faraón, siglos antes de Israel, y el parecido del himno puede deberse a una <strong>tradición literaria común</strong> del Cercano Oriente, no a un préstamo directo.</p>
+  <div class="consensus" data-level="25">
+    <div class="c-claim">“El monoteísmo de Israel deriva directamente del culto a Atón de Akhenatón.” <span class="q">— hipótesis a la Freud</span></div>
+    <div class="c-bar"><div class="c-marker" style="left:18%"></div></div>
+    <div class="c-scale"><span>Muy discutido</span><span>Dividido</span><span>Consenso sólido</span></div>
+    <div class="c-verdict"><b>Lectura:</b> mayoritariamente rechazada como vínculo <em>directo</em>. El parecido del Himno a Atón con el Salmo 104 es real y aceptado, pero se explica mejor por una tradición literaria compartida que por una herencia directa. Un eco, no una filiación.</div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>La huella que sí quedó: la sabiduría</h2>
+  <p>Donde la influencia egipcia es <strong>sólida y aceptada</strong> no es en el monoteísmo, sino en un lugar más humilde: la <strong>literatura de sabiduría</strong>. Un pasaje del libro de los <span class="term">Proverbios</span> (22:17–24:22) es tan parecido a una obra egipcia —la <strong>“Instrucción de Amenemope”</strong>— que los estudiosos aceptan ampliamente que el texto bíblico <strong>se inspiró en el egipcio</strong>, o ambos en una fuente común. Mismos consejos, mismas imágenes, a veces casi las mismas frases.</p>
+  <p>Esto revela algo importante sobre cómo funcionaba la cultura antigua: las ideas <strong>viajaban</strong>. Escribas de distintos pueblos compartían un fondo común de sabiduría práctica, y la Biblia no es una isla, sino parte de esa conversación regional. Egipto no le dio a Israel su Dios, pero sí contribuyó a su <strong>modo de pensar la vida buena</strong>.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Egipto influyó en Israel, pero no como a veces se cree. Su gran dios monoteísta (Atón) probablemente no engendró al de Israel —es un eco lejano, no un padre—. Pero la sabiduría egipcia sí dejó huella directa: parte de los Proverbios se inspira en un texto egipcio. Las ideas cruzaban fronteras.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Síntesis</h2>
+  <p>Egipto fue para Israel el <strong>primer gran vecino</strong>: el opresor mítico del Éxodo, el señor de Canaán durante siglos, la fuente de una sabiduría que se filtró en sus libros, y quizá el eco lejano de una idea monoteísta anterior. Su sombra es larga, pero —lección de esta serie— <strong>hay que medir cada influencia con cuidado</strong>: algunas son directas y probadas (la sabiduría), otras son resonancias sugerentes pero indemostrables (Atón).</p>
+  <p>Egipto, sin embargo, fue un imperio del <em>pasado</em> para Israel. Los que de verdad marcarían su religión con hierro candente llegaron después, desde el noreste, y no como recuerdo sino como catástrofe. En la próxima entrega llega el primero de esos martillos: Asiria.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Próxima entrega</div>
+    <div class="ttl">Asiria, el martillo</div>
+    <p>El imperio que borró del mapa al reino del norte en 722 a.C., inventó el terror como política de Estado, y dejó a Judá temblando y transformada.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>El dominio egipcio sobre la Canaán del Bronce tardío es <span class="key">consenso arqueológico</span>. La reforma monoteísta de <span class="key">Akhenatón</span> (culto a Atón, s. XIV a.C.) es un hecho histórico; su conexión con el monoteísmo israelita es <span class="key">especulativa y mayoritariamente rechazada</span> como vínculo directo. El parecido entre el Himno a Atón y el Salmo 104 es real pero se atribuye a tradición compartida.</p>
+    <p>La dependencia de <span class="key">Proverbios 22–24</span> respecto de la <span class="key">Instrucción de Amenemope</span> es <span class="key">ampliamente aceptada</span> por los especialistas, aunque se discute la dirección exacta del préstamo. La teoría de Freud (<i>Moisés y la religión monoteísta</i>) se menciona como curiosidad histórica, no como posición académica vigente.</p>
+    <p>Este artículo describe influencias históricas y culturales; el valor religioso del Éxodo y de los textos bíblicos es una cuestión distinta, que este blog respeta.</p>
+  </div>
+
+</div>
+
+
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#3a6a9a;--accent-deep:#2a4a6a">
+    <a class="epnav-series" href="serie-imperios.html">↑ Serie: Los vecinos imperiales</a>
+    <div class="epnav-row">
+      <span class="epnav-btn empty"></span>
+      <a class="epnav-btn next" href="imperios-2.html"><span class="dir">Siguiente →</span><span class="ttl">Asiria, el martillo</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  // barra de progreso
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+
+  // ===== mapa interactivo de imperios =====
+  const empires = [
+    {id:'egipto', name:'Egipto', color:'#c9a227', x:'8%', y:'46%', w:'150px', h:'150px',
+      when:'Edad del Bronce · hasta s. XII a.C.', text:'Egipto domina Canaán desde el suroeste. Las ciudades cananeas —cuna de los futuros israelitas— son vasallas del faraón. Es el imperio del que, según el relato, saldría Israel.'},
+    {id:'asiria', name:'Asiria', color:'#8a7060', x:'52%', y:'8%', w:'190px', h:'130px',
+      when:'s. IX–VII a.C.', text:'Asiria baja como un martillo desde el noreste. En 722 a.C. destruye el reino del norte (Israel) y deporta a su población. Judá sobrevive, aterrorizada y como vasalla.'},
+    {id:'babilonia', name:'Babilonia', color:'#2a4a6a', x:'54%', y:'26%', w:'200px', h:'140px',
+      when:'s. VII–VI a.C.', text:'Babilonia hereda el poder asirio. En 587 a.C. destruye Jerusalén y su Templo, y lleva a la élite de Judá al exilio. El acontecimiento que lo cambiaría todo.'},
+    {id:'persia', name:'Persia', color:'#7a3a5a', x:'50%', y:'14%', w:'250px', h:'175px',
+      when:'s. VI–IV a.C.', text:'Persia, el mayor imperio hasta entonces. En 539 a.C. Ciro toma Babilonia y permite volver a los exiliados. Dos siglos de dominio persa dejarán honda huella en las ideas religiosas de Israel.'},
+  ];
+  const tabsEl = document.getElementById('emTabs');
+  const stageEl = document.getElementById('emStage');
+  const infoEl = document.getElementById('emInfo');
+
+  // pestañas
+  tabsEl.innerHTML = empires.map((e,i)=>`<button class="em-tab" data-i="${i}">${e.name}</button>`).join('');
+  // regiones (insertadas antes del punto de Judá)
+  const judah = stageEl.querySelector('.em-judah');
+  empires.forEach((e,i)=>{
+    const d = document.createElement('div');
+    d.className = 'em-region'; d.id = 'reg'+i;
+    d.style.cssText = `left:${e.x};top:${e.y};width:${e.w};height:${e.h};background:${e.color}`;
+    d.textContent = e.name;
+    stageEl.insertBefore(d, judah);
+  });
+  function activate(i){
+    document.querySelectorAll('.em-tab').forEach((t,j)=>t.classList.toggle('active', i===j));
+    document.querySelectorAll('.em-region').forEach((r,j)=>r.classList.toggle('show', i===j));
+    infoEl.innerHTML = `<div class="ei-when">${empires[i].when}</div><div class="ei-text">${empires[i].text}</div>`;
+  }
+  tabsEl.querySelectorAll('.em-tab').forEach(t=>t.addEventListener('click',()=>activate(+t.dataset.i)));
+  activate(0);
+</script>
+
+</body>
+</html>

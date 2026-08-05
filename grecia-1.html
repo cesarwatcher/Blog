@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro y el choque helénico — Estratos</title>
+<style>
+  :root{
+    --ink:#2a2028;--marble:#ece6e8;--marble-deep:#ddd4d8;--marble-light:#f5f0f2;
+    --purple:#6a3a5a;--purple-deep:#4e2842;--purple-bright:#8a5a7a;--gold:#b08a3a;--gold-light:#d0aa5a;
+    --bronze:#9a7a4a;--rule:#c4b4bc;
+    --shadow:rgba(60,30,50,.18);--mute:#8a7a84;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--marble);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* MOTIVO FIRMA: estrías de columna clásica */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45;
+    background-image:repeating-linear-gradient(90deg, rgba(106,58,90,.045) 0 3px, transparent 3px 26px)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--purple-deep);background:rgba(245,240,242,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(106,58,90,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(245,240,242,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--purple),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--purple-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--purple-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--purple);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3a44;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a2e36;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(106,58,90,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.1) saturate(1.02) contrast(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#4a3a44;background:rgba(106,58,90,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6a74}
+  figure.fig figcaption .credit a{color:var(--purple)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--purple-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--gold);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--purple);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--purple-deep)}
+  .wrap strong{color:var(--purple-deep);font-weight:700}
+
+  /* ===== LÍNEA DE TIEMPO HELENÍSTICA ===== */
+  .timeline{margin:2rem 0;padding:1.6rem 1.4rem;background:var(--marble-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .tl-head{text-align:center;margin-bottom:1.4rem}
+  .tl-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-deep);font-weight:700}
+  .tl-track{position:relative;padding-left:1.5rem}
+  .tl-track::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--purple),var(--gold))}
+  .tl-item{position:relative;padding:0 0 1.2rem 0}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{content:"";position:absolute;left:-1.5rem;top:.35rem;width:12px;height:12px;border-radius:50%;background:var(--purple);border:2px solid var(--marble-light);transform:translateX(1px)}
+  .tl-when{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;color:var(--gold);letter-spacing:.04em}
+  .tl-what{font-size:1rem;color:#3a2e36;margin-top:.15rem}
+  .tl-what b{color:var(--purple-deep)}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(106,58,90,.07);border:1px solid rgba(106,58,90,.2);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#3a2e36}
+
+  .consensus{margin:1.8rem 0;padding:1.3rem 1.5rem;background:var(--marble-light);border:1px solid var(--rule);border-radius:12px}
+  .consensus .c-claim{font-size:1rem;color:var(--ink);margin-bottom:.9rem;font-weight:600}
+  .consensus .c-claim .q{color:var(--purple-deep);font-style:italic}
+  .c-bar{position:relative;height:34px;background:linear-gradient(90deg,#c25a3a 0%,#d9a860 50%,#5a7a5a 100%);border-radius:18px;overflow:hidden;opacity:.9}
+  .c-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;background:#fff;border:3px solid var(--purple-deep);border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.3);z-index:2}
+  .c-scale{display:flex;justify-content:space-between;margin-top:.5rem;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:var(--mute);letter-spacing:.02em}
+  .c-verdict{margin-top:.7rem;font-size:.9rem;color:var(--purple-deep);font-family:"Trebuchet MS",sans-serif}
+  .c-verdict b{color:var(--purple-deep)}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--gold);font-size:.9rem}
+
+  .note-block{background:var(--purple-deep);color:#e8dce4;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#cabcc4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold-light)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--marble-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--purple-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#4a3a44;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--purple-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--marble-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Grecia y Roma · Entrega I</span>
+    <h1>Alejandro y el<br>choque <span class="em">helénico</span></h1>
+    <div class="glyphs">Ἀλέξανδρος</div>
+    <p class="standfirst">En una sola década, un joven macedonio conquistó el mundo conocido. Y con sus ejércitos llegó algo más duradero que cualquier imperio: la lengua, las ideas y la cultura griegas, que lo cambiarían todo.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Con esta serie el blog entra en su cuarta etapa y en un mundo nuevo. Hasta ahora, los imperios que moldearon a Israel venían del Cercano Oriente: Egipto, Mesopotamia, Persia. Pero en el 332 a.C. irrumpió algo distinto, procedente del oeste: el mundo <strong>griego</strong>, y tras él, <strong>Roma</strong>. No solo nuevos amos, sino una <em>civilización</em> entera —una forma de pensar, hablar y vivir— que penetraría hasta el tuétano del judaísmo y sería la cuna del cristianismo. Empieza con un conquistador de veinte años.</p>
+
+  <h2><span class="n">01</span>La conquista más rápida de la historia</h2>
+  <p>En el 334 a.C., <span class="term">Alejandro Magno</span>, rey de Macedonia y discípulo de Aristóteles, cruzó a Asia con su ejército. En apenas una década barrió el <strong>Imperio Persa</strong> entero —el mismo coloso que había dominado a Judá durante dos siglos— y extendió su dominio desde Grecia hasta la India. Judea cayó bajo su control, casi sin resistencia, hacia el <strong>332 a.C.</strong></p>
+  <p>Alejandro murió jovencísimo, a los 32 años, sin heredero claro, y su imperio se fracturó entre sus generales. Pero su verdadera herencia no fue territorial. Fue cultural: allá donde llegó, fundó ciudades griegas, instaló administradores griegos e impuso el griego como lengua franca. A este proceso —la difusión de la cultura griega por todo el mundo antiguo— se le llama <span class="term">helenización</span>, y sería la fuerza transformadora de los siguientes siglos.</p>
+
+  <figure class="fig">
+    <img src="alejandro.jpg" alt="Busto de Alejandro Magno">
+    <figcaption>
+      <span class="desc">Busto de <em>Alejandro Magno</em> (mármol, copia posterior; Museos Arqueológicos de Estambul). Su conquista (334–323 a.C.) llevó la lengua y la cultura griegas hasta el corazón del mundo judío.</span>
+      <span class="credit">Satdeep Gill, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <div class="timeline">
+    <div class="tl-head"><div class="tl-title">Del conquistador a los reinos herederos</div></div>
+    <div class="tl-track">
+      <div class="tl-item"><div class="tl-when">334 a.C.</div><div class="tl-what"><b>Alejandro cruza a Asia.</b> Comienza la conquista del Imperio Persa.</div></div>
+      <div class="tl-item"><div class="tl-when">332 a.C.</div><div class="tl-what"><b>Judea bajo dominio griego.</b> La región pasa a manos de Alejandro casi sin lucha.</div></div>
+      <div class="tl-item"><div class="tl-when">323 a.C.</div><div class="tl-what"><b>Muere Alejandro</b> en Babilonia, a los 32 años. Su imperio se reparte entre sus generales.</div></div>
+      <div class="tl-item"><div class="tl-when">s. III a.C.</div><div class="tl-what"><b>Judea, entre dos reinos.</b> Queda entre los <b>ptolomeos</b> de Egipto y los <b>seléucidas</b> de Siria, que se la disputan.</div></div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>El seísmo cultural del helenismo</h2>
+  <p>Para el judaísmo, la helenización fue un <strong>terremoto</strong>, y ambivalente. Por un lado, ofrecía cosas seductoras: el griego como lengua internacional, la filosofía, el gimnasio, el teatro, una cultura urbana cosmopolita y prestigiosa. Muchos judíos, sobre todo las élites urbanas, la <strong>abrazaron con entusiasmo</strong> —adoptaron nombres griegos, costumbres griegas, la lengua griega—.</p>
+  <p>Por otro lado, esa misma seducción amenazaba la identidad judía. ¿Hasta dónde se podía ser griego sin dejar de ser judío? El gimnasio, por ejemplo, se practicaba desnudo, lo que hacía visible —y motivo de burla— la circuncisión. La tensión entre <strong>helenizarse o resistir</strong> partió a la sociedad judía en dos, y esa fractura estallaría, una generación después, en la revuelta que veremos en la próxima entrega.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>La Biblia habla griego</h2>
+  <p>El fruto más duradero de este encuentro fue un libro. En la Alejandría helenística, la gran comunidad judía de la diáspora había dejado de hablar hebreo: su lengua materna era ya el <strong>griego</strong>. Así que, a partir del siglo III a.C., se tradujo la Biblia hebrea al griego. Esa traducción se llama la <span class="term">Septuaginta</span> (de la leyenda de que la hicieron setenta traductores).</p>
+
+  <figure class="fig">
+    <img src="septuaginta.gif" alt="Fragmento de un rollo griego de los Profetas Menores">
+    <figcaption>
+      <span class="desc">Fragmento de un rollo griego de los Profetas Menores (Nahal Hever, entre 50 a.C. y 50 d.C.). La flecha señala el nombre divino escrito en hebreo antiguo, incrustado en el texto griego —el encuentro de dos mundos en una sola página—.</span>
+      <span class="credit">Autor desconocido, dominio público, vía Wikimedia Commons.</span>
+    </figcaption>
+  </figure>
+
+  <p>La Septuaginta fue revolucionaria por dos razones. Primero, hizo la Biblia <strong>accesible al mundo entero</strong>, no solo a quienes leían hebreo. Segundo —y decisivo para la historia—, sería la <strong>Biblia de los primeros cristianos</strong>: cuando los autores del Nuevo Testamento citan las Escrituras, casi siempre citan la Septuaginta griega. Sin la helenización, el cristianismo no habría tenido la lengua ni el vehículo para expandirse por el Imperio. La conquista de Alejandro preparó, sin saberlo, el terreno.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Alejandro no solo conquistó territorios: difundió la lengua y la cultura griegas por todo el mundo antiguo. Esto obligó al judaísmo a decidir cuánto asimilarse. Un fruto clave fue la traducción de la Biblia al griego (la Septuaginta), que más tarde sería la Biblia de los primeros cristianos. El mundo griego preparó el escenario del cristianismo.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Síntesis</h2>
+  <p>Alejandro fue un <strong>vecino imperial de nuevo tipo</strong>. Los imperios anteriores habían impuesto tributo, deportaciones, miedo. Grecia impuso algo más íntimo y más difícil de resistir: una <strong>cultura entera</strong>, atractiva y absorbente, que obligó al judaísmo a definirse frente a ella. De esa fricción salió tanto lo mejor (la Biblia universalizada en griego) como el conflicto más violento (la revuelta macabea).</p>
+  <p>Porque la helenización tenía un límite. Cuando un rey griego intentó no ya seducir, sino <strong>forzar</strong> a los judíos a abandonar su religión, la resistencia estalló. Ese es el tema de la próxima entrega: la rebelión de los Macabeos, y el nacimiento de una fiesta que aún se celebra.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Próxima entrega</div>
+    <div class="ttl">La rebelión de los Macabeos</div>
+    <p>Cuando Antíoco IV puso un altar a Zeus en el Templo, un pueblo se levantó. La revuelta que dio origen a Janucá —y que resuena en el libro de Daniel—.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>La conquista de Alejandro (334–323 a.C.), la caída de Judea bajo dominio griego (332 a.C.) y el reparto posterior entre <span class="key">ptolomeos y seléucidas</span> son <span class="key">hechos históricos firmes</span>. La <span class="key">helenización</span> como proceso cultural y sus tensiones dentro del judaísmo están <span class="key">bien documentadas</span> por fuentes de la época.</p>
+    <p>La <span class="key">Septuaginta</span> como traducción griega de la Biblia iniciada en el s. III a.C. en Alejandría, y su papel como Biblia de los primeros cristianos, son <span class="key">consenso académico</span>. La leyenda de los "setenta traductores" (de la <i>Carta de Aristeas</i>) se menciona como origen del nombre, no como historia literal.</p>
+    <p>Este artículo describe historia cultural; el valor religioso de las Escrituras y su traducción es una cuestión distinta, que este blog respeta.</p>
+  </div>
+
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#8a5a7a;--accent-deep:#6a3a5a">
+    <a class="epnav-series" href="serie-grecia-roma.html">↑ Serie: Grecia y Roma</a>
+    <div class="epnav-row">
+      <span class="epnav-btn empty"></span>
+      <a class="epnav-btn next" href="grecia-2.html"><span class="dir">Siguiente →</span><span class="ttl">La rebelión de los Macabeos</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

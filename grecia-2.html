@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La rebelión de los Macabeos — Estratos</title>
+<style>
+  :root{
+    --ink:#2a2028;--marble:#ece6e8;--marble-deep:#ddd4d8;--marble-light:#f5f0f2;
+    --purple:#6a3a5a;--purple-deep:#4e2842;--purple-bright:#8a5a7a;--gold:#b08a3a;--gold-light:#d0aa5a;
+    --bronze:#9a7a4a;--rule:#c4b4bc;
+    --shadow:rgba(60,30,50,.18);--mute:#8a7a84;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--marble);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45;
+    background-image:repeating-linear-gradient(90deg, rgba(106,58,90,.045) 0 3px, transparent 3px 26px)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--purple-deep);background:rgba(245,240,242,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(106,58,90,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(245,240,242,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--purple),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--purple-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--purple-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--purple);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3a44;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a2e36;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(106,58,90,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.1) saturate(1.02) contrast(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#4a3a44;background:rgba(106,58,90,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6a74}
+  figure.fig figcaption .credit a{color:var(--purple)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--purple-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--gold);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--purple);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--purple-deep)}
+  .wrap strong{color:var(--purple-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(106,58,90,.07);border:1px solid rgba(106,58,90,.2);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#3a2e36}
+
+  .consensus{margin:1.8rem 0;padding:1.3rem 1.5rem;background:var(--marble-light);border:1px solid var(--rule);border-radius:12px}
+  .consensus .c-claim{font-size:1rem;color:var(--ink);margin-bottom:.9rem;font-weight:600}
+  .consensus .c-claim .q{color:var(--purple-deep);font-style:italic}
+  .c-bar{position:relative;height:34px;background:linear-gradient(90deg,#c25a3a 0%,#d9a860 50%,#5a7a5a 100%);border-radius:18px;overflow:hidden;opacity:.9}
+  .c-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;background:#fff;border:3px solid var(--purple-deep);border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.3);z-index:2}
+  .c-scale{display:flex;justify-content:space-between;margin-top:.5rem;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:var(--mute);letter-spacing:.02em}
+  .c-verdict{margin-top:.7rem;font-size:.9rem;color:var(--purple-deep);font-family:"Trebuchet MS",sans-serif}
+  .c-verdict b{color:var(--purple-deep)}
+
+  .keypts{margin:1.6rem 0;display:grid;gap:.8rem}
+  .kp{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1rem 1.2rem;background:var(--marble-light);border:1px solid var(--rule);border-radius:8px}
+  .kp .ic{width:auto;min-width:34px;height:34px;padding:0 .5rem;border-radius:17px;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.74rem;flex-shrink:0}
+  .kp .txt{font-size:1rem;color:#3a2e36}
+  .kp .txt b{color:var(--purple-deep)}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--gold);font-size:.9rem}
+
+  .note-block{background:var(--purple-deep);color:#e8dce4;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#cabcc4;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold-light)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--marble-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--purple-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#4a3a44;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--purple-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--marble-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Grecia y Roma · Entrega II</span>
+    <h1>La rebelión de<br>los <span class="em">Macabeos</span></h1>
+    <div class="glyphs">מַכַּבִּים</div>
+    <p class="standfirst">Cuando un rey griego puso un altar a Zeus en el Templo de Jerusalén y prohibió la fe judía bajo pena de muerte, un pueblo pequeño hizo lo impensable: se rebeló contra un imperio. Y ganó.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">La tensión entre helenizarse y resistir, que vimos crecer en la entrega anterior, estalló a mediados del siglo II a.C. de la forma más violenta. Lo que empezó como un choque cultural se convirtió en una <strong>guerra de religión</strong> —quizá la primera de la historia librada explícitamente por la libertad de culto—. Y de ella nacieron una dinastía, una fiesta que aún se celebra, y un eco que llega hasta el libro más enigmático de la Biblia.</p>
+
+  <h2><span class="n">01</span>El rey que se creyó dios</h2>
+  <p>Tras el reparto del imperio de Alejandro, Judea quedó en manos de los <strong>seléucidas</strong>, la dinastía griega de Siria. Durante un tiempo toleraron la religión judía. Todo cambió con <span class="term">Antíoco IV</span>, que se dio a sí mismo el sobrenombre de <em>Epífanes</em> ("dios manifiesto") —sus enemigos lo llamaban <em>Epimanes</em>, "el loco"—.</p>
+  <p>Hacia el <strong>167 a.C.</strong>, Antíoco hizo algo sin precedentes: en vez de tolerar, decidió <strong>erradicar</strong> la religión judía. Prohibió la circuncisión, el sábado y las leyes alimentarias, todo bajo <strong>pena de muerte</strong>. Y cometió la profanación suprema: instaló un <strong>altar a Zeus en el Templo de Jerusalén</strong> y ordenó sacrificar cerdos en él. Para el judaísmo, era el fin del mundo religioso.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>El Martillo</h2>
+  <p>La chispa saltó en el pueblo de Modín. Un sacerdote anciano, <strong>Matatías</strong>, se negó a sacrificar a los dioses griegos y mató al oficial que se lo exigía. Con sus cinco hijos huyó a las montañas y comenzó una <strong>guerra de guerrillas</strong>. Al morir Matatías, tomó el mando su hijo <span class="term">Judas</span>, apodado <strong>“Macabeo”</strong> —del griego <em>makkabaios</em>, probablemente "el Martillo", por su ferocidad en el combate—.</p>
+  <p>Contra todo pronóstico, aquel pequeño ejército campesino derrotó una y otra vez a las fuerzas seléucidas, mucho mayores y mejor armadas. En el <strong>164 a.C.</strong>, apenas tres años después de la profanación, los Macabeos <strong>recuperaron Jerusalén</strong> y purificaron el Templo, reconsagrándolo al Dios de Israel.</p>
+  <div class="keypts">
+    <div class="kp"><span class="ic">167 a.C.</span><span class="txt"><b>La profanación.</b> Antíoco IV prohíbe la religión judía e instala un altar a Zeus en el Templo. Estalla la revuelta de Matatías.</span></div>
+    <div class="kp"><span class="ic">166 a.C.</span><span class="txt"><b>Judas toma el mando.</b> Muere Matatías; su hijo Judas "el Martillo" lidera la guerra de guerrillas.</span></div>
+    <div class="kp"><span class="ic">164 a.C.</span><span class="txt"><b>La purificación del Templo.</b> Los Macabeos recuperan Jerusalén y reconsagran el Templo. Nace la fiesta de Janucá.</span></div>
+    <div class="kp"><span class="ic">142 a.C.</span><span class="txt"><b>Independencia.</b> Se consolida la dinastía <b>asmonea</b>: por primera vez en siglos, un estado judío independiente.</span></div>
+  </div>
+
+  <figure class="fig">
+    <img src="moneda-asmonea.jpg" alt="Moneda de la dinastía asmonea">
+    <figcaption>
+      <span class="desc">Acuñación <em>asmonea</em>: una moneda de la dinastía fundada por los Macabeos. Emitir moneda propia era un signo de soberanía —la prueba material de un estado judío independiente tras siglos de dominio extranjero—.</span>
+      <span class="credit">Rachelbarkay, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Un rey griego, Antíoco IV, quiso borrar la religión judía y puso un altar a Zeus en el Templo. Una familia sacerdotal, los Macabeos, encabezó una rebelión y, contra todo pronóstico, venció, recuperó el Templo y fundó un estado judío independiente. La purificación del Templo se celebra hasta hoy como Janucá.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>El eco en el libro de Daniel</h2>
+  <p>Aquí esta serie conecta con la del <em>fin del mundo</em>. La crisis de Antíoco IV no solo produjo una guerra: produjo <strong>literatura</strong>, y de un tipo nuevo. Muchos estudiosos sitúan la redacción final del <span class="term">libro de Daniel</span> —la gran obra apocalíptica de la Biblia hebrea— <strong>precisamente en estos años</strong>, como respuesta a la persecución de Antíoco.</p>
+  <p>Daniel, ambientado siglos antes en la corte babilónica, hablaba en realidad, de forma cifrada, del presente de sus lectores: la famosa <strong>“abominación de la desolación”</strong> que profana el Templo alude al altar de Zeus de Antíoco. El mensaje era de esperanza para los perseguidos: los imperios brutales caerán, y Dios establecerá su reino eterno. La apocalíptica, como vimos en su serie, <strong>nace del sufrimiento</strong> —y aquí vemos su partida de nacimiento histórica—.</p>
+  <div class="consensus" data-level="70">
+    <div class="c-claim">“La forma final del libro de Daniel se compuso durante la crisis de Antíoco IV (c. 167–164 a.C.).” <span class="q">— datación de Daniel</span></div>
+    <div class="c-bar"><div class="c-marker" style="left:76%"></div></div>
+    <div class="c-scale"><span>Muy discutido</span><span>Dividido</span><span>Consenso sólido</span></div>
+    <div class="c-verdict"><b>Lectura:</b> consenso amplio en la erudición histórico-crítica. La precisión de Daniel sobre los hechos hasta Antíoco IV, y sus errores sobre lo posterior, apuntan a una composición en plena crisis macabea. Las lecturas tradicionales lo datan antes.</div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Síntesis</h2>
+  <p>La revuelta macabea fue un momento excepcional: la vez que el pequeño Israel <strong>venció a un imperio</strong> y recuperó su independencia, que mantendría durante un siglo bajo la dinastía asmonea. Pero su legado es doble. Por un lado, un triunfo de la resistencia identitaria —Janucá celebra esa luz que no se apagó—. Por otro, la matriz de la que brotó la esperanza apocalíptica que marcaría al judaísmo y, después, al cristianismo.</p>
+  <p>La independencia asmonea, sin embargo, no duraría. Un siglo después, un nuevo imperio —más grande, más organizado y más duradero que todos los anteriores— llegaría desde el oeste para no marcharse jamás. En la próxima entrega, Roma entra en Jerusalén.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Próxima entrega</div>
+    <div class="ttl">Roma y el rey Herodes</div>
+    <p>63 a.C.: las legiones de Pompeyo entran en Jerusalén. Comienza la era romana, la de Herodes el Grande y su Templo, el mundo tenso en el que nacería el cristianismo.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>La persecución de <span class="key">Antíoco IV</span>, la profanación del Templo (167 a.C.), la revuelta macabea, la purificación del Templo (164 a.C.) y la posterior <span class="key">independencia asmonea</span> son <span class="key">hechos históricos</span> documentados por 1 y 2 Macabeos y por el historiador Flavio Josefo. El significado de "Macabeo" como "martillo" es la etimología más aceptada.</p>
+    <p>La <span class="key">datación de Daniel</span> en la época de Antíoco IV es el <span class="key">consenso de la erudición histórico-crítica</span>, basado en su exactitud sobre los hechos hasta esa fecha; las tradiciones religiosas suelen datarlo en el s. VI a.C. La conexión de la "abominación de la desolación" con el altar de Zeus es ampliamente reconocida.</p>
+    <p>Este artículo describe historia; el significado religioso de Janucá y de Daniel para el judaísmo se respeta como cuestión aparte.</p>
+  </div>
+
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#8a5a7a;--accent-deep:#6a3a5a">
+    <a class="epnav-series" href="serie-grecia-roma.html">↑ Serie: Grecia y Roma</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="grecia-1.html"><span class="dir">← Anterior</span><span class="ttl">Alejandro y el choque helénico</span></a>
+      <a class="epnav-btn next" href="grecia-3.html"><span class="dir">Siguiente →</span><span class="ttl">Roma y el rey Herodes</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

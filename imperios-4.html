@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persia y el fin del mundo — Estratos</title>
+<style>
+  :root{
+    --ink:#1e2632;--stone:#d8dce2;--stone-deep:#c4cad4;--stone-light:#e8ebef;
+    --lapis:#2a4a6a;--lapis-deep:#1c3450;--lapis-bright:#3a6a9a;--gold:#c9a227;--gold-light:#e0c158;
+    --sand:#b8a678;--terra:#a8663e;--rule:#a4aec0;
+    --shadow:rgba(20,35,55,.22);--mute:#7a889c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--stone);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:repeating-linear-gradient(90deg, rgba(42,74,106,.05) 0 2px, transparent 2px 22px)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--lapis-deep);background:rgba(232,235,239,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(42,74,106,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(232,235,239,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--lapis),var(--gold));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--lapis-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--lapis-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--lapis);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a4656;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#2e3a48;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(42,74,106,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(1.05) contrast(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a4656;background:rgba(42,74,106,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#6a7688}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--lapis-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--gold);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--lapis);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--lapis-deep)}
+  .wrap strong{color:var(--lapis-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(42,74,106,.08);border:1px solid rgba(42,74,106,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lapis-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#2e3a48}
+
+  /* PARALELOS: tabla Zoroastrismo <-> Judaísmo */
+  .paral{margin:1.8rem 0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:0 4px 14px var(--shadow)}
+  .paral-head{display:grid;grid-template-columns:1fr 1fr}
+  .paral-head .ph{padding:.8rem 1rem;font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;text-align:center}
+  .paral-head .ph.z{background:rgba(201,162,39,.18);color:#8a6e10}
+  .paral-head .ph.j{background:rgba(42,74,106,.16);color:var(--lapis-deep)}
+  .paral-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+  .paral-row .cell{padding:.9rem 1.1rem;font-size:.94rem;color:#2e3a48}
+  .paral-row .cell.z{background:rgba(201,162,39,.06);border-right:1px solid var(--rule)}
+  .paral-row .cell.j{background:rgba(42,74,106,.05)}
+  @media(max-width:600px){.paral-head,.paral-row{grid-template-columns:1fr}.paral-row .cell.z{border-right:none;border-bottom:1px solid var(--rule)}}
+
+  .consensus{margin:1.8rem 0;padding:1.3rem 1.5rem;background:var(--stone-light);border:1px solid var(--rule);border-radius:12px}
+  .consensus .c-claim{font-size:1rem;color:var(--ink);margin-bottom:.9rem;font-weight:600}
+  .consensus .c-claim .q{color:var(--lapis-deep);font-style:italic}
+  .c-bar{position:relative;height:34px;background:linear-gradient(90deg,#c25a3a 0%,#d9a860 50%,#3a7a6a 100%);border-radius:18px;overflow:hidden;opacity:.9}
+  .c-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;background:#fff;border:3px solid var(--lapis-deep);border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.3);z-index:2}
+  .c-scale{display:flex;justify-content:space-between;margin-top:.5rem;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:var(--mute);letter-spacing:.02em}
+  .c-verdict{margin-top:.7rem;font-size:.9rem;color:var(--lapis-deep);font-family:"Trebuchet MS",sans-serif}
+  .c-verdict b{color:var(--lapis-deep)}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--gold);font-size:.9rem}
+
+  .note-block{background:var(--lapis-deep);color:#d4dce6;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--gold-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b0bccc;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--gold-light)}
+
+  .series-end{margin-top:2.5rem;padding:2.2rem 1.9rem;background:linear-gradient(160deg,var(--lapis),var(--lapis-deep));color:#e8eef4;border-radius:14px;text-align:center}
+  .series-end .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:.8rem}
+  .series-end p{font-size:1.06rem;color:#e8eef4;margin-bottom:.8rem;line-height:1.6}
+  .series-end p:last-child{margin-bottom:0}
+  .series-end p.big{font-size:1.24rem}
+  .series-end .em{font-style:italic;color:var(--gold-light)}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--lapis-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--stone-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">Los vecinos imperiales · Entrega IV · Final</span>
+    <h1>Persia y el<br>fin del <span class="em">mundo</span></h1>
+    <div class="glyphs">𐎠 · פָּרַס</div>
+    <p class="standfirst">El imperio que liberó a los judíos del exilio también les dejó, quizá, algo más duradero: las ideas que darían forma al diablo, los ángeles, la resurrección y el fin de los tiempos.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Llegamos al último de los vecinos imperiales, y al que cierra el círculo de todo el blog. Persia no marcó a Israel con el trauma, como Asiria y Babilonia, sino de un modo más sutil y quizá más profundo: con <strong>ideas</strong>. Durante dos siglos, Judá vivió dentro del Imperio Persa, cuya religión —el <strong>zoroastrismo</strong>— tenía una visión del cosmos que resuena, de forma inquietante, con nociones que aparecen en el judaísmo justo en esa época. Es el episodio más delicado de la serie, y el que exige más cuidado.</p>
+
+  <h2><span class="n">01</span>Ciro, el libertador ungido</h2>
+  <p>Empieza con un gesto extraordinario. En <strong>539 a.C.</strong>, <span class="term">Ciro el Grande</span> de Persia conquistó Babilonia. Y en lugar de continuar la política de deportaciones, hizo lo contrario: <strong>permitió a los pueblos exiliados regresar a sus tierras</strong> y reconstruir sus templos, incluidos los judíos. Para Judá, Ciro fue un salvador.</p>
+  <p>El impacto teológico fue tal que la Biblia hace algo único: llama a Ciro —un rey persa, extranjero y no adorador de YHWH— <strong>“mi ungido”</strong> (en hebreo, <em>mashiaj</em>, la misma palabra que da "mesías"). Es la única vez que ese título sagrado se aplica a un gobernante pagano. Persia no era el enemigo: era, en la lectura bíblica, el <strong>instrumento elegido por Dios</strong> para la liberación.</p>
+
+  <figure class="fig">
+    <img src="cilindro-ciro.jpg" alt="El Cilindro de Ciro">
+    <figcaption>
+      <span class="desc">El <em>Cilindro de Ciro</em> (539 a.C., British Museum), en escritura cuneiforme. Documenta la política del rey persa de permitir a los pueblos deportados regresar a sus tierras y restaurar sus templos.</span>
+      <span class="credit">Fotografía de Mike Peel (www.mikepeel.net), <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>Una religión de luz contra oscuridad</h2>
+  <p>La religión de los persas era el <span class="term">zoroastrismo</span>, fundado (en fecha discutida) por el profeta <strong>Zoroastro</strong> (Zaratustra). Es una de las religiones más antiguas del mundo, y tenía una arquitectura cósmica muy particular: un <strong>dualismo ético</strong>. El universo era el campo de batalla entre dos principios: <strong>Ahura Mazda</strong>, el dios de la luz, la verdad y el bien, y <strong>Angra Mainyu</strong> (Ahrimán), el espíritu hostil de la oscuridad y la mentira.</p>
+
+  <figure class="fig">
+    <img src="faravahar.jpeg" alt="El Faravahar, símbolo zoroástrico, en Persépolis">
+    <figcaption>
+      <span class="desc">El <em>Faravahar</em> tallado en piedra en Persépolis: el símbolo alado del zoroastrismo, la religión del Imperio Persa cuyas ideas resonarían en el judaísmo del Segundo Templo.</span>
+      <span class="credit">Napishtim, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+  <p>Y esa lucha tenía un final escrito: al término de los tiempos, el bien triunfaría definitivamente, habría un <strong>juicio final</strong>, una <strong>resurrección de los muertos</strong> y la restauración de un mundo perfecto. Para cuando los judíos entraron en contacto con este sistema, el zoroastrismo ya poseía —plenamente desarrollado— un conjunto de ideas que, hasta entonces, la religión de Israel <strong>no tenía</strong>.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>Los ecos: lo que aparece después del exilio</h2>
+  <p>Aquí está el corazón del episodio, y donde hay que pisar con cuidado. Es un <strong>hecho cronológico</strong> que ciertas ideas aparecen o se desarrollan con fuerza en el judaísmo <strong>precisamente durante y después</strong> del periodo persa —ideas que las Escrituras hebreas más antiguas no tenían, o solo insinuaban—. Y son llamativamente parecidas a las zoroástricas:</p>
+  <div class="paral">
+    <div class="paral-head">
+      <div class="ph z">Zoroastrismo (previo)</div>
+      <div class="ph j">Judaísmo (tras el exilio)</div>
+    </div>
+    <div class="paral-row">
+      <div class="cell z">Angra Mainyu, un <strong>adversario cósmico</strong> del bien, señor de la oscuridad.</div>
+      <div class="cell j"><strong>Satán</strong> pasa de ser un fiscal en la corte de Dios (como vimos en la serie de la corte celestial) a un enemigo casi autónomo del bien.</div>
+    </div>
+    <div class="paral-row">
+      <div class="cell z">Una <strong>jerarquía de seres espirituales</strong> (los Amesha Spenta y yazatas) al servicio de Ahura Mazda.</div>
+      <div class="cell j">Se desarrolla una <strong>angelología</strong> compleja: ángeles con nombres y rangos (Gabriel, Miguel), que antes no aparecían.</div>
+    </div>
+    <div class="paral-row">
+      <div class="cell z"><strong>Resurrección</strong> de los muertos y <strong>juicio final</strong> con recompensa y castigo.</div>
+      <div class="cell j">La <strong>resurrección</strong> corporal y el juicio final emergen con fuerza (en Daniel, y luego centrales en el fariseísmo y el cristianismo).</div>
+    </div>
+    <div class="paral-row">
+      <div class="cell z">La historia avanza hacia un <strong>fin</strong> en que el bien vence de forma definitiva.</div>
+      <div class="cell j">Nace la <strong>literatura apocalíptica</strong> (nuestra serie del fin del mundo): la historia tiene un final y un triunfo divino.</div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>¿Influencia o coincidencia? El veredicto prudente</h2>
+  <p>Es tentador concluir "el judaísmo copió del zoroastrismo". Pero aquí hay que ser <strong>rigurosos y honestos</strong>, porque el asunto es más resbaladizo de lo que parece. Los paralelos son reales y la cronología encaja —dos siglos de dominio persa, y justo entonces surgen estas ideas—. Pero <strong>demostrar un préstamo directo es casi imposible</strong>: apenas hay textos zoroástricos datables con seguridad en esa época temprana (muchos se escribieron mucho después), así que no podemos probar quién influyó exactamente en quién, ni descartar desarrollos internos del propio judaísmo.</p>
+  <p>La formulación más honesta, y la que comparten muchos especialistas, es esta: es una <strong>resonancia en la que apoyarse, no una influencia que dar por segura</strong>. El contexto persa <em>probablemente</em> favoreció el desarrollo de estas ideas —les dio un ambiente, un vocabulario, unos modelos—, pero más como catalizador que como fuente única. Influencia "en los bordes, no en el núcleo".</p>
+  <div class="consensus" data-level="50">
+    <div class="c-claim">“Las ideas judías sobre el diablo, los ángeles, la resurrección y el fin del mundo deben algo al contacto con el zoroastrismo persa.” <span class="q">— tesis de la influencia irania</span></div>
+    <div class="c-bar"><div class="c-marker" style="left:56%"></div></div>
+    <div class="c-scale"><span>Muy discutido</span><span>Dividido</span><span>Consenso sólido</span></div>
+    <div class="c-verdict"><b>Lectura:</b> hay acuerdo amplio en que <em>algo</em> de resonancia hubo (la cronología y los paralelos son innegables), pero el <em>grado</em> y el <em>mecanismo</em> se debaten mucho, por la dificultad de datar las fuentes persas. Resonancia real, préstamo directo indemostrable.</div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">05</span>El cierre de la serie — y del círculo</h2>
+  <p>Persia cierra "Los vecinos imperiales" de la manera más elegante posible: conectando con <strong>el principio y el final</strong> del blog. El monoteísmo que se forjó en el exilio babilónico se encontró, bajo Persia, con un sistema de ideas sobre el bien y el mal, los ángeles y el fin de los tiempos que resonaría durante siglos —y que desembocaría en la <strong>literatura apocalíptica</strong> que estudiamos en nuestra cuarta serie—.</p>
+  <p>Así, los cuatro imperios dejaron cada uno su marca: Egipto, la sabiduría y el mito de la liberación; Asiria, el trauma; Babilonia, el monoteísmo; Persia, el fin del mundo. Israel, ese pequeño punto rojo entre gigantes, no vivió aislado: <strong>absorbió, resistió y transformó</strong> lo que los imperios le impusieron o le ofrecieron, y de esa larga conversación nació una de las tradiciones religiosas más influyentes de la historia.</p>
+
+  <div class="series-end">
+    <div class="lbl">Fin de la serie · Los vecinos imperiales</div>
+    <p class="big"><span class="em">Israel nunca estuvo solo: los imperios que lo rodearon moldearon su Dios tanto como sus propios profetas.</span></p>
+    <p>Egipto le dio sabiduría; Asiria, el trauma; Babilonia, el monoteísmo; Persia, el fin del mundo. La fe de Israel es también la historia de cómo un pueblo pequeño pensó a sus gigantes.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>La liberación de los exiliados por <span class="key">Ciro</span> (539 a.C.) y su título de "ungido" (Isaías 45:1) son <span class="key">datos firmes</span>. La cronología —dos siglos de dominio persa (539–332 a.C.) coincidiendo con el desarrollo de la angelología, la demonología, la resurrección y la apocalíptica judías— es <span class="key">indiscutida</span>.</p>
+    <p><span class="key">El punto debatido</span> es el vínculo causal. La influencia zoroástrica es defendida por especialistas como Mary Boyce, pero <span class="key">matizada por otros</span> ante la dificultad de datar las fuentes zoroástricas tempranas. El consenso prudente: paralelos y cronología reales, préstamo directo indemostrable; "influencia en los bordes, no en el núcleo". Este artículo refleja esa cautela y evita afirmar una copia directa.</p>
+    <p>Este artículo describe historia comparada de las religiones con respeto por el zoroastrismo (tradición aún viva) y por el judaísmo. Conecta con las series "El fin del mundo" y "La corte celestial" de este mismo blog.</p>
+  </div>
+
+</div>
+
+
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#3a6a9a;--accent-deep:#2a4a6a">
+    <a class="epnav-series" href="serie-imperios.html">↑ Serie: Los vecinos imperiales</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="imperios-3.html"><span class="dir">← Anterior</span><span class="ttl">Babilonia y el exilio que lo cambió todo</span></a>
+      <span class="epnav-btn empty"></span>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

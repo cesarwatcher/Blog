@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La pala contra el texto — Estratos</title>
+<style>
+  :root{
+    /* NUEVA PALETA: tierra excavada */
+    --ink:#2a2320;--soil:#e4d8c2;--soil-deep:#d6c7a8;--soil-light:#efe6d4;
+    --terra:#a8663e;--terra-deep:#7a4428;--ochre:#c08a3e;--ochre-light:#d9a860;
+    --slate:#4a5560;--slate-deep:#333c45;--stone:#8a8072;--rule:#bfae8a;
+    --shadow:rgba(60,40,25,.2);--dust:#9a8a6a;
+  }
+  :root{--rule:#bfae8a}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--soil);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* MOTIVO FIRMA: cuadrícula de excavación */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.4;
+    background-image:linear-gradient(rgba(122,68,40,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(122,68,40,.06) 1px, transparent 1px);
+    background-size:44px 44px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--terra-deep);background:rgba(239,230,212,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(168,102,62,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(239,230,212,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--terra),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--terra);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f30;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a3226;margin:2rem 0}
+
+  /* ---------- FIGURES / IMAGES ---------- */
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(168,102,62,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.3) saturate(1.06) contrast(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#4a3a28;background:rgba(168,102,62,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6a4a}
+  figure.fig figcaption .credit a{color:var(--terra-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--terra-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--terra);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--terra-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  /* ===== ESTRATO INTERACTIVO ===== */
+  .tell-widget{margin:2rem 0;padding:1.6rem 1.4rem;background:var(--soil-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .tell-widget .tw-head{text-align:center;margin-bottom:1.2rem}
+  .tell-widget .tw-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terra-deep);font-weight:700}
+  .tell-widget .tw-hint{font-size:.9rem;color:var(--dust);font-style:italic;margin-top:.4rem}
+  .tell{display:flex;flex-direction:column;gap:3px;border-radius:8px;overflow:hidden}
+  .layer{position:relative;cursor:pointer;padding:1rem 1.2rem;transition:transform .25s,filter .25s;color:#fff;border-left:4px solid transparent}
+  .layer:hover{filter:brightness(1.08)}
+  .layer.active{border-left-color:var(--ochre-light);transform:translateX(3px)}
+  .layer .l-era{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+  .layer .l-name{font-size:1.08rem;font-weight:700;margin-top:.1rem}
+  .layer .l-depth{position:absolute;right:1rem;top:50%;transform:translateY(-50%);font-family:"Trebuchet MS",sans-serif;font-size:.72rem;opacity:.7}
+  .tell-detail{background:#fff;border:1px solid var(--rule);border-top:none;border-radius:0 0 8px 8px;padding:0 1.3rem;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+  .tell-detail.show{max-height:320px;padding:1.1rem 1.3rem}
+  .tell-detail .td-title{font-weight:700;color:var(--terra-deep);font-size:1.05rem;margin-bottom:.4rem}
+  .tell-detail .td-text{font-size:.96rem;color:#3a3226}
+  .tell-detail .td-find{margin-top:.6rem;font-size:.86rem;color:var(--slate);font-style:italic}
+
+  /* ===== MEDIDOR DE CONSENSO ===== */
+  .consensus{margin:1.8rem 0;padding:1.3rem 1.5rem;background:var(--soil-light);border:1px solid var(--rule);border-radius:12px}
+  .consensus .c-claim{font-size:1rem;color:var(--ink);margin-bottom:.9rem;font-weight:600}
+  .consensus .c-claim .q{color:var(--terra-deep);font-style:italic}
+  .c-bar{position:relative;height:34px;background:linear-gradient(90deg,#c25a3a 0%,#d9a860 50%,#5a7a4a 100%);border-radius:18px;overflow:hidden;opacity:.9}
+  .c-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;background:#fff;border:3px solid var(--slate-deep);border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.3);z-index:2}
+  .c-scale{display:flex;justify-content:space-between;margin-top:.5rem;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:var(--dust);letter-spacing:.02em}
+  .c-verdict{margin-top:.7rem;font-size:.9rem;color:var(--slate-deep);font-family:"Trebuchet MS",sans-serif}
+  .c-verdict b{color:var(--terra-deep)}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(168,102,62,.09);border:1px solid rgba(168,102,62,.25);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terra-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#3a3226}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--terra);font-size:.9rem}
+
+  .note-block{background:var(--slate-deep);color:#dce2e6;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--ochre-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b8c0c6;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--ochre-light)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--soil-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dust);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--terra-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#4a4032;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--terra-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--soil-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--dust);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress,.layer,.tell-detail{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">La Biblia desenterrada · Entrega I</span>
+    <h1>La pala contra<br>el <span class="em">texto</span></h1>
+    <div class="glyphs">⛏ · תֵּל</div>
+    <p class="standfirst">¿Qué pasa cuando lo que dice la Biblia y lo que sale de la tierra no coinciden? La arqueología abrió un diálogo —a veces tenso— con el texto sagrado. Empieza una nueva etapa del blog.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Durante seis series hemos leído la religión de Israel a través de sus <em>textos</em>: cómo se escribieron, editaron y transmitieron. Ahora cambiamos de herramienta. Dejamos la pluma y tomamos la <strong>pala</strong>. Esta nueva etapa del blog se apoya en la obra que revolucionó la divulgación del tema —<span class="term">La Biblia desenterrada</span>, de Israel Finkelstein y Neil Silberman (2001)— para preguntar algo incómodo y fascinante: cuando excavamos la tierra de Israel, ¿confirma lo que cuenta la Biblia, o cuenta otra historia?</p>
+
+  <figure class="fig">
+    <img src="tel-megido.jpeg" alt="Vista aérea del yacimiento arqueológico de Tel Megido">
+    <figcaption>
+      <span class="desc">Vista aérea de <em>Tel Megido</em>, uno de los tells más excavados de Israel. La colina acumula estratos de ciudades superpuestas durante milenios: cada nivel, una época.</span>
+      <span class="credit">AVRAMGR, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">01</span>Qué es un “tell”</h2>
+  <p>La arqueología del Cercano Oriente gira en torno a una palabra: <span class="term">tell</span> (en hebreo <em>tel</em>, en árabe <em>tell</em>). Es una colina artificial, formada por la acumulación de ciudades construidas una sobre las ruinas de la anterior, durante milenios. Cada vez que una ciudad era destruida o abandonada, la siguiente se levantaba encima, aplanando los escombros. El resultado, visto en corte, es una <strong>tarta de capas</strong> —y cada capa, o <em>estrato</em>, es una época—.</p>
+  <p>Este es, literalmente, el principio que da nombre a este blog. Excavar un tell es leer el tiempo de arriba hacia abajo: lo más reciente arriba, lo más antiguo en el fondo. Prueba a explorar uno:</p>
+
+  <div class="tell-widget">
+    <div class="tw-head">
+      <div class="tw-title">Excava un tell · capa por capa</div>
+      <div class="tw-hint">Toca cada estrato para descender en el tiempo</div>
+    </div>
+    <div class="tell" id="tell"></div>
+    <div class="tell-detail" id="tellDetail"></div>
+  </div>
+
+  <p>Cada estrato deja pistas: cerámica (que se data por su estilo), muros, cenizas de incendios, semillas, huesos. Combinando esos indicios con el <strong>carbono-14</strong>, los arqueólogos fechan cada capa. Y aquí empieza la tensión: esas fechas <em>de la tierra</em> no siempre coinciden con las fechas <em>del texto</em>.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>Dos maneras de conocer el pasado</h2>
+  <p>El corazón de esta serie es un choque de métodos. Durante siglos, la única fuente sobre el antiguo Israel fue <strong>la propia Biblia</strong>. La arqueología moderna aportó una segunda fuente, <strong>independiente y muda</strong>: no tiene intención teológica, no quiere probar nada; solo son objetos en el suelo. Cuando ambas fuentes coinciden, magnífico. El problema —y la aventura— empieza cuando <em>divergen</em>.</p>
+  <p>Conviene entender la postura de Finkelstein sin caricaturizarla, porque es más sutil de lo que suele contarse. No dice “la Biblia miente” ni “nada de esto ocurrió”. Dice algo más matizado: que muchos relatos bíblicos fueron <strong>escritos o reelaborados siglos después</strong> de los hechos que narran, con fines <strong>teológicos y políticos</strong> de su propio presente —y que por eso proyectan hacia el pasado una realidad que la arqueología no siempre respalda—. La Biblia sería, en esta lectura, menos una crónica y más una <strong>obra de identidad nacional</strong>, riquísima, pero no un manual de historia.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Hay dos formas de saber qué pasó en el antiguo Israel: leer la Biblia, y excavar la tierra. Este blog, en su nueva etapa, compara ambas. A veces se dan la mano; a veces se contradicen. Y cuando se contradicen, hay que decidir a quién creer —y por qué—.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>Un debate, no un veredicto</h2>
+  <p>Aquí una advertencia que recorrerá toda la serie, y que es cuestión de honestidad. Finkelstein es un arqueólogo de primera línea, pero <strong>no es la última palabra</strong>: es una voz —brillante y polémica— dentro de un debate muy vivo. Frente a él, arqueólogos igualmente serios como <span class="term">Amihai Mazar</span> o <span class="term">William Dever</span> defienden posiciones distintas, a menudo más cercanas al relato bíblico. Y hallazgos recientes, posteriores al libro, han recalibrado la discusión.</p>
+  <p>Por eso, en esta serie, cada afirmación polémica vendrá con una herramienta nueva: un <strong>medidor de consenso</strong>, que muestra dónde está el peso de la opinión académica —de lo firmemente establecido a lo hondamente discutido—. Porque el rigor no consiste en elegir un bando, sino en mostrar el mapa completo del desacuerdo. Un ejemplo, sobre la tesis de fondo de esta serie:</p>
+
+  <div class="consensus" data-level="30">
+    <div class="c-claim">“Buena parte de la Biblia hebrea se redactó mucho después de los hechos que narra, con fines identitarios.” <span class="q">— tesis general de Finkelstein</span></div>
+    <div class="c-bar"><div class="c-marker" style="left:70%"></div></div>
+    <div class="c-scale"><span>Muy discutido</span><span>Dividido</span><span>Consenso sólido</span></div>
+    <div class="c-verdict"><b>Lectura:</b> hay amplio acuerdo en que hubo redacción tardía y edición con intención teológica; se discute <em>cuánto</em> y <em>cuándo</em>. Consenso medio-alto en lo general, disputa en los detalles.</div>
+  </div>
+
+  <p>Ese pequeño instrumento —que verás a lo largo de la serie— es nuestra brújula. No te dice qué creer; te dice cuán firme es el terreno bajo cada afirmación.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Lo que viene</h2>
+  <p>En las próximas entregas bajaremos a los casos concretos, y son de los más apasionantes de la arqueología. El <strong>Éxodo</strong> y la conquista de Canaán: ¿hay rastro de dos millones de personas cruzando el desierto, o de las murallas de Jericó cayendo? El <strong>reino de David y Salomón</strong>: ¿un imperio esplendoroso o un modesto cacicazgo de las colinas? Y la gran tesis final: el <strong>rey Josías</strong> y cómo su reforma pudo dar forma a buena parte del Pentateuco.</p>
+  <p>Cada uno de esos casos es una excavación donde el texto y la tierra se miran cara a cara. Empezaremos por el más famoso de todos: la salida de Egipto.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Próxima entrega</div>
+    <div class="ttl">El Éxodo que no fue (¿o sí?)</div>
+    <p>La salida de Egipto y la conquista de Canaán ante la evidencia arqueológica. Por qué faltan las huellas esperadas —y qué dicen quienes no están de acuerdo.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>Esta serie se basa en <span class="key">La Biblia desenterrada</span> (Finkelstein y Silberman, 2001), pero la pone en diálogo con sus críticos. La existencia de la estratigrafía de los <em>tells</em> y el método de datación son <span class="key">consenso pleno</span>; las interpretaciones históricas de Finkelstein son una <span class="key">posición influyente pero debatida</span>.</p>
+    <p><span class="key">Voces del debate:</span> frente a la “cronología baja” de Finkelstein, <span class="key">Amihai Mazar</span> propone una “cronología modificada”, y <span class="key">William Dever</span> y <span class="key">Yosef Garfinkel</span> defienden mayor historicidad. El libro es de 2001; hallazgos posteriores (como Khirbet Qeiyafa) han recalibrado partes del debate, y esta serie lo tendrá en cuenta con datos actuales.</p>
+    <p>El “medidor de consenso” es una herramienta divulgativa propia de este blog: sintetiza el estado de la discusión de forma visual, sin sustituir la lectura de los especialistas. Este artículo describe historia y método, con respeto por el valor cultural y espiritual de la Biblia.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#a8663e;--accent-deep:#7a4428">
+    <a class="epnav-series" href="serie-biblia.html">↑ Serie: La Biblia desenterrada</a>
+    <div class="epnav-row">
+      <span class="epnav-btn empty"></span>
+      <a class="epnav-btn next" href="biblia-2.html"><span class="dir">Siguiente →</span><span class="ttl">El Éxodo que no fue (¿o sí?)</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  // ===== barra de progreso =====
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+
+  // ===== estrato interactivo =====
+  const strata = [
+    {era:"Periodo romano-bizantino", name:"Ciudad tardía", depth:"0–2 m", color:"#9a8a6a",
+      title:"La superficie: Roma y Bizancio", text:"La capa más reciente. Cuando un arqueólogo empieza a excavar, esto es lo primero que encuentra: los restos más modernos, sobre todo lo demás.", find:"Hallazgos típicos: monedas romanas, mosaicos, cerámica vidriada."},
+    {era:"Edad del Hierro II", name:"La época de los reyes", depth:"2–4 m", color:"#a8663e",
+      title:"Los reinos de Israel y Judá", text:"Aquí está el corazón del debate bíblico: la época de la monarquía (siglos X–VI a.C.). Muros, puertas monumentales, casas. Es el estrato donde se juega si hubo grandes reyes o jefes modestos.", find:"Hallazgos clave: la puerta de seis cámaras de Megido, ostraca con escritura hebrea temprana."},
+    {era:"Edad del Hierro I", name:"Las primeras aldeas", depth:"4–5 m", color:"#7a4428",
+      title:"El nacimiento de Israel", text:"Pequeñas aldeas de agricultores en las colinas (siglos XII–XI a.C.). Aquí Finkelstein sitúa el surgimiento de los israelitas —no como invasores, sino como población local que se asienta—.", find:"Hallazgos: casas de cuatro espacios, silos, y una sorprendente ausencia de huesos de cerdo."},
+    {era:"Edad del Bronce tardío", name:"Las ciudades cananeas", depth:"5–7 m", color:"#5a5560",
+      title:"El mundo de Canaán", text:"Antes de Israel: las ciudades-estado cananeas (siglos XVI–XIII a.C.), con sus templos y su cultura, bajo influencia egipcia. La cultura de la que —según la arqueología— brotaría el propio Israel.", find:"Hallazgos: templos cananeos, tablillas, objetos de culto a El y Baal."},
+    {era:"Edad del Bronce antiguo", name:"El fondo del tiempo", depth:"7 m +", color:"#3a3c45",
+      title:"Los cimientos", text:"El estrato más profundo y antiguo, sobre la roca madre. Las primeras ciudades amuralladas de la región, milenios antes de cualquier relato bíblico.", find:"Hallazgos: murallas del III milenio a.C., cerámica primitiva."},
+  ];
+  const tell = document.getElementById('tell');
+  const detail = document.getElementById('tellDetail');
+  let activeIdx = -1;
+  strata.forEach((s,i)=>{
+    const d = document.createElement('div');
+    d.className = 'layer';
+    d.style.background = s.color;
+    d.innerHTML = `<div class="l-era">${s.era}</div><div class="l-name">${s.name}</div><span class="l-depth">${s.depth}</span>`;
+    d.addEventListener('click', ()=>{
+      if(activeIdx === i){
+        d.classList.remove('active'); detail.classList.remove('show'); activeIdx = -1; return;
+      }
+      document.querySelectorAll('.layer').forEach(x=>x.classList.remove('active'));
+      d.classList.add('active'); activeIdx = i;
+      detail.innerHTML = `<div class="td-title">${s.title}</div><div class="td-text">${s.text}</div><div class="td-find">${s.find}</div>`;
+      detail.classList.add('show');
+    });
+    tell.appendChild(d);
+  });
+</script>
+
+</body>
+</html>

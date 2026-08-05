@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El rey que escribió la Biblia — Estratos</title>
+<style>
+  :root{
+    --ink:#2a2320;--soil:#e4d8c2;--soil-deep:#d6c7a8;--soil-light:#efe6d4;
+    --terra:#a8663e;--terra-deep:#7a4428;--ochre:#c08a3e;--ochre-light:#d9a860;
+    --slate:#4a5560;--slate-deep:#333c45;--stone:#8a8072;--rule:#bfae8a;
+    --shadow:rgba(60,40,25,.2);--dust:#9a8a6a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--soil);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.4;
+    background-image:linear-gradient(rgba(122,68,40,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(122,68,40,.06) 1px, transparent 1px);
+    background-size:44px 44px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--terra-deep);background:rgba(239,230,212,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(168,102,62,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(239,230,212,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--terra),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--terra);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f30;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a3226;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(168,102,62,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.3) saturate(1.06) contrast(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#4a3a28;background:rgba(168,102,62,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6a4a}
+  figure.fig figcaption .credit a{color:var(--terra-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--terra-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--terra);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--terra-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  .consensus{margin:1.8rem 0;padding:1.3rem 1.5rem;background:var(--soil-light);border:1px solid var(--rule);border-radius:12px}
+  .consensus .c-claim{font-size:1rem;color:var(--ink);margin-bottom:.9rem;font-weight:600}
+  .consensus .c-claim .q{color:var(--terra-deep);font-style:italic}
+  .c-bar{position:relative;height:34px;background:linear-gradient(90deg,#c25a3a 0%,#d9a860 50%,#5a7a4a 100%);border-radius:18px;overflow:hidden;opacity:.9}
+  .c-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;background:#fff;border:3px solid var(--slate-deep);border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.3);z-index:2}
+  .c-scale{display:flex;justify-content:space-between;margin-top:.5rem;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:var(--dust);letter-spacing:.02em}
+  .c-verdict{margin-top:.7rem;font-size:.9rem;color:var(--slate-deep);font-family:"Trebuchet MS",sans-serif}
+  .c-verdict b{color:var(--terra-deep)}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(168,102,62,.09);border:1px solid rgba(168,102,62,.25);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terra-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#3a3226}
+
+  .keypts{margin:1.6rem 0;display:grid;gap:.8rem}
+  .kp{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1rem 1.2rem;background:var(--soil-light);border:1px solid var(--rule);border-radius:8px}
+  .kp .ic{width:34px;height:34px;border-radius:50%;background:var(--terra);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.82rem;flex-shrink:0}
+  .kp .txt{font-size:1rem;color:#3a3226}
+  .kp .txt b{color:var(--terra-deep)}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--terra);font-size:.9rem}
+
+  .note-block{background:var(--slate-deep);color:#dce2e6;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--ochre-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b8c0c6;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--ochre-light)}
+
+  .series-end{margin-top:2.5rem;padding:2.2rem 1.9rem;background:linear-gradient(160deg,var(--terra),var(--terra-deep));color:#f6ece0;border-radius:14px;text-align:center}
+  .series-end .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.8rem}
+  .series-end p{font-size:1.06rem;color:#f6ece0;margin-bottom:.8rem;line-height:1.6}
+  .series-end p:last-child{margin-bottom:0}
+  .series-end p.big{font-size:1.24rem}
+  .series-end .em{font-style:italic;color:var(--ochre-light)}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--terra-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--soil-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--dust);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">La Biblia desenterrada · Entrega IV · Final</span>
+    <h1>El rey que<br>escribió la <span class="em">Biblia</span></h1>
+    <div class="glyphs">⛏ · יֹאשִׁיָּהוּ</div>
+    <p class="standfirst">Si gran parte de la historia bíblica fue escrita mucho después de los hechos, ¿cuándo y por qué? La arqueología apunta a un rey concreto, un momento concreto, y una intención muy humana.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Hemos visto que el Éxodo no dejó huellas y que el reino de David fue más modesto que su leyenda. Queda la pregunta que lo une todo: si buena parte de la Biblia hebrea se <em>escribió</em> bastante después de los hechos que narra, ¿en qué momento se compuso, y con qué propósito? La respuesta de Finkelstein —la tesis que corona su libro— apunta a un rey concreto: <span class="term">Josías</span>, y a un siglo concreto, el <strong>VII a.C.</strong> Es el cierre de esta serie y, en cierto modo, de todo el blog.</p>
+
+  <h2><span class="n">01</span>Un reino que sí sabemos que existió</h2>
+  <p>A diferencia del brumoso siglo X de David, el <strong>reino de Judá del siglo VII a.C.</strong> está espléndidamente documentado por la arqueología. Para entonces, tras la caída del reino del norte (Israel) ante Asiria en el 722 a.C., Judá era un estado plenamente desarrollado: con burocracia, ejército, comercio y —crucialmente— <strong>escribas alfabetizados</strong>. No hay que imaginarlo: se ve en la tierra.</p>
+
+  <figure class="fig">
+    <img src="inscripcion-siloe.jpg" alt="La inscripción de Siloé, hebreo monumental del siglo VIII a.C.">
+    <figcaption>
+      <span class="desc">La <em>inscripción de Siloé</em>, hallada en el túnel de agua de Ezequías en Jerusalén (finales del s. VIII a.C.). Es uno de los textos hebreos monumentales más antiguos: testimonio de un reino de Judá alfabetizado y organizado.</span>
+      <span class="credit">Yoav Dothan, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Inscripciones como la de Siloé, o los archivos de <em>ostraca</em> (fragmentos con escritura) hallados en fortalezas de Judá, muestran una sociedad que <strong>sabía leer y escribir</strong>, con capacidad de producir textos complejos. Es la condición material necesaria para que alguien pudiera componer una gran obra literaria e histórica como la que se convertiría en el núcleo de la Biblia hebrea.</p>
+
+  <figure class="fig">
+    <img src="laquis.jpg" alt="Relieve asirio del asedio de Laquis">
+    <figcaption>
+      <span class="desc">Relieve asirio del asedio de <em>Laquis</em> (c. 700 a.C.), la segunda ciudad de Judá, tomada por Senaquerib. El reino del sur era lo bastante importante como para que Asiria inmortalizara su conquista en los muros de Nínive.</span>
+      <span class="credit">Fotografía de Mike Peel (www.mikepeel.net), <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>El “libro hallado” en el Templo</h2>
+  <p>La propia Biblia deja una pista fascinante. El segundo libro de los Reyes narra que, durante el reinado de Josías (hacia el <strong>622 a.C.</strong>), mientras se reparaba el Templo, el sumo sacerdote <strong>“encontró el libro de la Ley”</strong>. Su lectura provocó una conmoción: Josías lanzó una <strong>reforma religiosa radical</strong> —centralizó todo el culto en Jerusalén, destruyó los santuarios locales, abolió otras deidades—.</p>
+  <p>Muchos estudiosos, desde hace más de un siglo, identifican ese "libro hallado" con un núcleo del <strong>Deuteronomio</strong>. Y la lectura crítica va más allá: el momento de Josías habría sido cuando se <strong>compiló y dio forma</strong> a buena parte de la historia bíblica —desde el Deuteronomio hasta los libros de Reyes—, la llamada <span class="term">historia deuteronomista</span>.</p>
+  <div class="keypts">
+    <div class="kp"><span class="ic">722</span><span class="txt"><b>Cae el reino del norte.</b> Asiria destruye Israel; muchos refugiados huyen al sur, a Judá, cargando sus tradiciones. Jerusalén crece enormemente.</span></div>
+    <div class="kp"><span class="ic">701</span><span class="txt"><b>Judá sobrevive a Asiria.</b> Jerusalén resiste el asedio de Senaquerib. El reino del sur se siente elegido, superviviente.</span></div>
+    <div class="kp"><span class="ic">622</span><span class="txt"><b>La reforma de Josías.</b> El "libro de la Ley" aparece en el Templo. Culto centralizado, reforma radical, y —según la tesis— gran actividad de composición literaria.</span></div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>La Biblia como proyecto político</h2>
+  <p>Aquí Finkelstein enlaza la arqueología con la crítica textual, y la tesis se vuelve poderosa. En su lectura, la gran historia nacional —los patriarcas, el Éxodo, la conquista, el reino unido— se <strong>compuso o reelaboró en tiempos de Josías</strong> no como crónica objetiva, sino como una <strong>herramienta de su proyecto</strong>: unir a todo el pueblo en torno a Jerusalén, su Templo y su dios único, YHWH, bajo la dinastía davídica.</p>
+  <p>Los relatos del pasado glorioso servían al presente: si Dios había prometido la tierra a Abraham, si David había reinado sobre un gran Israel unido, entonces Josías podía reclamar esa herencia y ese ideal de unidad. <strong>El pasado se escribió para legitimar el presente</strong> —algo que hacen casi todas las naciones, y que no resta belleza al resultado—.</p>
+  <div class="consensus" data-level="60">
+    <div class="c-claim">“Buena parte de la historia bíblica se compiló y dio forma en el reino de Judá del siglo VII a.C., en torno a Josías.” <span class="q">— tesis deuteronomista</span></div>
+    <div class="c-bar"><div class="c-marker" style="left:62%"></div></div>
+    <div class="c-scale"><span>Muy discutido</span><span>Dividido</span><span>Consenso sólido</span></div>
+    <div class="c-verdict"><b>Lectura:</b> hay amplio acuerdo en que el siglo VII fue un momento clave de composición (la "historia deuteronomista" es consenso). Se discute cuánto material es de entonces y cuánto anterior o posterior (exílico y postexílico).</div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>El puente con todo el blog</h2>
+  <p>Fíjate en lo que acaba de ocurrir: esta serie arqueológica ha llegado, por su cuenta, al <strong>mismo lugar</strong> que nuestra serie sobre los <em>libros perdidos</em>. Allí vimos, desde la crítica textual, que el canon se formó gradualmente y que los textos se editaron con intención teológica. Aquí, desde la pala, llegamos a la misma conclusión: <strong>la Biblia es una obra compuesta por manos humanas, en momentos históricos concretos, con propósitos concretos</strong>.</p>
+  <p>Las dos mitades de la disciplina —el texto y la tierra— convergen. Y también enlaza con el principio de todo: si el monoteísmo de YHWH se consolidó como proyecto de Estado bajo Josías, entonces la larga historia que contamos en la primera serie —de El a YHWH, de muchos dioses a uno— tuvo aquí uno de sus momentos decisivos, ahora confirmado por la arqueología.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>La arqueología sugiere que buena parte de la Biblia tomó forma en el siglo VII a.C., bajo el rey Josías, como una gran historia nacional que unía al pueblo en torno a Jerusalén y su Dios. No es una crónica neutral: es una obra escrita con un propósito. Y a esa misma conclusión habíamos llegado antes estudiando los textos. La pala y la pluma coinciden.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">05</span>El cierre de la serie</h2>
+  <p>"La Biblia desenterrada" empezó preguntando qué pasa cuando el texto y la tierra no coinciden. La respuesta, tras cuatro entregas, es matizada y hermosa: <strong>no coinciden como crónica literal, pero se iluminan mutuamente como historia</strong>. La arqueología no ha "destruido" la Biblia —le ha dado un contexto, un cuándo, un porqué—. Ha mostrado que es una construcción humana extraordinaria, nacida de comunidades reales que buscaban sentido, identidad y unidad.</p>
+  <p>Y esa es, en el fondo, la misma lección de todo <em>Estratos</em>: mirar la religión como un terreno de capas, cada una depositada por manos humanas en su tiempo. Ver esas capas no disuelve lo sagrado —lo hace más humano, y por eso más fascinante—.</p>
+
+  <div class="series-end">
+    <div class="lbl">Fin de la serie · La Biblia desenterrada</div>
+    <p class="big"><span class="em">El texto y la tierra no siempre coinciden. Pero juntos cuentan una historia más rica que cualquiera por separado.</span></p>
+    <p>La Biblia no cayó del cielo: se levantó desde el suelo de Judá, escrita por manos humanas que buscaban unir a un pueblo en torno a su Dios.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>El reino de Judá del s. VII a.C. como estado alfabetizado y desarrollado está <span class="key">bien documentado</span>. La reforma de Josías (c. 622 a.C.) y la identificación del "libro hallado" con un núcleo del Deuteronomio son <span class="key">lectura crítica mayoritaria</span> desde el siglo XIX. La existencia de una "historia deuteronomista" compuesta en torno a esa época es <span class="key">consenso amplio</span>.</p>
+    <p><span class="key">En debate:</span> la proporción exacta de material del s. VII frente a tradiciones anteriores (que muchos aceptan) y a redacción posterior (exílica y postexílica, s. VI-V a.C.), que otros estudiosos enfatizan más que Finkelstein. La tesis de la composición como "proyecto de Josías" es influyente pero no unánime en todos sus detalles.</p>
+    <p>Este artículo describe la formación histórica de la Biblia hebrea con respeto por su valor espiritual. Que un texto tenga autores humanos e historia no prejuzga las cuestiones de fe, que quedan fuera del alcance de la arqueología.</p>
+  </div>
+
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#a8663e;--accent-deep:#7a4428">
+    <a class="epnav-series" href="serie-biblia.html">↑ Serie: La Biblia desenterrada</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="biblia-3.html"><span class="dir">← Anterior</span><span class="ttl">El reino que se encogió</span></a>
+      <span class="epnav-btn empty"></span>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

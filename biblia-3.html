@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El reino que se encogió — Estratos</title>
+<style>
+  :root{
+    --ink:#2a2320;--soil:#e4d8c2;--soil-deep:#d6c7a8;--soil-light:#efe6d4;
+    --terra:#a8663e;--terra-deep:#7a4428;--ochre:#c08a3e;--ochre-light:#d9a860;
+    --slate:#4a5560;--slate-deep:#333c45;--stone:#8a8072;--rule:#bfae8a;
+    --shadow:rgba(60,40,25,.2);--dust:#9a8a6a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--soil);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.4;
+    background-image:linear-gradient(rgba(122,68,40,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(122,68,40,.06) 1px, transparent 1px);
+    background-size:44px 44px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--terra-deep);background:rgba(239,230,212,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(168,102,62,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(239,230,212,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--terra),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--terra);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#4a3f30;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#3a3226;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(168,102,62,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.3) saturate(1.06) contrast(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#4a3a28;background:rgba(168,102,62,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6a4a}
+  figure.fig figcaption .credit a{color:var(--terra-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--terra-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--terra);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--terra-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  .consensus{margin:1.8rem 0;padding:1.3rem 1.5rem;background:var(--soil-light);border:1px solid var(--rule);border-radius:12px}
+  .consensus .c-claim{font-size:1rem;color:var(--ink);margin-bottom:.9rem;font-weight:600}
+  .consensus .c-claim .q{color:var(--terra-deep);font-style:italic}
+  .c-bar{position:relative;height:34px;background:linear-gradient(90deg,#c25a3a 0%,#d9a860 50%,#5a7a4a 100%);border-radius:18px;overflow:hidden;opacity:.9}
+  .c-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;background:#fff;border:3px solid var(--slate-deep);border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.3);z-index:2}
+  .c-scale{display:flex;justify-content:space-between;margin-top:.5rem;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:var(--dust);letter-spacing:.02em}
+  .c-verdict{margin-top:.7rem;font-size:.9rem;color:var(--slate-deep);font-family:"Trebuchet MS",sans-serif}
+  .c-verdict b{color:var(--terra-deep)}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(168,102,62,.09);border:1px solid rgba(168,102,62,.25);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terra-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#3a3226}
+
+  /* DUELO minimalistas vs maximalistas */
+  .duel{margin:1.8rem 0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:0 4px 14px var(--shadow)}
+  .duel-head{display:grid;grid-template-columns:1fr 1fr}
+  .duel-head .dh{padding:.8rem 1rem;font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;text-align:center}
+  .duel-head .dh.min{background:rgba(74,85,96,.16);color:var(--slate-deep)}
+  .duel-head .dh.max{background:rgba(168,102,62,.16);color:var(--terra-deep)}
+  .duel-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+  .duel-row .cell{padding:1rem 1.1rem;font-size:.95rem;color:#3a3226}
+  .duel-row .cell.min{background:rgba(74,85,96,.05);border-right:1px solid var(--rule)}
+  .duel-row .cell.max{background:rgba(168,102,62,.05)}
+  @media(max-width:600px){.duel-head,.duel-row{grid-template-columns:1fr}.duel-row .cell.min{border-right:none;border-bottom:1px solid var(--rule)}}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--terra);font-size:.9rem}
+
+  .note-block{background:var(--slate-deep);color:#dce2e6;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--ochre-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b8c0c6;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--ochre-light)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--soil-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dust);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--terra-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#4a4032;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--terra-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--soil-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--dust);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">La Biblia desenterrada · Entrega III</span>
+    <h1>El reino que<br>se <span class="em">encogió</span></h1>
+    <div class="glyphs">⛏ · בֵּית דָּוִד</div>
+    <p class="standfirst">La Biblia describe a David y Salomón como monarcas de un imperio esplendoroso. La arqueología dibuja algo más modesto. Y en medio, el debate más encendido de toda la disciplina.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Si el Éxodo fue el choque de la entrega anterior, David y Salomón son el <strong>campo de batalla</strong> de la arqueología bíblica. Aquí no hay una respuesta cómoda ni un consenso limpio: hay dos bandos, hallazgos que se lanzan como argumentos, y un debate que lleva décadas y sigue vivo. Es el mejor lugar para ver la disciplina <em>en acción</em>, discutiendo consigo misma. Entremos con cuidado.</p>
+
+  <h2><span class="n">01</span>El reino según la Biblia</h2>
+  <p>El relato bíblico es majestuoso. David, tras vencer a Goliat, unifica las tribus, conquista Jerusalén y la convierte en capital, somete a los pueblos vecinos y funda una dinastía. Su hijo <strong>Salomón</strong> hereda un imperio próspero: construye el Templo, levanta palacios, comercia con reinos lejanos, acumula riqueza legendaria y sabiduría proverbial. Es la <strong>Edad de Oro</strong> de Israel, la <span class="term">Monarquía Unida</span>, hacia el siglo X a.C.</p>
+  <p>Durante mucho tiempo se dio por histórico sin discusión. El problema llegó cuando la arqueología fue a buscar ese imperio bajo tierra —y lo que encontró abrió la guerra—.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>Primero: ¿existió David?</h2>
+  <p>Hubo un tiempo, no hace tanto, en que algunos estudiosos dudaban de que David hubiera existido siquiera —podía ser un personaje legendario, como el rey Arturo—. Ese debate se cerró en <strong>1993</strong>, con uno de los hallazgos más importantes de la arqueología bíblica: la <span class="term">Estela de Tel Dan</span>.</p>
+
+  <figure class="fig">
+    <img src="estela-tel-dan.jpg" alt="La Estela de Tel Dan, con la inscripción Casa de David">
+    <figcaption>
+      <span class="desc">La <em>Estela de Tel Dan</em> (siglo IX a.C.), Museo de Israel. Inscrita en arameo por un rey enemigo, contiene la expresión <em>bytdwd</em>, “Casa de David” —la primera mención de David fuera de la Biblia—.</span>
+      <span class="credit">Gary Todd, dominio público (CC0), vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Es una losa de basalto grabada por un rey arameo (probablemente Hazael de Damasco) que celebra una victoria sobre sus enemigos del sur, a los que llama <strong>“Casa de David”</strong> (<em>bytdwd</em>). El detalle es decisivo: en el Cercano Oriente, las dinastías se nombraban por su fundador (igual que Asiria hablaba de la "Casa de Omri" para referirse a Israel). Que un enemigo, apenas 140 años después, llamara a Judá "la Casa de David" prueba que <strong>David era recordado como el fundador histórico de una dinastía real</strong>.</p>
+  <div class="consensus" data-level="85">
+    <div class="c-claim">“David existió como figura histórica, fundador de una dinastía en Judá.” <span class="q">— tras la Estela de Tel Dan</span></div>
+    <div class="c-bar"><div class="c-marker" style="left:88%"></div></div>
+    <div class="c-scale"><span>Muy discutido</span><span>Dividido</span><span>Consenso sólido</span></div>
+    <div class="c-verdict"><b>Lectura:</b> consenso amplio. Desde 1993, la existencia histórica de David como fundador dinástico está sólidamente aceptada. La pregunta ya no es <em>si</em> existió, sino <em>cuán grande</em> fue su reino.</div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>La verdadera pelea: ¿imperio o cacicazgo?</h2>
+  <p>Zanjada la existencia de David, el debate se desplazó a su <strong>escala</strong>, y ahí se dividió el campo en dos bandos que la prensa bautizó como “minimalistas” y “maximalistas”:</p>
+  <div class="duel">
+    <div class="duel-head">
+      <div class="dh min">La lectura “baja” (Finkelstein)</div>
+      <div class="dh max">La lectura “alta” (Mazar y otros)</div>
+    </div>
+    <div class="duel-row">
+      <div class="cell min">En el siglo X a.C., Jerusalén era una <strong>aldea modesta</strong>. David y Salomón fueron <strong>jefes tribales locales</strong>, no emperadores. El “gran reino unido” es una idealización escrita siglos después.</div>
+      <div class="cell max">Hubo un <strong>estado organizado</strong> ya en el siglo X: con ciudades fortificadas, administración y escritura. El reino no fue tan colosal como la Biblia sugiere, pero <strong>sí un estado real</strong>, no un puñado de aldeas.</div>
+    </div>
+    <div class="duel-row">
+      <div class="cell min">Las grandes construcciones atribuidas a Salomón (Megido, Hazor, Guézer) son en realidad <strong>más tardías</strong> —de la época de los reyes del norte, un siglo después—.</div>
+      <div class="cell max">Esas construcciones monumentales <strong>sí encajan</strong> con el siglo X. La datación por carbono-14 de varios sitios apoya la cronología más alta.</div>
+    </div>
+  </div>
+  <p>La clave de toda la disputa es la <strong>datación</strong>: un margen de apenas 50-100 años decide si unas murallas son "de Salomón" o "de un siglo después". Finkelstein propuso rebajar esas fechas (su famosa <span class="term">“cronología baja”</span>), lo que encogía el reino de David a un cacicazgo. Sus críticos defendieron las fechas tradicionales. De ese pulso de décadas depende toda la imagen del Israel del siglo X.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>El hallazgo que recalibró el debate</h2>
+  <p>Aquí es donde esta serie tiene que actualizar el libro de 2001. Porque después de <em>La Biblia desenterrada</em> apareció un yacimiento que cambió la conversación: <span class="term">Khirbet Qeiyafa</span>.</p>
+
+  <figure class="fig">
+    <img src="khirbet-qeiyafa.jpg" alt="El yacimiento fortificado de Khirbet Qeiyafa">
+    <figcaption>
+      <span class="desc">El yacimiento de <em>Khirbet Qeiyafa</em>, una ciudad fortificada a unos 30 km de Jerusalén, datada por carbono-14 hacia el 1000 a.C. —la época atribuida a David—.</span>
+      <span class="credit">Bukvoed, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Khirbet Qeiyafa es una <strong>ciudad amurallada</strong>, con planificación urbana y una inscripción temprana, datada por carbono-14 a <strong>c. 1000 a.C.</strong> —justo la época de David—. Para sus excavadores (Yosef Garfinkel), demuestra que ya existía en el siglo X un <strong>estado judaíta capaz de construir ciudades fortificadas y administrarlas</strong>, lo que contradice la cronología baja y apoya un reino davídico más sustancial. Es, además, un sitio raro: tiene esencialmente <strong>una sola capa de ocupación</strong>, lo que facilita datarlo sin la confusión de estratos superpuestos.</p>
+  <p>El debate no está cerrado —Finkelstein y otros discuten la interpretación de Qeiyafa—, pero el péndulo se ha movido: hoy la <strong>cronología baja está seriamente cuestionada</strong>, y la balanza se inclina hacia un estado davídico temprano más real de lo que el libro de 2001 sugería.</p>
+  <div class="consensus" data-level="45">
+    <div class="c-claim">“La ‘cronología baja’ de Finkelstein reduce correctamente el reino de David a un cacicazgo menor.” <span class="q">— tesis discutida</span></div>
+    <div class="c-bar"><div class="c-marker" style="left:32%"></div></div>
+    <div class="c-scale"><span>Muy discutido</span><span>Dividido</span><span>Consenso sólido</span></div>
+    <div class="c-verdict"><b>Lectura:</b> hoy es minoritaria y cuestionada. Tras Khirbet Qeiyafa y otros sitios, muchos se inclinan por un estado davídico más sustancial. El propio Finkelstein ha matizado sus posiciones más extremas.</div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">05</span>Síntesis</h2>
+  <p>El reino de David y Salomón "se encogió" respecto al relato bíblico —casi con seguridad no fue el imperio deslumbrante de la Escritura—, pero <strong>no se evaporó</strong>. La verdad, hasta donde la arqueología alcanza hoy, parece estar en un punto intermedio: <strong>un estado real, organizado, pero modesto</strong>, en un siglo X que ya no es ni el imperio dorado de la Biblia ni el vacío de aldeas de la cronología baja.</p>
+  <p>Y hay una lección de método en todo esto: la arqueología <strong>no es un veredicto fijo, sino una conversación que se corrige</strong>. Un solo yacimiento nuevo —Khirbet Qeiyafa— movió el consenso en veinte años. Por eso el medidor de esta serie no marca certezas, sino el estado de un debate en marcha. En la última entrega llegamos al final del recorrido: el rey Josías y cómo su época pudo dar forma a la Biblia misma.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Última entrega de la serie</div>
+    <div class="ttl">El rey que escribió la Biblia</div>
+    <p>Josías y la reforma del siglo VII a.C.: cómo un rey de Judá y sus escribas pudieron dar forma a buena parte del Pentateuco, y por qué eso conecta con toda la historia de este blog.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>La <span class="key">Estela de Tel Dan</span> (1993, s. IX a.C.) como primera mención extrabíblica de la "Casa de David" es <span class="key">dato firme y ampliamente aceptado</span>; David es el personaje bíblico más antiguo confirmado epigráficamente. <span class="key">Khirbet Qeiyafa</span>, datado por C-14 a c. 1000 a.C., es real, aunque su <span class="key">interpretación</span> (qué prueba exactamente sobre el reino) sigue en discusión.</p>
+    <p><span class="key">Debate abierto:</span> la "cronología baja" de <span class="key">Finkelstein</span> frente a la "cronología modificada" de <span class="key">Amihai Mazar</span> y las lecturas de <span class="key">Garfinkel</span>. Este artículo refleja que el péndulo se ha movido desde 2001 hacia un estado davídico más sustancial, sin declarar cerrado el debate. Las etiquetas "minimalista/maximalista" son simplificaciones periodísticas de posturas más matizadas.</p>
+    <p>Este artículo describe el estado de la investigación; no juzga el valor religioso del relato bíblico sobre David y Salomón.</p>
+  </div>
+
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#a8663e;--accent-deep:#7a4428">
+    <a class="epnav-series" href="serie-biblia.html">↑ Serie: La Biblia desenterrada</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="biblia-2.html"><span class="dir">← Anterior</span><span class="ttl">El Éxodo que no fue (¿o sí?)</span></a>
+      <a class="epnav-btn next" href="biblia-4.html"><span class="dir">Siguiente →</span><span class="ttl">El rey que escribió la Biblia</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

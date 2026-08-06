@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los últimos días y la cruz — Estratos</title>
+<style>
+  :root{
+    --ink:#26221c;--sand:#e4dcc8;--sand-deep:#d6cbb2;--sand-light:#efe8d8;
+    --indigo:#2a3a5a;--indigo-deep:#1c2842;--indigo-bright:#3e5480;--ochre:#b08a3a;--ochre-light:#d0aa5a;
+    --stone:#9a8a6a;--terra:#a8663e;--rule:#bcae90;
+    --shadow:rgba(40,35,25,.2);--mute:#8a7e64;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--sand);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:repeating-linear-gradient(0deg, rgba(120,100,60,.05) 0 1px, transparent 1px 6px),repeating-linear-gradient(90deg, rgba(120,100,60,.05) 0 1px, transparent 1px 6px)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--indigo-deep);background:rgba(239,232,216,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(42,58,90,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(239,232,216,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--indigo),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--indigo-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--indigo-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--indigo);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3628;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#36301f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(42,58,90,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.18) saturate(1.04) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3628;background:rgba(42,58,90,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--indigo)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--indigo-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--indigo);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--indigo-deep)}
+  .wrap strong{color:var(--indigo-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(42,58,90,.07);border:1px solid rgba(42,58,90,.2);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#36301f}
+
+  .keypts{margin:1.6rem 0;display:grid;gap:.8rem}
+  .kp{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1rem 1.2rem;background:var(--sand-light);border:1px solid var(--rule);border-radius:8px}
+  .kp .ic{width:auto;min-width:34px;height:34px;padding:0 .6rem;border-radius:17px;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;flex-shrink:0;text-align:center}
+  .kp .txt{font-size:1rem;color:#36301f}
+  .kp .txt b{color:var(--indigo-deep)}
+
+  .consensus{margin:1.8rem 0;padding:1.3rem 1.5rem;background:var(--sand-light);border:1px solid var(--rule);border-radius:12px}
+  .consensus .c-claim{font-size:1rem;color:var(--ink);margin-bottom:.9rem;font-weight:600}
+  .consensus .c-claim .q{color:var(--indigo-deep);font-style:italic}
+  .c-bar{position:relative;height:34px;background:linear-gradient(90deg,#c25a3a 0%,#d9a860 50%,#4a8a5a 100%);border-radius:18px;overflow:hidden;opacity:.9}
+  .c-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;background:#fff;border:3px solid var(--indigo-deep);border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.3);z-index:2}
+  .c-scale{display:flex;justify-content:space-between;margin-top:.5rem;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:var(--mute);letter-spacing:.02em}
+  .c-verdict{margin-top:.7rem;font-size:.9rem;color:var(--indigo-deep);font-family:"Trebuchet MS",sans-serif}
+  .c-verdict b{color:var(--indigo-deep)}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--ochre);font-size:.9rem}
+
+  .note-block{background:var(--indigo-deep);color:#dce2ee;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--ochre-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b4bccc;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--ochre-light)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--sand-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--indigo-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#3a3628;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--indigo-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">El Jesús histórico · Entrega III</span>
+    <h1>Los últimos días<br>y la <span class="em">cruz</span></h1>
+    <div class="glyphs">INRI · צְלִיבָה</div>
+    <p class="standfirst">La muerte de Jesús es, paradójicamente, lo más seguro de su vida. Fue crucificado por Roma, y sabemos por qué. Aquí la historia pisa terreno firme —y distingue el hecho de su interpretación—.</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Hay una ironía en el estudio del Jesús histórico: el episodio mejor establecido de toda su vida es su <strong>muerte</strong>. La crucifixión de Jesús es uno de los hechos más firmes de la historia antigua —más seguro que muchos datos de emperadores y generales—. En esta entrega reconstruimos cómo y por qué llegó a la cruz, separando con cuidado lo que la historia puede afirmar de lo que pertenece a la interpretación teológica.</p>
+
+  <h2><span class="n">01</span>Por qué la cruz es tan segura</h2>
+  <p>La crucifixión de Jesús cumple todos los criterios de historicidad a la vez. Está en <strong>múltiples fuentes independientes</strong> (los cuatro evangelios, Pablo, y las fuentes no cristianas Tácito y Josefo). Y sobre todo, cumple de forma extrema el <strong>criterio de dificultad</strong>: la crucifixión era la ejecución más <strong>vergonzosa e infamante</strong> del mundo romano, reservada a esclavos y sediciosos. Que el mesías esperado muriera así era un <strong>escándalo</strong> para la mentalidad judía —"un mesías crucificado" era casi una contradicción—.</p>
+  <p>Nadie que inventara un mesías lo habría hecho terminar en una cruz. El hecho de que los cristianos tuvieran que <em>explicar</em> esa muerte vergonzosa —convertirla en victoria— demuestra que <strong>no pudieron evitarla: ocurrió de verdad</strong>. La cruz no es propaganda; es el dato duro que la fe tuvo que interpretar.</p>
+  <div class="consensus" data-level="95">
+    <div class="c-claim">“Jesús fue crucificado por las autoridades romanas hacia el año 30-33.” <span class="q">— el hecho más firme</span></div>
+    <div class="c-bar"><div class="c-marker" style="left:95%"></div></div>
+    <div class="c-scale"><span>Muy discutido</span><span>Dividido</span><span>Consenso sólido</span></div>
+    <div class="c-verdict"><b>Lectura:</b> de los hechos más seguros de toda la historia antigua. Prácticamente ningún historiador lo pone en duda, sea cual sea su postura sobre el resto.</div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>La mecánica de una ejecución</h2>
+  <p>¿Por qué acabó Jesús en la cruz? La reconstrucción histórica más aceptada encadena varios factores. Jesús subió a <strong>Jerusalén</strong> para la Pascua, la fiesta que llenaba la ciudad de peregrinos y de tensión mesiánica —el momento más vigilado del año por Roma—. Allí protagonizó un <strong>incidente en el Templo</strong> (el episodio de los cambistas), un gesto provocador contra el corazón económico y religioso del poder.</p>
+  <div class="keypts">
+    <div class="kp"><span class="ic">Templo</span><span class="txt">Las <b>autoridades del Templo</b> (los sumos sacerdotes saduceos) vieron en Jesús una amenaza al orden y a su delicada relación con Roma. Un predicador que atraía multitudes en Pascua era peligroso.</span></div>
+    <div class="kp"><span class="ic">Roma</span><span class="txt"><b>Poncio Pilato</b>, el prefecto romano, tenía la última palabra y el poder de crucificar. Para Roma, cualquier "rey de los judíos" era un sedicioso a eliminar, sin miramientos.</span></div>
+    <div class="kp"><span class="ic">Cruz</span><span class="txt">El letrero de la cruz —<b>"Rey de los judíos"</b>— revela el cargo: sedición política. Roma no lo ejecutó por blasfemia (eso habría sido asunto judío), sino como <b>agitador político</b>.</span></div>
+  </div>
+  <p>El dato del letrero es históricamente revelador: indica que, a ojos de Roma, Jesús murió como un <strong>pretendiente mesiánico políticamente peligroso</strong>. Fuera cual fuera su mensaje real, el "reino de Dios" sonaba, en la Judea ocupada, a desafío al reino del César.</p>
+
+  <figure class="fig">
+    <img src="piedra-pilato.jpeg" alt="La inscripción de Poncio Pilato hallada en Cesarea">
+    <figcaption>
+      <span class="desc">La <em>“Piedra de Pilato”</em>, hallada en Cesarea en 1961: una inscripción con el nombre de <strong>Poncio Pilato</strong>, prefecto de Judea. Confirma arqueológicamente al hombre que, según todas las fuentes, ordenó la ejecución de Jesús.</span>
+      <span class="credit">BRBurton, dominio público (CC0), vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>El hecho y su interpretación</h2>
+  <p>Aquí la serie tiene que hacer su distinción más cuidadosa. Que Jesús fue <strong>crucificado bajo Pilato</strong> es historia firme. Ahora bien, <em>qué significó</em> esa muerte —expiación de los pecados, sacrificio redentor, victoria sobre el pecado y la muerte— es <strong>interpretación teológica</strong>, elaborada después por sus seguidores. La historia registra la ejecución; la teología le da sentido salvífico. Son dos planos distintos, y confundirlos es un error de método.</p>
+  <p>Lo mismo vale para la <strong>resurrección</strong>. Que Jesús murió y fue sepultado pertenece al terreno histórico. Que resucitó al tercer día es una <strong>afirmación de fe</strong> —la afirmación central del cristianismo— sobre la que el método histórico <strong>no puede pronunciarse</strong>: no puede probarla ni refutarla, porque escapa a lo que la evidencia documental permite examinar. Lo que el historiador sí constata es un hecho posterior innegable: que los discípulos <strong>creyeron</strong> haberlo visto vivo, y que esa convicción cambió el mundo. Pero eso es ya la próxima entrega.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Jesús fue crucificado por Roma como agitador político (el letrero decía "Rey de los judíos"), tras un incidente en el Templo durante la Pascua. Que murió en la cruz es de lo más seguro de la historia antigua. Qué <em>significa</em> esa muerte —y si resucitó— ya es interpretación de fe, sobre la que la historia no se pronuncia.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Síntesis</h2>
+  <p>La muerte de Jesús es el ancla histórica de toda su figura: un predicador galileo del reino de Dios que subió a Jerusalén en Pascua, chocó con las autoridades del Templo y con Roma, y fue crucificado por Pilato como pretendiente mesiánico. Todo ello, <strong>sólido y bien atestiguado</strong>. La honestidad del historiador está en detenerse justo ahí: en el hecho, sin invadir el terreno del significado, que pertenece a la fe.</p>
+  <p>Y sin embargo, la historia no termina en la cruz —ni histórica ni humanamente—. Porque algo ocurrió después que transformó a un grupo de discípulos derrotados en el germen de una religión mundial. Cómo un predicador ejecutado se convirtió en el Cristo adorado por millones es el tema del último episodio.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Última entrega de la serie</div>
+    <div class="ttl">De predicador a Cristo</div>
+    <p>Qué pasó después de la cruz: la fe de los discípulos, Pablo, y cómo un movimiento judío se transformó en una religión nueva y universal.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>La <span class="key">crucifixión de Jesús bajo Poncio Pilato</span> (c. 30-33) es uno de los hechos mejor establecidos de la historia antigua, atestiguado por fuentes cristianas y no cristianas. La <span class="key">"Piedra de Pilato"</span> (Cesarea, 1961) confirma la existencia histórica del prefecto. El <span class="key">incidente del Templo</span> y el letrero ("titulus") con el cargo político son ampliamente aceptados como históricos.</p>
+    <p>Sobre las <span class="key">responsabilidades</span> en la muerte de Jesús: el consenso histórico subraya que fue una <span class="key">ejecución romana</span> por sedición (Roma tenía el monopolio de la crucifixión). Este blog rechaza expresamente cualquier lectura de "culpa colectiva" sobre el pueblo judío, una interpretación históricamente infundada y con consecuencias trágicas. Las autoridades implicadas fueron un grupo concreto en un momento concreto.</p>
+    <p>La <span class="key">resurrección</span> se presenta como afirmación de fe fuera del alcance del método histórico, que no la afirma ni la niega. Este artículo respeta plenamente su centralidad para el cristianismo.</p>
+  </div>
+
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#3e5480;--accent-deep:#2a3a5a">
+    <a class="epnav-series" href="serie-jesus.html">↑ Serie: El Jesús histórico</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="jesus-2.html"><span class="dir">← Anterior</span><span class="ttl">El judío de Galilea</span></a>
+      <a class="epnav-btn next" href="jesus-4.html"><span class="dir">Siguiente →</span><span class="ttl">De predicador a Cristo</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

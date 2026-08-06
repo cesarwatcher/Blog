@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De predicador a Cristo — Estratos</title>
+<style>
+  :root{
+    --ink:#26221c;--sand:#e4dcc8;--sand-deep:#d6cbb2;--sand-light:#efe8d8;
+    --indigo:#2a3a5a;--indigo-deep:#1c2842;--indigo-bright:#3e5480;--ochre:#b08a3a;--ochre-light:#d0aa5a;
+    --stone:#9a8a6a;--terra:#a8663e;--rule:#bcae90;
+    --shadow:rgba(40,35,25,.2);--mute:#8a7e64;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--sand);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:repeating-linear-gradient(0deg, rgba(120,100,60,.05) 0 1px, transparent 1px 6px),repeating-linear-gradient(90deg, rgba(120,100,60,.05) 0 1px, transparent 1px 6px)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--indigo-deep);background:rgba(239,232,216,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(42,58,90,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(239,232,216,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--indigo),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--indigo-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--indigo-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--indigo);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3628;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#36301f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(42,58,90,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.18) saturate(1.04) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3628;background:rgba(42,58,90,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--indigo)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--indigo-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--indigo);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--indigo-deep)}
+  .wrap strong{color:var(--indigo-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(42,58,90,.07);border:1px solid rgba(42,58,90,.2);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#36301f}
+
+  .consensus{margin:1.8rem 0;padding:1.3rem 1.5rem;background:var(--sand-light);border:1px solid var(--rule);border-radius:12px}
+  .consensus .c-claim{font-size:1rem;color:var(--ink);margin-bottom:.9rem;font-weight:600}
+  .consensus .c-claim .q{color:var(--indigo-deep);font-style:italic}
+  .c-bar{position:relative;height:34px;background:linear-gradient(90deg,#c25a3a 0%,#d9a860 50%,#4a8a5a 100%);border-radius:18px;overflow:hidden;opacity:.9}
+  .c-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;background:#fff;border:3px solid var(--indigo-deep);border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.3);z-index:2}
+  .c-scale{display:flex;justify-content:space-between;margin-top:.5rem;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:var(--mute);letter-spacing:.02em}
+  .c-verdict{margin-top:.7rem;font-size:.9rem;color:var(--indigo-deep);font-family:"Trebuchet MS",sans-serif}
+  .c-verdict b{color:var(--indigo-deep)}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--ochre);font-size:.9rem}
+
+  .note-block{background:var(--indigo-deep);color:#dce2ee;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--ochre-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b4bccc;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--ochre-light)}
+
+  .series-end{margin-top:2.5rem;padding:2.2rem 1.9rem;background:linear-gradient(160deg,var(--indigo),var(--indigo-deep));color:#e8edf4;border-radius:14px;text-align:center}
+  .series-end .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.8rem}
+  .series-end p{font-size:1.06rem;color:#e8edf4;margin-bottom:.8rem;line-height:1.6}
+  .series-end p:last-child{margin-bottom:0}
+  .series-end p.big{font-size:1.24rem}
+  .series-end .em{font-style:italic;color:var(--ochre-light)}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--indigo-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">El Jesús histórico · Entrega IV · Final</span>
+    <h1>De predicador<br>a <span class="em">Cristo</span></h1>
+    <div class="glyphs">Χριστός</div>
+    <p class="standfirst">Un maestro galileo ejecutado debería haber caído en el olvido, como tantos otros. En cambio, tres décadas después su movimiento se extendía por el Imperio. ¿Cómo un crucificado se convirtió en el Cristo?</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Cerramos la serie con la pregunta más consecuente de todas. La crucifixión debería haber sido el final: los movimientos en torno a un líder mesiánico normalmente se disolvían cuando Roma ejecutaba al líder. Con Jesús ocurrió lo contrario. En pocas décadas, sus seguidores no solo sobrevivieron, sino que proclamaron a aquel crucificado como <strong>Señor y Cristo</strong>, y llevaron su mensaje por todo el Mediterráneo. Este episodio traza —históricamente— esa transformación, y con ella enlaza con el final de "Grecia y Roma".</p>
+
+  <h2><span class="n">01</span>La experiencia que lo cambió todo</h2>
+  <p>El motor histórico de todo lo que sigue fue una convicción: los discípulos <strong>creyeron que Jesús se les había aparecido vivo</strong> tras su muerte. El historiador puede constatar el <em>hecho de esa creencia</em> —su fuerza, su datación temprana, sus efectos— aunque la naturaleza de lo que experimentaron pertenezca al terreno de la fe, fuera del método histórico.</p>
+  <p>Lo constatable es esto: un grupo <strong>derrotado y disperso</strong> por la ejecución de su maestro se transformó, en poco tiempo, en una comunidad <strong>convencida, audaz y dispuesta a morir</strong> por proclamar que Jesús vivía. Ese cambio radical necesita una causa, y las fuentes la sitúan en las <strong>apariciones pascuales</strong>. Sea cual sea su interpretación, la convicción fue real y tuvo consecuencias históricas enormes: sin ella, no habría cristianismo.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>Pablo, el arquitecto de la expansión</h2>
+  <p>La figura decisiva para convertir un movimiento judío en una religión universal fue <span class="term">Pablo de Tarso</span>. Judío de la diáspora, de lengua griega y ciudadano romano, al principio persiguió a los seguidores de Jesús; luego, tras una experiencia transformadora, se volvió su más incansable propagador. Sus <strong>cartas</strong> (años 50) son, recordemos, los textos cristianos más antiguos que conservamos.</p>
+  <p>El aporte de Pablo fue revolucionario: llevó el mensaje a los <strong>gentiles</strong> (los no judíos) y, sobre todo, resolvió que <strong>no era necesario hacerse judío</strong> —circuncidarse, cumplir la Ley— para seguir a Cristo. Esa decisión, muy discutida en su momento, abrió las puertas del movimiento a todo el mundo grecorromano. Aquí conectan las piezas de la serie anterior: la <strong>lengua griega</strong> (la Septuaginta), las <strong>calzadas romanas</strong>, las ciudades cosmopolitas del Imperio. Pablo viajó por ellas fundando comunidades.</p>
+
+  <figure class="fig">
+    <img src="corinto.jpg" alt="Ruinas de la antigua Corinto">
+    <figcaption>
+      <span class="desc">Ruinas de la antigua <em>Corinto</em>, una de las ciudades grecorromanas donde Pablo fundó una comunidad y a la que dirigió algunas de sus cartas. El cristianismo se expandió por la red urbana del Imperio.</span>
+      <span class="credit">Eric CB Cauchi, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>Cómo un judío se volvió el Cristo de los gentiles</h2>
+  <p>El proceso por el que Jesús, el <em>predicador</em> del reino de Dios, se convirtió en Cristo, el <em>objeto</em> de la fe, fue gradual. Fíjate en el desplazamiento: Jesús predicó <strong>sobre Dios y su reino</strong>; sus seguidores empezaron a predicar <strong>sobre Jesús mismo</strong>. El anunciador se volvió el anunciado. Los títulos crecieron con el tiempo: de <em>maestro</em> y <em>profeta</em>, a <em>mesías</em> (Cristo), a <em>Señor</em>, hasta las afirmaciones plenas sobre su divinidad que cristalizarían en los concilios de los siglos siguientes.</p>
+  <p>Este desarrollo es rastreable en las propias fuentes por orden cronológico: las cartas de Pablo, luego Marcos, y finalmente Juan (el más tardío) con la cristología más elevada. Para el historiador, es la huella de una <strong>comunidad reflexionando y elaborando</strong> el significado de Jesús a lo largo de décadas. Para el creyente, es el desvelamiento progresivo de una verdad. Los dos planos, una vez más, conviven sin que la historia arbitre entre ellos.</p>
+
+  <figure class="fig">
+    <img src="graffiti-alexamenos.jpg" alt="El grafito de Alexámenos">
+    <figcaption>
+      <span class="desc">El <em>grafito de Alexámenos</em> (s. II, Roma): una burla pagana que representa a un cristiano adorando a un crucificado con cabeza de asno. Es uno de los testimonios <strong>no cristianos</strong> más antiguos de la nueva fe —y muestra cuán escandalosa resultaba la cruz para el mundo romano—.</span>
+      <span class="credit">Dominio público, vía Wikimedia Commons.</span>
+    </figcaption>
+  </figure>
+
+  <div class="consensus" data-level="75">
+    <div class="c-claim">“La cristología ‘alta’ (la afirmación plena de la divinidad de Jesús) se desarrolló gradualmente a lo largo del s. I.” <span class="q">— desarrollo cristológico</span></div>
+    <div class="c-bar"><div class="c-marker" style="left:72%"></div></div>
+    <div class="c-scale"><span>Muy discutido</span><span>Dividido</span><span>Consenso sólido</span></div>
+    <div class="c-verdict"><b>Lectura:</b> mayoritario que hubo desarrollo, aunque se debate su velocidad: algunos ("cristología temprana alta") la sitúan muy pronto; otros, más gradual. Que las fuentes tardías tienen cristología más elevada es observable.</div>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>El cierre de la serie — y el enlace</h2>
+  <p>Y aquí la serie se enlaza con el final de "Grecia y Roma". Recordarás la <strong>bifurcación del año 70</strong>: tras la destrucción del Templo, del judaísmo del Segundo Templo brotaron dos ramas, el judaísmo rabínico y el cristianismo. Esta serie ha contado, por dentro, cómo nació esa segunda rama: de un profeta apocalíptico galileo, pasando por la convicción pascual de sus discípulos y la genialidad expansiva de Pablo, hasta convertirse en una fe autónoma que, para el siglo II, ya se distinguía claramente del judaísmo del que había surgido.</p>
+  <p>El Jesús histórico —el judío de Galilea— y el Cristo de la fe no son lo mismo, pero están unidos por un hilo histórico rastreable. Ver ese hilo no disuelve el misterio para quien cree, ni lo impone a quien no: solo muestra, capa sobre capa, cómo un hombre de una aldea sin importancia acabó cambiando la historia del mundo.</p>
+
+  <div class="series-end">
+    <div class="lbl">Fin de la serie · El Jesús histórico</div>
+    <p class="big"><span class="em">Un predicador galileo del reino de Dios se convirtió, tras la cruz, en el Cristo adorado por medio mundo.</span></p>
+    <p>La historia puede rastrear el hilo —de Nazaret a Pablo, del reino de Dios a la cristología— sin arbitrar el misterio. Lo que la fe ve como revelación, la historia lo ve como una de las mayores transformaciones jamás ocurridas.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>El <span class="key">hecho histórico</span> constatable es que los discípulos <span class="key">creyeron</span> haber visto a Jesús resucitado, y que esa convicción —temprana y firme— transformó al grupo y originó el movimiento. La <span class="key">naturaleza</span> de esa experiencia queda fuera del método histórico. El papel central de <span class="key">Pablo</span> y sus cartas (años 50) en la apertura a los gentiles es consenso.</p>
+    <p>El <span class="key">desarrollo cristológico</span> a lo largo del s. I es ampliamente aceptado, con debate sobre su velocidad ("cristología temprana alta" de Hurtado/Bauckham frente a modelos más graduales). El <span class="key">grafito de Alexámenos</span> es un testimonio pagano real del s. II-III. La separación definitiva entre judaísmo y cristianismo fue un proceso de varias generaciones.</p>
+    <p>Esta serie ha descrito el Jesús histórico y los orígenes del cristianismo con el método histórico-crítico, respetando plenamente la fe cristiana. La distinción entre "el Jesús de la historia" y "el Cristo de la fe" es un marco académico estándar, no un juicio sobre la verdad de las creencias, que este blog no arbitra. Con esta serie, Estratos cierra su recorrido de El a Cristo.</p>
+  </div>
+
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#3e5480;--accent-deep:#2a3a5a">
+    <a class="epnav-series" href="serie-jesus.html">↑ Serie: El Jesús histórico</a>
+    <div class="epnav-row">
+      <a class="epnav-btn prev" href="jesus-3.html"><span class="dir">← Anterior</span><span class="ttl">Los últimos días y la cruz</span></a>
+      <span class="epnav-btn empty"></span>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+</script>
+
+</body>
+</html>

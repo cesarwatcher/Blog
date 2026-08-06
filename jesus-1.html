@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Las fuentes: cómo sabemos algo de Jesús — Estratos</title>
+<style>
+  :root{
+    --ink:#26221c;--sand:#e4dcc8;--sand-deep:#d6cbb2;--sand-light:#efe8d8;
+    --indigo:#2a3a5a;--indigo-deep:#1c2842;--indigo-bright:#3e5480;--ochre:#b08a3a;--ochre-light:#d0aa5a;
+    --stone:#9a8a6a;--terra:#a8663e;--rule:#bcae90;
+    --shadow:rgba(40,35,25,.2);--mute:#8a7e64;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--sand);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* MOTIVO FIRMA: trama de lienzo/papiro (fibras cruzadas muy sutiles) */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:repeating-linear-gradient(0deg, rgba(120,100,60,.05) 0 1px, transparent 1px 6px),repeating-linear-gradient(90deg, rgba(120,100,60,.05) 0 1px, transparent 1px 6px)}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--indigo-deep);background:rgba(239,232,216,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(42,58,90,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(239,232,216,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--indigo),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--indigo-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--indigo-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.1em;color:var(--indigo);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3628;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#36301f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(42,58,90,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.18) saturate(1.04) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3628;background:rgba(42,58,90,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--indigo)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--indigo-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--indigo);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--indigo-deep)}
+  .wrap strong{color:var(--indigo-deep);font-weight:700}
+
+  /* ===== CRIBA DE FUENTES ===== */
+  .criba{margin:2rem 0;padding:1.6rem 1.4rem;background:var(--sand-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cr-head{text-align:center;margin-bottom:1.2rem}
+  .cr-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo-deep);font-weight:700}
+  .cr-hint{font-size:.9rem;color:var(--mute);font-style:italic;margin-top:.4rem}
+  .cr-filters{display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap;justify-content:center}
+  .cr-fbtn{padding:.5rem .8rem;border:1px solid var(--rule);background:var(--sand);color:var(--indigo-deep);cursor:pointer;border-radius:2rem;font-family:"Trebuchet MS",sans-serif;font-size:.76rem;font-weight:700;transition:all .25s}
+  .cr-fbtn:hover{background:var(--sand-deep)}
+  .cr-fbtn.active{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+  .cr-item{padding:.9rem 1.1rem;margin-bottom:.6rem;background:#fff;border-radius:8px;border-left:4px solid;box-shadow:0 2px 8px rgba(40,35,25,.06)}
+  .cr-item:last-child{margin-bottom:0}
+  .cr-item[data-tier="seguro"]{border-color:#4a8a5a}
+  .cr-item[data-tier="probable"]{border-color:#c8a23a}
+  .cr-item[data-tier="debatido"]{border-color:#c05a3a}
+  .cr-item[data-tier="teologico"]{border-color:#7a5a9a}
+  .cr-claim{font-size:1.02rem;color:var(--ink);margin-bottom:.35rem;font-weight:600}
+  .cr-badge{display:inline-block;font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.12rem .5rem;border-radius:1rem;margin-bottom:.4rem}
+  .cr-item[data-tier="seguro"] .cr-badge{background:rgba(74,138,90,.16);color:#3a7a4a}
+  .cr-item[data-tier="probable"] .cr-badge{background:rgba(200,162,58,.18);color:#9a7a1a}
+  .cr-item[data-tier="debatido"] .cr-badge{background:rgba(192,90,58,.16);color:#b0502a}
+  .cr-item[data-tier="teologico"] .cr-badge{background:rgba(122,90,154,.16);color:#6a4a8a}
+  .cr-meta{font-size:.85rem;color:#5a5040}
+  .cr-hidden{display:none}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(42,58,90,.07);border:1px solid rgba(42,58,90,.2);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin:0;font-size:1rem;color:#36301f}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto;max-width:200px}
+  .divider .line{height:1px;background:var(--rule);flex:1}
+  .divider .mark{color:var(--ochre);font-size:.9rem}
+
+  .note-block{background:var(--indigo-deep);color:#dce2ee;border-radius:12px;padding:2rem 1.9rem;margin:3rem 0 1rem}
+  .note-block h3{color:var(--ochre-light);font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+  .note-block p{color:#b4bccc;font-size:1rem;margin-bottom:.9rem}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block .key{color:var(--ochre-light)}
+
+  .next-teaser{margin-top:2.5rem;padding:1.6rem 1.8rem;background:var(--sand-light);border:1px solid var(--rule);border-radius:12px;text-align:center}
+  .next-teaser .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .ttl{font-size:1.24rem;color:var(--indigo-deep);font-style:italic;margin-bottom:.4rem}
+  .next-teaser p{font-size:.98rem;color:#3a3628;margin:0}
+
+  .article-foot{border-top:1px solid var(--rule);margin-top:4rem;padding:2.5rem 0 4rem;text-align:center}
+  .article-foot a.home-link{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.92rem;color:var(--indigo-deep);
+    padding:.8rem 1.6rem;border:1px solid var(--rule);border-radius:2rem;transition:background .3s,transform .3s}
+  .article-foot a.home-link:hover{background:var(--sand-light);transform:translateY(-2px)}
+  .article-foot .sig{margin-top:1.8rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  @media(max-width:600px){header.masthead{padding:12vh 0 3vh}.wrap{padding:0 20px}}
+  @media(prefers-reduced-motion:reduce){.back-home,.progress{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="back-home" href="index.html" aria-label="Volver a la portada">
+  <span class="arrow">←</span><span class="label">Portada</span>
+</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="eyebrow">El Jesús histórico · Entrega I</span>
+    <h1>Cómo sabemos<br>algo de <span class="em">Jesús</span></h1>
+    <div class="glyphs">Ἰησοῦς · יֵשׁוּעַ</div>
+    <p class="standfirst">Antes de preguntar qué hizo o dijo Jesús, hay que preguntar algo más básico: ¿cómo lo sabemos? ¿Qué fuentes tenemos, cuándo se escribieron, y cómo separa el historiador lo probable de lo legendario?</p>
+    <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro-text">Empezamos una serie sobre uno de los personajes más influyentes de la historia, y lo hacemos con el mismo método de todo el blog: como <strong>historia</strong>, no como fe. La disciplina académica del "Jesús histórico" intenta reconstruir, con herramientas de historiador, al <span class="term">Jesús de Nazaret</span> que vivió realmente en la Galilea del siglo I —distinguiéndolo del Cristo de la teología posterior—. No afirmamos ni negamos las afirmaciones de fe (milagros, resurrección, divinidad): eso queda, como siempre, fuera del alcance del método histórico y pertenece al terreno de cada creyente. Aquí preguntamos solo lo que la evidencia permite preguntar. Y todo empieza por las fuentes.</p>
+
+  <h2><span class="n">01</span>¿Existió Jesús? El punto de partida</h2>
+  <p>Conviene despejar esto primero, porque a veces se plantea. Entre los historiadores hay <strong>consenso amplio en que Jesús existió</strong> como figura histórica: un predicador judío de Galilea, activo hacia el año 30, bautizado por Juan y ejecutado por Roma. La idea de que Jesús nunca existió (el "miticismo") es una posición <strong>marginal</strong>, sostenida por muy pocos especialistas del campo.</p>
+  <p>¿Por qué esa seguridad? Porque hay varias fuentes tempranas e independientes, algunas incluso <strong>no cristianas</strong>, que lo mencionan. La discusión seria no es <em>si</em> existió, sino <em>qué</em> se puede saber de él con fiabilidad. Y ahí es donde el asunto se vuelve delicado y fascinante.</p>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">02</span>Las fuentes, una por una</h2>
+  <p>El historiador trabaja con lo que tiene. Para Jesús, las fuentes son de dos tipos:</p>
+  <h3>Fuentes cristianas</h3>
+  <p>Las <strong>cartas de Pablo</strong> son lo más antiguo: escritas hacia los años 50, apenas dos décadas después de la muerte de Jesús, aunque hablan poco de su vida terrena. Los <strong>evangelios</strong> (Marcos, Mateo, Lucas y Juan) se escribieron más tarde —Marcos, el primero, hacia el 70; Juan, el último, hacia el 90-100—, es decir, <strong>entre cuarenta y setenta años después</strong> de los hechos, y no por testigos directos, sino por autores de la siguiente generación que recogían tradiciones transmitidas oralmente.</p>
+
+  <figure class="fig">
+    <img src="papiro-p52.jpg" alt="El papiro P52, fragmento del Evangelio de Juan">
+    <figcaption>
+      <span class="desc">El <em>papiro P52</em> (s. II), un fragmento del Evangelio de Juan conservado en la Biblioteca John Rylands. Es el resto más antiguo conocido del Nuevo Testamento: del tamaño de una tarjeta, pero una fuente material tangible.</span>
+      <span class="credit">Papirólogo Bernard Grenfell (1920), dominio público, vía Wikimedia Commons.</span>
+    </figcaption>
+  </figure>
+
+  <p>Los evangelios no son crónicas neutrales: son <strong>testimonios de fe</strong>, escritos para proclamar y convencer. Eso no los invalida como fuente histórica, pero obliga a leerlos con ojo crítico, distinguiendo el recuerdo del añadido teológico.</p>
+  <h3>Fuentes no cristianas</h3>
+  <p>Y aquí está lo valioso para el historiador: hay menciones externas. El historiador judío <strong>Flavio Josefo</strong> (hacia el 93) menciona a Jesús dos veces —aunque uno de los pasajes fue retocado después por copistas cristianos—. Y el historiador romano <strong>Tácito</strong> (hacia el 116) refiere que "Cristo" fue ejecutado por Poncio Pilato bajo Tiberio. Son breves, pero <strong>independientes de la tradición cristiana</strong>, y confirman el núcleo: un tal Jesús, ejecutado por Roma en tiempos de Pilato.</p>
+
+  <figure class="fig">
+    <img src="codice-sinaitico.jpeg" alt="Página del Códice Sinaítico">
+    <figcaption>
+      <span class="desc">Página del <em>Códice Sinaítico</em> (s. IV), uno de los manuscritos más antiguos y completos de la Biblia griega. Muestra un pasaje del Evangelio de Mateo. Entre los hechos y nuestras copias median siglos de transmisión.</span>
+      <span class="credit">Autor desconocido, dominio público, vía Wikimedia Commons.</span>
+    </figcaption>
+  </figure>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">03</span>Las herramientas del historiador</h2>
+  <p>Ante fuentes tardías y de fe, ¿cómo criba el historiador lo que probablemente ocurrió? Con una serie de <strong>criterios de historicidad</strong>. Los principales:</p>
+  <p>El <strong>criterio de dificultad</strong> (o "vergüenza"): si un dato era <em>incómodo</em> para los primeros cristianos, probablemente es histórico —nadie inventaría algo que le complica la vida—. Ejemplo clásico: que Jesús fuera bautizado por Juan (lo que parece ponerlo por debajo de Juan) es tan incómodo que casi seguro ocurrió.</p>
+  <p>El <strong>criterio de testimonio múltiple</strong>: si un dato aparece en varias fuentes independientes entre sí, gana fiabilidad. El <strong>criterio de plausibilidad contextual</strong>: lo que encaja con la Galilea judía del siglo I es más creíble que lo que suena a añadido griego posterior. Con estas herramientas, los estudiosos ordenan las afirmaciones sobre Jesús según su solidez. Prueba a explorarlas:</p>
+
+  <div class="criba">
+    <div class="cr-head">
+      <div class="cr-title">La criba de fuentes</div>
+      <div class="cr-hint">Filtra las afirmaciones sobre Jesús según su solidez histórica</div>
+    </div>
+    <div class="cr-filters" id="crFilters"></div>
+    <div id="crList"></div>
+  </div>
+
+  <p>Fíjate en el código de color: del verde (prácticamente seguro) al violeta (solo teológico, fuera del alcance histórico). Esta será nuestra brújula en las próximas entregas. La historia no puede pronunciarse sobre lo violeta —ni a favor ni en contra—; se ocupa de lo verde, lo amarillo y lo rojo.</p>
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Sabemos de Jesús por fuentes cristianas (las cartas de Pablo, los evangelios, escritos décadas después) y no cristianas (Josefo, Tácito). Ninguna es una crónica neutral de testigo directo. Por eso los historiadores usan criterios —como "lo incómodo probablemente es real"— para separar lo históricamente sólido de lo legendario o teológico.</p>
+  </div>
+
+  <div class="divider"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <h2><span class="n">04</span>Síntesis</h2>
+  <p>Estudiar al Jesús histórico no es un ataque a la fe ni una defensa de ella: es aplicar a un personaje del siglo I las mismas herramientas que usaríamos con cualquier otro. Las fuentes son limitadas, tardías y comprometidas —como tantas de la Antigüedad—, pero no vacías: permiten reconstruir, con distintos grados de certeza, a un hombre real. La honestidad está en <strong>no confundir los niveles</strong>: lo que es firme, lo que es probable, lo que se debate y lo que pertenece solo a la fe.</p>
+  <p>Con las herramientas ya en la mano, en la próxima entrega usamos la criba para lo primero: reconstruir al Jesús que la mayoría de los historiadores reconoce —el judío de Galilea, su mundo y su mensaje—.</p>
+
+  <div class="next-teaser">
+    <div class="lbl">Próxima entrega</div>
+    <div class="ttl">El judío de Galilea</div>
+    <p>El Jesús que casi todos los historiadores aceptan: su mundo galileo, Juan el Bautista, el "reino de Dios" y el maestro que predicó en las aldeas del lago.</p>
+  </div>
+
+  <div class="note-block">
+    <h3>Nota sobre el rigor y las fuentes</h3>
+    <p>La <span class="key">existencia histórica de Jesús</span> es consenso académico abrumador; el miticismo es marginal. La datación de las fuentes (<span class="key">Pablo</span> hacia los años 50; <span class="key">Marcos</span> hacia el 70; <span class="key">Juan</span> hacia el 90-100) y las menciones de <span class="key">Josefo</span> y <span class="key">Tácito</span> son datos establecidos. La interpolación cristiana en el <em>Testimonium Flavianum</em> de Josefo es ampliamente reconocida.</p>
+    <p>Los <span class="key">criterios de historicidad</span> (dificultad, testimonio múltiple, plausibilidad contextual) son herramientas estándar de la disciplina, aunque su aplicación y sus límites se debaten. La clasificación de la criba refleja tendencias mayoritarias, no verdades absolutas; cada afirmación admite matices que se desarrollarán en las entregas siguientes.</p>
+    <p>Este artículo describe el estudio histórico de Jesús con pleno respeto por el cristianismo como fe viva. Las cuestiones teológicas (marcadas en la criba como "solo teológico") quedan expresamente fuera del alcance del método histórico, que no puede ni confirmarlas ni negarlas.</p>
+  </div>
+
+</div>
+
+
+<div class="wrap">
+  <div class="epnav" style="--accent:#3e5480;--accent-deep:#2a3a5a">
+    <a class="epnav-series" href="serie-jesus.html">↑ Serie: El Jesús histórico</a>
+    <div class="epnav-row">
+      <span class="epnav-btn empty"></span>
+      <a class="epnav-btn next" href="jesus-2.html"><span class="dir">Siguiente →</span><span class="ttl">El judío de Galilea</span></a>
+    </div>
+  </div>
+</div>
+<style>
+  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
+  .epnav-series:hover{text-decoration:underline}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid rgba(180,150,100,.4);border-radius:10px;background:rgba(242,234,215,.5);transition:transform .3s,background .3s,border-color .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-2px);background:rgba(242,234,215,.9);border-color:var(--accent)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn .dir{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-deep)}
+  .epnav-btn .ttl{font-size:.98rem;color:#3a3025;line-height:1.25}
+  .epnav-btn.empty{border:1px dashed rgba(180,150,100,.3);background:transparent;pointer-events:none}
+  @media(max-width:520px){.epnav-row{grid-template-columns:1fr}.epnav-btn.next{text-align:left}}
+</style>
+
+<div class="wrap">
+  <div class="article-foot">
+    <a class="home-link" href="index.html"><span>←</span> Volver a todos los artículos</a>
+    <div class="sig">✦<br>Estratos · Historia de las religiones del Cercano Oriente</div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress');
+  function upd(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';}
+  document.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+
+  // ===== criba de fuentes =====
+  const claims = [
+    {tier:'seguro', label:'Prácticamente seguro', claim:'Jesús fue crucificado por orden romana bajo Poncio Pilato.', meta:'Atestiguado por fuentes cristianas y no cristianas (Tácito, Josefo). Una ejecución vergonzosa que nadie habría inventado.'},
+    {tier:'seguro', label:'Prácticamente seguro', claim:'Fue bautizado por Juan el Bautista.', meta:'Criterio de dificultad: subordinar a Jesús a Juan era incómodo para los cristianos, luego es casi seguro histórico.'},
+    {tier:'seguro', label:'Prácticamente seguro', claim:'Fue un predicador judío de Galilea, activo hacia el año 30.', meta:'Contexto plausible y testimonio múltiple. Nadie lo discute seriamente.'},
+    {tier:'probable', label:'Probable', claim:'Procedía de Nazaret, una aldea insignificante.', meta:'"Jesús de Nazaret" es constante; los relatos de Belén parecen añadidos teológicos para cumplir profecías.'},
+    {tier:'probable', label:'Probable', claim:'Reunió discípulos y predicó el "reino de Dios".', meta:'Testimonio múltiple y coherente con el judaísmo apocalíptico de la época.'},
+    {tier:'debatido', label:'Debatido', claim:'Se consideró a sí mismo el mesías.', meta:'Los estudiosos discrepan: unos lo ven en su conducta, otros lo consideran una lectura posterior de la comunidad.'},
+    {tier:'debatido', label:'Debatido', claim:'Las palabras exactas que los evangelios ponen en su boca.', meta:'Difícil de verificar frase a frase; se transmitieron oralmente durante décadas antes de escribirse.'},
+    {tier:'teologico', label:'Solo teológico', claim:'Resucitó de entre los muertos al tercer día.', meta:'Afirmación central de la fe cristiana. Fuera del alcance del método histórico, que no puede ni probarla ni refutarla.'},
+    {tier:'teologico', label:'Solo teológico', claim:'Era el Hijo de Dios encarnado.', meta:'Afirmación teológica, no histórica. El historiador no se pronuncia sobre ella.'},
+  ];
+  const tiers = [['todos','Todas'],['seguro','Prácticamente seguras'],['probable','Probables'],['debatido','Debatidas'],['teologico','Solo teológicas']];
+  const filtersEl = document.getElementById('crFilters');
+  const listEl = document.getElementById('crList');
+  filtersEl.innerHTML = tiers.map((t,i)=>`<button class="cr-fbtn${i===0?' active':''}" data-t="${t[0]}">${t[1]}</button>`).join('');
+  listEl.innerHTML = claims.map(cl=>`<div class="cr-item" data-tier="${cl.tier}"><span class="cr-badge">${cl.label}</span><div class="cr-claim">${cl.claim}</div><div class="cr-meta">${cl.meta}</div></div>`).join('');
+  filtersEl.querySelectorAll('.cr-fbtn').forEach(btn=>btn.addEventListener('click',()=>{
+    filtersEl.querySelectorAll('.cr-fbtn').forEach(x=>x.classList.remove('active'));
+    btn.classList.add('active');
+    const t = btn.dataset.t;
+    listEl.querySelectorAll('.cr-item').forEach(it=>{
+      it.classList.toggle('cr-hidden', t!=='todos' && it.dataset.tier!==t);
+    });
+  }));
+</script>
+
+</body>
+</html>

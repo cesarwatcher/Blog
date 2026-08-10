@@ -323,7 +323,59 @@
   },{passive:true});
 
   go(0);
+
+  // Ocultar los controles fijos del deck (dots, flechas, hint) cuando
+  // el usuario baja hasta la navegación entre entregas, para que no se
+  // solapen con el botón "Siguiente".
+  const epnavEl = document.querySelector('.epnav');
+  const deckControls = [dotsWrap, prevBtn, nextBtn, document.querySelector('.kbd-hint')].filter(Boolean);
+  if(epnavEl && 'IntersectionObserver' in window){
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        deckControls.forEach(el=>{
+          el.style.transition = 'opacity .3s';
+          el.style.opacity = en.isIntersecting ? '0' : '';
+          el.style.pointerEvents = en.isIntersecting ? 'none' : '';
+        });
+      });
+    }, {threshold: 0.1});
+    obs.observe(epnavEl);
+  }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="wrap">
@@ -336,7 +388,10 @@
   </div>
 </div>
 <style>
-  .epnav{max-width:720px;margin:2.5rem auto 0;padding:0 4px}
+  .epnav{max-width:720px;margin:0 auto;padding:2.5rem 4px 2rem;position:relative;z-index:90;background:var(--parchment)}
+  /* Franja sólida que separa el deck de la navegación entre entregas,
+     para que los controles fijos de las láminas no se solapen con el epnav */
+  .epnav-guard{position:relative;z-index:90;background:var(--parchment);height:1px}
   .epnav-series{display:block;text-align:center;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.04em;text-decoration:none;color:var(--accent-deep);margin-bottom:1.2rem}
   .epnav-series:hover{text-decoration:underline}
   .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}

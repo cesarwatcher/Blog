@@ -84,6 +84,12 @@
   .layer.l5 p{color:#e0cad1}
 
   .find{margin-top:1.2rem;padding:.9rem 1.2rem;border-radius:8px;font-size:.95rem;font-family:"Trebuchet MS",sans-serif;line-height:1.5}
+  /* Los strong heredaban un tono oscuro (slate-deep) invisible sobre los
+     fondos oscuros de las capas profundas. Se les da un tono claro y cálido
+     para asegurar contraste y legibilidad. */
+  .layer.l3 strong{color:#f3ddc4}
+  .layer.l4 strong{color:#f6d5dd}
+  .layer.l5 strong{color:#f2d2da}
   .layer.l1 .find,.layer.l2 .find{background:rgba(110,53,70,.09);color:#5a3340}
   .layer.l1 .find b,.layer.l2 .find b{color:var(--rose-deep)}
   .layer.l3 .find,.layer.l4 .find,.layer.l5 .find{background:rgba(255,255,255,.1);color:#f4e6ea}

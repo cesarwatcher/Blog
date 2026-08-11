@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los primeros gestos: enterramientos y ritos — Estratos</title>
+<style>
+  :root{
+    --char:#221f1a;--stone:#e6dfd2;--stone-deep:#d8cfbd;--stone-light:#f0ebe0;
+    --ochre:#a8452a;--ochre-deep:#7d3320;--ochre-light:#c8663e;
+    --earth:#6e5638;--earth-deep:#4a3826;--charcoal:#3a352e;--bone:#e8e0d0;
+    --rule:#b8a988;--shadow:rgba(35,28,20,.22);--mute:#8a7d64;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--stone);color:var(--char);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* MOTIVO FIRMA: grano de roca + vetas de pigmento */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6;
+    background-image:radial-gradient(circle at 30% 20%, rgba(110,86,56,.05) 0 2px, transparent 2px),
+      radial-gradient(circle at 70% 60%, rgba(110,86,56,.045) 0 1.5px, transparent 1.5px),
+      radial-gradient(circle at 45% 85%, rgba(168,69,42,.03) 0 2px, transparent 2px);
+    background-size:38px 38px, 27px 27px, 52px 52px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--earth-deep);background:rgba(240,235,224,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(110,86,56,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(240,235,224,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--earth),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--ochre-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--ochre-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--earth);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3428;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332e22;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(110,86,56,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.2) saturate(1.05) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3428;background:rgba(110,86,56,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--earth-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--earth-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--earth);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--earth-deep)}
+  .wrap strong{color:var(--ochre-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(110,86,56,.08);border:1px solid rgba(110,86,56,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* ===== MEDIDOR DE CONSENSO ===== */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--stone-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0502a 0%,#c8a23a 50%,#4a8a5a 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--charcoal);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3428}
+  .cs-verdict strong{color:var(--earth-deep)}
+
+  /* ===== NOTA DE RIGOR ===== */
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--charcoal);color:#e8e0d0;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#ddd4c2}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:var(--ochre-light)}
+
+  /* ===== CIERRE / SIGUIENTE ===== */
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--earth-deep),var(--earth));color:#f0ebe0;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#e0d8c6;max-width:520px;margin:0 auto}
+
+  /* ===== NAVEGACIÓN ENTRE ENTREGAS ===== */
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--earth-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--earth-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--stone-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--earth-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+
+  /* ===== MURO DE HIPÓTESIS (dos lecturas enfrentadas) ===== */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--stone-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.romantica .hip-tag{color:var(--ochre-deep)}
+  .hip.critica .hip-tag{color:var(--earth-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--char);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-origen.html"><span class="arrow">&larr;</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">C&oacute;mo el ser humano cre&oacute; a los dioses &middot; II</span>
+  <h1>Los primeros gestos: enterramientos y <span class="em">ritos</span></h1>
+  <div class="glyphs">&#9880; &middot; &#10056; &middot; &#9902;</div>
+  <p class="standfirst">Si los sapiens honraban a sus muertos, &iquest;lo hac&iacute;an tambi&eacute;n los neandertales? La respuesta toca una de las preguntas m&aacute;s cargadas de toda la prehistoria: qu&eacute; nos hace humanos.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">En la entrega anterior vimos que hace cien mil a&ntilde;os los <em>Homo sapiens</em> de Qafzeh enterraban a sus muertos con ocre y ofrendas. Pero los sapiens no eran los &uacute;nicos humanos sobre la Tierra. Compartieron el mundo con los <span class="term">neandertales</span>, una especie hermana tan inteligente y tan antigua como nosotros. Y la pregunta de si <em>ellos</em> tambi&eacute;n enterraban a sus muertos con intenci&oacute;n ha sido uno de los debates m&aacute;s intensos &mdash;y m&aacute;s reveladores&mdash; de la arqueolog&iacute;a.</p>
+
+  <h2><span class="n">01</span>Una cueva en los montes de Irak</h2>
+
+  <p>En los a&ntilde;os cincuenta y sesenta, el arque&oacute;logo Ralph Solecki excav&oacute; la cueva de <span class="term">Shanidar</span>, en los montes Zagros del Kurdist&aacute;n iraqu&iacute;. All&iacute; encontr&oacute; los restos de al menos diez neandertales. Algunos hab&iacute;an muerto por el desprendimiento del techo de la cueva. Pero otros parec&iacute;an haber sido <strong>colocados deliberadamente</strong>, y uno de ellos cambiar&iacute;a para siempre la imagen que ten&iacute;amos de esta especie.</p>
+
+  <figure class="fig">
+    <img src="shanidar.jpg" alt="La cueva de Shanidar en el Kurdist&aacute;n iraqu&iacute;">
+    <figcaption>
+      <span class="desc">La cueva de Shanidar, en el monte Bradost, gobernaci&oacute;n de Erbil (Kurdist&aacute;n iraqu&iacute;). Uno de los yacimientos neandertales m&aacute;s importantes del mundo.</span>
+      <span class="credit">Khoshhat, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">02</span>El entierro de las flores</h2>
+
+  <p>El esqueleto conocido como <strong>Shanidar 4</strong> estaba rodeado de granos de polen agrupados en el sedimento. La palin&oacute;loga Arlette Leroi-Gourhan propuso una idea deslumbrante: esos grumos de polen eran los restos de <strong>flores depositadas sobre el cuerpo</strong>. Un neandertal enterrado sobre un lecho de flores, hace unos 65.000 a&ntilde;os.</p>
+
+  <p>La imagen dio la vuelta al mundo. Durante d&eacute;cadas, el "entierro de las flores" fue la prueba emocional de que los neandertales sent&iacute;an, cuidaban y lloraban a sus muertos como nosotros. Aparece todav&iacute;a hoy en muchos libros de texto. Era una historia hermosa. El problema es que quiz&aacute; no sea cierta.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Se cre&iacute;a que unos neandertales hab&iacute;an enterrado a un compa&ntilde;ero cubierto de flores. Esa idea, preciosa, se ense&ntilde;&oacute; durante cincuenta a&ntilde;os. Pero la ciencia reciente ha puesto en duda de d&oacute;nde sali&oacute; ese polen.</p>
+  </div>
+
+  <h2><span class="n">03</span>Cuando las abejas arruinan una historia bonita</h2>
+
+  <p>En 2023, un equipo dirigido por el paleoec&oacute;logo Chris Hunt reexamin&oacute; la evidencia del polen. Su conclusi&oacute;n fue prosaica pero contundente: los grumos de polen probablemente no los dejaron unos dolientes neandertales, sino <strong>abejas solitarias</strong> que anidan excavando galer&iacute;as en el suelo de la cueva. El polen estaba ah&iacute; por biolog&iacute;a, no por duelo.</p>
+
+  <p>Esto es la arqueolog&iacute;a haciendo lo que mejor sabe hacer: dudar de sus propias historias favoritas. Y plantea una pregunta inc&oacute;moda: &iquest;cu&aacute;ntas de nuestras certezas sobre el mundo antiguo son proyecciones nuestras, deseos de encontrar humanidad donde solo hay sedimento?</p>
+
+  <div class="muro">
+    <div class="hip romantica">
+      <span class="hip-tag">La lectura rom&aacute;ntica</span>
+      <div class="hip-title">Neandertales que amaban</div>
+      <p>Enterraron a su compa&ntilde;ero sobre un lecho de flores, en un gesto de duelo y ternura id&eacute;ntico al nuestro. La muerte les dol&iacute;a como nos duele.</p>
+    </div>
+    <div class="hip critica">
+      <span class="hip-tag">La lectura cr&iacute;tica</span>
+      <div class="hip-title">Abejas, no dolientes</div>
+      <p>El polen lo dejaron abejas excavadoras, no humanos. Atribuirlo a un ritual floral dice m&aacute;s de nuestro deseo de vernos reflejados que de la evidencia.</p>
+    </div>
+  </div>
+
+  <h2><span class="n">04</span>Lo que s&iacute; sobrevive al escepticismo</h2>
+
+  <p>Aqu&iacute; viene el matiz crucial, y es f&aacute;cil perderlo entre el ruido del debate: <strong>que las flores sean dudosas no significa que el enterramiento no lo fuera</strong>. Excavaciones recientes en Shanidar, dirigidas por Emma Pomeroy, han encontrado el cuerpo articulado de otro neandertal &mdash;el primero en m&aacute;s de veinticinco a&ntilde;os&mdash; cuya posici&oacute;n sugiere, tambi&eacute;n, un enterramiento intencional. Los neandertales de Shanidar fueron colocados, no simplemente abandonados.</p>
+
+  <p>Es decir: perdimos las flores, pero conservamos algo m&aacute;s s&oacute;lido. Los neandertales trataban a sus muertos de forma deliberada. No sabemos si con emoci&oacute;n, con miedo o con costumbre &mdash;eso sigue fuera de nuestro alcance&mdash;, pero el gesto estaba ah&iacute;. Y eso significa que la conducta funeraria no fue un invento exclusivo de nuestra especie: es m&aacute;s antigua y m&aacute;s ancha que <em>Homo sapiens</em>.</p>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:58%"></div></div>
+    <div class="cs-labels"><span>Especulaci&oacute;n</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> el enterramiento intencional neandertal es hoy <strong>ampliamente aceptado</strong>. El "entierro de las flores" concreto est&aacute; <strong>en disputa</strong> (el polen se explica mejor por abejas). Los <em>sentimientos</em> de los neandertales ante la muerte permanecen fuera del alcance de la evidencia.</p>
+  </div>
+
+  <h2><span class="n">05</span>Reyes de marfil en la estepa</h2>
+
+  <p>Volvamos a nuestra especie, unos treinta mil a&ntilde;os atr&aacute;s, a la fr&iacute;a llanura rusa. En el yacimiento de <span class="term">Sungir</span>, cerca de Vlad&iacute;mir, aparecieron algunos de los enterramientos m&aacute;s espectaculares de toda la prehistoria: un hombre adulto y, en otra tumba, dos ni&ntilde;os.</p>
+
+  <figure class="fig">
+    <img src="sungir.jpg" alt="Enterramiento paleol&iacute;tico de Sungir">
+    <figcaption>
+      <span class="desc">Reconstrucci&oacute;n del enterramiento de un hombre del Paleol&iacute;tico Superior en Sungir (Rusia), datado hace entre 28.000 y 34.000 a&ntilde;os.</span>
+      <span class="credit">Jos&eacute;-Manuel Benito &Aacute;lvarez, dominio p&uacute;blico, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Los cuerpos estaban cubiertos por m&aacute;s de <strong>diez mil cuentas de marfil de mamut</strong>, cosidas a sus ropas, junto a cientos de colmillos de zorro perforados, lanzas de marfil y un f&eacute;mur relleno de ocre rojo. Se calcula que solo las cuentas exigieron unas <strong>2.500 horas de trabajo</strong>. Detente a pensarlo: miles de horas de labor, invertidas no en cazar ni en construir refugios, sino en <em>adornar a unos muertos</em>.</p>
+
+  <p>Ese gasto colosal de esfuerzo en lo aparentemente in&uacute;til es, en s&iacute; mismo, una revoluci&oacute;n. Significa que estas personas ten&iacute;an algo tan importante que decir sobre la muerte &mdash;sobre el estatus, sobre el m&aacute;s all&aacute;, sobre la memoria&mdash; que val&iacute;a 2.500 horas de sus vidas. No sabemos qu&eacute; era. Pero sabemos que exist&iacute;a.</p>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>El reexamen del polen de Shanidar 4 fue publicado por Chris Hunt y su equipo en el <em>Journal of Archaeological Science</em> (2023); la hip&oacute;tesis de las abejas excavadoras es hoy la explicaci&oacute;n preferida, aunque el debate palinol&oacute;gico contin&uacute;a. El hallazgo del neandertal articulado (Shanidar Z) fue descrito por Emma Pomeroy y colegas en <em>Antiquity</em> (2020).</p>
+    <p>Las dataciones de Sungir (28.000&ndash;34.000 a&ntilde;os) proceden de las dataciones AMS de Pettitt y Bader (2000); las cifras de cuentas y horas de trabajo, de Formicola y colegas. La cifra exacta de cuentas var&iacute;a seg&uacute;n la fuente (m&aacute;s de 10.000, hasta 13.000 sumando ambas tumbas).</p>
+    <p>Se ha mantenido con cuidado la distinci&oacute;n entre el <strong>hecho</strong> (enterramientos deliberados, ricos en ofrendas) y su <strong>significado</strong> (creencias sobre la muerte), que permanece en el terreno de la hip&oacute;tesis razonable pero no demostrable.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega</div>
+    <div class="nt-title">El santuario antes que la ciudad: G&ouml;bekli Tepe</div>
+    <div class="nt-desc">Hace 11.500 a&ntilde;os, unos cazadores levantaron un templo monumental de piedra &mdash;miles de a&ntilde;os antes de la primera ciudad, la primera escritura o la primera cosecha&mdash;. El hallazgo que oblig&oacute; a reescribir el orden de la historia.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">&uarr; <a href="serie-origen.html">Serie: C&oacute;mo el ser humano cre&oacute; a los dioses</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="origen-1.html"><span class="lbl">&larr; Anterior</span><span class="ttl">El animal que sabe que va a morir</span></a>
+    <a class="epnav-btn next" href="origen-3.html"><span class="lbl">Siguiente &rarr;</span><span class="ttl">El santuario antes que la ciudad</span></a>
+  </div>
+</nav>
+
+<footer>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El santuario antes que la ciudad: Göbekli Tepe — Estratos</title>
+<style>
+  :root{
+    --char:#221f1a;--stone:#e6dfd2;--stone-deep:#d8cfbd;--stone-light:#f0ebe0;
+    --ochre:#a8452a;--ochre-deep:#7d3320;--ochre-light:#c8663e;
+    --earth:#6e5638;--earth-deep:#4a3826;--charcoal:#3a352e;--bone:#e8e0d0;
+    --rule:#b8a988;--shadow:rgba(35,28,20,.22);--mute:#8a7d64;
+    --sky:#8fa6b8;--soil:#7a5c3a;--soil-deep:#5a4228;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--stone);color:var(--char);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6;
+    background-image:radial-gradient(circle at 30% 20%, rgba(110,86,56,.05) 0 2px, transparent 2px),
+      radial-gradient(circle at 70% 60%, rgba(110,86,56,.045) 0 1.5px, transparent 1.5px),
+      radial-gradient(circle at 45% 85%, rgba(168,69,42,.03) 0 2px, transparent 2px);
+    background-size:38px 38px, 27px 27px, 52px 52px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--earth-deep);background:rgba(240,235,224,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(110,86,56,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(240,235,224,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--earth),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--ochre-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--ochre-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--earth);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3428;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332e22;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(110,86,56,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.2) saturate(1.05) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3428;background:rgba(110,86,56,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--earth-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--earth-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--earth);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--earth-deep)}
+  .wrap strong{color:var(--ochre-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(110,86,56,.08);border:1px solid rgba(110,86,56,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--stone-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0502a 0%,#c8a23a 50%,#4a8a5a 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--charcoal);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3428}
+  .cs-verdict strong{color:var(--earth-deep)}
+
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--charcoal);color:#e8e0d0;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#ddd4c2}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:var(--ochre-light)}
+
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--earth-deep),var(--earth));color:#f0ebe0;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#e0d8c6;max-width:520px;margin:0 auto}
+
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--earth-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--earth-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--stone-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--earth-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+
+  /* ============================================================
+     SCROLLYTELLING — "EXCAVAR CON EL SCROLL"
+     El lector baja y atraviesa capas de tiempo hasta el templo.
+     ============================================================ */
+  .scrolly{position:relative;margin:3rem 0}
+  .scrolly-sticky{position:sticky;top:0;height:100vh;overflow:hidden;border-radius:0;
+    display:flex;align-items:center;justify-content:center;background:var(--soil-deep)}
+  /* capas apiladas de la escena */
+  .layer-scene{position:absolute;inset:0}
+  .layer-scene .lyr{position:absolute;inset:0;background-size:cover;background-position:center;
+    transition:opacity .6s ease, transform .6s ease;opacity:0}
+  .layer-scene .lyr.show{opacity:1}
+  .lyr-caption{position:absolute;left:0;right:0;bottom:0;padding:2rem 1.4rem 2.4rem;
+    background:linear-gradient(to top, rgba(28,22,14,.92), rgba(28,22,14,.7) 55%, transparent);
+    color:#f0ebe0;z-index:5}
+  .lyr-caption .depth{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.5rem;
+    opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
+  .lyr-caption .depth.show{opacity:1;transform:none}
+  .lyr-caption .big{font-size:clamp(1.5rem,4vw,2.4rem);line-height:1.15;max-width:640px;margin:0 auto;
+    font-weight:400;opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+  .lyr-caption .big .em{font-style:italic;color:var(--ochre-light)}
+  .lyr-caption .big.show{opacity:1;transform:none}
+  .lyr-caption .wrap-cap{max-width:740px;margin:0 auto}
+  /* pasos que disparan los cambios */
+  .scrolly-steps{position:relative;z-index:3}
+  .step{min-height:90vh}
+  .scrolly-hint{position:absolute;top:1.2rem;left:50%;transform:translateX(-50%);z-index:6;
+    font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+    color:#f0ebe0;background:rgba(28,22,14,.5);padding:.4rem .9rem;border-radius:2rem;
+    display:flex;align-items:center;gap:.5rem;transition:opacity .4s}
+  .scrolly-hint .dn{animation:bob 1.6s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+  /* aviso para reduced motion / fallback */
+  @media(prefers-reduced-motion:reduce){
+    .layer-scene .lyr,.lyr-caption .depth,.lyr-caption .big{transition:none}
+  }
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-origen.html"><span class="arrow">←</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">Cómo el ser humano creó a los dioses · III</span>
+  <h1>El santuario antes que la <span class="em">ciudad</span></h1>
+  <div class="glyphs">⏸ · ▲ · ⟁</div>
+  <p class="standfirst">Durante un siglo creímos que primero llegó la agricultura, después las ciudades y, al final, los templos. Una colina en Turquía dio la vuelta a ese orden por completo.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+  <p class="intro-text">Hasta ahora hemos rastreado gestos: enterramientos, ocre, ofrendas. Señales íntimas, de un cuerpo ante otro cuerpo. Pero en algún momento lo sagrado dio un salto de escala: dejó de ser un gesto privado y se convirtió en <strong>arquitectura</strong>, en piedra levantada por muchas manos hacia algo compartido. Ese salto tiene un nombre y un lugar: Göbekli Tepe.</p>
+  <p>Antes de contarlo, bajemos hasta él. Literalmente.</p>
+</div>
+
+<!-- ===== SCROLLYTELLING: EXCAVAR CON EL SCROLL ===== -->
+<section class="scrolly" id="scrolly">
+  <div class="scrolly-sticky">
+    <div class="scrolly-hint" id="hint"><span>Baja para excavar</span><span class="dn">↓</span></div>
+    <div class="layer-scene" id="scene">
+      <div class="lyr" data-lyr="0" style="background-image:linear-gradient(180deg,#a9c0d0 0%,#c9b892 55%,#8a6a44 100%)"></div>
+      <div class="lyr" data-lyr="1" style="background-image:url('gobekli-excavacion.jpg')"></div>
+      <div class="lyr" data-lyr="2" style="background-image:url('gobekli-panorama.jpg')"></div>
+      <div class="lyr" data-lyr="3" style="background-image:url('gobekli-recinto.jpg')"></div>
+      <div class="lyr" data-lyr="4" style="background-image:url('gobekli-pilar.jpg')"></div>
+      <div class="lyr-caption">
+        <div class="wrap-cap">
+          <div class="depth" id="cap-depth">Hoy · superficie</div>
+          <div class="big" id="cap-big">Una colina cualquiera en el sureste de Turquía.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scrolly-steps" id="steps">
+    <div class="step" data-step="0" data-depth="Hoy · superficie" data-text="Una colina cualquiera en el sureste de Turquía."></div>
+    <div class="step" data-step="1" data-depth="Bajo la hierba" data-text="Los campesinos la llamaban «la colina del ombligo». Nadie sabía lo que escondía dentro."></div>
+    <div class="step" data-step="2" data-depth="Bajo la tierra" data-text="En 1994 empezó la excavación. Bajo el montículo apareció algo que no debería existir."></div>
+    <div class="step" data-step="3" data-depth="11.500 años atrás" data-text="Recintos circulares de piedra, levantados por cazadores sin agricultura ni escritura."></div>
+    <div class="step" data-step="4" data-depth="El corazón del santuario" data-text="Pilares de hasta cinco metros, tallados con zorros, serpientes y aves. Un templo."></div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <h2><span class="n">01</span>La colina del ombligo</h2>
+
+  <p>En el sureste de Turquía, cerca de la ciudad de Şanlıurfa, hay una loma que los campesinos kurdos llamaban <span class="term">Göbekli Tepe</span> —"la colina panzuda" o "del ombligo"—. Durante milenios fue solo eso: una elevación en el paisaje, sembrada de piedras que parecían lápidas medievales. En 1963, unos arqueólogos la visitaron, vieron las piedras, supusieron que era un cementerio tardío sin interés, y se marcharon.</p>
+
+  <p>Tuvieron que pasar treinta años hasta que, en 1994, el arqueólogo alemán Klaus Schmidt volvió a mirar. Y comprendió que aquellas "lápidas" eran las puntas de algo enorme enterrado bajo la colina. Lo que desenterró cambiaría los manuales de historia.</p>
+
+  <h2><span class="n">02</span>Un templo imposible</h2>
+
+  <p>Bajo el montículo aparecieron <strong>recintos circulares</strong> definidos por muros de piedra, con enormes <strong>pilares en forma de T</strong> clavados a intervalos regulares. En el centro de cada recinto, dos pilares aún mayores, de hasta cinco metros de altura y varias toneladas de peso. Muchos están tallados con relieves de animales: zorros, serpientes, jabalíes, escorpiones, aves.</p>
+
+  <figure class="fig">
+    <img src="gobekli-pilar.jpg" alt="Pilar en T de Göbekli Tepe con relieve de un zorro">
+    <figcaption>
+      <span class="desc">Pilar central en T del "Edificio C" de Göbekli Tepe, con un gran zorro tallado en bajorrelieve. Los pilares centrales llegaban a medir unos cinco metros.</span>
+      <span class="credit">Dosseman, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <p>La datación por radiocarbono situó las capas más antiguas alrededor del <strong>9600 a.C.: hace unos 11.500 años</strong>. Para hacernos una idea: es <em>siete mil años</em> más antiguo que Stonehenge y que las pirámides de Egipto. Y aquí viene lo que lo hace imposible según todo lo que creíamos saber.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Göbekli Tepe es un conjunto de templos de piedra levantado hace 11.500 años, mucho antes de que existieran las ciudades, la escritura o la agricultura. Es la arquitectura monumental más antigua que conocemos.</p>
+  </div>
+
+  <h2><span class="n">03</span>El orden que había que reescribir</h2>
+
+  <p>Durante casi todo el siglo XX, los arqueólogos daban por sentado un orden lógico. Primero, los humanos inventaron la <strong>agricultura</strong>. La agricultura produjo excedentes de comida. Los excedentes permitieron pueblos estables y gente liberada del trabajo diario. Y solo entonces —con ciudades, jerarquías y tiempo libre— pudo surgir la religión organizada y la capacidad de levantar templos. La religión, en ese modelo, era un <em>lujo</em> tardío de la civilización.</p>
+
+  <p>Göbekli Tepe pone ese orden patas arriba. Lo construyeron <strong>cazadores-recolectores</strong>: gente sin agricultura, sin cerámica, sin escritura, sin ciudades. Movieron pilares de varias toneladas y los tallaron con arte sofisticado, y lo hicieron <em>antes</em> de sembrar el primer campo. La conclusión es vertiginosa: quizá no fue la civilización la que produjo los templos, sino que <strong>la necesidad de reunirse en torno a lo sagrado pudo empujar a la civilización misma</strong>.</p>
+
+  <figure class="fig">
+    <img src="gobekli-recinto.jpg" alt="Recinto circular de Göbekli Tepe visto desde arriba">
+    <figcaption>
+      <span class="desc">Uno de los recintos circulares de Göbekli Tepe, con los pilares en T dispuestos alrededor de dos pilares centrales mayores.</span>
+      <span class="credit">Zhengán, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">04</span>¿Templo? Con cuidado</h2>
+
+  <p>Es tentador llamarlo "el primer templo del mundo", y así aparece en muchos titulares. Pero conviene medir las palabras. Que no haya rastro de viviendas ni de vida doméstica cotidiana sugiere que no era un poblado normal, sino un lugar de <strong>reunión y ritual</strong>. Los relieves de animales peligrosos, la escala monumental, el esfuerzo colectivo: todo apunta a un espacio con carga simbólica.</p>
+
+  <p>Pero "templo" es una palabra nuestra, cargada de significados posteriores. No sabemos qué se hacía exactamente allí, si había algo parecido a "dioses", ni qué contaban los relieves. Sabemos que fue un lugar extraordinario, construido con enorme esfuerzo compartido, para algo que iba mucho más allá de sobrevivir. Llamarlo "santuario" es razonable; reconstruir su teología es imposible. Además, solo se ha excavado en torno al <strong>5%</strong> del yacimiento: casi todo sigue bajo tierra.</p>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:64%"></div></div>
+    <div class="cs-labels"><span>Especulación</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> la <strong>datación</strong> (~9600 a.C.) y la <strong>autoría por cazadores-recolectores</strong> son consenso firme. Que fuera un espacio ritual es <strong>ampliamente aceptado</strong>. La idea de que "el culto impulsó la civilización" es una hipótesis <em>sugerente pero en debate</em>: seductora, no demostrada.</p>
+  </div>
+
+  <p>Con esa cautela, lo que queda es igualmente asombroso. Hace once mil quinientos años, mucho antes de la primera espiga cultivada, un grupo de cazadores decidió que valía la pena mover montañas de piedra para construir un lugar sagrado. Lo primero que nuestra especie edificó a lo grande no fue una casa ni un granero. Fue un santuario.</p>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>Las dataciones por radiocarbono (capa III, ~9600 a.C.) proceden de las excavaciones del Instituto Arqueológico Alemán iniciadas por Klaus Schmidt en 1994; los recintos más antiguos (D y C) se fechan a mediados del X milenio a.C. El dato del 5% excavado y los ~200 megalitos detectados por georradar figuran en los informes del proyecto.</p>
+    <p>La tesis de que Göbekli Tepe invierte el orden "agricultura → religión" fue defendida por el propio Schmidt y es hoy influyente, pero <strong>sigue debatiéndose</strong>: algunos investigadores matizan que hubo formas tempranas de recolección intensiva de cereal en la zona, y que la relación entre culto y sedentarización fue mutua, no una simple causa y efecto.</p>
+    <p>Se evita deliberadamente el término "templo" en sentido estricto y cualquier reconstrucción de creencias concretas, por falta de evidencia. La escena de "excavación" de esta página es una ayuda narrativa, no una secuencia estratigráfica literal.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega</div>
+    <div class="nt-title">Cuando lo divino tuvo rostro: las primeras figuras</div>
+    <div class="nt-desc">De los relieves de Göbekli Tepe a las "venus" paleolíticas y al hombre-león: el momento en que lo sagrado dejó de ser un gesto y empezó a tener forma, cuerpo y rostro.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">↑ <a href="serie-origen.html">Serie: Cómo el ser humano creó a los dioses</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="origen-2.html"><span class="lbl">← Anterior</span><span class="ttl">Los primeros gestos</span></a>
+    <a class="epnav-btn next" href="origen-4.html"><span class="lbl">Siguiente →</span><span class="ttl">Cuando lo divino tuvo rostro</span></a>
+  </div>
+</nav>
+
+<footer>Estratos · Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+
+  // ===== SCROLLYTELLING =====
+  (function(){
+    const scene = document.getElementById('scene');
+    const lyrs = Array.from(scene.querySelectorAll('.lyr'));
+    const capDepth = document.getElementById('cap-depth');
+    const capBig = document.getElementById('cap-big');
+    const steps = Array.from(document.querySelectorAll('.step'));
+    const hint = document.getElementById('hint');
+    let current = -1;
+
+    function setLayer(n, depth, text){
+      if(n === current) return;
+      current = n;
+      lyrs.forEach((l,i)=> l.classList.toggle('show', i <= n));
+      // recomponer el caption con animación
+      capDepth.classList.remove('show'); capBig.classList.remove('show');
+      setTimeout(()=>{
+        capDepth.textContent = depth;
+        capBig.innerHTML = text;
+        capDepth.classList.add('show'); capBig.classList.add('show');
+      }, 180);
+      hint.style.opacity = n >= 1 ? '0' : '1';
+    }
+
+    if('IntersectionObserver' in window){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(en=>{
+          if(en.isIntersecting){
+            const s = en.target;
+            setLayer(+s.dataset.step, s.dataset.depth, s.dataset.text);
+          }
+        });
+      }, {rootMargin:'-45% 0px -45% 0px', threshold:0});
+      steps.forEach(s=>obs.observe(s));
+    } else {
+      // fallback: mostrar todo
+      lyrs.forEach(l=>l.classList.add('show'));
+      capDepth.classList.add('show'); capBig.classList.add('show');
+    }
+    // estado inicial
+    setLayer(0, steps[0].dataset.depth, steps[0].dataset.text);
+  })();
+</script>
+</body></html>

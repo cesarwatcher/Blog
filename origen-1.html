@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El animal que sabe que va a morir — Estratos</title>
+<style>
+  :root{
+    --char:#221f1a;--stone:#e6dfd2;--stone-deep:#d8cfbd;--stone-light:#f0ebe0;
+    --ochre:#a8452a;--ochre-deep:#7d3320;--ochre-light:#c8663e;
+    --earth:#6e5638;--earth-deep:#4a3826;--charcoal:#3a352e;--bone:#e8e0d0;
+    --rule:#b8a988;--shadow:rgba(35,28,20,.22);--mute:#8a7d64;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--stone);color:var(--char);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* MOTIVO FIRMA: grano de roca + vetas de pigmento */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6;
+    background-image:radial-gradient(circle at 30% 20%, rgba(110,86,56,.05) 0 2px, transparent 2px),
+      radial-gradient(circle at 70% 60%, rgba(110,86,56,.045) 0 1.5px, transparent 1.5px),
+      radial-gradient(circle at 45% 85%, rgba(168,69,42,.03) 0 2px, transparent 2px);
+    background-size:38px 38px, 27px 27px, 52px 52px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--earth-deep);background:rgba(240,235,224,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(110,86,56,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(240,235,224,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--earth),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--ochre-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--ochre-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--earth);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3428;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332e22;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(110,86,56,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.2) saturate(1.05) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3428;background:rgba(110,86,56,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--earth-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--earth-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--earth);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--earth-deep)}
+  .wrap strong{color:var(--ochre-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(110,86,56,.08);border:1px solid rgba(110,86,56,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* ===== MEDIDOR DE CONSENSO ===== */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--stone-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0502a 0%,#c8a23a 50%,#4a8a5a 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--charcoal);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3428}
+  .cs-verdict strong{color:var(--earth-deep)}
+
+  /* ===== NOTA DE RIGOR ===== */
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--charcoal);color:#e8e0d0;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#ddd4c2}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:var(--ochre-light)}
+
+  /* ===== CIERRE / SIGUIENTE ===== */
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--earth-deep),var(--earth));color:#f0ebe0;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#e0d8c6;max-width:520px;margin:0 auto}
+
+  /* ===== NAVEGACIÓN ENTRE ENTREGAS ===== */
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--earth-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--earth-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--stone-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--earth-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-origen.html"><span class="arrow">←</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">Cómo el ser humano creó a los dioses · I</span>
+  <h1>El animal que sabe que va a <span class="em">morir</span></h1>
+  <div class="glyphs">☠ · ✶ · ⟠</div>
+  <p class="standfirst">Antes que templos, antes que dioses con nombre, hubo una intuición que ningún otro animal parece tener: que la muerte llega, y que a los muertos hay que hacerles algo.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">Esta serie recorre el origen mismo de lo sagrado: cómo la humanidad, mucho antes de Israel, de la Biblia y de cualquier dios con nombre, empezó a mirar el mundo y a sospechar que había algo más. Es la etapa más antigua de todas —y, por eso, la más incierta—. Aquí la evidencia es escasa y muda: un hueso, un pigmento, una piedra. Lo que esos restos <em>significaron</em> para quienes los dejaron es, casi siempre, una hipótesis. Lo diremos con claridad en cada paso.</p>
+
+  <p>Empecemos por lo más antiguo que podemos rastrear. No es un dios. No es un templo. Es algo mucho más pequeño y más íntimo: la forma en que los primeros humanos trataron a sus muertos.</p>
+
+  <h2><span class="n">01</span>Un gesto que ningún animal hace</h2>
+
+  <p>Los animales mueren, y muchos reaccionan ante la muerte de los suyos. Los elefantes se detienen junto a los huesos de su manada; algunos primates cargan a sus crías muertas durante días. Pero hay algo que, hasta donde sabemos, solo hace el ser humano: <strong>preparar al muerto</strong>. Cavar una fosa, colocar el cuerpo de cierta manera, dejar objetos junto a él. Convertir la muerte en un <em>acto</em>, no solo en un hecho.</p>
+
+  <p>Ese gesto —el enterramiento intencional— es una de las huellas más antiguas de algo que podríamos llamar pensamiento simbólico: la capacidad de que una cosa <em>signifique</em> otra. Un cuerpo colocado con cuidado ya no es solo un cadáver: es alguien a quien se despide. Y despedir supone, de algún modo, imaginar que la persona no se ha ido del todo.</p>
+
+  <figure class="fig">
+    <img src="qafzeh-enterramiento.jpg" alt="Reproducción del enterramiento de una mujer de Qafzeh">
+    <figcaption>
+      <span class="desc">Reproducción museográfica del enterramiento de una mujer de Qafzeh (Israel), datado hace unos 100.000 años. Musée national de Préhistoire, Les Eyzies.</span>
+      <span class="credit">Wolfgang Sauber, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">02</span>Qafzeh: cien mil años de despedidas</h2>
+
+  <p>En una cueva de la Baja Galilea, cerca de Nazaret, se encuentra uno de los cementerios más antiguos que conocemos. En <span class="term">Qafzeh</span> los arqueólogos hallaron los restos de al menos quince <em>Homo sapiens</em>, enterrados hace entre <strong>90.000 y 100.000 años</strong> —decenas de miles de años antes de lo que se creía posible para este tipo de conducta—.</p>
+
+  <p>No son cuerpos abandonados. Están colocados en posiciones deliberadas, en fosas preparadas. Uno de ellos, conocido como <strong>Qafzeh 11</strong>, es el enterramiento de un adolescente de doce o trece años: le colocaron sobre el pecho y las manos las <strong>astas de un ciervo</strong>, cuidadosamente separadas del cráneo del animal, como en un abrazo. No hay ninguna razón práctica para hacer eso. Es un gesto que solo se explica si significaba algo.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Hace cien mil años, alguien enterró a un niño y le puso astas de ciervo sobre el pecho. Ese pequeño gesto —inútil para sobrevivir, pero cargado de sentido— es una de las primeras señales de que el ser humano había empezado a pensar de otra manera.</p>
+  </div>
+
+  <h2><span class="n">03</span>El color de la sangre</h2>
+
+  <p>Junto a los enterramientos de Qafzeh apareció otra cosa: <strong>ocre rojo</strong>. Setenta y una piezas de este pigmento de óxido de hierro, y herramientas manchadas con él, cerca de las tumbas más antiguas. El ocre había sido calentado en hogueras para conseguir tonos concretos de rojo.</p>
+
+  <p>El ocre no alimenta, no abriga, no sirve para cazar. Y sin embargo, a lo largo de toda la prehistoria, aparece una y otra vez ligado a los muertos, al cuerpo, a lo ritual. ¿Por qué el rojo? Nadie lo sabe con certeza. La hipótesis más repetida es tan simple como poderosa: el rojo es el color de la sangre, es decir, el color de la vida. Cubrir a un muerto de rojo podría haber sido una forma de devolverle simbólicamente aquello que había perdido.</p>
+
+  <figure class="fig">
+    <img src="ocre-rojo.jpg" alt="Bloque de ocre grabado de la cueva de Blombos">
+    <figcaption>
+      <span class="desc">Bloque de ocre grabado con un patrón geométrico, hallado en la cueva de Blombos (Sudáfrica). Data de hace unos 70.000 años y es una de las piezas de arte abstracto más antiguas que se conocen.</span>
+      <span class="credit">Chris S. Henshilwood, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <p>En Sudáfrica, en la cueva de <span class="term">Blombos</span>, apareció un trozo de ocre con un patrón geométrico grabado a propósito hace unos 70.000 años: líneas cruzadas, deliberadas, sin ninguna función utilitaria. No es una imagen de nada; es, simplemente, un patrón. Pero es una marca hecha por una mano que quería dejar una marca. Y eso ya es un mundo.</p>
+
+  <h2><span class="n">04</span>Lo que un entierro nos permite —y no nos permite— decir</h2>
+
+  <p>Aquí conviene frenar y ser honestos, porque es fácil dejarse llevar. Un enterramiento con ocre y astas de ciervo <em>demuestra</em> que hubo un gesto intencional y simbólico. Eso es sólido. Pero no nos dice <em>qué</em> creían esas personas. No sabemos si imaginaban un más allá, si temían a los muertos, si los honraban, o si hacían algo que ni siquiera sabríamos nombrar.</p>
+
+  <p>El salto de "enterraron con cuidado" a "creían en la vida después de la muerte" es justamente eso: un salto. Puede ser razonable, pero es interpretación, no dato. En esta serie vamos a marcar esa frontera una y otra vez, porque es la única forma honesta de contar una historia hecha de silencios.</p>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:72%"></div></div>
+    <div class="cs-labels"><span>Especulación</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> hay <strong>amplio acuerdo</strong> en que los enterramientos de Qafzeh son intencionales y simbólicos —eso es sólido—. Lo que <em>significaban</em> esos gestos (si implicaban una creencia en el más allá) es, en cambio, terreno de interpretación, donde la prudencia manda.</p>
+  </div>
+
+  <p>Con esa cautela por delante, lo que sí podemos afirmar es enorme: hace cien mil años, en una cueva de Galilea, un grupo de seres humanos miró a sus muertos y decidió que merecían algo más que el olvido. Ese es el punto de partida de todo lo que vendrá.</p>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>Las dataciones de Qafzeh (90.000–100.000 años) provienen de las excavaciones dirigidas por Bernard Vandermeersch y del análisis del ocre por Erella Hovers y su equipo, publicado en <em>Current Anthropology</em>. El enterramiento con astas (Qafzeh 11) y las 71 piezas de ocre están documentados por el programa de Orígenes Humanos del Smithsonian.</p>
+    <p>Un matiz importante: el uso simbólico del ocre en Qafzeh <strong>desaparece</strong> del registro y no vuelve a aparecer allí hasta unos 12.700 años atrás. Como señalan los propios investigadores, muchas conductas "modernas" surgieron, se perdieron y se reinventaron varias veces. La historia del pensamiento simbólico no es una línea recta ascendente, sino intermitente.</p>
+    <p>La distinción entre el hecho arqueológico (el enterramiento) y su interpretación (la creencia) sigue el criterio del propio campo, que trata la intención simbólica como sólida y el contenido de esas creencias como especulativo.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega</div>
+    <div class="nt-title">Los primeros gestos: enterramientos y ritos</div>
+    <div class="nt-desc">Si los sapiens enterraban a sus muertos hace cien mil años, ¿lo hacían también los neandertales? La respuesta nos lleva a una cueva de Irak, a un debate sobre unas flores, y a la pregunta de qué nos hace verdaderamente humanos.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">↑ <a href="serie-origen.html">Serie: Cómo el ser humano creó a los dioses</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev disabled" href="#"><span class="lbl">← Anterior</span><span class="ttl">Inicio de la serie</span></a>
+    <a class="epnav-btn next" href="origen-2.html"><span class="lbl">Siguiente →</span><span class="ttl">Los primeros gestos</span></a>
+  </div>
+</nav>
+
+<footer>Estratos · Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

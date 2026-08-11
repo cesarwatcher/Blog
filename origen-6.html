@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los dioses de la primera cosecha — Estratos</title>
+<style>
+  :root{
+    --char:#221f1a;--stone:#e6dfd2;--stone-deep:#d8cfbd;--stone-light:#f0ebe0;
+    --ochre:#a8452a;--ochre-deep:#7d3320;--ochre-light:#c8663e;
+    --earth:#6e5638;--earth-deep:#4a3826;--charcoal:#3a352e;--bone:#e8e0d0;
+    --rule:#b8a988;--shadow:rgba(35,28,20,.22);--mute:#8a7d64;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--stone);color:var(--char);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* MOTIVO FIRMA: grano de roca + vetas de pigmento */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6;
+    background-image:radial-gradient(circle at 30% 20%, rgba(110,86,56,.05) 0 2px, transparent 2px),
+      radial-gradient(circle at 70% 60%, rgba(110,86,56,.045) 0 1.5px, transparent 1.5px),
+      radial-gradient(circle at 45% 85%, rgba(168,69,42,.03) 0 2px, transparent 2px);
+    background-size:38px 38px, 27px 27px, 52px 52px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--earth-deep);background:rgba(240,235,224,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(110,86,56,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(240,235,224,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--earth),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--ochre-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--ochre-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--earth);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3428;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332e22;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(110,86,56,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.2) saturate(1.05) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3428;background:rgba(110,86,56,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--earth-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--earth-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--earth);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--earth-deep)}
+  .wrap strong{color:var(--ochre-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(110,86,56,.08);border:1px solid rgba(110,86,56,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* ===== MEDIDOR DE CONSENSO ===== */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--stone-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0502a 0%,#c8a23a 50%,#4a8a5a 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--charcoal);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3428}
+  .cs-verdict strong{color:var(--earth-deep)}
+
+  /* ===== NOTA DE RIGOR ===== */
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--charcoal);color:#e8e0d0;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#ddd4c2}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:var(--ochre-light)}
+
+  /* ===== CIERRE / SIGUIENTE ===== */
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--earth-deep),var(--earth));color:#f0ebe0;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#e0d8c6;max-width:520px;margin:0 auto}
+
+  /* ===== NAVEGACIÓN ENTRE ENTREGAS ===== */
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--earth-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--earth-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--stone-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--earth-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+
+  /* ===== MURO DE HIPÓTESIS (dos lecturas enfrentadas) ===== */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--stone-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.romantica .hip-tag{color:var(--ochre-deep)}
+  .hip.critica .hip-tag{color:var(--earth-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--char);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-origen.html"><span class="arrow">&larr;</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">C&oacute;mo el ser humano cre&oacute; a los dioses &middot; VI</span>
+  <h1>Los dioses de la primera <span class="em">cosecha</span></h1>
+  <div class="glyphs">&#127793; &middot; &#9737; &middot; &#128046;</div>
+  <p class="standfirst">Cuando el ser humano dej&oacute; de perseguir la comida y empez&oacute; a cultivarla, cambi&oacute; el mundo entero &mdash;y con &eacute;l, sus dioses&mdash;. La religi&oacute;n de los cazadores no serv&iacute;a para los campesinos.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">Hasta aqu&iacute; hemos seguido a cazadores-recolectores: gente que se mov&iacute;a con las estaciones, que enterraba, tallaba y pintaba. Pero hace unos 12.000 a&ntilde;os, en el Cercano Oriente, ocurri&oacute; la transformaci&oacute;n m&aacute;s profunda de la historia humana: la <strong>agricultura</strong>. Y con ella, una nueva forma de imaginar lo sagrado.</p>
+
+  <h2><span class="n">01</span>La revoluci&oacute;n que lo cambi&oacute; todo</h2>
+
+  <p>Sembrar y cosechar, domesticar animales, quedarse en un lugar: la llamada <span class="term">revoluci&oacute;n neol&iacute;tica</span> transform&oacute; cada aspecto de la vida. Y transform&oacute; tambi&eacute;n las preocupaciones religiosas. Un cazador depende de encontrar la presa; un campesino depende de que <strong>la lluvia llegue, la semilla germine y la cosecha vuelva</strong> cada a&ntilde;o. Su vida entera se juega en el ciclo de la tierra: la fertilidad, las estaciones, la muerte del grano en invierno y su resurrecci&oacute;n en primavera.</p>
+
+  <p>No es casualidad que muchas de las religiones posteriores giren en torno a dioses que <strong>mueren y resucitan</strong> con las estaciones, a diosas de la tierra y la fecundidad, a ritos para asegurar la lluvia y la cosecha. Esa gram&aacute;tica religiosa &mdash;la del ciclo agrario&mdash; nace aqu&iacute;, con los primeros campos.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Al inventar la agricultura, el ser humano pas&oacute; a depender de la tierra y las estaciones. Sus dioses cambiaron en consecuencia: aparecieron divinidades de la fertilidad, del grano, de los ciclos que mueren y renacen cada a&ntilde;o.</p>
+  </div>
+
+  <h2><span class="n">02</span>Una ciudad sin calles</h2>
+
+  <p>El mejor lugar para asomarse a esa religi&oacute;n nueva es <span class="term">Çatalh&ouml;y&uuml;k</span>, en la actual Turqu&iacute;a: uno de los mayores asentamientos neol&iacute;ticos conocidos, habitado hace unos <strong>9.000 a&ntilde;os</strong> por quiz&aacute; varios miles de personas. Era tan densa que no ten&iacute;a calles: las casas se apretaban unas contra otras y se entraba por el techo, por una escalera.</p>
+
+  <figure class="fig">
+    <img src="catalhoyuk.jpg" alt="El yacimiento neol&iacute;tico de Çatalh&ouml;y&uuml;k">
+    <figcaption>
+      <span class="desc">El yacimiento de Çatalh&ouml;y&uuml;k (Turqu&iacute;a), un gran asentamiento neol&iacute;tico de hace unos 9.000 a&ntilde;os. Las casas se apretaban sin calles y se entraba por el techo.</span>
+      <span class="credit">Drgulcu, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Lo asombroso de Çatalh&ouml;y&uuml;k es que lo sagrado no estaba en un templo aparte: estaba <strong>dentro de las casas</strong>. Sus habitantes decoraban las paredes con pinturas, cr&aacute;neos de toro empotrados (los llamados <em>bucr&aacute;neos</em>), relieves de leopardos. Y enterraban a sus muertos <strong>bajo el suelo de sus propios hogares</strong>, a veces recuperando los cr&aacute;neos para conservarlos. Los vivos dorm&iacute;an literalmente sobre sus ancestros.</p>
+
+  <h2><span class="n">03</span>&iquest;La Diosa Madre, otra vez?</h2>
+
+  <p>En Çatalh&ouml;y&uuml;k apareci&oacute; una figura que se hizo famos&iacute;sima: una <strong>mujer sentada entre dos felinos</strong>, con las manos sobre sus cabezas, en el acto aparente de dar a luz. Su primer excavador, James Mellaart, la interpret&oacute; en los a&ntilde;os sesenta como la prueba de un culto a la <span class="term">Diosa Madre</span>, y Çatalh&ouml;y&uuml;k se convirti&oacute; en el s&iacute;mbolo de una supuesta religi&oacute;n matriarcal primigenia.</p>
+
+  <figure class="fig">
+    <img src="diosa-catalhoyuk.jpg" alt="La mujer sentada de Çatalh&ouml;y&uuml;k">
+    <figcaption>
+      <span class="desc">La "mujer sentada de Çatalh&ouml;y&uuml;k", figura de arcilla de una mujer entronizada entre dos felinos, de hace unos 8.000 a&ntilde;os. Museo de las Civilizaciones de Anatolia, Ankara.</span>
+      <span class="credit">Nevit Dilmen, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>La imagen es poderosa, pero aqu&iacute; reaparece la cautela de la entrega IV. Las excavaciones recientes, dirigidas durante d&eacute;cadas por <strong>Ian Hodder</strong>, han matizado mucho aquella lectura. Se encontraron tambi&eacute;n figuras masculinas y animales; muchas figurillas no parecen diosas, sino objetos cotidianos; y no hay se&ntilde;ales claras de que las mujeres tuvieran un estatus dominante. Hodder concluye que la idea de un culto &uacute;nico a la Diosa Madre <strong>dice m&aacute;s de los a&ntilde;os sesenta que del Neol&iacute;tico</strong>.</p>
+
+  <h2><span class="n">04</span>Lo que s&iacute; cambi&oacute;</h2>
+
+  <p>Descartar la Diosa Madre &uacute;nica no significa que no pasara nada religioso en Çatalh&ouml;y&uuml;k &mdash;todo lo contrario&mdash;. Lo que vemos es una religiosidad <strong>dom&eacute;stica y ancestral</strong>: el hogar como centro sagrado, los muertos integrados en la casa, los animales poderosos (toros, leopardos) presentes en las paredes, un mundo simb&oacute;lico denso y cotidiano. La religi&oacute;n ya no est&aacute; solo en cuevas remotas o en grandes santuarios: se ha metido en casa, entre los vivos y sus antepasados.</p>
+
+  <p>Y late aqu&iacute; el gran cambio de fondo: con la agricultura, la <strong>continuidad</strong> se vuelve central. Continuidad de la cosecha, del linaje, de la casa, de los muertos que siguen bajo el suelo. La religi&oacute;n neol&iacute;tica es, en buena medida, una religi&oacute;n de la permanencia: mantener el ciclo, honrar a los ancestros, asegurar que la vida vuelva. De esa preocupaci&oacute;n saldr&aacute;n, con el tiempo, los grandes dioses de las primeras civilizaciones.</p>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:56%"></div></div>
+    <div class="cs-labels"><span>Especulaci&oacute;n</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> es <strong>consenso</strong> que la agricultura transform&oacute; la vida y la religi&oacute;n, y que en Çatalh&ouml;y&uuml;k lo sagrado era dom&eacute;stico y ancestral. La lectura de la "Diosa Madre" &uacute;nica est&aacute; hoy <strong>desacreditada</strong> como interpretaci&oacute;n dominante, aunque el debate sobre las figuras contin&uacute;a.</p>
+  </div>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>La cronolog&iacute;a de Çatalh&ouml;y&uuml;k (~7100&ndash;5700 a.C., es decir, unos 9.000 a&ntilde;os) procede de las excavaciones de James Mellaart (a partir de 1961) y del proyecto dirigido por Ian Hodder (1993&ndash;2018). La reinterpretaci&oacute;n cr&iacute;tica del "culto a la diosa" est&aacute; expuesta en las obras de Hodder y de la arque&oacute;loga Lynn Meskell, que estudi&oacute; el conjunto de figurillas.</p>
+    <p>Los enterramientos bajo los suelos dom&eacute;sticos y el tratamiento de cr&aacute;neos est&aacute;n documentados en los informes del Çatalh&ouml;y&uuml;k Research Project. La conexi&oacute;n general entre agricultura y religiones del ciclo agrario es un marco ampliamente aceptado, aunque su aplicaci&oacute;n a casos concretos se discute.</p>
+    <p>Se mantiene la distinci&oacute;n entre el <strong>hecho</strong> (religiosidad dom&eacute;stica, culto a los ancestros, iconograf&iacute;a animal) y la <strong>interpretaci&oacute;n</strong> concreta (el significado de las figuras femeninas), donde el consenso del siglo XX ha sido revisado a la baja.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega</div>
+    <div class="nt-title">Por qu&eacute; creemos: la ciencia del origen religioso</div>
+    <div class="nt-desc">Hemos recorrido cien mil a&ntilde;os de gestos sagrados. Toca la pregunta de fondo: &iquest;por qu&eacute; el ser humano cree? La ciencia cognitiva tiene respuestas sorprendentes sobre c&oacute;mo nuestra propia mente fabrica dioses.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">&uarr; <a href="serie-origen.html">Serie: C&oacute;mo el ser humano cre&oacute; a los dioses</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="origen-5.html"><span class="lbl">&larr; Anterior</span><span class="ttl">Las cuevas: arte, trance y chamanes</span></a>
+    <a class="epnav-btn next" href="origen-7.html"><span class="lbl">Siguiente &rarr;</span><span class="ttl">Por qu&eacute; creemos</span></a>
+  </div>
+</nav>
+
+<footer>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

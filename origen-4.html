@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuando lo divino tuvo rostro — Estratos</title>
+<style>
+  :root{
+    --char:#221f1a;--stone:#e6dfd2;--stone-deep:#d8cfbd;--stone-light:#f0ebe0;
+    --ochre:#a8452a;--ochre-deep:#7d3320;--ochre-light:#c8663e;
+    --earth:#6e5638;--earth-deep:#4a3826;--charcoal:#3a352e;--bone:#e8e0d0;
+    --rule:#b8a988;--shadow:rgba(35,28,20,.22);--mute:#8a7d64;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--stone);color:var(--char);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* MOTIVO FIRMA: grano de roca + vetas de pigmento */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6;
+    background-image:radial-gradient(circle at 30% 20%, rgba(110,86,56,.05) 0 2px, transparent 2px),
+      radial-gradient(circle at 70% 60%, rgba(110,86,56,.045) 0 1.5px, transparent 1.5px),
+      radial-gradient(circle at 45% 85%, rgba(168,69,42,.03) 0 2px, transparent 2px);
+    background-size:38px 38px, 27px 27px, 52px 52px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--earth-deep);background:rgba(240,235,224,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(110,86,56,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(240,235,224,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--earth),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--ochre-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--ochre-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--earth);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3428;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332e22;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(110,86,56,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.2) saturate(1.05) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3428;background:rgba(110,86,56,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--earth-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--earth-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--earth);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--earth-deep)}
+  .wrap strong{color:var(--ochre-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(110,86,56,.08);border:1px solid rgba(110,86,56,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* ===== MEDIDOR DE CONSENSO ===== */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--stone-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0502a 0%,#c8a23a 50%,#4a8a5a 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--charcoal);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3428}
+  .cs-verdict strong{color:var(--earth-deep)}
+
+  /* ===== NOTA DE RIGOR ===== */
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--charcoal);color:#e8e0d0;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#ddd4c2}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:var(--ochre-light)}
+
+  /* ===== CIERRE / SIGUIENTE ===== */
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--earth-deep),var(--earth));color:#f0ebe0;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#e0d8c6;max-width:520px;margin:0 auto}
+
+  /* ===== NAVEGACIÓN ENTRE ENTREGAS ===== */
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--earth-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--earth-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--stone-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--earth-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+
+  /* ===== MURO DE HIPÓTESIS (dos lecturas enfrentadas) ===== */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--stone-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.romantica .hip-tag{color:var(--ochre-deep)}
+  .hip.critica .hip-tag{color:var(--earth-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--char);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-origen.html"><span class="arrow">&larr;</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">C&oacute;mo el ser humano cre&oacute; a los dioses &middot; IV</span>
+  <h1>Cuando lo divino tuvo <span class="em">rostro</span></h1>
+  <div class="glyphs">&#9789; &middot; &#10057; &middot; &#9906;</div>
+  <p class="standfirst">Durante decenas de miles de a&ntilde;os lo sagrado no tuvo forma. Hasta que una mano tall&oacute; en marfil una figura imposible &mdash;mitad humana, mitad le&oacute;n&mdash; y algo cambi&oacute; para siempre.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">Hemos visto enterramientos, ocre, un santuario de piedra. Pero en todo eso falta algo: una <em>imagen</em>. &iquest;Cu&aacute;ndo empez&oacute; el ser humano a dar forma a lo que imaginaba? &iquest;Cu&aacute;ndo lo invisible &mdash;la fuerza, el esp&iacute;ritu, el m&aacute;s all&aacute;&mdash; tuvo por primera vez un cuerpo que se pod&iacute;a sostener en la mano? Esta entrega trata del nacimiento de la figura: el momento en que lo divino, o lo que fuera, tuvo rostro.</p>
+
+  <h2><span class="n">01</span>Una criatura que no existe</h2>
+
+  <p>En una cueva de los Alpes de Suabia, en Alemania, apareci&oacute; en 1939 una figura tallada en <strong>marfil de mamut</strong>. Reconstruida a partir de m&aacute;s de doscientos fragmentos, mide unos 31 cent&iacute;metros y representa algo que <em>no existe en la naturaleza</em>: un cuerpo humano de pie con <strong>cabeza de le&oacute;n</strong>. Se la conoce como el <span class="term">Hombre-le&oacute;n</span> (L&ouml;wenmensch), y tiene unos <strong>40.000 a&ntilde;os</strong>.</p>
+
+  <figure class="fig">
+    <img src="hombre-leon.jpg" alt="El Hombre-le&oacute;n de Hohlenstein-Stadel">
+    <figcaption>
+      <span class="desc">El Hombre-le&oacute;n (L&ouml;wenmensch) de Hohlenstein-Stadel, tallado en marfil de mamut hace unos 40.000 a&ntilde;os. Es la escultura figurativa m&aacute;s antigua conocida. Museo de Ulm, Alemania.</span>
+      <span class="credit">Dagmar Hollmann, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Detente a pensar lo que eso significa. Tallar esta figura con herramientas de piedra llev&oacute; cientos de horas. Y no representa un animal que se pueda cazar, ni una persona real. Representa una <strong>idea</strong>: un ser que combina lo humano y lo animal, algo que solo existe en la mente. Es la prueba m&aacute;s antigua que tenemos de que el ser humano pod&iacute;a imaginar lo que no est&aacute; ah&iacute; &mdash;y considerarlo tan importante como para dedicarle semanas de trabajo&mdash;.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Hace 40.000 a&ntilde;os, alguien pas&oacute; semanas tallando en marfil una criatura mitad hombre, mitad le&oacute;n. Nadie hab&iacute;a visto jam&aacute;s algo as&iacute;: sali&oacute; entera de la imaginaci&oacute;n. Es la escultura figurativa m&aacute;s antigua del mundo, y ya hablaba de seres que no existen.</p>
+  </div>
+
+  <h2><span class="n">02</span>Lo que un ser imposible revela</h2>
+
+  <p>Los seres h&iacute;bridos &mdash;mitad humanos, mitad animales&mdash; recorren la historia de las religiones: los dioses con cabeza de animal de Egipto, los centauros griegos, los &aacute;ngeles alados, los demonios. El Hombre-le&oacute;n sugiere que esa capacidad de imaginar lo <strong>sobrenatural</strong> &mdash;lo que rompe las reglas del mundo real&mdash; es ant&iacute;quisima. Y aparece justo cuando <em>Homo sapiens</em> despliega toda su explosi&oacute;n creativa en Europa.</p>
+
+  <p>Los arque&oacute;logos son prudentes: no sabemos si el Hombre-le&oacute;n era un dios, un esp&iacute;ritu, un ancestro, un ser m&iacute;tico o un cham&aacute;n disfrazado. Pero s&iacute; sabemos que quien lo hizo pod&iacute;a concebir lo que no existe y darle forma. Y sin esa capacidad &mdash;imaginar agentes invisibles, seres que trascienden lo natural&mdash; ninguna religi&oacute;n ser&iacute;a posible. Aqu&iacute; est&aacute; la semilla.</p>
+
+  <h2><span class="n">03</span>Las llamadas &laquo;venus&raquo;</h2>
+
+  <p>Junto a los seres h&iacute;bridos aparece otro tipo de figura, mucho m&aacute;s numeroso: peque&ntilde;as estatuillas de mujeres, halladas por toda Europa y Asia, talladas entre hace 35.000 y 20.000 a&ntilde;os. Las m&aacute;s c&eacute;lebres, como la <span class="term">Venus de Willendorf</span> (Austria, unos 25.000&ndash;30.000 a&ntilde;os), muestran cuerpos femeninos de formas amplias, con pechos, caderas y vientre acentuados, y a menudo sin rostro.</p>
+
+  <figure class="fig">
+    <img src="venus-willendorf.jpg" alt="La Venus de Willendorf">
+    <figcaption>
+      <span class="desc">La Venus de Willendorf (Austria), tallada en caliza hace unos 25.000&ndash;30.000 a&ntilde;os y con restos de ocre rojo. Mide apenas 11 cm. Museo de Historia Natural de Viena.</span>
+      <span class="credit">MatthiasKabel, <a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener">CC BY 2.5</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Durante mucho tiempo se dio por sentado que eran <strong>diosas de la fertilidad</strong>, im&aacute;genes de una gran "Diosa Madre" universal. Es una idea seductora. Y es, tambi&eacute;n, un buen ejemplo de c&oacute;mo proyectamos nuestras ideas sobre el pasado mudo.</p>
+
+  <h2><span class="n">04</span>El problema del nombre</h2>
+
+  <p>Empecemos por el nombre. Llamarlas "venus" es un <strong>anacronismo</strong>: la diosa romana Venus es <em>miles de a&ntilde;os posterior</em> a estas figuras. El t&eacute;rmino lo pusieron arque&oacute;logos del siglo XIX, medio en broma, y se qued&oacute;. Pero arrastra una interpretaci&oacute;n &mdash;belleza, sexualidad, divinidad femenina&mdash; que nadie ha demostrado que corresponda a lo que significaban hace treinta mil a&ntilde;os.</p>
+
+  <p>&iquest;Qu&eacute; eran en realidad? No hay una respuesta &uacute;nica, y esa es la clave: las figuras var&iacute;an much&iacute;simo entre s&iacute;. Se han propuesto muchas lecturas, todas plausibles, ninguna probada.</p>
+
+  <div class="muro">
+    <div class="hip romantica">
+      <span class="hip-tag">La lectura tradicional</span>
+      <div class="hip-title">Diosas de la fertilidad</div>
+      <p>Representan una divinidad femenina ligada a la fecundidad y la abundancia, quiz&aacute; una "Diosa Madre" adorada en toda Europa. La religi&oacute;n m&aacute;s antigua habr&iacute;a sido femenina.</p>
+    </div>
+    <div class="hip critica">
+      <span class="hip-tag">Las lecturas alternativas</span>
+      <div class="hip-title">Muchas cosas, no una</div>
+      <p>Podr&iacute;an ser amuletos, retratos, autorretratos vistos desde arriba, s&iacute;mbolos de estatus o de salud. La enorme variedad entre figuras desaconseja una &uacute;nica explicaci&oacute;n universal.</p>
+    </div>
+  </div>
+
+  <p>La idea de una &uacute;nica "Diosa Madre" prehist&oacute;rica, muy popular en el siglo XX, hoy se mira con cautela: agrupa bajo una sola etiqueta objetos de miles de a&ntilde;os y miles de kil&oacute;metros de distancia, con formas muy distintas. Que muchas figuras femeninas subrayen la fecundidad es un hecho; que todas fueran "la Diosa" es una hip&oacute;tesis que la evidencia no sostiene.</p>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:40%"></div></div>
+    <div class="cs-labels"><span>Especulaci&oacute;n</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> es <strong>seguro</strong> que estas figuras exist&iacute;an y ten&iacute;an valor simb&oacute;lico. Su <em>significado</em> concreto est&aacute; <strong>muy debatido</strong>. La tesis de una "Diosa Madre" universal es hoy <strong>minoritaria</strong>: seductora, pero sin apoyo firme en la evidencia.</p>
+  </div>
+
+  <p>Lo que s&iacute; podemos afirmar es que, hace decenas de miles de a&ntilde;os, el ser humano no solo enterraba a sus muertos: tallaba figuras &mdash;de mujeres, de seres imposibles&mdash; cargadas de un sentido que se nos escapa. Lo invisible empezaba a tener cuerpo. Y una vez que lo sagrado tiene rostro, ya solo falta un paso para que hable, exija y prometa. Ese paso lo daremos en las cuevas.</p>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>La datación del Hombre-le&oacute;n (35.000&ndash;41.000 a&ntilde;os, cultura auri&ntilde;aciense) procede del radiocarbono de la capa de hallazgo, seg&uacute;n el Museo de Ulm y los trabajos de Kurt Wehrberger y Claus-Joachim Kind. La Venus de Willendorf se data por estratigraf&iacute;a (an&aacute;lisis de 1990) en torno a 25.000&ndash;30.000 a&ntilde;os.</p>
+    <p>El escepticismo hacia la tesis de la "Diosa Madre" universal es hoy mayoritario entre especialistas (v&eacute;anse los trabajos de la arque&oacute;loga Lynn Meskell y otros). La lectura de las figuras como autorretratos fue propuesta por McCoid y McDermott; la variedad tipol&oacute;gica de las figuras es el principal argumento contra cualquier interpretaci&oacute;n &uacute;nica.</p>
+    <p>Se mantiene la distinci&oacute;n entre el <strong>hecho</strong> (existencia y valor simb&oacute;lico de las figuras) y su <strong>significado</strong> (funci&oacute;n religiosa concreta), que permanece abierto.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega</div>
+    <div class="nt-title">Las cuevas: arte, trance y chamanes</div>
+    <div class="nt-desc">En lo m&aacute;s hondo de la tierra, a la luz de una l&aacute;mpara de grasa, alguien pint&oacute; caballos y bisontes que llevan milenios en la oscuridad. &iquest;Por qu&eacute; pintar donde nadie mira? La respuesta quiz&aacute; est&eacute; en el trance.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">&uarr; <a href="serie-origen.html">Serie: C&oacute;mo el ser humano cre&oacute; a los dioses</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="origen-3.html"><span class="lbl">&larr; Anterior</span><span class="ttl">El santuario antes que la ciudad</span></a>
+    <a class="epnav-btn next" href="origen-5.html"><span class="lbl">Siguiente &rarr;</span><span class="ttl">Las cuevas: arte, trance y chamanes</span></a>
+  </div>
+</nav>
+
+<footer>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

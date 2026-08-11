@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Por qué creemos: la ciencia del origen religioso — Estratos</title>
+<style>
+  :root{
+    --char:#221f1a;--stone:#e6dfd2;--stone-deep:#d8cfbd;--stone-light:#f0ebe0;
+    --ochre:#a8452a;--ochre-deep:#7d3320;--ochre-light:#c8663e;
+    --earth:#6e5638;--earth-deep:#4a3826;--charcoal:#3a352e;--bone:#e8e0d0;
+    --rule:#b8a988;--shadow:rgba(35,28,20,.22);--mute:#8a7d64;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--stone);color:var(--char);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* MOTIVO FIRMA: grano de roca + vetas de pigmento */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6;
+    background-image:radial-gradient(circle at 30% 20%, rgba(110,86,56,.05) 0 2px, transparent 2px),
+      radial-gradient(circle at 70% 60%, rgba(110,86,56,.045) 0 1.5px, transparent 1.5px),
+      radial-gradient(circle at 45% 85%, rgba(168,69,42,.03) 0 2px, transparent 2px);
+    background-size:38px 38px, 27px 27px, 52px 52px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--earth-deep);background:rgba(240,235,224,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(110,86,56,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(240,235,224,1)}
+  .back-home .arrow{font-size:1.05rem;line-height:1}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--earth),var(--ochre));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.32em;
+    font-size:.7rem;color:var(--ochre-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.32em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--ochre-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--earth);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3428;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--ochre);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332e22;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(110,86,56,.06);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.2) saturate(1.05) contrast(1.02)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3428;background:rgba(110,86,56,.09)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--earth-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--earth-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--ochre);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--earth);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--earth-deep)}
+  .wrap strong{color:var(--ochre-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(110,86,56,.08);border:1px solid rgba(110,86,56,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* ===== MEDIDOR DE CONSENSO ===== */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--stone-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--earth-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0502a 0%,#c8a23a 50%,#4a8a5a 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--charcoal);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3428}
+  .cs-verdict strong{color:var(--earth-deep)}
+
+  /* ===== NOTA DE RIGOR ===== */
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--charcoal);color:#e8e0d0;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#ddd4c2}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:var(--ochre-light)}
+
+  /* ===== CIERRE / SIGUIENTE ===== */
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--earth-deep),var(--earth));color:#f0ebe0;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre-light);font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#e0d8c6;max-width:520px;margin:0 auto}
+
+  /* ===== NAVEGACIÓN ENTRE ENTREGAS ===== */
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--earth-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--earth-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--stone-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--earth-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+
+  /* ===== MURO DE HIPÓTESIS (dos lecturas enfrentadas) ===== */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--stone-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.romantica .hip-tag{color:var(--ochre-deep)}
+  .hip.critica .hip-tag{color:var(--earth-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--char);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+
+  /* ===== TARJETAS DE TEOR&Iacute;AS (grid) ===== */
+  .teorias{display:grid;grid-template-columns:1fr;gap:1rem;margin:2rem 0}
+  .teoria{padding:1.2rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--stone-light);box-shadow:0 4px 14px var(--shadow)}
+  .teoria .t-num{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.14em;font-weight:700;color:var(--ochre);text-transform:uppercase}
+  .teoria .t-name{font-size:1.14rem;font-weight:700;color:var(--earth-deep);margin:.3rem 0 .5rem}
+  .teoria p{font-size:.98rem;margin-bottom:0}
+
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-origen.html"><span class="arrow">&larr;</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">C&oacute;mo el ser humano cre&oacute; a los dioses &middot; VII</span>
+  <h1>Por qu&eacute; <span class="em">creemos</span></h1>
+  <div class="glyphs">&#10059; &middot; &#9673; &middot; &#10059;</div>
+  <p class="standfirst">Hemos visto c&oacute;mo y cu&aacute;ndo naci&oacute; lo sagrado. Queda la pregunta m&aacute;s dif&iacute;cil: por qu&eacute;. &iquest;Qu&eacute; hay en la mente humana que fabrica dioses casi sin esfuerzo?</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">Las entregas anteriores fueron arqueolog&iacute;a: huesos, piedras, pinturas. Esta es distinta. Damos un paso atr&aacute;s y preguntamos, desde la ciencia cognitiva y la psicolog&iacute;a evolutiva, por qu&eacute; la religi&oacute;n aparece en <em>todas</em> las culturas humanas conocidas, sin excepci&oacute;n. La respuesta que ofrece esta ciencia es inc&oacute;moda y fascinante: quiz&aacute; no creemos <em>a pesar</em> de c&oacute;mo funciona nuestra mente, sino <em>a causa</em> de c&oacute;mo funciona.</p>
+
+  <h2><span class="n">01</span>Una pregunta distinta</h2>
+
+  <p>Ojo con lo que esta pregunta significa &mdash;y con lo que no significa&mdash;. Preguntar "por qu&eacute; el ser humano tiende a creer" es una cuesti&oacute;n <strong>psicol&oacute;gica y evolutiva</strong>: trata de c&oacute;mo est&aacute; hecha nuestra mente. No es lo mismo que preguntar "&iquest;existe Dios?", que es una cuesti&oacute;n filos&oacute;fica y teol&oacute;gica que la ciencia cognitiva <em>no</em> responde. Explicar por qu&eacute; una creencia es natural para nuestro cerebro no dice nada sobre si es verdadera o falsa. Conviene tener esto claro antes de seguir.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Esta entrega no pregunta si los dioses existen. Pregunta por qu&eacute; el cerebro humano cree tan f&aacute;cilmente en ellos. Son dos preguntas totalmente distintas, y conviene no confundirlas.</p>
+  </div>
+
+  <h2><span class="n">02</span>La mente que ve intenciones por todas partes</h2>
+
+  <p>La teor&iacute;a m&aacute;s influyente parte de una idea simple: nuestro cerebro es una <strong>m&aacute;quina de detectar agentes</strong>. Durante millones de a&ntilde;os, a nuestros antepasados les convino much&iacute;simo suponer que detr&aacute;s de un ruido en la hierba hab&iacute;a <em>alguien</em> &mdash;un depredador, un rival&mdash;. Quien sal&iacute;a corriendo ante un simple golpe de viento perd&iacute;a poco; quien ignoraba al le&oacute;n real, lo perd&iacute;a todo.</p>
+
+  <p>El resultado es un cerebro que <strong>prefiere ver intenci&oacute;n donde quiz&aacute; no la hay</strong>. Los psic&oacute;logos lo llaman "detecci&oacute;n hiperactiva de agentes". Es la misma tendencia que nos hace ver caras en las nubes, sentir que la suerte "nos castiga" o intuir una voluntad detr&aacute;s de la tormenta, la enfermedad o la buena fortuna. De ah&iacute; a imaginar <em>agentes invisibles</em> &mdash;esp&iacute;ritus, ancestros, dioses&mdash; que mueven el mundo, hay un paso muy corto.</p>
+
+  <h2><span class="n">03</span>Cuatro piezas de una misma m&aacute;quina</h2>
+
+  <p>La detecci&oacute;n de agentes no act&uacute;a sola. Los investigadores de la <span class="term">ciencia cognitiva de la religi&oacute;n</span> &mdash;Pascal Boyer, Scott Atran, Justin Barrett, entre otros&mdash; describen varias tendencias mentales que, combinadas, hacen que la religi&oacute;n nos resulte casi inevitable:</p>
+
+  <div class="teorias">
+    <div class="teoria">
+      <span class="t-num">Pieza 1</span>
+      <div class="t-name">Detectar agentes</div>
+      <p>Suponemos intenci&oacute;n detr&aacute;s de los sucesos. Es &uacute;til para sobrevivir, pero nos lleva a imaginar seres con voluntad donde solo hay azar o naturaleza.</p>
+    </div>
+    <div class="teoria">
+      <span class="t-num">Pieza 2</span>
+      <div class="t-name">Leer mentes</div>
+      <p>Atribuimos pensamientos y deseos a los dem&aacute;s de forma autom&aacute;tica. Extendida a lo invisible, esa capacidad nos permite imaginar dioses que <em>piensan</em> y <em>quieren</em>.</p>
+    </div>
+    <div class="teoria">
+      <span class="t-num">Pieza 3</span>
+      <div class="t-name">Ideas "pegajosas"</div>
+      <p>Recordamos mejor las ideas que son casi normales pero rompen una regla: un ser como una persona, pero que lo ve todo, o no muere. Boyer las llama conceptos "m&iacute;nimamente contraintuitivos".</p>
+    </div>
+    <div class="teoria">
+      <span class="t-num">Pieza 4</span>
+      <div class="t-name">Unir al grupo</div>
+      <p>Los ritos y los dioses compartidos refuerzan la cooperaci&oacute;n y la confianza en grupos grandes. La religi&oacute;n que une pudo dar ventaja a quienes la practicaban.</p>
+    </div>
+  </div>
+
+  <p>Juntas, estas piezas sugieren que la religi&oacute;n no es un a&ntilde;adido extra&ntilde;o a la mente humana, sino un <strong>subproducto casi inevitable</strong> de c&oacute;mo pensamos: de nuestra tendencia a ver intenciones, leer mentes, recordar lo extraordinario y unirnos en grupo. No hizo falta "inventar" a los dioses; la mente humana los produce casi sola.</p>
+
+  <figure class="fig">
+    <img src="stonehenge.jpg" alt="Stonehenge">
+    <figcaption>
+      <span class="desc">Stonehenge (Inglaterra), levantado hace unos 5.000 a&ntilde;os. Como Göbekli Tepe, muestra la enorme energ&iacute;a colectiva que el ser humano ha dedicado, una y otra vez, a lo sagrado.</span>
+      <span class="credit">Diego Delso, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">04</span>Dos maneras de leer lo mismo</h2>
+
+  <p>Aqu&iacute; conviene, como siempre, ser honestos sobre los l&iacute;mites. Estas teor&iacute;as explican por qu&eacute; la creencia nos resulta natural. Pero de ese mismo hecho se pueden sacar conclusiones opuestas, y la ciencia no zanja cu&aacute;l es la correcta &mdash;porque ya no es una pregunta cient&iacute;fica&mdash;.</p>
+
+  <div class="muro">
+    <div class="hip romantica">
+      <span class="hip-tag">Una lectura</span>
+      <div class="hip-title">Espejismo &uacute;til</div>
+      <p>Si la mente fabrica dioses por sus propios sesgos, quiz&aacute; los dioses sean justamente eso: proyecciones de nuestra psicolog&iacute;a, no realidades externas.</p>
+    </div>
+    <div class="hip critica">
+      <span class="hip-tag">Otra lectura</span>
+      <div class="hip-title">&Oacute;rgano de percepci&oacute;n</div>
+      <p>Que tengamos una disposici&oacute;n natural a lo trascendente no prueba que su objeto no exista; del mismo modo que tener ojos no significa que la luz sea una ilusi&oacute;n.</p>
+    </div>
+  </div>
+
+  <p>Esta serie no toma partido en esa disputa: no es asunto de la arqueolog&iacute;a ni de la ciencia cognitiva, sino de la filosof&iacute;a y de cada persona. Lo que s&iacute; podemos afirmar es lo primero: la tendencia a creer est&aacute; profundamente inscrita en la mente humana. Los dioses, vengan de donde vengan, encuentran en nosotros un terreno extraordinariamente f&eacute;rtil.</p>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:52%"></div></div>
+    <div class="cs-labels"><span>Especulaci&oacute;n</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> hay <strong>buen apoyo emp&iacute;rico</strong> para que existan sesgos cognitivos (detecci&oacute;n de agentes, lectura de mentes) que favorecen la creencia. El <em>peso relativo</em> de cada factor &mdash;&iquest;subproducto o adaptaci&oacute;n para la cohesi&oacute;n?&mdash; sigue en <strong>debate activo</strong>. Y lo que estas teor&iacute;as <em>no</em> deciden es si los dioses existen.</p>
+  </div>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>La detecci&oacute;n hiperactiva de agentes fue formulada por Stewart Guthrie (<em>Faces in the Clouds</em>, 1993) y Justin Barrett. Los conceptos "m&iacute;nimamente contraintuitivos" son de Pascal Boyer (<em>Religion Explained</em>, 2001); Scott Atran desarroll&oacute; la teor&iacute;a evolutiva en <em>In Gods We Trust</em> (2002). La l&iacute;nea de la cohesi&oacute;n social y los "modos de religiosidad" se asocia a Harvey Whitehouse y a los estudios sobre Çatalh&ouml;y&uuml;k dirigidos por Ian Hodder.</p>
+    <p>Existe un debate real entre quienes ven la religi&oacute;n como un <strong>subproducto</strong> de sesgos cognitivos y quienes la ven como una <strong>adaptaci&oacute;n</strong> que favoreci&oacute; la cooperaci&oacute;n; probablemente intervienen ambos factores.</p>
+    <p>Debe subrayarse un l&iacute;mite epistemol&oacute;gico: explicar el <em>origen psicol&oacute;gico</em> de una creencia no demuestra su verdad ni su falsedad (incurrir en lo contrario ser&iacute;a la "falacia gen&eacute;tica"). Esta serie describe el fen&oacute;meno; no dictamina sobre la existencia de lo divino.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">&Uacute;ltima entrega</div>
+    <div class="nt-title">El puente: del primer dios a El</div>
+    <div class="nt-desc">Cerramos el gran arco. De estos primeros gestos ante la muerte hasta los dioses con nombre del Cercano Oriente &mdash;El, YHWH y los dem&aacute;s&mdash;: c&oacute;mo el largo camino del origen desemboca justo donde empez&oacute; Estratos.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">&uarr; <a href="serie-origen.html">Serie: C&oacute;mo el ser humano cre&oacute; a los dioses</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="origen-6.html"><span class="lbl">&larr; Anterior</span><span class="ttl">Los dioses de la primera cosecha</span></a>
+    <a class="epnav-btn next" href="origen-8.html"><span class="lbl">Siguiente &rarr;</span><span class="ttl">El puente: del primer dios a El</span></a>
+  </div>
+</nav>
+
+<footer>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

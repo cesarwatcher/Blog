@@ -55,15 +55,6 @@
   .scard:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(40,28,16,.26)}
   .scard-soon{cursor:default;opacity:.72;background:#efe9dd;border-style:dashed;border-color:rgba(150,130,95,.5)}
   .scard-soon:hover{transform:none;box-shadow:0 6px 20px var(--shadow)}
-  /* Tarjeta de edición especial: fondo nocturno, se distingue de las series */
-  .scard-especial{background:linear-gradient(160deg,#161d2e,#0f1420);border-color:rgba(212,161,58,.4)}
-  .scard-especial .snum,.scard-especial p{color:#b9b3a3}
-  .scard-especial h2{color:#e8e2d2}
-  .scard-especial .em-especial{color:#e5c576;font-style:italic}
-  .scard-especial .status-especial{color:#0f1420;background:#d4a13a;padding:.2rem .7rem;border-radius:2rem;font-weight:700}
-  .scard-especial .go-especial{color:#e5c576}
-  .scard-especial .count{color:#8a8472}
-  .cap-especial{background:linear-gradient(90deg,#2d4a7a,#d4a13a,#c06a3a)}
   /* Tarjeta de la etapa arqueológica: fondo terroso + cuadrícula, otra familia visual */
   .scard-arqueo{background:linear-gradient(160deg,#e0d0b4,#d4c19c)}
   .scard-arqueo::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;border-radius:inherit;
@@ -113,6 +104,42 @@
   .scard .go .arrow{transition:transform .3s}
   .scard:hover .go .arrow{transform:translateX(5px)}
   .scard .count{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;color:#8a7a5e;margin-top:.2rem}
+  /* === Edición especial: fondo nocturno. Overrides DESPUÉS de las reglas base
+     para garantizar contraste (texto claro sobre oscuro) === */
+  .scard-especial{background:linear-gradient(160deg,#1a2133,#0f1420);border-color:rgba(212,161,58,.45)}
+  .scard-especial:hover{box-shadow:0 16px 36px rgba(0,0,0,.5)}
+  .scard-especial h2{color:#f0ead8}
+  .scard-especial .em-especial{color:#e5c576;font-style:italic}
+  .scard-especial p{color:#c8c2b2}
+  .scard-especial .snum{color:#a89e86}
+  .scard-especial .status-especial{color:#0f1420;background:#d4a13a;padding:.22rem .8rem;border-radius:2rem;font-weight:700;letter-spacing:.1em}
+  .scard-especial .go-especial{color:#e5c576;font-weight:700}
+  .scard-especial .count{color:#a89e86}
+  .cap-especial{background:linear-gradient(90deg,#2d4a7a,#d4a13a,#c06a3a)}
+  /* ===== HILO CRONOLÓGICO (portada A+C) ===== */
+  .timeline{position:relative;max-width:1080px;margin:2.5rem auto 0;padding-bottom:1rem}
+  .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;
+    background:linear-gradient(180deg,transparent,var(--line,#c9b79a) 5%,var(--line,#c9b79a) 95%,transparent);transform:translateX(-50%);z-index:0}
+  @media(max-width:820px){.timeline::before{left:22px}}
+  .tl-item{position:relative;margin-bottom:2.2rem;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+  @media(max-width:820px){.tl-item{grid-template-columns:1fr;padding-left:54px;margin-bottom:1.6rem}}
+  .tl-node{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:15px;height:15px;border-radius:50%;
+    background:var(--clay);border:3px solid var(--parchment);box-shadow:0 0 0 2px var(--clay);z-index:3}
+  @media(max-width:820px){.tl-node{left:22px}}
+  .tl-era{position:absolute;left:50%;transform:translateX(-50%);top:-2.3rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);white-space:nowrap;
+    background:var(--parchment);padding:0 .7rem;z-index:2}
+  @media(max-width:820px){.tl-era{left:22px;transform:none}}
+  .tl-item .scard{grid-column:1;z-index:2}
+  .tl-item.right .scard{grid-column:2;margin-left:2.6rem}
+  .tl-item.left .scard{grid-column:1;margin-right:2.6rem}
+  @media(max-width:820px){.tl-item.left .scard,.tl-item.right .scard{grid-column:1;margin:0}}
+  /* destacada: ancho completo, nodo arriba (no encima del texto) */
+  .tl-item.feat{grid-template-columns:1fr}
+  .tl-item.feat .scard{grid-column:1;max-width:700px;margin:0 auto}
+  .tl-item.feat .tl-node{top:0;background:var(--gold);box-shadow:0 0 0 2px var(--gold),0 0 16px rgba(193,154,62,.5)}
+  .tl-item.feat .tl-era{top:-2.3rem}
+  .tl-item.especial .tl-node{background:var(--gold);box-shadow:0 0 0 2px var(--parchment),0 0 16px rgba(212,161,58,.6)}
   /* about */
   .about{background:linear-gradient(180deg,var(--slate-deep),var(--slate));color:var(--sand-light);margin-top:4rem;padding:4rem 0}
   .about .wrap{max-width:720px;text-align:center}
@@ -173,8 +200,10 @@
       <h2 class="etapa-title">Crítica textual</h2>
       <p class="etapa-desc">Cómo se escribieron, editaron y transmitieron los textos sagrados. El origen de las ideas, leído en la página.</p>
     </div>
-  <div class="series-grid">
-    <a class="scard" href="serie-monoteismo.html">
+  <div class="timeline">
+    <div class="tl-item feat">
+      <span class="tl-era">El punto de partida</span><span class="tl-node"></span>
+      <a class="scard" href="serie-monoteismo.html">
       <div class="cap cap-featured"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#8a3d20">Serie completa</span><span>Serie</span></div>
@@ -184,7 +213,10 @@
         <div class="count">5 entregas</div>
       </div>
     </a>
-    <a class="scard" href="serie-corte.html">
+    </div>
+    <div class="tl-item left">
+      <span class="tl-node"></span>
+      <a class="scard" href="serie-corte.html">
       <div class="cap cap-council"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#26333a">Serie completa</span><span>Serie</span></div>
@@ -194,7 +226,10 @@
         <div class="count">3 entregas</div>
       </div>
     </a>
-    <a class="scard" href="serie-diosas.html">
+    </div>
+    <div class="tl-item right">
+      <span class="tl-node"></span>
+      <a class="scard" href="serie-diosas.html">
       <div class="cap cap-goddess"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#6e3546">Serie completa</span><span>Serie</span></div>
@@ -204,7 +239,10 @@
         <div class="count">4 entregas</div>
       </div>
     </a>
-    <a class="scard" href="serie-apocalipsis.html">
+    </div>
+    <div class="tl-item left">
+      <span class="tl-node"></span>
+      <a class="scard" href="serie-apocalipsis.html">
       <div class="cap cap-apoc"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#5a4d7a">Serie completa</span><span>Serie</span></div>
@@ -214,7 +252,10 @@
         <div class="count">4 entregas</div>
       </div>
     </a>
-    <a class="scard" href="serie-libros.html">
+    </div>
+    <div class="tl-item right">
+      <span class="tl-node"></span>
+      <a class="scard" href="serie-libros.html">
       <div class="cap cap-books"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#5a4226">Completa</span><span>Serie</span></div>
@@ -224,7 +265,10 @@
         <div class="count">4 entregas</div>
       </div>
     </a>
-    <a class="scard" href="serie-islam.html">
+    </div>
+    <div class="tl-item left">
+      <span class="tl-node"></span>
+      <a class="scard" href="serie-islam.html">
       <div class="cap cap-islam"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#264a38">Completa</span><span>Serie</span></div>
@@ -234,14 +278,17 @@
         <div class="count">4 entregas</div>
       </div>
     </a>
+    </div>
   </div>
     <div class="etapa-head arqueo">
       <span class="etapa-kicker">Segunda etapa</span>
       <h2 class="etapa-title">Arqueología e historia</h2>
       <p class="etapa-desc">La otra mitad de la disciplina: qué dice la pala del arqueólogo y la historia de los imperios sobre lo que cuentan los textos. Del suelo de Judá a Roma.</p>
     </div>
-  <div class="series-grid series-grid-arqueo">
-    <a class="scard scard-arqueo" href="serie-biblia.html">
+  <div class="timeline">
+    <div class="tl-item feat">
+      <span class="tl-era">El punto de partida</span><span class="tl-node"></span>
+      <a class="scard scard-arqueo" href="serie-biblia.html">
       <div class="cap cap-earth"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#7a4428">Completa</span><span>Serie</span></div>
@@ -251,7 +298,23 @@
         <div class="count">4 entregas</div>
       </div>
     </a>
-    <a class="scard scard-arqueo" href="serie-imperios.html">
+    </div>
+    <div class="tl-item especial">
+      <span class="tl-era">Pieza única</span><span class="tl-node"></span>
+      <a class="scard scard-especial scard-arqueo" href="edicion-jerusalen.html">
+        <div class="cap cap-especial"></div>
+        <div class="body">
+          <div class="snum"><span class="status status-especial">Edición especial</span><span>Interactiva</span></div>
+          <h2>La Fecha: ¿cuándo cayó <span class="em em-especial">Jerusalén</span>?</h2>
+          <p>587 o 586 a.C.: cómo las crónicas babilónicas y la astronomía del cielo antiguo fijan con precisión la fecha de la destrucción del Primer Templo. Con una visualización interactiva de la evidencia.</p>
+          <span class="go go-especial">Ver la edición especial <span class="arrow">→</span></span>
+          <div class="count">Interactiva</div>
+        </div>
+      </a>
+    </div>
+    <div class="tl-item left">
+      <span class="tl-node"></span>
+      <a class="scard scard-arqueo" href="serie-imperios.html">
       <div class="cap cap-imperial"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#2a4a6a">Completa</span><span>Serie</span></div>
@@ -261,7 +324,10 @@
         <div class="count">4 entregas</div>
       </div>
     </a>
-    <a class="scard scard-arqueo" href="serie-grecia-roma.html">
+    </div>
+    <div class="tl-item right">
+      <span class="tl-node"></span>
+      <a class="scard scard-arqueo" href="serie-grecia-roma.html">
       <div class="cap cap-marble"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#6a3a5a">Completa</span><span>Serie</span></div>
@@ -271,7 +337,10 @@
         <div class="count">4 entregas</div>
       </div>
     </a>
-    <a class="scard scard-arqueo" href="serie-jesus.html">
+    </div>
+    <div class="tl-item left">
+      <span class="tl-node"></span>
+      <a class="scard scard-arqueo" href="serie-jesus.html">
       <div class="cap cap-jesus"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#2a3a5a">Completa</span><span>Serie</span></div>
@@ -281,7 +350,10 @@
         <div class="count">4 entregas</div>
       </div>
     </a>
-    <a class="scard scard-arqueo" href="serie-origen.html">
+    </div>
+    <div class="tl-item right">
+      <span class="tl-node"></span>
+      <a class="scard scard-arqueo" href="serie-origen.html">
       <div class="cap cap-origen"></div>
       <div class="body">
         <div class="snum"><span class="status" style="color:#7d3320">Completa</span><span>Serie</span></div>
@@ -291,16 +363,7 @@
         <div class="count">8 entregas</div>
       </div>
     </a>
-    <a class="scard scard-especial scard-arqueo" href="edicion-jerusalen.html">
-      <div class="cap cap-especial"></div>
-      <div class="body">
-        <div class="snum"><span class="status status-especial">Edición especial</span><span>Pieza única</span></div>
-        <h2>La Fecha: ¿cuándo cayó <span class="em em-especial">Jerusalén</span>?</h2>
-        <p>587 o 586 a.C.: cómo las crónicas babilónicas y la astronomía del cielo antiguo fijan con precisión la fecha de la destrucción del Primer Templo. Con una visualización interactiva de la evidencia.</p>
-        <span class="go go-especial">Ver la edición especial <span class="arrow">→</span></span>
-        <div class="count">Interactiva</div>
-      </div>
-    </a>
+    </div>
   </div>
 </div>
 <section class="about"><div class="wrap">

@@ -55,6 +55,15 @@
   .scard:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(40,28,16,.26)}
   .scard-soon{cursor:default;opacity:.72;background:#efe9dd;border-style:dashed;border-color:rgba(150,130,95,.5)}
   .scard-soon:hover{transform:none;box-shadow:0 6px 20px var(--shadow)}
+  /* Tarjeta de edición especial: fondo nocturno, se distingue de las series */
+  .scard-especial{background:linear-gradient(160deg,#161d2e,#0f1420);border-color:rgba(212,161,58,.4)}
+  .scard-especial .snum,.scard-especial p{color:#b9b3a3}
+  .scard-especial h2{color:#e8e2d2}
+  .scard-especial .em-especial{color:#e5c576;font-style:italic}
+  .scard-especial .status-especial{color:#0f1420;background:#d4a13a;padding:.2rem .7rem;border-radius:2rem;font-weight:700}
+  .scard-especial .go-especial{color:#e5c576}
+  .scard-especial .count{color:#8a8472}
+  .cap-especial{background:linear-gradient(90deg,#2d4a7a,#d4a13a,#c06a3a)}
   /* Tarjeta de la etapa arqueológica: fondo terroso + cuadrícula, otra familia visual */
   .scard-arqueo{background:linear-gradient(160deg,#e0d0b4,#d4c19c)}
   .scard-arqueo::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;border-radius:inherit;

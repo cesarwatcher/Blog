@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El asentamiento real en Canaán — Estratos</title>
+<style>
+  :root{
+    --ink:#241f1a;--paper:#efe7d6;--paper-deep:#e3d8c0;--paper-light:#f6f0e2;
+    --verd:#3d7068;--verd-deep:#2a5049;--verd-light:#5a938a;
+    --terra:#b0503a;--terra-deep:#8a3a28;--sand:#c9b48f;
+    --rule:#c4b393;--mute:#8a7c62;--shadow:rgba(40,32,22,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* motivo: fibra de papel + retícula científica tenue */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(rgba(61,112,104,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,112,104,.04) 1px, transparent 1px),
+      radial-gradient(circle at 25% 30%, rgba(176,80,58,.03) 0 2px, transparent 2px);
+    background-size:44px 44px, 44px 44px, 60px 60px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--verd-deep);background:rgba(246,240,226,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(61,112,104,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,240,226,1)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--verd),var(--terra));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.3em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.3em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--verd);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3226;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332b1f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(61,112,104,.05);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3226;background:rgba(61,112,104,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--verd-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--verd-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--terra);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--verd);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--verd-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(61,112,104,.07);border:1px solid rgba(61,112,104,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* medidor de consenso */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0503a 0%,#c8a23a 50%,#3d7068 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3226}
+  .cs-verdict strong{color:var(--verd-deep)}
+
+  /* muro de posturas */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--paper-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.ciencia .hip-tag{color:var(--verd-deep)}
+  .hip.literal .hip-tag{color:var(--terra-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--verd-deep);color:#e8f0ed;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#d4e4e0}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:#9ed0c6}
+
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--verd-deep),var(--verd));color:#eef4f2;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#d4e4e0;max-width:520px;margin:0 auto}
+
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--verd-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--verd-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--paper-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--verd-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+
+  .sintesis{margin:2.4rem 0;padding:1.6rem 1.7rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 4px 14px var(--shadow)}
+  .sintesis .s-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep);font-weight:700;margin-bottom:1rem;text-align:center}
+  .sintesis ol{list-style:none;counter-reset:paso;margin:0;padding:0}
+  .sintesis li{counter-increment:paso;position:relative;padding:.55rem 0 .55rem 2.6rem;border-bottom:1px solid rgba(196,179,147,.4);font-size:1rem}
+  .sintesis li:last-child{border-bottom:none}
+  .sintesis li::before{content:counter(paso);position:absolute;left:0;top:.5rem;width:1.7rem;height:1.7rem;background:var(--verd);color:#eef4f2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700}
+  .sintesis li strong{color:var(--verd-deep)}
+  .cierre-final{margin:3rem 0 1rem;padding:2rem 1.8rem;background:linear-gradient(135deg,var(--verd-deep),var(--verd));color:#eef4f2;border-radius:16px;text-align:center;box-shadow:0 8px 28px var(--shadow)}
+  .cierre-final .cf-mark{font-size:1.6rem;letter-spacing:.3em;color:#9ed0c6;margin-bottom:1rem}
+  .cierre-final p{font-size:1.1rem;line-height:1.6;color:#e4efec;max-width:580px;margin:0 auto 1rem}
+  .cierre-final p:last-child{margin-bottom:0}
+  .cierre-final .em{font-style:italic;color:#c5e6de}
+
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-genesis.html"><span class="arrow">&larr;</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">G&eacute;nesis a prueba &middot; VIII &middot; Cierre</span>
+  <h1>El asentamiento real en <span class="em">Cana&aacute;n</span></h1>
+  <div class="glyphs">&#127968; &middot; &#127806; &middot; &#9977;</div>
+  <p class="standfirst">Si no hubo un &eacute;xodo masivo ni una conquista rel&aacute;mpago, &iquest;de d&oacute;nde salieron los israelitas? La respuesta de la arqueolog&iacute;a es sorprendente &mdash;y cierra el c&iacute;rculo de esta serie&mdash;.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">Hemos recorrido siete grandes relatos, desde la creaci&oacute;n hasta la ca&iacute;da de Jeric&oacute;. En casi todos, el patr&oacute;n se repet&iacute;a: la ciencia y la arqueolog&iacute;a no confirman la lectura literal, pero iluminan el origen y el sentido del relato. Toca la pregunta que lo re&uacute;ne todo: si los grandes eventos fundacionales no ocurrieron como se cuentan, entonces &iquest;c&oacute;mo naci&oacute; realmente Israel? Y aqu&iacute; la arqueolog&iacute;a no se limita a decir "no": ofrece una respuesta propia, positiva y fascinante.</p>
+
+  <h2><span class="n">01</span>Cientos de aldeas de la nada</h2>
+
+  <p>Las prospecciones arqueol&oacute;gicas de las tierras altas centrales de Cana&aacute;n &mdash;la regi&oacute;n que ser&iacute;a el coraz&oacute;n de Israel y Jud&aacute;&mdash; han revelado un fen&oacute;meno n&iacute;tido. Hacia el <strong>1200 a.C.</strong>, al inicio de la Edad del Hierro, aparecen de pronto <strong>cientos de peque&ntilde;as aldeas nuevas</strong> en las colinas, en zonas antes casi despobladas. No grandes ciudades conquistadas, sino un enjambre de asentamientos agr&iacute;colas modestos. Es la huella material del nacimiento de un pueblo.</p>
+
+  <figure class="fig">
+    <img src="casa-israelita.jpg" alt="Casa de cuatro espacios israelita">
+    <figcaption>
+      <span class="desc">Restos de una "casa de cuatro espacios" en Horvat Haluqim, N&eacute;guev. Este tipo de vivienda, con un patio central y habitaciones en torno, es caracter&iacute;stico de los asentamientos israelitas de la Edad del Hierro.</span>
+      <span class="credit">Chamberi, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Estas aldeas comparten rasgos: la <strong>casa de cuatro espacios</strong> (un patio con habitaciones alrededor), silos para grano, cisternas, terrazas de cultivo, y una cer&aacute;mica sencilla y sin decoraci&oacute;n. Es la cultura material de campesinos y pastores, no de un ej&eacute;rcito invasor.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Hacia el 1200 a.C. surgieron de golpe cientos de peque&ntilde;as aldeas en las colinas de Cana&aacute;n. Ese enjambre de asentamientos agr&iacute;colas &mdash;no una conquista militar&mdash; es el verdadero nacimiento arqueol&oacute;gico de Israel.</p>
+  </div>
+
+  <h2><span class="n">02</span>La pista que estaba en la basura</h2>
+
+  <p>&iquest;Qui&eacute;nes eran estos aldeanos? Aqu&iacute; la arqueolog&iacute;a encontr&oacute; una pista inesperada en los <strong>huesos de los desperdicios</strong>. En estas aldeas de las tierras altas falta casi por completo algo que s&iacute; abunda en los yacimientos vecinos (filisteos y cananeos de la llanura): los <strong>huesos de cerdo</strong>. Mientras los filisteos com&iacute;an cerdo con frecuencia, estos montañeses no lo cri&aacute;ban ni lo com&iacute;an.</p>
+
+  <p>Es el rasgo cultural distintivo m&aacute;s antiguo que podemos rastrear de este grupo &mdash;siglos antes de que se escribieran las leyes b&iacute;blicas sobre alimentos&mdash;. No sabemos con certeza por qu&eacute; evitaban el cerdo, pero el patr&oacute;n es claro: esta gente marcaba una <strong>identidad propia</strong>, se distingu&iacute;a de sus vecinos. Estaban construyendo, literalmente en su mesa, la frontera de un "nosotros".</p>
+
+  <h2><span class="n">03</span>El giro inesperado: eran cananeos</h2>
+
+  <p>Y aqu&iacute; llega la conclusi&oacute;n que da la vuelta al relato tradicional. Cuando los arque&oacute;logos estudian la cer&aacute;mica, la arquitectura y las costumbres de estas aldeas, no encuentran los rastros de un pueblo llegado <em>de fuera</em> &mdash;de Egipto o del desierto&mdash;. Encuentran, al contrario, una <strong>continuidad</strong> con la cultura cananea previa: la cer&aacute;mica de las tierras altas <em>deriva</em> de la cer&aacute;mica cananea anterior; no hay una ruptura brusca como la que dejar&iacute;a una invasi&oacute;n.</p>
+
+  <figure class="fig">
+    <img src="aldea-montanas.jpg" alt="Reconstrucci&oacute;n de un asentamiento israelita temprano">
+    <figcaption>
+      <span class="desc">Recreaci&oacute;n museogr&aacute;fica de la vida en un asentamiento de las tierras altas (Museo Sem&iacute;tico de Harvard). El registro arqueol&oacute;gico muestra comunidades agr&iacute;colas surgidas de la propia poblaci&oacute;n local cananea.</span>
+      <span class="credit">Daderot, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener">CC0</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>La lectura mayoritaria, formulada sobre todo por <strong>Israel Finkelstein</strong>, es que los primeros israelitas fueron, en su gran mayor&iacute;a, <strong>cananeos ind&iacute;genas</strong>: gente local &mdash;campesinos desplazados, pastores n&oacute;madas, poblaci&oacute;n de las ciudades en declive&mdash; que, tras el colapso de las ciudades-estado cananeas a finales de la Edad del Bronce, se traslad&oacute; a las colinas y form&oacute; una nueva sociedad. Israel no lleg&oacute; a Cana&aacute;n desde fuera: <strong>Israel surgi&oacute; de dentro de Cana&aacute;n</strong>.</p>
+
+  <h2><span class="n">04</span>El c&iacute;rculo que se cierra</h2>
+
+  <p>Esta conclusi&oacute;n ata todos los cabos de la serie. Explica por qu&eacute; no hay rastro del &eacute;xodo masivo (no vinieron de Egipto en masa), por qu&eacute; no hay una conquista militar destructora (no invadieron desde fuera), y por qu&eacute; Jeric&oacute; y otras ciudades no encajan con el relato b&eacute;lico (no hubo tal campa&ntilde;a). El origen de Israel no fue una irrupci&oacute;n desde el desierto, sino una <strong>transformaci&oacute;n interna</strong> de la sociedad cananea: un pueblo nuevo que se forj&oacute; en las colinas y, con el tiempo, cont&oacute; sobre s&iacute; mismo relatos de patriarcas migrantes, esclavitud y liberaci&oacute;n, y conquista heroica, para darse una identidad y un origen compartido.</p>
+
+  <p>Y aqu&iacute; conviene cerrar como abrimos: esto no destruye el valor de los relatos. Los mitos de origen no son mentiras; son la forma en que los pueblos se explican a s&iacute; mismos. Que Israel surgiera de Cana&aacute;n y no del Sina&iacute; no resta un &aacute;pice de fuerza al mensaje de liberaci&oacute;n del &Eacute;xodo, ni de sabidur&iacute;a a las historias del G&eacute;nesis. Simplemente nos permite leerlos por lo que son: no cr&oacute;nicas period&iacute;sticas, sino la gran obra de memoria, identidad y fe con que un peque&ntilde;o pueblo de las colinas de Cana&aacute;n se explic&oacute; el mundo &mdash;y termin&oacute; cambiando la historia de la humanidad&mdash;.</p>
+
+  <div class="sintesis">
+    <div class="s-title">La serie en una mirada</div>
+    <ol>
+      <li>La <strong>antig&uuml;edad humana</strong> se mide en cientos de miles de a&ntilde;os, no en seis mil.</li>
+      <li>El <strong>Diluvio</strong> no fue global; su relato hereda una tradici&oacute;n mesopot&aacute;mica anterior.</li>
+      <li><strong>Babel</strong> se inspira en un zigurat real y es una etiolog&iacute;a de las lenguas, no su origen hist&oacute;rico.</li>
+      <li>Las <strong>edades imposibles</strong> son convenci&oacute;n literaria simb&oacute;lica, no biolog&iacute;a.</li>
+      <li>Los <strong>patriarcas</strong> no dejan rastro; son figuras fundacionales en un mundo real.</li>
+      <li>El <strong>&Eacute;xodo</strong> masivo no tiene apoyo arqueol&oacute;gico; quiz&aacute; hubo un n&uacute;cleo menor.</li>
+      <li>La <strong>conquista</strong> y la ca&iacute;da de Jeric&oacute; no encajan con la arqueolog&iacute;a de las ciudades.</li>
+      <li>Israel <strong>surgi&oacute; de dentro de Cana&aacute;n</strong>: fue una transformaci&oacute;n interna, no una invasi&oacute;n.</li>
+    </ol>
+  </div>
+
+  <div class="cierre-final">
+    <div class="cf-mark">&#9977;</div>
+    <p>De la creaci&oacute;n a las colinas de Cana&aacute;n, cada relato result&oacute; ser menos una cr&oacute;nica y m&aacute;s un espejo: <span class="em">el modo en que un pueblo se cont&oacute; a s&iacute; mismo qui&eacute;n era</span>.</p>
+    <p>Poner la Biblia a prueba no la vac&iacute;a. La devuelve a su tiempo, a su tierra y a su gente.</p>
+  </div>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>El modelo del surgimiento interno de Israel a partir de la poblaci&oacute;n cananea es la s&iacute;ntesis de Israel Finkelstein y Neil A. Silberman en <em>The Bible Unearthed</em> (2001), apoyada en las prospecciones de las tierras altas desde 1967. La aparici&oacute;n de cientos de aldeas del Hierro I, la casa de cuatro espacios y la continuidad cer&aacute;mica con lo cananeo son datos ampliamente aceptados.</p>
+    <p>La ausencia de huesos de cerdo como marcador identitario la han estudiado Finkelstein y, con matices cr&iacute;ticos, Avraham Faust y Brian Hesse; algunos advierten que no debe sobreinterpretarse como prueba &eacute;tnica &uacute;nica. La identificaci&oacute;n exacta de estos aldeanos como "israelitas" en sentido pleno es objeto de matices (Dever y Finkelstein difieren en detalles), pero la continuidad cananea es consenso.</p>
+    <p>La serie ha buscado, en cada entrega, separar el <strong>dato</strong> (lo que la evidencia establece) de la <strong>interpretaci&oacute;n</strong> y de la <strong>fe</strong> (que no son competencia de la arqueolog&iacute;a). Su prop&oacute;sito no ha sido negar creencias, sino iluminar el origen hist&oacute;rico y literario de unos relatos que han marcado a la civilizaci&oacute;n.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Continuar&aacute; en Estratos</div>
+    <div class="nt-title">La Biblia desenterrada</div>
+    <div class="nt-desc">Aqu&iacute; termina el origen; la historia con nombres propios empieza en la otra serie arqueol&oacute;gica del blog: la monarqu&iacute;a de David y Salom&oacute;n bajo la lupa de la arqueolog&iacute;a.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">&uarr; <a href="serie-genesis.html">Serie: G&eacute;nesis a prueba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="genesis-7.html"><span class="lbl">&larr; Anterior</span><span class="ttl">La conquista de Cana&aacute;n y Jeric&oacute;</span></a>
+    <a class="epnav-btn next" href="serie-biblia.html"><span class="lbl">Continuar &rarr;</span><span class="ttl">La Biblia desenterrada</span></a>
+  </div>
+</nav>
+
+<footer>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

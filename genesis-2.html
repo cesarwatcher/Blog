@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Diluvio universal — Estratos</title>
+<style>
+  :root{
+    --ink:#241f1a;--paper:#efe7d6;--paper-deep:#e3d8c0;--paper-light:#f6f0e2;
+    --verd:#3d7068;--verd-deep:#2a5049;--verd-light:#5a938a;
+    --terra:#b0503a;--terra-deep:#8a3a28;--sand:#c9b48f;
+    --rule:#c4b393;--mute:#8a7c62;--shadow:rgba(40,32,22,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* motivo: fibra de papel + retícula científica tenue */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(rgba(61,112,104,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,112,104,.04) 1px, transparent 1px),
+      radial-gradient(circle at 25% 30%, rgba(176,80,58,.03) 0 2px, transparent 2px);
+    background-size:44px 44px, 44px 44px, 60px 60px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--verd-deep);background:rgba(246,240,226,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(61,112,104,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,240,226,1)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--verd),var(--terra));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.3em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.3em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--verd);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3226;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332b1f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(61,112,104,.05);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3226;background:rgba(61,112,104,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--verd-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--verd-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--terra);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--verd);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--verd-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(61,112,104,.07);border:1px solid rgba(61,112,104,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* medidor de consenso */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0503a 0%,#c8a23a 50%,#3d7068 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3226}
+  .cs-verdict strong{color:var(--verd-deep)}
+
+  /* muro de posturas */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--paper-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.ciencia .hip-tag{color:var(--verd-deep)}
+  .hip.literal .hip-tag{color:var(--terra-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--verd-deep);color:#e8f0ed;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#d4e4e0}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:#9ed0c6}
+
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--verd-deep),var(--verd));color:#eef4f2;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#d4e4e0;max-width:520px;margin:0 auto}
+
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--verd-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--verd-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--paper-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--verd-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-genesis.html"><span class="arrow">&larr;</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">G&eacute;nesis a prueba &middot; II</span>
+  <h1>El Diluvio <span class="em">universal</span></h1>
+  <div class="glyphs">&#127754; &middot; &#128666; &middot; &#128038;</div>
+  <p class="standfirst">&iquest;Cubri&oacute; el agua toda la Tierra? La geolog&iacute;a responde que no. Pero las tablillas de Mesopotamia guardan una sorpresa mayor: el relato del diluvio es m&aacute;s antiguo que la Biblia, y no naci&oacute; en ella.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">Pocos relatos b&iacute;blicos son tan universales como el del Diluvio: Dios env&iacute;a un cataclismo de agua, y una familia justa se salva en un arca con los animales. Es una historia grabada en la imaginaci&oacute;n de Occidente. Y es tambi&eacute;n uno de los casos donde la ciencia y la arqueolog&iacute;a tienen m&aacute;s que decir &mdash;y donde lo que dicen es m&aacute;s fascinante de lo que uno esperar&iacute;a&mdash;.</p>
+
+  <h2><span class="n">01</span>Lo que dice la geolog&iacute;a</h2>
+
+  <p>Empecemos por lo m&aacute;s directo: &iquest;hay evidencia de una inundaci&oacute;n que cubriera <strong>toda la Tierra</strong> a la vez, en un pasado reciente? La respuesta de la geolog&iacute;a es clara: <strong>no</strong>. No existe una capa global de sedimentos de inundaci&oacute;n, ni el agua suficiente en el planeta para cubrir las monta&ntilde;as, ni un registro fósil compatible con que toda la vida terrestre descendiera de los ocupantes de un solo barco hace unos pocos miles de a&ntilde;os.</p>
+
+  <p>Esto no es una opini&oacute;n aislada: es la conclusi&oacute;n convergente de la geolog&iacute;a, la paleontolog&iacute;a, la biolog&iacute;a y la f&iacute;sica. Un diluvio <em>global</em> y reciente dejar&iacute;a huellas inconfundibles en todas partes, y no est&aacute;n. Ahora bien, que no hubiera un diluvio <em>global</em> no significa que el relato saliera de la nada. Al contrario: tiene un origen muy concreto, y muy humano.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>La ciencia descarta un diluvio que cubriera el planeta entero: no hay agua suficiente, ni capa de sedimentos global, ni registro fósil compatible. Pero el relato s&iacute; tiene una ra&iacute;z real, en las inundaciones y los mitos de Mesopotamia.</p>
+  </div>
+
+  <h2><span class="n">02</span>El d&iacute;a que una tablilla sacudi&oacute; a Londres</h2>
+
+  <p>En 1872, un joven asiriólogo del Museo Brit&aacute;nico llamado <span class="term">George Smith</span> estaba descifrando tablillas cuneiformes tra&iacute;das de N&iacute;nive. Al leer una de ellas, se encontr&oacute; con algo que no esperaba: el relato de un <strong>gran diluvio</strong>, con un h&eacute;roe que construye un barco, salva a su familia y a los animales, y suelta aves para buscar tierra firme. Era, punto por punto, asombrosamente parecido a la historia de No&eacute; &mdash;pero escrito por babilonios&mdash;. Se cuenta que Smith, exaltado, empez&oacute; a quitarse la ropa por la sala. La noticia caus&oacute; conmoci&oacute;n en la Inglaterra victoriana.</p>
+
+  <figure class="fig">
+    <img src="tablilla-diluvio.jpg" alt="La Tablilla del Diluvio de la Epopeya de Gilgamesh">
+    <figcaption>
+      <span class="desc">La "Tablilla del Diluvio", und&eacute;cima tablilla de la Epopeya de Gilgamesh (Museo Brit&aacute;nico, ME K 3375). Narra c&oacute;mo Utnapishtim sobrevive a un diluvio enviado por los dioses construyendo un arca. Procede de la biblioteca de Asurbanipal, en N&iacute;nive.</span>
+      <span class="credit">Fotograf&iacute;a de Mike Peel (<a href="https://www.mikepeel.net" target="_blank" rel="noopener">mikepeel.net</a>), <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Ese texto es la tablilla XI de la <span class="term">Epopeya de Gilgamesh</span>. En ella, el h&eacute;roe <strong>Utnapishtim</strong> cuenta c&oacute;mo los dioses decidieron destruir a la humanidad con un diluvio, c&oacute;mo el dios Ea le advirti&oacute; y le orden&oacute; construir un gran barco, c&oacute;mo embarc&oacute; a su familia y a los animales, y c&oacute;mo, tras el diluvio, solt&oacute; una paloma, una golondrina y un cuervo para comprobar si las aguas hab&iacute;an bajado. Al final, ofreci&oacute; un sacrificio, y los dioses se congregaron en torno a &eacute;l. Cualquiera que conozca el relato de No&eacute; reconocer&aacute; el molde.</p>
+
+  <h2><span class="n">03</span>M&aacute;s antiguo que la Biblia</h2>
+
+  <p>Aqu&iacute; est&aacute; el dato decisivo: estos relatos mesopot&aacute;micos son <strong>m&aacute;s antiguos</strong> que el texto b&iacute;blico. La versi&oacute;n del diluvio en Gilgamesh proviene, a su vez, de un poema todav&iacute;a m&aacute;s viejo, la <span class="term">Epopeya de Atrahasis</span>, cuyas tablillas se remontan a alrededor del <strong>1650 a.C.</strong> &mdash;siglos antes de que se compusieran los textos del G&eacute;nesis&mdash;. Y detr&aacute;s de Atrahasis hay a&uacute;n relatos sumerios anteriores.</p>
+
+  <p>La conclusi&oacute;n de los especialistas no es que "la Biblia copi&oacute;", dicho con &aacute;nimo de rebajarla. Es algo m&aacute;s matizado y m&aacute;s interesante: exist&iacute;a en todo el Cercano Oriente una <strong>tradici&oacute;n compartida</strong> sobre un gran diluvio primordial, y cada cultura la reelabor&oacute; con su propia teolog&iacute;a. Los autores b&iacute;blicos tomaron ese molde com&uacute;n y lo transformaron para expresar algo muy distinto de lo que dec&iacute;an los babilonios.</p>
+
+  <h2><span class="n">04</span>Lo que cambia el G&eacute;nesis</h2>
+
+  <p>Comparar las versiones es revelador, porque las diferencias muestran la <strong>intenci&oacute;n</strong> de cada una. En el relato babilónico, los dioses env&iacute;an el diluvio casi por capricho &mdash;la humanidad hac&iacute;a demasiado ruido y no los dejaba dormir&mdash;, act&uacute;an por miedo y se pelean entre s&iacute;. En el G&eacute;nesis, en cambio, hay <strong>un solo Dios</strong>, que act&uacute;a por una raz&oacute;n moral (la maldad humana) y que establece despu&eacute;s una alianza. El relato deja de ser sobre dioses caprichosos y pasa a ser sobre justicia, pecado y compromiso.</p>
+
+  <p>Dicho de otro modo: el G&eacute;nesis no inventa el diluvio, pero le da un <strong>sentido nuevo</strong>. Y esa es justamente la clave que esta serie quiere iluminar. Entender que el relato tiene una prehistoria mesopot&aacute;mica no lo vac&iacute;a: muestra c&oacute;mo un pueblo tom&oacute; una historia que todos conoc&iacute;an y la reescribi&oacute; para hablar de su propio Dios y de su propia visi&oacute;n moral del mundo. La raz&oacute;n por la que tantas culturas tienen relatos de inundaciones no es un misterio sobrenatural: las civilizaciones antiguas nacieron junto a grandes r&iacute;os &mdash;el Tigris, el &Eacute;ufrates&mdash; que se desbordaban con furia. Una gran inundaci&oacute;n local pudo sentirse, para quien la viv&iacute;a, como el fin del mundo entero.</p>
+
+  <div class="muro">
+    <div class="hip literal">
+      <span class="hip-tag">La lectura literal</span>
+      <div class="hip-title">Un diluvio global</div>
+      <p>El agua cubri&oacute; toda la Tierra hace unos miles de a&ntilde;os; los parecidos con Gilgamesh se explican porque todos los pueblos recuerdan el mismo suceso real.</p>
+    </div>
+    <div class="hip ciencia">
+      <span class="hip-tag">La lectura hist&oacute;rico-cr&iacute;tica</span>
+      <div class="hip-title">Una tradici&oacute;n compartida</div>
+      <p>No hubo diluvio global (la geolog&iacute;a lo descarta). El relato es una tradici&oacute;n mesopot&aacute;mica muy anterior, reelaborada en el G&eacute;nesis con un sentido teol&oacute;gico propio.</p>
+    </div>
+  </div>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:93%"></div></div>
+    <div class="cs-labels"><span>Especulaci&oacute;n</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> que <strong>no hubo un diluvio global</strong> reciente es consenso cient&iacute;fico firme. Que el relato b&iacute;blico <strong>depende de tradiciones mesopot&aacute;micas anteriores</strong> (Gilgamesh, Atrahasis) es consenso s&oacute;lido entre los especialistas. El debate real est&aacute; en los detalles de esa dependencia, no en su existencia.</p>
+  </div>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>El descubrimiento del relato del diluvio en la tablilla XI de Gilgamesh lo hizo George Smith en 1872, a partir de las tablillas de la biblioteca de Asurbanipal (N&iacute;nive). La Epopeya de Atrahasis, con tablillas de ca. 1650 a.C., es hoy considerada la fuente m&aacute;s probable del relato b&iacute;blico, seg&uacute;n trabajos como los de Andrew George y las s&iacute;ntesis divulgadas por TheTorah.com y BioLogos.</p>
+    <p>La imposibilidad de un diluvio global reciente es consenso en geolog&iacute;a y paleontolog&iacute;a. Existen hip&oacute;tesis sobre grandes inundaciones locales reales (por ejemplo, la del Mar Negro propuesta por Ryan y Pitman) como posible poso hist&oacute;rico de los mitos, pero son objeto de debate y no equivalen a un diluvio universal.</p>
+    <p>Esta entrega distingue el <strong>hecho</strong> (ausencia de diluvio global; anterioridad de los relatos mesopot&aacute;micos) de la <strong>interpretaci&oacute;n teol&oacute;gica</strong> de cada tradici&oacute;n, que no es objeto de la ciencia. Se expone la lectura literal con respeto, sin ridiculizarla.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega</div>
+    <div class="nt-title">La Torre de Babel y el origen de las lenguas</div>
+    <div class="nt-desc">Un rascacielos de barro para llegar al cielo, y un Dios que confunde las lenguas. Detr&aacute;s del relato hay un edificio real de Babilonia &mdash;y una pregunta sobre c&oacute;mo nacen de verdad los idiomas&mdash;.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">&uarr; <a href="serie-genesis.html">Serie: G&eacute;nesis a prueba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="genesis-1.html"><span class="lbl">&larr; Anterior</span><span class="ttl">&iquest;Solo seis mil a&ntilde;os?</span></a>
+    <a class="epnav-btn next" href="genesis-3.html"><span class="lbl">Siguiente &rarr;</span><span class="ttl">La Torre de Babel</span></a>
+  </div>
+</nav>
+
+<footer>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

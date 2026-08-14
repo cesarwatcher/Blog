@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los patriarcas — Estratos</title>
+<style>
+  :root{
+    --ink:#241f1a;--paper:#efe7d6;--paper-deep:#e3d8c0;--paper-light:#f6f0e2;
+    --verd:#3d7068;--verd-deep:#2a5049;--verd-light:#5a938a;
+    --terra:#b0503a;--terra-deep:#8a3a28;--sand:#c9b48f;
+    --rule:#c4b393;--mute:#8a7c62;--shadow:rgba(40,32,22,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* motivo: fibra de papel + retícula científica tenue */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(rgba(61,112,104,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,112,104,.04) 1px, transparent 1px),
+      radial-gradient(circle at 25% 30%, rgba(176,80,58,.03) 0 2px, transparent 2px);
+    background-size:44px 44px, 44px 44px, 60px 60px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--verd-deep);background:rgba(246,240,226,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(61,112,104,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,240,226,1)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--verd),var(--terra));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.3em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.3em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--verd);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3226;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332b1f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(61,112,104,.05);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3226;background:rgba(61,112,104,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--verd-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--verd-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--terra);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--verd);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--verd-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(61,112,104,.07);border:1px solid rgba(61,112,104,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* medidor de consenso */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0503a 0%,#c8a23a 50%,#3d7068 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3226}
+  .cs-verdict strong{color:var(--verd-deep)}
+
+  /* muro de posturas */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--paper-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.ciencia .hip-tag{color:var(--verd-deep)}
+  .hip.literal .hip-tag{color:var(--terra-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--verd-deep);color:#e8f0ed;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#d4e4e0}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:#9ed0c6}
+
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--verd-deep),var(--verd));color:#eef4f2;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#d4e4e0;max-width:520px;margin:0 auto}
+
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--verd-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--verd-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--paper-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--verd-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-genesis.html"><span class="arrow">&larr;</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">G&eacute;nesis a prueba &middot; V</span>
+  <h1>Los <span class="em">patriarcas</span></h1>
+  <div class="glyphs">&#127957; &middot; &#128220; &middot; &#127964;</div>
+  <p class="standfirst">Abraham, Isaac y Jacob: los padres fundadores de un pueblo. &iquest;Fueron personajes hist&oacute;ricos? La arqueolog&iacute;a no los encuentra, pero s&iacute; ilumina el mundo de sus relatos &mdash;y revela cu&aacute;ndo se escribieron&mdash;.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">Con los patriarcas entramos en un terreno distinto. Hasta ahora hab&iacute;amos tratado relatos de los or&iacute;genes del mundo (creaci&oacute;n, diluvio, Babel); ahora llegamos a los or&iacute;genes de un <em>pueblo</em>. Abraham, su hijo Isaac y su nieto Jacob son las figuras fundacionales de Israel. Y aqu&iacute; la pregunta hist&oacute;rica se vuelve m&aacute;s delicada, porque el debate acad&eacute;mico es real y merece matices.</p>
+
+  <h2><span class="n">01</span>Un hombre que sali&oacute; de Ur</h2>
+
+  <p>Seg&uacute;n el relato, Abraham naci&oacute; en <span class="term">Ur de los caldeos</span>, una de las grandes ciudades de la antigua Sumeria, y de all&iacute; parti&oacute; en un viaje que lo llevar&iacute;a a Cana&aacute;n. Ur existi&oacute; de verdad: fue excavada por Leonard Woolley en los a&ntilde;os 20, que sac&oacute; a la luz su gran zigurat y las espectaculares "tumbas reales". Es decir, el <strong>escenario</strong> del relato es real y arqueol&oacute;gicamente conocido.</p>
+
+  <figure class="fig">
+    <img src="ur.jpg" alt="Excavaci&oacute;n del cementerio real de Ur">
+    <figcaption>
+      <span class="desc">Excavaci&oacute;n del cementerio real de Ur (Mesopotamia), la ciudad que el relato b&iacute;blico se&ntilde;ala como patria de Abraham. Las campa&ntilde;as de Leonard Woolley en los a&ntilde;os 1920 revelaron una urbe sumeria rica y compleja.</span>
+      <span class="credit">Expedici&oacute;n conjunta del Museo Brit&aacute;nico y el Museo de la Universidad de Pensilvania, sin restricciones conocidas, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Que exista el escenario, sin embargo, no significa que existan los personajes. Del mismo modo que una novela puede ambientarse en un Londres real con protagonistas ficticios, un relato puede situar a sus figuras en ciudades hist&oacute;ricas sin que ellas mismas lo sean. Y sobre Abraham, Isaac y Jacob, la arqueolog&iacute;a se topa con un silencio: <strong>no hay ninguna evidencia directa de su existencia</strong>, ni se espera encontrarla, dado que eran, seg&uacute;n el propio relato, jefes de cl&aacute;n n&oacute;madas que no dejar&iacute;an huella monumental.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Las ciudades de los relatos patriarcales (como Ur) son reales. Pero de Abraham, Isaac y Jacob no hay ninguna evidencia arqueol&oacute;gica directa. La mayor&iacute;a de los especialistas duda de que fueran personajes hist&oacute;ricos en sentido estricto.</p>
+  </div>
+
+  <h2><span class="n">02</span>Las pistas del calendario: los anacronismos</h2>
+
+  <p>Hay una v&iacute;a indirecta muy reveladora: los <span class="term">anacronismos</span>. Son detalles del relato que no encajan en la &eacute;poca en que supuestamente vivieron los patriarcas (hacia el 2000-1800 a.C.), sino en una &eacute;poca muy posterior &mdash;lo que delata cu&aacute;ndo se puso por escrito la historia&mdash;.</p>
+
+  <p>El ejemplo m&aacute;s famoso son los <strong>camellos</strong>. El G&eacute;nesis presenta a los patriarcas usando camellos domesticados como algo habitual. Pero los estudios arqueol&oacute;gicos &mdash;incluida la datación por radiocarbono de huesos de camello en el valle de Arav&aacute;&mdash; sit&uacute;an la domesticaci&oacute;n generalizada del camello en la regi&oacute;n hacia el <strong>siglo X a.C.</strong>, casi un milenio despu&eacute;s de la supuesta &eacute;poca de Abraham. Otros anacronismos apuntan en la misma direcci&oacute;n: la menci&oacute;n de los <strong>filisteos</strong> (que llegaron a la regi&oacute;n mucho despu&eacute;s) o de ciudades que a&uacute;n no exist&iacute;an. El texto, en su forma actual, se compuso siglos despu&eacute;s de los hechos que narra.</p>
+
+  <p>Conviene la honestidad: algunos estudiosos, sobre todo de tendencia conservadora (como Kenneth Kitchen), discuten estos anacronismos y se&ntilde;alan menciones aisladas de camellos m&aacute;s tempranas. El debate existe. Pero el <em>conjunto</em> de indicios &mdash;no un solo dato&mdash; inclina a la mayor&iacute;a hacia una composici&oacute;n tard&iacute;a.</p>
+
+  <h2><span class="n">03</span>El mundo que s&iacute; ilumina la arqueolog&iacute;a</h2>
+
+  <p>Aqu&iacute; viene lo fascinante, y lo que evita que este sea un episodio meramente "negativo". Aunque la arqueolog&iacute;a no encuentre a los patriarcas, s&iacute; ha iluminado extraordinariamente el <strong>mundo social</strong> en el que se ambientan sus historias. Las tablillas de ciudades como <span class="term">Mari</span> y <span class="term">Nuzi</span>, del segundo milenio a.C., describen costumbres sorprendentemente parecidas a las de los relatos patriarcales: contratos de matrimonio, adopci&oacute;n de herederos, el estatus de las esposas y las siervas, los derechos de primogenitura.</p>
+
+  <figure class="fig">
+    <img src="tablillas-mari.jpg" alt="Tablillas cuneiformes del reino de Mari">
+    <figcaption>
+      <span class="desc">Tablillas cuneiformes del reino amorreo de Mari (primera mitad del II milenio a.C.), Museo del Louvre. Documentos como estos revelan las costumbres jur&iacute;dicas y familiares del mundo en que se ambientan los relatos de los patriarcas.</span>
+      <span class="credit">Gary Todd, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener">CC0</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Estos paralelos alimentaron durante d&eacute;cadas la hip&oacute;tesis de que los relatos, aunque escritos tarde, conservaban <strong>memorias aut&eacute;nticas</strong> de un trasfondo del segundo milenio. Hoy esa idea se matiza: muchas de esas costumbres tambi&eacute;n exist&iacute;an en &eacute;pocas posteriores, as&iacute; que no prueban una fecha temprana. Pero muestran algo valioso: los relatos no son pura fantas&iacute;a tard&iacute;a, sino que se nutren de un poso cultural real del Cercano Oriente.</p>
+
+  <h2><span class="n">04</span>Historia, memoria o identidad</h2>
+
+  <p>&iquest;C&oacute;mo entender entonces a los patriarcas? La lectura acad&eacute;mica m&aacute;s extendida los ve como <strong>figuras fundacionales</strong>: relatos que un pueblo cont&oacute; sobre sus or&iacute;genes para explicar qui&eacute;n era, de d&oacute;nde ven&iacute;a y por qu&eacute; habitaba su tierra. No son cr&oacute;nica period&iacute;stica, pero tampoco invenci&oacute;n arbitraria: son <em>memoria cultural</em>, esa mezcla de tradici&oacute;n, identidad y teolog&iacute;a con la que las sociedades antiguas narraban su pasado.</p>
+
+  <p>Esto no decide la cuesti&oacute;n de la fe. Alguien puede sostener la historicidad de Abraham como convicci&oacute;n religiosa; lo que la serie constata es que la <em>evidencia arqueol&oacute;gica</em> no la confirma y que varios indicios apuntan a una composici&oacute;n tard&iacute;a. Distinguir entre lo que la arqueolog&iacute;a puede probar y lo que pertenece al terreno de la fe es, precisamente, el ejercicio que este blog propone.</p>
+
+  <div class="muro">
+    <div class="hip literal">
+      <span class="hip-tag">La lectura tradicional</span>
+      <div class="hip-title">Patriarcas hist&oacute;ricos</div>
+      <p>Abraham, Isaac y Jacob fueron personas reales del II milenio a.C.; los relatos conservan memorias aut&eacute;nticas de sus vidas, y los presuntos anacronismos son discutibles.</p>
+    </div>
+    <div class="hip ciencia">
+      <span class="hip-tag">La lectura mayoritaria</span>
+      <div class="hip-title">Figuras fundacionales</div>
+      <p>No hay evidencia de su existencia; los anacronismos delatan una composici&oacute;n del I milenio a.C. Son memoria cultural e identidad, ambientada en un mundo real pero no cr&oacute;nica hist&oacute;rica.</p>
+    </div>
+  </div>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:70%"></div></div>
+    <div class="cs-labels"><span>Especulaci&oacute;n</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> hay <strong>amplio acuerdo</strong> en que no existe evidencia de los patriarcas y en que los relatos, en su forma actual, se compusieron tard&iacute;amente (anacronismos). El <em>grado</em> de memoria hist&oacute;rica que conservan es objeto de <strong>debate real</strong> entre especialistas, m&aacute;s que en otros episodios de esta serie.</p>
+  </div>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>El escepticismo sobre la historicidad de los patriarcas se consolid&oacute; con Thomas L. Thompson (<em>The Historicity of the Patriarchal Narratives</em>, 1974) y John Van Seters (<em>Abraham in History and Tradition</em>, 1975), y es hoy mayoritario (cf. Finkelstein y Silberman, <em>The Bible Unearthed</em>). El anacronismo de los camellos se apoya en el estudio de Sapir-Hen y Ben-Yosef (Universidad de Tel Aviv, 2013) sobre la domesticaci&oacute;n en el valle de Arav&aacute;.</p>
+    <p>La postura que defiende un n&uacute;cleo hist&oacute;rico temprano (K. Kitchen y otros) se recoge con equidad: el debate sobre el grado de memoria aut&eacute;ntica es genuino. Los paralelos de Mari y Nuzi son reales, aunque hoy se consideran menos concluyentes como prueba de datación que en las d&eacute;cadas de Albright.</p>
+    <p>La entrega separa expl&iacute;citamente lo que la arqueolog&iacute;a puede establecer (ausencia de evidencia, anacronismos) de la cuesti&oacute;n de fe sobre la historicidad, que no es de su competencia.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega</div>
+    <div class="nt-title">El &Eacute;xodo</div>
+    <div class="nt-desc">La salida de Egipto es el relato fundacional de Israel. Pero millones de personas cruzando el desierto deber&iacute;an haber dejado rastro. &iquest;Qu&eacute; dice &mdash;y qu&eacute; calla&mdash; la arqueolog&iacute;a sobre la gran epopeya?</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">&uarr; <a href="serie-genesis.html">Serie: G&eacute;nesis a prueba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="genesis-4.html"><span class="lbl">&larr; Anterior</span><span class="ttl">Las edades imposibles</span></a>
+    <a class="epnav-btn next" href="genesis-6.html"><span class="lbl">Siguiente &rarr;</span><span class="ttl">El &Eacute;xodo</span></a>
+  </div>
+</nav>
+
+<footer>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

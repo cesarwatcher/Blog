@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La conquista de Canaán y Jericó — Estratos</title>
+<style>
+  :root{
+    --ink:#241f1a;--paper:#efe7d6;--paper-deep:#e3d8c0;--paper-light:#f6f0e2;
+    --verd:#3d7068;--verd-deep:#2a5049;--verd-light:#5a938a;
+    --terra:#b0503a;--terra-deep:#8a3a28;--sand:#c9b48f;
+    --rule:#c4b393;--mute:#8a7c62;--shadow:rgba(40,32,22,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(rgba(61,112,104,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,112,104,.04) 1px, transparent 1px),
+      radial-gradient(circle at 25% 30%, rgba(176,80,58,.03) 0 2px, transparent 2px);
+    background-size:44px 44px, 44px 44px, 60px 60px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--verd-deep);background:rgba(246,240,226,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(61,112,104,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--verd),var(--terra));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+  .wide{max-width:1100px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.3em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.4rem;display:inline-block;padding-left:.3em}
+  .eyebrow .star{background:var(--terra);color:var(--paper-light);padding:.25rem .8rem;border-radius:2rem;letter-spacing:.18em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem;margin-top:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--verd);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3226;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332b1f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(61,112,104,.05);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3226;background:rgba(61,112,104,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--verd-deep)}
+
+  .wrap h2, .wide h2.sec{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--verd-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--terra);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--verd-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(61,112,104,.07);border:1px solid rgba(61,112,104,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* ===== LÍNEA DE TIEMPO INTERACTIVA (EL DESENCUENTRO) ===== */
+  .desencuentro{background:linear-gradient(180deg,var(--paper-light),var(--paper));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:5vh 0;margin:4vh 0}
+  .desencuentro .intro{text-align:center;max-width:640px;margin:0 auto 2.5rem}
+  .desencuentro h2{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:400;color:var(--verd-deep);margin-bottom:.8rem}
+  .desencuentro h2 .em{font-style:italic;color:var(--terra-deep)}
+  .desencuentro .intro p{font-size:1rem;color:#4a4232}
+  .timeline-box{max-width:1000px;margin:0 auto;padding:0 24px}
+  .tl-axis{position:relative;height:2px;background:var(--sand);margin:4rem 0 1rem}
+  .tl-tick{position:absolute;top:50%;transform:translate(-50%,-50%);width:2px;height:12px;background:var(--mute)}
+  .tl-tick .yr{position:absolute;top:16px;left:50%;transform:translateX(-50%);font-family:"Trebuchet MS",sans-serif;font-size:.72rem;color:var(--mute);white-space:nowrap}
+  /* banda de ocupación real de Jericó */
+  .tl-band{position:absolute;height:14px;top:50%;transform:translateY(-50%);border-radius:7px;opacity:0;transition:opacity .8s,width 1s}
+  .tl-band.occ{background:linear-gradient(90deg,var(--verd-light),var(--verd));z-index:2}
+  .tl-band.gap{background:repeating-linear-gradient(45deg,rgba(176,80,58,.25),rgba(176,80,58,.25) 6px,transparent 6px,transparent 12px);border:1px dashed var(--terra);z-index:1}
+  .tl-band.show{opacity:1}
+  /* eventos marcados */
+  .tl-event{position:absolute;top:50%;transform:translate(-50%,-50%);z-index:5;opacity:0;transition:opacity .6s}
+  .tl-event.show{opacity:1}
+  .tl-event .mk{width:16px;height:16px;border-radius:50%;border:3px solid var(--paper);margin:0 auto}
+  .tl-event.destroy .mk{background:var(--terra-deep)}
+  .tl-event.bible .mk{background:#c8a23a}
+  .tl-event .cap{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;margin-top:.3rem}
+  .tl-event .cap.up{bottom:24px;margin-top:0}
+  .tl-event.destroy .cap{color:var(--terra-deep)}
+  .tl-event.bible .cap{color:#8a6d1a}
+  /* etiqueta del hueco */
+  .gap-label{position:absolute;top:-4.6rem;left:50%;transform:translateX(-50%);text-align:center;opacity:0;transition:opacity .8s;background:var(--paper-light);padding:.2rem .8rem;border-radius:8px;z-index:6}
+  .gap-label .big{font-family:"Trebuchet MS",sans-serif;font-size:1.4rem;font-weight:700;color:var(--terra-deep)}
+  .gap-label .small{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+  .gap-label.show{opacity:1}
+  .tl-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:1.4rem;margin-top:4rem;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;color:#4a4232}
+  .tl-legend .lg{display:flex;align-items:center;gap:.5rem}
+  .tl-legend .sw{width:22px;height:10px;border-radius:5px}
+  .tl-legend .sw.occ{background:var(--verd)}
+  .tl-legend .sw.gap{background:repeating-linear-gradient(45deg,rgba(176,80,58,.4),rgba(176,80,58,.4) 4px,transparent 4px,transparent 8px);border:1px dashed var(--terra)}
+  .tl-verdict{max-width:640px;margin:2.5rem auto 0;text-align:center;font-size:1.05rem;color:#3a3226;opacity:0;transition:opacity .8s}
+  .tl-verdict.show{opacity:1}
+  .tl-verdict strong{color:var(--terra-deep)}
+
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--paper-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.ciencia .hip-tag{color:var(--verd-deep)}
+  .hip.literal .hip-tag{color:var(--terra-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0503a 0%,#c8a23a 50%,#3d7068 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3226}
+  .cs-verdict strong{color:var(--verd-deep)}
+
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--verd-deep);color:#e8f0ed;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#d4e4e0}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:#9ed0c6}
+
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--verd-deep),var(--verd));color:#eef4f2;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#d4e4e0;max-width:520px;margin:0 auto}
+
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--verd-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--verd-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--paper-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--verd-deep)}
+  .epnav-btn.next{text-align:right}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-genesis.html"><span class="arrow">←</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow"><span class="star">Pieza destacada</span></span>
+  <h1>La conquista de Canaán y <span class="em">Jericó</span></h1>
+  <div class="glyphs">🏛 · ⚔ · ⌛</div>
+  <p class="standfirst">"Y los muros cayeron." Es la imagen más famosa de la conquista bíblica. Pero cuando los arqueólogos excavaron Jericó, encontraron un problema que se mide en siglos.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">El libro de Josué narra una conquista fulminante: el pueblo de Israel entra en Canaán y, ciudad tras ciudad, la somete. La primera y más célebre es Jericó, cuyas murallas se derrumban tras siete días de marchas y el sonido de las trompetas. Es una de las escenas más recordadas de la Biblia. Y es, también, uno de los casos donde la arqueología ha hablado con más claridad —y donde su respuesta abre un problema fascinante—.</p>
+
+  <h2><span class="n">01</span>La ciudad más excavada</h2>
+
+  <p>Jericó —el yacimiento de <span class="term">Tell es-Sultan</span>— es uno de los lugares habitados más antiguos del mundo, con más de diez mil años de historia. Ha sido excavada repetidamente, sobre todo por la arqueóloga británica <strong>Kathleen Kenyon</strong> en los años 50, con métodos que en su día fueron pioneros. Si en algún sitio podíamos esperar encontrar la huella de la conquista, era aquí.</p>
+
+  <figure class="fig">
+    <img src="jerico.jpg" alt="El tell de Jericó (Tell es-Sultan)">
+    <figcaption>
+      <span class="desc">Tell es-Sultan, la antigua Jericó (Cisjordania). Bajo este montículo se acumulan más de diez milenios de ocupación humana, excavados por Kathleen Kenyon y otros. Es uno de los yacimientos más estudiados del mundo.</span>
+      <span class="credit">Bukvoed, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">02</span>El problema del calendario</h2>
+
+  <p>Kenyon encontró, en efecto, murallas derrumbadas y una destrucción violenta con incendio. El detalle es que esa gran destrucción ocurrió hacia el <strong>1550 a.C.</strong>, al final de la Edad del Bronce Medio. Y la fecha en que el relato bíblico sitúa la conquista es muy posterior: entre el 1400 y el 1230 a.C., según cómo se calcule. Es decir, cuando "deberían" caer las murallas ante Josué, <strong>Jericó llevaba siglos en ruinas</strong>: en esa época era, según las excavaciones, un lugar casi deshabitado, sin murallas que derribar.</p>
+
+  <p>Ese desfase de siglos es el corazón del episodio. Y como es, ante todo, una cuestión de <em>tiempo</em>, la mejor manera de verlo es sobre una línea temporal. Sigue el eje: verás la ocupación real de la ciudad y el momento en que el relato coloca la conquista.</p>
+</div>
+
+<!-- ===== INTERACTIVO ESTRELLA: LÍNEA DE TIEMPO DEL DESENCUENTRO ===== -->
+<div class="desencuentro" id="desencuentro">
+  <div class="intro">
+    <h2>El <span class="em">desencuentro</span> en el tiempo</h2>
+    <p>Dos cosas que deberían coincidir —la caída de las murallas y la llegada de Josué— quedan separadas por siglos. Desplázate para verlo.</p>
+  </div>
+  <div class="timeline-box">
+    <div class="tl-axis" id="tl-axis">
+      <!-- ticks cada 100 años de 1700 a 1100 a.C. -->
+      <div class="tl-tick" style="left:0%"><span class="yr">1700 a.C.</span></div>
+      <div class="tl-tick" style="left:25%"><span class="yr">1550</span></div>
+      <div class="tl-tick" style="left:50%"><span class="yr">1400</span></div>
+      <div class="tl-tick" style="left:75%"><span class="yr">1250</span></div>
+      <div class="tl-tick" style="left:100%"><span class="yr">1100 a.C.</span></div>
+
+      <!-- banda: gran ciudad amurallada hasta ~1550 -->
+      <div class="tl-band occ" id="band-occ" style="left:0%;width:25%"></div>
+      <!-- banda: hueco / ciudad en ruinas o mínima tras 1550 -->
+      <div class="tl-band gap" id="band-gap" style="left:25%;width:60%"></div>
+
+      <!-- etiqueta del hueco -->
+      <div class="gap-label" id="gap-label" style="left:52%">
+        <div class="big">≈ 150–300 años</div>
+        <div class="small">de desfase</div>
+      </div>
+
+      <!-- evento: destrucción real ~1550 (25%) -->
+      <div class="tl-event destroy" id="ev-destroy" style="left:25%">
+        <div class="cap up">Destrucción real<br>(~1550 a.C.)</div>
+        <div class="mk"></div>
+      </div>
+      <!-- evento: fecha bíblica conquista (~1400, 50%) -->
+      <div class="tl-event bible" id="ev-bible1" style="left:50%">
+        <div class="mk"></div>
+        <div class="cap">Conquista bíblica<br>(fecha alta ~1400)</div>
+      </div>
+      <!-- evento: fecha bíblica baja (~1230, ~78%) -->
+      <div class="tl-event bible" id="ev-bible2" style="left:78%">
+        <div class="mk"></div>
+        <div class="cap">Conquista bíblica<br>(fecha baja ~1230)</div>
+      </div>
+    </div>
+
+    <div class="tl-legend">
+      <div class="lg"><span class="sw occ"></span> Jericó, gran ciudad amurallada</div>
+      <div class="lg"><span class="sw gap"></span> Jericó en ruinas o casi deshabitada</div>
+    </div>
+
+    <p class="tl-verdict" id="tl-verdict">En cualquiera de las dos fechas posibles para la conquista, la gran Jericó amurallada <strong>ya había sido destruida siglos antes</strong>. No había murallas que derribar: el momento del relato y el de la ciudad real no coinciden.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Jericó fue una gran ciudad amurallada, sí, pero fue destruida hacia el 1550 a.C. Cuando la Biblia sitúa la conquista de Josué (siglos después), la ciudad ya llevaba mucho tiempo en ruinas. Las murallas famosas habían caído antes de que Josué pudiera llegar.</p>
+  </div>
+
+  <h2><span class="n">03</span>¿Hay margen para otra lectura?</h2>
+
+  <p>Con rigor, hay que decir que existe una <strong>posición minoritaria</strong>. El arqueólogo <span class="term">Bryant Wood</span> propuso, en los años 90, redatar la destrucción de Jericó al 1400 a.C. —lo que la haría coincidir con la fecha "alta" de la conquista—, reinterpretando la cerámica hallada por Kenyon. Su propuesta ha tenido eco en círculos que defienden la historicidad del relato.</p>
+
+  <p>Sin embargo, la <strong>gran mayoría</strong> de los especialistas no la acepta. La datación de Kenyon ha sido respaldada por análisis posteriores, incluida la datación por radiocarbono, que confirma la destrucción en el Bronce Medio, no en el Bronce Tardío. La revisión de Wood se considera forzada: intenta hacer encajar la evidencia con una fecha predeterminada, en lugar de seguir la evidencia allí donde lleva. El debate existe, pero está muy desequilibrado.</p>
+
+  <div class="muro">
+    <div class="hip literal">
+      <span class="hip-tag">La posición minoritaria</span>
+      <div class="hip-title">Redatar Jericó</div>
+      <p>Bryant Wood propone que la destrucción fue hacia 1400 a.C., coincidiendo con la conquista. Reinterpreta la cerámica de Kenyon para cerrar el desfase.</p>
+    </div>
+    <div class="hip ciencia">
+      <span class="hip-tag">La posición mayoritaria</span>
+      <div class="hip-title">El desfase es real</div>
+      <p>La destrucción es del Bronce Medio (~1550 a.C.), confirmada por estratigrafía y radiocarbono. En la fecha de la conquista, Jericó estaba en ruinas. No hubo tal caída de murallas.</p>
+    </div>
+  </div>
+
+  <h2><span class="n">04</span>Una conquista que la tierra no confirma</h2>
+
+  <p>Jericó no es un caso aislado. Cuando se contrastan las demás ciudades que, según Josué, fueron conquistadas y destruidas, el patrón se repite: <strong>muchas no estaban habitadas</strong> en la época de la conquista (como Hai, otro caso célebre), o no muestran señales de destrucción en la fecha correspondiente, o fueron destruidas en momentos muy distintos entre sí. La imagen de una campaña militar única y rápida, ciudad tras ciudad, no encaja con lo que revela el suelo.</p>
+
+  <p>Esto no significa que no ocurriera <em>nada</em>, sino que la <strong>conquista relámpago</strong> tal como la narra Josué no es lo que muestra la arqueología. Y prepara la respuesta del último episodio: si Israel no entró arrasando desde fuera, ¿de dónde salió? La pista está en las montañas de Canaán.</p>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:86%"></div></div>
+    <div class="cs-labels"><span>Especulación</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> que la gran destrucción de Jericó es del Bronce Medio (~1550 a.C.), siglos antes de cualquier fecha de la conquista, es <strong>consenso arqueológico firme</strong> (Kenyon, confirmado por radiocarbono). La redatación de Wood es <strong>minoritaria</strong>. Que la conquista relámpago de Josué no encaja con la arqueología es ampliamente aceptado.</p>
+  </div>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>Las excavaciones de Kathleen Kenyon en Jericó (1952–1958) dataron la última gran ciudad amurallada y su destrucción hacia el final del Bronce Medio (~1550 a.C.). Su cronología ha sido respaldada por dataciones de radiocarbono posteriores (por ejemplo, los trabajos de Bruins y van der Plicht).</p>
+    <p>La propuesta de redatación al 1400 a.C. es de Bryant Wood (<em>Biblical Archaeology Review</em>, 1990) y es defendida sobre todo en ámbitos confesionales; la mayoría de los especialistas la rechaza por no ajustarse a la evidencia cerámica y radiocarbónica. Se expone con neutralidad como posición minoritaria existente.</p>
+    <p>El cuadro general de la conquista (contraste entre Josué y la arqueología de ciudades como Hai, Hazor o Jericó) sigue a Finkelstein y Silberman, <em>The Bible Unearthed</em>. La entrega distingue el dato arqueológico del valor religioso del relato, que no depende de su literalidad.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Última entrega</div>
+    <div class="nt-title">El asentamiento real en Canaán</div>
+    <div class="nt-desc">Si Israel no conquistó Canaán desde fuera, ¿cómo apareció? La arqueología ofrece una respuesta sorprendente: cientos de aldeas nuevas, y unos pobladores cuyo origen lo cambia todo.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">↑ <a href="serie-genesis.html">Serie: Génesis a prueba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="genesis-6.html"><span class="lbl">← Anterior</span><span class="ttl">El Éxodo</span></a>
+    <a class="epnav-btn next" href="genesis-8.html"><span class="lbl">Siguiente →</span><span class="ttl">El asentamiento real en Canaán</span></a>
+  </div>
+</nav>
+
+<footer>Estratos · Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+
+  // ===== INTERACTIVO: LÍNEA DE TIEMPO DEL DESENCUENTRO =====
+  (function(){
+    const box = document.getElementById('desencuentro');
+    if(!box) return;
+    const occ = document.getElementById('band-occ');
+    const gap = document.getElementById('band-gap');
+    const gapLabel = document.getElementById('gap-label');
+    const evDestroy = document.getElementById('ev-destroy');
+    const evB1 = document.getElementById('ev-bible1');
+    const evB2 = document.getElementById('ev-bible2');
+    const verdict = document.getElementById('tl-verdict');
+    let fired = false;
+
+    function reveal(){
+      if(fired) return; fired = true;
+      setTimeout(()=> occ.classList.add('show'), 300);
+      setTimeout(()=> evDestroy.classList.add('show'), 900);
+      setTimeout(()=> gap.classList.add('show'), 1400);
+      setTimeout(()=> { evB1.classList.add('show'); }, 2000);
+      setTimeout(()=> { evB2.classList.add('show'); }, 2400);
+      setTimeout(()=> gapLabel.classList.add('show'), 2900);
+      setTimeout(()=> verdict.classList.add('show'), 3400);
+    }
+
+    if('IntersectionObserver' in window){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(en=>{ if(en.isIntersecting) reveal(); });
+      }, {threshold:0.35});
+      obs.observe(box);
+    } else { reveal(); }
+  })();
+</script>
+</body></html>

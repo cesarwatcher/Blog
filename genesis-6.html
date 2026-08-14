@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Éxodo — Estratos</title>
+<style>
+  :root{
+    --ink:#241f1a;--paper:#efe7d6;--paper-deep:#e3d8c0;--paper-light:#f6f0e2;
+    --verd:#3d7068;--verd-deep:#2a5049;--verd-light:#5a938a;
+    --terra:#b0503a;--terra-deep:#8a3a28;--sand:#c9b48f;
+    --rule:#c4b393;--mute:#8a7c62;--shadow:rgba(40,32,22,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* motivo: fibra de papel + retícula científica tenue */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(rgba(61,112,104,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,112,104,.04) 1px, transparent 1px),
+      radial-gradient(circle at 25% 30%, rgba(176,80,58,.03) 0 2px, transparent 2px);
+    background-size:44px 44px, 44px 44px, 60px 60px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--verd-deep);background:rgba(246,240,226,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(61,112,104,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,240,226,1)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--verd),var(--terra));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.3em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.3em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--verd);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3226;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332b1f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(61,112,104,.05);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3226;background:rgba(61,112,104,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--verd-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--verd-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--terra);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--verd);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--verd-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(61,112,104,.07);border:1px solid rgba(61,112,104,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* medidor de consenso */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0503a 0%,#c8a23a 50%,#3d7068 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3226}
+  .cs-verdict strong{color:var(--verd-deep)}
+
+  /* muro de posturas */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--paper-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.ciencia .hip-tag{color:var(--verd-deep)}
+  .hip.literal .hip-tag{color:var(--terra-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--verd-deep);color:#e8f0ed;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#d4e4e0}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:#9ed0c6}
+
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--verd-deep),var(--verd));color:#eef4f2;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#d4e4e0;max-width:520px;margin:0 auto}
+
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--verd-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--verd-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--paper-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--verd-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-genesis.html"><span class="arrow">&larr;</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">G&eacute;nesis a prueba &middot; VI</span>
+  <h1>El <span class="em">&Eacute;xodo</span></h1>
+  <div class="glyphs">&#127796; &middot; &#127963; &middot; &#9928;</div>
+  <p class="standfirst">La salida de Egipto es el relato fundacional de Israel: esclavitud, plagas, un mar que se abre. Pero una migraci&oacute;n masiva por el desierto deber&iacute;a haber dejado rastro. &iquest;Qu&eacute; encuentra &mdash;y qu&eacute; no&mdash; la arqueolog&iacute;a?</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">Ning&uacute;n relato es m&aacute;s central para la identidad de Israel que el &Eacute;xodo: la liberaci&oacute;n de la esclavitud en Egipto, el paso del mar, la alianza en el Sina&iacute;. Es el mito fundacional por excelencia, celebrado cada a&ntilde;o en la Pascua jud&iacute;a. Precisamente por su importancia, merece el examen m&aacute;s cuidadoso &mdash;y el m&aacute;s respetuoso&mdash;.</p>
+
+  <h2><span class="n">01</span>La magnitud del relato</h2>
+
+  <p>Seg&uacute;n el texto b&iacute;blico, salieron de Egipto "unos seiscientos mil hombres de a pie, sin contar los ni&ntilde;os" &mdash;lo que implicar&iacute;a una multitud de quiz&aacute; <strong>dos millones de personas</strong>&mdash;, que vagaron cuarenta a&ntilde;os por el desierto del Sina&iacute; antes de entrar en Cana&aacute;n. Una poblaci&oacute;n de ese tama&ntilde;o, movi&eacute;ndose y acampando durante cuatro d&eacute;cadas, deber&iacute;a haber dejado abundantes huellas: restos de campamentos, cer&aacute;mica, enterramientos, basura.</p>
+
+  <p>La arqueolog&iacute;a del Sina&iacute;, sin embargo, ha peinado la regi&oacute;n y <strong>no ha encontrado rastro</strong> de semejante presencia en la &eacute;poca correspondiente. Tampoco hay, en los abundantes registros egipcios &mdash;meticulosos hasta para incidentes menores&mdash;, ninguna menci&oacute;n de una poblaci&oacute;n israelita esclavizada, de las plagas, ni de una fuga masiva. El silencio, en ambos frentes, es prácticamente total.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>La Biblia describe a unos dos millones de personas saliendo de Egipto y vagando cuarenta a&ntilde;os por el desierto. Ni la arqueolog&iacute;a del Sina&iacute; ni los registros egipcios muestran rastro de algo de esa magnitud.</p>
+  </div>
+
+  <h2><span class="n">02</span>El argumento del silencio, con cuidado</h2>
+
+  <p>Aqu&iacute; hay que ser rigurosos en ambos sentidos. "Ausencia de evidencia no es evidencia de ausencia", suele decirse, y es un principio v&aacute;lido: los defensores de la historicidad se&ntilde;alan que los egipcios omit&iacute;an sistem&aacute;ticamente sus derrotas y humillaciones, y que grupos n&oacute;madas dejan poca huella. Es un punto legítimo.</p>
+
+  <p>Pero tiene un l&iacute;mite. Una cosa es que no se registre un episodio menor, y otra muy distinta que <strong>dos millones de personas durante cuarenta a&ntilde;os</strong> no dejen ni un solo rastro material ni documental. A esa escala, el silencio s&iacute; se vuelve significativo. Por eso el consenso mayoritario no es que "no pas&oacute; nada", sino que <strong>no ocurri&oacute; un &eacute;xodo masivo como el que describe el texto</strong>. Lo cual deja abierta una posibilidad m&aacute;s modesta.</p>
+
+  <figure class="fig">
+    <img src="ramses.jpg" alt="Estatua de Rams&eacute;s II">
+    <figcaption>
+      <span class="desc">Estatua de Rams&eacute;s II, el fara&oacute;n frecuentemente asociado con el relato del &Eacute;xodo. Bajo su reinado se construy&oacute; la ciudad de Pi-Rams&eacute;s, que el texto b&iacute;blico menciona como una de las que edificaron los israelitas esclavizados.</span>
+      <span class="credit">Jorge L&aacute;scar, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">03</span>La piedra que menciona a Israel</h2>
+
+  <p>Hay un objeto crucial para fechar todo esto: la <span class="term">estela de Merneptah</span>, descubierta por Flinders Petrie en 1896. Es una gran losa de granito en la que el fara&oacute;n Merneptah celebra sus victorias hacia el <strong>1208 a.C.</strong>, y contiene la <strong>primera menci&oacute;n de "Israel"</strong> fuera de la Biblia. El texto dice: "Israel est&aacute; asolado, su semilla ya no existe".</p>
+
+  <figure class="fig">
+    <img src="estela-merneptah.jpg" alt="La estela de Merneptah">
+    <figcaption>
+      <span class="desc">La estela de Merneptah (ca. 1208 a.C.), primera menci&oacute;n conocida de "Israel" fuera de la Biblia. El jerogl&iacute;fico que acompa&ntilde;a al nombre lo identifica como un <em>pueblo</em>, no una ciudad, ya asentado en Cana&aacute;n.</span>
+      <span class="credit">Reutilizada de la serie "La Biblia desenterrada". V&eacute;ase el cr&eacute;dito original en su primera aparici&oacute;n.</span>
+    </figcaption>
+  </figure>
+
+  <p>Este dato es doblemente revelador. Por un lado, confirma que hacia el 1208 a.C. exist&iacute;a ya un pueblo llamado Israel. Pero &mdash;y esto es lo decisivo&mdash; el jerogl&iacute;fico que acompa&ntilde;a al nombre lo marca como un <strong>pueblo ya asentado en Cana&aacute;n</strong>, no como una multitud saliendo de Egipto o vagando por el desierto. Es decir: en la fecha en que muchos sit&uacute;an el &Eacute;xodo, Israel <em>ya estaba en su tierra</em>. La cronolog&iacute;a del relato no encaja bien con la evidencia.</p>
+
+  <h2><span class="n">04</span>&iquest;Qu&eacute; pudo haber detr&aacute;s?</h2>
+
+  <p>Descartar el &eacute;xodo <em>masivo</em> no obliga a descartar <strong>todo</strong> n&uacute;cleo hist&oacute;rico. Varios especialistas proponen una hip&oacute;tesis intermedia y veros&iacute;mil: que un <strong>grupo peque&ntilde;o</strong> &mdash;quiz&aacute; sem&iacute;ticos que s&iacute; estuvieron en Egipto y salieron de all&iacute;&mdash; trajera consigo una experiencia de liberaci&oacute;n que, con el tiempo, se convirti&oacute; en el relato fundacional de <em>todo</em> Israel. Detalles como los nombres egipcios de algunos personajes (Mois&eacute;s mismo es un nombre egipcio) apuntan a alg&uacute;n contacto real con Egipto.</p>
+
+  <p>En esta lectura, el &Eacute;xodo no ser&iacute;a una cr&oacute;nica literal de dos millones de personas, sino la <strong>amplificaci&oacute;n &eacute;pica</strong> de una memoria m&aacute;s modesta, transformada en el mito nacional que dio sentido e identidad a un pueblo. No es "verdad" ni "mentira" en el sentido simple: es c&oacute;mo las naciones antiguas convert&iacute;an la memoria en identidad. Y esa funci&oacute;n &mdash;dar a un pueblo un relato de libertad frente a la opresi&oacute;n&mdash; ha tenido una fuerza hist&oacute;rica innegable, mucho m&aacute;s all&aacute; de cu&aacute;nta gente cruzara realmente el desierto.</p>
+
+  <div class="muro">
+    <div class="hip literal">
+      <span class="hip-tag">La lectura literal</span>
+      <div class="hip-title">Un &eacute;xodo hist&oacute;rico</div>
+      <p>Una gran multitud sali&oacute; de Egipto y vag&oacute; por el Sina&iacute; tal como narra el texto; la falta de rastro se debe a lo ef&iacute;mero de un campamento n&oacute;mada y al silencio interesado de Egipto.</p>
+    </div>
+    <div class="hip ciencia">
+      <span class="hip-tag">La lectura mayoritaria</span>
+      <div class="hip-title">Memoria amplificada</div>
+      <p>No hubo un &eacute;xodo masivo (sin rastro en el Sina&iacute; ni en Egipto; Israel ya estaba en Cana&aacute;n en 1208). Es posible un n&uacute;cleo peque&ntilde;o real, amplificado luego en el mito fundacional.</p>
+    </div>
+  </div>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:74%"></div></div>
+    <div class="cs-labels"><span>Especulaci&oacute;n</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> hay <strong>amplio acuerdo</strong> en que no hubo un &eacute;xodo masivo de dos millones como el descrito (ausencia total de rastro; la estela de Merneptah sit&uacute;a a Israel ya en Cana&aacute;n). La posibilidad de un <strong>n&uacute;cleo hist&oacute;rico menor</strong> se debate con seriedad: es una hip&oacute;tesis viva, no un cierre.</p>
+  </div>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>La ausencia de evidencia arqueol&oacute;gica de un &eacute;xodo masivo y de presencia en el Sina&iacute; es expuesta por Israel Finkelstein y Neil A. Silberman en <em>The Bible Unearthed</em> (2001). La estela de Merneptah (ca. 1208 a.C.), hallada por Petrie en 1896, es la primera menci&oacute;n extrab&iacute;blica de Israel, con el determinativo de "pueblo" asentado en Cana&aacute;n.</p>
+    <p>La hip&oacute;tesis de un n&uacute;cleo hist&oacute;rico menor cuenta con defensores serios (por ejemplo, los trabajos reunidos por Levy, Schneider y Propp, <em>Israel&rsquo;s Exodus in Transdisciplinary Perspective</em>, 2015; y James Hoffmeier). El nombre egipcio de Mois&eacute;s y otros detalles se citan como posibles trazas de contacto real con Egipto.</p>
+    <p>Se distingue el &eacute;xodo <strong>masivo y literal</strong> (sin apoyo en la evidencia) de un posible <strong>n&uacute;cleo hist&oacute;rico</strong> (debatido) y de la <strong>funci&oacute;n identitaria</strong> del relato (indiscutible e independiente de su historicidad). Se respeta la celebraci&oacute;n religiosa del &Eacute;xodo, cuyo valor no depende de la arqueolog&iacute;a.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega &middot; Pieza destacada</div>
+    <div class="nt-title">La conquista de Cana&aacute;n y Jeric&oacute;</div>
+    <div class="nt-desc">"Y los muros cayeron." Es la imagen m&aacute;s famosa de la conquista. Pero cuando los arque&oacute;logos excavaron Jeric&oacute;, encontraron un problema de siglos. Una l&iacute;nea de tiempo interactiva para verlo.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">&uarr; <a href="serie-genesis.html">Serie: G&eacute;nesis a prueba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="genesis-5.html"><span class="lbl">&larr; Anterior</span><span class="ttl">Los patriarcas</span></a>
+    <a class="epnav-btn next" href="genesis-7.html"><span class="lbl">Siguiente &rarr;</span><span class="ttl">La conquista de Cana&aacute;n y Jeric&oacute;</span></a>
+  </div>
+</nav>
+
+<footer>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

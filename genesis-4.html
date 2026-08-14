@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Las edades imposibles — Estratos</title>
+<style>
+  :root{
+    --ink:#241f1a;--paper:#efe7d6;--paper-deep:#e3d8c0;--paper-light:#f6f0e2;
+    --verd:#3d7068;--verd-deep:#2a5049;--verd-light:#5a938a;
+    --terra:#b0503a;--terra-deep:#8a3a28;--sand:#c9b48f;
+    --rule:#c4b393;--mute:#8a7c62;--shadow:rgba(40,32,22,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* motivo: fibra de papel + retícula científica tenue */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(rgba(61,112,104,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,112,104,.04) 1px, transparent 1px),
+      radial-gradient(circle at 25% 30%, rgba(176,80,58,.03) 0 2px, transparent 2px);
+    background-size:44px 44px, 44px 44px, 60px 60px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--verd-deep);background:rgba(246,240,226,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(61,112,104,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,240,226,1)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--verd),var(--terra));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.3em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.3em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--verd);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3226;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332b1f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(61,112,104,.05);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3226;background:rgba(61,112,104,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--verd-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--verd-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--terra);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--verd);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--verd-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(61,112,104,.07);border:1px solid rgba(61,112,104,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* medidor de consenso */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0503a 0%,#c8a23a 50%,#3d7068 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3226}
+  .cs-verdict strong{color:var(--verd-deep)}
+
+  /* muro de posturas */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--paper-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.ciencia .hip-tag{color:var(--verd-deep)}
+  .hip.literal .hip-tag{color:var(--terra-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--verd-deep);color:#e8f0ed;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#d4e4e0}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:#9ed0c6}
+
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--verd-deep),var(--verd));color:#eef4f2;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#d4e4e0;max-width:520px;margin:0 auto}
+
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--verd-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--verd-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--paper-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--verd-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-genesis.html"><span class="arrow">&larr;</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">G&eacute;nesis a prueba &middot; IV</span>
+  <h1>Las edades <span class="em">imposibles</span></h1>
+  <div class="glyphs">&#8734; &middot; &#128198; &middot; &#119070;</div>
+  <p class="standfirst">Matusal&eacute;n vivi&oacute; 969 a&ntilde;os; No&eacute;, 950; Ad&aacute;n, 930. &iquest;C&oacute;mo entender esas cifras imposibles? La respuesta no est&aacute; en la biolog&iacute;a, sino en lo que significaban los n&uacute;meros para el mundo antiguo.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">Las genealog&iacute;as del G&eacute;nesis contienen algunos de los n&uacute;meros m&aacute;s desconcertantes de la Biblia: patriarcas que viven siglos, que tienen hijos a los cientos de a&ntilde;os. Tomadas al pie de la letra, estas edades son biol&oacute;gicamente imposibles. Pero antes de descartarlas, vale la pena preguntarse algo m&aacute;s interesante: &iquest;qu&eacute; quer&iacute;an <em>decir</em> esos n&uacute;meros para quienes los escribieron?</p>
+
+  <h2><span class="n">01</span>Los n&uacute;meros del principio</h2>
+
+  <p>La lista es conocida: <strong>Matusal&eacute;n</strong>, 969 a&ntilde;os; <strong>Jared</strong>, 962; <strong>No&eacute;</strong>, 950; <strong>Ad&aacute;n</strong>, 930. Y no es solo la longevidad: seg&uacute;n el relato, tienen descendencia a edades avanzad&iacute;simas. Despu&eacute;s del Diluvio, curiosamente, las cifras <strong>descienden</strong> de forma escalonada: los patriarcas posteriores viven cada vez menos, hasta estabilizarse en cifras humanas normales hacia la &eacute;poca de Abraham y sus descendientes.</p>
+
+  <p>Ese descenso gradual es una primera pista. No parece un error ni una casualidad: parece un <strong>patr&oacute;n deliberado</strong>, una estructura. Y cuando un texto antiguo muestra una estructura numérica, conviene preguntarse si los n&uacute;meros son literales o si significan otra cosa.</p>
+
+  <figure class="fig">
+    <img src="rollo-isaias.jpg" alt="El Gran Rollo de Isa&iacute;as de Qumr&aacute;n">
+    <figcaption>
+      <span class="desc">Manuscrito b&iacute;blico antiguo (el Gran Rollo de Isa&iacute;as, de Qumr&aacute;n). Los textos del G&eacute;nesis se transmitieron durante siglos como estos rollos; entender c&oacute;mo se compon&iacute;an y qu&eacute; convenciones num&eacute;ricas usaban es clave para interpretarlos.</span>
+      <span class="credit">Fotograf&iacute;a del Gran Rollo de Isa&iacute;as, dominio p&uacute;blico, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Las edades enormes de los patriarcas (Matusal&eacute;n, 969 a&ntilde;os) son imposibles en t&eacute;rminos biol&oacute;gicos. Pero bajan de forma ordenada tras el Diluvio, lo que sugiere que no son datos m&eacute;dicos, sino n&uacute;meros con un significado simb&oacute;lico.</p>
+  </div>
+
+  <h2><span class="n">02</span>Cuando los n&uacute;meros dicen otra cosa</h2>
+
+  <p>En el mundo antiguo del Cercano Oriente, los n&uacute;meros grandes no siempre eran cantidades exactas: pod&iacute;an ser <strong>s&iacute;mbolos de prestigio, de bendici&oacute;n o de orden c&oacute;smico</strong>. Una vida larga era se&ntilde;al de favor divino; cuanto m&aacute;s cerca de los or&iacute;genes, m&aacute;s cerca de la perfecci&oacute;n primordial, y por tanto m&aacute;s larga la vida. El descenso de las edades tras el Diluvio expresar&iacute;a, en esta clave, un <strong>alejamiento progresivo</strong> de aquel estado original: la humanidad, tras la ca&iacute;da y el diluvio, se vuelve cada vez m&aacute;s fr&aacute;gil y mortal.</p>
+
+  <p>Hay un dato comparativo que refuerza esta lectura de forma espectacular. La <span class="term">Lista Real Sumeria</span>, un documento mesopot&aacute;mico muy anterior, atribuye a los reyes <em>anteriores al diluvio</em> reinados de <strong>decenas de miles de a&ntilde;os</strong> &mdash;un rey habr&iacute;a reinado 28.800 a&ntilde;os&mdash;. Y, al igual que en el G&eacute;nesis, tras el diluvio las cifras <strong>caen</strong> bruscamente a duraciones humanas. El paralelo es demasiado exacto para ser casual: ambos textos comparten una misma convenci&oacute;n literaria, en la que las cifras enormes marcan la distancia respecto a un tiempo primordial.</p>
+
+  <h2><span class="n">03</span>N&uacute;meros con forma</h2>
+
+  <p>Hay otra capa. Varios estudiosos han notado que las edades del G&eacute;nesis no son cifras al azar: muchas se descomponen en combinaciones de n&uacute;meros con valor simb&oacute;lico en la numerolog&iacute;a antigua, especialmente el 7 (perfecci&oacute;n) y sus m&uacute;ltiplos, junto con 5, 10 y 60 (la base del sistema num&eacute;rico babilónico). Las cifras parecen <strong>construidas</strong> siguiendo patrones, no observadas en la vida real. No son el registro de cu&aacute;nto vivi&oacute; alguien, sino composiciones cargadas de sentido.</p>
+
+  <p>Esto encaja con lo que vimos en el primer episodio: las genealog&iacute;as del G&eacute;nesis no se escribieron como un registro demogr&aacute;fico ni cronol&oacute;gico literal. Son un <strong>lenguaje</strong>, con sus propias convenciones, que un lector antiguo sab&iacute;a interpretar &mdash;igual que nosotros entendemos que "&eacute;rase una vez" no es una fecha&mdash;. Exigirles precisi&oacute;n biol&oacute;gica es leerlas en una clave que nunca fue la suya.</p>
+
+  <h2><span class="n">04</span>El sentido detr&aacute;s de las cifras</h2>
+
+  <p>&iquest;Qu&eacute; se pierde y qu&eacute; se gana con esta lectura? No se pierde nada esencial del relato; se gana su <strong>intenci&oacute;n real</strong>. Las edades imposibles dejan de ser un problema que "resolver" o "defender", y se revelan como un recurso expresivo: una forma de decir que hubo un tiempo primordial distinto del nuestro, que la cercan&iacute;a a los or&iacute;genes implicaba una plenitud hoy perdida, y que la historia humana es un alejamiento gradual de aquel principio. Es teolog&iacute;a narrada con n&uacute;meros.</p>
+
+  <p>Insistir en que Matusal&eacute;n vivi&oacute; literalmente 969 a&ntilde;os obliga a defender lo indefendible biol&oacute;gicamente y, de paso, hace perder de vista lo que el texto quer&iacute;a comunicar. Entender la convenci&oacute;n numérica antigua no rebaja el relato: lo devuelve a su propio idioma.</p>
+
+  <div class="muro">
+    <div class="hip literal">
+      <span class="hip-tag">La lectura literal</span>
+      <div class="hip-title">Vidas realmente largas</div>
+      <p>Los patriarcas vivieron de verdad cientos de a&ntilde;os; las condiciones del mundo antediluviano (o el favor divino) permit&iacute;an longevidades hoy imposibles.</p>
+    </div>
+    <div class="hip ciencia">
+      <span class="hip-tag">La lectura hist&oacute;rico-cr&iacute;tica</span>
+      <div class="hip-title">N&uacute;meros simb&oacute;licos</div>
+      <p>Las cifras son convenciones literarias del Cercano Oriente (cf. la Lista Real Sumeria), con valor simb&oacute;lico y num&eacute;rico, no registros biol&oacute;gicos. Expresan cercan&iacute;a a los or&iacute;genes.</p>
+    </div>
+  </div>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:88%"></div></div>
+    <div class="cs-labels"><span>Especulaci&oacute;n</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> que las edades no son biol&oacute;gicamente posibles es un <strong>hecho</strong>. Que funcionan como <strong>convenci&oacute;n literaria simb&oacute;lica</strong> &mdash;con paralelos claros como la Lista Real Sumeria&mdash; es la interpretaci&oacute;n mayoritaria entre biblistas. Los detalles del esquema num&eacute;rico concreto siguen en estudio.</p>
+  </div>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>El paralelo con la Lista Real Sumeria (reinados antediluvianos de decenas de miles de a&ntilde;os que caen tras el diluvio) es un lugar com&uacute;n en los estudios sobre G&eacute;nesis 5 y 11. El an&aacute;lisis de las edades como construcciones numéricas simb&oacute;licas (base 60, m&uacute;ltiplos de n&uacute;meros significativos) ha sido trabajado por autores como Dwight Young y otros asiriólogos y biblistas.</p>
+    <p>Conviene la cautela: no hay una &uacute;nica soluci&oacute;n aceptada sobre <em>qu&eacute;</em> esquema num&eacute;rico exacto siguen las cifras; lo que s&iacute; es mayoritario es que <strong>no</strong> deben leerse como datos biol&oacute;gicos literales, sino como convenci&oacute;n del g&eacute;nero.</p>
+    <p>La imagen que ilustra esta entrega es un manuscrito b&iacute;blico reutilizado con fines ilustrativos; no representa espec&iacute;ficamente las genealog&iacute;as. La entrega distingue el dato (imposibilidad biol&oacute;gica) de la interpretaci&oacute;n (funci&oacute;n simb&oacute;lica), respetando la lectura literal como opci&oacute;n de fe.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega</div>
+    <div class="nt-title">Los patriarcas</div>
+    <div class="nt-desc">Abraham, Isaac y Jacob. &iquest;Fueron personajes hist&oacute;ricos? La arqueolog&iacute;a no los encuentra, pero s&iacute; ilumina el mundo en que se ambientan sus historias &mdash;y plantea cu&aacute;ndo se escribieron&mdash;.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">&uarr; <a href="serie-genesis.html">Serie: G&eacute;nesis a prueba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="genesis-3.html"><span class="lbl">&larr; Anterior</span><span class="ttl">La Torre de Babel</span></a>
+    <a class="epnav-btn next" href="genesis-5.html"><span class="lbl">Siguiente &rarr;</span><span class="ttl">Los patriarcas</span></a>
+  </div>
+</nav>
+
+<footer>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Solo seis mil años? — Estratos</title>
+<style>
+  :root{
+    --ink:#241f1a;--paper:#efe7d6;--paper-deep:#e3d8c0;--paper-light:#f6f0e2;
+    --verd:#3d7068;--verd-deep:#2a5049;--verd-light:#5a938a;
+    --terra:#b0503a;--terra-deep:#8a3a28;--sand:#c9b48f;
+    --rule:#c4b393;--mute:#8a7c62;--shadow:rgba(40,32,22,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* motivo: fibra de papel + retícula científica tenue */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(rgba(61,112,104,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,112,104,.04) 1px, transparent 1px),
+      radial-gradient(circle at 25% 30%, rgba(176,80,58,.03) 0 2px, transparent 2px);
+    background-size:44px 44px, 44px 44px, 60px 60px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--verd-deep);background:rgba(246,240,226,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(61,112,104,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,240,226,1)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--verd),var(--terra));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.3em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.3em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--verd);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3226;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332b1f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(61,112,104,.05);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3226;background:rgba(61,112,104,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--verd-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--verd-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--terra);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--verd);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--verd-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(61,112,104,.07);border:1px solid rgba(61,112,104,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* medidor de consenso */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0503a 0%,#c8a23a 50%,#3d7068 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3226}
+  .cs-verdict strong{color:var(--verd-deep)}
+
+  /* muro de posturas */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--paper-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.ciencia .hip-tag{color:var(--verd-deep)}
+  .hip.literal .hip-tag{color:var(--terra-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--verd-deep);color:#e8f0ed;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#d4e4e0}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:#9ed0c6}
+
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--verd-deep),var(--verd));color:#eef4f2;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#d4e4e0;max-width:520px;margin:0 auto}
+
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--verd-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--verd-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--paper-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--verd-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-genesis.html"><span class="arrow">←</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">Génesis a prueba · I</span>
+  <h1>¿Solo seis mil <span class="em">años</span>?</h1>
+  <div class="glyphs">☉ · ⌛ · ⚗</div>
+  <p class="standfirst">Sumando las edades de los patriarcas, algunos calcularon que la humanidad tenía unos seis mil años. La ciencia cuenta una historia con cinco ceros más. ¿De dónde viene cada cifra?</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">Esta serie toma los grandes relatos del principio de la Biblia —la creación, el diluvio, la torre de Babel, los patriarcas, el éxodo, la conquista— y los pone frente a lo que han encontrado la arqueología y la ciencia. No para "desmentir" la Biblia, sino para hacer algo más interesante: entender <strong>de dónde viene cada relato</strong>, qué mundo real refleja, y qué dicen las evidencias. Distinguiremos siempre lo que es consenso sólido de lo que está en debate. Y lo haremos con respeto: millones de personas encuentran sentido en estos textos, y explicar su origen histórico no busca quitarles valor, sino iluminarlos.</p>
+
+  <p>Empecemos por la pregunta más básica de todas: ¿cuánto tiempo lleva el ser humano sobre la Tierra?</p>
+
+  <h2><span class="n">01</span>De dónde salen los seis mil años</h2>
+
+  <p>La cifra no está escrita como tal en la Biblia. Surge de <strong>sumar cronologías</strong>: las genealogías del Génesis, que dan las edades de los patriarcas desde Adán, encadenadas con el resto de datos cronológicos del texto. El cálculo más famoso lo hizo en el siglo XVII el arzobispo irlandés <span class="term">James Ussher</span>, que fijó la creación del mundo en el año <strong>4004 a.C.</strong> Sumando desde ahí, la humanidad tendría unos seis mil años.</p>
+
+  <p>Es un trabajo erudito y meticuloso para su época. El problema no es el cálculo en sí, sino su punto de partida: <strong>supone que las genealogías del Génesis son un registro cronológico completo y literal</strong>, pensado para medir el tiempo. Y hay buenas razones para dudar de que fueran escritas con esa intención, como veremos en un episodio próximo dedicado a esas edades imposibles.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>Los "seis mil años" no aparecen escritos en la Biblia: son el resultado de sumar las edades de los patriarcas. El arzobispo Ussher hizo la cuenta más célebre en 1650 y llegó al año 4004 a.C. como fecha de la creación.</p>
+  </div>
+
+  <h2><span class="n">02</span>Lo que mide la ciencia</h2>
+
+  <p>La ciencia aborda la pregunta de otra manera: no sumando textos, sino <strong>midiendo</strong> —fósiles, capas de roca, isótopos radiactivos, ADN—. Y sus resultados no dejan lugar a un margen de miles: hablan de cientos de miles de años solo para nuestra especie, y de millones para nuestros antepasados.</p>
+
+  <p>El fósil de <em>Homo sapiens</em> más antiguo conocido procede de <span class="term">Jebel Irhoud</span>, en Marruecos, y tiene unos <strong>300.000 años</strong> —un hallazgo de 2017 que retrasó en cien mil años el origen de nuestra especie, que antes se situaba en torno a los 200.000—. Y si retrocedemos por la línea de nuestros parientes homínidos, llegamos a millones de años: los <em>Australopithecus</em>, como la famosa "Lucy", vivieron hace más de tres millones de años.</p>
+
+  <figure class="fig">
+    <img src="craneos-evolucion.jpg" alt="Cráneos comparados de humano, chimpancé, orangután y macaco">
+    <figcaption>
+      <span class="desc">Cráneos comparados de primates (de izquierda a derecha: humano, chimpancé, orangután y macaco). La anatomía comparada y el registro fósil sitúan el linaje humano en una profundidad temporal de millones de años.</span>
+      <span class="credit">Christopher Walsh, Harvard Medical School, <a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener">CC BY 2.5</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">03</span>Cómo se mide el tiempo profundo</h2>
+
+  <p>¿Por qué confiar en esas cifras? Porque no dependen de un solo método, sino de varios <strong>independientes que coinciden</strong>. La datación por <strong>radiocarbono</strong> sirve para restos de hasta unos 50.000 años. Para edades mayores se usan otros relojes isotópicos —potasio-argón, series de uranio, termoluminiscencia—, cada uno basado en la desintegración, a ritmo constante y medible, de elementos radiactivos. En Jebel Irhoud, por ejemplo, la edad se obtuvo por termoluminiscencia de herramientas de piedra quemadas.</p>
+
+  <p>A ello se suman la <span class="term">estratigrafía</span> (las capas de roca se depositan en orden, las de abajo son más antiguas), la <strong>dendrocronología</strong>, los núcleos de hielo y sedimento, y la <strong>genética de poblaciones</strong>, que estima tiempos de divergencia a partir de las mutaciones acumuladas en el ADN. Todos apuntan en la misma dirección: un pasado humano inmensamente más largo que seis mil años.</p>
+
+  <figure class="fig">
+    <img src="estratos-geologicos.jpg" alt="Estratos geológicos plegados">
+    <figcaption>
+      <span class="desc">Capas de roca sedimentaria plegadas por fuerzas tectónicas, en Amán (Jordania). La estratificación registra millones de años de depósito: cada capa, un archivo del tiempo profundo.</span>
+      <span class="credit">High Contrast, <a href="https://creativecommons.org/licenses/by/3.0/de/deed.en" target="_blank" rel="noopener">CC BY 3.0 DE</a>, vía Wikimedia Commons. Tratada en tono cálido.</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">04</span>Dos preguntas distintas</h2>
+
+  <p>Aquí conviene detenerse, porque el choque entre "seis mil años" y "trescientos mil" no es tanto una batalla de datos como un <strong>malentendido sobre qué pregunta responde cada fuente</strong>. Las genealogías del Génesis no se escribieron como un cronómetro geológico: son, entre otras cosas, un modo de ordenar la memoria, de conectar generaciones, de afirmar el lugar de un pueblo en el mundo. Leerlas como si fueran un manual de datación es pedirles algo que no pretendían dar.</p>
+
+  <p>La ciencia, por su parte, no dice nada sobre el <em>sentido</em> de la existencia humana; solo mide su antigüedad. Cuando se entiende que cada fuente responde a una pregunta diferente —una, el <em>cuánto</em> medible; otra, el <em>quiénes somos</em> y de dónde venimos en un sentido más hondo—, el conflicto se disuelve en buena medida. El problema aparece solo cuando se exige a una que haga el trabajo de la otra.</p>
+
+  <div class="muro">
+    <div class="hip literal">
+      <span class="hip-tag">La lectura literal</span>
+      <div class="hip-title">Una Tierra joven</div>
+      <p>Las genealogías se leen como cronología exacta: la humanidad tendría unos 6.000 años, y los fósiles se reinterpretan como restos post-diluvianos de pocos miles de años.</p>
+    </div>
+    <div class="hip ciencia">
+      <span class="hip-tag">La evidencia científica</span>
+      <div class="hip-title">Un pasado inmenso</div>
+      <p>Múltiples métodos independientes de datación sitúan a <em>Homo sapiens</em> en ~300.000 años y a sus ancestros en millones. No hay margen para una cifra de miles.</p>
+    </div>
+  </div>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:96%"></div></div>
+    <div class="cs-labels"><span>Especulación</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> la gran antigüedad del ser humano (cientos de miles de años) es <strong>consenso científico prácticamente absoluto</strong>, sostenido por métodos independientes que concuerdan. La cronología de "seis mil años" no tiene apoyo en la evidencia física; pertenece a una lectura literal de las genealogías, no a la ciencia.</p>
+  </div>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>La datación de <em>Homo sapiens</em> en ~300.000 años procede de los fósiles de Jebel Irhoud (Marruecos), publicados por Hublin y colaboradores en <em>Nature</em> (2017) y datados por termoluminiscencia por McPherron y su equipo. El consenso previo (~200.000 años) se basaba en los fósiles de Omo, en Etiopía.</p>
+    <p>La fecha de 4004 a.C. es la cronología de James Ussher (<em>Annales Veteris Testamenti</em>, 1650), un cálculo erudito basado en las genealogías bíblicas. Se presenta aquí como dato histórico del pensamiento, no como hipótesis científica en competencia.</p>
+    <p>Existe una postura de "Tierra joven" que reinterpreta las dataciones (por ejemplo, los materiales de organizaciones creacionistas). Esta serie la menciona con neutralidad y expone por qué la comunidad científica no la acepta: contradice la convergencia de múltiples métodos de datación independientes. El objetivo es describir el estado de la evidencia, no descalificar creencias personales.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega</div>
+    <div class="nt-title">El Diluvio universal</div>
+    <div class="nt-desc">¿Cubrió el agua toda la Tierra? La geología dice una cosa, pero las tablillas de Mesopotamia revelan algo fascinante: el relato del diluvio es más antiguo que la Biblia, y no nació en ella.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">↑ <a href="serie-genesis.html">Serie: Génesis a prueba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev disabled" href="#"><span class="lbl">← Anterior</span><span class="ttl">Inicio de la serie</span></a>
+    <a class="epnav-btn next" href="genesis-2.html"><span class="lbl">Siguiente →</span><span class="ttl">El Diluvio universal</span></a>
+  </div>
+</nav>
+
+<footer>Estratos · Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

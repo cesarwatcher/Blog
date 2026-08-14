@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Torre de Babel y el origen de las lenguas — Estratos</title>
+<style>
+  :root{
+    --ink:#241f1a;--paper:#efe7d6;--paper-deep:#e3d8c0;--paper-light:#f6f0e2;
+    --verd:#3d7068;--verd-deep:#2a5049;--verd-light:#5a938a;
+    --terra:#b0503a;--terra-deep:#8a3a28;--sand:#c9b48f;
+    --rule:#c4b393;--mute:#8a7c62;--shadow:rgba(40,32,22,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--paper);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* motivo: fibra de papel + retícula científica tenue */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:linear-gradient(rgba(61,112,104,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,112,104,.04) 1px, transparent 1px),
+      radial-gradient(circle at 25% 30%, rgba(176,80,58,.03) 0 2px, transparent 2px);
+    background-size:44px 44px, 44px 44px, 60px 60px}
+
+  .back-home{position:fixed;top:20px;left:20px;z-index:50;display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Trebuchet MS",system-ui,sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;
+    text-decoration:none;color:var(--verd-deep);background:rgba(246,240,226,.92);backdrop-filter:blur(6px);
+    border:1px solid rgba(61,112,104,.4);border-radius:2rem;padding:.6rem 1.1rem .6rem .95rem;
+    box-shadow:0 4px 16px var(--shadow);transition:transform .3s,background .3s}
+  .back-home:hover{transform:translateX(-3px);background:rgba(246,240,226,1)}
+  @media(max-width:600px){.back-home{top:12px;left:12px;padding:.6rem;border-radius:50%}.back-home .label{display:none}}
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--verd),var(--terra));z-index:60;transition:width .1s linear}
+  .wrap{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  header.masthead{padding:14vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.3em;
+    font-size:.7rem;color:var(--terra-deep);font-weight:700;margin-bottom:1.8rem;display:inline-block;padding-left:.3em}
+  header.masthead h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.01em;margin-bottom:1.2rem}
+  header.masthead h1 .em{font-style:italic;color:var(--terra-deep)}
+  .glyphs{font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.3em;color:var(--verd);margin:.8rem 0 1.4rem}
+  header.masthead .standfirst{font-size:1.14rem;color:#3a3226;max-width:600px;margin:0 auto;font-style:italic}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.6rem auto 0;max-width:300px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:8px;height:8px;background:var(--terra);transform:rotate(45deg)}
+
+  .intro-text{font-size:1.1rem;color:#332b1f;margin:2rem 0}
+
+  figure.fig{margin:1.8rem 0 .5rem;border-radius:12px;overflow:hidden;background:rgba(61,112,104,.05);border:1px solid var(--rule);box-shadow:0 6px 18px var(--shadow)}
+  figure.fig img{display:block;width:100%;height:auto;filter:sepia(.12) saturate(1.03)}
+  figure.fig figcaption{padding:.7rem 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.82rem;line-height:1.45;color:#3a3226;background:rgba(61,112,104,.08)}
+  figure.fig figcaption .desc{display:block}
+  figure.fig figcaption .credit{display:block;margin-top:.3rem;font-size:.72rem;color:#7a6e54}
+  figure.fig figcaption .credit a{color:var(--verd-deep)}
+
+  .wrap h2{font-size:1.65rem;font-weight:400;line-height:1.2;margin:3rem 0 1rem;color:var(--verd-deep)}
+  .wrap h2 .n{font-family:"Trebuchet MS",sans-serif;font-size:.86rem;font-weight:700;color:var(--terra);letter-spacing:.12em;display:block;line-height:1.2;margin-bottom:.5rem}
+  .wrap h3{font-size:1.22rem;font-weight:700;font-style:italic;color:var(--verd);margin:2rem 0 .8rem}
+  .wrap p{margin-bottom:1.2rem;font-size:1.06rem}
+  .wrap p .term{font-style:italic;color:var(--verd-deep)}
+  .wrap strong{color:var(--terra-deep);font-weight:700}
+
+  .simple{margin:1.6rem 0;padding:1.1rem 1.4rem;background:rgba(61,112,104,.07);border:1px solid rgba(61,112,104,.22);border-radius:8px}
+  .simple .tag{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);display:block;margin-bottom:.45rem}
+  .simple p{margin-bottom:0;font-size:1rem}
+
+  /* medidor de consenso */
+  .consensus{margin:2rem 0;padding:1.4rem 1.4rem 1.6rem;background:var(--paper-light);border:1px solid var(--rule);border-radius:14px;box-shadow:0 6px 20px var(--shadow)}
+  .cs-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--verd-deep);font-weight:700;text-align:center;margin-bottom:1rem}
+  .cs-bar{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#b0503a 0%,#c8a23a 50%,#3d7068 100%);margin:1.4rem 0 .5rem}
+  .cs-marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .cs-labels{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin-bottom:1rem}
+  .cs-verdict{font-size:.98rem;color:#3a3226}
+  .cs-verdict strong{color:var(--verd-deep)}
+
+  /* muro de posturas */
+  .muro{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+  @media(max-width:600px){.muro{grid-template-columns:1fr}}
+  .hip{padding:1.3rem 1.3rem;border-radius:12px;border:1px solid var(--rule);background:var(--paper-light);box-shadow:0 4px 14px var(--shadow)}
+  .hip .hip-tag{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6rem;display:block}
+  .hip.ciencia .hip-tag{color:var(--verd-deep)}
+  .hip.literal .hip-tag{color:var(--terra-deep)}
+  .hip .hip-title{font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.25}
+  .hip p{font-size:.95rem;margin-bottom:0;line-height:1.55}
+
+  .note-block{margin:2.5rem 0;padding:1.5rem 1.6rem;background:var(--verd-deep);color:#e8f0ed;border-radius:14px;box-shadow:0 8px 24px var(--shadow)}
+  .note-block .nb-title{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.8rem}
+  .note-block p{font-size:.96rem;line-height:1.6;margin-bottom:.7rem;color:#d4e4e0}
+  .note-block p:last-child{margin-bottom:0}
+  .note-block strong{color:#fff}
+  .note-block a{color:#9ed0c6}
+
+  .next-teaser{margin:3rem 0 1rem;padding:1.6rem 1.6rem;background:linear-gradient(135deg,var(--verd-deep),var(--verd));color:#eef4f2;border-radius:14px;text-align:center;box-shadow:0 8px 24px var(--shadow)}
+  .next-teaser .nt-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#9ed0c6;font-weight:700;margin-bottom:.6rem}
+  .next-teaser .nt-title{font-size:1.3rem;font-style:italic;margin-bottom:.4rem}
+  .next-teaser .nt-desc{font-size:.96rem;color:#d4e4e0;max-width:520px;margin:0 auto}
+
+  .epnav{max-width:740px;margin:2rem auto 0;padding:0 28px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--verd-deep);margin-bottom:1rem}
+  .epnav-series a{color:var(--verd-deep);text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;border:1px solid var(--rule);border-radius:10px;background:var(--paper-light);transition:transform .3s,background .3s;min-height:64px;justify-content:center}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .epnav-btn .ttl{font-size:1rem;color:var(--verd-deep)}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+
+  footer{text-align:center;padding:2rem 0 3rem;color:var(--mute);font-size:.8rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.04em}
+</style></head><body>
+
+<div class="progress" id="progress"></div>
+<a class="back-home" href="serie-genesis.html"><span class="arrow">&larr;</span><span class="label">La serie</span></a>
+
+<header class="masthead"><div class="wrap">
+  <span class="eyebrow">G&eacute;nesis a prueba &middot; III</span>
+  <h1>La Torre de Babel y el origen de las <span class="em">lenguas</span></h1>
+  <div class="glyphs">&#127961; &middot; &#128499; &middot; &#127760;</div>
+  <p class="standfirst">Un rascacielos de barro para alcanzar el cielo, y un Dios que confunde las lenguas para detenerlo. Detr&aacute;s del relato hay un edificio real de Babilonia &mdash;y una pregunta sobre c&oacute;mo nacen de verdad los idiomas&mdash;.</p>
+  <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+</div></header>
+
+<div class="wrap">
+
+  <p class="intro-text">El relato de la Torre de Babel es brev&iacute;simo &mdash;apenas nueve vers&iacute;culos&mdash;, pero su imagen es imborrable: una humanidad unida que construye una torre "cuya c&uacute;spide llegue al cielo", y un Dios que baja, confunde su lengua y la dispersa por la Tierra. El relato pretende explicar dos cosas: por qu&eacute; existen tantos idiomas y por qu&eacute; los pueblos est&aacute;n dispersos. Veamos qu&eacute; hay detr&aacute;s.</p>
+
+  <h2><span class="n">01</span>La torre era real</h2>
+
+  <p>Lo primero que sorprende es que la torre <strong>tiene un modelo hist&oacute;rico concreto</strong>. En Babilonia se alzaba un <span class="term">zigurat</span> monumental llamado <strong>Etemenanki</strong> &mdash;"Templo del fundamento del cielo y la tierra"&mdash;, dedicado al dios Marduk. Era una pir&aacute;mide escalonada de ladrillo con una base de unos 91 metros de lado, que en su forma final, reconstruida por Nabucodonosor II, pudo alcanzar los 70 u 80 metros de altura. Sus ruinas fueron excavadas por el arque&oacute;logo alem&aacute;n Robert Koldewey hacia 1913.</p>
+
+  <figure class="fig">
+    <img src="zigurat-babel.jpg" alt="Reconstrucci&oacute;n o ruinas del zigurat de Babilonia">
+    <figcaption>
+      <span class="desc">Un gran zigurat mesopot&aacute;mico. Estas pir&aacute;mides escalonadas de ladrillo, templos-monta&ntilde;a para acercarse a los dioses, son el modelo hist&oacute;rico en el que se inspira el relato de la Torre de Babel. El zigurat de Babilonia, Etemenanki, era el mayor de todos.</span>
+      <span class="credit">Tla2006, dominio p&uacute;blico, v&iacute;a Wikimedia Commons. Tratada en tono c&aacute;lido.</span>
+    </figcaption>
+  </figure>
+
+  <p>Los ziggurats eran "monta&ntilde;as artificiales" coronadas por un templo: el punto donde el cielo y la tierra se tocaban. Una inscripci&oacute;n de Nabucodonosor sobre Etemenanki se jacta de haber "elevado su cima hasta el cielo" &mdash;casi las mismas palabras del G&eacute;nesis&mdash;, y describe el uso de ladrillo cocido y bet&uacute;n (asfalto) como argamasa, exactamente los materiales que menciona el relato b&iacute;blico. La coincidencia no es casual.</p>
+
+  <div class="simple">
+    <span class="tag">En simple</span>
+    <p>La Torre de Babel se inspira en un edificio que exist&iacute;a de verdad: el gran zigurat de Babilonia, Etemenanki. Hasta los materiales que menciona la Biblia &mdash;ladrillo y asfalto&mdash; coinciden con los de la construcci&oacute;n real.</p>
+  </div>
+
+  <h2><span class="n">02</span>Una cr&iacute;tica a Babilonia</h2>
+
+  <p>&iquest;Por qu&eacute; un relato israelita convertir&iacute;a el mayor monumento de Babilonia en s&iacute;mbolo de la arrogancia castigada? La respuesta est&aacute; en la historia. Es muy probable que el relato tomara su forma durante el <strong>exilio en Babilonia</strong> (siglo VI a.C.), cuando los jud&iacute;os deportados vieron con sus propios ojos ese zigurat colosal, s&iacute;mbolo del poder imperial que los hab&iacute;a sometido. Convertirlo en un monumento a la soberbia humana, derribado por Dios, era una forma de <strong>cr&iacute;tica teol&oacute;gica y pol&iacute;tica</strong> al imperio que los oprim&iacute;a.</p>
+
+  <p>El propio nombre esconde esa punzada. Los babilonios llamaban a su ciudad <em>B&#257;b-ilu</em>, "puerta del dios". Pero el texto hebreo juega con la palabra <em>balal</em>, "confundir", para dar a "Babel" un sentido burl&oacute;n: no la gloriosa "puerta de dios", sino el lugar de la "confusi&oacute;n". Es un juego de palabras deliberado, un dardo ir&oacute;nico contra la capital del imperio.</p>
+
+  <figure class="fig">
+    <img src="torre-babel.jpg" alt="La Torre de Babel, cuadro de Pieter Brueghel el Viejo">
+    <figcaption>
+      <span class="desc">"La Torre de Babel", de Pieter Brueghel el Viejo (1563). La imagen m&aacute;s c&eacute;lebre del relato en la historia del arte: una torre en espiral, inspirada en el Coliseo romano, que se desmorona bajo su propia ambici&oacute;n.</span>
+      <span class="credit">Pieter Brueghel el Viejo, dominio p&uacute;blico, v&iacute;a Wikimedia Commons (Kunsthistorisches Museum, Viena).</span>
+    </figcaption>
+  </figure>
+
+  <h2><span class="n">03</span>C&oacute;mo nacen de verdad las lenguas</h2>
+
+  <p>El relato ofrece una explicaci&oacute;n para la diversidad de idiomas: exist&iacute;a una sola lengua, y Dios la multiplic&oacute; de golpe como castigo. Es lo que los estudiosos llaman un <span class="term">relato etiol&oacute;gico</span>: una historia que explica el origen de algo que la gente observa (aqu&iacute;, por qu&eacute; hablamos lenguas distintas).</p>
+
+  <p>La ling&uuml;&iacute;stica moderna describe un proceso completamente diferente, y sin ning&uacute;n acontecimiento &uacute;nico. Las lenguas <strong>divergen lentamente</strong>, a lo largo de miles de a&ntilde;os, cuando grupos de hablantes se separan: cada comunidad acumula peque&ntilde;os cambios en el sonido, el vocabulario y la gram&aacute;tica, hasta que, con los siglos, los dialectos se vuelven lenguas mutuamente incomprensibles. As&iacute; el lat&iacute;n se convirti&oacute; en espa&ntilde;ol, franc&eacute;s, italiano y portugu&eacute;s. No hizo falta ning&uacute;n castigo divino: basta el tiempo y la distancia. Y el proceso es rastreable: los ling&uuml;istas reconstruyen "&aacute;rboles" de familias de lenguas emparentadas, como el indoeuropeo, que remontan a lenguas madre habladas hace miles de a&ntilde;os.</p>
+
+  <p>Adem&aacute;s, la diversidad de lenguas es <strong>mucho m&aacute;s antigua</strong> que Babilonia. Cuando se construy&oacute; el zigurat de Etemenanki, ya se hablaban y escrib&iacute;an numerosas lenguas distintas por todo el mundo desde hac&iacute;a milenios. La torre no pudo ser el origen de algo que ya exist&iacute;a mucho antes.</p>
+
+  <h2><span class="n">04</span>Qu&eacute; nos dice el relato</h2>
+
+  <p>Leer Babel como lo que es &mdash;un relato etiol&oacute;gico y una cr&iacute;tica al imperio&mdash; no lo empobrece: lo ilumina. Deja de ser una teor&iacute;a fallida sobre el origen de los idiomas y se revela como lo que sus autores quisieron: una reflexi&oacute;n punzante sobre la <strong>ambici&oacute;n humana</strong>, sobre los imperios que se creen capaces de tocar el cielo, y sobre su ca&iacute;da. No es casualidad que la imagen de la torre haya perdurado como met&aacute;fora de la soberbia, de Brueghel a los debates actuales sobre la tecnolog&iacute;a. El relato funciona como literatura y como cr&iacute;tica; simplemente no funciona como ling&uuml;&iacute;stica &mdash;porque nunca pretendi&oacute; serlo&mdash;.</p>
+
+  <div class="muro">
+    <div class="hip literal">
+      <span class="hip-tag">La lectura literal</span>
+      <div class="hip-title">Un origen &uacute;nico</div>
+      <p>Toda la humanidad hablaba una lengua; Dios la confundi&oacute; en Babel, y de ah&iacute; surgieron de golpe todos los idiomas y la dispersi&oacute;n de los pueblos.</p>
+    </div>
+    <div class="hip ciencia">
+      <span class="hip-tag">La lectura hist&oacute;rico-cr&iacute;tica</span>
+      <div class="hip-title">Divergencia y cr&iacute;tica</div>
+      <p>Las lenguas divergen lentamente durante milenios, sin un &uacute;nico origen. El relato es una etiolog&iacute;a y una cr&iacute;tica al imperio babilónico, inspirada en el zigurat Etemenanki.</p>
+    </div>
+  </div>
+
+  <div class="consensus">
+    <div class="cs-title">Medidor de consenso</div>
+    <div class="cs-bar"><div class="cs-marker" style="left:94%"></div></div>
+    <div class="cs-labels"><span>Especulaci&oacute;n</span><span>Debate</span><span>Consenso</span></div>
+    <p class="cs-verdict"><strong>Lectura:</strong> que las lenguas <strong>divergen gradualmente</strong> y no de un &uacute;nico evento es consenso ling&uuml;&iacute;stico absoluto. La identificaci&oacute;n de la torre con el zigurat <strong>Etemenanki</strong> y el origen del relato en el contexto babilónico son ampliamente aceptados. El detalle de cu&aacute;ndo se redact&oacute; exactamente admite matices.</p>
+  </div>
+
+  <div class="note-block">
+    <div class="nb-title">Nota sobre el rigor y las fuentes</div>
+    <p>La identificaci&oacute;n de la Torre de Babel con el zigurat Etemenanki de Babilonia es ampliamente sostenida (Britannica, National Geographic, y los trabajos del asiriólogo Andrew George). Las ruinas fueron excavadas por Robert Koldewey ca. 1913; las inscripciones de Nabucodonosor II y su padre Nabopolassar describen la construcci&oacute;n con paralelos verbales al G&eacute;nesis.</p>
+    <p>El juego de palabras entre <em>B&#257;b-ilu</em> ("puerta del dios") y el hebreo <em>balal</em> ("confundir") y la lectura del relato como cr&iacute;tica al imperio son interpretaciones acad&eacute;micas habituales. Existe un paralelo sumerio en <em>Enmerkar y el se&ntilde;or de Aratta</em>.</p>
+    <p>El modelo de divergencia ling&uuml;&iacute;stica (familias de lenguas, reconstrucci&oacute;n de protolenguas) es el marco est&aacute;ndar de la ling&uuml;&iacute;stica hist&oacute;rica. La entrega distingue el relato como <strong>literatura etiol&oacute;gica</strong> de la explicaci&oacute;n cient&iacute;fica del origen de las lenguas, sin descalificar su valor cultural o teol&oacute;gico.</p>
+  </div>
+
+  <div class="next-teaser">
+    <div class="nt-kicker">Siguiente entrega</div>
+    <div class="nt-title">Las edades imposibles</div>
+    <div class="nt-desc">Matusal&eacute;n vivi&oacute; 969 a&ntilde;os; No&eacute;, 950. &iquest;C&oacute;mo entender esas cifras? La respuesta no est&aacute; en la biolog&iacute;a, sino en el significado de los n&uacute;meros en el mundo antiguo.</div>
+  </div>
+
+</div>
+
+<nav class="epnav">
+  <div class="epnav-series">&uarr; <a href="serie-genesis.html">Serie: G&eacute;nesis a prueba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="genesis-2.html"><span class="lbl">&larr; Anterior</span><span class="ttl">El Diluvio universal</span></a>
+    <a class="epnav-btn next" href="genesis-4.html"><span class="lbl">Siguiente &rarr;</span><span class="ttl">Las edades imposibles</span></a>
+  </div>
+</nav>
+
+<footer>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(s*100)+'%';});
+</script>
+</body></html>

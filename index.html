@@ -52,21 +52,14 @@
     background-image:linear-gradient(rgba(122,68,40,.1) 1px, transparent 1px),linear-gradient(90deg, rgba(122,68,40,.1) 1px, transparent 1px);
     background-size:22px 22px}
   .scard-arqueo .body{position:relative;z-index:1}
-  .scard-imperial{background:linear-gradient(160deg,#3a4a5e,#2a3a4e);color:#e4e8ee}
+  .scard-imperial{background:linear-gradient(160deg,#33445a,#232f40);color:#e8ecf2}
   .scard-imperial::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;border-radius:inherit;
     background-image:repeating-linear-gradient(90deg, rgba(201,162,39,.25) 0 1px, transparent 1px 14px)}
   .scard-imperial .body{position:relative;z-index:1}
-  .scard-imperial .snum{color:#b8c4d4}
-  .scard-imperial h2{color:#f4e8c8}
-  .scard-imperial p{color:#d0d8e2}
-  .scard-imperial .count{color:#b8c4d4}
-  .scard-imperial .go{color:#e0c158 !important}
   .scard-marble{background:linear-gradient(160deg,#f0ecec,#e4dce2)}
   .scard-marble::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.4;border-radius:inherit;
     background-image:repeating-linear-gradient(90deg, rgba(106,58,90,.08) 0 1px, transparent 1px 16px)}
   .scard-marble .body{position:relative;z-index:1}
-  .scard-marble h2{color:#6a3a5a}
-  .scard-marble .go{color:#8a5a2a !important}
   .cap-soon{background:repeating-linear-gradient(90deg,#b8ab90,#b8ab90 10px,#a89a7e 10px,#a89a7e 20px)}
   .status-soon{color:#8a7a5a !important;font-style:italic}
   .em-soon{color:#7a6a4a !important}
@@ -96,6 +89,15 @@
   .scard .go .arrow{transition:transform .3s}
   .scard:hover .go .arrow{transform:translateX(5px)}
   .scard .count{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;color:#8a7a5e;margin-top:.2rem}
+  /* Tarjetas de fondo oscuro o de tratamiento propio: los overrides de color van
+     DESPUÉS de las reglas base de .scard, porque tienen la misma especificidad y
+     de lo contrario pierden y el texto sale en el ocre del tema claro. */
+  .scard-imperial .snum{color:#c2cddc}
+  .scard-imperial h2{color:#f7ecd2}
+  .scard-imperial p{color:#dbe2eb}
+  .scard-imperial .count{color:#c2cddc}
+  .scard-marble h2{color:#6a3a5a}
+
   /* Edición especial: overrides DESPUÉS de las reglas base para garantizar contraste */
   .scard-especial{background:linear-gradient(160deg,#1a2133,#0f1420);border-color:rgba(212,161,58,.45)}
   .scard-especial:hover{box-shadow:0 16px 36px rgba(0,0,0,.5)}
@@ -322,10 +324,10 @@
       <a class="scard scard-imperial" href="serie-imperios.html">
       <div class="cap cap-imperial"></div>
       <div class="body">
-        <div class="snum"><span class="status" style="color:#2a4a6a">Completa</span><span>Serie</span></div>
-        <h2>Los vecinos <span class="em" style="color:#2a4a6a">imperiales</span></h2>
+        <div class="snum"><span class="status" style="color:#eed596">Completa</span><span>Serie</span></div>
+        <h2>Los vecinos <span class="em" style="color:#eed596">imperiales</span></h2>
         <p>Egipto, Asiria, Babilonia y Persia: cómo las grandes potencias que rodearon a Israel moldearon su religión. Del exilio que forjó el monoteísmo a la Persia que dio forma al fin del mundo.</p>
-        <span class="go" style="color:#2a4a6a">Ver la serie <span class="arrow">→</span></span>
+        <span class="go" style="color:#eed596">Ver la serie <span class="arrow">→</span></span>
         <div class="count">4 entregas</div>
       </div>
     </a>

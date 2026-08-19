@@ -108,7 +108,10 @@
   .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
   .wrap{max-width:1040px}
   .col-text{max-width:720px;margin:0 auto}
-  .col-text h2{font-size:1.62rem;margin:3rem 0 .9rem}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
   .col-text p{font-size:1.06rem;margin-bottom:1.15rem}
   .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;padding:.1rem .5rem .1rem 0;color:var(--deep)}
   .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
@@ -117,12 +120,15 @@
     font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
   .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)}
 
-  figure{margin:2.6rem auto;max-width:900px}
-  figure img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 8px 26px var(--shadow)}
-  figcaption{margin-top:.7rem;font-size:.92rem;color:#5a4d38;max-width:720px}
-  figcaption .cr{display:block;margin-top:.35rem;font-family:"Trebuchet MS",sans-serif;
-    font-size:.68rem;letter-spacing:.03em;color:#9a8a6e}
-  figcaption .cr a{color:#8a7a5e}
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#8a7a5e}
+  figcaption .cr a{color:#7a6a45;text-decoration:underline;text-decoration-color:rgba(122,106,69,.45)}
+  figcaption .cr a:hover{text-decoration-color:#7a6a45}
 
   /* ===== medidor de consenso ===== */
   .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
@@ -192,7 +198,7 @@
 
 <p>El resultado depende de decisiones técnicas que el lector del atlas nunca ve. De si los escribas contaban el año nuevo en Tishri, en otoño, como se hacía en Judá, o en Nisán, en primavera, como en Babilonia. De si un rey que sube al trono a mitad de año estrena su «primer año» ese mismo otoño o el siguiente. Y sobre todo de cuántas <em>corregencias</em> se postulan: padres e hijos reinando a la vez, que el texto no menciona pero que hay que suponer para que los números cuadren. Cada suposición mueve la fecha unos años. Por eso Thiele llegó a 931, Galil a 930 y Albright a 922, trabajando todos con el mismo texto.</p>
 
-<h2>Dónde empieza de verdad la historia comprobable</h2>
+<div class="secnum">01</div><h2>Dónde empieza de verdad la historia comprobable</h2>
 
 <p>El primer momento de la monarquía israelita que una fuente externa fecha es <strong>el año 853 a.C.</strong>, y no tiene nada que ver con la división. Es la batalla de Qarqar, en el norte de Siria, narrada en el Monolito de Kurkh de Salmanasar III: entre los aliados que se le opusieron figura «Ajab de Israel», con dos mil carros y diez mil soldados. Doce años después, en 841, el Obelisco Negro registra el tributo de «Iaua de la casa de Omri».</p>
 
@@ -242,14 +248,14 @@
 
 <p>Al desplazarse hacia el siglo X, los dos carriles se quedan huecos. No hay ni un bloque relleno antes de Omri. Ese hueco es, en sí mismo, el estado de la cuestión: todo lo que la Biblia cuenta del reino unido y de su ruptura pertenece a un tramo del que no tenemos ninguna otra voz.</p>
 
-<h2>Sisac, o la campaña que casi encaja</h2>
+<div class="secnum">02</div><h2>Sisac, o la campaña que casi encaja</h2>
 
 <p>Hay un candidato a excepción, y conviene examinarlo con cuidado porque se cita mucho y se cita mal. 1 Reyes 14:25-26 dice que en el quinto año de Roboám subió contra Jerusalén «Sisac, rey de Egipto», y se llevó los tesoros del Templo. Sisac es identificable: <strong>Sheshonq I</strong>, fundador de la XXII dinastía, que reinó hacia 945-924 a.C. y realizó una campaña en el Levante en torno a 926-925. Eso no lo discute nadie.</p>
 
 <figure>
   <img src="karnak-portico-bubastita.jpg" alt="El Pórtico Bubastita en el primer patio del templo de Karnak, con la lista topográfica de Sheshonq I">
   <figcaption>El Pórtico Bubastita, en el primer patio del templo de Karnak. En sus muros, Sheshonq I hizo grabar la lista de los lugares que reclamaba haber sometido: unos ciento cincuenta o ciento ochenta anillos de nombre, muchos hoy dañados o ilegibles.
-  <span class="cr">Foto: Olaf Tausch · CC BY 3.0 · Wikimedia Commons</span></figcaption>
+  <span class="cr">Olaf Tausch, <a href="https://creativecommons.org/licenses/by/3.0/deed.es" target="_blank" rel="noopener">CC BY 3.0</a>.</span></figcaption>
 </figure>
 
 <p>El problema está en la lista. <strong>Jerusalén no aparece en la parte conservada del Pórtico Bubastita.</strong> Conviene decirlo sin rodeos, porque es frecuente encontrar la afirmación contraria. Sí aparecen decenas de topónimos del norte y del Néguev, lo que dibuja un mapa político interesante — Finkelstein lo ha usado precisamente así, como radiografía del Levante del siglo X. Pero la capital de Judá no está ahí.</p>
@@ -258,7 +264,7 @@
 
 <p>De la campaña queda, en el terreno, <strong>un solo objeto</strong>: un fragmento de estela con el cartucho de Sheshonq hallado en Meguido. Eso es todo. El relato de 1 Reyes —un saqueo del tesoro sin destrucción de la ciudad— es perfectamente compatible con el silencio egipcio, y probablemente conserva memoria de algo real. Compatible no es confirmado.</p>
 
-<h2>La pregunta que está de verdad en disputa</h2>
+<div class="secnum">03</div><h2>La pregunta que está de verdad en disputa</h2>
 
 <p>Que existieron dos reinos llamados Israel y Judá en los siglos IX y VIII a.C. no lo discute nadie: está en la estela de Mesa, en la de Tel Dan y en los anales asirios. Lo que está en disputa —y en disputa dura, entre arqueólogos que excavan los mismos yacimientos— es si esos dos reinos son el resultado de la escisión de una entidad anterior, o si nunca hubo tal entidad y la «monarquía unida» es una retroproyección literaria judaíta de época muy posterior.</p>
 
@@ -299,7 +305,7 @@
   <div class="why">En el centro, y no por prudencia sino porque el campo está realmente dividido. Que Israel y Judá existieran como estados vecinos y culturalmente emparentados es consenso. Que procedan de la escisión de una entidad previa es <strong>plausible y sostenido por buena parte de la disciplina, pero no demostrado</strong>. Y el relato concreto de 1 Reyes 11-12 —con el pecado de Salomón, la arrogancia de Roboám y la profecía que lo anuncia todo— es una elaboración teológico-literaria muy posterior a los hechos que narra.</div>
 </div>
 
-<h2>Qué se pierde y qué se gana</h2>
+<div class="secnum">04</div><h2>Qué se pierde y qué se gana</h2>
 
 <p>Es tentador leer todo esto como una demolición. No lo es. Lo que se disuelve al examinarlo de cerca no es la historia de Israel y Judá —que existieron, guerrearon, pagaron tributo y dejaron palacios y ostraca—, sino <em>una fecha</em>: la ilusión de que sabemos el año en que empezó. Y a cambio aparece algo más interesante que una fecha, que es la pregunta de por qué alguien, siglos después, necesitó contar que hubo un reino único y glorioso que se rompió por un pecado.</p>
 

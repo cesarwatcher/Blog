@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El reino partido · Fuentes — Estratos</title>
+<meta name="description" content="Bibliografía y objetos citados en las siete entregas de la serie «El reino partido», con el estado de cada cuestión: consenso, en debate o sin resolver.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5a5230;--mid:#867a45;--pale:#a89a5e;
+    --rel:#8a4a2a;--exc:#5a5230;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.6rem auto;max-width:900px}
+  figure img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 8px 26px var(--shadow)}
+  figcaption{margin-top:.7rem;font-size:.92rem;color:#5a4d38;max-width:720px}
+  figcaption .cr{display:block;margin-top:.35rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.68rem;letter-spacing:.03em;color:#9a8a6e}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#b8ab90,#a89a5e 42%,#867a45 70%,#5a5230)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d4b6,#d2c39e);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .bib{max-width:760px;margin:0 auto}
+  .bib h2{font-size:1.42rem;font-weight:400;margin:2.6rem 0 .5rem;padding-bottom:.4rem;
+    border-bottom:1px solid var(--rule)}
+  .bib h3{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);margin:1.6rem 0 .6rem}
+  .bib p{font-size:.98rem;color:#4a3f33;margin-bottom:.9rem}
+  .bib ul{list-style:none;margin:0 0 1.2rem}
+  .bib li{font-size:.95rem;color:#4a3f33;padding:.4rem 0 .4rem 1.1rem;position:relative;
+    border-bottom:1px dotted rgba(180,150,100,.45)}
+  .bib li::before{content:"·";position:absolute;left:0;color:var(--mid);font-weight:700}
+  .bib li em{font-style:italic}
+  .bib .nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin:2rem 0 1rem}
+  .bib .nav a{display:block;text-decoration:none;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-left:3px solid var(--mid);border-radius:8px;
+    padding:.6rem .8rem;font-family:"Trebuchet MS",sans-serif;font-size:.72rem;color:#4a3f33;
+    transition:background .25s}
+  .bib .nav a:hover{background:#fff}
+  .bib .nav a b{display:block;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8a6e}
+  .bib .obj{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);border-radius:10px;
+    padding:1rem 1.2rem;margin-bottom:1.4rem}
+  .bib .obj table{width:100%;border-collapse:collapse;font-size:.9rem}
+  .bib .obj td{padding:.35rem .4rem;border-bottom:1px dotted rgba(180,150,100,.5);color:#4a3f33;vertical-align:top}
+  .bib .obj td:first-child{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;color:#5a4d38;white-space:nowrap;width:38%}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El reino partido · Aparato crítico</span>
+  <h1>Fuentes de <span class="em">El reino partido</span></h1>
+  <p class="stand">Lo que sostiene cada afirmación de la serie, y hasta dónde la sostiene.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+<div class="wrap"><div class="bib">
+
+<p>Esta página reúne la bibliografía y los objetos citados en las siete entregas de <em>El reino partido</em>. Cada episodio cierra con una nota breve; aquí está el detalle. Las etiquetas indican el estado de cada cuestión: <strong>consenso</strong> cuando la disciplina no discute, <strong>en debate</strong> cuando hay posiciones publicadas y enfrentadas, y <strong>sin resolver</strong> cuando ninguna se ha impuesto.</p>
+
+<div class="nav">
+  <a href="reyes-1.html"><b>Entrega I</b>La grieta que quizá nunca fue</a>
+  <a href="reyes-2.html"><b>Entrega II</b>El reino rico era el hereje</a>
+  <a href="reyes-3.html"><b>Entrega III</b>722/720: el reino que desapareció</a>
+  <a href="reyes-4.html"><b>Entrega IV</b>Como un pájaro en la jaula</a>
+  <a href="reyes-5.html"><b>Entrega V</b>El rey ideal y la reforma que no se ve</a>
+  <a href="reyes-6.html"><b>Entrega VI</b>El derrumbe</a>
+  <a href="reyes-7.html"><b>Entrega VII</b>La tierra que no quedó vacía</a>
+  <a href="corte-laquis.html"><b>Pieza</b>El corte del asedio de Laquis</a>
+</div>
+
+<h2>Los objetos citados</h2>
+
+<div class="obj"><table>
+<tr><td>Monolito de Kurkh</td><td>British Museum 118884. Salmanasar III; el relato concluye con la batalla de Qarqar, 853 a.C., donde figura Ajab de Israel.</td></tr>
+<tr><td>Obelisco Negro</td><td>British Museum 118885. Nimrud, c. 827-825 a.C. Segundo registro: tributo de «Jehú de la casa de Omri», hacia 841.</td></tr>
+<tr><td>Estela de Mesa</td><td>Louvre AO 5066 (= KAI 181). Basalto, 34 líneas, dialecto moabita; hallada en Dibán en 1868. Menciona a Omri y, en la línea 18, el nombre YHWH.</td></tr>
+<tr><td>Estela de Tel Dan</td><td>Museo de Israel. Excavada en 1993-1994. Contiene <em>bytdwd</em>, «casa de David».</td></tr>
+<tr><td>Estela de Tell al-Rimah</td><td>Adad-nirari III, c. 797-796 a.C. = RIMA 3, A.0.104.7. Primera mención cuneiforme de «Samaría» y de «Joás el samaritano».</td></tr>
+<tr><td>Inscripciones de Tiglat-pileser III</td><td>Estela de Irán y sumarias 4, 7 y 13. La sumaria 7 es la tablilla de Nimrud K.3751, con «Yehoahaz de Judá».</td></tr>
+<tr><td>Prismas de Senaquerib</td><td>Prisma de Taylor, British Museum, 691 a.C.; Prisma de Jerusalén, Museo de Israel, 691; Prisma de Chicago, ISAC, 689. Ninguno nombra Laquis.</td></tr>
+<tr><td>Relieves de Laquis</td><td>British Museum, Sala XXXVI del Palacio Suroeste de Nínive, 700-692 a.C. El epígrafe cuneiforme es el único texto asirio que nombra la ciudad.</td></tr>
+<tr><td>Inscripción de Siloé</td><td>Museo Arqueológico de Estambul; copia en el Museo de Israel. Hallada en 1880. No nombra a ningún rey.</td></tr>
+<tr><td>Sellos LMLK</td><td>En torno a 2.000 impresiones conocidas, unas 1.500 de contextos documentados. Cuatro topónimos: Hebrón, Zif, Socó y <em>mmšt</em>, no identificado.</td></tr>
+<tr><td>Ostraca de Samaría</td><td>Un centenar de fragmentos, unos 63 legibles. Registros de vino añejo y aceite lavado. Primera mitad del siglo VIII a.C.</td></tr>
+<tr><td>Crónica Babilónica ABC 5</td><td>British Museum 21946. Cubre 605-594 a.C. Fecha la toma de Jerusalén el 2 de Adar del año 7 de Nabucodonosor, 15 o 16 de marzo de 597. Se interrumpe en el año 11.</td></tr>
+<tr><td>Ostraca de Laquis</td><td>21 piezas, halladas por Starkey en 1935 y 1938 en el cuerpo de guardia de la puerta exterior del Nivel II. Diecisiete en el British Museum.</td></tr>
+<tr><td>Tablillas de raciones de Joaquín</td><td>Vorderasiatisches Museum, Berlín. Año 13 de Nabucodonosor, c. 592 a.C. Publicadas por Weidner en 1939.</td></tr>
+<tr><td>Tablillas de Al-Yahudu</td><td>Unas 200 tablillas, 572-477 a.C. <strong>Sin procedencia arqueológica excavada.</strong> Colecciones privadas y British Museum.</td></tr>
+<tr><td>Cilindro de Ciro</td><td>British Museum 90920. Babilonia, 539 a.C. No menciona a los judíos, ni a Judá, ni a Jerusalén, ni al Templo.</td></tr>
+</table></div>
+
+<h2>Cronología</h2>
+<p>El sinóptico de la primera entrega dibuja dos esquemas a la vez, y ninguno de los dos es un dato externo: los dos son sumas de las duraciones de reinado que da el libro de los Reyes, encajadas mediante sus propios sincronismos.</p>
+<ul>
+<li>E. R. Thiele, <em>The Mysterious Numbers of the Hebrew Kings</em>, 3.ª ed., 1983. Es la barra sólida del sinóptico.</li>
+<li>G. Galil, <em>The Chronology of the Kings of Israel and Judah</em>, Brill, 1996. Es la trama de los extremos. <strong>Advertencia de transparencia:</strong> esta columna se ha tomado de reproducciones secundarias y no de la edición original; tres celdas presentan conflicto entre reproducciones y quedan señaladas como tales.</li>
+<li>Los anclajes externos absolutos del período son ocho: Qarqar 853, tributo de Jehú 841, Tell al-Rimah 796, tributos de Tiglat-pileser III 738 y 734-732, caída de Samaría 722/720, campaña de Senaquerib 701, y Jerusalén 597.</li>
+</ul>
+
+<h2>Entrega I · La monarquía unida y Sheshonq</h2>
+<h3>En debate</h3>
+<ul>
+<li>I. Finkelstein, «The Archaeology of the United Monarchy: An Alternative View», <em>Levant</em> 28 (1996), y la Cronología Baja en general.</li>
+<li>A. Mazar, cronología convencional modificada: Hierro IIA c. 980 - 840/830 a.C.</li>
+<li>A. Faust y Z. Farber, <em>The Bible's First Kings</em>, Cambridge University Press, 2025. Reafirmación de una entidad política unificada en las tierras altas en el siglo X.</li>
+<li>Y. Garfinkel, Khirbet Qeiyafa y Khirbet al-Ra'i: postura maximalista dentro del campo académico.</li>
+<li>M. Keimer, <em>JJAR</em> (2021): propone abandonar el término «monarquía unida» en singular.</li>
+</ul>
+<h3>Consenso</h3>
+<ul>
+<li>Jerusalén no aparece en la parte conservada del Pórtico Bubastita de Karnak.</li>
+<li>La lectura del anillo 29 como «las alturas de David» (Kitchen) es minoritaria y mayoritariamente rechazada.</li>
+<li>Las listas triunfales egipcias no son itinerarios de marcha: I. Finkelstein, <em>ZDPV</em> 118 (2002), y la discusión de K. A. Wilson.</li>
+<li>El imperio salomónico de 1 Reyes 4-5, del Éufrates a Egipto, no lo sostiene nadie en el debate académico.</li>
+</ul>
+
+<h2>Entrega II · Los omridas</h2>
+<ul>
+<li>K. Kenyon, informes de la Joint Expedition de Samaría, 1942-1957.</li>
+<li>N. Franklin, «Samaria: from the Bedrock to the Omride Palace», <em>Levant</em> 36 (2004), 189-202; y «Metrological Investigations at 8th and 9th Century Samaria and Megiddo», <em>Mediterranean Archaeology and Archaeometry</em> (2023).</li>
+<li>D. Ussishkin, «Megiddo and Samaria: A Rejoinder to Norma Franklin», <em>BASOR</em> 348 (2007), 49-70.</li>
+<li>H. M. Niemann, «Observations on the Layout of Iron Age Samaria», <em>Ugarit-Forschungen</em> 43 (2011).</li>
+<li>D. Ussishkin y J. Woodhead, informes de Jezreel en <em>Tel Aviv</em> (1992, 1994, 1997); la objeción de A. Ben-Tor y la respuesta de Ussishkin en <em>Tel Aviv</em> 27 (2000), 248-256.</li>
+<li>I. Finkelstein, M. J. Adams, E. Hall y E. Levy, «The Iron Age Gates of Megiddo», <em>Tel Aviv</em> 46/2 (2019); respuesta de D. Ussishkin, <em>Tel Aviv</em> 47/2 (2020), 246-255.</li>
+<li>A. Ben-Tor y D. Ben-Ami, «Hazor and the Archaeology of the Tenth Century B.C.E.», <em>IEJ</em> 48 (1998), 1-37; I. Finkelstein, <em>BASOR</em> 314 (1999).</li>
+<li>J. Webster, S. Wolff, S. Ortiz <em>et al.</em>, «The chronology of Gezer…», <em>PLOS ONE</em> 18/11 (2023).</li>
+<li>D. O. Cantrell e I. Finkelstein, «A Kingdom for a Horse: The Megiddo Stables and Eighth Century Israel», en <em>Megiddo IV</em> (2006), 643-665; N. Franklin, «Entering the Arena: The Megiddo Stables Reconsidered» (2017).</li>
+<li>Faigenbaum-Golovin <em>et al.</em>, «Algorithmic handwriting analysis of the Samaria inscriptions», <em>PLOS ONE</em> (2020).</li>
+<li>J. W. y G. M. Crowfoot, <em>Samaria-Sebaste II: The Early Ivories from Samaria</em>, Palestine Exploration Fund, 1938; proyecto de catalogación de C. E. Suter, Universidad de Berna.</li>
+</ul>
+
+<h2>Entrega III · 722/720 y las deportaciones</h2>
+<ul>
+<li>H. Tadmor, «The Campaigns of Sargon II of Assur», <em>JCS</em> 12 (1958).</li>
+<li>S. Z. Aster, «Sargon II and Samaria», <em>JAOS</em> 139/3 (2019): las cifras corresponden al conjunto del reino, y la arqueología contradice la afirmación de haber repoblado la ciudad.</li>
+<li>S. J. Park, <em>Biblica</em> 93 (2012): posición minoritaria de una sola conquista.</li>
+<li>M. Broshi e I. Finkelstein, «The Population of Palestine in Iron Age II», <em>BASOR</em> 287 (1992).</li>
+<li>I. Koch, Universidad de Tel Aviv, sobre la política asiria de dispersión de deportados.</li>
+<li>N. Naaman, «Dismissing the Myth of a Flood of Israelite Refugees in the Late Eighth Century BCE», <em>ZAW</em> 126 (2014).</li>
+<li>Y. Regev, J. Uziel, E. Boaretto <em>et al.</em>, «Radiocarbon chronology of Iron Age Jerusalem», <em>PNAS</em> 121 (2024), con la réplica metodológica de I. Finkelstein del mismo año.</li>
+</ul>
+
+<h2>Entrega IV · 701 y Laquis</h2>
+<ul>
+<li>ANET³ 288 para los anales de Senaquerib; RINAP 3 para el aparato crítico.</li>
+<li>M. Cogan, <em>BAR</em> 27/1 (2001): refutación de la teoría de las dos campañas.</li>
+<li>D. Ussishkin, <em>The Renewed Archaeological Excavations at Lachish (1973-1994)</em>, vol. II, cap. 13, «Area R and the Assyrian Siege», Tel Aviv, 2004, 695-767; y <em>Tel Aviv</em> 17 (1990), 53-86.</li>
+<li>Y. Garfinkel, M. Mumcuoglu, C. Carroll y P. Pytlik, «Constructing the Assyrian Siege Ramp at Lachish», <em>Oxford Journal of Archaeology</em> (2021).</li>
+<li>A. Frumkin, A. Shimron y J. Rosenbaum, <em>Nature</em> 425 (2003), datación del túnel por carbono 14 y uranio-torio.</li>
+<li>J. Rogerson y P. Davies, <em>Biblical Archaeologist</em> 59/3 (1996), propuesta asmonea, y su refutación en 59/4 del mismo año.</li>
+<li>J. Szanton, F. Vukosavović, R. Berko <em>et al.</em>, «Radiocarbon dating of Jerusalem's Siloam Dam», <em>PNAS</em> 122/35 (2025): la presa en 805-795 a.C.</li>
+<li>O. Lipschits, O. Sergi e I. Koch, <em>Tel Aviv</em> 37 (2010) y 43 (2016), sobre los sellos LMLK.</li>
+<li>Vaknin <em>et al.</em>, «Reconstructing Biblical Military Campaigns Using Geomagnetic Field Data», <em>PNAS</em> 119/44 (2022): confirmación arqueomagnética del 701 para Laquis Nivel III.</li>
+</ul>
+<h3>Cifras que conviene dejar de repetir</h3>
+<ul>
+<li>«Tres millones de piedras» en la rampa de Laquis: el artículo revisado por pares dice «quizá más de un millón».</li>
+<li>«Miles de piedras de honda» en el ángulo suroeste: los informes dan diecisiete.</li>
+<li>«Rampa de tierra»: es escombro pétreo con remate de terra rossa.</li>
+<li>«La rampa está en el lado este»: está en el suroeste. El error figura en fuentes institucionales.</li>
+<li>«Mil quinientos cráneos de las víctimas del asedio» en la Cueva 120: reinterpretado por Y. Garfinkel, <em>OJA</em> (2022).</li>
+</ul>
+
+<h2>Entrega V · Josías y la reforma</h2>
+<ul>
+<li>Z. Herzog sobre el desmantelamiento del santuario de Arad a finales del siglo VIII; D. Ussishkin lo lleva al siglo VII-VI.</li>
+<li>S. Ganor e I. Kreimerman, <em>BASOR</em> 381 (2019) y <em>'Atiqot</em> 111 (2023), sobre el santuario de la puerta de Laquis; D. Ussishkin, <em>BASOR</em> 385 (2021), 153-170, en contra. <strong>Sin resolver.</strong></li>
+<li>C. Uehlinger, «Was There a Cult Reform under King Josiah? The Case for a Well-Grounded Minimum» (2005).</li>
+<li>N. Naaman, «The Debated Historicity of Hezekiah's Reform».</li>
+<li>M. Noth, <em>Überlieferungsgeschichtliche Studien</em> (1943); F. M. Cross, <em>Canaanite Myth and Hebrew Epic</em> (1973); R. Smend, W. Dietrich y T. Veijola, escuela de Gotinga; T. Römer, <em>The So-Called Deuteronomistic History</em> (2005).</li>
+<li>E. A. Knauf y R. Kratz, contra la unidad de la obra; K. L. Noll y P. Davies, posiciones minoritarias de datación persa o helenística.</li>
+</ul>
+
+<h2>Entrega VI · El derrumbe</h2>
+<ul>
+<li>A. K. Grayson, <em>Assyrian and Babylonian Chronicles</em>, para ABC 5.</li>
+<li>K. S. Freedy y D. B. Redford, <em>JAOS</em> 90 (1970), sobre la horquilla 587/586.</li>
+<li>H. Torczyner (Tur-Sinai), publicación de los ostraca de Laquis, 1938; D. Ussishkin, cap. 10 del informe final, sobre su contexto exacto.</li>
+<li>Jeremías 34:7 y la correlación con el ostracón nº 4. <strong>Cautela:</strong> «no vemos Azeqá» no prueba necesariamente que Azeqá hubiera caído.</li>
+</ul>
+
+<h2>Entrega VII · El exilio y el retorno</h2>
+<ul>
+<li>O. Lipschits, <em>The Fall and Rise of Jerusalem</em> (2005), y trabajos de 2003 y 2011.</li>
+<li>A. Faust, <em>PEQ</em> 135 (2003) y obra posterior: el «mito de la tierra populosa».</li>
+<li>H. Barstad, <em>The Myth of the Empty Land</em> (1996); R. Carroll.</li>
+<li>B. Becking (2010): el retorno tampoco dejó huella demográfica.</li>
+<li>L. Pearce y C. Wunsch, <em>Documents of Judean Exiles and West Semites in Babylonia</em>, CUSAS 28 (2014); C. Wunsch (2022).</li>
+<li>E. Weidner (1939), tablillas de raciones de Joaquín.</li>
+<li>British Museum, ficha del Cilindro de Ciro (BM 90920) y su declaración sobre la lectura como carta de derechos humanos.</li>
+<li>L. Grabbe, «The 'Persian Documents' in the Book of Ezra: Are They Authentic?» (2006).</li>
+<li>S. Japhet, G. Knoppers, H. G. M. Williamson e I. Kalimi, sobre Crónicas.</li>
+</ul>
+
+<h2>Créditos de las imágenes</h2>
+<p>Todas las imágenes proceden de Wikimedia Commons y se usan bajo licencias libres: dominio público, CC0, CC BY o CC BY-SA. El crédito completo, con autor y licencia, figura al pie de cada imagen en su episodio. Las piezas interactivas de la serie —el sinóptico de dos reinos, el expediente omrida, la cuadrícula de la deportación, el reloj del derrumbe, el mapa de la despoblación y el corte del asedio de Laquis— están dibujadas desde cero en SVG y CSS para esta serie, y no derivan de ninguna imagen de terceros.</p>
+
+</div></div>
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+</body></html>

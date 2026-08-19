@@ -1,0 +1,466 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El reino rico era el hereje — Estratos</title>
+<meta name="description" content="Samaría, Jezreel y Meguido: el reino que la Biblia condena es el que la arqueología encuentra como potencia. Ajab en Qarqar, la estela de Mesa y el Obelisco Negro.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5a5230;--mid:#867a45;--pale:#a89a5e;
+    --rel:#8a4a2a;--exc:#5a5230;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.6rem auto;max-width:900px}
+  figure img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 8px 26px var(--shadow)}
+  figcaption{margin-top:.7rem;font-size:.92rem;color:#5a4d38;max-width:720px}
+  figcaption .cr{display:block;margin-top:.35rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.68rem;letter-spacing:.03em;color:#9a8a6e}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#b8ab90,#a89a5e 42%,#867a45 70%,#5a5230)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d4b6,#d2c39e);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .exp{max-width:980px;margin:2.6rem auto 1rem;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;box-shadow:0 6px 22px var(--shadow);
+    padding:1.4rem 1.5rem 1.1rem}
+  .exp .lg{display:flex;flex-wrap:wrap;gap:1.3rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;color:#5a4d38;margin-bottom:1.2rem;align-items:center}
+  .exp .lg i{display:inline-block;width:13px;height:13px;border-radius:50%;margin-right:.4rem;vertical-align:-2px}
+  .exp .lg .i1{background:#e2d6b8;border:1.5px solid #a89a76}
+  .exp .lg .i2{background:var(--mid);border:1.5px solid var(--deep)}
+  .expax{position:relative;height:22px;margin-left:210px;border-bottom:1px solid rgba(150,130,95,.55)}
+  .expax span{position:absolute;transform:translateX(-50%);bottom:4px;
+    font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#8a7a5e}
+  .exprow{display:grid;grid-template-columns:210px 1fr;align-items:center;gap:0;
+    padding:.34rem 0;cursor:pointer;border-radius:6px;transition:background .25s}
+  .exprow:hover{background:rgba(168,154,94,.16)}
+  .exprow.on{background:rgba(168,154,94,.28)}
+  .exprow .nm{font-size:.9rem;color:#3f3826;padding-right:.9rem;line-height:1.25}
+  .exprow .nm small{display:block;font-family:"Trebuchet MS",sans-serif;font-size:.63rem;
+    letter-spacing:.06em;text-transform:uppercase;color:#9a8a6e}
+  .track{position:relative;height:30px}
+  .track .ln{position:absolute;top:14px;height:2px;background:var(--pale)}
+  .track .ar{position:absolute;top:9px;width:0;height:0;border-top:6px solid transparent;
+    border-bottom:6px solid transparent}
+  .track .d1,.track .d2{position:absolute;top:8px;width:15px;height:15px;border-radius:50%;
+    transform:translateX(-50%)}
+  .track .d1{background:#e2d6b8;border:1.5px solid #a89a76}
+  .track .d2{background:var(--mid);border:1.5px solid var(--deep)}
+  .track .rng{position:absolute;top:11px;height:9px;border-radius:5px;
+    background:repeating-linear-gradient(45deg,rgba(134,122,69,.85) 0 4px,rgba(134,122,69,.35) 4px 8px);
+    border:1px solid var(--deep)}
+  .track .off{position:absolute;top:-6px;left:0;font-family:"Trebuchet MS",sans-serif;
+    font-size:.64rem;color:#8a4a2a;font-weight:700;white-space:nowrap;background:var(--sand-light);
+    padding:0 .3rem}
+  .chip{font-family:"Trebuchet MS",sans-serif;font-size:.58rem;letter-spacing:.09em;
+    text-transform:uppercase;font-weight:700;padding:.16rem .5rem;border-radius:2rem;margin-left:.5rem}
+  .c-con{background:var(--mid);color:#fdf8ea}
+  .c-deb{background:rgba(134,122,69,.25);color:#4a4227;border:1px dashed var(--mid)}
+  .c-sin{background:transparent;color:#8a4a2a;border:1px solid #8a4a2a}
+  .expficha{max-width:980px;margin:0 auto 2.8rem;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-top:none;border-radius:0 0 12px 12px;
+    box-shadow:0 6px 22px var(--shadow);padding:1.3rem 1.5rem 1.5rem;min-height:150px}
+  .expficha h4{font-size:1.18rem;font-weight:400;margin-bottom:.1rem}
+  .expficha .sb{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;color:#8a7a5e;margin-bottom:.9rem}
+  .expcols{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+  @media(max-width:720px){.expcols{grid-template-columns:1fr}
+    .exprow{grid-template-columns:1fr}.expax{margin-left:0}
+    .exprow .nm{padding-bottom:.2rem}}
+  .expcols .cl h5{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);padding-bottom:.3rem;
+    margin-bottom:.5rem;border-bottom:1px solid var(--rule)}
+  .expcols .cl p{font-size:.94rem;color:#4a3f33;margin:0}
+  .expficha .ab{margin-top:1rem;padding-top:.8rem;border-top:1px dotted rgba(180,150,100,.6);
+    font-size:.92rem;color:#5a4d38;font-style:italic}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El reino partido · Entrega II · Expediente del norte</span>
+  <h1>El reino rico era <span class="em">el hereje</span></h1>
+  <p class="stand">Seis versículos y una condena para el hombre que dio nombre a un país durante más de un siglo.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">El libro de los Reyes le dedica a Omri seis versículos. Seis. Menos que a cualquier profeta secundario, menos que a varios episodios de milagros, y con un resumen que cabe en una línea: «hizo lo malo ante los ojos de YHWH». De todo su reinado el texto conserva un único dato material, casi administrativo: compró la colina de Samaría por dos talentos de plata y la fortificó.</p>
+
+<p>Fuera de la Biblia, ese mismo hombre le dio nombre a un país durante más de un siglo. Los escribas asirios llamaron al reino del norte <em>Bit-Ḫumri</em>, «casa de Omri», en cinco textos distintos, y siguieron llamándolo así <strong>décadas después de que su dinastía hubiera sido exterminada</strong>. Cuando Salmanasar III registra el tributo de Jehú —el usurpador que había asesinado al último omrida y aniquilado a toda su familia—, lo llama, sin ninguna ironía, «Jehú de la casa de Omri». Para las cancillerías de Nínive, el nombre del fundador se había fosilizado en el nombre del territorio.</p>
+
+<p>Esa desproporción es el asunto de esta entrega. No es una curiosidad estadística: es la clave para entender qué clase de libro es el libro de los Reyes.</p>
+
+<h2>Una capital construida de cero</h2>
+
+<p>Samaría es el único caso, en toda la historia de los dos reinos, de una capital fundada desde el suelo virgen por decisión política. Y la arqueología confirma la escala de la operación con una precisión desacostumbrada. El palacio se levantó sobre una plataforma artificial delimitada por <strong>un escarpe tallado en la roca de unos cuatro metros de altura</strong>, con sillares de factura excelente, muchos de ellos con marcas de cantero. Bajo la plataforma se excavaron, al mismo tiempo que se construía, dos tumbas rupestres monumentales.</p>
+
+<p>Pero lo que más dice sobre el reino no es el palacio. Antes que el palacio, en la roca de la colina, hay prensas y cubetas de aceite y de vino, y alrededor de <strong>un centenar de cisternas piriformes con una capacidad estimada en unos trescientos cincuenta mil litros</strong>. Omri no eligió una colina bonita: eligió el centro de una economía especializada en dos productos de exportación. La capital del reino del norte es, en su planta misma, una empresa agrícola de alto valor.</p>
+
+<figure>
+  <img src="sebastia-calle-romana.jpg" alt="Calle de columnas en las ruinas de Sebastia, la antigua Samaría">
+  <figcaption>Las ruinas visibles hoy en Sebastia son, en su mayoría, romanas: esta calle de columnas es casi mil años posterior a la ciudad que fundó Omri. De la capital omrida queda, debajo, la plataforma artificial y el escarpe tallado en la roca. Es un buen recordatorio de que el estrato que se ve no suele ser el estrato del que se habla.
+  <span class="cr">Foto: <em>PALÄSTINA und das Ostjordanland</em>, Julius Hoffmann, Stuttgart, 1925 · Dominio público · Wikimedia Commons</span></figcaption>
+</figure>
+
+<figure>
+  <img src="samaria-plataforma-omrida.jpg" alt="Restos de la antigua Samaría, junto a la aldea de Sebastia">
+  <figcaption>La acrópolis de Samaría. Debajo de los restos posteriores está la obra de Omri: la plataforma artificial, el escarpe tallado en la roca y el muro de sillares. Aquí no hay traslado de atribución que discutir — es el punto fijo del expediente, y la cronología de estos sillares es la que sirvió después de patrón para fechar los de Meguido.
+  <span class="cr">Foto: Bukvoed · CC BY 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>Lo que no está resuelto es si aquella colina estaba realmente vacía. Kenyon sostuvo que Omri construyó sobre suelo virgen, y fechó la construcción por la cerámica hallada bajo los cimientos. G. E. Wright replicó que los rellenos pueden contener material mucho más antiguo, y que esa cerámica es del siglo X: indicio, por tanto, de un asentamiento previo demolido. La discusión sigue abierta, y probablemente seguirá: Samaría está bajo administración palestina y no se excava con métodos modernos. <strong>No existe ni una sola fecha de radiocarbono publicada para los períodos constructivos de Samaría.</strong></p>
+
+<h2>El año en que Israel entra en la historia documentada</h2>
+
+<p>En 853 a.C., en Qarqar, en el norte de Siria, una coalición de reyes levantinos le hace frente a Salmanasar III. El rey asirio deja constancia de sus adversarios en el Monolito de Kurkh, y entre ellos figura «Ajab de Israel». La cifra que le atribuye es la que llama la atención: <strong>dos mil carros y diez mil soldados</strong>, el mayor contingente de carros de toda la coalición, por delante de Damasco y de Hamat.</p>
+
+<p>Conviene no cerrar el párrafo ahí. La cifra de carros se discute como posible inflación escribal —los anales asirios no son censos—, y la batalla misma la reclama Salmanasar como victoria sin que la geografía posterior lo respalde. Pero el dato que no se discute es la comparación: en el mapa político de mediados del siglo IX, el reino del norte era la potencia militar del Levante meridional, y Judá no aparece.</p>
+
+<figure>
+  <img src="monolito-de-kurkh.jpg" alt="Monolito de Kurkh de Salmanasar III, con los anales que narran la batalla de Qarqar">
+  <figcaption>El Monolito de Kurkh. Salmanasar III ora ante los símbolos divinos, y la inscripción cuneiforme narra su campaña hasta concluir con la batalla de Qarqar, en 853 a.C., contra la coalición encabezada por los reyes de Damasco y Hamat. Ahí aparece Ajab de Israel. Es el primer momento de la monarquía israelita que una fuente ajena a la Biblia permite fechar.
+  <span class="cr">Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<h2>Tres piedras y lo que cada una permite decir</h2>
+
+<p>De la dinastía omrida hablan tres inscripciones, y las tres se citan a menudo con más aplomo del que soportan.</p>
+
+<p>La <strong>estela de Mesa</strong>, basalto moabita hallado en Dibán en 1868 y hoy en el Louvre, es la más elocuente. Mesa, rey de Moab, celebra a su dios Kemos y denuncia la opresión de su pueblo por «Omri, rey de Israel, y su hijo». Ahí está el nombre, en una fuente contemporánea y hostil. Contiene además, en la línea 18, la <strong>primera mención epigráfica del nombre YHWH</strong> en un texto de este tipo. Lo que la estela no permite es lo que más se le pide: la lectura de la línea 31 como «la casa de David» sigue siendo hipotética. Lemaire la propuso en 1994; Finkelstein, Na'aman y Römer la rechazaron en 2019 y propusieron leer ahí «Balak»; Langlois, con nuevas técnicas de imagen, la considera la lectura más probable pero no demostrada; y una réplica de 2023 observó que el trazo divisorio decisivo está en el yeso de restauración, no en la piedra. Para la dinastía davídica sirve la estela de Tel Dan, no esta.</p>
+
+<figure>
+  <img src="estela-de-mesa.jpg" alt="La estela de Mesa, rey de Moab, en el Museo del Louvre">
+  <figcaption>La estela de Mesa, basalto, treinta y cuatro líneas en dialecto moabita, hallada en Dibán en 1868 y hoy en el Louvre. Mesa denuncia la opresión de Moab por «Omri, rey de Israel, y su hijo». La línea 18 contiene la primera mención epigráfica del nombre YHWH en un texto de esta clase.
+  <span class="cr">Foto: Paterm · CC BY-SA 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<figure>
+  <img src="estela-tel-dan.jpg" alt="La estela de Tel Dan, expuesta en el Museo de Israel">
+  <figcaption>La estela de Tel Dan, del siglo IX a.C., excavada en 1993 y 1994. Contiene la expresión <em>bytdwd</em>, «casa de David», en una lectura que sí es de consenso amplio. Para la dinastía davídica sirve esta piedra, y no la línea discutida de la estela de Mesa. Con un matiz honesto: como atestación de David en persona es indirecta, porque es un nombre dinástico grabado siglo y medio después.
+  <span class="cr">Foto: Oren Rozen · CC BY-SA 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>El <strong>Obelisco Negro</strong> de Salmanasar III, de Nimrud, hacia 825 a.C., registra el tributo de «Jehú de la casa de Omri»: plata, oro, un cuenco de oro, un vaso de oro de fondo puntiagudo, copas, cubos, estaño, un cetro real y lanzas. Y contiene la <strong>representación pictórica más antigua conocida de un israelita</strong>, la figura postrada ante el rey asirio. Con dos cautelas: esa figura es probablemente un emisario y no el rey en persona, y la identificación de <em>Iaua</em> con el Jehú bíblico, aunque mayoritaria y sólida, ha tenido objeciones —Jehú no era omrida, y algunos propusieron leer ahí a Joram.</p>
+
+<figure>
+  <img src="obelisco-negro-jehu.jpg" alt="Panel del Obelisco Negro de Salmanasar III con el tributo de Jehú">
+  <figcaption>El segundo registro del Obelisco Negro, de Nimrud: una figura postrada ante Salmanasar III, y el epígrafe que la identifica como el tributo de «Jehú de la casa de Omri». Es la representación más antigua conocida de un israelita, aunque la figura sea con toda probabilidad un emisario y no el rey.
+  <span class="cr">Foto: Steven G. Johnson · CC BY-SA 3.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>La tercera es la estela de Adad-nirari III hallada en Tell al-Rimah, hacia 796 a.C., que menciona a «Joás el samaritano». Es la primera vez que una fuente cuneiforme llama al reino por el nombre de su capital y no por el de su fundador. Un cambio de denominación que la Biblia no registra y que dice bastante sobre cómo veían aquel estado desde fuera.</p>
+
+<h2>El expediente: cuando un siglo de monumentos cambia de dueño</h2>
+
+<p>Y aquí llega la parte incómoda, la que hace de este período el más disputado de la disciplina. Durante décadas, un conjunto entero de monumentos del norte —puertas, palacios, establos, sistemas hidráulicos— se atribuyó a Salomón, sobre la base de un versículo: 1 Reyes 9:15, que enumera Jerusalén, Jasor, Meguido y Guézer entre las obras del rey. En 1958, Yigael Yadin encontró en Jasor una puerta de seis cámaras, volvió sobre los planos de Meguido y de Guézer, reconoció el mismo patrón y postuló un cuerpo real de ingenieros salomónico.</p>
+
+<p>Hoy casi nada de aquel lote sigue donde estaba. Pero <strong>no todo se ha movido en la misma dirección</strong>, y ese es el detalle que la divulgación suele perder. Vale la pena verlo monumento por monumento.</p>
+
+</div></div>
+<div class="wrap">
+<div class="exp">
+  <div class="lg">
+    <span><i class="i1"></i>A qui&eacute;n se atribuy&oacute; al excavarlo</span>
+    <span><i class="i2"></i>A qui&eacute;n se atribuye hoy</span>
+    <span style="color:#8a4a2a">Trama rayada: sigue sin resolverse</span>
+  </div>
+  <div class="expax" id="expax"></div>
+  <div id="exprows"></div>
+</div>
+<div class="expficha" id="expficha"></div>
+</div>
+<div class="wrap"><div class="col-text">
+
+<p>Lo que el expediente muestra, leído en conjunto, es que la expresión «arquitectura omrida» significa dos cosas distintas que conviene no confundir. Que Samaría y Jezreel sean omridas es consenso, y no depende de ninguna cronología discutida: es dato bíblico más estratigrafía local. Que el mismo paquete constructivo fecha además Meguido, Jasor y Guézer es una tesis distinta, inseparable de la Cronología Baja, y sigue disputada. Quien rechaza la Cronología Baja rechaza esa extensión, y el radiocarbono de Guézer de 2023 le ha dado un argumento fuerte.</p>
+
+<div class="wall">
+  <div class="post max">
+    <div class="who">Amnon Ben-Tor y David Ben-Ami</div>
+    <div class="what">Jasor, siglo X</div>
+    <p>Mantienen el Estrato X de Jasor en el siglo X, con su puerta y sus casamatas. Además de la cerámica, esgrimen un argumento de densidad: la Cronología Baja comprimiría seis estratos de Jasor en unos ciento veinte años, veinticinco por estrato, frente a los ochenta o cien habituales.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Israel Finkelstein</div>
+    <div class="what">Cronología Baja</div>
+    <p>Baja el Estrato X de Jasor y la puerta de Meguido a los omridas, y hace de la cerámica de Jezreel el ancla del sistema. Si el conjunto de Jezreel es de mediados del siglo IX, todo el Hierro IIA se desplaza entre cincuenta y cien años.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">David Ussishkin</div>
+    <div class="what">Ni Salomón ni los omridas</div>
+    <p>Sitúa la puerta 2156 de Meguido a principios del siglo VIII, ligada al muro macizo 325, y le da la razón a los excavadores de Chicago. Su posición no es conservadora ni minimalista: es una tercera.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Ortiz, Wolff y el radiocarbono de Guézer</div>
+    <div class="what">PLOS ONE, 2023</div>
+    <p>Treinta y cinco fechas de radiocarbono sobre semillas carbonizadas sitúan la construcción del Estrato 8 de Guézer entre 998 y 957 a.C. Los autores concluyen que los datos excluyen una fecha del siglo IX. Es el resultado más consecuente de la última década.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Amihai Mazar</div>
+    <div class="what">Cronología convencional modificada</div>
+    <p>Su Hierro IIA va de c. 980 a 840/830 a.C. Un período de siglo y medio absorbe las dos posiciones y permite fechar Meguido en el siglo X o en el IX sin violar los datos. Es hoy el marco de trabajo más citado, precisamente por eso.</p>
+  </div>
+</div>
+
+<div class="meter">
+  <div class="q">¿Fue el reino del norte más grande, más rico y mejor organizado que Judá en el siglo IX a.C.?</div>
+  <div class="bar"><span class="pin" style="left:88%" data-l="Aquí estamos"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Muy a la derecha, y por una vez sin matices largos. Lo sostienen la epigrafía externa, la arqueología de Samaría, Jezreel y Meguido, y la geografía. Lo que sí está en debate es a quién pertenece cada monumento concreto, y eso es una discusión distinta: se puede saber que el norte era la potencia sin saber si una puerta determinada es de 950 o de 870 a.C.</div>
+</div>
+
+<h2>Por qué el norte era el rico</h2>
+
+<p>Nada de esto es misterioso cuando se mira un mapa de lluvias. El reino del norte tenía los mejores suelos y las mejores precipitaciones de la región, los valles agrícolas —el de Jezreel entre ellos—, el acceso a las rutas internacionales que bajaban por la costa, una población mucho mayor y contacto directo con Fenicia. Judá era, hasta bien entrado el siglo VIII, una periferia montañosa marginal.</p>
+
+<p>Los <strong>ostraca de Samaría</strong> permiten ver la maquinaria en funcionamiento. Son un centenar de fragmentos inscritos, de los cuales unos sesenta y tres legibles, con registros de entregas de vino añejo y de aceite lavado a la corte. Traen un detalle burocrático precioso: los registros de aceite se escribieron sobre tiestos grises de jarra y los de vino sobre fragmentos rojizos de cuenco, soporte diferenciado por producto. Los topónimos que mencionan corresponden a territorios de clanes manasitas concentrados a cinco o doce kilómetros de la capital, lo que sugiere que la administración real se apoyaba en un número reducido de clanes leales del entorno inmediato, no en una red territorial extensa. Y un estudio algorítmico de la escritura apunta a muy pocas manos: la alfabetización era de corte, no difundida.</p>
+
+<p>Los <strong>marfiles</strong> muestran la otra cara: el lujo. Placas y fragmentos de estilo fenicio con motivos egiptizantes, con incrustaciones de pasta vítrea de color y recubrimientos de oro, Horus infante sobre el loto, esfinges aladas, escenas de banquete. Eran, sobre todo, incrustaciones de mobiliario: lechos, tronos, paneles.</p>
+
+<figure>
+  <img src="marfil-samaria.jpg" alt="Marfil tallado procedente de Samaría, con motivos vegetales de estilo fenicio">
+  <figcaption>Marfil de Samaría: cadena decorativa de capullos y flores de loto, de estilo fenicio con motivos egiptizantes. Piezas como esta se hallaron al norte del palacio de la acrópolis en las excavaciones de 1908 a 1935.
+  <span class="cr">Foto: Daderot · Dominio público · Wikimedia Commons</span></figcaption>
+</figure>
+
+<div class="aviso">
+  <div class="t">Una atribución que hubo que retirar</div>
+  <p>Los marfiles se asignaron al siglo IX porque 1 Reyes 22:39 menciona «la casa de marfil» que Ajab edificó, y los excavadores encontraron marfiles en la acrópolis de Samaría. Pero ese nexo lo estableció la coincidencia entre el texto y el hallazgo, no la estratigrafía: aparecieron en relleno, sin contexto primario seguro. Hoy la datación estilística los sitúa mayoritariamente en el <strong>siglo VIII</strong>, unos cien años después de Ajab, lo que encaja mejor con las «casas de marfil» y los «lechos de marfil» de Amós 3:15 y 6:4. Siguen atestiguando el lujo cortesano fenicizante de la capital del norte. Lo que ya no se puede decir es que sean la decoración del edificio de Ajab.</p>
+</div>
+
+<h2>El reino que la Biblia condena</h2>
+
+<p>Queda la pregunta que da título a la entrega. Si el reino del norte era el desarrollado, el poderoso, el que trataba de igual a igual con Asiria y con Fenicia, ¿por qué el texto bíblico lo despacha con una fórmula de condena repetida veinte veces?</p>
+
+<p>La respuesta no es que el autor mintiera, ni que fuera injusto, ni que estuviera mal informado. Es que <strong>escribía desde el otro reino, y bastante después</strong>. El libro de los Reyes se compone en Judá, en el sur, en el reino pequeño, y su problema no es histórico sino teológico: tiene que explicar por qué el vecino grande desapareció de la faz de la tierra mientras Judá siguió en pie. Con las herramientas conceptuales de su época, la explicación disponible es la infidelidad al pacto. Todo lo demás —la riqueza, los palacios, los carros, los marfiles— es, en ese marco, agravante y no mérito.</p>
+
+<p>Que la condena sea una lectura teológica de una catástrofe política no la vuelve arbitraria: la vuelve interpretable. Y saber desde dónde se escribió un texto no es desmentirlo. Es empezar a leerlo.</p>
+
+<p>En la entrega siguiente, la catástrofe: el año en que Asiria borró el reino del norte del mapa, y lo que las cifras de los deportados permiten y no permiten decir.</p>
+
+<div class="fuentes">
+  <h3>Nota sobre las fuentes</h3>
+  <p>Sobre Samaría: K. Kenyon en los informes de la Joint Expedition; N. Franklin, «Samaria: from the Bedrock to the Omride Palace», <em>Levant</em> 36 (2004), y sus «Metrological Investigations at 8th and 9th Century Samaria and Megiddo», <em>Mediterranean Archaeology and Archaeometry</em> (2023); la réplica de D. Ussishkin, «Megiddo and Samaria: A Rejoinder to Norma Franklin», <em>BASOR</em> 348 (2007).</p>
+  <p>Sobre la arquitectura omrida: I. Finkelstein, «Omride Architecture», <em>ZDPV</em> 116 (2000), y con O. Lipschits, <em>ZDPV</em> 126/1 (2010). Sobre las puertas: I. Finkelstein, M. J. Adams, E. Hall y E. Levy, <em>Tel Aviv</em> 46/2 (2019), y la respuesta de D. Ussishkin, <em>Tel Aviv</em> 47/2 (2020). Sobre Jasor: A. Ben-Tor y D. Ben-Ami, <em>IEJ</em> 48 (1998), frente a I. Finkelstein, <em>BASOR</em> 314 (1999). Sobre Guézer: J. Webster <em>et al.</em>, <em>PLOS ONE</em> 18/11 (2023).</p>
+  <p>Sobre los ostraca: Faigenbaum-Golovin <em>et al.</em>, <em>PLOS ONE</em> (2020). Sobre los marfiles: J. W. y G. M. Crowfoot, <em>Samaria-Sebaste II: The Early Ivories from Samaria</em> (1938), y el proyecto de catalogación dirigido por C. E. Suter en la Universidad de Berna. Bibliografía completa de la serie en <a href="reyes-fuentes.html">la página de fuentes</a>.</p>
+</div>
+
+</div></div>
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+// Eje de 1000 a 700 a.C. El sistema hidraulico de Guezer se sale por la izquierda
+// y se marca con una flecha, porque es de la Edad del Bronce.
+const EY0 = 1000, EY1 = 700;
+const ex = y => ((EY0 - y) / (EY0 - EY1)) * 100;
+const MON = [
+ {n:'Palacio de Samar&iacute;a', s:'Per&iacute;odo Constructivo I', a:880, b:880, st:'con',
+  quien:'Kathleen Kenyon, en los informes de 1942 a 1957, lo asign&oacute; a Omr&iacute;. Samar&iacute;a nunca se atribuy&oacute; a Salom&oacute;n: la Biblia misma dice que Omr&iacute; compr&oacute; la colina y la fortific&oacute;.',
+  hoy:'Sigue siendo omrida, y es consenso. Palacio sobre una plataforma delimitada por un escarpe tallado en la roca de unos cuatro metros, con sillares de buena factura y marcas de cantero.',
+  ab:'Aqu&iacute; no hay traslado, y por eso importa: la cronolog&iacute;a de los sillares de Samar&iacute;a que estableci&oacute; Kenyon se convirti&oacute; en el patr&oacute;n con el que despu&eacute;s se fecharon los sillares de Meguido. El punto fijo del expediente.'},
+ {n:'Defensas de Samar&iacute;a', s:'Per&iacute;odo Constructivo II', a:865, b:760, st:'deb',
+  quien:'Kenyon las atribuy&oacute; a Ajab, el hijo de Omr&iacute;, aunque reconoci&oacute; que la cer&aacute;mica no permit&iacute;a distinguir este per&iacute;odo del anterior.',
+  hoy:'Norma Franklin las baja al per&iacute;odo posterior a los omridas, ya en el siglo VIII. Su argumento es metrol&oacute;gico: el palacio usa un codo corto de 0,45 m, egipcio, y esta segunda fase un codo de 0,495 m, asirio.',
+  ab:'Ussishkin lo refuta con n&uacute;meros: de los veinte bloques con marca de cantero hallados en Samar&iacute;a, solo uno procede con seguridad del primer per&iacute;odo y diez del segundo, justo lo contrario de lo que la tesis necesita.'},
+ {n:'Recinto de Jezreel', s:'Recinto de casamatas y foso', a:880, b:880, st:'con',
+  quien:'Ussishkin y Woodhead, tras siete campa&ntilde;as entre 1990 y 1996, lo atribuyeron a los reyes de la casa de Omr&iacute;.',
+  hoy:'Omrida, y aceptado por todos, incluidos quienes discuten el resto del expediente. Un recinto de unos 289 por 156 metros, con foso seco tallado en la roca de hasta seis metros y medio de profundidad: unos 26.800 metros c&uacute;bicos de piedra extra&iacute;da.',
+  ab:'Su cer&aacute;mica es el ancla de toda la Cronolog&iacute;a Baja, y por eso Ben-Tor atac&oacute; la base misma: sostuvo que ninguno de los cuarenta y ocho loci del Hierro cumpl&iacute;a los est&aacute;ndares. Ussishkin respondi&oacute; defendi&eacute;ndolos uno por uno. La discusi&oacute;n no est&aacute; cerrada.'},
+ {n:'Puerta de seis c&aacute;maras de Meguido', s:'Puerta 2156', a:950, b:870, b2:790, st:'deb',
+  quien:'Yigael Yadin, en 1958. Al encontrar en Jasor una puerta casi id&eacute;ntica, volvi&oacute; sobre los planos de Meguido y de Gu&eacute;zer y postul&oacute; tres puertas salom&oacute;nicas, obra de un mismo cuerpo real de ingenieros, apoy&aacute;ndose en 1 Reyes 9:15.',
+  hoy:'Ya no la defiende nadie como salom&oacute;nica, pero tampoco hay acuerdo sobre a qui&eacute;n pertenece. Finkelstein, Adams, Hall y Levy la sit&uacute;an en la primera mitad del siglo IX, omrida. Ussishkin la baja a principios del siglo VIII y le da la raz&oacute;n a los excavadores de Chicago.',
+  ab:'No existe ninguna serie de radiocarbono que fije esta puerta. El debate se sostiene entero sobre estratigraf&iacute;a: si hab&iacute;a o no un suelo en el paso de la puerta, y si el desag&uuml;e es anterior o posterior.'},
+ {n:'Palacios de Meguido', s:'Palacio 1723 y Palacio 6000', a:950, b:880, st:'deb',
+  quien:'Yadin los llam&oacute; palacios salom&oacute;nicos, en el mismo movimiento que la puerta. El Palacio 6000 mide unos veinte por veintid&oacute;s metros, casi cuadrado, en tradici&oacute;n de <em>b&icirc;t-&#7717;il&acirc;ni</em>.',
+  hoy:'La escuela de Tel Aviv los data en el siglo IX. Franklin llega a la misma fecha por otro camino, la m&eacute;trica del codo corto, y los empareja con el palacio de Samar&iacute;a. Dever y la cronolog&iacute;a convencional mantienen el siglo X.',
+  ab:'Mazar deja la puerta abierta a prop&oacute;sito: su Hierro IIA va de c. 980 a 840/830 a.C., un siglo y medio que permite fechar estos palacios en el siglo X o en el IX sin violar ning&uacute;n dato.'},
+ {n:'Los &laquo;establos&raquo; de Meguido', s:'Edificios tripartitos de pilares', a:950, b:800, st:'con',
+  quien:'P. L. O. Guy, en 1931, los identific&oacute; como los establos de Salom&oacute;n citando 1 Reyes 9:19 y las ciudades de carros. Diecisiete unidades, con pesebres bajos de piedra entre los pilares.',
+  hoy:'Estrato IVA, construidos hacia el 800 a.C. o poco despu&eacute;s, y en uso hasta la destrucci&oacute;n asiria del 732. <strong>Nadie los defiende hoy como salom&oacute;nicos.</strong> El traslado es de siglo y medio.',
+  ab:'Que sean establos o almacenes es otra discusi&oacute;n, y hoy se inclina hacia los caballos: demasiados pesebres para asnos, un dep&oacute;sito de agua central de unos diez mil litros, y abrevaderos de dimensiones id&eacute;nticas a los que describen inscripciones asirias.'},
+ {n:'Sistema hidr&aacute;ulico de Meguido', s:'Pozo, t&uacute;nel y Galer&iacute;a 629', b:850, offA:'&#8592; se databa en el siglo XII a.C.', st:'con',
+  quien:'Lamon databa la Galer&iacute;a 629 en la primera mitad del siglo XII a.C. El conjunto entr&oacute; despu&eacute;s en el lote de obras reales atribuidas a la monarqu&iacute;a temprana.',
+  hoy:'Siglo IX. Yadin mismo lo baj&oacute;, y Franklin ha respaldado esa rebaja. Un pozo vertical de unos veinticinco metros y un t&uacute;nel horizontal de setenta u ochenta hasta el manantial.',
+  ab:'Este monumento se ha movido en las dos direcciones a lo largo de un siglo de excavaci&oacute;n. Es el mejor recordatorio de que una atribuci&oacute;n no es un dato, es una inferencia.'},
+ {n:'Puerta y casamatas de Jasor', s:'Estrato X', a:950, rb:[950,865], st:'sin',
+  quien:'Yadin, 1958. Este fue el hallazgo detonante: la puerta de Jasor es la que le hizo reconocer el patr&oacute;n y postular las tres puertas salom&oacute;nicas.',
+  hoy:'Sin resolver. Ben-Tor y Ben-Ami mantienen el Estrato X en el siglo X, con un argumento de densidad estratigr&aacute;fica: la Cronolog&iacute;a Baja comprimir&iacute;a seis estratos en ciento veinte a&ntilde;os, unos veinticinco por estrato. Finkelstein lo baja a los omridas.',
+  ab:'No he localizado ninguna serie de radiocarbono publicada y modelada para el Hierro II de Jasor. Es la laguna m&aacute;s llamativa de todo el expediente: el yacimiento que origin&oacute; la tesis es el que menos dataci&oacute;n absoluta tiene.'},
+ {n:'Puerta y Estrato 8 de Gu&eacute;zer', s:'Puerta, casamatas y edificio administrativo', a:950, b:975, st:'con',
+  quien:'Yadin en 1958, sobre los planos de Macalister, que la hab&iacute;a tomado por un castillo macabeo. Dever confirm&oacute; la lectura sobre el terreno entre 1964 y 1974 y la asign&oacute; al siglo X.',
+  hoy:'Siglo X, y ahora con radiocarbono: treinta y cinco fechas publicadas en 2023 sit&uacute;an la construcci&oacute;n del Estrato 8 entre 998 y 957 a.C. y su destrucci&oacute;n entre 969 y 940. Los autores concluyen que los datos excluyen el siglo IX.',
+  ab:'<strong>Esta flecha apunta al rev&eacute;s.</strong> Es el golpe m&aacute;s directo contra la extensi&oacute;n del paquete omrida, y la raz&oacute;n por la que el expediente no se puede resumir diciendo que todo baj&oacute; un siglo. Queda un cabo suelto: las muestras no se tomaron dentro de la puerta misma.'},
+ {n:'Sistema hidr&aacute;ulico de Gu&eacute;zer', s:'Pozo y t&uacute;nel', a:950, offB:'&#8592; hoy: Bronce Medio, c. 1650 a.C.', st:'con',
+  quien:'Macalister lo situ&oacute; en su &laquo;primer per&iacute;odo semita&raquo; y la literatura posterior lo arrastr&oacute; al lote de obras de la monarqu&iacute;a israelita.',
+  hoy:'Bronce Medio, en torno a 1750-1550 a.C. Es cananeo: ni salom&oacute;nico ni israelita. La redataci&oacute;n se public&oacute; en 2025. Treinta y cuatro metros de profundidad y un t&uacute;nel de unos cincuenta y seis.',
+  ab:'Se sale del gr&aacute;fico por la izquierda porque el traslado es de casi ochocientos a&ntilde;os. Cuando un monumento cambia de milenio, lo que se est&aacute; corrigiendo no es una fecha: es la pregunta.'},
+];
+const ST = {con:['c-con','Consenso'], deb:['c-deb','En debate'], sin:['c-sin','Sin resolver']};
+
+const axEl = document.getElementById('expax');
+[1000,950,900,850,800,750,700].forEach(y => {
+  const s = document.createElement('span');
+  s.style.left = ex(y)+'%'; s.textContent = y;
+  axEl.appendChild(s);
+});
+
+const rowsEl = document.getElementById('exprows');
+MON.forEach((m,i) => {
+  const r = document.createElement('div');
+  r.className = 'exprow'; r.dataset.i = i;
+  let tr = '';
+  if (m.offB) {
+    tr = '<span class="ln" style="left:0;width:'+ex(m.a)+'%"></span>'
+       + '<span class="d1" style="left:'+ex(m.a)+'%"></span>'
+       + '<span class="off">'+m.offB+'</span>';
+  } else if (m.offA) {
+    tr = '<span class="ln" style="left:0;width:'+ex(m.b)+'%"></span>'
+       + '<span class="d2" style="left:'+ex(m.b)+'%"></span>'
+       + '<span class="off">'+m.offA+'</span>';
+  } else if (m.rb) {
+    const a = ex(m.rb[0]), b = ex(m.rb[1]);
+    tr = '<span class="rng" style="left:'+a+'%;width:'+(b-a)+'%"></span>'
+       + '<span class="d1" style="left:'+ex(m.a)+'%"></span>';
+  } else {
+    const a = ex(m.a), b = ex(m.b);
+    const lo = Math.min(a,b), hi = Math.max(a,b);
+    tr = '<span class="ln" style="left:'+lo+'%;width:'+(hi-lo)+'%"></span>'
+       + '<span class="d1" style="left:'+a+'%"></span>'
+       + '<span class="d2" style="left:'+b+'%"></span>';
+    if (m.b2) tr += '<span class="d2" style="left:'+ex(m.b2)+'%;opacity:.55"></span>';
+  }
+  r.innerHTML = '<div class="nm">'+m.n+'<small>'+m.s+'</small></div><div class="track">'+tr+'</div>';
+  r.onclick = () => sel(i);
+  rowsEl.appendChild(r);
+});
+
+const fEl = document.getElementById('expficha');
+function sel(i){
+  const m = MON[i], st = ST[m.st];
+  document.querySelectorAll('.exprow').forEach(e => e.classList.toggle('on', +e.dataset.i === i));
+  fEl.innerHTML = '<h4>'+m.n+'<span class="chip '+st[0]+'">'+st[1]+'</span></h4>'
+    + '<div class="sb">'+m.s+'</div>'
+    + '<div class="expcols"><div class="cl"><h5>A qui&eacute;n se atribuy&oacute;</h5><p>'+m.quien+'</p></div>'
+    + '<div class="cl"><h5>A qui&eacute;n se atribuye hoy</h5><p>'+m.hoy+'</p></div></div>'
+    + '<div class="ab">'+m.ab+'</div>';
+}
+sel(5);
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5a5230">↑ <a href="serie-reyes.html" style="color:#5a5230">Serie: El reino partido</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="reyes-1.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#5a5230">La grieta que quizá nunca fue</span></a>
+    <a class="epnav-btn next" href="reyes-3.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#5a5230">722/720: el reino que desapareció</span></a>
+  </div>
+</nav>
+</body></html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como un pájaro en la jaula — Estratos</title>
+<meta name="description" content="701 a.C.: el prisma de Taylor, los relieves de Laquis y 2 Reyes 18-19, uno al lado del otro. Y la presa de Siloé, que adelanta un siglo la ingeniería del agua de Jerusalén.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5a5230;--mid:#867a45;--pale:#a89a5e;
+    --rel:#8a4a2a;--exc:#5a5230;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.6rem auto;max-width:900px}
+  figure img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 8px 26px var(--shadow)}
+  figcaption{margin-top:.7rem;font-size:.92rem;color:#5a4d38;max-width:720px}
+  figcaption .cr{display:block;margin-top:.35rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.68rem;letter-spacing:.03em;color:#9a8a6e}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#b8ab90,#a89a5e 42%,#867a45 70%,#5a5230)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d4b6,#d2c39e);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El reino partido · Entrega IV · Careo a tres voces</span>
+  <h1>Como un pájaro <span class="em">en la jaula</span></h1>
+  <p class="stand">Tres fuentes cuentan el año 701. Ninguna miente de forma comprobable y ninguna cuenta lo mismo.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">«Lo encerré como un pájaro en una jaula, en Jerusalén, su ciudad real.» La frase está en los prismas de Senaquerib, tallada tres veces en arcilla, y es una de las más citadas de la epigrafía asiria. Suele leerse como una humillación. Conviene leerla también como lo que no dice: <strong>una jaula no es una ciudad conquistada</strong>.</p>
+
+<p>En los anales asirios, una capital rebelde sitiada acaba tomada. Es el guion. Que en este caso no lo esté es la anomalía más importante de todo el episodio, y el punto de partida de una de las tradiciones religiosas más duraderas del mundo antiguo.</p>
+
+<h2>Tres relatos del mismo año</h2>
+
+<p>De la campaña de 701 a.C. tenemos algo que casi nunca se tiene: tres fuentes independientes sobre el mismo suceso, dos de ellas contemporáneas. Y las tres cuentan cosas distintas sin que ninguna resulte comprobablemente falsa.</p>
+
+<p>El <strong>prisma</strong> dice que Senaquerib tomó cuarenta y seis ciudades fortificadas, fortalezas y aldeas incontables; que contó como botín a doscientas mil ciento cincuenta personas, «pequeñas y grandes, hombres y mujeres», más el ganado; que construyó rampas de asedio; que transfirió territorio judaíta a los reyes filisteos; y que recibió después tributo en Nínive: oro, plata, antimonio, piedras preciosas, mobiliario con incrustaciones de marfil, músicos, y las hijas del rey.</p>
+
+<p>El <strong>libro de los Reyes</strong> ofrece dos versiones cosidas una detrás de otra, y la costura se ve. En 18:13-16, Ezequías se somete, admite «he faltado» y paga trescientos talentos de plata y treinta de oro, despojando el Templo para reunirlos. Desde 18:17 empieza otro relato: la embajada del Rabsaqué al pie de la muralla, el oráculo de Isaías, y el ángel de YHWH que mata a ciento ochenta y cinco mil asirios en una noche.</p>
+
+<p>Y los <strong>relieves de Nínive</strong> no hablan de Jerusalén en absoluto. Hablan de otra ciudad.</p>
+
+<figure>
+  <img src="prisma-de-taylor.jpg" alt="El Prisma de Taylor, con los anales de Senaquerib">
+  <figcaption>El Prisma de Taylor, del 691 a.C., en el British Museum. Un prisma hexagonal de arcilla de unos treinta y ocho centímetros con los anales de Senaquerib. Existen otras dos copias prácticamente idénticas: el Prisma de Jerusalén, del mismo año, y el de Chicago, del 689.
+  <span class="cr">Foto: Gary Todd · CC0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<h2>Donde las cifras se tocan y donde no</h2>
+
+<p>El cotejo de los números tiene un detalle que a los historiadores les importa mucho. La plata no coincide: trescientos talentos en la Biblia, ochocientos en el prisma. Se explica por patrones de talento distintos —el judaíta y el asirio no pesaban lo mismo—, por partidas incluidas o excluidas, o simplemente por inflación asiria. Pero <strong>el oro coincide exactamente: treinta talentos en las dos fuentes</strong>. Esa coincidencia es la razón principal por la que 2 Reyes 18:14-16 se considera dependiente de una fuente archivística real, y no de una tradición oral.</p>
+
+<p>La cifra de doscientas mil ciento cincuenta personas, en cambio, se considera retórica entre los asiriólogos. Y los ciento ochenta y cinco mil muertos por el ángel pertenecen a otro género de escritura: ninguna reconstrucción histórica los admite, y el texto que los relata no pretende ser un parte de guerra.</p>
+
+<h2>La ciudad que sí cayó</h2>
+
+<p>Senaquerib dedicó a Laquis una sala entera de su palacio en Nínive. A Jerusalén, ninguna. Ese reparto de espacio en las paredes de un palacio dice más sobre lo que ocurrió que muchos párrafos.</p>
+
+<p>Laquis es, además, el mejor caso de convergencia entre texto, imagen y suelo de todo el período: el relieve dibuja una rampa de asedio, y la excavación encontró una rampa de asedio en el sitio exacto, con la contrarrampa que los defensores levantaron por dentro para seguir estando más altos. Es un lugar donde se puede examinar, elemento por elemento, qué fuente atestigua qué.</p>
+
+<figure>
+  <img src="relieve-laquis-ariete.jpg" alt="Relieve del asalto a Laquis: máquinas de asedio subiendo por rampas">
+  <figcaption>El asalto a Laquis, panel 7 de la Sala XXXVI del Palacio Suroeste de Nínive. Las máquinas de asedio suben por planos inclinados; dentro de cada una, un servidor con un cazo de mango largo vierte agua para apagar las teas que los defensores arrojan desde las almenas. A la derecha, el artista anticipó las consecuencias: una procesión de hombres y mujeres saliendo por la puerta camino del destierro.
+  <span class="cr">Foto: Photograph by Mike Peel (www.mikepeel.net) · CC BY-SA 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<a class="piezalink" href="corte-laquis.html">
+  <span class="k">Pieza interactiva · dibujada para esta serie</span>
+  <h3>El corte del asedio</h3>
+  <p>Un corte transversal por el ángulo suroeste de Laquis, con cada elemento etiquetado según la fuente que lo atestigua. Al filtrar por los prismas de Senaquerib, la escena entera se apaga: los anales no nombran Laquis ni una sola vez.</p>
+  <span class="go">Abrir el corte →</span>
+</a>
+
+<p>Merece la pena adelantar aquí el hallazgo que ordena esa pieza, porque también ordena este episodio. <strong>Ningún prisma ni anal de Senaquerib menciona Laquis por su nombre</strong>, ni ninguna de las cuarenta y seis ciudades. Los anales sí nombran ciudades de la llanura costera y de Filistea, y a los reyes de Asdod, Ecrón y Gaza. De Judá nombran solo Jerusalén, que es la que no cayó. El único texto asirio que pronuncia el nombre de Laquis es el epígrafe de dos líneas grabado junto al relieve.</p>
+
+<h2>El agua de Jerusalén, un siglo antes de lo que se creía</h2>
+
+<p>La preparación de Ezequías para el asedio tiene un símbolo consagrado: el túnel de Siloé, quinientos treinta y tres metros excavados en la roca para llevar el agua del manantial de Gihón al interior de la ciudad. La <strong>inscripción de Siloé</strong>, hallada en 1880, narra el momento en que los dos equipos de picadores, trabajando en sentidos opuestos, se encontraron. Es uno de los textos hebreos monumentales más antiguos que se conservan.</p>
+
+<p>Con una particularidad que casi nunca se menciona: <strong>la inscripción no nombra a ningún rey</strong>.</p>
+
+<figure>
+  <img src="inscripcion-de-siloe-copia.jpg" alt="Copia de la inscripción de Siloé expuesta en el Museo de Israel">
+  <figcaption>La inscripción de Siloé, en la copia expuesta en el Museo de Israel; el original está en el Museo Arqueológico de Estambul. Narra el encuentro de los dos equipos de picadores que excavaban el túnel en sentidos opuestos. No menciona a ningún rey.
+  <span class="cr">Foto: יעל י (Yael Y.) · CC BY-SA 3.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>La atribución a Ezequías descansa en 2 Reyes 20:20 y en 2 Crónicas 32, más la convergencia de la paleografía y de la datación radiométrica. La fecha está firme: carbono 14 del enlucido original y uranio-torio de los espeleotemas formados sobre él sitúan la obra en torno al 700 a.C., y en todo caso antes del 700 con alta probabilidad. Eso mató definitivamente la propuesta de una fecha asmonea, que se había defendido en 1996 y quedó refutada punto por punto ese mismo año.</p>
+
+<p>Lo que ha cambiado no es la fecha del túnel. Es su significado.</p>
+
+<div class="aviso">
+  <div class="t">Novedad de 2025 que cambia el relato</div>
+  <p>Un estudio publicado en <em>PNAS</em> fecha la monumental <strong>presa de Siloé</strong> entre 805 y 795 a.C., con una resolución de unos diez años, a partir de paja y ramitas en el mortero. Doce metros de alto, más de ocho de ancho, veintiún metros expuestos: la mayor presa conocida en Israel. Combinado con el radiocarbono de la Torre del Manantial, que es del siglo IX, el resultado es que la gran ingeniería hidráulica de Jerusalén <strong>empieza en torno al 800 a.C., un siglo antes de Ezequías</strong>, probablemente bajo Joás o Amasías y como respuesta a la variabilidad climática. El túnel deja de ser el punto de partida del sistema y pasa a ser su fase final. No desmiente la atribución a Ezequías, que sigue siendo la lectura probable. Cambia la historia que se cuenta con ella: no es el acto de genio de un rey acorralado, es la culminación de un siglo de obra pública.</p>
+</div>
+
+<figure>
+  <img src="tunel-de-ezequias.jpg" alt="Interior del túnel de Ezequías, en Jerusalén">
+  <figcaption>El interior del túnel. Quinientos treinta y tres metros de roca excavada, todavía con agua corriente. La datación radiométrica lo sitúa en torno al 700 a.C.; lo que ha cambiado no es su fecha, sino su lugar en la secuencia de las obras hidráulicas de la ciudad.
+  <span class="cr">Foto: Tamar Hayardeni · CC BY 3.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>Hay además una discusión sobre cuánto del túnel es obra humana. Sneh, Weinberger y Shalev sostuvieron que siguió una red de cavidades kársticas preexistentes, lo que reduciría la escala del proyecto; Shimron y Frumkin lo rechazaron con más de doscientas mediciones estructurales, defendiendo una excavación íntegramente humana. Y Reich y Shukron han propuesto una fecha algo anterior, de finales del siglo IX o comienzos del VIII.</p>
+
+<h2>Los sellos que no eran un plan de guerra</h2>
+
+<p>El otro símbolo de los preparativos de Ezequías son los <strong>sellos LMLK</strong>: impresiones sobre asas de jarras de almacenamiento judaítas con la leyenda <em>lmlk</em>, «perteneciente al rey», un escarabeo alado o un disco solar, y en la mayoría uno de cuatro topónimos: Hebrón, Zif, Socó y <em>mmšt</em>, cuya identificación se desconoce y sobre la que es mejor no especular. Se conocen en torno a dos mil impresiones, unas mil quinientas de ellas procedentes de excavaciones o prospecciones documentadas, con su máxima concentración en el Laquis destruido en 701.</p>
+
+<figure>
+  <img src="sello-lmlk.jpg" alt="Asa de jarra de almacenamiento con impresión de sello LMLK">
+  <figcaption>Asa de una jarra de almacenamiento con la impresión <em>lmlk ḥbrn</em>: «perteneciente al rey, Hebrón». Procede de Laquis, de finales del siglo VIII a.C., y se conserva en el Museo de Israel. Se conocen unas dos mil impresiones de esta clase.
+  <span class="cr">Foto: Chamberi · CC BY-SA 3.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>La lectura clásica hacía del sistema entero un dispositivo de emergencia creado entre 704 y 701 para aprovisionar las plazas fuertes. Hoy la posición dominante es distinta: Lipschits, Sergi y Koch sitúan el arranque <strong>después del 732 a.C.</strong>, cuando Judá pasa a ser vasallo asirio, y lo prolongan durante todo el siglo VII —unas doscientas ochenta impresiones son de producción posterior a 701. Es decir, un sistema tributario de larga duración ligado al vasallaje, no una movilización bélica puntual. Solo las llamadas impresiones «privadas», con nombres personales, se asocian específicamente a los preparativos de la guerra.</p>
+
+<p>Lo que los LMLK sí prueban, y es mucho, es que Judá tenía en los siglos VIII y VII <strong>una burocracia estatal desarrollada</strong>, capaz de recaudar en especie y de abastecer guarniciones.</p>
+
+<figure>
+  <img src="muro-ancho-jerusalen.jpg" alt="El Muro Ancho, en el Barrio Judío de Jerusalén">
+  <figcaption>El Muro Ancho, en el Barrio Judío de Jerusalén: un tramo de la fortificación de finales del siglo VIII a.C. que rodeaba la Colina Occidental, fuera de la Ciudad de David original. Se descubrió en las excavaciones de los años setenta y ochenta. El marco tradicional —una obra de emergencia levantada ante la llegada de Senaquerib— ya no puede afirmarse sin matiz: el radiocarbono de 2024 reasigna parte de las fortificaciones de la ladera al horizonte de Uzías, medio siglo antes.
+  <span class="cr">Foto: Ian Scott · CC BY-SA 2.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<h2>Por qué se levantó el sitio</h2>
+
+<p>Y llegamos a la pregunta que el episodio no puede evitar. El marco general es consenso: <strong>Senaquerib no tomó Jerusalén, pero Judá quedó devastada y tributaria, y Ezequías conservó el trono</strong>. Lo que no hay es acuerdo sobre el mecanismo.</p>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">El pago de un tributo elevado</div>
+    <div class="what">La explicación más económica</div>
+    <p>Ezequías compró el levantamiento del cerco. Es la hipótesis que menos supone y la que hoy más se acepta: encaja con el relato de 2 Reyes 18:14-16, con la coincidencia del oro y con el tributo que el propio prisma dice haber recibido después en Nínive.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Otros frentes del imperio</div>
+    <div class="what">Babilonia y Elam</div>
+    <p>Senaquerib tenía problemas más graves en el sur de Mesopotamia. Un cerco prolongado ante una ciudad de montaña, ya aislada y sin sus fortalezas, era un mal uso de un ejército necesario en otro sitio.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Una epidemia en el campamento</div>
+    <div class="what">Herodoto y el relato bíblico</div>
+    <p>Se construye a partir de la matanza nocturna que cuenta 2 Reyes y de una noticia de Heródoto sobre ratones que devoraron el equipo asirio en Egipto. Es sugerente y no tiene apoyo documental directo: está entre la hipótesis y la especulación.</p>
+  </div>
+  <div class="post min">
+    <div class="who">La intervención de Taharqa</div>
+    <div class="what">Con un problema de fechas</div>
+    <p>El texto bíblico menciona la aproximación de un ejército egipcio. La dificultad es cronológica: Taharqa era muy joven en 701, y su reinado empieza bastante después. La hipótesis sobrevive en versiones matizadas.</p>
+  </div>
+</div>
+
+<p>Conviene añadir una cautela sobre la teoría de las dos campañas, que sigue circulando: sostiene que hubo una segunda expedición de Senaquerib, posterior, en la que la liberación de Jerusalén encajaría mejor. Mordechai Cogan la refutó con tres argumentos difíciles de rodear: no hay rastro de una reconquista asiria del Levante posterior al 688, Esarhaddón no hizo tal campaña, y Senaquerib destruyó Babilonia en 689 desde una posición de fuerza que no admite un desastre previo en Judá. El consenso es una sola campaña, en 701.</p>
+
+<div class="meter">
+  <div class="q">¿Por qué Senaquerib levantó el sitio de Jerusalén?</div>
+  <div class="bar"><span class="pin" style="left:44%" data-l="Aquí estamos"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Justo en la zona de la hipótesis. <strong>Que no tomó la ciudad es consenso</strong>, y lo dice su propio prisma al no reclamarlo. <strong>Por qué</strong> no la tomó no lo sabe nadie: hay cuatro explicaciones propuestas, todas compatibles con las fuentes y ninguna demostrada. La liberación milagrosa se lee hoy como una tradición desarrollada en Jerusalén a partir del hecho real de la no-conquista, y como pieza central de la ideología de la inviolabilidad de Sión.</div>
+</div>
+
+<h2>Lo que nació de un asedio que no acabó</h2>
+
+<p>La consecuencia más duradera de 701 no es política ni militar: es teológica. De un hecho verificable —que la ciudad no cayó cuando cuarenta y seis ciudades sí cayeron— se desarrolló en Jerusalén una tradición sobre la inviolabilidad de Sión: la convicción de que aquella ciudad y aquel templo eran indestructibles porque su Dios los defendía.</p>
+
+<p>Esa convicción es la que hace posible el relato del ángel. Y es también, ciento quince años más tarde, la que hará que la destrucción efectiva de Jerusalén por Babilonia sea una crisis no solo material sino conceptual: habrá que rehacer la teología entera para explicar por qué esta vez sí. De eso trata el final de esta serie.</p>
+
+<p>Antes, la entrega siguiente se detiene en el rey que la tradición convirtió en el mejor de todos, y en el problema de que su gran reforma religiosa no aparece en el suelo.</p>
+
+<div class="fuentes">
+  <h3>Nota sobre las fuentes</h3>
+  <p>Los anales de Senaquerib, en las tres copias del Prisma de Taylor (British Museum), el Prisma de Jerusalén (Museo de Israel) y el Prisma de Chicago (ISAC). Traducción de referencia en ANET³ 288 y, para el aparato crítico, RINAP 3. Sobre la teoría de las dos campañas y su refutación: M. Cogan, <em>BAR</em> 27/1 (2001).</p>
+  <p>Sobre el túnel y la inscripción: A. Frumkin, A. Shimron y J. Rosenbaum, <em>Nature</em> 425 (2003), para la datación por carbono 14 y uranio-torio; la propuesta asmonea de J. Rogerson y P. Davies, <em>Biblical Archaeologist</em> 59/3 (1996), y su refutación en el número 59/4 del mismo año. La presa de Siloé: J. Szanton, F. Vukosavović, R. Berko <em>et al.</em>, <em>PNAS</em> 122/35 (2025).</p>
+  <p>Sobre los sellos LMLK: O. Lipschits, O. Sergi e I. Koch, <em>Tel Aviv</em> 37 (2010) y 43 (2016), frente a la posición clásica de D. Ussishkin y N. Naaman. Sobre Laquis, la excavación de referencia es D. Ussishkin, <em>The Renewed Archaeological Excavations at Lachish (1973-1994)</em>, y para la rampa, Y. Garfinkel, M. Mumcuoglu, C. Carroll y P. Pytlik, <em>Oxford Journal of Archaeology</em> (2021). Bibliografía completa de la serie en <a href="reyes-fuentes.html">la página de fuentes</a>.</p>
+</div>
+
+</div></div>
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5a5230">↑ <a href="serie-reyes.html" style="color:#5a5230">Serie: El reino partido</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="reyes-3.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#5a5230">722/720: el reino que desapareció</span></a>
+    <a class="epnav-btn next" href="reyes-5.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#5a5230">El rey ideal y la reforma que no se ve</span></a>
+  </div>
+</nav>
+</body></html>

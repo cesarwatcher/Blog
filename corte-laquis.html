@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El corte del asedio — Laquis, 701 a.C. — Estratos</title>
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;--shadow:rgba(40,28,16,.18);
+    --deep:#5a5230;--mid:#867a45;--pale:#a89a5e;
+    --rel:#8a4a2a;--exc:#5a5230;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  .wrap h2{font-size:1.7rem;font-weight:400;margin:2.5rem 0 .6rem}
+  .wrap h2 .em{font-style:italic;color:var(--deep)}
+  .wrap p{font-size:1.02rem;color:#4a3f33;margin-bottom:1rem;max-width:760px}
+  .wrap p.small{font-size:.9rem;color:#6a5c46}
+
+  .srcbar{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.4rem 0 1rem}
+  .srcbar button{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.03em;
+    background:var(--sand-light);border:1px solid var(--rule);border-left:4px solid var(--rule);
+    border-radius:6px;padding:.5rem .9rem;color:#4a3f33;cursor:pointer;transition:background .25s,transform .2s}
+  .srcbar button:hover{background:#fff;transform:translateY(-1px)}
+  .srcbar button[data-s="relieve"]{border-left-color:var(--rel)}
+  .srcbar button[data-s="excavacion"]{border-left-color:var(--exc)}
+  .srcbar button[data-s="prisma"]{border-left-color:var(--pri)}
+  .srcbar button[data-s="biblia"]{border-left-color:var(--bib)}
+  .srcbar button.on{background:#fff;box-shadow:inset 0 0 0 1px var(--mid);font-weight:700}
+
+  .scene{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);border-radius:12px;
+    box-shadow:0 6px 22px var(--shadow);padding:.6rem;margin-bottom:.7rem;overflow:hidden}
+  svg{display:block;width:100%;height:auto}
+  .el{cursor:pointer;transition:opacity .35s}
+  .el.dim{opacity:.13}
+  .el:hover .hit{stroke:var(--deep);stroke-width:1.6;stroke-dasharray:3 3}
+  .lbl{font-family:"Trebuchet MS",sans-serif;font-size:11px;fill:#4a3f33;pointer-events:none}
+  .lbl.w{fill:#f6efe0}
+  .num{font-family:"Trebuchet MS",sans-serif;font-size:10.5px;font-weight:700;fill:#fdf8ea;pointer-events:none}
+  .lead{stroke:#8a7a5e;stroke-width:.8;fill:none;pointer-events:none}
+  .ghost{stroke-dasharray:5 4}
+
+  .note{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);border-radius:12px;
+    box-shadow:0 6px 22px var(--shadow);padding:1.3rem 1.5rem 1.5rem;margin-bottom:2.6rem;min-height:190px}
+  .note .hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:.7rem;margin-bottom:.7rem}
+  .note h3{font-size:1.3rem;font-weight:400}
+  .note .tags{display:flex;gap:.4rem;flex-wrap:wrap}
+  .note .tg{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;
+    font-weight:700;padding:.2rem .55rem;border-radius:2rem;color:#fdf8ea}
+  .tg-relieve{background:var(--rel)}.tg-excavacion{background:var(--exc)}
+  .tg-prisma{background:var(--pri)}.tg-biblia{background:var(--bib)}
+  .tg-no{background:transparent;color:#8a7a5e;border:1px dashed var(--rule)}
+  .note p{font-size:.98rem;margin-bottom:.7rem;max-width:none}
+  .note .cau{font-size:.9rem;color:#6a5c46;font-style:italic;padding-top:.6rem;
+    border-top:1px dotted rgba(180,150,100,.6)}
+  .note .cifra{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#5a4d38;letter-spacing:.02em}
+  footer{text-align:center;padding:2.5rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+</style></head><body>
+<div class="wrap">
+  <h2>El corte del <span class="em">asedio</span></h2>
+  <p>Un corte transversal por el ángulo suroeste de Laquis, en el año 701 a.C. Tres fuentes describen este lugar y ninguna lo describe entero. Pulsa una fuente para ver <strong>qué parte de esta escena atestigua cada una</strong>, y cualquier elemento para leer la ficha.</p>
+
+  <div class="srcbar">
+    <button data-s="todo" class="on">Ver todo</button>
+    <button data-s="relieve">Lo que muestra el relieve de Nínive</button>
+    <button data-s="excavacion">Lo que encontró la excavación</button>
+    <button data-s="prisma">Lo que dicen los prismas de Senaquerib</button>
+    <button data-s="biblia">Lo que dice la Biblia</button>
+  </div>
+
+  <div class="scene">
+  <svg viewBox="0 0 1000 500" role="img" aria-label="Corte transversal del ángulo suroeste de Laquis durante el asedio asirio de 701 a.C.">
+    <defs>
+      <pattern id="pStone" width="10" height="10" patternUnits="userSpaceOnUse">
+        <rect width="10" height="10" fill="#7f7358"/>
+        <circle cx="2.6" cy="2.6" r="1.9" fill="#9e9271"/><circle cx="7.2" cy="7" r="1.7" fill="#6a614a"/>
+        <circle cx="7.6" cy="2.2" r="1.3" fill="#918568"/>
+      </pattern>
+      <pattern id="pSlab" width="15" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-34)">
+        <rect width="15" height="10" fill="#a8976f"/>
+        <path d="M0 10h15M7.5 0v10" stroke="#837453" stroke-width="1.2"/>
+      </pattern>
+      <pattern id="pBrick" width="18" height="9" patternUnits="userSpaceOnUse">
+        <rect width="18" height="9" fill="#b8946c"/>
+        <path d="M0 9h18M9 0v9" stroke="#8f6d4a" stroke-width="1.1"/>
+      </pattern>
+      <pattern id="pFill" width="8" height="8" patternUnits="userSpaceOnUse">
+        <rect width="8" height="8" fill="#8d7b52"/>
+        <path d="M0 8L8 0M-2 2L2 -2M6 10L10 6" stroke="#6f6141" stroke-width="1.1"/>
+      </pattern>
+      <pattern id="pChip" width="7" height="4" patternUnits="userSpaceOnUse">
+        <rect width="7" height="4" fill="#dbd1ae"/><path d="M0 2h7" stroke="#b3a684" stroke-width=".9"/>
+      </pattern>
+      <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#efe5cf"/><stop offset="1" stop-color="#f6efe0"/>
+      </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="1000" height="500" fill="url(#gSky)"/>
+
+    <!-- terreno natural y estratos previos -->
+    <path d="M0 404 L205 401 L455 258 L517 250 L620 176 L1000 176 L1000 500 L0 500 Z" fill="#c9b892"/>
+    <path d="M470 276 L1000 198 M492 304 L1000 228 M520 334 L1000 258 M556 364 L1000 294"
+          stroke="#b1a07a" stroke-width="1" fill="none"/>
+    <text class="lbl" x="790" y="258" fill="#7d6f52">estratos anteriores del tel</text>
+
+    <!-- 1 · rampa asiria, primera etapa -->
+    <g class="el" data-id="rampa" data-src="excavacion relieve">
+      <path class="hit" d="M208 400 L452 200 L455 258 L205 401 Z" fill="url(#pStone)" stroke="#655c45" stroke-width="1.3"/>
+      <text class="num" x="322" y="324">1</text>
+    </g>
+    <!-- 1b · segunda etapa, hasta la fachada del muro principal -->
+    <g class="el" data-id="etapa2" data-src="excavacion">
+      <path class="hit" d="M452 194 L620 158 L620 174 L517 244 L455 198 Z" fill="url(#pStone)" stroke="#655c45" stroke-width="1.3"/>
+      <text class="num" x="534" y="214">1b</text>
+    </g>
+    <!-- 2 · plataforma de terra rossa -->
+    <g class="el" data-id="terra" data-src="excavacion">
+      <path class="hit" d="M206 396 L452 196 L455 204 L210 404 Z" fill="#a9522f" stroke="#8a4526" stroke-width=".8"/>
+      <path d="M452 190 L618 154 L621 163 L455 199 Z" fill="#a9522f" stroke="#8a4526" stroke-width=".8"/>
+      <text class="num" x="336" y="294">2</text>
+    </g>
+    <!-- 3 · tablones: solo en el relieve -->
+    <g class="el" data-id="tablones" data-src="relieve">
+      <path class="hit ghost" d="M268 356 L442 214 M286 368 L460 226 M304 380 L478 238"
+            stroke="#7a5a34" stroke-width="2.6" fill="none"/>
+      <text class="num" x="274" y="344" fill="#7a5a34">3</text>
+    </g>
+
+    <!-- 6 · muro de contencion exterior -->
+    <g class="el" data-id="revet" data-src="excavacion">
+      <rect class="hit" x="455" y="196" width="62" height="62" fill="url(#pBrick)" stroke="#7d5f3f" stroke-width="1.3"/>
+      <rect x="455" y="244" width="62" height="14" fill="url(#pStone)" stroke="#7d5f3f" stroke-width=".9"/>
+      <rect x="447" y="185" width="78" height="11" fill="#d7c29d" stroke="#8d7550" stroke-width="1"/>
+      <rect x="447" y="175" width="11" height="11" fill="#d7c29d" stroke="#8d7550" stroke-width="1"/>
+      <rect x="472" y="175" width="11" height="11" fill="#d7c29d" stroke="#8d7550" stroke-width="1"/>
+      <text class="num" x="480" y="226">6</text>
+    </g>
+    <!-- 7 · glacis revestido de piedra -->
+    <g class="el" data-id="glacis" data-src="excavacion">
+      <path class="hit" d="M517 244 L620 174 L620 192 L517 264 Z" fill="url(#pSlab)" stroke="#5f5642" stroke-width="1.3"/>
+      <text class="num" x="556" y="230">7</text>
+    </g>
+    <!-- 8 · muro principal -->
+    <g class="el" data-id="muro" data-src="excavacion">
+      <rect class="hit" x="620" y="134" width="62" height="42" fill="url(#pBrick)" stroke="#7d5f3f" stroke-width="1.3"/>
+      <rect x="620" y="167" width="62" height="9" fill="url(#pStone)" stroke="#7d5f3f" stroke-width=".9"/>
+      <text class="num" x="644" y="160">8</text>
+    </g>
+    <!-- 9 · contrarrampa judaita -->
+    <g class="el" data-id="contra" data-src="excavacion">
+      <path class="hit" d="M682 107 L900 176 L682 176 Z" fill="url(#pFill)" stroke="#5f5335" stroke-width="1.3"/>
+      <path d="M682 107 L900 176 L880 176 L682 118 Z" fill="url(#pChip)" stroke="#9d9070" stroke-width=".9"/>
+      <text class="num" x="710" y="158">9</text>
+    </g>
+    <g>
+      <rect x="916" y="148" width="40" height="28" fill="#dccdaa" stroke="#a08d68" stroke-width="1"/>
+      <rect x="962" y="142" width="34" height="34" fill="#dccdaa" stroke="#a08d68" stroke-width="1"/>
+      <text class="lbl" x="900" y="200" fill="#7d6f52">casas del Nivel III</text>
+    </g>
+
+    <!-- 4 · ariete sobre la superficie de rodadura -->
+    <g class="el" data-id="ariete" data-src="relieve">
+      <g class="hit" transform="translate(530,172) rotate(-13)">
+        <path d="M0 -30 L62 -30 L62 0 L0 0 Z" fill="#7d5a33" stroke="#54401f" stroke-width="1.3"/>
+        <path d="M60 -12 L88 -7" stroke="#54401f" stroke-width="5.5"/>
+        <path d="M44 -30 L44 -46 L60 -46 L60 -30" fill="#8a6539" stroke="#54401f" stroke-width="1.1"/>
+        <path d="M52 -46 L52 -57" stroke="#54401f" stroke-width="2"/>
+        <circle cx="15" cy="4" r="5.2" fill="#54401f"/><circle cx="46" cy="4" r="5.2" fill="#54401f"/>
+        <path d="M9 -20 L22 -14" stroke="#c4622c" stroke-width="2.4"/>
+      </g>
+      <text class="num" x="552" y="150">4</text>
+    </g>
+    <!-- 5 · defensores en la coronacion -->
+    <g class="el" data-id="combate" data-src="relieve">
+      <g class="hit">
+        <path d="M634 132 L636 116 M652 132 L654 116 M670 132 L672 116" stroke="#54401f" stroke-width="2.8"/>
+        <path d="M635 114 L625 102 M653 114 L663 102" stroke="#a9522f" stroke-width="2.8"/>
+        <circle cx="623" cy="100" r="4.4" fill="#c4622c"/><circle cx="665" cy="100" r="4.4" fill="#c4622c"/>
+        <path d="M352 300 L448 226 M334 322 L432 246" stroke="#8a6a3a" stroke-width="1.5" class="ghost"/>
+      </g>
+      <text class="num" x="682" y="122">5</text>
+    </g>
+    <!-- 10 · puntas de flecha en el escombro de adobe -->
+    <g class="el" data-id="flechas" data-src="excavacion">
+      <g class="hit">
+        <circle cx="572" cy="164" r="2.9" fill="#463f30"/><circle cx="583" cy="172" r="2.9" fill="#463f30"/>
+        <circle cx="592" cy="160" r="2.9" fill="#463f30"/><circle cx="601" cy="169" r="2.9" fill="#463f30"/>
+        <circle cx="580" cy="154" r="2.9" fill="#463f30"/><circle cx="609" cy="160" r="2.9" fill="#463f30"/>
+        <circle cx="566" cy="174" r="2.9" fill="#463f30"/><circle cx="595" cy="178" r="2.9" fill="#463f30"/>
+        <circle cx="586" cy="184" r="2.9" fill="#463f30"/><circle cx="612" cy="172" r="2.9" fill="#463f30"/>
+        <circle cx="558" cy="182" r="2.9" fill="#463f30"/><circle cx="574" cy="190" r="2.9" fill="#463f30"/>
+      </g>
+      <text class="num" x="620" y="190">10</text>
+    </g>
+    <!-- 11 · piedras perforadas y cadena -->
+    <g class="el" data-id="piedras" data-src="excavacion relieve">
+      <g class="hit">
+        <circle cx="416" cy="238" r="7" fill="#8b7f60" stroke="#5f5642" stroke-width="1.2"/>
+        <circle cx="416" cy="238" r="2" fill="#4f4733"/>
+        <circle cx="434" cy="224" r="6" fill="#8b7f60" stroke="#5f5642" stroke-width="1.2"/>
+        <circle cx="434" cy="224" r="1.8" fill="#4f4733"/>
+        <circle cx="448" cy="212" r="5" fill="#8b7f60" stroke="#5f5642" stroke-width="1.2"/>
+        <path d="M631 130 q13 13 6 25" stroke="#463f30" stroke-width="2.3" fill="none"/>
+      </g>
+      <text class="num" x="396" y="256">11</text>
+    </g>
+
+    <!-- 13 · Senaquerib entronizado -->
+    <g class="el" data-id="rey" data-src="relieve biblia">
+      <g class="hit">
+        <path d="M42 401 L106 401 L106 363 L74 346 L42 363 Z" fill="#d5c39d" stroke="#8d7550" stroke-width="1.3"/>
+        <rect x="64" y="377" width="19" height="24" fill="#7d5a33"/>
+        <circle cx="73" cy="369" r="6.4" fill="#7d5a33"/>
+        <path d="M26 401 L26 350 M122 401 L122 350" stroke="#8d7550" stroke-width="2.5"/>
+        <circle cx="26" cy="346" r="4.4" fill="#a9522f"/><circle cx="122" cy="346" r="4.4" fill="#a9522f"/>
+      </g>
+      <text class="num" x="68" y="419" fill="#463f30">13</text>
+    </g>
+    <!-- 14 · deportacion -->
+    <g class="el" data-id="deporta" data-src="relieve">
+      <g class="hit">
+        <circle cx="148" cy="379" r="4.8" fill="#7d5a33"/><path d="M148 384 v15" stroke="#7d5a33" stroke-width="2.8"/>
+        <circle cx="164" cy="383" r="3.8" fill="#7d5a33"/><path d="M164 387 v12" stroke="#7d5a33" stroke-width="2.5"/>
+        <circle cx="178" cy="379" r="4.8" fill="#7d5a33"/><path d="M178 384 v15" stroke="#7d5a33" stroke-width="2.8"/>
+        <rect x="190" y="377" width="22" height="13" fill="#a58a5e" stroke="#7d5a33" stroke-width="1.2"/>
+        <circle cx="194" cy="394" r="3.6" fill="#54401f"/><circle cx="207" cy="394" r="3.6" fill="#54401f"/>
+      </g>
+      <text class="num" x="174" y="419" fill="#463f30">14</text>
+    </g>
+
+    <!-- 16 · la Biblia -->
+    <g class="el" data-id="cuartel" data-src="biblia">
+      <rect class="hit" x="34" y="40" width="262" height="56" rx="8" fill="none" stroke="#6e3546" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="lbl" x="48" y="62" fill="#6e3546">«…envió a decir al rey de Asiria a Laquis»</text>
+      <text class="lbl" x="48" y="80" fill="#6e3546">2 Reyes 18:14 · el cuartel general, no la batalla</text>
+      <text class="num" x="276" y="62" fill="#6e3546">16</text>
+    </g>
+    <!-- 15 · los prismas -->
+    <g class="el" data-id="prisma" data-src="prisma">
+      <rect class="hit" x="676" y="40" width="290" height="56" rx="8" fill="none" stroke="#3a4a52" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text class="lbl" x="690" y="62" fill="#3a4a52">«46 de sus ciudades fortificadas…»</text>
+      <text class="lbl" x="690" y="80" fill="#3a4a52">Ninguna se nombra. Laquis, tampoco.</text>
+      <text class="num" x="946" y="62" fill="#3a4a52">15</text>
+    </g>
+
+    <g>
+      <path d="M40 462 h90" stroke="#8a7a5e" stroke-width="2"/>
+      <path d="M40 456 v12 M130 456 v12" stroke="#8a7a5e" stroke-width="2"/>
+      <text class="lbl" x="138" y="467" fill="#8a7a5e">10 m aprox.</text>
+      <text class="lbl" x="330" y="467" fill="#8a7a5e">Ángulo suroeste del tel · esquema interpretativo, proporciones aproximadas</text>
+      <text class="lbl" x="42" y="433" fill="#7d6f52">Fuera de la ciudad · campamento asirio</text>
+      <text class="lbl" x="790" y="433" fill="#7d6f52">Interior de la ciudad</text>
+    </g>
+  </svg>
+  </div>
+  <p class="small">El corte no representa la puerta, que está en el flanco oeste, fuera de este plano. Las proporciones siguen las medidas publicadas por Ussishkin y por Garfinkel y colaboradores, pero el dibujo es un esquema, no un levantamiento.</p>
+
+  <div class="note" id="note"></div>
+</div>
+<footer><span style="color:#867a45">✦</span><br>Estratos · Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+const FICHAS = {
+ rampa:{t:'La rampa de asedio asiria',src:['excavacion','relieve'],
+  cifra:'Ángulo suroeste · unos 80 m de recorrido · pendiente de unos 23° · Área R, campañas de 1983 y 1985',
+  p:['No era una rampa de tierra. Es un cuerpo de <strong>escombro pétreo</strong>: cantos y bloques pequeños de caliza recogidos en los campos de alrededor, volcados sin orden — en el corte de la excavación no se distinguen capas ni niveladas. El peso medio de una piedra, medido sobre una muestra de doscientos cantos, es de 6,42 kg.',
+     'El modelo fotogramétrico de Garfinkel y colaboradores calcula un volumen preferido de 9.728 m³, unas 19.500 toneladas, y una obra de veinte a veinticinco días con varias cadenas humanas de acarreo. Ussishkin había estimado antes entre 13.000 y 19.000 toneladas. Se construyó en dos etapas: la segunda prolongó la rampa desde la plataforma hasta la fachada del muro principal.',
+     'Es la única rampa de asedio asiria conservada, y la más antigua excavada hasta hoy. Conviene decirlo así: la fórmula «la más antigua del mundo» descansa en la ausencia de ejemplares anteriores, no en una comparación positiva.'],
+  cau:'Lo que se ve hoy en el tel ya no tiene su perfil original: los habitantes del Nivel II retiraron tramos enteros después del 701, hubo extracción de piedra para cal en época moderna, y la excavación se llevó otra parte.'},
+ etapa2:{t:'Las dos etapas de la rampa',src:['excavacion'],
+  cifra:'La línea discontinua marca el límite entre la primera obra y su prolongación',
+  p:['La rampa no se construyó de una vez. Hubo una primera obra con su plataforma enlucida y, después, <strong>una segunda que la prolongó hasta la fachada del muro principal</strong>, por encima del muro de contención exterior. En este esquema las dos murallas se dejan visibles para que se entienda el sistema defensivo; en el estado final del asedio, la rampa cubría la exterior.',
+     'La secuencia importa porque dialoga con lo que pasaba dentro: cuando los asirios alargaron su rampa, los defensores ya habían levantado su propio terraplén interior. Las dos obras crecieron a la vez, compitiendo por la altura.'],
+  cau:''},
+ terra:{t:'La plataforma de terra rossa',src:['excavacion'],
+  cifra:'Aproximadamente 1 m de espesor',
+  p:['Sobre el escombro pétreo, los ingenieros asirios extendieron una capa de <strong>terra rossa compactada y endurecida</strong>, traída probablemente de un valle vecino. Sobre esa superficie se movían los arietes.',
+     'En ella se halló un cuenco de tipo asirio: un objeto de la vida cotidiana del sitiador, quedado sobre la obra que construyó.'],
+  cau:''},
+ tablones:{t:'Los tablones de madera',src:['relieve'],
+  cifra:'Representados en el relieve · no hallados en la excavación',
+  p:['El relieve de Nínive dibuja la superficie de la rampa con tres registros de trazos paralelos, que se interpretan como <strong>el entablado de madera</strong> sobre el que rodaban las máquinas.',
+     'En el terreno no apareció nada de eso. Ussishkin lo dice con sequedad: «nada de ese tipo se descubrió aquí».'],
+  cau:'Por eso este elemento va dibujado con línea discontinua. Está en la imagen antigua, no en el suelo. Es exactamente el tipo de dato que se pierde al fundir las fuentes en un solo relato.'},
+ revet:{t:'El muro de contención exterior',src:['excavacion'],
+  cifra:'Torreón de unos 7,5 m de anchura, saliente 1,5 m, unos 6 m de altura sobre el pavimento exterior',
+  p:['Laquis no tenía una muralla, tenía <strong>dos líneas concéntricas</strong>. Esta es la exterior, a media ladera: zócalo de piedra y alzado de adobe. En el ángulo suroeste sube casi hasta la cota de la cima y forma un torreón-contrafuerte.',
+     'Lo coronaba una «balconada» de unos metro y medio de anchura con un parapeto de más de un metro, desde donde los defensores tiraban. En este ángulo se conservaba casi a su altura original: falta solo parte del borde superior.'],
+  cau:''},
+ glacis:{t:'El glacis',src:['excavacion'],
+  cifra:'Superficie inclinada revestida de piedra',
+  p:['Entre las dos murallas, una rampa revestida de piedra que baja desde el muro principal hasta la balconada del torreón, situada un metro y medio o dos por debajo de la coronación del muro de arriba. Su función es negar al atacante cualquier punto de apoyo entre las dos líneas.'],
+  cau:''},
+ muro:{t:'El muro principal de la ciudad',src:['excavacion'],
+  cifra:'Unos 6 m de grosor · 4,60 m de altura conservada, y esa era aproximadamente la original',
+  p:['Adobe sobre cimentación de piedra. Es más bajo de lo que la imaginación suele dibujar: cuatro metros y medio, no diez. Se alzaba unos tres metros y medio por encima del torreón exterior, y en este ángulo los dos muros se aproximan hasta formar un macizo defensivo de unos quince metros de espesor combinado.',
+     'La conclusión del excavador es contraintuitiva y merece detenerse en ella: <strong>los muros no se derribaron</strong>. «Los asirios se abrieron paso por encima de murallas casi intactas; parece que no tenían intención de destruirlas.» El ariete servía para desmochar la coronación, no para abrir una brecha.'],
+  cau:'Por eso este dibujo no muestra un muro caído. Cualquier reconstrucción con una brecha limpia contradice lo que se excavó.'},
+ contra:{t:'La contrarrampa judaíta',src:['excavacion'],
+  cifra:'Unos 120 m de longitud · 35 a 40 m de anchura en el centro · ápice al menos 3 m por encima de la muralla',
+  p:['Descubierta en 1983, es el hallazgo que más dice sobre quienes estaban dentro. Un <strong>terraplén defensivo interior</strong>, en forma de creciente, adosado a la cara interna del muro principal y centrado justo enfrente de la rampa asiria. Cuando el atacante levantó su rampa, los sitiados levantaron la suya por dentro para seguir estando más altos.',
+     'Los materiales están invertidos respecto a la obra asiria: aquí el cuerpo es tierra y escombro sacado de los estratos anteriores del propio tel, con cerámica revuelta de varias épocas, y el remate son capas de esquirlas de caliza sin cerámica. Enfrente, piedra con remate de terra rossa.',
+     'Las casas domésticas que quedaron sepultadas debajo tenían cerámica del Nivel III y <strong>no estaban quemadas</strong>: la contrarrampa se levantó durante el asedio, antes de la destrucción. Es decir, se construyó contra el reloj, sacrificando un barrio.'],
+  cau:'La existencia, la estratigrafía y la fecha del terraplén son consenso. Que su función fuera exactamente esa —una nueva línea interior deliberada— es la interpretación de Ussishkin: dominante, pero inferencia.'},
+ ariete:{t:'El ariete',src:['relieve'],
+  cifra:'Relieve del Palacio Suroeste de Nínive, Sala XXXVI · British Museum',
+  p:['Máquinas de asalto blindadas, con una viga de ariete asomando por delante y una torreta desde la que tira un arquero. El detalle que las vuelve inolvidables está dentro: <strong>un servidor con un cazo de mango largo vertiendo agua</strong> para apagar las teas que los defensores lanzan desde las almenas.',
+     'Cuántas máquinas y cuántas rampas se representan sigue discutido. El British Museum habla de rampas en plural; Garfinkel y colaboradores leen dos, una en la puerta y otra a su derecha; otros leen una sola rampa ancha. La convención asiria comprime episodios distintos en un mismo cuadro, así que el relieve no admite lectura topográfica literal.'],
+  cau:''},
+ combate:{t:'Arqueros, teas y honderos',src:['relieve'],
+  cifra:'Representado en el relieve; parcialmente corroborado por los hallazgos',
+  p:['El relieve muestra arqueros asirios cubriendo el avance, honderos, y defensores en la coronación arrojando antorchas encendidas contra las máquinas. Es la parte de la escena donde imagen y suelo se dan la mano: las puntas de flecha y las piedras están ahí.'],
+  cau:''},
+ flechas:{t:'Las puntas de flecha',src:['excavacion'],
+  cifra:'Más de 850 en el Área R, la mayoría de hierro',
+  p:['La gran mayoría se hallaron <strong>incrustadas en el escombro de adobe caído delante del muro principal</strong>, y el resto delante del muro de contención exterior. No es un dato decorativo: la posición de cada punta dibuja la dirección del tiro y la altura del combate.',
+     'La cifra del informe final de la excavación corrige la que Ussishkin había publicado en 1990. Si se cita, hay que citar la del informe.'],
+  cau:''},
+ piedras:{t:'Piedras perforadas y una cadena',src:['excavacion','relieve'],
+  cifra:'Quince piedras perforadas · un fragmento de cadena de hierro de unos 37 cm · diecisiete piedras de honda',
+  p:['Doce piedras con una perforación aparecieron al pie de los muros en el Área R, y tres más en la puerta exterior. Se interpretan como <strong>lastres colgados de una cuerda</strong>, balanceados desde arriba contra los arietes; pesarían entre cien y doscientos kilos.',
+     'Y un fragmento de cadena de hierro, que coincide con las cadenas que el relieve dibuja colgando de las almenas para engancharle la viga a la máquina. Aquí la convergencia funciona en los dos sentidos: el objeto explica la imagen y la imagen explica el objeto.'],
+  cau:'De piedras de honda en este ángulo hay diecisiete, no miles. La cifra abultada circula mucho y no está en los informes.'},
+ rey:{t:'Senaquerib entronizado ante Laquis',src:['relieve','biblia'],
+  cifra:'Relieve, Sala XXXVI · y 2 Crónicas 32:9',
+  p:['El relieve cierra la secuencia con el rey sentado en un trono, pasando revista al botín, y detrás el campamento con los estandartes divinos. Su rostro fue <strong>mutilado deliberadamente</strong>, probablemente después de que Senaquerib fuera asesinado en 681.',
+     'Y aquí ocurre algo poco frecuente: la Biblia sitúa al rey en el mismo lugar. «Senaquerib envió a sus oficiales a Jerusalén, estando él y todo su séquito en Laquis.» Dos fuentes independientes, una asiria y una judaíta, coinciden en que el rey de Asiria tenía su cuartel ante esta ciudad y no ante la capital.'],
+  cau:''},
+ deporta:{t:'La deportación',src:['relieve'],
+  cifra:'Representado en el relieve',
+  p:['Familias saliendo por la puerta con carretas de bueyes y ganado, y una procesión de soldados portando el botín simbólico del reino: el trono del gobernador, el carro oficial, la maza ceremonial. Antes de ese cortejo, el relieve coloca a <strong>tres prisioneros empalados</strong>, situados de modo que los que se van tengan que verlos.',
+     'No hay que suavizarlo ni convertirlo en espectáculo: es propaganda de estado, tallada para ser vista por embajadores en una sala de palacio.'],
+  cau:''},
+ prisma:{t:'Los prismas de Senaquerib: el silencio',src:['prisma'],
+  cifra:'Prisma de Taylor (691 a.C.), Prisma de Jerusalén (691), Prisma de Chicago (689)',
+  p:['Este es el punto que ordena todo el episodio. Los anales de Senaquerib narran la campaña de Judá con detalle: cuarenta y seis ciudades fortificadas sitiadas y conquistadas, doscientas mil ciento cincuenta personas contadas como botín, Ezequías encerrado «como un pájaro en su jaula». <strong>Y no nombran Laquis ni una sola vez.</strong>',
+     'Tampoco nombran ninguna de esas cuarenta y seis. Sí nombran ciudades de la llanura costera y de Filistea —Jope, Eltequé, Timná, Ecrón— y a los reyes de Asdod, Ecrón y Gaza. De Judá, solo Jerusalén, la que no cayó.',
+     'De modo que el único testimonio asirio escrito que pronuncia el nombre de esta ciudad es <strong>el epígrafe del relieve</strong>: «Senaquerib, rey del mundo, rey de Asiria, se sentó en un trono <em>nēmedu</em> y pasó revista al botín procedente de Laquis.» Sin esas dos líneas, no sabríamos qué ciudad estamos viendo.'],
+  cau:'Y aun así Senaquerib dedicó a Laquis una sala entera de su palacio, y a Jerusalén ninguna. Lo que un imperio talla en piedra y lo que escribe en sus anales no son la misma cosa.'},
+ cuartel:{t:'Laquis en la Biblia',src:['biblia'],
+  cifra:'2 Reyes 18:14 · 2 Reyes 19:8 · 2 Crónicas 32:9 · Jeremías 34:7',
+  p:['La Biblia no describe el asedio de Laquis. La menciona de pasada, y esas menciones de pasada resultan ser cronológicamente valiosas. En 2 Reyes 18:14, Ezequías envía su rendición al rey de Asiria <strong>«a Laquis»</strong>, y paga trescientos talentos de plata y treinta de oro. En 19:8, el rabsaqué se entera de que el rey <strong>«había partido de Laquis»</strong> y estaba atacando Libná.',
+     'De ahí se sigue algo que el relieve no puede decir: el asedio de Laquis es <em>anterior</em> a la crisis final de Jerusalén, y Laquis fue el puesto de mando desde el que se negoció la sumisión de Judá.',
+     'Un siglo y medio después, Jeremías 34:7 vuelve a nombrarla, ya con los babilonios: Laquis y Azeqá, «las únicas ciudades fortificadas de Judá que quedaban». Pero eso es el Nivel II, otra destrucción y otro episodio de esta serie.'],
+  cau:'Miqueas 1:13 juega con el nombre —<em>lakiš</em> y <em>la-rekeš</em>, «a los corceles»— y se lee tradicionalmente en el marco de la amenaza asiria, pero la fecha del poema está discutida y no describe este asedio.'},
+};
+const NOMBRES = {relieve:'El relieve de Nínive',excavacion:'La excavación',prisma:'Los prismas',biblia:'La Biblia'};
+
+const note = document.getElementById('note');
+function ficha(id){
+  const f = FICHAS[id]; if(!f) return;
+  document.querySelectorAll('.el').forEach(e=>e.classList.remove('cur'));
+  note.innerHTML =
+   '<div class="hd"><h3>'+f.t+'</h3><div class="tags">'+
+     f.src.map(s=>'<span class="tg tg-'+s+'">'+NOMBRES[s]+'</span>').join('')+
+     (f.src.includes('relieve')&&!f.src.includes('excavacion')&&id==='tablones'
+        ? '<span class="tg tg-no">no hallado</span>':'')+
+   '</div></div>'+
+   (f.cifra?'<div class="cifra">'+f.cifra+'</div>':'')+
+   f.p.map(x=>'<p>'+x+'</p>').join('')+
+   (f.cau?'<div class="cau">'+f.cau+'</div>':'');
+}
+document.querySelectorAll('.el').forEach(el => el.addEventListener('click', () => ficha(el.dataset.id)));
+
+// filtros por fuente
+const btns = document.querySelectorAll('.srcbar button');
+btns.forEach(b => b.onclick = () => {
+  btns.forEach(x=>x.classList.remove('on')); b.classList.add('on');
+  const s = b.dataset.s;
+  document.querySelectorAll('.el').forEach(el => {
+    const has = s==='todo' || el.dataset.src.split(' ').includes(s);
+    el.classList.toggle('dim', !has);
+  });
+  if (s==='prisma') ficha('prisma');
+  else if (s==='biblia') ficha('cuartel');
+  else if (s==='relieve') ficha('ariete');
+  else if (s==='excavacion') ficha('contra');
+});
+ficha('rampa');
+</script>
+</body></html>

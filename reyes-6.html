@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El derrumbe — Estratos</title>
+<meta name="description" content="597, la fecha mejor documentada de la historia bíblica. Y después el silencio: ninguna fuente babilónica narra la destrucción de Jerusalén. Las cartas de Laquis.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5a5230;--mid:#867a45;--pale:#a89a5e;
+    --rel:#8a4a2a;--exc:#5a5230;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.6rem auto;max-width:900px}
+  figure img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 8px 26px var(--shadow)}
+  figcaption{margin-top:.7rem;font-size:.92rem;color:#5a4d38;max-width:720px}
+  figcaption .cr{display:block;margin-top:.35rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.68rem;letter-spacing:.03em;color:#9a8a6e}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#b8ab90,#a89a5e 42%,#867a45 70%,#5a5230)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d4b6,#d2c39e);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .rel{max-width:980px;margin:2.6rem auto 2.8rem;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;box-shadow:0 6px 22px var(--shadow);
+    padding:1.4rem 1.5rem 1.5rem}
+  .rel .lg{display:flex;flex-wrap:wrap;gap:1.1rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.7rem;color:#5a4d38;margin-bottom:1.1rem}
+  .rel .lg span i{display:inline-block;width:16px;height:9px;border-radius:2px;margin-right:.4rem;vertical-align:0}
+  .i-bab{background:#26333a}.i-bib{background:#6e3546}.i-heb{background:#8a4a2a}.i-arq{background:var(--mid)}
+  .relwrap{position:relative;padding-top:26px}
+  .relax{position:relative;height:20px;border-bottom:1px solid rgba(150,130,95,.6);margin-bottom:6px}
+  .relax span{position:absolute;transform:translateX(-50%);bottom:3px;
+    font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#8a7a5e}
+  .zona{position:absolute;top:0;bottom:34px;background:repeating-linear-gradient(45deg,
+    rgba(58,74,82,.10) 0 6px,rgba(58,74,82,.02) 6px 12px);border-left:1px dashed rgba(58,74,82,.55);
+    pointer-events:none}
+  .zona b{position:absolute;top:2px;left:6px;font-family:"Trebuchet MS",sans-serif;font-size:.64rem;
+    letter-spacing:.05em;color:#3a4a52;font-weight:700;max-width:190px;line-height:1.25}
+  .relrow{position:relative;height:34px;cursor:pointer;border-radius:5px;transition:background .25s}
+  .relrow:hover{background:rgba(168,154,94,.16)}
+  .relrow.on{background:rgba(168,154,94,.3)}
+  .relbar{position:absolute;top:9px;height:15px;border-radius:3px;min-width:3px}
+  .relbar.bab{background:#26333a}.relbar.bib{background:#6e3546}
+  .relbar.heb{background:#8a4a2a}.relbar.arq{background:var(--mid)}
+  .rellb{position:absolute;top:8px;font-family:"Trebuchet MS",sans-serif;font-size:.7rem;
+    color:#3f3826;white-space:nowrap;line-height:17px}
+  .relficha{max-width:980px;margin:-2.4rem auto 2.8rem;background:#efe6d2;
+    border:1px solid rgba(180,150,100,.5);border-radius:12px;padding:1.3rem 1.5rem 1.4rem;min-height:130px}
+  .relficha h4{font-size:1.16rem;font-weight:400;margin-bottom:.15rem}
+  .relficha .pr{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.09em;
+    text-transform:uppercase;font-weight:700;color:#fdf8ea;padding:.18rem .55rem;border-radius:2rem;
+    display:inline-block;margin-bottom:.8rem}
+  .relficha p{font-size:.98rem;color:#4a3f33;margin-bottom:.6rem}
+  .relficha .cita{margin:.8rem 0;padding-left:1.1rem;border-left:3px solid var(--mid);
+    font-style:italic;font-size:.96rem;color:#4a3f33}
+  .relficha .cau{margin-top:.7rem;padding-top:.6rem;border-top:1px dotted rgba(180,150,100,.7);
+    font-size:.9rem;color:#6a5c46;font-style:italic}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El reino partido · Entrega VI · El testimonio desde dentro</span>
+  <h1>El <span class="em">derrumbe</span></h1>
+  <p class="stand">Del suceso mejor fechado de la historia bíblica al peor documentado hay once años y una tablilla rota.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Hay un año, en toda la historia del reino de Judá, del que conocemos el día. No el mes: el día. Y no está en la Biblia.</p>
+
+<p>La Crónica Babilónica que los asiriólogos catalogan como ABC 5 —una tablilla de arcilla del British Museum que cubre los años 605 a 594 a.C.— anota, entre otras campañas de Nabucodonosor, esta: «En el séptimo año, en el mes de Kislimu, el rey de Akkad reunió sus tropas, marchó a la tierra de Hatti y sitió la ciudad de Judá, y el segundo día del mes de Addaru tomó la ciudad y capturó al rey.» El 2 de Adar del año séptimo de Nabucodonosor corresponde al 15 o 16 de marzo de <strong>597 a.C.</strong></p>
+
+<p>Once años más tarde, Jerusalén fue destruida, el Templo incendiado y la dinastía davídica extinguida. De ese suceso —el más consecuente de toda la historia bíblica— <strong>no existe ni una línea de fuente babilónica</strong>. La tablilla que lo contaría se interrumpe tres años antes, y su continuación no se ha encontrado.</p>
+
+<p>Esa asimetría es el asunto de esta entrega, y no es una curiosidad de archivo. Determina lo que se puede afirmar y con qué firmeza sobre cada paso del derrumbe.</p>
+
+<figure>
+  <img src="cronica-babilonica-abc5.jpg" alt="Tablilla de la Crónica Babilónica que cubre los años 605 a 594 a.C.">
+  <figcaption>La crónica neobabilónica de los años 605 a 594 a.C., en el British Museum. Es la fuente que fecha con día y mes la primera toma de Jerusalén. Conviene precisar dos cosas que suelen contarse mal: la crónica <strong>no nombra a ningún rey de Judá</strong> —dice que Nabucodonosor «capturó al rey» y «nombró allí un rey de su elección»—, y el rey capturado en 597 fue Joaquín, no Joacim. La tablilla se interrumpe en el año once, once años antes de la destrucción de la ciudad.
+  <span class="cr">Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<h2>Veintitrés años, cada uno con su margen</h2>
+
+<p>Entre la muerte de Josías en Meguido y la última deportación registrada pasan veintitrés años. Cada acontecimiento de esa cadena está fechado con una precisión distinta, y la diferencia entre unos y otros es enorme: de un día exacto a una horquilla de dos años. Merece verse dibujado, porque lo que se dibuja aquí no son las fechas sino <em>los márgenes</em>.</p>
+
+</div></div>
+<div class="wrap">
+<div class="rel">
+  <div class="lg">
+    <span><i class="i-bab"></i>Cr&oacute;nica babil&oacute;nica</span>
+    <span><i class="i-bib"></i>Texto b&iacute;blico</span>
+    <span><i class="i-heb"></i>Epigraf&iacute;a hebrea</span>
+    <span><i class="i-arq"></i>Arqueolog&iacute;a</span>
+    <span style="color:#3a4a52">La anchura de cada barra es el margen de la fecha, no su duraci&oacute;n</span>
+  </div>
+  <div class="relwrap">
+    <div class="relax" id="relax"></div>
+    <div id="relrows"></div>
+  </div>
+</div>
+<div class="relficha" id="relficha"></div>
+</div>
+<div class="wrap"><div class="col-text">
+
+<h2>Por qué 587 y 586 no son un error</h2>
+
+<p>La horquilla del año de la destrucción es el punto donde más gente se pierde, y la causa es sorprendentemente doméstica. <strong>La ambigüedad es interna a la Biblia.</strong> Jeremías 52:29 sitúa la deportación en el año dieciocho de Nabucodonosor; 2 Reyes 25:8 sitúa la caída de la ciudad en el año diecinueve. Un año de diferencia entre dos textos que cuentan lo mismo.</p>
+
+<p>La explicación es de calendario. Judá contaba el año nuevo en Tishri, en otoño; Babilonia lo contaba en Nisán, en primavera. Según qué sistema use el redactor, y según si el año de acceso al trono se cuenta o no como primer año de reinado, el mismo suceso cae en un año o en el siguiente. A eso se añade que <strong>586</strong> fue la fecha estándar durante buena parte del siglo XX —Albright, Malamat, Thiele— y que <strong>587</strong> ha ganado terreno desde los años setenta.</p>
+
+<p>De modo que escribir «587/586 a.C.» y explicar la barra no es indecisión: es la manera correcta de citar el dato. Lo que sí hay que rechazar sin ambigüedad es la fecha de 607, que circula en algunos círculos: contradice la cronología neobabilónica establecida por listas de reyes, tablillas astronómicas y miles de textos económicos fechados, y no tiene ningún apoyo académico.</p>
+
+<h2>El testimonio desde dentro</h2>
+
+<p>Y en medio de ese silencio documental hay una excepción, y es hebrea. En enero y febrero de 1935, James Leslie Starkey encontró en Laquis dieciocho fragmentos de cerámica escritos con tinta; en 1938 aparecieron tres más. Estaban en el cuerpo de guardia de la torre oriental de la puerta exterior, entre los escombros del Nivel II.</p>
+
+<figure>
+  <img src="tel-laquis-puerta.jpg" alt="La calzada de acceso y el complejo de la puerta de Tel Laquis">
+  <figcaption>La calzada que asciende por la ladera occidental de Tel Laquis hasta el complejo de la puerta, donde el camino gira noventa grados hacia la puerta de seis cámaras. Conviene no confundirla con la rampa de asedio asiria, que está en el ángulo suroeste y la construyeron los sitiadores: esta la construyeron los judaítas para entrar en su ciudad. En el cuerpo de guardia de la torre oriental de la puerta exterior, entre los escombros del Nivel II, aparecieron las cartas.
+  <span class="cr">Foto: Ian Scott · CC BY-SA 2.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>No son literatura. Son <strong>correspondencia militar y administrativa</strong>, en su mayor parte de un oficial subalterno llamado Hoshayahu, destacado en un puesto avanzado, a su superior Ya'ush, en Laquis. Contienen informes, justificaciones y peticiones, con la mezcla exacta de burocracia y ansiedad que se reconoce en cualquier guerra. Y están escritas hacia 588 o 589 a.C., es decir <strong>inmediatamente antes de la caída</strong>.</p>
+
+<figure>
+  <img src="ostracon-laquis-4.jpg" alt="El ostracón número 4 de Laquis, con la mención de las señales de fuego">
+  <figcaption>El ostracón número 4 de Laquis, escrito con tinta sobre un fragmento de cerámica hacia 588 a.C. Es parte de la correspondencia militar hallada en el cuerpo de guardia de la puerta, y el testimonio hebreo contemporáneo más directo del final del reino de Judá.
+  <span class="cr">Foto: Wellcome Collection · CC BY 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>El pasaje del ostracón número 4 se ha citado miles de veces: «…y que sepa mi señor que estamos vigilando las señales de fuego de Laquis, conforme a todos los signos que mi señor ha dado, porque no vemos Azeqá.» Con eso se demuestra que existía un sistema de comunicación por señales de fuego entre las plazas fuertes de Judá, y se obtiene una correlación notable con Jeremías 34:7, que menciona a Laquis y Azeqá como «las únicas ciudades fortificadas de Judá que quedaban».</p>
+
+<p>La lectura habitual da un paso más y entiende que «no vemos Azeqá» significa que Azeqá ya había caído. Es una lectura dramática, muy eficaz, y <strong>no es segura</strong>: podría tratarse de visibilidad, de meteorología o de un puesto ya evacuado. Es uno de los lugares donde la divulgación exagera, y conviene no exagerarlo.</p>
+
+<p>Lo que sí es incontestable es el valor del conjunto: los ostraca de Laquis son <strong>el testimonio hebreo contemporáneo más directo del colapso del reino de Judá</strong>. Otros de ellos mencionan a un profeta, lo que ilumina el ambiente en que se sitúa el libro de Jeremías; todos los nombres teofóricos que contienen son yahvistas; y su existencia misma prueba alfabetización funcional en la burocracia militar.</p>
+
+<h2>Un incendio sin batalla</h2>
+
+<p>La arqueología de la destrucción es abundante y coherente: capas de incendio en Laquis, y en Jerusalén la Casa Quemada, la Casa de los Bullae, el Edificio 100 del aparcamiento Giv'ati cuyo carbono 14 lo sitúa en el 586. Bullae con nombres de funcionarios de la corte, excavadas en la Ciudad de David, que aparecen también en el libro de Jeremías.</p>
+
+<p>Pero hay un detalle fino y contraintuitivo que merece detenerse. En Laquis, el Nivel III —el arrasado por Senaquerib en 701— muestra combate por todas partes: más de ochocientas cincuenta puntas de flecha incrustadas en el adobe caído, piedras perforadas al pie de los muros, escamas de armadura. En el <strong>Nivel II</strong>, el destruido por los babilonios, hay fuego, hay derrumbe, y <strong>no se encontró evidencia de daño de combate</strong> en las estructuras.</p>
+
+<p>Es un dato pequeño que dice algo grande. Laquis no volvió a defenderse como en 701, porque no podía: el Nivel II nunca reconstruyó el sistema de doble muralla monumental del Nivel III. Ciento quince años después de haber resistido al ejército más eficaz del mundo, la segunda ciudad de Judá era una plaza que se quemaba sin pelear.</p>
+
+<div class="meter">
+  <div class="q">¿Fecha alguna fuente externa la destrucción de Jerusalén?</div>
+  <div class="bar"><span class="pin" style="left:8%" data-l="Aquí estamos"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Casi en el extremo izquierdo, y no por escepticismo: por ausencia documental. <strong>Ninguna fuente babilónica narra ni fecha la destrucción de Jerusalén</strong>, porque la crónica que lo haría se interrumpe en 594 y su continuación está perdida. La destrucción está sólidamente atestiguada por la arqueología —capas de incendio, radiocarbono, bullae— y narrada por fuentes bíblicas. Lo que no hay es un texto extranjero que la registre, a diferencia del 597, que tiene día y mes.</div>
+</div>
+
+<h2>Quién queda y quién se va</h2>
+
+<p>El derrumbe no fue un acto único. Fue una secuencia administrativa: 597, deportación de la corte y del rey; 587/586, destrucción y segunda deportación; 582, una tercera. Y después, una provincia babilónica con capital en Mizpá y un gobernador, Guedalías, cuya administración duró lo que duró.</p>
+
+<p>Los números que da Jeremías 52 para esas tres oleadas son sobrios: tres mil veintitrés personas, ochocientas treinta y dos, setecientas cuarenta y cinco. Cuatro mil seiscientas en total. 2 Reyes da diez mil para la primera. Y 2 Crónicas, escrito siglos después, prescinde de las cifras y describe una tierra vacía durante setenta años.</p>
+
+<p>Esas tres versiones no son tres errores. Son tres maneras de contar una catástrofe, escritas en tres momentos distintos y con tres propósitos distintos. Cuál de ellas se parece más a lo que muestran las prospecciones arqueológicas es la pregunta con la que se cierra esta serie.</p>
+
+<div class="fuentes">
+  <h3>Nota sobre las fuentes</h3>
+  <p>La Crónica Babilónica ABC 5 es la tablilla BM 21946 del British Museum, conocida también como Crónica de Nabucodonosor; cubre los años 605 a 594 a.C. y se interrumpe en el año once del rey. Traducción y comentario en A. K. Grayson, <em>Assyrian and Babylonian Chronicles</em>.</p>
+  <p>Sobre la horquilla 587/586: la discrepancia entre Jeremías 52:29 y 2 Reyes 25:8, y su explicación por el cómputo de Tishri frente al de Nisán, en K. S. Freedy y D. B. Redford, <em>JAOS</em> 90 (1970), y en la bibliografía posterior recogida por O. Lipschits.</p>
+  <p>Los ostraca de Laquis fueron hallados por J. L. Starkey en las campañas de 1935 y 1938 y publicados por H. Torczyner (Tur-Sinai) en 1938; diecisiete piezas están en el British Museum. Sobre su contexto exacto en el cuerpo de guardia de la puerta exterior del Nivel II, D. Ussishkin, <em>The Renewed Archaeological Excavations at Lachish</em>, cap. 10. Sobre el radiocarbono del Edificio 100 y la destrucción del 586, Y. Regev <em>et al.</em>, <em>PNAS</em> 121 (2024). Bibliografía completa de la serie en <a href="reyes-fuentes.html">la página de fuentes</a>.</p>
+</div>
+
+</div></div>
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+const RY0 = 612, RY1 = 578;
+const rx = y => ((RY0 - y) / (RY0 - RY1)) * 100;
+const EV = [
+ {n:'Meguido: muere Josías', a:609.9, b:609.0, k:'bib', pr:'Año',
+  t:'El faraón Necao II sube hacia el norte y Josías le sale al paso en Meguido. 2 Reyes 23:29 lo cuenta en dos versículos y sin explicaciones. 2 Crónicas 35:20-24 añade algo que Reyes no dice: que Josías murió porque desoyó una palabra de Dios puesta en boca del faraón.',
+  cau:'Ese añadido del Cronista no es un dato histórico nuevo: es una solución teológica. El rey más piadoso del libro muere de forma violenta y joven, y eso desmiente el principio de retribución. Crónicas lo arregla dándole una culpa.'},
+ {n:'Carquemís: Babilonia sustituye a Egipto', a:605.9, b:605.0, k:'bab', pr:'Año',
+  t:'Nabucodonosor derrota a los egipcios y el Levante cambia de dueño. La Crónica Babilónica ABC 5, la tablilla BM 21946, cubre los años 605 a 594 a.C. y registra la campaña.',
+  cau:'Es el momento en que Judá deja de ser vasallo de Egipto para serlo de Babilonia, sin que nadie le pregunte. Los once años siguientes son los mejor documentados de toda la historia del reino.'},
+ {n:'Primera toma de Jerusalén', a:597.05, b:596.95, k:'bab', pr:'Día exacto',
+  t:'La fecha mejor establecida de toda la historia bíblica, y por un margen enorme. La Crónica Babilónica no da el año: da el día.',
+  cita:'«En el séptimo año, en el mes de Kislimu, el rey de Akkad reunió sus tropas, marchó a la tierra de Hatti y sitió la ciudad de Judá, y el segundo día del mes de Addaru tomó la ciudad y capturó al rey. Nombró allí un rey de su elección, recibió su cuantioso tributo y lo envió a Babilonia.»',
+  cau:'El 2 de Adar del año 7 de Nabucodonosor equivale al 15 o 16 de marzo de 597 a.C. La crónica confirma la toma, la deposición de un rey y la entronización de un sustituto, exactamente como 2 Reyes 24. Y no nombra a ninguno de los dos.'},
+ {n:'ABC 5 se interrumpe', a:594.6, b:593.4, k:'bab', pr:'Fin de la fuente',
+  t:'La tablilla se rompe en el año once de Nabucodonosor. La continuación está perdida. A partir de aquí, y esto hay que decirlo con toda claridad, <strong>no existe ninguna fuente babilónica que narre la destrucción de Jerusalén</strong>.',
+  cau:'No es que las fuentes babilónicas contradigan a la Biblia sobre el 587. Es que se callan, porque la tablilla que lo contaría no se ha encontrado. El suceso central de la historia bíblica se conoce solo por fuentes bíblicas más la arqueología de la destrucción.'},
+ {n:'Las cartas de Laquis', a:589.8, b:587.6, k:'heb', pr:'Estación aproximada',
+  t:'Veintiuna piezas de cerámica con tinta, halladas por Starkey entre enero y febrero de 1935 y en 1938, en el cuerpo de guardia de la torre oriental de la puerta exterior del Nivel II. Correspondencia militar en hebreo, en su mayoría de un oficial destacado en un puesto avanzado a su superior en Laquis.',
+  cita:'«…y que sepa mi señor que estamos vigilando las señales de fuego de Laquis, conforme a todos los signos que mi señor ha dado, porque no vemos Azeqá.» <span style="font-style:normal;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#8a7a5e">Ostracón nº 4</span>',
+  cau:'La lectura dramática —que Azeqá ya había caído— es la habitual y no es segura: podría ser cuestión de visibilidad, de meteorología o de un puesto ya evacuado. Es uno de los lugares donde la divulgación exagera. Lo que el texto sí demuestra es que existía un sistema de comunicación por señales de fuego entre plazas fuertes.'},
+ {n:'Destrucción de Jerusalén', a:587.9, b:585.6, k:'bib', pr:'Horquilla de dos años',
+  t:'Jeremías 52:29 sitúa la deportación en el año dieciocho de Nabucodonosor; 2 Reyes 25:8 sitúa la caída en el año diecinueve. La discrepancia es interna a la Biblia y depende de si el redactor contaba el año nuevo en Tishri, en otoño, como se hacía en Judá, o en Nisán, en primavera, como en Babilonia.',
+  cau:'La horquilla 587/586 es un artefacto del calendario, no una incertidumbre de un siglo. Nunca conviene escribir «586» a secas. Y la fecha de 607 que circula en algunos círculos no tiene ningún apoyo académico: contradice la cronología neobabilónica establecida por listas de reyes, tablillas astronómicas y textos económicos fechados.'},
+ {n:'El incendio en el suelo', a:588.4, b:584.8, k:'arq', pr:'Estrato',
+  t:'Laquis Nivel II destruido por fuego. En Jerusalén, la Casa Quemada, la Casa de los Bullae, y el Edificio 100 del aparcamiento Giv\'ati, cuyo carbono 14 lo sitúa en el 586. Bullae de funcionarios de la corte, excavadas en la Ciudad de David.',
+  cau:'Un detalle contraintuitivo y muy fino: a diferencia del Nivel III, arrasado por Senaquerib con miles de puntas de flecha incrustadas en el adobe, <strong>en las estructuras del Nivel II de Laquis no se encontró evidencia de daño de combate</strong>. Fuego, sí. Batalla, no.'},
+ {n:'Tercera deportación', a:582.9, b:581.2, k:'bib', pr:'Año, fuente sobria',
+  t:'Jeremías 52:30 registra setecientas cuarenta y cinco personas en el año veintitrés de Nabucodonosor. Es la última anotación de la lista más contenida y hoy considerada la más fiable de las cifras bíblicas del destierro.',
+  cau:'Esa lista de Jeremías —3.023 personas en el año siete, 832 en el año dieciocho, 745 en el año veintitrés, total 4.600— es la que el episodio siguiente pone frente a la «tierra vacía» de 2 Crónicas.'},
+];
+const PRC = {bab:'#26333a', bib:'#6e3546', heb:'#8a4a2a', arq:'#867a45'};
+
+const axEl = document.getElementById('relax');
+[610,605,600,595,590,585,580].forEach(y => {
+  const s = document.createElement('span');
+  s.style.left = rx(y)+'%'; s.textContent = y;
+  axEl.appendChild(s);
+});
+// zona sin fuentes babilonicas, a partir de la rotura de la tablilla
+const z = document.createElement('div');
+z.className = 'zona';
+z.style.left = rx(594)+'%'; z.style.right = '0';
+z.innerHTML = '<b>Desde aquí, ninguna fuente babilónica</b>';
+document.querySelector('.relwrap').appendChild(z);
+
+const rowsEl = document.getElementById('relrows');
+EV.forEach((e,i) => {
+  const r = document.createElement('div');
+  r.className = 'relrow'; r.dataset.i = i;
+  const a = rx(e.a), b = rx(e.b);
+  const lo = Math.min(a,b), w = Math.abs(b-a);
+  const labLeft = lo + w > 62;
+  r.innerHTML = '<span class="relbar '+e.k+'" style="left:'+lo+'%;width:'+w+'%"></span>'
+    + '<span class="rellb" style="'+(labLeft ? 'right:'+(100-lo)+'%;padding-right:9px' : 'left:'+(lo+w)+'%;padding-left:9px')+'">'+e.n+'</span>';
+  r.onclick = () => sel(i);
+  rowsEl.appendChild(r);
+});
+
+const fEl = document.getElementById('relficha');
+function sel(i){
+  const e = EV[i];
+  document.querySelectorAll('.relrow').forEach(x => x.classList.toggle('on', +x.dataset.i === i));
+  fEl.innerHTML = '<h4>'+e.n+'</h4>'
+    + '<span class="pr" style="background:'+PRC[e.k]+'">Precisión: '+e.pr+'</span>'
+    + '<p>'+e.t+'</p>'
+    + (e.cita ? '<div class="cita">'+e.cita+'</div>' : '')
+    + '<div class="cau">'+e.cau+'</div>';
+}
+sel(2);
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5a5230">↑ <a href="serie-reyes.html" style="color:#5a5230">Serie: El reino partido</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="reyes-5.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#5a5230">El rey ideal y la reforma que no se ve</span></a>
+    <a class="epnav-btn next" href="reyes-7.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#5a5230">La tierra que no quedó vacía</span></a>
+  </div>
+</nav>
+</body></html>

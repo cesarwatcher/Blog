@@ -1,0 +1,559 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La grieta que quizá nunca fue — Estratos</title>
+<meta name="description" content="De dónde sale la fecha de 930 a.C., por qué no es un dato externo, y qué se puede sostener hoy sobre la división del reino de Israel y Judá.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;--shadow:rgba(40,28,16,.18);
+    --deep:#5a5230;--mid:#867a45;--pale:#a89a5e;
+    --israel:#7a5c38;--juda:#5a5230;--imp:#3a4a52}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  .wrap h2{font-size:1.7rem;font-weight:400;margin:2.5rem 0 .6rem}
+  .wrap h2 .em{font-style:italic;color:var(--deep)}
+  .wrap p{font-size:1.02rem;color:#4a3f33;margin-bottom:1rem;max-width:760px}
+  .wrap p.small{font-size:.9rem;color:#6a5c46}
+
+  /* ---------- leyenda ---------- */
+  .legend{display:flex;flex-wrap:wrap;gap:1.4rem;margin:1.6rem 0 1rem;font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#5a4d38}
+  .legend .k{display:flex;align-items:center;gap:.5rem}
+  .swatch{width:34px;height:16px;border-radius:3px;border:1px solid rgba(90,82,48,.55);flex-shrink:0}
+  .sw-a{background:var(--mid)}
+  .sw-b{background:var(--mid);
+    background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.55) 0 3px,transparent 3px 6px)}
+  .sw-c{background:transparent}
+  .sw-fuzz{background:linear-gradient(90deg,rgba(134,122,69,.15),rgba(134,122,69,.75),rgba(134,122,69,.15));border-style:dashed}
+
+  /* ---------- controles ---------- */
+  .ctrl{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.4rem 0 1rem}
+  .ctrl button{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.04em;
+    background:var(--sand-light);border:1px solid var(--rule);border-radius:2rem;padding:.38rem .8rem;
+    color:#4a3f33;cursor:pointer;transition:background .25s,transform .25s}
+  .ctrl button:hover{background:#fff;transform:translateY(-1px)}
+  .ctrl .hint{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;color:#8a7a5e;margin-left:auto}
+
+  /* ---------- sinóptico ---------- */
+  .syn{position:relative;background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-radius:12px;box-shadow:0 6px 22px var(--shadow);overflow:hidden;margin-bottom:.8rem}
+  .syn-scroll{overflow-x:auto;overflow-y:hidden;cursor:grab;scrollbar-width:thin}
+  .syn-scroll.dragging{cursor:grabbing}
+  .syn-scroll::-webkit-scrollbar{height:9px}
+  .syn-scroll::-webkit-scrollbar-thumb{background:var(--pale);border-radius:6px}
+  .lanes{position:relative;height:404px}
+  .lanelabel{position:absolute;left:0;top:0;width:104px;height:100%;z-index:5;pointer-events:none;
+    background:linear-gradient(90deg,var(--sand-light) 72%,rgba(242,234,215,0));}
+  .lanelabel span{position:absolute;left:12px;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;
+    letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+  .ll-i{top:64px;color:var(--israel)}
+  .ll-j{top:190px;color:var(--juda)}
+  .ll-e{top:308px;color:var(--imp)}
+  .laneline{position:absolute;left:0;height:1px;background:rgba(150,130,95,.4)}
+  .kblock{position:absolute;height:26px;border-radius:4px;border:1.5px solid var(--mid);
+    background:transparent;cursor:pointer;transition:filter .2s,transform .2s;overflow:hidden}
+  .kblock:hover{filter:brightness(1.06);transform:translateY(-2px);z-index:4}
+  .kblock.att-a{background:var(--mid)}
+  .kblock.att-b{background:var(--mid);
+    background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.55) 0 3px,transparent 3px 6px)}
+  .kblock.sel{outline:2px solid var(--deep);outline-offset:2px;z-index:6}
+  .kblock .nm{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    padding:0 5px;line-height:23px;white-space:nowrap;color:#3a3320}
+  .kblock.att-a .nm{color:#fdf8ea}
+  .fuzz{position:absolute;height:26px;pointer-events:none;
+    background:repeating-linear-gradient(90deg,rgba(134,122,69,.42) 0 2px,transparent 2px 5px)}
+  .impband{position:absolute;height:22px;border-radius:3px;font-family:"Trebuchet MS",sans-serif;
+    font-size:.64rem;letter-spacing:.06em;color:#eef2f4;line-height:22px;padding:0 7px;white-space:nowrap;overflow:hidden}
+  .anchor{position:absolute;top:44px;bottom:44px;width:1px;background:rgba(90,82,48,.5)}
+  .anchor::before{content:"";position:absolute;top:-5px;left:-4px;width:9px;height:9px;
+    background:var(--deep);transform:rotate(45deg)}
+  .anchor .lb{position:absolute;top:-24px;left:-2px;font-family:"Trebuchet MS",sans-serif;
+    font-size:.62rem;letter-spacing:.05em;color:var(--deep);white-space:nowrap;font-weight:700}
+  .axis{position:absolute;bottom:0;left:0;height:30px;border-top:1px solid rgba(150,130,95,.55)}
+  .tick{position:absolute;top:0;font-family:"Trebuchet MS",sans-serif;font-size:.66rem;color:#8a7a5e}
+  .tick i{position:absolute;top:-1px;left:0;width:1px;height:6px;background:rgba(150,130,95,.7);display:block}
+  .tick b{position:absolute;top:7px;left:-16px;width:32px;text-align:center;font-weight:400}
+
+  /* ---------- ficha de careo ---------- */
+  .careo{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);border-radius:12px;
+    box-shadow:0 6px 22px var(--shadow);padding:1.5rem 1.6rem 1.7rem;margin-bottom:3rem}
+  .careo .hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:.7rem;margin-bottom:.2rem}
+  .careo .hd h3{font-size:1.42rem;font-weight:400}
+  .careo .hd .rg{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;color:#8a7a5e}
+  .careo .tag{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:700;padding:.2rem .6rem;border-radius:2rem}
+  .tag-a{background:var(--mid);color:#fdf8ea}
+  .tag-b{background:rgba(134,122,69,.28);color:#4a4227;border:1px dashed var(--mid)}
+  .tag-c{background:transparent;color:#8a7a5e;border:1px solid var(--rule)}
+  .careo .dates{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;color:#6a5c46;margin-bottom:1.1rem}
+  .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+  @media(max-width:860px){.cols{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.cols{grid-template-columns:1fr}.lanelabel{display:none}}
+  .col h4{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:700;color:var(--deep);padding-bottom:.35rem;margin-bottom:.5rem;border-bottom:1px solid var(--rule)}
+  .col p{font-size:.9rem;color:#4a3f33;margin:0}
+  .col p.none{color:#9a8a6e;font-style:italic}
+  .careo .foot{margin-top:1.1rem;padding-top:.9rem;border-top:1px dotted rgba(180,150,100,.6);
+    font-size:.88rem;color:#5a4d38;font-style:italic}
+
+  /* ===== artículo ===== */
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin-bottom:1.1rem;
+    max-width:820px;margin-left:auto;margin-right:auto}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+  .wrap{max-width:1040px}
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text h2{font-size:1.62rem;margin:3rem 0 .9rem}
+  .col-text p{font-size:1.06rem;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)}
+
+  figure{margin:2.6rem auto;max-width:900px}
+  figure img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 8px 26px var(--shadow)}
+  figcaption{margin-top:.7rem;font-size:.92rem;color:#5a4d38;max-width:720px}
+  figcaption .cr{display:block;margin-top:.35rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.68rem;letter-spacing:.03em;color:#9a8a6e}
+  figcaption .cr a{color:#8a7a5e}
+
+  /* ===== medidor de consenso ===== */
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-radius:12px;padding:1.4rem 1.5rem 1.6rem;box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#b8ab90,#a89a5e 42%,#867a45 70%,#5a5230)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  /* ===== muro de posturas ===== */
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);border-left:4px solid var(--mid);
+    border-radius:10px;padding:1.1rem 1.2rem 1.3rem;box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  /* ===== nota final ===== */
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{position:relative;z-index:2}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">✦ Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los artículos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El reino partido · Entrega I · Sinóptico interactivo</span>
+  <h1>La grieta que <span class="em">quizá nunca fue</span></h1>
+  <p class="stand">La división del reino tiene una fecha redonda en todos los manuales. Esa fecha no la dice ninguna piedra: es una suma.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Abra cualquier atlas bíblico por el mapa de los dos reinos y encontrará una fecha en la esquina: 930 a.C., o 931, o 922 según el atlas. La precisión tranquiliza. Da la impresión de que en algún archivo hay un documento que registra el año en que el reino de Salomón se rompió en dos, igual que hay documentos que registran el año en que cayó Constantinopla.</p>
+
+<p>No hay tal documento. <strong>No existe ninguna fuente egipcia, asiria o babilonia que mencione la división del reino</strong>, ni que la fecha, ni que la dé por supuesta. La cifra sale entera del libro de los Reyes: se toman las duraciones de reinado que el texto atribuye a cada monarca de Judá y de Israel, se encajan unas con otras usando los sincronismos que el propio libro proporciona —«en el año vigésimo de Jeroboám, rey de Israel, comenzó a reinar Asá en Judá»— y se cuenta hacia atrás desde el primer punto que sí esté fijado por una fuente ajena.</p>
+
+<p>El resultado depende de decisiones técnicas que el lector del atlas nunca ve. De si los escribas contaban el año nuevo en Tishri, en otoño, como se hacía en Judá, o en Nisán, en primavera, como en Babilonia. De si un rey que sube al trono a mitad de año estrena su «primer año» ese mismo otoño o el siguiente. Y sobre todo de cuántas <em>corregencias</em> se postulan: padres e hijos reinando a la vez, que el texto no menciona pero que hay que suponer para que los números cuadren. Cada suposición mueve la fecha unos años. Por eso Thiele llegó a 931, Galil a 930 y Albright a 922, trabajando todos con el mismo texto.</p>
+
+<h2>Dónde empieza de verdad la historia comprobable</h2>
+
+<p>El primer momento de la monarquía israelita que una fuente externa fecha es <strong>el año 853 a.C.</strong>, y no tiene nada que ver con la división. Es la batalla de Qarqar, en el norte de Siria, narrada en el Monolito de Kurkh de Salmanasar III: entre los aliados que se le opusieron figura «Ajab de Israel», con dos mil carros y diez mil soldados. Doce años después, en 841, el Obelisco Negro registra el tributo de «Iaua de la casa de Omri».</p>
+
+<p>Es decir: <strong>entre la supuesta escisión y el primer dato externo hay casi ochenta años de silencio documental absoluto.</strong> Ocho reyes en el norte y cuatro en el sur, según la lista bíblica, sin una sola mención fuera de la Biblia. No es que las fuentes los contradigan: es que no existen.</p>
+
+<p>Eso no convierte a esos reyes en ficticios. Los reinos pequeños de las tierras altas no interesaban todavía a las cancillerías de Nínive, y la epigrafía local del siglo X es casi inexistente. Pero sí cambia lo que un historiador puede afirmar. Y la mejor manera de verlo no es leer una lista, sino mirarla.</p>
+
+</div></div>
+
+<div class="wrap">
+  <h2 style="text-align:center;font-weight:400;font-size:1.6rem;margin:3.4rem 0 .6rem">Sinóptico de <span style="font-style:italic;color:#5a5230">dos reinos</span></h2>
+  <p style="text-align:center;max-width:660px;margin:0 auto 1.4rem;color:#5a4d38">Dos tronos a la vez, de la escisión a la caída de Jerusalén. Arrastra el cuadro. El color no indica importancia: indica <strong style="font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)">si el rey aparece en alguna fuente escrita fuera de la Biblia</strong>. Empieza en el siglo IX y luego arrastra hacia la izquierda, al siglo X.</p>
+<div class="legend">
+    <div class="k"><span class="swatch sw-a"></span>Mención externa segura</div>
+    <div class="k"><span class="swatch sw-b"></span>Mención discutida, reconstruida o sin nombre</div>
+    <div class="k"><span class="swatch sw-c"></span>Solo existe en la Biblia</div>
+    <div class="k"><span class="swatch sw-fuzz"></span>Horquilla entre cronologías</div>
+  </div>
+
+  <div class="ctrl">
+    <button data-go="925">Sheshonq I</button>
+    <button data-go="853">Qarqar 853</button>
+    <button data-go="841">Jehú 841</button>
+    <button data-go="722">Samaría 722</button>
+    <button data-go="701">Senaquerib 701</button>
+    <button data-go="587">Jerusalén 587</button>
+    <span class="hint">← → para desplazar</span>
+  </div>
+
+  <div class="syn">
+    <div class="syn-scroll" id="scroll" tabindex="0">
+      <div class="lanes" id="lanes"></div>
+    </div>
+    <div class="lanelabel">
+      <span class="ll-i">Israel<br>norte</span>
+      <span class="ll-j">Judá<br>sur</span>
+      <span class="ll-e">Imperios</span>
+    </div>
+  </div>
+  <p class="small">Cronología convencional. Barra sólida: esquema de Thiele (1983). Trama a los extremos: hasta dónde llega el esquema de Galil (1996) cuando difiere. Ninguna de las dos es un dato externo: las dos son sumas de los reinados que da el libro de los Reyes. Los rombos marcan los ocho únicos puntos del periodo fechados por fuentes ajenas a la Biblia.</p>
+
+  <div class="careo" id="careo"></div>
+
+</div>
+
+<div class="wrap"><div class="col-text">
+
+<p>Al desplazarse hacia el siglo X, los dos carriles se quedan huecos. No hay ni un bloque relleno antes de Omri. Ese hueco es, en sí mismo, el estado de la cuestión: todo lo que la Biblia cuenta del reino unido y de su ruptura pertenece a un tramo del que no tenemos ninguna otra voz.</p>
+
+<h2>Sisac, o la campaña que casi encaja</h2>
+
+<p>Hay un candidato a excepción, y conviene examinarlo con cuidado porque se cita mucho y se cita mal. 1 Reyes 14:25-26 dice que en el quinto año de Roboám subió contra Jerusalén «Sisac, rey de Egipto», y se llevó los tesoros del Templo. Sisac es identificable: <strong>Sheshonq I</strong>, fundador de la XXII dinastía, que reinó hacia 945-924 a.C. y realizó una campaña en el Levante en torno a 926-925. Eso no lo discute nadie.</p>
+
+<figure>
+  <img src="karnak-portico-bubastita.jpg" alt="El Pórtico Bubastita en el primer patio del templo de Karnak, con la lista topográfica de Sheshonq I">
+  <figcaption>El Pórtico Bubastita, en el primer patio del templo de Karnak. En sus muros, Sheshonq I hizo grabar la lista de los lugares que reclamaba haber sometido: unos ciento cincuenta o ciento ochenta anillos de nombre, muchos hoy dañados o ilegibles.
+  <span class="cr">Foto: Olaf Tausch · CC BY 3.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>El problema está en la lista. <strong>Jerusalén no aparece en la parte conservada del Pórtico Bubastita.</strong> Conviene decirlo sin rodeos, porque es frecuente encontrar la afirmación contraria. Sí aparecen decenas de topónimos del norte y del Néguev, lo que dibuja un mapa político interesante — Finkelstein lo ha usado precisamente así, como radiografía del Levante del siglo X. Pero la capital de Judá no está ahí.</p>
+
+<p>Se ha propuesto leer en el anillo 29 la expresión «las alturas de David». La propuesta es de Kenneth Kitchen y hoy es <strong>minoritaria y mayoritariamente rechazada</strong>; no sirve como atestación de David. Y hay una cautela metodológica más de fondo: estas listas triunfales egipcias no son itinerarios de marcha. Comparadas con las de Tutmosis III, Seti I o Ramsés III, se revelan como composiciones ideológicas. Usarlas para fechar estratos de destrucción concretos del siglo X es un razonamiento circular, y buena parte de las cronologías construidas así en el siglo XX se apoyaban en ese círculo.</p>
+
+<p>De la campaña queda, en el terreno, <strong>un solo objeto</strong>: un fragmento de estela con el cartucho de Sheshonq hallado en Meguido. Eso es todo. El relato de 1 Reyes —un saqueo del tesoro sin destrucción de la ciudad— es perfectamente compatible con el silencio egipcio, y probablemente conserva memoria de algo real. Compatible no es confirmado.</p>
+
+<h2>La pregunta que está de verdad en disputa</h2>
+
+<p>Que existieron dos reinos llamados Israel y Judá en los siglos IX y VIII a.C. no lo discute nadie: está en la estela de Mesa, en la de Tel Dan y en los anales asirios. Lo que está en disputa —y en disputa dura, entre arqueólogos que excavan los mismos yacimientos— es si esos dos reinos son el resultado de la escisión de una entidad anterior, o si nunca hubo tal entidad y la «monarquía unida» es una retroproyección literaria judaíta de época muy posterior.</p>
+
+<div class="wall">
+  <div class="post min">
+    <div class="who">Israel Finkelstein</div>
+    <div class="what">Cronología Baja</div>
+    <p>No hubo monarquía unida en sentido estatal. La Jerusalén del siglo X era una aldea de las tierras altas, y las «puertas salomónicas» de Meguido, Jasor y Guézer son en realidad omridas, del siglo IX. El primer estado territorial pleno de la región es el reino del norte.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Amihai Mazar</div>
+    <div class="what">Cronología convencional modificada</div>
+    <p>Baja moderadamente las fechas del Hierro IIA, pero mantiene que hubo un estado davídico-salomónico real y modesto en el siglo X. Posición intermedia, y probablemente la más comúnmente asumida como punto de partida.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Avraham Faust y Zev Farber</div>
+    <div class="what">Cambridge UP, 2025</div>
+    <p>Reafirman una entidad política unificada en las tierras altas en el siglo X, argumentando desde la homogeneización de la cerámica, la difusión de la casa de cuatro espacios y la destrucción de templos cananeos. Es la aportación reciente que ha reabierto el debate.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Yosef Garfinkel</div>
+    <div class="what">Postura maximalista</div>
+    <p>Khirbet Qeiyafa, Laquis y Khirbet al-Raʼi prueban un reino judaíta ya fortificado en el siglo X. Es la posición más alta dentro del campo académico, y la más contestada por Finkelstein.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Matthew Keimer</div>
+    <div class="what">JJAR, 2021</div>
+    <p>Propone abandonar el término «monarquía unida» en singular y hablar de un sistema patrimonial, no de un estado territorial burocrático. Reformula la pregunta en vez de responderla.</p>
+  </div>
+</div>
+
+<p>Hay, en cambio, un punto en el que todos coinciden, y merece decirse porque suele confundirse con el anterior: <strong>nadie en el debate académico defiende el imperio de 1 Reyes 4-5</strong>, el que se extendería desde el Éufrates hasta la frontera de Egipto. No es que se considere improbable; es que ninguna de las posturas anteriores lo sostiene, incluidas las maximalistas. Esa descripción pertenece a otro género: es la manera en que el Cercano Oriente antiguo escribía sobre la grandeza de un rey fundador.</p>
+
+<div class="meter">
+  <div class="q">¿Hubo una monarquía unida que se partió en dos hacia 930 a.C.?</div>
+  <div class="bar"><span class="pin" style="left:46%" data-l="Aquí estamos"></span></div>
+  <div class="scale"><span>Especulación</span><span>Hipótesis en debate</span><span>Consenso</span></div>
+  <div class="why">En el centro, y no por prudencia sino porque el campo está realmente dividido. Que Israel y Judá existieran como estados vecinos y culturalmente emparentados es consenso. Que procedan de la escisión de una entidad previa es <strong>plausible y sostenido por buena parte de la disciplina, pero no demostrado</strong>. Y el relato concreto de 1 Reyes 11-12 —con el pecado de Salomón, la arrogancia de Roboám y la profecía que lo anuncia todo— es una elaboración teológico-literaria muy posterior a los hechos que narra.</div>
+</div>
+
+<h2>Qué se pierde y qué se gana</h2>
+
+<p>Es tentador leer todo esto como una demolición. No lo es. Lo que se disuelve al examinarlo de cerca no es la historia de Israel y Judá —que existieron, guerrearon, pagaron tributo y dejaron palacios y ostraca—, sino <em>una fecha</em>: la ilusión de que sabemos el año en que empezó. Y a cambio aparece algo más interesante que una fecha, que es la pregunta de por qué alguien, siglos después, necesitó contar que hubo un reino único y glorioso que se rompió por un pecado.</p>
+
+<p>Esa pregunta tiene respuesta, y es el hilo del resto de la serie. Porque quien escribió el libro de los Reyes escribía desde Judá, desde el sur, desde el reino pequeño. Y tenía que explicar por qué el vecino del norte —más grande, más rico, más poderoso y con mejores tierras— había desaparecido de la faz de la tierra mientras Judá seguía en pie.</p>
+
+<p>De ese vecino, y de la ironía de que el reino que la Biblia condena sea el que la arqueología encuentra, trata la entrega siguiente.</p>
+
+<div class="fuentes">
+  <h3>Nota sobre las fuentes</h3>
+  <p>La cronología del sinóptico es convencional y no es un dato externo. La barra sólida sigue el esquema de E. R. Thiele, <em>The Mysterious Numbers of the Hebrew Kings</em> (3.ª ed., 1983); la trama de los extremos marca hasta dónde llega el de G. Galil, <em>The Chronology of the Kings of Israel and Judah</em> (Brill, 1996), cuando difiere. La columna de Galil se ha tomado de reproducciones secundarias y no de la edición original, lo que se advierte aquí por transparencia.</p>
+  <p>Sobre el Pórtico Bubastita y el carácter no itinerario de las listas triunfales egipcias, I. Finkelstein, <em>ZDPV</em> 118 (2002), y la discusión de K. A. Wilson sobre las listas de Tutmosis III, Seti I y Ramsés III. Sobre el estado de la cuestión de la monarquía unida, A. Faust y Z. Farber, <em>The Bible’s First Kings</em> (Cambridge University Press, 2025), y M. Keimer, <em>Journal of Jewish and Ancient Religion</em> (2021).</p>
+  <p>La clasificación de atestación externa de cada rey se basa en el Monolito de Kurkh (BM 118884), el Obelisco Negro (BM 118885), la estela de Mesa (Louvre AO 5066), la estela de Tel Dan, la estela de Tell al-Rimah, las inscripciones sumarias de Tiglat-pileser III (incluida la tablilla de Nimrud K.3751), los prismas de Senaquerib, el prisma de Nínive A de Esarhadón y las tablillas de raciones de Babilonia. Los casos discutidos están señalados como tales en la ficha de cada rey.</p>
+</div>
+
+</div></div>
+
+<footer><span class="glyph">✦</span><br>Estratos · Historia de las religiones del Cercano Oriente</footer>
+
+<script>
+// ---------------------------------------------------------------------------
+// Datos. t = [inicio, fin] según Thiele 1983; g = ídem según Galil 1996.
+// att: 'a' mención externa segura · 'b' discutida/reconstruida/sin nombre · 'c' ninguna
+// co: corregencia o reinado rival (se dibuja en la fila secundaria del carril)
+// ---------------------------------------------------------------------------
+const ISRAEL = [
+ {n:'Jeroboam I',t:[931,910],g:[931,909],att:'c'},
+ {n:'Nadab',t:[910,909],g:[909,908],att:'c'},
+ {n:'Baasá',t:[909,886],g:[908,885],att:'c'},
+ {n:'Elá',t:[886,885],g:[885,884],att:'c'},
+ {n:'Zimri',t:[885,884.9],g:[884,883.9],att:'c',nota:'siete días'},
+ {n:'Tibni',t:[885,880],g:[884,880],att:'c',co:1,nota:'rey rival de Omri'},
+ {n:'Omri',t:[885,874],g:[884,873],att:'a'},
+ {n:'Ajab',t:[874,853],g:[873,852],att:'a'},
+ {n:'Ocozías',cid:'Ocozías I',t:[853,852],g:[852,851],att:'c'},
+ {n:'Joram',t:[852,841],g:[851,842],att:'b'},
+ {n:'Jehú',t:[841,814],g:[842,815],att:'a'},
+ {n:'Joacaz',t:[814,798],g:[819,804],att:'c'},
+ {n:'Joás',cid:'Joás I',t:[798,782],g:[805,790],att:'a'},
+ {n:'Jeroboam II',t:[793,753],g:[790,750],att:'b',co:1},
+ {n:'Zacarías',t:[753,752],g:[750,749.5],att:'c',nota:'seis meses'},
+ {n:'Salum',t:[752,751.9],g:[749,748.9],att:'c',nota:'un mes'},
+ {n:'Menajem',t:[752,742],g:[749,738],att:'a'},
+ {n:'Peqajías',t:[742,740],g:[738,736],att:'c'},
+ {n:'Peqaj',t:[752,732],g:[750,732],att:'a',co:1,nota:'reinado rival desde el principio'},
+ {n:'Oseas',t:[732,723],g:[732,722],att:'a'},
+];
+const JUDA = [
+ {n:'Roboam',t:[931,913],g:[931,914],att:'c'},
+ {n:'Abías',t:[913,911],g:[914,911],att:'c'},
+ {n:'Asá',t:[911,870],g:[911,870],att:'c'},
+ {n:'Josafat',t:[872,848],g:[870,845],att:'c'},
+ {n:'Jorán',t:[853,841],g:[851,843],att:'b',co:1},
+ {n:'Ocozías',t:[841,840],g:[843,842],att:'b'},
+ {n:'Atalía',t:[841,835],g:[842,835],att:'c',co:1,nota:'usurpadora'},
+ {n:'Joás',t:[835,796],g:[842,802],att:'c'},
+ {n:'Amasías',t:[796,767],g:[805,776],att:'c'},
+ {n:'Uzías',t:[792,740],g:[788,736],att:'c',co:1},
+ {n:'Jotam',t:[751,732],g:[758,742],att:'c'},
+ {n:'Ajaz',t:[736,716],g:[742,726],att:'a',co:1},
+ {n:'Ezequías',t:[716,687],g:[726,697],att:'a'},
+ {n:'Manasés',t:[697,643],g:[697,642],att:'a',co:1},
+ {n:'Amón',t:[643,641],g:[642,640],att:'c'},
+ {n:'Josías',t:[641,609],g:[640,609],att:'c'},
+ {n:'Joacaz',t:[609,608.8],g:[609,608.8],att:'c',nota:'tres meses'},
+ {n:'Joaquim',t:[609,598],g:[609,598],att:'c',co:1},
+ {n:'Joaquín',t:[598,597],g:[598,597],att:'a'},
+ {n:'Sedecías',t:[597,586],g:[597,586],att:'b'},
+];
+const IMPERIOS = [
+ {n:'Egipto · XXII dinastía',t:[940,900],c:'#7a6a3a'},
+ {n:'Damasco (Aram)',t:[900,732],c:'#6a5a4a'},
+ {n:'Asiria',t:[853,609],c:'#3a4a52'},
+ {n:'Babilonia',t:[626,539],c:'#26333a'},
+ {n:'Persia',t:[539,525],c:'#4a5a6a'},
+];
+const ANCLAS = [
+ {y:925,l:'Sheshonq I'},{y:853,l:'Qarqar'},{y:841,l:'Obelisco Negro'},{y:796,l:'Tell al-Rimah'},
+ {y:732,l:'Tiglat-pileser III'},{y:722,l:'Caída de Samaría'},{y:701,l:'Prismas de Senaquerib'},
+ {y:597,l:'Crónica ABC 5'},
+];
+
+// ---------------------------------------------------------------------------
+// Careo de fuentes. r=Reyes · c=Crónicas · e=fuentes externas · s=la tierra
+// ---------------------------------------------------------------------------
+const CAREO = {
+ 'Omri':{r:'Seis versículos y una condena. 1 Reyes 16:23-28 le dedica menos espacio que a cualquier profeta, y resume su reinado en que «hizo lo malo». Solo registra un dato material: compró la colina de Samaría y la fortificó.',c:'Nada. El Cronista amputa el reino del norte.',e:'La estela de Mesa lo nombra: «Omri, rey de Israel». Y los asirios llamaron al reino <em>Bit-Ḫumri</em>, «casa de Omri», durante más de un siglo, incluso tras la caída de su dinastía.',s:'Samaría fundada de cero sobre una plataforma artificial de unos cuatro metros, con muro de sillares de unos ochenta metros y cerca de cien cisternas. El patrón se repite en Jezreel, Meguido y Jasor.',f:'La desproporción es el hallazgo: el rey al que la Biblia despacha en seis versículos es el que dejó más huella en el suelo y el único que dio nombre al reino en las cancillerías extranjeras.'},
+ 'Ajab':{r:'Seis capítulos, los más narrativos del libro: Jezabel, Elías, el Carmelo, la viña de Nabot. Ni una palabra sobre su ejército.',c:'Aparece de refilón, solo cuando el rey de Judá se alía con él.',e:'El Monolito de Kurkh, en el relato de la batalla de Qarqar (853 a.C.): «Ajab de Israel» aporta 2.000 carros y 10.000 soldados, el mayor contingente de carros de la coalición. La cifra de carros se discute como posible inflación escribal.',s:'Ampliación de Samaría, marfiles de estilo fenicio, ostraca administrativos. Un estado con burocracia y comercio internacional.',f:'La Biblia lo recuerda como el marido de Jezabel; Asiria, como la primera potencia militar que le hizo frente. Son dos retratos del mismo hombre que no se solapan en un solo detalle.'},
+ 'Jehú':{r:'Un golpe de estado narrado con detalle: mata a Joram, a Ocozías de Judá y a Jezabel, y extermina la casa de Omri (2 Reyes 9-10).',c:'Solo la muerte de Ocozías, porque afecta a Judá.',e:'El Obelisco Negro de Salmanasar III, hacia 825 a.C.: «Recibí el tributo de Iaua de la casa de Omri: plata, oro, un cuenco de oro…». Es la representación más antigua conocida de un israelita, aunque la figura postrada probablemente sea un emisario y no el rey.',s:'Fin del horizonte omrida en varios yacimientos del norte.',e2:'',f:'Los asirios lo llaman «de la casa de Omri» al rey que precisamente había exterminado esa casa: para ellos <em>Bit-Ḫumri</em> era ya el nombre fosilizado del país, no una genealogía. Una minoría propuso leer ahí a Joram en su lugar.'},
+ 'Joás I':{r:'Reinado breve y pleitos con Judá.',c:'Nada del norte.',e:'La estela de Adad-nirari III hallada en Tell al-Rimah, hacia 796 a.C.: «Joás el samaritano». Es la primera vez que una fuente cuneiforme llama al reino por el nombre de su capital.',s:'Continuidad de la administración del norte.',f:'Que el nombre del reino cambie de «casa de Omri» a «Samaría» en las fuentes asirias es un dato de historia política que la Biblia no registra.'},
+ 'Menajem':{r:'Usurpador; paga tributo a «Pul, rey de Asiria» (2 Reyes 15:19-20), y para reunirlo exime a los ricos y grava a la población.',c:'Nada.',e:'La estela de Irán y los anales de Kalḫu de Tiglat-pileser III lo nombran entre los tributarios: «Menajem el samaritano».',s:'—',f:'Uno de los rarísimos casos en que la Biblia y una fuente externa describen el mismo acto: un pago de tributo. Coinciden en el hecho, no en las cifras.'},
+ 'Peqaj':{r:'Usurpa el trono y ataca Judá junto a Damasco: la guerra siro-efraimita.',c:'Aparece como enemigo de Ajaz.',e:'Inscripción sumaria 4 de Tiglat-pileser III. Advertencia de transmisión: la losa original está perdida y el texto se publicó en 1875 a partir de calcos hoy también perdidos.',s:'Destrucciones en Galilea coherentes con las campañas asirias de 734-732.',f:'Su reinado es también el mejor ejemplo del caos cronológico: según cómo se compute, gobernó veinte años o cuatro, porque durante buena parte fue rey rival y no único.'},
+ 'Oseas':{r:'Último rey de Israel. Conspira con Egipto, y Asiria acaba con el reino.',c:'Nada.',e:'Inscripciones sumarias 4 y 13 de Tiglat-pileser III. Dato importante: <strong>Sargón II no lo nombra</strong>, ni en el Prisma de Nimrud ni en la Gran Inscripción. Su atestación depende de un solo rey asirio.',s:'Destrucción y reorganización provincial en Samaría. Las excavaciones no muestran la repoblación masiva que Sargón proclama.',f:'El rey con el que se acaba un reino de doscientos años está atestiguado por dos inscripciones de un solo monarca extranjero, y no por quien se atribuyó la conquista.'},
+ 'Ajaz':{r:'Pide auxilio a Asiria contra Israel y Damasco, y paga con la plata del Templo (2 Reyes 16).',c:'Retratado como el peor rey de la dinastía: 2 Crónicas 28 amplía sus culpas y añade una derrota que Reyes no menciona.',e:'La tablilla de Nimrud K.3751, inscripción sumaria 7 de Tiglat-pileser III, en la lista de tributarios: «Yehoahaz de Judá», con su nombre teofórico completo. Existe además una bulla con su nombre, pero procede del mercado de antigüedades y no añade nada.',s:'Judá entra en la órbita asiria: el sistema de sellos LMLK arranca en estas décadas, según Lipschits, Sergi y Koch.',f:'La fuente externa lo llama <em>Yauḫazi</em>, «YHWH ha sostenido». La Biblia le recorta el nombre a Ajaz y le borra el elemento divino: exactamente al rey que acusa de idolatría.'},
+ 'Ezequías':{r:'Dos relatos incompatibles cosidos: en 18:14-16 se somete y paga 300 talentos de plata y 30 de oro; en 18:17-19:37 resiste y un ángel mata a 185.000 asirios.',c:'2 Crónicas 29-32 lo convierte en un reformador litúrgico y le atribuye las obras de agua. Es la fuente más tardía y la única que menciona el túnel de forma explícita.',e:'Los prismas de Senaquerib: 46 ciudades tomadas, 200.150 personas contadas como botín, y Ezequías encerrado «como un pájaro en jaula». El oro coincide con la Biblia (30 talentos); la plata no (800 frente a 300). Y el prisma <strong>no dice que Jerusalén cayera</strong>. Hay además una bulla real hallada en excavación en el Ofel.',s:'Laquis Nivel III destruido, con la rampa de asalto asiria más antigua conservada, contrarrampa, miles de puntas de flecha. En Jerusalén, el Muro Ancho. Pero el C-14 de 2025 fecha la presa de Siloé en 805-795 a.C.: la gran ingeniería del agua empieza un siglo antes de él.',f:'El rey mejor documentado del periodo es también el que muestra mejor el método: cuatro fuentes independientes, ninguna mentira comprobable, y ni una sola versión completa. Nótese que Senaquerib dedicó una sala entera de su palacio a Laquis, no a Jerusalén.'},
+ 'Manasés':{r:'Cincuenta y cinco años y la condena más dura del libro. Su culpa es la causa irreversible del desastre (2 Reyes 21:10-15).',c:'2 Crónicas 33 hace algo que Reyes no: lo deporta a Babilonia, lo hace arrepentirse y lo restaura. Es el caso de manual de la retribución inmediata del Cronista.',e:'El Prisma de Nínive A de Esarhaddón lo incluye entre los veintidós reyes de Ḫatti, hacia 673/672 a.C.; y un cilindro de Asurbanipal, hacia 667 a.C., entre los vasallos movilizados contra Egipto.',s:'Recuperación económica de Judá en el siglo VII bajo dominio asirio, con producción de aceite en Ecrón y continuidad del sistema LMLK.',f:'El reinado que la Biblia presenta como el fondo del abismo es, en la evidencia material, el de mayor prosperidad de Judá. Y las dos versiones bíblicas se contradicen frontalmente sobre su final.'},
+ 'Joaquín':{r:'Tres meses y diez días de reinado, y la deportación de 597 (2 Reyes 24:8-17). El libro se cierra con una nota extraña: décadas después, en Babilonia, se le levanta el arresto y come a la mesa del rey.',c:'Ocho versículos.',e:'Las tablillas de raciones de Babilonia, hacia 592/591 a.C.: aceite de sésamo para «Ya\'u-kīnu, rey de la tierra de Yahudu» y para cinco «hijos del rey de Judá», con asignaciones diferenciadas. La Crónica ABC 5 narra su captura, pero <strong>sin nombrarlo</strong>.',s:'Estrato de destrucción en Jerusalén; bullae de funcionarios de la corte.',f:'Una lista de raciones de aceite confirma lo que parecía el final más novelesco del libro de los Reyes: el rey depuesto siguió siendo rey en los libros de contabilidad del imperio que lo depuso.'},
+ 'Uzías':{r:'Cincuenta y dos años de expansión, y una lepra que le obliga a retirarse.',c:'2 Crónicas 26 explica la lepra: castigo por usurpar la función sacerdotal.',e:'Ninguna contemporánea. Durante décadas se le identificó con el <em>Azriyau</em> de Tiglat-pileser III, pero esa ecuación <strong>está abandonada</strong>: se basaba en una unión errónea de tablillas y hoy se sitúa a ese personaje en el norte de Siria. La «tablilla de Uzías» del Museo de Israel es aramea, de unos setecientos años después, y documenta un traslado de restos.',s:'Expansión de Judá en el siglo VIII. El C-14 de 2024 reasigna al horizonte de Uzías la Fortificación de Media Ladera de Jerusalén, antes atribuida a Ezequías.',f:'El caso didáctico de la serie: un rey del que la arqueología quizá haya encontrado la muralla, pero cuyo nombre ninguna fuente antigua fuera de la Biblia pronuncia. Y una atestación célebre que hubo que retirar.'},
+ 'Sedecías':{r:'Último rey de Judá. Se rebela, ve morir a sus hijos y es cegado y deportado (2 Reyes 25).',c:'Cierra el libro con el edicto de Ciro.',e:'La Crónica ABC 5 dice que Nabucodonosor «puso allí un rey de su elección», pero <strong>no lo nombra</strong>; y la tablilla se interrumpe en 594, así que <strong>ninguna fuente babilónica narra la destrucción de Jerusalén</strong>. Sí están atestiguados en excavación sus funcionarios, en bullae de la Ciudad de David.',s:'Incendio en Jerusalén y en Laquis Nivel II. Los ostraca de Laquis, de hacia 588/587, son el testimonio hebreo contemporáneo más directo del derrumbe.',f:'El suceso central de toda la historia bíblica —la caída de Jerusalén— no tiene ni una línea de fuente externa. Lo que hay es el silencio de una tablilla rota y las cartas de un oficial que vigilaba señales de fuego.'},
+ 'Joram':{r:'Rey de Israel, muerto por Jehú.',c:'Nada del norte.',e:'La estela de Tel Dan podría nombrarlo, pero el nombre está roto y en gran parte <strong>reconstruido</strong>; y el autor de la estela se atribuye una muerte que 2 Reyes 9 atribuye a Jehú.',s:'—',f:'Un caso de atestación reconstruida: lo que se lee en la piedra es «…rm», y el resto lo pone el epigrafista.'},
+ 'Jeroboam II':{r:'Cuarenta y un años despachados en siete versículos, con la nota de que restauró las fronteras.',c:'Nada.',e:'El sello de «Shemá, siervo de Jeroboam», excavado en Meguido en 1904. Objeciones: el original de jaspe <strong>se perdió</strong> camino de Estambul y solo quedan fotos y una copia en bronce; el nombre va sin patronímico ni título real, así que la atribución a Jeroboam II es por estratigrafía, no por el texto.',s:'El siglo VIII es el auge material del reino del norte, con los ostraca de Samaría documentando su administración fiscal.',f:'El reinado más largo y probablemente más próspero del norte tiene siete versículos en la Biblia y un sello perdido como única huella escrita externa.'},
+ 'Ocozías':{r:'Un año de reinado y muerte a manos de Jehú.',c:'Su muerte, porque es rey de Judá.',e:'La estela de Tel Dan, en una lectura donde su nombre está mayoritariamente reconstruido, junto a la expresión <em>bytdwd</em>, «casa de David».',s:'—',f:'La estela es la mejor atestación externa de la dinastía davídica, y a la vez un recordatorio de cuánto de una inscripción antigua es restitución moderna.'},
+};
+const CAREO_DEFECTO = {
+ r:'Aparece en el libro de los Reyes con la fórmula habitual: años de reinado, sincronismo con el otro reino y un juicio moral.',
+ c:'',
+ e:'Ninguna. Ninguna inscripción, tablilla, sello o anal conocido fuera de la Biblia menciona a este rey.',
+ s:'No hay ningún objeto ni estrato que pueda vincularse a su reinado en concreto.',
+ f:'Que no haya atestación externa no significa que no existiera. Significa que su existencia descansa por completo en un texto redactado siglos después, y que el historiador no tiene con qué contrastarlo.'
+};
+
+// ---------------------------------------------------------------------------
+// Dibujo
+// ---------------------------------------------------------------------------
+const Y0 = 945, Y1 = 525, PX = 8.6;           // año inicial, final, píxeles por año
+const W = (Y0 - Y1) * PX + 130;
+const x = y => (Y0 - y) * PX + 110;
+const lanes = document.getElementById('lanes');
+lanes.style.width = W + 'px';
+
+function laneRow(list, top, gap){
+  list.forEach(k => {
+    const t = k.t, g = k.g;
+    const row = top + (k.co ? gap : 0);
+    // horquilla: tramo entre la fecha de Thiele y la de Galil, en cada extremo
+    [[t[0],g[0]],[t[1],g[1]]].forEach(pair => {
+      if (Math.abs(pair[0]-pair[1]) < 1.5) return;
+      const a = Math.min(x(pair[0]), x(pair[1])), b = Math.max(x(pair[0]), x(pair[1]));
+      const f = document.createElement('div');
+      f.className = 'fuzz';
+      f.style.left = a+'px'; f.style.width = (b-a)+'px'; f.style.top = row+'px';
+      lanes.appendChild(f);
+    });
+    const el = document.createElement('div');
+    el.className = 'kblock att-' + k.att;
+    const left = x(t[0]), w = Math.max(5, x(t[1]) - x(t[0]));
+    el.style.left = left+'px'; el.style.width = w+'px'; el.style.top = row+'px';
+    if (w > 46) el.innerHTML = '<span class="nm">'+k.n+'</span>';
+    el.title = k.n;
+    el.onclick = () => select(k, el);
+    el.dataset.n = k.n;
+    lanes.appendChild(el);
+  });
+}
+// líneas guía de carril
+[52,178,302].forEach(t => {
+  const l = document.createElement('div');
+  l.className='laneline'; l.style.top=t+'px'; l.style.width=W+'px';
+  lanes.appendChild(l);
+});
+laneRow(ISRAEL, 62, 32);
+laneRow(JUDA, 188, 32);
+
+// imperios
+IMPERIOS.forEach((im,i) => {
+  const el = document.createElement('div');
+  el.className='impband';
+  el.style.left=x(im.t[0])+'px'; el.style.width=(x(im.t[1])-x(im.t[0]))+'px';
+  el.style.top=(306 + (i%2)*26)+'px'; el.style.background=im.c;
+  el.textContent=im.n;
+  lanes.appendChild(el);
+});
+
+// anclas externas
+ANCLAS.forEach((a,i) => {
+  const el = document.createElement('div');
+  el.className='anchor'; el.style.left=x(a.y)+'px';
+  // etiquetas alternas en dos alturas: si no, 732 y 722 se pisan
+  el.innerHTML='<span class="lb" style="top:'+(i%2?-24:-38)+'px">'+a.y+' · '+a.l+'</span>';
+  lanes.appendChild(el);
+});
+
+// eje
+const axis = document.createElement('div');
+axis.className='axis'; axis.style.width=W+'px';
+for (let yr=940; yr>=530; yr-=20){
+  const t=document.createElement('div');
+  t.className='tick'; t.style.left=x(yr)+'px';
+  t.innerHTML='<i></i><b>'+yr+'</b>';
+  axis.appendChild(t);
+}
+lanes.appendChild(axis);
+
+// ---------------------------------------------------------------------------
+// Ficha de careo
+// ---------------------------------------------------------------------------
+const TAGS = {a:['tag-a','Mención externa segura'],b:['tag-b','Atestación discutida'],c:['tag-c','Solo en la Biblia']};
+const box = document.getElementById('careo');
+function select(k, el){
+  document.querySelectorAll('.kblock.sel').forEach(n=>n.classList.remove('sel'));
+  if (el) el.classList.add('sel');
+  const d = CAREO[k.cid || k.n] || CAREO_DEFECTO;
+  const tag = TAGS[k.att];
+  const cro = k.n + ' · Thiele ' + fmt(k.t) + ' · Galil ' + fmt(k.g) + ' a.C.';
+  const cell = (h, v) => '<div class="col"><h4>'+h+'</h4>'+
+    (v ? '<p>'+v+'</p>' : '<p class="none">Nada. El Cronista suprime el reino del norte casi por completo.</p>')+'</div>';
+  box.innerHTML =
+    '<div class="hd"><h3>'+k.n+'</h3><span class="tag '+tag[0]+'">'+tag[1]+'</span>'+
+      (k.nota ? '<span class="rg">'+k.nota+'</span>' : '')+'</div>'+
+    '<div class="dates">'+cro+'</div>'+
+    '<div class="cols">'+
+      cell('Qué dice Reyes', d.r)+
+      cell('Qué dice Crónicas', d.c)+
+      cell('Qué dicen las fuentes externas', d.e)+
+      cell('Qué dice la tierra', d.s)+
+    '</div>'+
+    '<div class="foot">'+d.f+'</div>';
+}
+function fmt(a){ return Math.round(a[0]) + '–' + Math.round(a[1]); }
+
+// ---------------------------------------------------------------------------
+// Interacción: arrastre, teclado, atajos
+// ---------------------------------------------------------------------------
+const sc = document.getElementById('scroll');
+let down=false, sx=0, sl=0;
+sc.addEventListener('pointerdown', e => {
+  if (e.target.closest('.kblock')) return;
+  down=true; sx=e.clientX; sl=sc.scrollLeft; sc.classList.add('dragging'); sc.setPointerCapture(e.pointerId);
+});
+sc.addEventListener('pointermove', e => { if(down) sc.scrollLeft = sl - (e.clientX - sx); });
+sc.addEventListener('pointerup', () => { down=false; sc.classList.remove('dragging'); });
+sc.addEventListener('keydown', e => {
+  if (e.key==='ArrowRight'){ sc.scrollLeft += 120; e.preventDefault(); }
+  if (e.key==='ArrowLeft'){ sc.scrollLeft -= 120; e.preventDefault(); }
+});
+document.querySelectorAll('[data-go]').forEach(b => b.onclick = () => {
+  sc.scrollTo({left: x(+b.dataset.go) - sc.clientWidth/2, behavior:'smooth'});
+});
+
+// estado inicial: el siglo IX, donde empieza la evidencia externa
+select(ISRAEL.find(k=>k.n==='Omri'), null);
+sc.scrollLeft = x(880) - 160;
+document.querySelector('.kblock[data-n="Omri"]').classList.add('sel');
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5a5230">↑ <a href="serie-reyes.html" style="color:#5a5230">Serie: El reino partido</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev disabled" href="#"><span class="lbl">← Anterior</span><span class="ttl">Inicio de la serie</span></a>
+    <a class="epnav-btn next" href="reyes-2.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#5a5230">El reino rico era el hereje</span></a>
+  </div>
+</nav>
+</body></html>

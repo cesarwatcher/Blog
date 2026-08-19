@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El rey ideal y la reforma que no se ve — Estratos</title>
+<meta name="description" content="Josías es histórico; su reforma, tal como la narra 2 Reyes 23, no aparece en el suelo. Arad, Beer-Sheva, el santuario de la puerta de Laquis y el mínimo bien fundado de Uehlinger.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5a5230;--mid:#867a45;--pale:#a89a5e;
+    --rel:#8a4a2a;--exc:#5a5230;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.6rem auto;max-width:900px}
+  figure img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 8px 26px var(--shadow)}
+  figcaption{margin-top:.7rem;font-size:.92rem;color:#5a4d38;max-width:720px}
+  figcaption .cr{display:block;margin-top:.35rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.68rem;letter-spacing:.03em;color:#9a8a6e}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#b8ab90,#a89a5e 42%,#867a45 70%,#5a5230)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d4b6,#d2c39e);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El reino partido · Entrega V · La ausencia</span>
+  <h1>El rey ideal y la reforma <span class="em">que no se ve</span></h1>
+  <p class="stand">El elogio más alto del libro de los Reyes es para el rey cuya gran obra religiosa no ha dejado ni una capa de ceniza.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">El libro de los Reyes reserva su mayor elogio para un solo hombre, y lo formula sin dejar margen: «No hubo antes de él rey semejante, que se volviera a YHWH con todo su corazón, con toda su alma y con todas sus fuerzas, conforme a toda la ley de Moisés; ni después de él se levantó otro igual.» El rey es Josías, y el capítulo que lo precede narra cómo llegó a merecerlo.</p>
+
+<p>La escena es memorable. Durante unas obras en el Templo se encuentra un libro. Se lo leen al rey, el rey rasga sus vestiduras, y a continuación viene una de las páginas más detalladas del Antiguo Testamento: la purga. Se sacan del Templo los objetos de Baal y de Aserá y se queman en el valle del Cedrón; se derriban las habitaciones de los consagrados; se suprimen los santuarios locales; se profana el Tófet; se destruye el altar de Betel. Todo con nombres, lugares y verbos concretos.</p>
+
+<p>El problema es que, cuando se busca esa purga en el suelo, no está.</p>
+
+<h2>Lo que la arqueología no encuentra</h2>
+
+<p>Digámoslo con la precisión que el asunto exige: <strong>no se ha identificado ningún santuario judaíta demolido que pueda fecharse con seguridad en el reinado de Josías</strong>, entre 640 y 609 a.C. No es que la evidencia sea ambigua. Es que los candidatos, examinados uno a uno, se caen por razones distintas.</p>
+
+<p>El <strong>templo de Arad</strong> es el candidato clásico: un santuario judaíta con patio, altar de piedras sin labrar y un nicho con estelas y altares de incienso. Su desmantelamiento se sitúa hoy a finales del siglo VIII, según Ze'ev Herzog; Ussishkin lo lleva incluso al siglo VII o VI y concluye que «difícilmente puede relacionarse con las reformas religiosas» de ningún rey. En ninguna de las dos lecturas cae en el reinado de Josías.</p>
+
+<figure>
+  <img src="tel-arad-santuario.jpg" alt="El santuario de Tel Arad, en el Parque Nacional Tel Arad">
+  <figcaption>El santuario de Arad: un recinto delimitado con patio, altar de piedras sin labrar y, al fondo, el nicho donde se hallaron las estelas y los altares de incienso. Es el santuario judaíta mejor conservado que se conoce, y durante décadas se leyó como la prueba material de la reforma. Su desmantelamiento se sitúa hoy a finales del siglo VIII, un siglo antes de Josías.
+  <span class="cr">Foto: Bukvoed · CC BY 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>El <strong>altar cornudo de Tel Beer-Sheva</strong> tiene dos problemas acumulados. Se desmontó también a finales del siglo VIII, y además nunca se halló el santuario al que perteneció: lo que se encontró fueron sillares reutilizados, dispersos, con los que después se reconstruyó el altar que hoy se expone. Por añadidura, la identificación del yacimiento con la Beer-Sheva bíblica es discutible.</p>
+
+<figure>
+  <img src="altar-beer-sheva.jpg" alt="El altar cornudo reconstruido de Tel Beer-Sheva">
+  <figcaption>El altar cornudo de Tel Beer-Sheva. Conviene decir que es una <strong>reconstrucción</strong>: se montó con sillares reutilizados hallados dispersos por el yacimiento. Nunca se encontró el santuario al que perteneció, y el desmontaje del altar es de finales del siglo VIII.
+  <span class="cr">Foto: Moshe David Pikiwiki Israel · CC BY 2.5 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p><strong>Betel</strong>, cuya destrucción por Josías narra 2 Reyes 23:15 con especial detalle, no tiene confirmación estratigráfica de esa destrucción. Y <strong>Tel Motza</strong>, un templo del siglo IX situado a pocos kilómetros de Jerusalén, se abandona en un momento que no se correlaciona con ninguna reforma.</p>
+
+<p>Hay incluso un dato que apunta en la dirección contraria. Los relieves de Laquis muestran, entre el botín que los asirios se llevan en 701, <strong>incensarios cultuales</strong>. Es decir: en la segunda ciudad de Judá había culto activo con su parafernalia en la fecha en que la tradición sitúa la reforma centralizadora de Ezequías, el bisabuelo de Josías y su modelo.</p>
+
+<figure>
+  <img src="relieve-laquis-deportacion.jpg" alt="Detalle del relieve de Laquis con la deportación de los habitantes">
+  <figcaption>Detalle del relieve de la deportación de los habitantes de Laquis tras la conquista de la ciudad por el ejército asirio, en el reinado de Senaquerib. En la misma secuencia de relieves, entre el botín que se llevan los soldados, aparecen incensarios cultuales: prueba de que en la segunda ciudad de Judá había culto activo en 701 a.C., justo cuando la tradición sitúa la reforma centralizadora de Ezequías.
+  <span class="cr">Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<h2>El santuario de la puerta: un debate abierto y caliente</h2>
+
+<p>Y aquí aparece el episodio más interesante de todo el expediente, precisamente porque no está resuelto. Merece una sección propia porque, si una de las dos posturas se consolida, sería la primera evidencia arqueológica directa de una desacralización deliberada de un santuario judaíta.</p>
+
+<p>Saar Ganor e Igor Kreimerman, excavando el complejo de la puerta de Laquis, sostienen que en la cámara oriental del cuerpo de guardia interior del Nivel III <strong>hubo un santuario</strong>: una hornacina y un altar de cuernos. Y sostienen algo más: que ese santuario fue desactivado de forma intencionada, porque los cuernos del altar aparecen <strong>recortados</strong>, y porque junto al altar se colocó <strong>una letrina</strong>. Cortar los cuernos inutiliza el altar; poner una letrina al lado lo profana. La lectura que proponen es que se trata de la huella material de la reforma de Ezequías.</p>
+
+<p>David Ussishkin, que dirigió las excavaciones anteriores del yacimiento, lo rechaza frontalmente. Sostiene que los supuestos altares son bloques de caliza toscamente labrados pertenecientes a un tabique enlucido, y que por tanto no hubo santuario, ni cuernos recortados con intención, ni desacralización. Publicó su respuesta en <em>BASOR</em> en 2021, y los excavadores han seguido publicando su interpretación.</p>
+
+<p>El asunto sigue sin resolverse, y conviene decir por qué importa tanto. La reforma cúltica de Ezequías y la de Josías son, hasta hoy, <strong>acontecimientos exclusivamente textuales</strong>. Toda la discusión sobre su historicidad se ha librado con argumentos literarios y con ausencias arqueológicas. Un altar con los cuernos cortados y una letrina al lado sería la primera vez que el suelo dice algo directo sobre el asunto. Por eso hay que resistirse a la tentación de darlo por bueno antes de tiempo.</p>
+
+<div class="meter">
+  <div class="q">¿Ocurrió la reforma religiosa de Josías tal como la narra 2 Reyes 23?</div>
+  <div class="bar"><span class="pin" style="left:26%" data-l="Aquí estamos"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">A la izquierda, y el escepticismo ha ganado terreno en las últimas décadas. <strong>Que Josías existió y reinó es consenso.</strong> Que hubo alguna medida de centralización del culto estatal es plausible y lo sostiene la posición intermedia hoy más citada. Que ocurrió la purga detallada que narra el capítulo 23, con su alcance geográfico y su iconoclastia, <strong>no lo corrobora ningún yacimiento excavado</strong>, y los candidatos clásicos se han ido cayendo uno por uno.</div>
+</div>
+
+<h2>Las posturas, que no son dos</h2>
+
+<p>Es tentador reducir esto a creyentes y escépticos. La discusión real tiene más de dos posiciones, y la más citada hoy es intermedia.</p>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">Christoph Uehlinger</div>
+    <div class="what">Un mínimo bien fundado, 2005</div>
+    <p>La posición intermedia y hoy muy citada. Sí hubo algo, pero fue una <strong>centralización político-económica</strong> del culto estatal en Jerusalén, no una purga religiosa programática de los santuarios locales. Reformula la pregunta: en vez de «hubo reforma o no», propone precisar qué clase de medida es la que la evidencia permite.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Nadav Naaman</div>
+    <div class="what">Composición deuteronomista</div>
+    <p>No hubo reforma cúltica integral bajo Ezequías: el pasaje de 2 Reyes 18:4 y 22 es composición deuteronomista según el patrón de la ley deuterónica, apoyada como máximo en una nota archivística sobre la serpiente de bronce. Por extensión, el relato de Josías está construido con la misma técnica.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Finkelstein y Silberman</div>
+    <div class="what">Núcleo histórico, alcance reducido</div>
+    <p>Aceptan un núcleo histórico y hacen de la corte de Josías el motor de la redacción deuteronomista. Pero rebajan drásticamente la expansión territorial josiánica: no hubo reconquista del norte, y por tanto la geografía de la purga que narra el texto es en buena parte proyección.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Philip Davies y Herbert Niehr</div>
+    <div class="what">Escepticismo radical</div>
+    <p>Consideran el relato una proyección postexílica sin núcleo histórico verificable. Es una posición minoritaria, pero conviene tenerla en el cuadro para ver la amplitud real del desacuerdo.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Ganor y Kreimerman</div>
+    <div class="what">El santuario de la puerta</div>
+    <p>Si su lectura del altar con los cuernos recortados y la letrina se consolida, sería el primer indicio arqueológico directo de una desacralización deliberada, y desplazaría el debate entero hacia la derecha del medidor. Ussishkin lo niega. Sin resolver.</p>
+  </div>
+</div>
+
+<p>La formulación que hoy se puede sostener sin forzar nada es esta: <strong>el reinado de Josías es histórico; la existencia de alguna medida de centralización cúltica es plausible; y la reforma tal como la narra 2 Reyes 23, con su iconoclastia detallada y su alcance geográfico, es una construcción literaria que la arqueología no corrobora.</strong> Ni «no pasó nada» ni «pasó todo lo que está escrito».</p>
+
+<h2>Por qué Josías está en el centro del libro</h2>
+
+<p>Falta explicar la otra mitad del problema, que es literaria. Si la reforma no se ve en el suelo, ¿por qué el texto le dedica tanto espacio y tanta precisión?</p>
+
+<p>La respuesta que la crítica ha construido a lo largo de ochenta años es que <strong>Josías es el punto de fuga de toda la obra</strong>. Martin Noth propuso en 1943 que Deuteronomio y los libros históricos hasta 2 Reyes forman una única obra compuesta en el exilio para explicar teológicamente la catástrofe. Frank Moore Cross reformuló el modelo en 1973 en dos ediciones: una josiánica, de hacia 620, optimista y centrada en la promesa dinástica davídica, cuyo clímax es precisamente el elogio de Josías; y una revisión exílica, de hacia 550, que añade el marco de juicio y explica por qué la reforma no evitó el desastre —de ahí los pasajes que hacen de Manasés la causa irreversible.</p>
+
+<p>La escuela de Gotinga propuso en su lugar estratos temáticos, todos exílicos o posteriores. Y Thomas Römer, hoy la referencia sintética, mantiene el proyecto pero lo reorganiza en tres grandes fases de producción escribal —neoasiria, neobabilónica y persa—, advirtiendo además que la multiplicación de capas se vuelve arbitraria sin criterios claros de delimitación. Otros, como Ernst Axel Knauf o Reinhard Kratz, niegan que exista una obra unitaria.</p>
+
+<div class="aviso">
+  <div class="t">Una cautela sobre el aparato crítico</div>
+  <p>Estos modelos son <strong>herramientas explicativas productivas y ampliamente usadas</strong>, no hechos establecidos. La asignación de versículos concretos a una edición josiánica o a una revisión exílica es hipótesis de trabajo, no dato. Lo que sí explican bien, y es su mejor argumento, es un fenómeno textual visible a simple vista: la tensión entre una promesa incondicional a la dinastía de David y la destrucción efectiva de Jerusalén. Algo tuvo que reescribirse cuando lo segundo ocurrió.</p>
+</div>
+
+<p>Si el modelo es correcto en su planteamiento general, entonces el elogio de Josías no es una valoración retrospectiva: es propaganda contemporánea, escrita cuando Josías vivía y su proyecto estaba en marcha. Y el resto del libro —los veinte reyes evaluados uno por uno según si suprimieron o no los santuarios locales— está construido desde ese presente hacia atrás.</p>
+
+<p>Lo cual convierte la pregunta «¿ocurrió la reforma?» en una pregunta parcialmente mal planteada. Lo que sin duda ocurrió fue <strong>una operación intelectual</strong> en la corte de Jerusalén en el último tercio del siglo VII: alguien decidió que la historia entera de los dos reinos debía leerse como la historia de una infidelidad, y la escribió así. Esa operación dejó menos huellas en la tierra que en la biblioteca, pero es la que sigue determinando cómo lee la Biblia media humanidad.</p>
+
+<p>Doce años después de la muerte de Josías, el aparato entero se derrumbó. De eso trata la entrega siguiente.</p>
+
+<div class="fuentes">
+  <h3>Nota sobre las fuentes</h3>
+  <p>Sobre Arad: Z. Herzog y la discusión de D. Ussishkin sobre la fecha del desmantelamiento del santuario. Sobre el santuario de la puerta de Laquis: S. Ganor e I. Kreimerman, <em>BASOR</em> 381 (2019) y <em>'Atiqot</em> 111 (2023), frente a D. Ussishkin, «Was a Gate Shrine Built at the Level III Inner City Gate at Lachish?», <em>BASOR</em> 385 (2021), 153-170.</p>
+  <p>Sobre la historicidad de las reformas: C. Uehlinger, «Was There a Cult Reform under King Josiah? The Case for a Well-Grounded Minimum» (2005); N. Naaman, «The Debated Historicity of Hezekiah's Reform»; C. Levin y L. Fried para las posiciones minimalistas; I. Finkelstein y N. A. Silberman, <em>The Bible Unearthed</em> (2001).</p>
+  <p>Sobre la hipótesis deuteronomista: M. Noth, <em>Überlieferungsgeschichtliche Studien</em> (1943); F. M. Cross, <em>Canaanite Myth and Hebrew Epic</em> (1973); R. Smend, W. Dietrich y T. Veijola para la escuela de Gotinga; y T. Römer, <em>The So-Called Deuteronomistic History</em> (2005), como síntesis actual. Bibliografía completa de la serie en <a href="reyes-fuentes.html">la página de fuentes</a>.</p>
+</div>
+
+</div></div>
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5a5230">↑ <a href="serie-reyes.html" style="color:#5a5230">Serie: El reino partido</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="reyes-4.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#5a5230">Como un pájaro en la jaula</span></a>
+    <a class="epnav-btn next" href="reyes-6.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#5a5230">El derrumbe</span></a>
+  </div>
+</nav>
+</body></html>

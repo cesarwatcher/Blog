@@ -1,0 +1,377 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La tierra que no quedó vacía — Estratos</title>
+<meta name="description" content="Cuántos se fueron de verdad, las tablillas de Al-Yahudu, el cilindro de Ciro que no menciona a los judíos, y por qué Reyes y Crónicas cuentan dos historias del mismo derrumbe.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5a5230;--mid:#867a45;--pale:#a89a5e;
+    --rel:#8a4a2a;--exc:#5a5230;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.6rem auto;max-width:900px}
+  figure img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 8px 26px var(--shadow)}
+  figcaption{margin-top:.7rem;font-size:.92rem;color:#5a4d38;max-width:720px}
+  figcaption .cr{display:block;margin-top:.35rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.68rem;letter-spacing:.03em;color:#9a8a6e}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#b8ab90,#a89a5e 42%,#867a45 70%,#5a5230)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d4b6,#d2c39e);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .mp{max-width:980px;margin:2.6rem auto 2.8rem;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;box-shadow:0 6px 22px var(--shadow);
+    padding:1.4rem 1.5rem 1.5rem}
+  .mpbar{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+  .mpbar button{font-family:"Trebuchet MS",sans-serif;font-size:.73rem;background:#efe6d2;
+    border:1px solid var(--rule);border-left:4px solid var(--rule);border-radius:6px;
+    padding:.5rem .9rem;color:#4a3f33;cursor:pointer;transition:background .25s,transform .2s;text-align:left}
+  .mpbar button:hover{background:#fff;transform:translateY(-1px)}
+  .mpbar button.on{background:#fff;border-left-color:var(--deep);box-shadow:inset 0 0 0 1px var(--mid);font-weight:700}
+  .mpbar button small{display:block;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:#9a8a6e}
+  .mpgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:1.6rem;align-items:start}
+  @media(max-width:760px){.mpgrid{grid-template-columns:1fr}}
+  .mp svg{width:100%;height:auto;display:block}
+  .rg{cursor:pointer;transition:fill .6s,stroke .3s}
+  .rg:hover{stroke:#2f2a1c;stroke-width:2.4}
+  .rglb{font-family:"Trebuchet MS",sans-serif;font-size:11px;fill:#3f3826;pointer-events:none;font-weight:700}
+  .rgsub{font-family:"Trebuchet MS",sans-serif;font-size:9.5px;fill:#6a5c46;pointer-events:none}
+  .mplg{display:flex;flex-wrap:wrap;gap:.9rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.65rem;color:#5a4d38;margin-top:.9rem}
+  .mplg i{display:inline-block;width:15px;height:15px;border-radius:3px;margin-right:.35rem;vertical-align:-3px;
+    border:1px solid rgba(90,82,48,.5)}
+  .mppan h4{font-size:1.16rem;font-weight:400;margin-bottom:.1rem}
+  .mppan .aut{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.08em;
+    text-transform:uppercase;color:#9a8a6e;font-weight:700;margin-bottom:.8rem}
+  .mppan p{font-size:.97rem;color:#4a3f33;margin-bottom:.7rem}
+  .mppan .cif{display:flex;flex-wrap:wrap;gap:1.2rem;margin:.9rem 0}
+  .mppan .cif div{font-family:"Trebuchet MS",sans-serif}
+  .mppan .cif .k{display:block;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8a6e;font-weight:700}
+  .mppan .cif .v{font-size:1.3rem;color:var(--deep)}
+  .mppan .cau{margin-top:.7rem;padding-top:.6rem;border-top:1px dotted rgba(180,150,100,.7);
+    font-size:.89rem;color:#6a5c46;font-style:italic}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El reino partido · Entrega VII · Cierre del arco</span>
+  <h1>La tierra que <span class="em">no quedó vacía</span></h1>
+  <p class="stand">Cuatro mil seiscientas personas en una lista de escribano, o setenta años de tierra desierta. Las dos cifras están en la Biblia.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Jeremías 52 lleva la contabilidad. Tres mil veintitrés personas en el año séptimo de Nabucodonosor, ochocientas treinta y dos en el año dieciocho, setecientas cuarenta y cinco en el año veintitrés. Suma: cuatro mil seiscientas. Es una lista de escribano, con la sobriedad de un registro administrativo, y es hoy la cifra bíblica que la investigación considera más fiable.</p>
+
+<p>2 Crónicas 36 no da cifras. Dice que los que quedaron fueron llevados a Babilonia, y que la tierra descansó setenta años, hasta cumplir los sábados que se le habían negado.</p>
+
+<p>Entre esas dos páginas no hay una discrepancia de datos. Hay <strong>dos géneros distintos de escritura</strong> sobre el mismo acontecimiento, y aprender a distinguirlos es, en el fondo, todo lo que esta serie ha intentado hacer.</p>
+
+<h2>Un mapa que cambia según quién lo dibuje</h2>
+
+<p>La pregunta parece sencilla: ¿cuánta gente quedó en Judá después del 586 a.C.? Y tiene respuestas muy distintas según a quién se le pregunte, porque cada autor pondera de otro modo las prospecciones de superficie, los sitios excavados y lo que significa la ausencia de cerámica.</p>
+
+<p>La discusión se conoce como el debate del <em>mito de la tierra vacía</em>, y es uno de los más interesantes de la disciplina porque no enfrenta a creyentes con escépticos: enfrenta a arqueólogos entre sí sobre cómo se lee un vacío. Vale la pena verlo sobre el mismo mapa.</p>
+
+</div></div>
+<div class="wrap">
+<div class="mp">
+  <div class="mpbar">
+    <button data-v="0" class="on">Oded Lipschits<small>La posici&oacute;n intermedia</small></button>
+    <button data-v="1">Avraham Faust<small>El colapso fue real</small></button>
+    <button data-v="2">Barstad y Carroll<small>El mito de la tierra vac&iacute;a</small></button>
+    <button data-v="3">2 Cr&oacute;nicas 36<small>La tierra vac&iacute;a setenta a&ntilde;os</small></button>
+  </div>
+  <div class="mpgrid">
+    <div>
+      <svg viewBox="0 0 400 470" role="img" aria-label="Esquema de las regiones de Jud&aacute; y su despoblaci&oacute;n tras el 586 a.C.">
+        <rect x="0" y="0" width="400" height="470" fill="#e9dfc6"/>
+        <path d="M0 0 H72 V470 H0 Z" fill="#c6d0d4"/>
+        <text class="rgsub" x="8" y="240" transform="rotate(-90 8 240)" style="font-size:10px">Mar Mediterr&aacute;neo</text>
+        <path d="M352 120 H400 V400 H352 Z" fill="#b9c2c4"/>
+        <text class="rgsub" x="360" y="270" transform="rotate(-90 360 270)" style="font-size:10px">Mar Muerto</text>
+        <path id="r-sef" class="rg" d="M72 150 L196 138 L206 300 L86 320 Z" stroke="#8a7a5e" stroke-width="1.2"/>
+        <path id="r-ben" class="rg" d="M196 60 L318 52 L326 148 L200 138 Z" stroke="#8a7a5e" stroke-width="1.2"/>
+        <path id="r-jer" class="rg" d="M200 138 L326 148 L330 210 L206 206 Z" stroke="#8a7a5e" stroke-width="1.2"/>
+        <path id="r-bel" class="rg" d="M206 206 L330 210 L334 296 L208 300 Z" stroke="#8a7a5e" stroke-width="1.2"/>
+        <path id="r-neg" class="rg" d="M86 320 L334 296 L340 410 L104 420 Z" stroke="#8a7a5e" stroke-width="1.2"/>
+        <text class="rglb" x="104" y="228">La Sefel&aacute;</text>
+        <text class="rgsub" x="104" y="242">Laquis, Azeq&aacute;</text>
+        <text class="rglb" x="222" y="98">Benjam&iacute;n</text>
+        <text class="rgsub" x="222" y="112">Mizp&aacute;, Guibe&oacute;n</text>
+        <text class="rglb" x="222" y="176">Jerusal&eacute;n</text>
+        <text class="rgsub" x="222" y="190">y su entorno rural</text>
+        <text class="rglb" x="222" y="250">Bel&eacute;n &ndash; Bet Sur</text>
+        <text class="rgsub" x="222" y="264">valle de Refaim</text>
+        <text class="rglb" x="150" y="360">El N&eacute;guev</text>
+        <text class="rgsub" x="150" y="374">Arad, Beerseba</text>
+      </svg>
+      <div class="mplg">
+        <span><i style="background:#7d8a55"></i>Continuidad</span>
+        <span><i style="background:#c9a95e"></i>Descenso moderado</span>
+        <span><i style="background:#b06a3a"></i>Descenso fuerte</span>
+        <span><i style="background:#7d3320"></i>Destrucci&oacute;n y despoblaci&oacute;n</span>
+        <span><i style="background:#cfc6ae"></i>Sin estimaci&oacute;n propia</span>
+      </div>
+    </div>
+    <div class="mppan" id="mppan"></div>
+  </div>
+</div>
+</div>
+<div class="wrap"><div class="col-text">
+
+<p>Lo que hoy se puede sostener sin forzar nada es la posición intermedia: <strong>la tierra no quedó vacía, pero el colapso fue real y muy desigual</strong>. Destrucción selectiva de los centros urbanos, militares y administrativos; continuidad rural en Benjamín y al sur de Jerusalén. Y una cifra que conviene retener por lo modesta: la Jerusalén posterior al destierro no tendría más de mil quinientos habitantes.</p>
+
+<p>Hay además un dato incómodo para los dos extremos, señalado por Bob Becking: <strong>el «retorno a Sión» tampoco dejó huella demográfica</strong>. Las prospecciones muestran un descenso a comienzos del siglo VI y un aumento muy lento durante todo el período persa. Ni el destierro vació la tierra ni el regreso la repobló de golpe.</p>
+
+<div class="meter">
+  <div class="q">¿Quedó Judá despoblada tras el destierro babilónico?</div>
+  <div class="bar"><span class="pin" style="left:50%" data-l="Aquí estamos"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">En el centro exacto, y esta vez el centro es la respuesta y no una prudencia. <strong>Que hubo un colapso demográfico real es consenso</strong>; que fue total, no. La despoblación fue regional: catastrófica en Jerusalén y la Sefelá, moderada o nula en Benjamín. Las cifras concretas —¿un sesenta por ciento?, ¿un noventa?— siguen en debate y dependen de cómo se ponderen las prospecciones. Ni «exilio total» ni «no pasó nada»: la imagen de la tierra vacía es teológica, aunque el desastre que la inspiró fuera real.</div>
+</div>
+
+<h2>Vivir en Babilonia</h2>
+
+<p>Del otro lado del destierro hay un corpus de documentos que ha cambiado por completo la imagen del exilio, y hay que presentarlo con una advertencia por delante.</p>
+
+<div class="aviso">
+  <div class="t">De dónde salen estas tablillas</div>
+  <p>El corpus de Al-Yahudu —unas doscientas tablillas cuneiformes de contratos, recibos, préstamos y arrendamientos— <strong>no tiene procedencia arqueológica excavada</strong>. Llegó al mercado de antigüedades por vías desconocidas, posiblemente por saqueo, y se encuentra hoy en colecciones privadas y en el British Museum. Los textos se consideran genuinos por criterios internos: onomástica, formularios, sellos. Pero la ausencia de contexto excavado limita lo que se puede inferir de ellos, y plantea un problema ético que un blog serio no puede saltarse. Se usan aquí con esa reserva explícita, y no como si fueran el producto de una excavación regular.</p>
+</div>
+
+<p>Dicho eso, lo que documentan es notable. Los deportados judaítas fueron asentados <strong>en grupo, en comunidades identificables</strong> —una de ellas llamada <em>āl-Yāhūdu</em>, «la ciudad de Judá»—, en tierras que había que rehabilitar, bajo un estatuto de arrendatarios dependientes del rey: recibían parcelas a cambio de servicio, trabajo y pago de tasas. No eran esclavos, y tampoco hombres libres plenos. Cultivaban dátiles, cebada, trigo, especias, lino. Firmaban contratos, prestaban dinero, se casaban, heredaban. Aparecen intermediarios prósperos que ofrecían crédito a otros judaítas.</p>
+
+<p>La onomástica es lo más elocuente: nombres yahvistas transcritos al acadio conviven con nombres babilónicos <strong>dentro de la misma familia</strong>. Conservación de identidad y acomodación cultural a la vez, en la misma casa.</p>
+
+<figure>
+  <img src="tablilla-al-yahudu.jpg" alt="Tablilla de arcilla del corpus de Al-Yahudu, con escritura cuneiforme">
+  <figcaption>Una de las tablillas del corpus de Al-Yahudu, expuesta en el Museo de las Tierras de la Biblia, en Jerusalén. Esta pieza contiene el topónimo <em>āl-Yāhūdu</em>, «la ciudad de Judá»: un asentamiento de deportados judaítas en Babilonia. El corpus documenta un siglo de vida económica normalizada, entre 572 y 477 a.C., aunque la mayoría de los textos son ya de época persa.
+  <span class="cr">Foto: עמית אבידן (Amit Avidan) · CC BY-SA 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>Y hay un segundo conjunto, este sí de excavación regular. Robert Koldewey encontró en Babilonia, en un edificio abovedado cerca de la Puerta de Ishtar, unas tablillas administrativas del año trece de Nabucodonosor, hacia 592 a.C. Son listas de raciones de aceite de sésamo para cautivos y artesanos, y entre los nombres figura <strong>«Ya'u-kīnu, rey de la tierra de Yahudu»</strong> —Joaquín, el rey deportado en 597— junto con cinco «hijos del rey de Judá», con asignaciones diferenciadas.</p>
+
+<figure>
+  <img src="tablilla-raciones-jeconias.jpg" alt="Tablilla administrativa de Babilonia con las raciones de Joaquín, rey de Judá">
+  <figcaption>Tablilla administrativa del palacio de Babilonia, del reinado de Nabucodonosor, con una lista de raciones entregadas por la administración real. Entre los nombres aparece el de Joaquín, el rey de Judá deportado en 597 a.C., junto con cinco de sus hijos y otros extranjeros. Se conserva en Berlín.
+  <span class="cr">Foto: Scallaham (recortada) · CC BY-SA 4.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>Una lista de raciones de aceite confirma así lo que parecía el final más novelesco del libro de los Reyes: que el rey depuesto siguió siendo tratado como rey en la contabilidad del imperio que lo depuso. Arresto honorable, no encarcelamiento anónimo.</p>
+
+<p>Y aquí se cierra la comparación que quedó abierta en la tercera entrega. <strong>Asiria dispersaba; Babilonia agrupaba.</strong> Los israelitas del norte fueron repartidos en grupos pequeños por territorios distantes y se disolvieron. Los judaítas fueron asentados juntos, con sus nombres y su onomástica, y a los cincuenta años seguían siendo reconocibles como grupo. Muchos no volvieron nunca: el corpus documenta una diáspora babilónica estable durante generaciones, que es la base histórica del judaísmo babilónico posterior. La política imperial de un enemigo explica la supervivencia de una identidad mejor que cualquier virtud atribuida a ella.</p>
+
+<h2>El cilindro que no habla de judíos</h2>
+
+<p>El final convencional de esta historia es un decreto de Ciro que autoriza el regreso, y el objeto que suele ilustrarlo es el Cilindro de Ciro. Conviene separar las dos cosas, porque su confusión es probablemente el error divulgativo más extendido de todo el período.</p>
+
+<figure>
+  <img src="cilindro-de-ciro.jpg" alt="El Cilindro de Ciro, en el British Museum">
+  <figcaption>El Cilindro de Ciro, arcilla, 539 a.C., hallado en las ruinas de Babilonia en 1879. Es una inscripción de fundación destinada a enterrarse en los cimientos de una muralla, escrita en babilonio y en clave babilónica: Ciro aparece como el elegido de Marduk. No menciona a los judíos, ni a Judá, ni a Jerusalén, ni al Templo.
+  <span class="cr">Foto: Blondinrikard Fröberg · CC BY 2.0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<p>El cilindro es una <strong>inscripción de fundación mesopotámica al uso</strong>, del 539 a.C., escrita en babilonio y destinada a enterrarse en los cimientos de la muralla de Babilonia. Está redactada desde un punto de vista puramente babilónico: presenta a Nabonido como un rey impío que descuidó el culto, y a Ciro como el elegido de <strong>Marduk</strong> para restaurar el orden. Devuelve las estatuas de los dioses a sus santuarios mesopotámicos y permite el regreso de poblaciones desplazadas <em>dentro</em> de Mesopotamia.</p>
+
+<p>Lo que no dice conviene enumerarlo: <strong>no menciona a los judíos, ni a Judá, ni a Jerusalén, ni al Templo de YHWH, ni a Israel.</strong> No es un decreto pro-judío ni un edicto general de repatriación. Y no es una declaración de derechos humanos: el British Museum lo dice sin rodeos —tal concepto habría sido completamente ajeno a los contemporáneos de Ciro, y el cilindro no dice nada sobre derechos humanos. Esa lectura es un producto de la propaganda cultural del siglo XX, y sigue arrastrándose incluso en contextos institucionales.</p>
+
+<p>Lo que el cilindro sí documenta, y es valioso, es <strong>una política imperial de restauración de santuarios locales</strong> y de conciliación con las élites religiosas de los territorios conquistados. Ese marco general hace <em>plausible</em> que Ciro autorizara la reconstrucción del templo de Jerusalén. Es analogía y contexto, no confirmación.</p>
+
+<p>El «edicto» del libro de Esdras es otro documento, y hay dos versiones divergentes: Esdras 1:2-4, en hebreo, con Ciro hablando como si YHWH fuera su dios, y Esdras 6:3-5, en arameo, con formato de memorándum administrativo. Lester Grabbe los evaluó uno por uno: la primera es la menos creíble de todas; la segunda probablemente refleja un decreto real revisado por escribas judíos; la carta de Tatenai es la más creíble del conjunto. Documentos auténticos reelaborados en distinto grado, no falsificaciones puras. La regla práctica es sencilla: <strong>el cilindro y el edicto son dos documentos independientes que no se validan mutuamente</strong>.</p>
+
+<h2>Dos memorias del mismo derrumbe</h2>
+
+<p>Queda el cierre, y no está en la tierra. Está en la biblioteca.</p>
+
+<p>Todo lo que esta serie ha recorrido —dos tronos, cuarenta reyes, dos derrumbes— nos ha llegado a través de dos relatos que cuentan la misma historia de manera sistemáticamente distinta. El libro de los <strong>Reyes</strong> se compone entre el final del siglo VII y el destierro. El libro de las <strong>Crónicas</strong> se compone en época persa tardía o helenística temprana, probablemente en el siglo IV a.C.: unos dos siglos y medio más tarde.</p>
+
+<p>Las diferencias no son de detalle, son de programa. Y hay cinco que conviene tener a mano cada vez que se lea un pasaje de esta historia.</p>
+
+<ul>
+<li><strong>Crónicas amputa el reino del norte.</strong> El norte solo aparece cuando afecta a Judá o al Templo. Desaparecen Elías, Eliseo, Ajab, Jezabel, Jehú: exactamente el material narrativo más rico de Reyes. Para la monarquía del norte, Crónicas es casi inútil.</li>
+<li><strong>Idealiza a David y a Salomón.</strong> Se omiten Betsabé y Urías, el asesinato de Amnón, la rebelión de Absalón, las intrigas sucesorias y la apostasía de Salomón. En su lugar, David se convierte en organizador del culto.</li>
+<li><strong>Cambia la teología de la retribución.</strong> Reyes maneja una culpa acumulada y diferida: Manasés arruina a Josías generaciones después. En Crónicas cada generación cosecha lo suyo en vida. De ahí que Manasés se arrepienta y sea restaurado, y que Josías muera por desoír una palabra divina.</li>
+<li><strong>Amplifica los números.</strong> Ejércitos, botines y ofrendas son sistemáticamente muy superiores. Se leen como convención retórica, no como datos.</li>
+<li><strong>Añade material propio que a veces sí sirve.</strong> Fortificaciones, listas administrativas y notas militares que en algunos casos la arqueología ha corroborado o considerado plausibles. La crítica actual no descarta en bloque el material del Cronista: exige justificarlo caso por caso.</li>
+</ul>
+
+<p>De ahí la regla práctica con la que se cierra la etapa: <strong>en caso de divergencia, Reyes tiene prioridad como fuente para la monarquía; Crónicas es fuente primaria para la época persa que lo produjo, no para los siglos que narra.</strong></p>
+
+<p>Es una regla técnica, y aun así dice algo que va más allá de la técnica. Los dos libros son documentos históricos fiables: solo que de épocas distintas. Reyes nos informa con precisión sobre lo que una corte del siglo VII necesitaba creer; Crónicas, sobre lo que una comunidad del Segundo Templo necesitaba recordar. Ninguno de los dos nos entrega el pasado sin más. Los dos nos entregan, con una nitidez extraordinaria, <strong>el momento en que alguien decidió cómo había que contarlo</strong>.</p>
+
+<p>Y eso es, en realidad, lo que se excava. La tierra devuelve muros, ceniza y puntas de flecha. Los textos devuelven algo más difícil de datar y más interesante de leer: la forma que toma una catástrofe cuando hay que explicársela a los nietos.</p>
+
+<div class="fuentes">
+  <h3>Nota sobre las fuentes</h3>
+  <p>Sobre la demografía del siglo VI: O. Lipschits, <em>The Fall and Rise of Jerusalem</em> (2005) y sus trabajos de 2003 y 2011; A. Faust, <em>PEQ</em> 135 (2003) y obra posterior; H. Barstad, <em>The Myth of the Empty Land</em> (1996), y R. Carroll. Sobre la ausencia de huella demográfica del retorno, B. Becking (2010).</p>
+  <p>Sobre Al-Yahudu: L. Pearce y C. Wunsch, <em>Documents of Judean Exiles and West Semites in Babylonia</em> (CUSAS 28, 2014), y C. Wunsch (2022) para el resto del corpus. Las tablillas de raciones de Joaquín fueron publicadas por E. Weidner en 1939 y se conservan en el Vorderasiatisches Museum de Berlín.</p>
+  <p>Sobre el Cilindro de Ciro, la ficha del British Museum (BM 90920) y su declaración expresa sobre la lectura como carta de derechos humanos. Sobre los documentos persas de Esdras, L. Grabbe, «The 'Persian Documents' in the Book of Ezra: Are They Authentic?» (2006). Sobre Crónicas frente a Reyes: S. Japhet, G. Knoppers, H. G. M. Williamson e I. Kalimi. Bibliografía completa de la serie en <a href="reyes-fuentes.html">la página de fuentes</a>.</p>
+</div>
+
+</div></div>
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+const C = {con:'#7d8a55', mod:'#c9a95e', fue:'#b06a3a', des:'#7d3320', nada:'#cfc6ae'};
+const REG = ['r-sef','r-ben','r-jer','r-bel','r-neg'];
+const VIS = [
+ {aut:'Oded Lipschits · 2003, 2005, 2011', t:'El colapso fue real y muy desigual',
+  col:{'r-jer':'des','r-sef':'des','r-ben':'con','r-bel':'con','r-neg':'fue'},
+  cif:[['Población antes','≈ 110.000'],['Población después','≈ 40.000'],['Descenso','≈ 60 %']],
+  p:'Es la posición intermedia y hoy mayoritaria: <strong>la tierra no quedó vacía, pero el colapso fue real</strong>. La clave está en distinguir por regiones. Jerusalén y la Sefelá quedan destruidas y despobladas; Benjamín, con Mizpá convertida en capital provincial, y la franja de Belén a Bet Sur con el valle de Refaim muestran continuidad de poblamiento, de cerámica, de instalaciones agrícolas y de administración: hay sellos de león del siglo VI.',
+  cau:'Que la destrucción fuera selectiva —centros urbanos, militares y administrativos— y la continuidad rural, encaja con la lógica de una conquista imperial: se desmonta el aparato del estado, no el campo que paga los impuestos.'},
+ {aut:'Avraham Faust · PEQ 135, 2003, y obra posterior', t:'El correctivo se pasó de largo',
+  col:{'r-jer':'des','r-sef':'des','r-ben':'fue','r-bel':'fue','r-neg':'des'},
+  cif:[['Sitios rurales con posible continuidad','2 de 11'],['Población del siglo VI','≤ 10 %']],
+  p:'Faust es más pesimista y su objeción es metodológica: sostiene que el correctivo contra la «tierra vacía» se convirtió en <strong>un mito de la tierra populosa</strong>, igualmente falso. En su muestra, solo dos de once sitios rurales excavados cerca de Jerusalén muestran posible continuidad al período persa, y estima la población del siglo VI en como máximo el diez por ciento de la del Hierro tardío en la antigua Judá, excluyendo Benjamín.',
+  cau:'Critica expresamente que unos pocos sitios detectados en prospecciones de 1968 se hayan convertido, por acumulación bibliográfica, en «cientos» de asentamientos hipotéticos. Es una advertencia sobre cómo crecen los datos al citarse.'},
+ {aut:'Hans Barstad y Robert Carroll · 1996', t:'La imagen del desierto es ideológica',
+  col:{'r-jer':'fue','r-sef':'mod','r-ben':'con','r-bel':'con','r-neg':'mod'},
+  cif:[['Tesis','La vida continuó']],
+  p:'Carroll y Barstad argumentaron que la imagen de una Judá desierta es <strong>una construcción ideológica de los repatriados</strong>, los <em>golah</em>, para deslegitimar a quienes se habían quedado. Si la tierra estaba vacía, entonces los que vuelven son los únicos herederos legítimos; si no lo estaba, hay que negociar con quien la trabajó durante cincuenta años.',
+  cau:'Este es el aporte que sobrevive incluso para quienes rechazan sus cifras: haber mostrado que «tierra vacía» es un enunciado con función política, y no solo una descripción demográfica. Pero el correctivo se ha corregido a su vez.'},
+ {aut:'2 Crónicas 36:20-21 · siglo IV a.C.', t:'Setenta años de sábado',
+  col:{'r-jer':'des','r-sef':'des','r-ben':'des','r-bel':'des','r-neg':'des'},
+  cif:[['Deportación','Total'],['Duración','70 años']],
+  p:'El Cronista, escribiendo unos dos siglos después de los hechos, prescinde de cifras y describe una deportación total y una tierra que descansa setenta años. No es un error de cálculo: es <strong>un esquema teológico</strong>. La tierra guarda los sábados que no se le concedieron, y el destierro dura exactamente lo que hace falta para cumplirlos.',
+  cau:'Compárese con Jeremías 52:28-30, la lista más sobria y hoy la más fiable: 3.023 personas, 832 y 745. Total, 4.600. Entre ese recuento de escribano y esta tierra vacía de setenta años no hay una discrepancia de datos: hay dos géneros distintos de escritura.'},
+];
+
+const pan = document.getElementById('mppan');
+function vista(k){
+  const v = VIS[k];
+  document.querySelectorAll('.mpbar button').forEach(b => b.classList.toggle('on', +b.dataset.v === k));
+  REG.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute('fill', C[v.col[id] || 'nada']);
+  });
+  pan.innerHTML = '<h4>'+v.t+'</h4><div class="aut">'+v.aut+'</div>'
+    + '<p>'+v.p+'</p>'
+    + '<div class="cif">'+v.cif.map(x => '<div><span class="k">'+x[0]+'</span><span class="v">'+x[1]+'</span></div>').join('')+'</div>'
+    + '<div class="cau">'+v.cau+'</div>';
+}
+document.querySelectorAll('.mpbar button').forEach(b => b.onclick = () => vista(+b.dataset.v));
+vista(0);
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5a5230">↑ <a href="serie-reyes.html" style="color:#5a5230">Serie: El reino partido</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="reyes-6.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#5a5230">El derrumbe</span></a>
+    <a class="epnav-btn next" href="serie-reyes.html"><span class="lbl">Fin de la serie</span><span class="ttl" style="color:#5a5230">Volver al índice</span></a>
+  </div>
+</nav>
+</body></html>

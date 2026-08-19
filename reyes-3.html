@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>722/720: el reino que desapareció — Estratos</title>
+<meta name="description" content="Por qué las dos fechas de la caída de Samaría no compiten. Los 27.290 deportados de Sargón frente a las estimaciones demográficas, y por qué las diez tribus perdidas son un mito.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5a5230;--mid:#867a45;--pale:#a89a5e;
+    --rel:#8a4a2a;--exc:#5a5230;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.6rem auto;max-width:900px}
+  figure img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 8px 26px var(--shadow)}
+  figcaption{margin-top:.7rem;font-size:.92rem;color:#5a4d38;max-width:720px}
+  figcaption .cr{display:block;margin-top:.35rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.68rem;letter-spacing:.03em;color:#9a8a6e}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#b8ab90,#a89a5e 42%,#867a45 70%,#5a5230)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d4b6,#d2c39e);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .dep{max-width:980px;margin:2.6rem auto 2.8rem;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;box-shadow:0 6px 22px var(--shadow);
+    padding:1.4rem 1.5rem 1.6rem}
+  .depbar{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.3rem}
+  .depbar button{font-family:"Trebuchet MS",sans-serif;font-size:.73rem;letter-spacing:.03em;
+    background:#efe6d2;border:1px solid var(--rule);border-left:4px solid var(--rule);border-radius:6px;
+    padding:.5rem .9rem;color:#4a3f33;cursor:pointer;transition:background .25s,transform .2s}
+  .depbar button:hover{background:#fff;transform:translateY(-1px)}
+  .depbar button.on{background:#fff;border-left-color:var(--deep);box-shadow:inset 0 0 0 1px var(--mid);font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(25,1fr);gap:4px;margin-bottom:1.2rem}
+  @media(max-width:720px){.grid{grid-template-columns:repeat(20,1fr);gap:3px}}
+  .dot{aspect-ratio:1;border-radius:50%;background:#ddd0ae;border:1px solid #c2b391;
+    transition:background .5s,border-color .5s,transform .5s}
+  .dot.dep{background:#8a4a2a;border-color:#6d3820}
+  .dot.qued{background:var(--mid);border-color:var(--deep)}
+  .dot.elite{background:#3a4a52;border-color:#26333a}
+  .depnum{display:flex;flex-wrap:wrap;gap:1.6rem;margin-bottom:1rem}
+  .depnum div{font-family:"Trebuchet MS",sans-serif}
+  .depnum .k{display:block;font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:#9a8a6e;font-weight:700}
+  .depnum .v{font-size:1.5rem;color:var(--deep)}
+  .depnum .v small{font-size:.8rem;color:#8a7a5e}
+  .deptxt{font-size:1rem;color:#4a3f33;max-width:760px}
+  .deptxt strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(168,154,94,.28)}
+  .depcau{margin-top:.9rem;padding-top:.7rem;border-top:1px dotted rgba(180,150,100,.6);
+    font-size:.9rem;color:#6a5c46;font-style:italic;max-width:760px}
+  .depleg{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;color:#8a7a5e;margin-bottom:.9rem}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El reino partido · Entrega III · Careo de cifras</span>
+  <h1>722/720: el reino <span class="em">que desapareció</span></h1>
+  <p class="stand">Veintisiete mil doscientas noventa personas. La cifra está tallada en piedra. Lo que falta es el denominador.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Hay dos fechas para la caída de Samaría, y no compiten entre sí. Verlas como alternativas —722 <em>o</em> 720— es el primer malentendido que conviene deshacer, porque en cuanto se ordenan los acontecimientos las dos resultan necesarias.</p>
+
+<p>La reconstrucción que la investigación describe hoy como de amplio consenso, derivada del trabajo de Hayim Tadmor, tiene tres tiempos. <strong>Salmanasar V</strong> sitió Samaría y la tomó antes del 722 a.C., tras un asedio que la Biblia cifra en tres años. Salmanasar murió en 722, y en el vacío de poder que dejó su muerte la ciudad se rebeló. <strong>Sargón II</strong> reprimió la revuelta, reorganizó el territorio como provincia asiria en 720, y se atribuyó la conquista en sus inscripciones.</p>
+
+<p>Así que 722 es el final efectivo del reino, y 720 la reconquista y la provincialización. Escribir «722/720» y explicar por qué son dos no es una vacilación: es el dato.</p>
+
+<figure>
+  <img src="ariete-asirio-nimrud.jpg" alt="Relieve asirio de un ariete atacando una ciudad sitiada, procedente de Nimrud">
+  <figcaption>Tropas asirias atacando una ciudad sitiada con un ariete sobre una rampa, mientras los arqueros enemigos responden desde las murallas. Procede del Palacio Central de Nimrud y es de hacia el 728 a.C., es decir del reinado de Tiglat-pileser III: la maquinaria con la que Asiria desmontó el reino del norte, veintisiete años antes de la campaña contra Judá.
+  <span class="cr">Foto: ChrisO · Dominio público · Wikimedia Commons</span></figcaption>
+</figure>
+
+<h2>Un rey que se atribuye lo que hizo otro</h2>
+
+<p>Que Sargón se apropiara del mérito no es una conjetura moderna. Sus inscripciones más antiguas <strong>no mencionan Samaría en su primer año</strong>; la atribución aparece en redacciones posteriores. Tadmor y, más recientemente, Shawn Zelig Aster lo explican como ideología escribal, con una formulación que merece la pena retener: las inscripciones asirias no inventan una realidad alternativa, <em>seleccionan</em> elementos de la realidad.</p>
+
+<p>Hay una posición minoritaria —Sung Jin Park— que propone una sola conquista bajo Salmanasar V hacia 725, con Sargón como general que después usurpó el trono y el crédito. Y hay una complicación filológica menor: la lectura del topónimo en la Crónica Babilónica ABC 1 podría no ser «Samaría». Ninguna de las dos altera el cuadro general.</p>
+
+<p>Lo que sí lo altera, y en una dirección incómoda para el propio Sargón, es la arqueología. Sus inscripciones proclaman que repobló la ciudad. <strong>Las excavaciones de Samaría no muestran ni expansión ni repoblación masiva bajo dominio asirio.</strong> El crecimiento poblacional que se detecta en la provincia está en la zona suroeste, junto a la ruta principal, no en la capital. Es uno de los pocos casos en que se puede pillar a un imperio exagerando y demostrarlo con un plano de excavación.</p>
+
+<figure>
+  <img src="inscripcion-de-sargon-ii.jpg" alt="Inscripción cuneiforme de Sargón II">
+  <figcaption>Inscripción de Sargón II. El texto conservado en esta pieza es un relato de construcción —los cimientos, los palacios de marfil, cedro, ciprés y enebro—, no el pasaje de los deportados de Samaría. Sirve para ver de qué material están hechas las cifras que citamos: líneas apretadas de escritura cuneiforme en las que un rey enumera lo que quiere que se recuerde.
+  <span class="cr">Foto: Daderot · CC0 · Wikimedia Commons</span></figcaption>
+</figure>
+
+<h2>Las cifras, y qué se puede hacer con ellas</h2>
+
+<p>De las deportaciones asirias tenemos números concretos, lo que es excepcional para el mundo antiguo. Tiglat-pileser III, en sus campañas de 734 a 732, registra del orden de trece mil quinientas personas de la región de Galilea, en cifras parciales y en parte restauradas por los editores. Sargón II, en la Gran Inscripción de Exhibición, da veintisiete mil doscientas noventa deportadas de Samaría, con una variante de veintisiete mil doscientas ochenta en el Prisma de Nimrud.</p>
+
+<p>El problema de las cifras no es que sean falsas. Es que una cifra sola no significa nada. Veintisiete mil personas es una catástrofe o una fracción menor según cuántas hubiera, y ese denominador no está en ninguna inscripción: hay que reconstruirlo con superficie habitada y densidad supuesta. Vale la pena ver las dos magnitudes juntas.</p>
+
+</div></div>
+<div class="wrap">
+<div class="dep">
+  <div class="depbar">
+    <button data-v="0" class="on">El reino del norte antes del 732</button>
+    <button data-v="1">Lo que dicen los textos asirios</button>
+    <button data-v="2">Quiénes se fueron</button>
+    <button data-v="3">Quiénes se quedaron</button>
+  </div>
+  <div class="depleg">Cada punto representa mil personas. La cuadrícula tiene 250 puntos.</div>
+  <div class="grid" id="depgrid"></div>
+  <div class="depnum" id="depnum"></div>
+  <div class="deptxt" id="deptxt"></div>
+  <div class="depcau" id="depcau"></div>
+</div>
+</div>
+<div class="wrap"><div class="col-text">
+
+<p>Lo que la cuadrícula deja ver es que la deportación fue <strong>real, brutal y minoritaria</strong> a la vez, y que las tres cosas son compatibles. Se llevaron entre un dieciséis y un veinte por ciento de la población, y se llevaron a la parte que decidía: funcionarios, militares, escribas, artesanos especializados, la casa real. La mayoría campesina se quedó donde estaba, en la nueva provincia asiria de Samerina, cultivando las mismas laderas.</p>
+
+<div class="meter">
+  <div class="q">¿Se llevó Asiria al pueblo de Israel al destierro?</div>
+  <div class="bar"><span class="pin" style="left:32%" data-l="Aquí estamos"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">A la izquierda del centro, y con una precisión importante: la deportación está documentada y no se discute, pero <strong>la formulación «se llevó al pueblo» no se sostiene</strong>. Los textos asirios dan del orden de cuarenta mil personas entre las dos campañas, y las estimaciones demográficas sitúan eso entre el dieciséis y el veinte por ciento de la población. Que la deportación fue parcial es consenso; el porcentaje exacto es estimación.</div>
+</div>
+
+<h2>Las tribus que no se perdieron</h2>
+
+<p>Aquí conviene ir despacio, porque es el punto donde la divulgación se desboca. La expresión «las diez tribus perdidas» ha alimentado durante siglos una literatura entera de identificaciones —con pueblos europeos, americanos, centroasiáticos— que <strong>no tiene ninguna base académica</strong>. No hace falta dedicarle más espacio que esa frase.</p>
+
+<p>Lo interesante es por qué la idea funcionó tan bien. Y funcionó porque describe algo que sí ocurrió: una identidad colectiva desapareció. Solo que no desapareció por deportación, sino por <em>disolución</em>, y la explicación es una diferencia de política imperial que se ve mejor por contraste.</p>
+
+<p>Asiria <strong>dispersaba</strong>. Ido Koch lo ha formulado con claridad: la práctica asiria consistía en repartir a los deportados en grupos pequeños por territorios distantes del imperio, mezclados con otras poblaciones trasladadas, precisamente para que no pudieran reconstituirse como grupo. Babilonia, siglo y medio más tarde, hará lo contrario: mantendrá a los judaítas <strong>agrupados</strong> en asentamientos identificables, con sus propios nombres y su propia onomástica.</p>
+
+<p>De ahí una de las asimetrías más consecuentes de toda esta historia: <strong>el destierro babilónico produjo el judaísmo, y el destierro asirio no produjo nada</strong>. No porque los israelitas del norte fueran menos tenaces, sino porque a unos los pusieron juntos y a otros los repartieron. Cuando lleguemos al episodio séptimo, con las tablillas de los deportados judaítas en Babilonia, esta comparación volverá a aparecer, y entonces se verá completa.</p>
+
+<h2>Lo que hereda el sur</h2>
+
+<p>El reino del norte deja de existir, pero no se evapora. Jerusalén y Judá crecen de forma marcada en el siglo VIII: se ocupa la Colina Occidental, se construye el Muro Ancho, se densifican la Sefelá y el Néguev. La explicación clásica es una oleada de refugiados del norte, y con ella un salto en la estatalidad judaíta, en la alfabetización y en el repertorio de tradiciones: Jacob, el Éxodo, Oseas, incorporados al corpus del sur.</p>
+
+<p>Es una hipótesis atractiva y hoy está más contestada que hace veinte años. Merece verse el desacuerdo entero, porque es un buen ejemplo de cómo se corrige una idea sin demolerla.</p>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">Magen Broshi e Israel Finkelstein</div>
+    <div class="what">La hipótesis de los refugiados</div>
+    <p>Broshi la formula en 1974 y Finkelstein la desarrolla: la oleada del norte tras 732 y 720 multiplica la población de Jerusalén, impulsa la estatalidad de Judá y trae consigo tradiciones israelitas que se incorporan al corpus judaíta.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Nadav Naaman</div>
+    <div class="what">Rechazo frontal, ZAW 2014</div>
+    <p>Los nombres teofóricos típicos del norte <em>disminuyen</em> en Judá a finales del siglo VIII en vez de aumentar; la inscripción de Siloé refleja lengua jerosolimitana; en la Sefelá hay continuidad total de cultura material judaíta y ni un fragmento norteño. Propone crecimiento natural y desplazados de las ciudades que arrasó Senaquerib en 701.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Hillel Geva</div>
+    <div class="what">Las cifras bajas</div>
+    <p>Estima la población de Jerusalén en torno a ocho mil habitantes, frente a las cifras de doce mil a veintiséis mil que maneja la hipótesis de los refugiados. Con ocho mil, el crecimiento no requiere ninguna explicación extraordinaria.</p>
+  </div>
+</div>
+
+<div class="aviso">
+  <div class="t">Una novedad que hay que incorporar</div>
+  <p>En 2024 se publicó en <em>PNAS</em> la primera serie masiva de radiocarbono del Hierro de Jerusalén: más de cien fechas con microarqueología. Los resultados desplazan varias piezas del cuadro. La ciudad <strong>ya se expandía hacia el oeste en el siglo IX</strong>, posiblemente antes; la Torre del Manantial y el Pasaje Fortificado del Gihón son del siglo IX y no del Bronce Medio; se detecta un terremoto de mediados del siglo VIII; y la Fortificación de Media Ladera se reasigna al horizonte de Uzías, no al de Ezequías. Consecuencia: la expansión de Jerusalén deja de ser un fenómeno súbito y monocausal de finales del siglo VIII, lo que <strong>debilita la versión fuerte de la hipótesis de los refugiados</strong>. Finkelstein publicó ese mismo año una réplica metodológica: la mayoría de las muestras proceden de rellenos y preparados de suelo, contextos expuestos al efecto de fechas antiguas. El debate está activo. Se presenta aquí como novedad relevante, no como palabra final.</p>
+</div>
+
+<p>Sea cual sea la proporción exacta de norteños en la Jerusalén del siglo VII, hay algo que no depende de esa discusión: a partir del 720 a.C., <strong>solo queda un reino para contar la historia de los dos</strong>. Y ese reino es el pequeño, el montañoso, el que había sido periferia. La entrega siguiente cuenta lo que le pasó veinte años después, cuando el mismo imperio que había borrado a su vecino se plantó ante sus murallas.</p>
+
+<div class="fuentes">
+  <h3>Nota sobre las fuentes</h3>
+  <p>Sobre la doble fecha y la ideología escribal de Sargón: H. Tadmor, «The Campaigns of Sargon II of Assur», <em>JCS</em> 12 (1958), y S. Z. Aster, «Sargon II and Samaria», <em>JAOS</em> 139/3 (2019), de donde procede la observación de que las cifras corresponden al conjunto del reino y no a la ciudad. La posición minoritaria de una sola conquista, en S. J. Park, <em>Biblica</em> 93 (2012).</p>
+  <p>Las estimaciones demográficas de referencia, en M. Broshi e I. Finkelstein, «The Population of Palestine in Iron Age II», <em>BASOR</em> 287 (1992). Sobre la política asiria de dispersión frente a la babilónica de agrupación, los trabajos de I. Koch (Universidad de Tel Aviv).</p>
+  <p>Sobre la hipótesis de los refugiados: I. Finkelstein, <em>RB</em> 115 (2008) y su respuesta de 2015; N. Naaman, «Dismissing the Myth of a Flood of Israelite Refugees in the Late Eighth Century BCE», <em>ZAW</em> 126 (2014). El radiocarbono de Jerusalén: Y. Regev, J. Uziel, E. Boaretto <em>et al.</em>, <em>PNAS</em> 121 (2024), con la réplica de I. Finkelstein de mayo de 2024. Bibliografía completa de la serie en <a href="reyes-fuentes.html">la página de fuentes</a>.</p>
+</div>
+
+</div></div>
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+const TOTAL = 250;                 // puntos, mil personas cada uno
+const TP = 14;                     // Tiglat-pileser III: 13.520 personas
+const SG = 27;                     // Sargon II: 27.290 personas
+const DEPORT = TP + SG;            // 41 puntos, unas 40.800 personas
+const g = document.getElementById('depgrid');
+for (let i = 0; i < TOTAL; i++) {
+  const d = document.createElement('span');
+  d.className = 'dot'; d.dataset.i = i;
+  g.appendChild(d);
+}
+const dots = [...g.children];
+
+const VISTAS = [
+ {num:[['Población estimada del reino','≈ 200.000 a 250.000','personas']],
+  cls:i => '',
+  txt:'Las estimaciones demográficas de la arqueología, derivadas del trabajo de Broshi y Finkelstein, dan del orden de <strong>cuatrocientas mil personas para toda Palestina</strong> en el Hierro II, con el reino del norte como la parte mayoritaria. Esta cuadrícula representa ese orden de magnitud, no un censo.',
+  cau:'Ninguna cifra de población antigua es un dato: todas son estimaciones construidas a partir de superficie habitada y densidad supuesta. Las horquillas son amplias y los autores discrepan. Lo que sí permite una estimación es comparar magnitudes, que es exactamente para lo que se usa aquí.'},
+
+ {num:[['Tiglat-pileser III, 734-732','13.520','personas'],
+       ['Sargón II, Gran Inscripción','27.290','personas'],
+       ['Suma de los dos textos','≈ 40.800','personas'],
+       ['Sobre la población estimada','16 a 20','por ciento']],
+  cls:i => i < DEPORT ? 'dep' : '',
+  txt:'Estas son las cifras que los propios asirios tallaron. Tiglat-pileser III registra unas trece mil quinientas personas de la región de Galilea, en cifras parciales y en parte restauradas. La Gran Inscripción de Sargón II da <strong>27.290 deportados de Samaría</strong>, con una variante de 27.280 en el Prisma de Nimrud. Y aquí está lo importante: esos 27.290 corresponden <strong>al conjunto del reino de Israel, no a los habitantes de la ciudad</strong>.',
+  cau:'Las cifras asirias no son censos: son retórica administrativa, selectiva y orientada a la gloria del rey. Se citan porque son el dato textual, no porque sean exactas. En el mismo texto, Sargón afirma haber repoblado Samaría, y las excavaciones de la ciudad no muestran ni expansión ni repoblación masiva bajo dominio asirio.'},
+
+ {num:[['Deportados','≈ 40.800','personas'],
+       ['Perfil','Élites','urbanas y militares']],
+  cls:i => i < DEPORT ? 'elite' : '',
+  txt:'La deportación asiria no era un desplazamiento de pueblos: era una <strong>decapitación administrativa</strong>. Se llevaban funcionarios, militares, escribas, artesanos especializados, la familia real. Es decir, exactamente a quienes podían reorganizar una revuelta y a quienes tenían un valor productivo en el centro del imperio.',
+  cau:'De ahí una consecuencia que suele pasarse por alto: los deportados son también quienes sabían escribir. Cuando un reino pierde a sus escribas, pierde la capacidad de contar su propia historia. La historia del reino del norte la acabará escribiendo el sur.'},
+
+ {num:[['Se quedaron','≈ 200.000','personas',],
+       ['Proporción que permaneció','80 a 90','por ciento']],
+  cls:i => i < DEPORT ? '' : 'qued',
+  txt:'La inmensa mayoría de la población —campesina, rural, dispersa— <strong>no se movió de sitio</strong>. Siguió viviendo en la provincia asiria de Samerina, cultivando las mismas laderas. Sus descendientes forman parte de la genealogía de los samaritanos.',
+  cau:'Por eso las «diez tribus perdidas» son un mito, y por tres razones acumuladas: la deportación fue parcial; «diez tribus» es una categoría literaria y no un censo étnico; y la política asiria dispersaba a los deportados en grupos pequeños por todo el imperio para forzar la asimilación, lo contrario del modelo babilónico, que un siglo y medio después mantendría a los judaítas agrupados. Ahí está la explicación de por qué una identidad sobrevivió al destierro y la otra no. Las identificaciones modernas de esas tribus con pueblos actuales no tienen ninguna base académica.'},
+];
+
+const nEl = document.getElementById('depnum'), tEl = document.getElementById('deptxt'), cEl = document.getElementById('depcau');
+function vista(k){
+  const v = VISTAS[k];
+  document.querySelectorAll('.depbar button').forEach(b => b.classList.toggle('on', +b.dataset.v === k));
+  dots.forEach((d,i) => { d.className = 'dot ' + v.cls(i); });
+  nEl.innerHTML = v.num.map(x => '<div><span class="k">'+x[0]+'</span><span class="v">'+x[1]+
+    ' <small>'+x[2]+'</small></span></div>').join('');
+  tEl.innerHTML = v.txt;
+  cEl.innerHTML = v.cau;
+}
+document.querySelectorAll('.depbar button').forEach(b => b.onclick = () => vista(+b.dataset.v));
+vista(0);
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5a5230">↑ <a href="serie-reyes.html" style="color:#5a5230">Serie: El reino partido</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="reyes-2.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#5a5230">El reino rico era el hereje</span></a>
+    <a class="epnav-btn next" href="reyes-4.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#5a5230">Como un pájaro en la jaula</span></a>
+  </div>
+</nav>
+</body></html>

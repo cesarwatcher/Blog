@@ -53,7 +53,39 @@
   .note .cifra{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#5a4d38;letter-spacing:.02em}
   footer{text-align:center;padding:2.5rem 0;color:#8a7a5e;font-size:.82rem;
     font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+  .wrap h2:first-of-type{margin-top:6.5rem}
+
+  /* navegacion de cierre, mismo componente que el resto de la serie */
+  .epnav{max-width:760px;margin:1rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;
+    font-weight:700;margin-bottom:1rem;color:var(--deep)}
+  .epnav-series a{text-decoration:none;color:var(--deep)}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
 </style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
 <div class="wrap">
   <h2>El corte del <span class="em">asedio</span></h2>
   <p>Un corte transversal por el ángulo suroeste de Laquis, en el año 701 a.C. Tres fuentes describen este lugar y ninguna lo describe entero. Pulsa una fuente para ver <strong>qué parte de esta escena atestigua cada una</strong>, y cualquier elemento para leer la ficha.</p>
@@ -255,6 +287,19 @@
 
   <div class="note" id="note"></div>
 </div>
+
+<nav class="epnav">
+  <div class="epnav-series">&#8593; <a href="serie-reyes.html">Serie: El reino partido</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="reyes-4.html">
+      <span class="lbl">&#8592; Su episodio</span>
+      <span class="ttl" style="color:#5a5230">Como un p&aacute;jaro en la jaula</span></a>
+    <a class="epnav-btn next" href="serie-reyes.html">
+      <span class="lbl">Las siete entregas &#8594;</span>
+      <span class="ttl" style="color:#5a5230">&Iacute;ndice de la serie</span></a>
+  </div>
+</nav>
+
 <footer><span style="color:#867a45">✦</span><br>Estratos · Historia de las religiones del Cercano Oriente</footer>
 
 <script>

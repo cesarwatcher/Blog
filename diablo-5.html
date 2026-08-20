@@ -1,0 +1,442 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los demonios de Galilea · Estratos</title>
+<meta name="description" content="De dónde vienen Satanás, Beelzebul, Beliar y «el príncipe de este mundo». El lugar de los exorcismos en la actividad del Jesús histórico, y lo que el Nuevo Testamento no dice sobre el infierno: en Mateo 25:41 el diablo es el condenado, no el verdugo.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5c1f26;--mid:#8f3a3f;--pale:#9c5a52;
+    --rel:#8a4a2a;--exc:#5c1f26;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  .glifos .tr{font-style:italic;font-size:.78em;color:#8a7a5e}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(156,90,82,.26)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#7a6852}
+  figcaption .cr a{color:#6d5a45;text-decoration:underline;text-decoration-color:rgba(122,106,69,.45)}
+  figcaption .cr a:hover{text-decoration-color:#7a6a45}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c3a89a,#b07a72 42%,#8f3a3f 70%,#5c1f26)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2d3c6,#d3bdb2);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .inv{max-width:960px;margin:3rem auto;background:rgba(242,234,215,.7);
+    border:1px solid rgba(180,150,100,.5);border-radius:14px;padding:1.5rem 1.4rem 1.6rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .inv .bk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);margin-bottom:.4rem}
+  .inv h2.bt{font-size:1.5rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .inv .bs{font-size:.98rem;color:#4a3f33;margin-bottom:1.2rem}
+  .inv .filt{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.1rem}
+  .inv .filt button{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;padding:.42rem .85rem;
+    border-radius:2rem;cursor:pointer;background:transparent;border:1px solid rgba(150,130,95,.55);
+    color:#5a4d38;transition:all .22s;display:flex;align-items:center;gap:.4rem}
+  .inv .filt button i{width:9px;height:9px;border-radius:2px;display:inline-block}
+  .inv .filt button.on{background:#e6d9be;border-color:var(--mid);color:#3a3320;font-weight:700}
+  .inv .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(224px,1fr));gap:.6rem}
+  .inv .it{background:#efe6d2;border:1px solid rgba(150,130,95,.45);border-left:4px solid #999;
+    border-radius:9px;padding:.7rem .8rem .75rem;cursor:pointer;text-align:left;
+    transition:transform .18s,box-shadow .18s,opacity .22s}
+  .inv .it:hover{transform:translateY(-2px);box-shadow:0 6px 15px var(--shadow)}
+  .inv .it.on{background:#e6d9be}
+  .inv .it.hid{display:none}
+  .inv .it .nm{font-size:.99rem;color:#3a3320;line-height:1.3}
+  .inv .it .wh{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;color:#8a7a5e;margin-top:.3rem}
+  .inv .det{margin-top:1.25rem;background:#33383f;border-radius:12px;padding:1.2rem 1.3rem;
+    border-left:3px solid #d9a94a}
+  .inv .det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;margin-bottom:.45rem}
+  .inv .det h4{font-size:1.12rem;font-weight:400;color:#f0ece2;margin:0 0 .2rem}
+  .inv .det .pr{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;color:#a89f8d;margin-bottom:.6rem}
+  .inv .det p{font-size:.97rem;color:#d6d2c8;margin:0;line-height:1.62}
+  .inv .det b{font-weight:400;color:#f0d79c}
+  .inv .det i{font-style:italic}
+  .inv .cnt{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#8a7a5e;margin-top:.9rem}
+  @media(max-width:600px){.inv{padding:1.2rem 1rem 1.3rem}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Entrega V &middot; &iquest;De d&oacute;nde viene el diablo?</span>
+  <h1>Los demonios de <span class="em">Galilea</span></h1>
+  <div class="glifos"><span>Σατανᾶς</span> <span class="tr">Satanâs</span><span class="sep">&#10022;</span><span>Βεελζεβούλ</span> <span class="tr">Beelzeboúl</span><span class="sep">&#10022;</span><span>Γέεννα</span> <span class="tr">Géenna</span></div>
+  <p class="stand">El Nuevo Testamento tiene fuego, juicio y un lago de fuego. Lo que no tiene es un infierno descrito, ni demonios que torturen a nadie.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">En el Antiguo Testamento casi no hay posesión demoníaca. No hay exorcistas, no hay
+espíritus que hablen por la boca de nadie, no hay fórmulas para expulsarlos. En los evangelios, en
+cambio, los demonios están en todas partes: en una sinagoga de Cafarnaún, en un cementerio de la
+Decápolis, en el cuerpo de un niño epiléptico, en una mujer encorvada. Entre los dos corpus hay unos
+pocos siglos, y en ese hueco ha ocurrido algo.</p>
+
+<p>Lo que ha ocurrido es lo que contaron las dos primeras entregas: el Libro de los Vigilantes
+proporcionó una etiología &mdash;los demonios son los espíritus de los Gigantes muertos&mdash; y el
+judaísmo del Segundo Templo tardío desarrolló, en Jubileos, en Tobías y en los textos de Qumrán, una
+demonología completa. Los evangelios <strong>presuponen</strong> ese marco y no lo explican, porque
+para sus lectores no hacía falta explicarlo.</p>
+
+<div class="secnum">01</div><h2>Un adversario con demasiados nombres</h2>
+
+<p>Lo primero que llama la atención al inventariar el vocabulario es que no hay un nombre, sino un
+montón, y que vienen de sitios distintos.</p>
+
+<p><strong>Satanás</strong> es la transliteración del semítico <em>satán</em>, «adversario», y en el
+Nuevo Testamento ya funciona como nombre propio: se ha completado el viaje del cargo a la persona.
+<strong>Diablo</strong>, <em>diábolos</em>, es la palabra con la que la Septuaginta había traducido
+<em>ha-satán</em> en Job y en Zacarías; de ahí llega a las lenguas romances y de ahí a nuestro «diablo».
+<strong>Beliar</strong>, en 2 Corintios 6:15, es la forma griega de Belial y una conexión directa con el
+vocabulario de Qumrán: una sola aparición, y suficiente para atar los dos mundos.</p>
+
+<p>Y luego están los títulos, cada uno con su cosmología detrás. «El príncipe de este mundo» es
+exclusivo del cuarto evangelio. «El príncipe de la potestad del aire», en Efesios 2:2, presupone un
+universo de esferas donde el aire sublunar es dominio demoníaco. «El dios de este siglo», en 2 Corintios
+4:4, es casi una provocación. «El maligno», «el tentador».</p>
+
+<p>Nada de esto es un sistema. Es un depósito de expresiones de procedencias distintas que la tradición
+posterior organizará en una jerarquía que los textos no tienen.</p>
+
+<figure>
+  <img src="exorcismo-geraseno.jpg" alt="Mosaico del exorcismo del endemoniado de Gerasa, Sant&apos;Apollinare Nuovo">
+  <figcaption>El exorcismo del endemoniado de Gerasa, en un mosaico de principios del siglo VI de la bas&iacute;lica de Sant'Apollinare Nuovo, en R&aacute;vena. Los demonios que salen del poseso son peque&ntilde;os y apenas humanos: as&iacute; empieza a representarse lo demon&iacute;aco, mucho antes de que exista una figura del Diablo. <span class="cr">Mosaico anónimo del siglo VI, Sant'Apollinare Nuovo, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">02</div><h2>Beelzebul, o el dios de Ecrón</h2>
+
+<p>El caso más instructivo es Beelzebul, porque en cuatro sílabas hay tres capas de historia.</p>
+
+<p>El trasfondo está en 2 Reyes 1, donde el rey Ocozías consulta a <em>baʿal zəbûb</em>, «Baal de las
+moscas», dios de la ciudad filistea de Ecrón. Y la explicación más aceptada de ese nombre ridículo es
+que se trata de una <strong>deformación polémica deliberada</strong>: el título original habría sido
+<em>baʿal zəbul</em>, «Baal el príncipe» o «Baal de la morada celestial» &mdash;está atestiguado en
+ugarítico como «príncipe, señor de la tierra»&mdash;, y los escribas israelitas cambiaron
+<em>zəbul</em>, «príncipe», por <em>zəbûb</em>, «mosca», para convertir a un dios rival en el señor de
+los insectos. Es una reconstrucción, pero es buena.</p>
+
+<p>Y tiene una consecuencia elegante: la forma griega de los evangelios, <em>Beelzeboúl</em>, conservaría
+entonces el nombre <strong>original</strong>, no la burla. La forma «Beelzebub», con la <em>-b</em>
+final, no viene del griego: viene de la Vulgata y de la Peshitta siríaca, y muchas traducciones
+modernas la arrastran por inercia latina.</p>
+
+<p>Falta el dato más importante, y es de bulto. En la controversia de Beelzebul los evangelios lo llaman
+«príncipe de los demonios» y <strong>el propio texto lo equipara a Satanás</strong>: es el mismo, no su
+lugarteniente. La jerarquía infernal en la que Belcebú es el segundo de a bordo es una construcción
+medieval.</p>
+
+<div class="secnum">03</div><h2>El exorcista</h2>
+
+<p>Sobre la actividad del Jesús histórico hay pocas cosas que la investigación considere tan firmes como
+ésta: <strong>que fue conocido como exorcista</strong>. Es más sólido que casi cualquier otro elemento
+de su biografía pública.</p>
+
+<p>La razón es metodológica y conviene entenderla, porque explica cómo se decide este tipo de cosas.
+Hay atestación múltiple en fuentes y formas independientes &mdash;Marcos, la fuente Q, los sumarios de
+actividad, las controversias&mdash;, y hay tradiciones que la Iglesia posterior no tenía ningún interés
+en inventar. Cuando un dato aparece en varias corrientes que no se copian entre sí, y además resulta
+incómodo, la probabilidad de que sea invención baja mucho.</p>
+
+<p>El dicho más citado es el de Lucas 11:20: «si por el dedo de Dios echo yo fuera los demonios,
+entonces el reino de Dios ha llegado a vosotros». Lo que hace es vincular el exorcismo con la
+escatología: en la lógica del Jesús histórico, cada expulsión es una escaramuza en el desmantelamiento
+del dominio de Satán. No son curaciones sueltas, son señales de que algo está cambiando de manos.</p>
+
+<p>Y hay un matiz que casi nunca se da: <strong>el Evangelio de Juan no contiene ni un solo
+exorcismo</strong>. Ninguno. Es un dato importante sobre la construcción literaria de la figura, y una
+buena vacuna contra la idea de un «Jesús exorcista» uniforme en todo el Nuevo Testamento. Lo que hay son
+retratos distintos con intereses distintos.</p>
+
+<div class="aviso">
+  <div class="t">Hasta dónde llega el dato, y dónde empieza la especulación</div>
+  <p>Que Jesús fue conocido como exorcista es uno de los puntos más firmes de la investigación sobre el Jesús histórico, y decirlo no compromete a nada sobre la naturaleza de lo que ocurría en esos episodios: es un dato sobre cómo se lo conocía y qué hacía, no sobre metafísica. Lo que sí excede la evidencia es dar el paso siguiente y reconstruir su <em>psicología</em> demonológica &mdash;qué creía exactamente sobre Satán, cómo se veía a sí mismo en ese combate&mdash;. Los textos permiten establecer la práctica y su marco escatológico. No permiten entrar en su cabeza.</p>
+</div>
+
+<figure>
+  <img src="tentacion-de-cristo.jpg" alt="La tentaci&oacute;n de Cristo, mosaico de la bas&iacute;lica de San Marcos">
+  <figcaption>La tentaci&oacute;n de Cristo, mosaico del siglo XII de la bas&iacute;lica de San Marcos de Venecia. Los evangelios ponen frente a frente a Jes&uacute;s y al tentador sin describir a &eacute;ste en ning&uacute;n momento; cada &eacute;poca ha tenido que decidir por su cuenta qu&eacute; aspecto le daba. <span class="cr">Mosaico anónimo del siglo XII, basílica de San Marcos, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">04</div><h2>Ahora el infierno</h2>
+
+<p>Y aquí llega la parte que suele desconcertar más, porque afecta a una imagen que parece
+inseparable del cristianismo.</p>
+
+<p>El Nuevo Testamento tiene fuego. Tiene juicio. Tiene un lago de fuego y una <em>Gehenna</em> que
+aparece doce veces. Lo que <strong>no tiene es un infierno descrito</strong>: no hay topografía, no hay
+círculos, no hay instrumentos, no hay jerarquía punitiva, y no hay demonios que torturen a nadie.</p>
+
+<p>Ese último punto es el decisivo, y está en la letra de los dos textos que más se citan. En Mateo
+25:41 el fuego eterno está preparado <strong>para</strong> el diablo y sus ángeles: son los
+destinatarios del castigo. Y en Apocalipsis 20:10 el diablo es <strong>arrojado</strong> al lago de
+fuego. En el Nuevo Testamento el diablo no es el verdugo del infierno. Es uno de los condenados.</p>
+
+<p>Hay otro problema, más técnico y no menos importante: el vocabulario no está armonizado.
+<em>Hádes</em> es el mundo de los muertos, <em>géenna</em> pertenece al juicio escatológico,
+<em>tártaros</em> es una prisión de ángeles, el <em>abismo</em> es otra cosa y el lago de fuego es el
+destino final apocalíptico. Cinco términos de cinco procedencias, usados por autores distintos con
+intenciones distintas. Fundirlos en un solo lugar con una sola geografía es obra de la tradición
+posterior.</p>
+
+<div class="inv">
+  <div class="bk">Pieza interactiva &middot; el inventario del infierno</div>
+  <h2 class="bt">Catorce elementos, y de d&oacute;nde sale cada uno</h2>
+  <p class="bs">La lista de lo que casi cualquiera dibujar&iacute;a si le piden un infierno. Cada
+  elemento con su dictamen y, lo m&aacute;s importante, con su <b>procedencia</b>: porque decir que algo
+  no est&aacute; en el Nuevo Testamento no explica nada si no se dice de d&oacute;nde vino.</p>
+  <div class="filt"><button data-f="all">Los catorce</button><button data-f="si"><i style="background:#3f6b46"></i>Está en el Nuevo Testamento</button><button data-f="otro"><i style="background:#8a6220"></i>Está, pero no significa eso</button><button data-f="no"><i style="background:#8f3a3f"></i>No está en el Nuevo Testamento</button></div>
+  <div class="list"><button class="it" data-id="fuego" data-v="si" style="border-left-color:#3f6b46"><span class="nm">Fuego</span><span class="wh">Mateo 5:22; Marcos 9:43</span></button><button class="it" data-id="gusano" data-v="si" style="border-left-color:#3f6b46"><span class="nm">El gusano que no muere</span><span class="wh">Marcos 9:48</span></button><button class="it" data-id="lago" data-v="si" style="border-left-color:#3f6b46"><span class="nm">El lago de fuego</span><span class="wh">Apocalipsis 19-21</span></button><button class="it" data-id="eterno" data-v="si" style="border-left-color:#3f6b46"><span class="nm">Fuego eterno «preparado para el diablo»</span><span class="wh">Mateo 25:41</span></button><button class="it" data-id="tartaro" data-v="si" style="border-left-color:#3f6b46"><span class="nm">El Tártaro</span><span class="wh">2 Pedro 2:4</span></button><button class="it" data-id="tormento" data-v="si" style="border-left-color:#3f6b46"><span class="nm">Tormento y sed</span><span class="wh">Lucas 16:19-31</span></button><button class="it" data-id="hades" data-v="otro" style="border-left-color:#8a6220"><span class="nm">Un único lugar llamado «infierno»</span><span class="wh">cinco términos distintos</span></button><button class="it" data-id="abadon" data-v="otro" style="border-left-color:#8a6220"><span class="nm">Abadón, el ángel del abismo</span><span class="wh">Apocalipsis 9:11</span></button><button class="it" data-id="belceb" data-v="otro" style="border-left-color:#8a6220"><span class="nm">Belcebú como lugarteniente del diablo</span><span class="wh">Marcos 3:22-27</span></button><button class="it" data-id="torturad" data-v="no" style="border-left-color:#8f3a3f"><span class="nm">Demonios que torturan a los condenados</span><span class="wh">Apocalipsis de Pedro, s. II</span></button><button class="it" data-id="topog" data-v="no" style="border-left-color:#8f3a3f"><span class="nm">Círculos, cavernas, calderas, niveles</span><span class="wh">Apocalipsis de Pablo, s. III-IV; Dante</span></button><button class="it" data-id="contrap" data-v="no" style="border-left-color:#8f3a3f"><span class="nm">Castigos ajustados a cada pecado</span><span class="wh">Apocalipsis de Pedro y de Pablo</span></button><button class="it" data-id="trono" data-v="no" style="border-left-color:#8f3a3f"><span class="nm">Satán reinando en el infierno</span><span class="wh">Milton, 1667</span></button><button class="it" data-id="tridente" data-v="no" style="border-left-color:#8f3a3f"><span class="nm">Tridente, cuernos, piel roja</span><span class="wh">iconografía medieval y teatro del s. XIX</span></button></div>
+  <div class="cnt" id="invcnt"></div>
+  <div class="det" id="invdet"></div>
+</div>
+
+<div class="secnum">05</div><h2>De dónde viene entonces el infierno amueblado</h2>
+
+<p>De dos libros que no entraron en el canon. El <strong>Apocalipsis de Pedro</strong>, del siglo II, y
+el <strong>Apocalipsis de Pablo</strong> &mdash;la <em>Visio Pauli</em>&mdash;, de los siglos III y IV,
+son recorridos guiados por el más allá, y en ellos sí hay lo que el Nuevo Testamento no tiene: castigos
+detallados, especializados según el pecado, ejecutados por ángeles y demonios verdugos, con una lógica
+de correspondencia entre la culpa y la pena.</p>
+
+<p>Ésa es la fuente de la que bebe la imaginación medieval, y de ahí, por una línea que se puede
+seguir, llega hasta Dante. El infierno que casi todo el mundo tiene en la cabeza es un producto de la
+literatura apócrifa y de la poesía, no del canon.</p>
+
+<div class="wall">
+  <div class="post min">
+    <div class="who">Lo que hay en el Nuevo Testamento</div>
+    <div class="what">Escueto</div>
+    <p>Fuego, juicio, la <em>Gehenna</em> doce veces, un lago de fuego, el Tártaro como prisión de ángeles y una parábola con tormentos y sed. Ninguna descripción del lugar.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Apocalipsis de Pedro · s. II</div>
+    <div class="what">El primer recorrido</div>
+    <p>Un tour guiado por el más allá, con castigos concretos y especializados por pecado. Aquí empieza el infierno amueblado, y es un texto que no entró en el canon.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Apocalipsis de Pablo · s. III-IV</div>
+    <div class="what">El modelo que se copió</div>
+    <p>La <em>Visio Pauli</em> fija el género y añade los verdugos. De aquí sale casi toda la iconografía infernal medieval.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Dante · c. 1320</div>
+    <div class="what">La forma canónica</div>
+    <p>No inventa el infierno detallado: lo hereda de los apocalipsis apócrifos y lo convierte en arquitectura moral, con el <em>contrapasso</em> como principio de organización.</p>
+  </div>
+</div>
+
+<div class="meter">
+  <div class="q">Que Jesús de Nazaret fue conocido como exorcista.</div>
+  <div class="bar"><span class="pin" style="left:92%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Atestación múltiple en fuentes y formas independientes, y tradiciones que la Iglesia no tenía interés en inventar. Es más firme que casi cualquier otro elemento de su actividad pública.</div>
+</div>
+
+<div class="meter">
+  <div class="q">Que el Nuevo Testamento no describe un infierno con demonios torturadores, y que esa imagen viene de los apocalipsis apócrifos de los siglos II al IV.</div>
+  <div class="bar"><span class="pin" style="left:89%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Se comprueba leyendo: en Mateo 25:41 el fuego está preparado para el diablo, y en Apocalipsis 20:10 el diablo es arrojado a él. Es el condenado, no el carcelero.</div>
+</div>
+
+<p>Queda entonces un cuadro asimétrico. En el terreno del <em>adversario</em>, el Nuevo Testamento es
+rico y desordenado: nombres de varias procedencias, títulos con cosmologías distintas, un Beelzebul que
+era un dios filisteo con el nombre deformado. En el terreno del <em>castigo</em>, en cambio, es
+sorprendentemente escueto: fuego, juicio, y ninguna descripción.</p>
+
+<p>Lo que falta por explicar es la cara. Después de cinco entregas no ha aparecido, en ningún texto,
+una sola descripción del aspecto físico del diablo &mdash;y no va a aparecer, porque no existe. La
+última entrega trata precisamente de eso: de cómo se le fabricó un cuerpo, pieza por pieza, durante
+mil quinientos años.</p>
+
+<a class="piezalink" href="linaje.html">
+  <span class="k">Pieza interactiva de la serie</span>
+  <h3>El linaje de una idea</h3>
+  <p>En el grafo, la l&iacute;nea que va del Libro de los Vigilantes a los evangelios es continua: la
+  demonolog&iacute;a del Nuevo Testamento presupone ese marco, y la carta de Judas cita a Enoc por su
+  nombre. La que va del Tratado de los Dos Esp&iacute;ritus es discontinua.</p>
+  <span class="go">Abrir el grafo &rarr;</span>
+</a>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <strong>dato firme</strong> que la Biblia hebrea prácticamente no tiene posesión demoníaca ni exorcismo, y que el marco demonológico de los evangelios es el del judaísmo del Segundo Templo tardío, con la etiología enóquica de 1 Enoc 15:8-16:1 como trasfondo. Lo son las referencias del vocabulario: <span class="k">Beliar</span> en 2 Corintios 6:15, «el príncipe de este mundo» sólo en el cuarto evangelio, «el príncipe de la potestad del aire» en Efesios 2:2. Lo es que en la controversia de Beelzebul el texto equipara a Beelzebul con Satanás, y que la forma griega es <em>Beelzeboúl</em>, siendo la <em>-b</em> final de la Vulgata y la Peshitta. Lo es que Juan no contiene ningún exorcismo. Y lo es el reparto del vocabulario infernal en cinco términos no armonizados, así como el hecho de que en Mateo 25:41 y Apocalipsis 20:10 el diablo sea el condenado y no el verdugo.</p>
+  <p><span class="k">Debate abierto:</span> la reconstrucción de <em>baʿal zəbul</em> como título original deformado en <em>baʿal zəbûb</em> es la explicación más aceptada, pero sigue siendo una reconstrucción. La identidad mutua de las figuras demoníacas del Segundo Templo &mdash;Belial, Mastema, Melki-<em>reshaʿ</em>, el Ángel de la Oscuridad&mdash; es probable y no demostrada. Y en el terreno del Jesús histórico, la interpretación escatológica de Lucas 11:20 es la mayoritaria, no la única. Este artículo no da cifras de apariciones que no haya podido comprobar, y no reconstruye estados mentales de ningún personaje.</p>
+  <p>Describir de dónde viene el infierno amueblado no es negar que una tradición pueda creer en un juicio o en una vida después de la muerte; son cuestiones distintas y este artículo no entra en la segunda. Lo que hace es separar dos capas que llevan mil quinientos años pegadas: lo que dicen los textos del canon y lo que añadieron la literatura apócrifa, la predicación y la poesía. La imagen popular del infierno es una obra colectiva extraordinaria, y saber quién puso cada pieza no le quita mérito a ninguno.</p>
+</div>
+
+</div></div>
+
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var D={"fuego": {"n": "Fuego", "v": "si", "w": "Mateo 5:22; Marcos 9:43", "q": "La <i>Gehenna</i> aparece doce veces en el Nuevo Testamento y va asociada al fuego. Es, además, un topónimo real: el valle de Ben-Hinnom, al sur de Jerusalén, lugar de sacrificios infantiles según 2 Reyes 23:10 y Jeremías 7."}, "gusano": {"n": "El gusano que no muere", "v": "si", "w": "Marcos 9:48", "q": "Citando a Isaías 66:24. Es una de las pocas imágenes concretas que el texto ofrece, y viene del final del libro de Isaías, no de una visión del más allá."}, "lago": {"n": "El lago de fuego", "v": "si", "w": "Apocalipsis 19-21", "q": "Allí son arrojados el dragón, la bestia, la muerte y el Hades. Es una imagen apocalíptica de destrucción final, no una descripción de un lugar donde se vive."}, "eterno": {"n": "Fuego eterno «preparado para el diablo»", "v": "si", "w": "Mateo 25:41", "q": "Es el texto más cercano a la imagen popular. Y contiene la vuelta de tuerca que lo cambia todo: el fuego está preparado <b>para</b> el diablo y sus ángeles. Son los destinatarios del castigo, no sus administradores."}, "tartaro": {"n": "El Tártaro", "v": "si", "w": "2 Pedro 2:4", "q": "Un préstamo directo del griego: los ángeles pecadores son arrojados al Tártaro. Es una prisión de ángeles, no el destino de los humanos."}, "tormento": {"n": "Tormento y sed", "v": "si", "w": "Lucas 16:19-31", "q": "La parábola del rico y Lázaro habla de tormentos, de llama y de sed. Es el pasaje que más se acerca a una escena, y es una parábola."}, "hades": {"n": "Un único lugar llamado «infierno»", "v": "otro", "w": "cinco términos distintos", "q": "El Nuevo Testamento usa <i>hádes</i> (el mundo de los muertos), <i>géenna</i> (el juicio escatológico), <i>tártaros</i> (prisión de ángeles), <i>ábyssos</i> (el abismo) y <i>límne toû pyrós</i> (el lago de fuego). Son términos heterogéneos y <b>no armonizados</b>. Fundirlos en un solo lugar es obra de la tradición posterior."}, "abadon": {"n": "Abadón, el ángel del abismo", "v": "otro", "w": "Apocalipsis 9:11", "q": "Existe, y su nombre suena tremendo. Pero el texto <b>no lo identifica con Satán</b>, y la tradición posterior lo asimiló sin base."}, "belceb": {"n": "Belcebú como lugarteniente del diablo", "v": "otro", "w": "Marcos 3:22-27", "q": "En los evangelios, Beelzebul <b>es</b> Satanás: el propio texto los equipara. La jerarquía infernal con Belcebú como segundo de a bordo es medieval. Y una precisión de detalle: el griego lee <i>Beelzeboúl</i>; la <i>-b</i> final de «Beelzebub» viene de la Vulgata y de la Peshitta."}, "torturad": {"n": "Demonios que torturan a los condenados", "v": "no", "w": "Apocalipsis de Pedro, s. II", "q": "No está en el Nuevo Testamento. En Mateo 25:41 el fuego está preparado para el diablo, y en Apocalipsis 20:10 el diablo es <b>arrojado</b> al lago de fuego. El demonio-verdugo, el diablo como carcelero y administrador del infierno, viene de los recorridos apocalípticos del infierno de los siglos II al IV."}, "topog": {"n": "Círculos, cavernas, calderas, niveles", "v": "no", "w": "Apocalipsis de Pablo, s. III-IV; Dante", "q": "No hay ninguna descripción topográfica del infierno en el Nuevo Testamento. Ni círculos, ni cavernas, ni instrumentos, ni jerarquía punitiva. El infierno amueblado lo construyen los apocalipsis apócrifos, y su forma canónica la fija Dante."}, "contrap": {"n": "Castigos ajustados a cada pecado", "v": "no", "w": "Apocalipsis de Pedro y de Pablo", "q": "El <i>contrapasso</i> —la pena que refleja la culpa— es la gran aportación de los recorridos apocalípticos, que describen castigos especializados por pecado y ejecutados por ángeles verdugos. Es lo que hace memorable a Dante, y no viene del canon."}, "trono": {"n": "Satán reinando en el infierno", "v": "no", "w": "Milton, 1667", "q": "En el Nuevo Testamento el diablo es el condenado, no el rey. El infierno como reino organizado, con corte, parlamento y demonios con nombre propio y posición política, es el Pandemonium del <i>Paraíso perdido</i>. La palabra misma la acuñó Milton."}, "tridente": {"n": "Tridente, cuernos, piel roja", "v": "no", "w": "iconografía medieval y teatro del s. XIX", "q": "La Biblia no describe el aspecto físico del diablo en ningún versículo. Todo esto es asunto de la entrega siguiente."}}, V={"si": ["#3f6b46", "Está en el Nuevo Testamento"], "otro": ["#8a6220", "Está, pero no significa eso"], "no": ["#8f3a3f", "No está en el Nuevo Testamento"]}, det=document.getElementById('invdet'), cnt=document.getElementById('invcnt');
+  var f='all';
+  function show(id){
+    var d=D[id]; if(!d) return;
+    document.querySelectorAll('.inv .it').forEach(function(i){i.classList.toggle('on',i.dataset.id===id);});
+    det.innerHTML='<div class="dl" style="color:'+V[d.v][0]+'">'+V[d.v][1]+'</div><h4>'+d.n+
+      '</h4><div class="pr">Procedencia: '+d.w+'</div><p>'+d.q+'</p>';
+    det.style.borderLeftColor=V[d.v][0];
+  }
+  function filt(k){
+    f=k;
+    document.querySelectorAll('.inv .filt button').forEach(function(b){b.classList.toggle('on',b.dataset.f===k);});
+    var n=0;
+    document.querySelectorAll('.inv .it').forEach(function(i){
+      var ok=(k==='all'||i.dataset.v===k); i.classList.toggle('hid',!ok); if(ok)n++;});
+    cnt.textContent=n+' de '+document.querySelectorAll('.inv .it').length+' elementos a la vista';
+  }
+  document.querySelectorAll('.inv .it').forEach(function(i){
+    i.addEventListener('click',function(){show(i.dataset.id);});
+  });
+  document.querySelectorAll('.inv .filt button').forEach(function(b){
+    b.addEventListener('click',function(){filt(b.dataset.f);});
+  });
+  filt('all'); show('eterno');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5c1f26">↑ <a href="serie-diablo.html" style="color:#5c1f26">Serie: ¿De dónde viene el diablo?</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="diablo-4.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#5c1f26">La serpiente que no era el diablo</span></a>
+    <a class="epnav-btn next" href="diablo-6.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#5c1f26">Cómo el diablo consiguió cuernos</span></a>
+  </div>
+</nav>
+</body></html>

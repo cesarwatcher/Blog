@@ -1,0 +1,446 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El nombre que nació de un error · Estratos</title>
+<meta name="description" content="Isaías 14:4 dice a quién va dirigido el oráculo: al rey de Babilonia. Helel ben shajar es el planeta Venus, la Septuaginta traduce heosphoros y la Vulgata Lucifer, que era el nombre latino del planeta. Y la misma palabra se aplica a Cristo en 2 Pedro 1:19.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5c1f26;--mid:#8f3a3f;--pale:#9c5a52;
+    --rel:#8a4a2a;--exc:#5c1f26;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  .glifos .tr{font-style:italic;font-size:.78em;color:#8a7a5e}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(156,90,82,.26)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#7a6852}
+  figcaption .cr a{color:#6d5a45;text-decoration:underline;text-decoration-color:rgba(122,106,69,.45)}
+  figcaption .cr a:hover{text-decoration-color:#7a6a45}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c3a89a,#b07a72 42%,#8f3a3f 70%,#5c1f26)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2d3c6,#d3bdb2);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .cad{max-width:960px;margin:3rem auto;background:rgba(242,234,215,.7);
+    border:1px solid rgba(180,150,100,.5);border-radius:14px;padding:1.5rem 1.4rem 1.6rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .cad .bk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);margin-bottom:.4rem}
+  .cad h2.bt{font-size:1.5rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .cad .bs{font-size:.98rem;color:#4a3f33;margin-bottom:1.3rem}
+  .cad .rail{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:.3rem}
+  .cad .st{flex:1 0 158px;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-radius:10px;padding:.7rem .7rem .8rem;cursor:pointer;text-align:center;
+    transition:transform .2s,box-shadow .2s;position:relative}
+  .cad .st:hover{transform:translateY(-3px);box-shadow:0 7px 18px var(--shadow)}
+  .cad .st.on{background:#e6d9be;border-color:var(--mid);box-shadow:0 7px 18px var(--shadow)}
+  .cad .st .ep{font-family:"Trebuchet MS",sans-serif;font-size:.56rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e;margin-bottom:.35rem}
+  .cad .st .wd{font-size:1.16rem;color:#2f2a1c;line-height:1.3;unicode-bidi:isolate}
+  .cad .st .lg{font-family:"Trebuchet MS",sans-serif;font-size:.58rem;color:#7a6852;margin-top:.35rem;line-height:1.3}
+  .cad .arw{flex:0 0 20px;display:flex;align-items:center;justify-content:center;
+    color:var(--pale);font-size:1rem}
+  .cad .ref{display:flex;align-items:center;gap:.7rem;margin:1.1rem 0 0;padding:.7rem .9rem;
+    border-radius:9px;background:#e9e0c9;border:1px solid rgba(150,130,95,.4);transition:all .35s}
+  .cad .ref.persona{background:#e7d3d0;border-color:rgba(143,58,63,.45)}
+  .cad .ref .rl{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:#8a7a5e}
+  .cad .ref .rv{font-size:1.02rem;color:#3a3320}
+  .cad .ref.persona .rv{color:#7a2a30}
+  .cad .det{margin-top:1.2rem;background:#33383f;border-radius:12px;padding:1.2rem 1.3rem;
+    border-left:3px solid #d9a94a}
+  .cad .det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:#d9a94a;margin-bottom:.45rem}
+  .cad .det h4{font-size:1.12rem;font-weight:400;color:#f0ece2;margin:0 0 .6rem}
+  .cad .det p{font-size:.97rem;color:#d6d2c8;margin:0 0 .7rem;line-height:1.62}
+  .cad .det p:last-child{margin:0}
+  .cad .det b{font-weight:400;color:#f0d79c}
+  .cad .det i{font-style:italic}
+  .cad .contra{margin-top:1.3rem;padding-top:1.1rem;border-top:1px dashed rgba(143,58,63,.4)}
+  .cad .contra .ct{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:#8f3a3f;margin-bottom:.7rem}
+  .cad .contra .cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem}
+  .cad .contra .ci{background:#efe6d2;border:1px solid rgba(150,130,95,.45);
+    border-left:3px solid #8f3a3f;border-radius:9px;padding:.75rem .85rem}
+  .cad .contra .ci .cn{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    color:var(--deep);margin-bottom:.2rem}
+  .cad .contra .ci .cw{font-size:1rem;color:#2f2a1c;margin-bottom:.3rem;unicode-bidi:isolate}
+  .cad .contra .ci p{font-size:.87rem;color:#4a3f33;margin:0}
+  @media(max-width:600px){.cad{padding:1.2rem 1rem 1.3rem}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Entrega III &middot; &iquest;De d&oacute;nde viene el diablo?</span>
+  <h1>El nombre que naci&oacute; de <span class="em">un error</span></h1>
+  <div class="glifos"><span>הֵילֵל בֶּן־שָׁחַר</span> <span class="tr">hêlēl ben-šāḥar</span><span class="sep">&#10022;</span><span>ἑωσφόρος</span> <span class="tr">heōsphóros</span><span class="sep">&#10022;</span><span>Lucifer</span></div>
+  <p class="stand">La cadena de traducción es limpia: Venus en hebreo, Venus en griego, Venus en latín. El error no está en ninguna traducción. Está en una lectura, y tiene fecha.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">De todas las cosas que se dicen sobre el diablo, hay una que se puede desmontar
+sin salir del propio texto que la sostiene. No hace falta arqueología, ni manuscritos, ni discutir
+fechas. Basta leer ocho versículos más arriba.</p>
+
+<p>Isaías 14:12 dice: «¿Cómo caíste del cielo, <em>hêlēl</em> hijo de la aurora?». Es el versículo del
+que sale, por una cadena que se puede reconstruir paso a paso, el nombre «Lucifer». Y en el versículo
+4 del mismo capítulo el texto ha dicho ya, con toda claridad, de quién está hablando: es un
+<em>mashal</em>, una sátira burlesca, <strong>contra el rey de Babilonia</strong>.</p>
+
+<p>No es una deducción de los especialistas. Es el encabezamiento que el propio oráculo se pone.</p>
+
+<div class="secnum">01</div><h2>Un cadáver sin sepultura</h2>
+
+<p>Y si el versículo 4 no bastara, el final del poema lo remata. En 14:16-20 el personaje del que se
+burla el oráculo aparece como un cadáver humano insepulto, arrojado fuera de su tumba «como rama
+abominable», pisoteado, sin descendencia. No es la imagen de un ser celeste derrotado: es el
+tratamiento que se le da a un tirano muerto cuyo cuerpo ha quedado tirado en el campo.</p>
+
+<p>El género tampoco engaña. Es una <em>sátira de mofa</em> contra un rey que se creía intocable, del
+tipo que abunda en la literatura profética: el poderoso que se exalta hasta el cielo y termina en el
+polvo. Que el poema use imaginería astral no lo convierte en un relato cósmico. Nosotros decimos
+«se creía una estrella» sin pensar en astronomía.</p>
+
+<figure>
+  <img src="rollo-de-isaias.jpg" alt="Columna del Gran Rollo de Isa&iacute;as, de Qumr&aacute;n">
+  <figcaption>Columna del Gran Rollo de Isa&iacute;as, copiado en el siglo I a.C. y hallado en Qumr&aacute;n. Es el testimonio manuscrito m&aacute;s antiguo del libro y lleva mil a&ntilde;os de ventaja al texto masor&eacute;tico que sirve de base a nuestras Biblias. <span class="cr">Museo de Israel, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">02</div><h2>Una palabra que aparece una sola vez</h2>
+
+<p><em>Hêlēl</em> es un <em>hapax legomenon</em>: no vuelve a aparecer en toda la Biblia hebrea. La
+derivación mayoritaria la lleva a la raíz <em>hll</em>, «brillar», de modo que significaría «el
+brillante», «el resplandeciente». Y <em>šāḥar</em> es el alba. «Brillante, hijo de la aurora» es,
+sin más misterio, <strong>el planeta Venus</strong>: el astro que sale antes del sol y desaparece
+cuando el sol llega. Para una sátira sobre un rey que brilló poco tiempo y se apagó, la metáfora es
+perfecta.</p>
+
+<p>El trasfondo cultural es real y merece decirse bien. En Ugarit está atestiguada la divinidad
+<em>šḥr</em>, Šaḥar, «Alba», emparejada con Shalim, «Crepúsculo», ambos hijos de El. El «hijo de la
+aurora» de Isaías se apoya, por tanto, en un imaginario divino cananeo que existía. Hasta ahí,
+terreno firme.</p>
+
+<div class="aviso">
+  <div class="t">Hasta dónde llega el paralelo ugarítico, y dónde hay que parar</div>
+  <p>Se lee a menudo que Isaías 14 reelabora un mito ugarítico en el que el dios astral Athtar se rebela contra el trono de Baal y es derribado. Conviene no repetirlo. En el Ciclo de Baal, Athtar <strong>es entronizado</strong> por decisión de Athirat y de El, y se baja del trono porque <em>no da la talla</em>: sus pies no alcanzan el escabel y su cabeza no llega al respaldo. No se rebela y no es derribado. La formulación defendible es que Isaías usa imaginería astral cananea que existía; el episodio mítico concreto que estaría detrás es una reconstrucción hipotética, y las genealogías ugaríticas no encajan limpiamente con las líneas del profeta.</p>
+</div>
+
+<div class="secnum">03</div><h2>De <em>heōsphóros</em> a <em>Lucifer</em></h2>
+
+<p>Ahora la cadena. La Septuaginta traduce <em>hêlēl</em> por <em>heōsphóros</em>, «el que trae el
+alba», que era un epíteto griego corriente del planeta Venus. Y la Vulgata de Jerónimo lo pasa al
+latín como <em>lucifer</em>, «portador de luz».</p>
+
+<p>Aquí está el dato que casi siempre falta: <strong><em>lucifer</em> ya era, en latín clásico, el
+nombre normal del planeta Venus.</strong> Lo usan así Cicerón, Virgilio y Ovidio, siglos antes de que
+Jerónimo tradujera nada. Jerónimo no acuñó un nombre demoníaco: puso en latín, con la palabra
+disponible, el nombre latino del astro del que hablaba el griego, que a su vez traducía el nombre
+hebreo del mismo astro.</p>
+
+<p>Las tres estaciones de la cadena son limpias. El referente no se mueve: es Venus en hebreo, Venus
+en griego y Venus en latín. El problema aparece después, y no es un problema de traducción.</p>
+
+<div class="cad">
+  <div class="bk">Pieza interactiva &middot; la cadena de traducci&oacute;n</div>
+  <h2 class="bt">D&oacute;nde se rompe la cadena</h2>
+  <p class="bs">Cinco estaciones, del hebreo a las lenguas modernas. Lo que hay que seguir no es la
+  palabra &mdash;la palabra se mantiene notablemente estable&mdash; sino el <b>referente</b>: a qu&eacute;
+  cosa del mundo apunta. Pulsa cada estaci&oacute;n y vigila la banda de abajo.</p>
+  <div class="rail">
+  <div class="st" data-id="heb"><div class="ep">s. VIII-VI a.C.</div><div class="wd">הֵילֵל בֶּן־שָׁחַר</div><div class="lg">Hebreo &middot; Isaías 14:12</div></div>
+  <div class="arw">&rarr;</div>
+  <div class="st" data-id="lxx"><div class="ep">s. III-II a.C.</div><div class="wd">ἑωσφόρος</div><div class="lg">Griego &middot; Septuaginta</div></div>
+  <div class="arw">&rarr;</div>
+  <div class="st" data-id="vulg"><div class="ep">c. 400 d.C.</div><div class="wd">Lucifer</div><div class="lg">Latín &middot; Vulgata</div></div>
+  <div class="arw">&rarr;</div>
+  <div class="st" data-id="lect"><div class="ep">s. II-VI d.C.</div><div class="wd">Lucifer</div><div class="lg">La lectura &middot; no una traducción</div></div>
+  <div class="arw">&rarr;</div>
+  <div class="st" data-id="mod"><div class="ep">s. XVI-XXI</div><div class="wd">Lucifer</div><div class="lg">Las lenguas modernas</div></div>
+  </div>
+  <div class="ref" id="cadref"></div>
+  <div class="det" id="caddet"></div>
+  <div class="contra">
+    <div class="ct">Y en el propio Nuevo Testamento, la misma palabra</div>
+    <div class="cg"><div class="ci"><div class="cn">2 Pedro 1:19</div><div class="cw">φωσφόρος</div><p><i>phosphóros</i>, y la Vulgata pone <i>lucifer</i>. Aplicado al amanecer de la fe y, por extensión, a Cristo.</p></div><div class="ci"><div class="cn">Apocalipsis 22:16</div><div class="cw">ὁ ἀστὴρ ὁ λαμπρὸς ὁ πρωϊνός</div><p>Jesús se llama a sí mismo «la estrella brillante de la mañana». La misma estrella. El mismo planeta.</p></div></div>
+  </div>
+</div>
+
+<div class="secnum">04</div><h2>El versículo que lo desmonta</h2>
+
+<p>Hay un argumento que zanja el asunto y que casi nunca se usa, quizá porque es demasiado sencillo.
+La misma palabra se aplica en el Nuevo Testamento <strong>a Cristo</strong>.</p>
+
+<p>En 2 Pedro 1:19 aparece <em>phosphóros</em> &mdash;que la Vulgata vierte, otra vez, como
+<em>lucifer</em>&mdash; y en Apocalipsis 22:16 Jesús se llama a sí mismo «la estrella brillante de la
+mañana». Si <em>lucifer</em> fuera el nombre propio del diablo, el Nuevo Testamento se lo estaría
+dando a Jesús en dos pasajes distintos. No lo es: es el nombre de un astro, y ambos textos lo usan
+como lo que es.</p>
+
+<div class="secnum">05</div><h2>Quién lo leyó primero de la otra manera</h2>
+
+<p>El paso decisivo se puede fechar, y no ocurre en un escritorio de traductor sino en una
+polémica teológica.</p>
+
+<p><strong>Tertuliano</strong>, en <em>Adversus Marcionem</em> II,10, aplica el oráculo de Isaías a la
+caída de Satán &mdash;y hace lo mismo con Ezequiel 28&mdash;. Es el testimonio explícito más antiguo
+que se puede documentar. Después, <strong>Orígenes</strong>, en <em>De Principiis</em> I,5, lo
+sistematiza: cita Isaías 14:12 y concluye que por esas palabras queda mostrado con toda evidencia
+que cayó del cielo aquel que antes era Lucifer. Y no se queda ahí: construye con ello un esquema
+general &mdash;ser celeste bueno que cae por su propia elección&mdash; que es el molde de toda la
+tradición posterior. Jerónimo y Gregorio el Grande lo consolidan.</p>
+
+<p>El puente que hizo posible la lectura está en otro sitio: en <strong>Lucas 10:18</strong>, «veía a
+Satanás caer del cielo como un rayo». Puesto junto al «caíste del cielo» de Isaías, permitió
+convertir una sátira política antibabilónica en mitología cósmica. Dos versículos de libros distintos,
+escritos con siglos de diferencia y sobre asuntos distintos, leídos como si hablaran de lo mismo.</p>
+
+<p>Conviene añadir un matiz, porque el crédito no es enteramente cristiano: en el judaísmo del Segundo
+Templo el motivo del <em>hybris</em> astral &mdash;el ser celeste que se exalta y cae&mdash; ya
+circulaba, y aparece en la literatura enóquica. Lo que es específicamente cristiano, y patrístico, es
+la ecuación concreta <em>hêlēl</em> = Satán.</p>
+
+<figure>
+  <img src="vulgata-pagina.jpg" alt="Folio de un manuscrito de la Vulgata en min&uacute;scula carolingia">
+  <figcaption>Folio de un manuscrito de la Vulgata, escrito en min&uacute;scula carolingia. La Vulgata es un texto latino con su propia historia material: cada copia es una decisi&oacute;n tomada de nuevo, y en ese margen de decisi&oacute;n se juega buena parte de esta entrega. <span class="cr">British Library, Add MS 11848, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">06</div><h2>Y de paso, Ezequiel 28</h2>
+
+<p>El otro pasaje que sostiene el retrato del diablo caído tiene un problema aún más serio, y es
+textual.</p>
+
+<p>Ezequiel 28 contiene dos oráculos contra Tiro: uno contra el «príncipe» y otro, una
+<em>qinah</em> o lamento, contra el «rey». El referente histórico es el monarca tirio contemporáneo
+del profeta, en el contexto del asedio babilónico de la ciudad. Los motivos son espectaculares
+&mdash;estaba en el Edén, cubierto de piedras preciosas, en el monte santo de Dios, entre carbones de
+fuego, y fue expulsado por su soberbia y su comercio&mdash; y se entiende que hayan invitado a leerlos
+como el retrato de un ángel caído.</p>
+
+<p>Pero toda esa lectura descansa en cuatro palabras del versículo 14, y esas cuatro palabras no están
+seguras. El texto masorético lee <em>ʾat-kərûb mimšaḥ</em>, «tú eras el querubín ungido». La
+Septuaginta lee <em>metà toû cheroub</em>: «<strong>con</strong> el querubín». Es decir, el rey no
+<em>es</em> el querubín, sino que <em>estaba junto a</em> él, custodiado por él. Y la interpretación
+satánica del pasaje sólo funciona con la primera lectura.</p>
+
+<p>Traducciones modernas de referencia entienden el querubín como el guardián del rey y no como el rey
+mismo. Que la lectura satánica de Ezequiel 28 siga circulando se debe sobre todo a la literatura
+dispensacionalista del siglo XX, no a la exégesis crítica.</p>
+
+<figure>
+  <img src="estrella-de-la-manana.jpg" alt="&laquo;F&oacute;sforo y H&eacute;spero&raquo;, de Evelyn De Morgan, 1881">
+  <figcaption><em>F&oacute;sforo y H&eacute;spero</em>, de Evelyn De Morgan, 1881. El mismo planeta con dos nombres seg&uacute;n la hora en que se lo mire: estrella de la ma&ntilde;ana y estrella de la tarde. Toda esta entrega trata de lo que ocurre cuando el nombre de un astro deja de entenderse como el nombre de un astro. <span class="cr">Evelyn De Morgan, Dominio público.</span></figcaption>
+</figure>
+
+<div class="meter">
+  <div class="q">Que el oráculo de Isaías 14 se dirige al rey de Babilonia y no a un ser sobrehumano.</div>
+  <div class="bar"><span class="pin" style="left:96%" data-l="Consenso sin fisuras"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Lo dice el propio versículo 4, y el final del poema describe un cadáver humano insepulto. Es uno de los puntos más firmes de todo este terreno.</div>
+</div>
+
+<div class="meter">
+  <div class="q">Que Isaías 14:12-15 reelabora un episodio mítico cananeo concreto de rebelión y caída astral.</div>
+  <div class="bar"><span class="pin" style="left:31%" data-l="Hipótesis frágil"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">El imaginario cananeo está ahí y las divinidades del alba y el crepúsculo están atestiguadas en Ugarit. El episodio de rebelión, en cambio, es reconstrucción: en el texto ugarítico que se cita, nadie se rebela.</div>
+</div>
+
+<div class="secnum">07</div><h2>Lo que hizo la mayúscula</h2>
+
+<p>Es la tercera vez en esta serie que aparece el mismo mecanismo, y ya conviene nombrarlo. Un
+sustantivo común o un cargo se endurece hasta volverse el nombre propio de alguien. Le pasó a
+<em>ha-satán</em>, que era una función judicial &mdash;el acusador&mdash; antes de ser un personaje.
+Le pasó a <em>bəliyyaʿal</em>, que era la vileza antes de ser un príncipe. Y le pasó a
+<em>hêlēl</em>, que era un astro antes de ser un nombre.</p>
+
+<p>Tres veces el mismo procedimiento, en tres lenguas distintas y en tres siglos distintos. No es una
+conspiración ni un fraude: es cómo funciona la lectura de los textos antiguos cuando la comunidad que
+los lee ya tiene en la cabeza una pregunta que el texto no se hacía. La pregunta era «¿de dónde viene
+el mal?», y el texto respondía a otra cosa.</p>
+
+<p>En la entrega siguiente el objeto cambia. Ya no será un nombre, sino el animal más famoso de la
+Biblia; y el error, en lugar de estar en una mayúscula, estará en siete siglos de distancia.</p>
+
+<a class="piezalink" href="linaje.html">
+  <span class="k">Pieza interactiva de la serie</span>
+  <h3>El linaje de una idea</h3>
+  <p>En el grafo, la l&iacute;nea que va de Isa&iacute;as 14 a &laquo;Lucifer es el nombre del
+  diablo&raquo; est&aacute; tachada, y la que va de Ezequiel 28 a Tertuliano es discontinua por el
+  problema textual del vers&iacute;culo 14. Esta entrega explica las dos.</p>
+  <span class="go">Abrir el grafo &rarr;</span>
+</a>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <strong>dato firme</strong> que Isaías 14:4 identifica al destinatario del oráculo como el rey de Babilonia y que 14:16-20 lo describe como un cadáver humano insepulto. Lo es que <em>hêlēl</em> es un <em>hapax legomenon</em> cuyo referente astral es Venus; que la Septuaginta traduce <span class="k">ἑωσφόρος</span> y la Vulgata <span class="k">Lucifer</span>, ambos nombres corrientes del planeta en sus respectivas lenguas; y que <em>lucifer</em> designa el planeta en Cicerón, Virgilio y Ovidio. Lo es que la misma palabra se aplica a Cristo en 2 Pedro 1:19 y Apocalipsis 22:16. Y lo es que la lectura satánica arranca en <span class="k">Tertuliano</span>, <em>Adversus Marcionem</em> II,10, y la sistematiza <span class="k">Orígenes</span>, <em>De Principiis</em> I,5, con Lucas 10:18 como puente exegético. En Ezequiel 28, la divergencia entre el masorético «tú eras el querubín» y la Septuaginta «con el querubín» está establecida.</p>
+  <p><span class="k">Debate abierto:</span> el trasfondo mítico concreto de Isaías 14:12-15. Que el texto use imaginería astral cananea es firme; que reelabore un episodio de rebelión de Athtar es una reconstrucción, y en el Ciclo de Baal ese episodio no existe con esa forma. Está también en discusión el peso del precedente judío del Segundo Templo: el motivo del <em>hybris</em> astral circulaba en la literatura enóquica, y cuánto de la lectura patrística se apoya en él es materia de matiz. Las referencias bibliográficas de Oldenburg y Craigie sobre Athtar y <em>hêlēl</em> se citan aquí de segunda mano y no se han comprobado en el original, por lo que no se les da peso argumental.</p>
+  <p>Nada de esto dice que la lectura cristiana de Isaías 14 sea ilegítima como lectura religiosa. Una tradición puede leer sus textos como quiera, y de hecho es lo que hacen todas. Lo que este artículo describe es otra cosa: cuándo, dónde y por qué apareció esa lectura, y qué decía el texto antes de que apareciera. Saber que <em>lucifer</em> era el nombre latino de Venus no le quita nada a nadie. Añade una historia.</p>
+</div>
+
+</div></div>
+
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var D={"heb": {"epoca": "s. VIII-VI a.C.", "lengua": "Hebreo &middot; Isaías 14:12", "tr": "hêlēl ben-šāḥar", "sig": "«Brillante, hijo de la aurora.» <i>Hêlēl</i> es un <i>hapax legomenon</i>: aparece una sola vez en toda la Biblia hebrea. La derivación mayoritaria es de la raíz <i>hll</i>, «brillar», y <i>šāḥar</i> es el alba.", "ref": "planeta", "nota": "Y ocho versículos antes, en 14:4, el texto ha dicho a quién va dirigido: es un <i>mashal</i>, una sátira, <b>contra el rey de Babilonia</b>."}, "lxx": {"epoca": "s. III-II a.C.", "lengua": "Griego &middot; Septuaginta", "tr": "heōsphóros", "sig": "«El que trae el alba.» Es un epíteto griego habitual del planeta Venus. Los traductores no crearon un nombre: usaron la palabra que su lengua tenía para ese astro.", "ref": "planeta", "nota": "Ningún lector griego del siglo II a.C. habría entendido aquí el nombre de un demonio."}, "vulg": {"epoca": "c. 400 d.C.", "lengua": "Latín &middot; Vulgata", "tr": "lux + ferre", "sig": "«Portador de luz.» Y aquí está el dato que suele faltar: <i>lucifer</i> ya era, en latín clásico, el nombre corriente del planeta Venus como estrella de la mañana. Lo usan así Cicerón, Virgilio y Ovidio, siglos antes de Jerónimo.", "ref": "planeta", "nota": "Jerónimo no inventó nada. Tradujo el epíteto griego del planeta por el nombre latino del planeta."}, "lect": {"epoca": "s. II-VI d.C.", "lengua": "La lectura &middot; no una traducción", "tr": "como nombre propio", "sig": "Alguien deja de leer «el lucero» y empieza a leer «Lucifer»: un nombre, con mayúscula, de alguien. Ese paso <b>no lo dio ningún traductor</b>. Lo dieron los lectores, y se puede fechar: empieza con Tertuliano y lo sistematiza Orígenes.", "ref": "persona", "nota": "Es el único eslabón de la cadena en el que cambia el referente. Y es el único que no consiste en pasar de una lengua a otra."}, "mod": {"epoca": "s. XVI-XXI", "lengua": "Las lenguas modernas", "tr": "heredado", "sig": "La mayúscula viaja. Muchas traducciones modernas conservan «Lucero» o «Lucifer» en Isaías 14:12, y el lector recibe un nombre propio donde el hebreo tenía un adjetivo aplicado a un rey concreto.", "ref": "persona", "nota": "Las traducciones críticas actuales suelen deshacerlo: «astro brillante», «lucero del alba», en minúscula."}}, det=document.getElementById('caddet'), ref=document.getElementById('cadref');
+  function show(id){
+    var d=D[id]; if(!d) return;
+    document.querySelectorAll('.cad .st').forEach(function(s){s.classList.toggle('on',s.dataset.id===id);});
+    det.innerHTML='<div class="dl">'+d.lengua+'  \u00b7  '+d.epoca+'</div><h4>'+d.tr+'</h4>'+
+      '<p>'+d.sig+'</p><p>'+d.nota+'</p>';
+    var per=d.ref==='persona';
+    ref.className='ref'+(per?' persona':'');
+    ref.innerHTML='<span class="rl">Referente</span><span class="rv">'+
+      (per?'un ser personal, con nombre propio':'el planeta Venus, la estrella de la ma\u00f1ana')+'</span>';
+  }
+  document.querySelectorAll('.cad .st').forEach(function(s){
+    s.addEventListener('click',function(){show(s.dataset.id);});
+  });
+  show('heb');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5c1f26">↑ <a href="serie-diablo.html" style="color:#5c1f26">Serie: ¿De dónde viene el diablo?</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="diablo-2.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#5c1f26">Dos espíritus en el desierto</span></a>
+    <a class="epnav-btn next" href="diablo-4.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#5c1f26">La serpiente que no era el diablo</span></a>
+  </div>
+</nav>
+</body></html>

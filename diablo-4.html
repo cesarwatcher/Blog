@@ -1,0 +1,434 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La serpiente que no era el diablo · Estratos</title>
+<meta name="description" content="Ningún texto del Antiguo Testamento identifica la serpiente del Edén con un ser demoníaco. Los eslabones uno por uno —Sabiduría 2:24, Romanos 16:20, Apocalipsis 12:9, la Vida de Adán y Eva— y la primera identificación documentable: Justino Mártir, hacia 155-165 d.C.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5c1f26;--mid:#8f3a3f;--pale:#9c5a52;
+    --rel:#8a4a2a;--exc:#5c1f26;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  .glifos .tr{font-style:italic;font-size:.78em;color:#8a7a5e}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(156,90,82,.26)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#7a6852}
+  figcaption .cr a{color:#6d5a45;text-decoration:underline;text-decoration-color:rgba(122,106,69,.45)}
+  figcaption .cr a:hover{text-decoration-color:#7a6a45}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c3a89a,#b07a72 42%,#8f3a3f 70%,#5c1f26)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2d3c6,#d3bdb2);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .sil{max-width:900px;margin:3rem auto;background:rgba(242,234,215,.7);
+    border:1px solid rgba(180,150,100,.5);border-radius:14px;padding:1.5rem 1.4rem 1.6rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .sil .bk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);margin-bottom:.4rem}
+  .sil h2.bt{font-size:1.5rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .sil .bs{font-size:.98rem;color:#4a3f33;margin-bottom:1.3rem}
+  .sil .q{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.06em;
+    color:var(--deep);background:#e9e0c9;border:1px solid rgba(150,130,95,.45);
+    border-radius:8px;padding:.6rem .8rem;margin-bottom:1rem;font-weight:700}
+  .sil .row{display:grid;grid-template-columns:1fr 130px 210px;gap:.5rem;align-items:center;
+    width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(180,150,100,.32);
+    padding:.7rem .3rem;cursor:pointer;transition:background .2s}
+  .sil .row:hover{background:rgba(255,255,255,.4)}
+  .sil .row.on{background:rgba(255,255,255,.62)}
+  .sil .row .tx{font-size:1rem;color:#3a3320}
+  .sil .row .dt{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;color:#8a7a5e}
+  .sil .row .vd{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;font-weight:700;
+    color:#fff;border-radius:2rem;padding:.28rem .7rem;text-align:center;line-height:1.3}
+  .sil .row.neg .tx{color:#6a6152}
+  .sil .row.pos .tx{color:#7a2a30}
+  .sil .det{margin-top:1.3rem;background:#33383f;border-radius:12px;padding:1.2rem 1.3rem;
+    border-left:3px solid #d9a94a}
+  .sil .det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;margin-bottom:.45rem}
+  .sil .det h4{font-size:1.12rem;font-weight:400;color:#f0ece2;margin:0 0 .55rem}
+  .sil .det p{font-size:.97rem;color:#d6d2c8;margin:0;line-height:1.62}
+  .sil .det b{font-weight:400;color:#f0d79c}
+  .sil .det i{font-style:italic}
+  .sil .cl{margin-top:1.1rem;font-size:.93rem;color:#5a4d38;font-style:italic}
+  @media(max-width:640px){.sil .row{grid-template-columns:1fr 92px}.sil .row .vd{display:none}
+    .sil{padding:1.2rem 1rem 1.3rem}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Entrega IV &middot; &iquest;De d&oacute;nde viene el diablo?</span>
+  <h1>La serpiente que <span class="em">no era el diablo</span></h1>
+  <div class="glifos"><span>הַנָּחָשׁ</span> <span class="tr">hannaḥaš</span><span class="sep">&#10022;</span><span>עָרוּם</span> <span class="tr">ʿārûm</span><span class="sep">&#10022;</span><span>ὁ ὄφις ὁ ἀρχαῖος</span> <span class="tr">ho óphis ho archaîos</span></div>
+  <p class="stand">El Génesis la llama animal del campo y la castiga a reptar. Lo interesante no es que no diga que es Satán: es cuánto tarda alguien en decirlo.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Es probablemente la escena más conocida de la Biblia, y también una de las peor
+leídas. Una serpiente habla con una mujer, la mujer come, el hombre come, y todo se estropea. Casi
+cualquier persona a la que se le pregunte quién era esa serpiente responderá lo mismo: el diablo,
+disfrazado.</p>
+
+<p>El Génesis no dice eso. Y lo notable no es que no lo diga, sino <strong>cuánto tarda alguien en
+decirlo</strong>.</p>
+
+<div class="secnum">01</div><h2>Un animal, castigado como animal</h2>
+
+<p>Génesis 3:1 la llama <em>hannaḥaš</em>, «la serpiente», la califica de <em>ʿārûm</em>
+&mdash;astuta, sagaz&mdash; y aclara expresamente que es uno de los <em>animales del campo</em> que
+YHWH había hecho. No es un ser sobrenatural infiltrado en la creación: es una criatura de esa misma
+creación, la más lista de todas.</p>
+
+<p>Y el castigo lo confirma, porque es zoológico. En 3:14-15 la sentencia consiste en reptar sobre el
+vientre, comer polvo y quedar en hostilidad perpetua con la descendencia de la mujer. Es una etiología:
+el relato explica por qué las serpientes se arrastran y por qué nos dan miedo. Un castigo dirigido a un
+ángel caído no tendría ese contenido. A un ángel no se le condena a reptar.</p>
+
+<p>La formulación de la especialista Shawna Dolansky es la más limpia: la serpiente es simplemente el
+más astuto de los animales, sin ninguna mención del diablo, porque la noción de Satán como enemigo
+cósmico <strong>todavía no existía</strong> cuando el Génesis se escribió. No es que el autor la
+omitiera. Es que no la tenía.</p>
+
+<figure>
+  <img src="caida-del-hombre-goltzius.jpg" alt="&laquo;La ca&iacute;da del hombre&raquo;, de Hendrick Goltzius, 1616">
+  <figcaption><em>La ca&iacute;da del hombre</em>, de Hendrick Goltzius, 1616. Cuando Goltzius pinta esta escena, la identificaci&oacute;n de la serpiente con Sat&aacute;n lleva unos mil cuatrocientos a&ntilde;os siendo la lectura normal. El cuadro no ilustra el Ed&eacute;n del G&eacute;nesis: ilustra el Ed&eacute;n de Agust&iacute;n. <span class="cr">Hendrick Goltzius, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">02</div><h2>Y ningún otro texto vuelve sobre ella</h2>
+
+<p>Aquí está el dato que suele sorprender más. Podría pensarse que la identificación aparece más
+adelante en el Antiguo Testamento, en algún profeta o en algún salmo. No aparece. <strong>Ningún texto
+del Antiguo Testamento identifica a la serpiente del Edén con un ser demoníaco.</strong> Ni una vez.</p>
+
+<p>Y cuando por fin aparece un <em>ha-satán</em> en Job y en Zacarías, resulta que no sirve: es un
+acusador con función judicial, miembro de la corte celeste, que trabaja al servicio de Dios. No está
+caído, no es el enemigo, y nadie lo relaciona con el jardín. Ese arco &mdash;de fiscal a enemigo&mdash;
+está contado en <a href="satan.html">El nacimiento de Satán</a>, y es el punto donde empieza esta serie.</p>
+
+<p>Así que la pregunta correcta no es «¿dice el Génesis que la serpiente es Satán?», que se responde en
+una línea. La pregunta interesante es: si no lo dice el Génesis ni lo dice nadie después durante
+siglos, <strong>¿quién lo dice primero?</strong></p>
+
+<div class="sil">
+  <div class="bk">Pieza interactiva &middot; el registro de los silencios</div>
+  <h2 class="bt">&iquest;Qui&eacute;n dice que la serpiente es Sat&aacute;n?</h2>
+  <p class="bs">Los textos, en orden cronol&oacute;gico, con una sola pregunta hecha a cada uno. Lo que
+  hay que mirar no son las respuestas afirmativas: es cu&aacute;ntas filas hacen falta para llegar a la
+  primera.</p>
+  <div class="q">Pregunta &uacute;nica: &iquest;identifica este texto la serpiente del Ed&eacute;n con Sat&aacute;n?</div>
+  <button class="row neg" data-id="gen3"><span class="tx">Génesis 3</span><span class="dt">s. X-VI a.C.</span><span class="vd" style="background:#6a6152">No lo dice</span></button>
+  <button class="row neg" data-id="at"><span class="tx">El resto del Antiguo Testamento</span><span class="dt">&mdash;</span><span class="vd" style="background:#6a6152">No lo dice</span></button>
+  <button class="row neg" data-id="job"><span class="tx">Job 1-2 y Zacarías 3</span><span class="dt">s. VI-IV a.C.</span><span class="vd" style="background:#6a6152">No lo dice</span></button>
+  <button class="row " data-id="sab"><span class="tx">Sabiduría 2:24</span><span class="dt">s. I a.C. - I d.C.</span><span class="vd" style="background:#8a6220">Insinuación discutida</span></button>
+  <button class="row " data-id="rom"><span class="tx">Romanos 16:20</span><span class="dt">c. 57 d.C.</span><span class="vd" style="background:#8a6220">Alusión verbal, no identificación</span></button>
+  <button class="row " data-id="ap12"><span class="tx">Apocalipsis 12:9</span><span class="dt">c. 95 d.C.</span><span class="vd" style="background:#41566b">Fusiona, pero en otro marco</span></button>
+  <button class="row pos" data-id="vae"><span class="tx">Vida de Adán y Eva</span><span class="dt">fecha discutida</span><span class="vd" style="background:#8f3a3f">Lo dice</span></button>
+  <button class="row pos" data-id="just"><span class="tx">Justino Mártir, <i>Diálogo</i> 103,5</span><span class="dt">c. 155-165 d.C.</span><span class="vd" style="background:#8f3a3f">Lo dice</span></button>
+  <button class="row pos" data-id="agus"><span class="tx">Agustín</span><span class="dt">s. IV-V d.C.</span><span class="vd" style="background:#8f3a3f">Lo dice</span></button>
+  <div class="det" id="sildet"></div>
+  <p class="cl">Entre el primer texto de la lista y el primero que responde s&iacute; sin ambig&uuml;edad
+  hay, como m&iacute;nimo, siete siglos.</p>
+</div>
+
+<div class="secnum">03</div><h2>Los eslabones, uno por uno</h2>
+
+<p>Hay tres textos que se citan siempre como el puente, y los tres merecen mirarse de cerca, porque
+ninguno hace lo que se le atribuye.</p>
+
+<p><strong>Sabiduría 2:24</strong> dice que «por la envidia del <em>diábolos</em> entró la muerte en el
+mundo». Se cita como la referencia más antigua a la serpiente como diablo, y podría serlo. El problema
+es que el texto <em>no menciona la serpiente</em>, y que hay una discusión abierta y seria sobre quién
+es ese <em>diábolos</em>: el contexto inmediato del libro habla del fratricida, de modo que hay quien
+sostiene que se refiere a <strong>Caín</strong>, en el sentido genérico de «adversario» o
+«calumniador». Es una insinuación disputada, no una identificación.</p>
+
+<p><strong>Romanos 16:20</strong> dice que «el Dios de la paz aplastará a Satanás bajo vuestros pies»,
+y el verbo evoca el lenguaje de la versión griega de Génesis 3:15. Es un eco verbal real. Pero Pablo no
+dice que la serpiente sea Satanás: usa una imagen que su lector reconoce. Y hay un dato en contra que no
+conviene esconder: en Romanos 5:18 y en 1 Corintios 15:21-22, cuando Pablo explica de dónde viene el
+mal, pone la culpa <strong>en los humanos</strong>.</p>
+
+<p><strong>Apocalipsis 12:9</strong> es el más fuerte de los tres, y sí hace algo grande: fusiona en una
+sola figura el dragón, «la serpiente antigua», el Diablo y Satanás. Cuatro cosas que hasta entonces eran
+cuatro. Pero el marco del capítulo importa: es el <strong>mito de combate</strong> contra el dragón del
+caos &mdash;el Leviatán de Isaías 27, el Rahab de los salmos, la Tiamat mesopotámica&mdash;, no el
+jardín. La «serpiente antigua» puede apuntar al Edén, y probablemente el autor tenía las dos cosas en la
+cabeza; pero lo que el texto pone delante es la serpiente primordial del caos, no el animal que habla
+con Eva.</p>
+
+<div class="secnum">04</div><h2>El texto donde sí está todo</h2>
+
+<p>Hay un escrito que contiene el mito completo, y no está en la Biblia. En la <em>Vida de Adán y
+Eva</em>, Satán explica por qué cayó: Dios le ordenó postrarse ante Adán, hecho a su imagen, y él y sus
+seguidores se negaron; fueron expulsados del cielo, despojados de su gloria, y empezaron a envidiar a
+los hombres. En la versión griega, Satán habla <em>a través</em> de la serpiente, usándola como
+instrumento.</p>
+
+<p>Soberbia, rebelión, expulsión, envidia y tentación. Todo el argumento, en orden. Es el eslabón
+decisivo &mdash;y es también donde está la trampa, porque su fecha no se puede fijar.</p>
+
+<div class="aviso">
+  <div class="t">Por qué la Vida de Adán y Eva no decide nada</div>
+  <p>Es tentador usar este texto para adelantar la fecha de la identificación, porque contiene el mito entero. Pero su datación está tan discutida que <strong>no permite fijar prioridades</strong>. Las versiones conservadas se componen entre los siglos III y V d.C.; se debate si detrás hay un original judío del siglo I o si es una composición cristiana en griego. Y ahí está el círculo: quien la data temprano la convierte en la fuente de la lectura patrística, y quien la data tarde la convierte en su resultado. El texto no puede ser a la vez la prueba y lo probado. Conviene además saber que el motivo de la negativa a adorar a Adán tiene recepción en el Corán, con Iblīs, y en la literatura siríaca, y que la dirección de esa dependencia también está en discusión.</p>
+</div>
+
+<div class="secnum">05</div><h2>El primero que lo dice, y cómo lo dice</h2>
+
+<p>La primera identificación explícita, argumentada y consciente que se puede documentar tiene nombre,
+obra y fecha aproximada: <strong>Justino Mártir</strong>, <em>Diálogo con Trifón</em> 103,5, hacia
+155-165 d.C.</p>
+
+<p>Y su manera de argumentarlo es reveladora. Justino descompone el nombre <em>Satanás</em> en dos
+piezas y sostiene que la primera significa «apóstata» y la segunda «serpiente», y de ahí concluye que
+Moisés, cuando escribió «serpiente», estaba nombrando al mismo que Job y Zacarías llaman diablo. La
+etimología es lingüísticamente falsa: el nombre no se descompone así.</p>
+
+<p>Decirlo no debilita el testimonio, lo sitúa. Justino no está repitiendo algo que todo el mundo diera
+por sabido: está <em>construyendo</em> la identificación, y necesita un argumento para hacerlo. Eso es
+exactamente lo que uno espera encontrar en el momento en que una idea se está formando y todavía no es
+obvia. Cuando una idea ya es obvia, nadie la razona.</p>
+
+<p>Después, la lectura se consolida con la patrística latina y sobre todo con <strong>Agustín</strong>,
+que la integra en la doctrina del pecado original. A partir de ahí deja de ser un argumento y se
+convierte en el punto de partida: llega a la Edad Media como si hubiera estado siempre en el texto. Y
+mil quinientos años más tarde, Milton la ejecutará narrativamente, metiendo a Satán dentro de la
+serpiente y convirtiéndolo después en serpiente él mismo.</p>
+
+<figure>
+  <img src="durero-dragon-apocalipsis.jpg" alt="La mujer y el drag&oacute;n de siete cabezas, xilograf&iacute;a de Alberto Durero, 1498">
+  <figcaption>La mujer y el drag&oacute;n de siete cabezas, de la serie del <em>Apocalipsis</em> de Alberto Durero, 1498. El vers&iacute;culo que ilustra es el que funde drag&oacute;n, serpiente antigua, Diablo y Satan&aacute;s en una sola figura; y lo que Durero dibuja es, con toda claridad, un monstruo de mito de combate, no el animal del jard&iacute;n. <span class="cr">Albrecht Dürer. Typ Inc 2121A, Houghton Library, Harvard University. Dominio público, Dominio público.</span></figcaption>
+</figure>
+
+<div class="wall">
+  <div class="post min">
+    <div class="who">Génesis 3</div>
+    <div class="what">Lo que dice el texto</div>
+    <p>Un animal del campo, astuto, castigado a reptar y comer polvo. Ninguna mención de un ser demoníaco, en este pasaje ni en ningún otro del Antiguo Testamento.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Sabiduría 2:24 · Romanos 16:20</div>
+    <div class="what">Los eslabones débiles</div>
+    <p>Una insinuación cuyo referente se discute —puede ser Caín— y una alusión verbal que no identifica nada. Ninguno de los dos sirve como prueba, y usarlos como tal es sobreinterpretar.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Apocalipsis 12:9</div>
+    <div class="what">La fusión, en otro marco</div>
+    <p>Funde dragón, serpiente antigua, Diablo y Satanás. Pero lo hace dentro del mito de combate contra el dragón del caos, no dentro del relato del jardín.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Justino Mártir, c. 155-165</div>
+    <div class="what">La primera identificación</div>
+    <p>Explícita, argumentada y apoyada en una etimología falsa. Es el primer testimonio documentable, y el hecho de que necesite argumentarla indica que aún no era evidente.</p>
+  </div>
+</div>
+
+<div class="meter">
+  <div class="q">Que Génesis 3 no identifica la serpiente con Satán ni con ningún ser demoníaco, y que ningún texto del Antiguo Testamento lo hace.</div>
+  <div class="bar"><span class="pin" style="left:95%" data-l="Consenso sin fisuras"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Está en la letra del texto: animal del campo, castigo zoológico. No es una lectura crítica sofisticada, es leer los versículos.</div>
+</div>
+
+<div class="meter">
+  <div class="q">Que la primera identificación explícita documentable es Justino Mártir, hacia 155-165 d.C.</div>
+  <div class="bar"><span class="pin" style="left:76%" data-l="Bien establecido, con un margen"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">El testimonio de Justino es firme y verificable. El margen viene de la <em>Vida de Adán y Eva</em>, que podría ser anterior si se datara temprano, y de Ireneo, cuyas citas exactas sobre la serpiente como ángel apóstata no se han comprobado aquí en el original.</div>
+</div>
+
+<div class="secnum">06</div><h2>Siete siglos</h2>
+
+<p>Eso es lo que separa el relato del jardín de su primera lectura satánica documentable. Y en ese hueco
+no hay silencio por casualidad: hay textos, muchos, que hablan de la serpiente, del pecado, de la muerte
+y del adversario, y que no hacen la conexión porque todavía no había razón para hacerla. La pregunta
+«¿de dónde viene el mal?» no se plantea con esa forma hasta el Segundo Templo tardío, y cuando se
+plantea, el jardín es un lugar disponible donde ir a buscar la respuesta.</p>
+
+<p>Que la identificación sea tardía no la hace ilegítima como lectura religiosa; las tradiciones releen
+sus textos, y en eso consisten. Lo que sí hace es dejar de ser un dato del Génesis para convertirse en
+un dato de la historia del cristianismo, con su fecha y su primer autor conocido.</p>
+
+<p>En la entrega siguiente el escenario cambia por completo. Del jardín pasamos a Galilea, donde el
+adversario ya tiene varios nombres, los demonios son una presencia cotidiana y hay un exorcista del que
+la historia sí puede decir algo.</p>
+
+<a class="piezalink" href="linaje.html">
+  <span class="k">Pieza interactiva de la serie</span>
+  <h3>El linaje de una idea</h3>
+  <p>En el grafo, la l&iacute;nea que va de G&eacute;nesis 3 a &laquo;la serpiente del Ed&eacute;n es
+  Sat&aacute;n&raquo; est&aacute; tachada; la que va de Sabidur&iacute;a a Justino es discontinua, y la
+  que va de Justino a Agust&iacute;n es continua. Las tres se explican en esta entrega.</p>
+  <span class="go">Abrir el grafo &rarr;</span>
+</a>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <strong>dato firme</strong> que Génesis 3 llama a la serpiente <em>hannaḥaš</em>, la califica de <em>ʿārûm</em> y la incluye entre los animales del campo, y que el castigo de 3:14-15 es zoológico. Lo es que ningún texto del Antiguo Testamento identifica esa serpiente con un ser demoníaco. Lo es que el <em>ha-satán</em> de Job 1-2 y Zacarías 3 es un acusador de la corte celeste al servicio de Dios. Lo es el contenido de <span class="k">Apocalipsis 12:9</span> y su fusión de cuatro figuras, así como el hecho de que el capítulo opera en el marco del mito de combate. Y lo es el testimonio de <span class="k">Justino Mártir</span>, <em>Diálogo con Trifón</em> 103,5, hacia 155-165 d.C., con su etimología &mdash;lingüísticamente falsa&mdash; del nombre Satanás. La consolidación con Agustín, en <em>De Genesi ad litteram</em> y <em>De civitate Dei</em>, también es firme.</p>
+  <p><span class="k">Debate abierto:</span> el referente del <em>diábolos</em> de Sabiduría 2:24, que puede ser la serpiente, Caín o una figura satánica genérica. El valor probatorio de Romanos 16:20, que aquí se considera una alusión verbal y no una identificación. Si la «serpiente antigua» de Apocalipsis 12:9 apunta al Edén, al dragón caótico o a ambos. Y sobre todo la fecha de la <em>Vida de Adán y Eva</em>, discutida entre el siglo I y el V, que impide usarla para fijar prioridades. Las citas de Ireneo sobre la serpiente como ángel apóstata (<em>Adversus Haereses</em> IV,40,3 y V,21,2) no se han verificado en el original y no se les da peso.</p>
+  <p>Que una lectura sea posterior al texto no la convierte en un engaño. Todas las tradiciones religiosas releen sus escritos a la luz de preguntas que sus autores no se hacían, y ésa es una de las cosas que mantiene vivos los textos. Lo que este artículo hace es distinguir dos cosas que suelen ir pegadas: lo que el Génesis dice, y lo que quinientos años de lectura le fueron añadiendo. Separarlas no obliga a nadie a renunciar a nada.</p>
+</div>
+
+</div></div>
+
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var D={"gen3": {"t": "Génesis 3", "f": "s. X-VI a.C.", "v": "no", "q": "Llama a la serpiente <i>hannaḥaš</i> y la califica de astuta, y dice expresamente que es uno de los animales del campo que YHWH había hecho. El castigo de 3:14-15 es zoológico: reptar y comer polvo. Un castigo dirigido a un ángel caído no tendría este contenido."}, "at": {"t": "El resto del Antiguo Testamento", "f": "&mdash;", "v": "no", "q": "Ni un solo texto vuelve sobre esa serpiente para identificarla con un ser demoníaco. La noción de Satán como enemigo cósmico todavía no existe cuando se escribe el Génesis, y cuando aparece, nadie la conecta con el jardín."}, "job": {"t": "Job 1-2 y Zacarías 3", "f": "s. VI-IV a.C.", "v": "no", "q": "Aquí sí hay un <i>ha-satán</i>: un acusador con función judicial, miembro de la corte celeste y al servicio de Dios. No es el enemigo, no está caído, y no tiene ninguna relación con el Edén."}, "sab": {"t": "Sabiduría 2:24", "f": "s. I a.C. - I d.C.", "v": "insin", "q": "«Por la envidia del <i>diábolos</i> entró la muerte en el mundo.» Se cita como la referencia más antigua a la serpiente como diablo, pero <b>el texto no menciona la serpiente</b>, y se discute si el <i>diábolos</i> del versículo es ella, es <b>Caín</b> —el contexto inmediato habla del fratricida— o es una figura satánica genérica."}, "rom": {"t": "Romanos 16:20", "f": "c. 57 d.C.", "v": "alus", "q": "«El Dios de la paz aplastará a Satanás bajo vuestros pies.» El verbo evoca el lenguaje de Génesis 3:15, y eso es todo: es una alusión verbal, no una identificación. Y hay un dato en contra que conviene no ocultar: en Romanos 5:18 y en 1 Corintios 15:21-22 Pablo pone la culpa <b>en los humanos</b>."}, "ap12": {"t": "Apocalipsis 12:9", "f": "c. 95 d.C.", "v": "fusion", "q": "«El gran dragón, la serpiente antigua, llamado Diablo y Satanás.» Aquí sí se fusionan cuatro figuras en una. Pero el marco del capítulo es el <b>mito de combate</b> contra el dragón caótico —Leviatán, Rahab, Tiamat—, no el jardín: es la serpiente primordial del caos, no el animal que habla con Eva."}, "vae": {"t": "Vida de Adán y Eva", "f": "fecha discutida", "v": "si", "q": "Aquí está el mito completo: el ángel se niega a adorar a Adán, es expulsado con sus seguidores, empieza a envidiar a los hombres y los tienta. En la versión griega, Satán habla <b>a través</b> de la serpiente, usándola como instrumento. El problema es la fecha: las versiones conservadas se componen entre los siglos III y V d.C., y se discute si detrás hay una obra judía del siglo I o una composición cristiana. <b>No sirve para fijar prioridades.</b>"}, "just": {"t": "Justino Mártir, <i>Diálogo</i> 103,5", "f": "c. 155-165 d.C.", "v": "si", "q": "La primera identificación <b>explícita, argumentada y consciente</b> que se puede documentar. Justino descompone el nombre <i>Satanás</i> en dos piezas y sostiene que la segunda significa «serpiente», y añade que Moisés lo llama así. La etimología es lingüísticamente falsa. El testimonio, en cambio, es de oro: es alguien razonando la identificación, no dándola por supuesta."}, "agus": {"t": "Agustín", "f": "s. IV-V d.C.", "v": "si", "q": "Con Agustín la identificación deja de ser un argumento y pasa a ser el punto de partida: queda integrada en la doctrina del pecado original y llega así a la Edad Media, como si hubiera estado siempre en el texto."}}, V={"no": ["#6a6152", "No lo dice"], "insin": ["#8a6220", "Insinuación discutida"], "alus": ["#8a6220", "Alusión verbal, no identificación"], "fusion": ["#41566b", "Fusiona, pero en otro marco"], "si": ["#8f3a3f", "Lo dice"]}, det=document.getElementById('sildet');
+  function show(id){
+    var d=D[id]; if(!d) return;
+    document.querySelectorAll('.sil .row').forEach(function(r){r.classList.toggle('on',r.dataset.id===id);});
+    det.innerHTML='<div class="dl" style="color:'+V[d.v][0]+'">'+V[d.v][1]+'  \u00b7  '+d.f+
+      '</div><h4>'+d.t+'</h4><p>'+d.q+'</p>';
+    det.style.borderLeftColor=V[d.v][0];
+  }
+  document.querySelectorAll('.sil .row').forEach(function(r){
+    r.addEventListener('click',function(){show(r.dataset.id);});
+  });
+  show('gen3');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5c1f26">↑ <a href="serie-diablo.html" style="color:#5c1f26">Serie: ¿De dónde viene el diablo?</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="diablo-3.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#5c1f26">El nombre que nació de un error</span></a>
+    <a class="epnav-btn next" href="diablo-5.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#5c1f26">Los demonios de Galilea</span></a>
+  </div>
+</nav>
+</body></html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo el diablo consiguió cuernos · Estratos</title>
+<meta name="description" content="La Biblia no describe su aspecto físico ni una sola vez. El negro es el color antiguo; el rojo con barba de chivo es del teatro del siglo XIX. Y el Lucifer de Dante no tiene cuernos ni tridente: está mudo y congelado. Cierre de la serie.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#5c1f26;--mid:#8f3a3f;--pale:#9c5a52;
+    --rel:#8a4a2a;--exc:#5c1f26;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  .glifos .tr{font-style:italic;font-size:.78em;color:#8a7a5e}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(156,90,82,.26)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#7a6852}
+  figcaption .cr a{color:#6d5a45;text-decoration:underline;text-decoration-color:rgba(122,106,69,.45)}
+  figcaption .cr a:hover{text-decoration-color:#7a6a45}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c3a89a,#b07a72 42%,#8f3a3f 70%,#5c1f26)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2d3c6,#d3bdb2);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .ret{max-width:960px;margin:3rem auto;background:rgba(242,234,215,.7);
+    border:1px solid rgba(180,150,100,.5);border-radius:14px;padding:1.5rem 1.4rem 1.6rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .ret .bk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);margin-bottom:.4rem}
+  .ret h2.bt{font-size:1.5rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .ret .bs{font-size:.98rem;color:#4a3f33;margin-bottom:1.3rem}
+  .ret .now{display:flex;align-items:baseline;gap:.8rem;margin-bottom:.5rem;flex-wrap:wrap}
+  .ret .now .sg{font-size:1.9rem;color:var(--deep);line-height:1}
+  .ret .now .nm{font-size:1.02rem;color:#4a3f33;font-style:italic}
+  .ret .now .ct{margin-left:auto;font-family:"Trebuchet MS",sans-serif;font-size:.7rem;
+    font-weight:700;color:var(--mid);letter-spacing:.04em}
+  .ret input[type=range]{width:100%;margin:.5rem 0 .2rem;accent-color:#8f3a3f;height:22px}
+  .ret .ticks{display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;
+    font-size:.56rem;letter-spacing:.04em;color:#8a7a5e;margin-bottom:1.2rem}
+  .ret .ticks span{flex:1;text-align:center}
+  .ret .ticks span.on{color:var(--deep);font-weight:700}
+  .ret .chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.1rem;min-height:74px}
+  .ret .ch{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;padding:.42rem .8rem;
+    border-radius:2rem;border:1px solid rgba(150,130,95,.45);background:#efe6d2;color:#b8ab99;
+    cursor:pointer;opacity:.35;transition:all .3s;display:flex;align-items:center;gap:.35rem}
+  .ret .ch.live{opacity:1;color:#fff;background:#8f3a3f;border-color:#8f3a3f}
+  .ret .ch.live.dud{background:#8a6220;border-color:#8a6220}
+  .ret .ch.new{box-shadow:0 0 0 3px rgba(143,58,63,.25)}
+  .ret .ch .q{font-size:.62rem;opacity:.85}
+  .ret .zero{font-size:1.02rem;color:#7a2a30;font-style:italic;padding:.9rem 0}
+  .ret .det{background:#33383f;border-radius:12px;padding:1.2rem 1.3rem;border-left:3px solid #d9a94a}
+  .ret .det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:#d9a94a;margin-bottom:.45rem}
+  .ret .det h4{font-size:1.12rem;font-weight:400;color:#f0ece2;margin:0 0 .55rem}
+  .ret .det p{font-size:.97rem;color:#d6d2c8;margin:0 0 .7rem;line-height:1.62}
+  .ret .det p:last-child{margin:0}
+  .ret .det b{font-weight:400;color:#f0d79c}
+  .ret .det i,.ret .det em{font-style:italic}
+  .ret .cex{margin-top:1.1rem;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid #41566b;border-radius:10px;padding:.95rem 1.1rem}
+  .ret .cex .cl{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:#41566b;margin-bottom:.35rem}
+  .ret .cex h5{font-size:1.05rem;font-weight:400;color:#2f2a1c;margin:0 0 .1rem}
+  .ret .cex .cd{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;color:#8a7a5e;margin-bottom:.5rem}
+  .ret .cex p{font-size:.93rem;color:#4a3f33;margin:0 0 .5rem}
+  .ret .cex p:last-child{margin:0}
+  .ret .cex .no{color:#7a2a30}
+  @media(max-width:600px){.ret{padding:1.2rem 1rem 1.3rem}.ret .ticks{font-size:.5rem}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Entrega VI &middot; &iquest;De d&oacute;nde viene el diablo?</span>
+  <h1>C&oacute;mo el diablo <span class="em">consigui&oacute; cuernos</span></h1>
+  <div class="glifos"><span>ἐρίφια</span> <span class="tr">eríphia</span><span class="sep">&#10022;</span><span>Πάν</span> <span class="tr">Pán</span><span class="sep">&#10022;</span><span>Vexilla regis prodeunt inferni</span></div>
+  <p class="stand">Ni un solo versículo describe su aspecto. Cuernos, pezuñas, cola, tridente y piel roja son todos extrabíblicos, y cada pieza tiene su fecha.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Pide a cualquiera que dibuje un diablo. Saldrán cuernos, una cola con punta de
+flecha, un tridente, piel roja y una barbita en punta. Es una de las imágenes más estables y más
+compartidas de la cultura occidental: la reconoce un niño de cinco años en cualquier país.</p>
+
+<p>Y no hay <strong>ni un solo versículo</strong>, en toda la Biblia, que describa el aspecto físico
+del diablo. Ni uno. No es que la descripción sea escasa o ambigua: es que no existe. Cuernos,
+pezuñas, cola, tridente, piel roja y barba de chivo son todos extrabíblicos, sin excepción.</p>
+
+<p>Así que hay una pregunta que responder, y es una buena pregunta de historia: si no venía de los
+textos, ¿de dónde salió cada pieza?</p>
+
+<div class="secnum">01</div><h2>El color antiguo era el negro</h2>
+
+<p>Empecemos por lo que más sorprende. El color más antiguo y mejor documentado del demonio no es el
+rojo: es el <strong>negro</strong>.</p>
+
+<p>Ya en los siglos IV y V, en la literatura monástica y hagiográfica, el demonio es negro. En la
+<em>Vida de Antonio</em> de Atanasio se aparece al santo como un muchacho negro; los dichos de los
+Padres del desierto y los escritos de Casiano van en la misma dirección. El negro codifica varias
+cosas a la vez: oscuridad cosmológica, humo y quemadura infernal, y &mdash;esto hay que decirlo, y la
+investigación crítica lo dice&mdash; prejuicio etnográfico de la época. La figura del demonio
+«etíope» de las tentaciones del desierto no es un detalle inocente, y estudiarla como lo que es
+forma parte de estudiar bien el asunto.</p>
+
+<div class="secnum">02</div><h2>Por qué se empezó a dibujarlo</h2>
+
+<p>Hay una constatación que reorganiza todo este capítulo, y se la debemos a Sophie Lunn-Rockliffe: el
+Diablo estuvo <strong>notablemente ausente</strong> de la representación visual antropomorfa durante
+toda la Antigüedad tardía. No hay retratos suyos porque no se lo retrataba.</p>
+
+<p>Su propuesta es invertir la pregunta. No se trata de averiguar por qué no lo pintaban, sino
+<strong>por qué empezaron a pintarlo</strong> hacia el siglo VI. Los cristianos tardoantiguos
+percibían la presencia demoníaca «por inferencia y por fe, más que por prueba visual»: el demonio se
+notaba en los efectos, no se veía en las paredes. Que en algún momento se decidiera darle cara es el
+acontecimiento que hay que explicar.</p>
+
+<p>Y es rigurosa con sus propias fuentes, lo que conviene imitar. Cuando en el <em>Philopseudes</em>
+de Luciano, en el siglo II, aparece un demonio de tez oscura y humeante, Lunn-Rockliffe advierte que
+está inserto en un relato deliberadamente poco fiable, escrito precisamente para burlarse de los
+crédulos. No sirve como prueba de una iconografía establecida.</p>
+
+<figure>
+  <img src="sant-apollinare-mosaico.jpg" alt="Mosaico de las ovejas y los cabritos, Sant&apos;Apollinare Nuovo, R&aacute;vena">
+  <figcaption>La separaci&oacute;n de las ovejas y los cabritos, mosaico de la primera mitad del siglo VI en Sant'Apollinare Nuovo. El &aacute;ngel azulado situado tras los cabritos es la candidata m&aacute;s citada a primera imagen del diablo en el arte occidental, y tambi&eacute;n la m&aacute;s discutida: no hay inscripci&oacute;n, no hay cuernos, no hay ning&uacute;n rasgo diab&oacute;lico. <span class="cr">Sailko, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">03</div><h2>Rávena, y una advertencia</h2>
+
+<p>La imagen que se cita siempre como la primera es un mosaico de Sant'Apollinare Nuovo, en Rávena,
+de la primera mitad del siglo VI: la escena de la separación de las ovejas y los cabritos, tomada de
+Mateo 25, con un ángel azulado a la izquierda de Cristo, detrás de los cabritos.</p>
+
+<p>Hay que presentarla por lo que es: <strong>la candidata más citada y también la más
+discutida</strong>. No hay inscripción que la identifique. No hay cuernos. No hay ningún rasgo
+diabólico. Es un ángel, y su color oscuro puede ser simplemente compositivo, en contraste con el
+ángel rojo que está al lado de las ovejas. Llamarla «la primera imagen del diablo» es adelantarse a
+lo que la imagen permite.</p>
+
+<p>Los primeros demonios antropomorfos que la investigación reconoce sin discusión están en otro
+sitio y son bastante menos majestuosos: en los <strong>Evangelios de Rábula</strong>, hacia 586, son
+«pequeños e indistintos, rojos, semihumanos, semimonstruosos, con brazos como garras». Pequeños.
+Rojos <em>ya</em> en el siglo VI. Y en el díptico de Murano, de la misma época, un minúsculo torso de
+hombre saliendo de la cabeza de un poseso.</p>
+
+<figure>
+  <img src="evangelios-de-rabbula.jpg" alt="Folio de los Evangelios de R&aacute;bula, hacia 550-586">
+  <figcaption>Folio de los Evangelios de R&aacute;bula, manuscrito sir&iacute;aco de hacia 550-586. Es en este c&oacute;dice donde la investigaci&oacute;n reconoce, sin discusi&oacute;n, los demonios antropomorfos m&aacute;s antiguos: peque&ntilde;os, rojos y apenas humanos. <span class="cr">Biblioteca Medicea Laurenziana, Dominio público.</span></figcaption>
+</figure>
+
+<div class="ret">
+  <div class="bk">Pieza interactiva &middot; el retrato que se acumula</div>
+  <h2 class="bt">C&oacute;mo se le fue fabricando un cuerpo</h2>
+  <p class="bs">Empieza en cero, en los textos, porque ah&iacute; no hay ninguna descripci&oacute;n.
+  Mueve el deslizador y observa una cosa: <b>ning&uacute;n rasgo se apaga nunca</b>. La imagen del
+  diablo no evoluciona sustituyendo un rasgo por otro; se acumula sumando. Los rasgos con
+  interrogaci&oacute;n est&aacute;n atestiguados pero discutidos.</p>
+  <div class="now" id="retnow"></div>
+  <input type="range" id="retsl" min="0" max="8" step="1" value="0"
+         aria-label="Siglo">
+  <div class="ticks"><span>Los textos</span><span>s. IV-V</span><span>s. VI</span><span>c. 800</span><span>s. X</span><span>s. XI-XIII</span><span>s. XIII-XV</span><span>s. XVII</span><span>s. XIX</span></div>
+  <div class="chips" id="retchips"></div>
+  <div class="det" id="retdet"></div>
+  <div class="cex" id="retcex"></div>
+</div>
+
+<div class="secnum">04</div><h2>El asunto de Pan</h2>
+
+<p>La explicación más repetida para los cuernos es Pan. Y tiene una lógica real: Pan y los faunos se
+representaban como hombres con cuernos de cabra, patas peludas con pezuñas hendidas y barba, y los
+cristianos identificaban a los dioses paganos con demonios &mdash;la versión griega del salmo 96 los
+llama literalmente <em>daimónia</em>&mdash;, lo que facilitaba el trasvase de rasgos.</p>
+
+<p>Pero conviene rebajarle el peso, por cuatro razones concretas.</p>
+
+<p><strong>Primera, la cronología no encaja.</strong> Entre la desaparición efectiva del culto a Pan
+y la aparición del diablo cornudo hay un hueco de varios siglos, demasiado grande para una
+transmisión directa.</p>
+
+<p><strong>Segunda, hay candidatos con mejor pedigrí textual.</strong> Los <em>eríphia</em>, los
+cabritos que Mateo 25 pone a la izquierda del juez, y el macho cabrío de Azazel de Levítico 16 &mdash;
+con el que empezó esta serie&mdash; son fuentes bíblicas y rituales de la caprinidad del diablo. No
+hace falta ir a Arcadia si el material está en casa.</p>
+
+<p><strong>Tercera, la hibridez animal era el idioma visual normal de lo monstruoso</strong> en el
+arte medieval: grifos, dragones, seres compuestos. El diablo pudo simplemente absorber una convención
+que ya existía para todo lo demás.</p>
+
+<p><strong>Y cuarta:</strong> las alas de murciélago y la cola no vienen de Pan. Vienen del
+<strong>dragón</strong> de Apocalipsis 12, que es un repertorio distinto.</p>
+
+<p>La formulación defendible es ésta: Pan y los sátiros aportaron un vocabulario visual disponible que
+el arte cristiano medieval reutilizó, pero no son «el origen» del diablo cornudo. La derivación
+directa es una hipótesis popular con problemas de fecha, y compite con al menos tres explicaciones
+mejor ancladas.</p>
+
+<figure>
+  <img src="pan-satiro-romano.jpg" alt="Estatua romana de Pan en m&aacute;rmol, siglo II d.C.">
+  <figcaption>Pan, estatua romana en m&aacute;rmol del siglo II d.C., procedente de Argyroupoli. Cuernos, patas de cabra y barba: el repertorio estaba disponible, y el arte medieval lo reutiliz&oacute;. Pero entre esta escultura y el diablo cornudo hay un hueco de siglos, y dos candidatos b&iacute;blicos compitiendo. <span class="cr">Jebulon, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener">CC0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">05</div><h2>Cuándo se fija la forma</h2>
+
+<p>No hay un momento de invención, y buscarlo es un error de planteamiento. Hay una
+<strong>estabilización</strong>: entre los siglos XI y XIII la figura cornuda, con pezuñas y cola, se
+convierte en la manera normal de dibujarlo, y en el gótico y en los Juicios Finales de los siglos XIII
+al XV la acumulación de rasgos monstruosos se dispara &mdash;lengua larga, colmillos, pelaje, alas de
+murciélago, coloración oscura, y bocas suplementarias en el vientre y en las nalgas para devorar
+condenados por varios sitios a la vez&mdash;.</p>
+
+<p>El Codex Gigas, copiado hacia 1229, cae exactamente en esa ventana. Su retrato del diablo a página
+completa no es el comienzo de nada: es un ejemplar de una convención que en ese momento ya funciona.</p>
+
+<figure>
+  <img src="codex-gigas-diablo.jpg" alt="El retrato del diablo del Codex Gigas, hacia 1229">
+  <figcaption>El retrato del diablo del Codex Gigas, copiado en Bohemia hacia 1229: acuclillado, con cuernos, garras y lengua bifurcada. No es el comienzo de nada. Cae en pleno tramo de los siglos XI al XIII, cuando la forma cornuda ya se ha vuelto la manera normal de dibujarlo. <span class="cr">Kungl. biblioteket, uso libre con atribución.</span></figcaption>
+</figure>
+
+<figure>
+  <img src="juicio-final-diablo.jpg" alt="Detalle del Juicio Final de Giotto, Capilla Scrovegni, 1306">
+  <figcaption>Detalle del <em>Juicio Final</em> de Giotto en la Capilla Scrovegni, 1306. La acumulaci&oacute;n de rasgos monstruosos del g&oacute;tico en su momento de m&aacute;xima confianza: el diablo devorador, azulado, con bocas suplementarias para triturar condenados por varios sitios a la vez. <span class="cr">Giotto, Dominio público.</span></figcaption>
+</figure>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">Pan y los sátiros</div>
+    <div class="what">Repertorio disponible</div>
+    <p>Cuernos, pezuñas y barba existían como vocabulario visual, y los dioses paganos se identificaban con demonios. Pero hay siglos de hueco y la derivación directa no se sostiene.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Mateo 25:31-46</div>
+    <div class="what">El candidato bíblico</div>
+    <p>Los <em>eríphia</em>, los cabritos puestos a la izquierda del juez, dan la caprinidad del diablo desde dentro del propio canon, y en un contexto de juicio.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Levítico 16</div>
+    <div class="what">El otro candidato bíblico</div>
+    <p>El macho cabrío de Azazel, con el que empezó esta serie. La cabra ya estaba asociada ritualmente a la expulsión del mal.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">La hibridez monstruosa</div>
+    <div class="what">La convención medieval</div>
+    <p>Grifos, dragones, seres compuestos: mezclar animales era el idioma normal de lo monstruoso. El diablo pudo limitarse a absorberlo.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Apocalipsis 12</div>
+    <div class="what">De aquí sí, dos rasgos</div>
+    <p>Las alas de murciélago y la cola vienen del repertorio del dragón, no de Pan. Es un préstamo distinto y con mejor rastro.</p>
+  </div>
+</div>
+
+<div class="secnum">06</div><h2>Los dos contraejemplos que lo demuestran</h2>
+
+<p>Y ahora la parte más elegante del asunto, que consiste en mirar a las dos grandes obras que todo el
+mundo cree responsables de la imagen del diablo, y comprobar que ninguna de las dos la contiene.</p>
+
+<p><strong>El Lucifer de Dante no tiene cuernos ni tridente.</strong> En el canto XXXIV del
+<em>Infierno</em> está hundido en el hielo hasta la mitad del pecho, tiene tres caras en una sola
+cabeza &mdash;bermeja, amarillenta y negra&mdash;, seis alas de murciélago cuyo batir genera el viento
+que congela el Cocito, llora con seis ojos y tritura en sus tres bocas a Judas, Bruto y Casio. Y sobre
+todo: <strong>no habla</strong>. No dice una palabra, no tienta a nadie, no gobierna nada. Sufre la
+misma pena que los demás condenados. Es un motor mecánico del frío.</p>
+
+<p>Lo que Dante sí aporta es notable: las tres caras como inversión paródica de la Trinidad, el hielo
+en lugar del fuego en el centro del infierno &mdash;la traición como congelación absoluta del
+amor&mdash;, y una cosmología entera, porque la montaña del Purgatorio es el escombro que levantó su
+impacto al atravesar la tierra. Los diablos con arpones, esos que tanto se le atribuyen, son los
+Malebranche de los cantos XXI y XXII: demonios menores, no Lucifer.</p>
+
+<p><strong>El Satán de Milton no tiene cuernos, ni pezuñas, ni cola, ni piel roja.</strong> Es un
+arcángel de belleza arruinada, gigantesco y majestuoso. Lo que Milton le da es lo que ninguna imagen
+podía darle: <strong>voz</strong>. «Mejor reinar en el infierno que servir en el cielo.» «La mente es
+su propio lugar, y en sí misma puede hacer un cielo del infierno y un infierno del cielo.» De ahí sale
+el Satán romántico, y de ahí, por una línea que llega hasta hoy, el antihéroe moderno.</p>
+
+<p>Y de ahí salen también cuatro cosas que la gente cree bíblicas y no lo son: la <em>secuencia</em>
+completa &mdash;rebelión por orgullo, guerra en el cielo, expulsión, venganza mediante la
+tentación&mdash;, que no está en ningún texto bíblico y es un montaje de Isaías 14, Ezequiel 28,
+Apocalipsis 12 y Lucas 10:18; la <em>cronología</em>, con la caída situada antes del Edén, cuando en
+Apocalipsis 12 el episodio está ligado al nacimiento del mesías; el infierno como reino organizado con
+parlamento y demonios con nombre propio &mdash;el Pandemonium, palabra que Milton acuñó&mdash;; y la
+identificación total de la serpiente con Satán, ejecutada narrativamente cuando Satán entra en el
+animal y termina metamorfoseado en él.</p>
+
+<figure>
+  <img src="dore-lucifer-dante.jpg" alt="El Lucifer de Dante, grabado de Gustave Dor&eacute;">
+  <figcaption>&laquo;Lucifer, rey del infierno&raquo;, grabado de Gustave Dor&eacute; para el canto XXXIV del <em>Infierno</em>. Sin cuernos y sin tridente, hundido en el hielo, con tres caras y seis alas de murci&eacute;lago. Y mudo: no pronuncia una sola palabra en todo el poema. <span class="cr">Gustave Doré, Dominio público.</span></figcaption>
+</figure>
+
+<figure>
+  <img src="blake-satan-milton.jpg" alt="&laquo;Sat&aacute;n convocando a sus legiones&raquo;, de William Blake">
+  <figcaption><em>Sat&aacute;n convocando a sus legiones</em>, de William Blake, hacia 1800-1805, sobre el <em>Para&iacute;so perdido</em> de Milton. Ni cuernos, ni pezu&ntilde;as, ni piel roja: un arc&aacute;ngel de belleza arruinada. De este Sat&aacute;n no viene la forma del diablo; viene su voz. <span class="cr">William Blake, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">07</div><h2>Y el rojo llegó al final</h2>
+
+<p>Queda la pieza más reciente, y es la que más desconcierta. El diablo <strong>rojo con barba de
+chivo</strong>, con capa y pluma en el sombrero, el de las viñetas y los disfraces, se estandariza
+como imagen popular en el <strong>siglo XIX</strong>: viene de las puestas en escena teatrales y
+operísticas del <em>Fausto</em> y de la figura de Mefistófeles.</p>
+
+<p>En el arte medieval predominan el negro, el pardo, el verdoso y el azulado. El rojo existía desde
+Rábula, pero como uno más entre varios. Que se convirtiera en <em>el</em> color del diablo es un
+fenómeno de teatro decimonónico, no de iconografía medieval.</p>
+
+<figure>
+  <img src="pettie-mefistofeles.jpg" alt="&laquo;Mefist&oacute;feles&raquo;, de John Pettie">
+  <figcaption><em>Mefist&oacute;feles</em>, de John Pettie. El rojo, la capa y la barba en punta: la imagen que hoy dibujar&iacute;a casi cualquiera si le piden un diablo tiene poco m&aacute;s de siglo y medio, y viene del escenario. <span class="cr">John Pettie, Dominio público.</span></figcaption>
+</figure>
+
+<div class="meter">
+  <div class="q">Que la Biblia no describe el aspecto físico del diablo en ningún pasaje, y que cuernos, pezuñas, cola, tridente y piel roja son todos extrabíblicos.</div>
+  <div class="bar"><span class="pin" style="left:97%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">No es una interpretación: es una comprobación. No hay ningún versículo que lo describa, y por eso cada época tuvo que decidir su aspecto por su cuenta.</div>
+</div>
+
+<div class="meter">
+  <div class="q">Que el diablo cornudo deriva directamente de Pan y los sátiros.</div>
+  <div class="bar"><span class="pin" style="left:28%" data-l="Hipótesis con problemas"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">El repertorio visual estaba ahí y se reutilizó, eso es firme. La derivación directa tiene un hueco cronológico de siglos y compite con el cabrito de Mateo 25, el chivo de Levítico 16 y la convención medieval de la hibridez.</div>
+</div>
+
+<div class="secnum">08</div><h2>Una máscara sin cara</h2>
+
+<p>La mejor síntesis de todo esto es el título de un libro de Luther Link: el diablo es <em>una máscara
+sin cara</em>. Nunca tuvo una iconografía estable ni un rostro propio; es un conjunto de atributos
+combinables que cada época tomó, dejó y volvió a tomar según lo que necesitaba decir.</p>
+
+<p>Y de ahí sale la conclusión que esta entrega tenía que alcanzar, y que es el error de divulgación
+más común de todo el asunto: <strong>la imagen física y la personalidad del diablo tienen historias
+separadas.</strong> El cuerpo viene de la iconografía medieval, y su color del teatro del siglo XIX. El
+carácter &mdash;el orgullo, la elocuencia, el argumento, la interioridad&mdash; viene de Milton.
+Fundirlas, y atribuir a la Biblia el resultado de la fusión, es dar por bíblico un montaje de mil
+quinientos años.</p>
+
+<p>Con esto se cierra la serie. Empezó con cuatro versículos del Génesis que no dicen lo que se les
+atribuye y termina con una figura que ningún texto describe. En medio: un libro que no entró en el
+canon, un dualismo que no se puede demostrar que venga de Persia, el nombre latino del planeta Venus,
+un animal del campo, un infierno amueblado por dos apócrifos, y un poeta ciego que le dio voz.</p>
+
+<p>Ninguna de esas piezas es un fraude. Todas son historia: tienen fecha, autor y razones. Y saberlas
+no obliga a nadie a dejar de creer nada. Sólo permite distinguir lo que dice un texto de lo que le
+fuimos poniendo encima.</p>
+
+<a class="piezalink" href="linaje.html">
+  <span class="k">Pieza interactiva &middot; cierre de la serie</span>
+  <h3>El linaje de una idea</h3>
+  <p>Ahora que est&aacute;n las seis entregas, el grafo se lee de otra manera: las seis l&iacute;neas
+  tachadas son las seis afirmaciones que la serie ha desmontado, y las continuas, el recorrido que
+  s&iacute; se puede documentar. Es el &iacute;ndice y el resumen a la vez.</p>
+  <span class="go">Abrir el grafo &rarr;</span>
+</a>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <strong>dato firme</strong> que la Biblia no describe el aspecto físico del diablo en ningún pasaje. Lo es que el negro es el color más antiguo y mejor documentado, con <span class="k">Atanasio</span>, <em>Vida de Antonio</em> 6, los <em>Apophthegmata Patrum</em> y Casiano. Lo es que los demonios de los <span class="k">Evangelios de Rábula</span>, hacia 586, ya son rojos, pequeños y semihumanos, y que son los primeros antropomorfos reconocidos sin discusión. Lo es la tesis de <span class="k">Lunn-Rockliffe</span> sobre la ausencia del Diablo en la representación tardoantigua y la necesidad de invertir la pregunta. Y lo son, verso por verso, los datos sobre Dante &mdash;<em>Infierno</em> XXXIV: hielo, tres caras, seis alas sin plumas, mutismo, sin cuernos ni tridente&mdash; y sobre Milton, cuyo Satán no tiene cuernos ni pezuñas ni piel roja, y que acuñó la palabra «Pandemonium».</p>
+  <p><span class="k">Debate abierto:</span> el mosaico de Sant'Apollinare Nuovo como «primera imagen del diablo», que es la candidata más citada y también la más contestada. La cronología precisa de la estabilización de los cuernos, que se sitúa razonablemente entre los siglos XI y XIII pero sin una fecha fija. La derivación desde Pan, que aquí se rebaja a repertorio disponible frente a tres explicaciones alternativas. Los detalles del Satán del Libro de Kells y la primacía del tridente en la cruz de Muiredach. Y la estandarización del rojo con barba de chivo en el teatro decimonónico, que es sólida como diagnóstico general aunque la bibliografía específica sobre el color es más escasa de lo que el asunto merece; una referencia que localizamos sobre el tema no pudo comprobarse y por eso no se cita.</p>
+  <p>Esta entrega no se ríe de nadie por imaginarse al diablo con cuernos. Al contrario: lo que describe es un trabajo colectivo de mil quinientos años en el que participaron mosaiquistas, copistas, escultores góticos, dos de los mayores poetas de Europa y unos cuantos escenógrafos de ópera. Que la imagen no venga de la Biblia no la hace menos real como hecho cultural, ni menos poderosa. La hace <em>histórica</em>, y por tanto conocible. Iluminar el origen de una figura no es desmentir a quien cree en lo que representa.</p>
+</div>
+
+</div></div>
+
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var A=[{"id": "negro", "n": "Piel negra", "p": 1, "k": "f", "q": "Es el color m&aacute;s antiguo y el mejor documentado. En la <em>Vida de Antonio</em> de Atanasio el demonio se aparece como un muchacho negro; los <em>Apophthegmata</em> de los Padres del desierto y Casiano van en la misma l&iacute;nea. El negro codifica a la vez oscuridad cosmol&oacute;gica, humo infernal y &mdash;hay que decirlo&mdash; prejuicio etnogr&aacute;fico."}, {"id": "pequeno", "n": "Peque&ntilde;o y apenas humano", "p": 2, "k": "f", "q": "Los demonios m&aacute;s antiguos que la investigaci&oacute;n reconoce sin discusi&oacute;n, en los Evangelios de R&aacute;bula, son «peque&ntilde;os e indistintos, semihumanos, semimonstruosos, con brazos como garras». Y en el d&iacute;ptico de Murano, un min&uacute;sculo torso de hombre sale de la cabeza de un poseso."}, {"id": "rojo", "n": "Rojo", "p": 2, "k": "f", "q": "Aqu&iacute; est&aacute; el dato contraintuitivo: los demonios de R&aacute;bula, hacia 586, <b>ya son rojos</b>. El rojo no es una invenci&oacute;n moderna. Lo moderno es que el rojo se convierta en el color can&oacute;nico y &uacute;nico."}, {"id": "azul", "n": "Azulado (candidato discutido)", "p": 2, "k": "d", "q": "El &aacute;ngel azulado del mosaico de las ovejas y los cabritos de Sant'Apollinare Nuovo se cita como la primera imagen del diablo en el arte occidental. Es la candidata m&aacute;s citada <b>y la m&aacute;s discutida</b>: no hay inscripci&oacute;n, no hay cuernos, no hay ning&uacute;n rasgo diab&oacute;lico, y su color oscuro puede ser simplemente compositivo frente al &aacute;ngel rojo del otro lado."}, {"id": "alado", "n": "Alado", "p": 3, "k": "d", "q": "En el Libro de Kells, hacia el a&ntilde;o 800, la escena de la tentaci&oacute;n incluye un Sat&aacute;n peque&ntilde;o, alado y de miembros alargados. Los detalles son objeto de discusi&oacute;n."}, {"id": "piescor", "n": "Pies cornudos", "p": 3, "k": "d", "q": "Posiblemente en el mismo Sat&aacute;n del Libro de Kells. «Posiblemente» es la palabra exacta: la lectura de esos detalles no es segura."}, {"id": "tridente", "n": "Tridente u horca", "p": 4, "k": "d", "q": "La primera representaci&oacute;n clara del tridente que se suele citar est&aacute; en la cruz de Muiredach, del siglo X. Cuatro siglos antes de Dante, a quien se le atribuye."}, {"id": "cuernos", "n": "Cuernos", "p": 5, "k": "f", "q": "Es en los siglos XI a XIII cuando la figura cornuda se convierte en la manera normal de dibujarlo. El Codex Gigas, de hacia 1229, cae justo en esa ventana. No hay un momento de invenci&oacute;n: hay una estabilizaci&oacute;n."}, {"id": "pezunas", "n": "Pezu&ntilde;as y cola", "p": 5, "k": "f", "q": "Se estabilizan con los cuernos, en el mismo tramo. La cola procede del repertorio del drag&oacute;n de Apocalipsis 12, no de Pan."}, {"id": "murcielago", "n": "Alas de murci&eacute;lago", "p": 5, "k": "f", "q": "Convenci&oacute;n iconogr&aacute;fica ya establecida cuando Dante escribe: su Lucifer tiene seis, y el texto precisa que son <em>sanza penne</em>, sin plumas. Vienen del drag&oacute;n, como la cola."}, {"id": "monstruo", "n": "Lengua larga, colmillos, bocas en el vientre", "p": 6, "k": "f", "q": "El g&oacute;tico acumula rasgos monstruosos sin freno, sobre todo en los Juicios Finales de los siglos XIII al XV. La hibridez animal era el lenguaje visual est&aacute;ndar de lo monstruoso &mdash;grifos, dragones&mdash; y el diablo simplemente lo absorbi&oacute;."}, {"id": "rojochivo", "n": "Rojo con barba de chivo, capa y pluma", "p": 8, "k": "f", "q": "La imagen que hoy dibujar&iacute;a casi cualquiera se estandariza en el <b>siglo XIX</b>, a trav&eacute;s de las puestas en escena teatrales y oper&iacute;sticas del <em>Fausto</em> y de la figura de Mefist&oacute;feles. Es lo &uacute;ltimo en llegar, no lo primero."}], P=[[0, "Los textos", "Los textos b&iacute;blicos"], [1, "s. IV-V", "Los Padres del desierto"], [2, "s. VI", "R&aacute;vena y R&aacute;bula"], [3, "c. 800", "El Libro de Kells"], [4, "s. X", "La cruz de Muiredach"], [5, "s. XI-XIII", "La forma se estabiliza"], [6, "s. XIII-XV", "El g&oacute;tico y el Juicio Final"], [7, "s. XVII", "Milton"], [8, "s. XIX", "El teatro del <em>Fausto</em>"]], C=[{"p": 6, "n": "Dante, <em>Infierno</em> XXXIV", "f": "c. 1320", "no": "No tiene cuernos. No tiene tridente. No habla, no tienta y no gobierna: est&aacute; hundido en el hielo hasta la mitad del pecho, llora con seis ojos y tritura a tres traidores. Es un motor mec&aacute;nico del fr&iacute;o.", "si": "Aporta las tres caras como inversi&oacute;n par&oacute;dica de la Trinidad, el hielo en lugar del fuego en el centro del infierno, y una cosmolog&iacute;a: la monta&ntilde;a del Purgatorio como escombro de su impacto. Los diablos con arpones son los Malebranche de los cantos XXI y XXII, y son demonios menores."}, {"p": 7, "n": "Milton, <em>Para&iacute;so perdido</em>", "f": "1667", "no": "No tiene cuernos, ni pezu&ntilde;as, ni cola, ni piel roja. Es un arc&aacute;ngel de belleza arruinada, gigantesco y majestuoso.", "si": "Aporta lo que ninguna imagen pod&iacute;a aportar: <b>voz</b>. La secuencia completa &mdash;rebeli&oacute;n por orgullo, guerra en el cielo, expulsi&oacute;n, venganza mediante la tentaci&oacute;n&mdash;, el infierno como reino con parlamento, y un Sat&aacute;n elocuente y casi simp&aacute;tico que es la matriz del antih&eacute;roe moderno. La palabra «Pandemonium» la acu&ntilde;&oacute; &eacute;l."}];
+  var sl=document.getElementById('retsl'), chips=document.getElementById('retchips');
+  var det=document.getElementById('retdet'), now=document.getElementById('retnow');
+  var cex=document.getElementById('retcex'), ticks=document.querySelectorAll('.ret .ticks span');
+  var sel=null;
+  function render(){
+    var s=+sl.value;
+    var live=A.filter(function(a){return a.p<=s;});
+    now.innerHTML='<span class="sg">'+P[s][1]+'</span><span class="nm">'+P[s][2]+'</span>'+
+      '<span class="ct">'+live.length+' de '+A.length+' rasgos ya presentes</span>';
+    ticks.forEach(function(t,i){t.classList.toggle('on',i===s);});
+    if(!live.length){
+      chips.innerHTML='<p class="zero">Cero rasgos. La Biblia no describe su aspecto f\u00edsico ni una sola vez.</p>';
+      det.innerHTML='<div class="dl">Punto de partida</div><h4>Ninguna descripci\u00f3n</h4>'+
+        '<p>Cuernos, pezu\u00f1as, cola, tridente, piel roja y barba de chivo son <b>todos</b> '+
+        'extrab\u00edblicos, sin excepci\u00f3n. Mueve el deslizador y mira lo que va apareciendo: '+
+        'ning\u00fan rasgo se apaga nunca. La imagen no evoluciona, se acumula.</p>';
+    } else {
+      chips.innerHTML=live.map(function(a){
+        return '<button class="ch live'+(a.k==='d'?' dud':'')+(a.p===s?' new':'')+
+          '" data-id="'+a.id+'">'+a.n+(a.k==='d'?'<span class="q">?</span>':'')+'</button>';
+      }).join('');
+      chips.querySelectorAll('.ch').forEach(function(b){
+        b.addEventListener('click',function(){sel=b.dataset.id;detail();});
+      });
+      var nuevos=live.filter(function(a){return a.p===s;});
+      if(!sel||!live.some(function(a){return a.id===sel;})) sel=(nuevos[0]||live[live.length-1]).id;
+      detail();
+    }
+    var c=C.filter(function(x){return x.p===s;});
+    cex.innerHTML=c.map(function(x){
+      return '<div class="cl">Contraejemplo en este paso</div><h5>'+x.n+'</h5>'+
+        '<div class="cd">'+x.f+'</div><p class="no">'+x.no+'</p><p>'+x.si+'</p>';
+    }).join('');
+    cex.style.display=c.length?'block':'none';
+  }
+  function detail(){
+    var a=A.filter(function(x){return x.id===sel;})[0]; if(!a) return;
+    chips.querySelectorAll('.ch').forEach(function(b){
+      b.style.outline=b.dataset.id===sel?'2px solid #2a2418':'none';
+      b.style.outlineOffset='2px';});
+    det.innerHTML='<div class="dl">'+(a.k==='d'?'Atestiguado, pero discutido':'Primera atestaci\u00f3n')+
+      '  \u00b7  '+P[a.p][1]+'</div><h4>'+a.n+'</h4><p>'+a.q+'</p>';
+  }
+  sl.addEventListener('input',render);
+  render();
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#5c1f26">↑ <a href="serie-diablo.html" style="color:#5c1f26">Serie: ¿De dónde viene el diablo?</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="diablo-5.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#5c1f26">Los demonios de Galilea</span></a>
+    <a class="epnav-btn next" href="serie-diablo.html"><span class="lbl">Fin de la serie</span><span class="ttl" style="color:#5c1f26">Volver al índice</span></a>
+  </div>
+</nav>
+</body></html>

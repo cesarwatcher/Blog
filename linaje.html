@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El linaje de una idea &middot; Estratos</title>
+<meta name="description" content="Grafo interactivo del linaje del diablo: veintisiete textos y culturas, y treinta y dos l&iacute;neas cuyo trazo indica si el v&iacute;nculo es consenso, hip&oacute;tesis en debate, paralelo sin contacto o afirmaci&oacute;n sin apoyo en las fuentes.">
+<style>
+  :root{--ink:#141219;--ink2:#1d1a24;--paper:#e8e2d6;--gold:#d9a94a;--line:rgba(217,169,74,.28)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:linear-gradient(165deg,#1d1a24,#141219 60%,#1a1620);color:var(--paper);
+    line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+  a{color:inherit}
+  .topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
+    padding:.85rem 1.3rem;background:rgba(20,18,25,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--gold)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#cfc7b8;
+    border:1px solid var(--line);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:rgba(217,169,74,.12)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  header.h{padding:3.4rem 0 1.2rem;text-align:center;position:relative}
+  header.h::before{content:"";position:absolute;top:0;left:12%;right:12%;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(217,169,74,.75),transparent)}
+  .kick{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--gold);display:block;margin-bottom:1rem}
+  header.h h1{font-size:clamp(1.9rem,4.6vw,3rem);font-weight:400;line-height:1.1;margin-bottom:.9rem}
+  header.h h1 em{font-style:italic;color:#e9c887}
+  header.h .stand{max-width:660px;margin:0 auto;font-size:1.06rem;color:#bdb5a6;font-style:italic}
+
+  .ctrl{max-width:1180px;margin:2.2rem auto 0;padding:0 22px;display:flex;flex-wrap:wrap;
+    gap:.55rem;justify-content:center}
+  .ctrl button{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.04em;
+    padding:.5rem .95rem;border-radius:2rem;cursor:pointer;background:transparent;
+    border:1px solid rgba(232,226,214,.28);color:#cfc7b8;transition:all .25s;display:flex;
+    align-items:center;gap:.5rem}
+  .ctrl button:hover{border-color:rgba(217,169,74,.6)}
+  .ctrl button.on{background:rgba(217,169,74,.16);border-color:rgba(217,169,74,.75);color:#f2e6cd}
+  .ctrl button .sw{width:26px;height:0;border-top-width:2px;border-top-style:solid;display:inline-block}
+  .ctrl button.off .sw{opacity:.3}
+
+  .stage{margin:1.6rem auto 0;max-width:1180px;padding:0 22px}
+  .board{background:rgba(255,255,255,.028);border:1px solid var(--line);border-radius:14px;
+    padding:8px;overflow-x:auto;box-shadow:0 12px 34px rgba(0,0,0,.36)}
+  .board svg{display:block;min-width:1720px;height:auto}
+  .hint{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;letter-spacing:.06em;
+    color:#8d8677;text-align:center;margin-top:.7rem}
+
+  .era{font-family:"Trebuchet MS",sans-serif;font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;fill:#7d7667}
+  .eraline{stroke:rgba(232,226,214,.07);stroke-width:1}
+  .famlab{font-family:"Trebuchet MS",sans-serif;font-size:9.5px;letter-spacing:.1em;
+    text-transform:uppercase}
+  .nd{cursor:pointer}
+  .nd rect{fill:rgba(30,27,37,.92);stroke-width:1.5;transition:fill .2s}
+  .nd:hover rect{fill:rgba(52,46,64,.96)}
+  .nd.sel rect{fill:rgba(66,56,80,.98);stroke-width:2.5}
+  .nd .t{font-size:12.5px;fill:#ece6da}
+  .nd .d{font-family:"Trebuchet MS",sans-serif;font-size:9px;letter-spacing:.05em;fill:#928a7b}
+  .nd.claim rect{fill:rgba(20,18,25,.55);stroke-dasharray:4 3}
+  .nd.claim .t{font-size:11.5px;fill:#b6aea0;font-style:italic}
+  .nd.claim .d{fill:#c9a04a}
+  .nd.dim{opacity:.16}
+  .ed{fill:none;stroke-linecap:round;transition:opacity .25s}
+  .ed.hid{opacity:0;pointer-events:none}
+  .ed.dim{opacity:.12}
+  .edhit{fill:none;stroke:transparent;stroke-width:14;cursor:pointer}
+  .cross{stroke:#c9564e;stroke-width:2.2;pointer-events:none}
+  .cross.hid{opacity:0}
+
+  .fams{display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;justify-content:center;margin-top:.9rem}
+  .fams .fam{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.06em;
+    color:#a09889;display:flex;align-items:center;gap:.4rem}
+  .fams .fam i{width:9px;height:9px;border-radius:2px;display:inline-block}
+
+  .panel{max-width:1180px;margin:1.5rem auto 0;padding:0 22px}
+  .card{background:rgba(255,255,255,.045);border:1px solid var(--line);border-left:3px solid var(--gold);
+    border-radius:12px;padding:1.3rem 1.5rem 1.4rem;min-height:132px}
+  .card .lab{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:.45rem}
+  .card h3{font-size:1.3rem;font-weight:400;margin-bottom:.15rem;color:#f2ece0}
+  .card .dt{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.08em;
+    color:#948c7d;margin-bottom:.85rem}
+  .card p{font-size:1rem;color:#cdc5b6;margin-bottom:.8rem}
+  .card p:last-child{margin-bottom:0}
+  .card p b{font-weight:400;color:#f0d79c}
+  .card p i{font-style:italic}
+  .card .sec{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.14em;
+    text-transform:uppercase;color:#b98f3f;margin:.2rem 0 .35rem}
+  .card .ir{display:inline-block;margin-top:.5rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.76rem;font-weight:700;color:var(--gold);text-decoration:none;
+    border-bottom:1px solid rgba(217,169,74,.4)}
+
+  .leg{max-width:1180px;margin:2.4rem auto 0;padding:0 22px;display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem}
+  .leg .it{background:rgba(255,255,255,.03);border:1px solid rgba(232,226,214,.12);
+    border-radius:10px;padding:.85rem 1rem}
+  .leg .it .n{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:700;color:#e0d7c6;margin-bottom:.3rem}
+  .leg .it p{font-size:.86rem;color:#a9a191}
+
+  .epnav{max-width:1180px;margin:3.4rem auto 0;padding:1.6rem 22px 0;border-top:1px solid var(--line);
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+  .epnav a{display:block;text-decoration:none;background:rgba(255,255,255,.035);
+    border:1px solid rgba(232,226,214,.14);border-radius:11px;padding:1rem 1.15rem;
+    transition:transform .25s,border-color .25s}
+  .epnav a:hover{transform:translateY(-3px);border-color:rgba(217,169,74,.55)}
+  .epnav .k{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--gold);display:block;margin-bottom:.3rem}
+  .epnav .n{font-size:1.02rem;color:#ece6da}
+  footer{text-align:center;padding:3rem 0 2.4rem;color:#8d8677;font-size:.8rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .g{color:var(--gold);font-size:1rem}
+  @media(max-width:640px){header.h{padding:2.4rem 0 1rem}.card{padding:1.1rem 1.15rem 1.2rem}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="h"><div class="wrap">
+  <span class="kick">Pieza interactiva &middot; &iquest;De d&oacute;nde viene el diablo?</span>
+  <h1>El linaje de <em>una idea</em></h1>
+  <p class="stand">Veintisiete textos y culturas, veintis&eacute;is v&iacute;nculos documentados y seis afirmaciones que no lo est&aacute;n. Lo que importa no est&aacute; en los nodos: est&aacute; en el trazo de las l&iacute;neas.</p>
+</div></header>
+
+<div class="ctrl"><button class="on" data-k="c"><span class="sw" style="border-top-color:#d9a94a;border-top-style:solid"></span>Consenso</button><button class="on" data-k="d"><span class="sw" style="border-top-color:#8fb0c4;border-top-style:dashed"></span>Debate abierto</button><button class="on" data-k="p"><span class="sw" style="border-top-color:#a3c47f;border-top-style:dotted"></span>Paralelo sin contacto</button><button class="on" data-k="x"><span class="sw" style="border-top-color:#c9564e;border-top-style:solid"></span>Afirmado sin apoyo</button><button id="reset">Ver todo</button></div>
+
+<div class="stage"><div class="board"><svg id="g" role="img" aria-label="Grafo del linaje de la figura del diablo"></svg></div>
+<p class="hint">Arrastra en horizontal para recorrer los siglos &middot; pulsa un nodo o una l&iacute;nea</p>
+<div class="fams"><span class="fam"><i style="background:#7fa8c4"></i>Irán</span><span class="fam"><i style="background:#e0a35c"></i>Biblia hebrea</span><span class="fam"><i style="background:#d9c25e"></i>Segundo Templo</span><span class="fam"><i style="background:#e08a72"></i>Cristianismo antiguo</span><span class="fam"><i style="background:#a3c47f"></i>Greco-romano</span><span class="fam"><i style="background:#b79ad8"></i>Imagen y literatura</span><span class="fam"><i style="background:#8a8f99"></i>Lo que se afirma</span></div></div>
+
+<div class="panel"><div class="card" id="card"></div></div>
+
+<div class="leg"><div class="it"><div class="n">Línea continua</div><p>Dependencia admitida por el conjunto de la investigación. Se puede dar por firme.</p></div><div class="it"><div class="n">Línea discontinua</div><p>Hipótesis en debate. Hay especialistas de peso a cada lado y la cuestión sigue abierta.</p></div><div class="it"><div class="n">Línea punteada</div><p>Paralelo sin contacto demostrado. Se parecen; que uno venga del otro no está probado.</p></div><div class="it"><div class="n">Línea tachada</div><p>Lo que la divulgación afirma y las fuentes no sostienen. Son seis, y son el índice de la serie.</p></div></div>
+
+<nav class="epnav">
+  <a href="diablo-1.html"><span class="k">&larr; Entrega I de la serie</span><span class="n">El &aacute;ngel que cay&oacute; de un libro que no entr&oacute;</span></a>
+  <a href="serie-diablo.html"><span class="k">Las seis entregas</span><span class="n">&Iacute;ndice de la serie</span></a>
+  <a href="index.html"><span class="k">Portada</span><span class="n">Estratos</span></a>
+</nav>
+
+<footer><span class="g">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+var NODOS=[{"id": "gathas", "col": 0, "fam": 0, "sub": 0, "t": ["Gathas"], "d": "fecha muy discutida", "q": "Los himnos más antiguos del corpus avestico. La oposición no es Ahura Mazda contra Angra Mainyu, sino <b>Spenta Mainyu contra Angra Mainyu</b>: dos espíritus mellizos, y lo que los distingue es la elección, no la naturaleza.", "a": "Se le atribuye un dualismo simétrico de dos principios coeternos que en los Gathas no está."}, {"id": "ahriman", "col": 6, "fam": 0, "sub": 0, "t": ["Ahriman simétrico"], "d": "pahlavi, s. III-VII d.C.", "q": "El Ahriman que todo el mundo compara con el diablo —adversario cósmico, autónomo, simétrico— aparece formulado así en la literatura pahlavi de época sasánida.", "a": "Es <b>posterior</b> al cristianismo. No puede ser su fuente: la cronología va al revés."}, {"id": "gen3", "col": 1, "fam": 1, "sub": 1, "t": ["Génesis 3"], "d": "La serpiente del jardín", "q": "La llama <i>najash</i>, animal del campo, y la castiga como animal: reptar y comer polvo. Ningún texto del Antiguo Testamento la identifica con un ser demoníaco.", "a": "La identificación con Satán no está aquí. Llega, documentada y argumentada, más de setecientos años después."}, {"id": "gen6", "col": 1, "fam": 1, "sub": 2, "t": ["Génesis 6:1-4"], "d": "Los hijos de Elohim", "q": "Seres celestes toman mujeres humanas y engendran héroes. <b>No hay un solo verbo de caída</b> aplicado a ellos: ni rebelión, ni orgullo, ni expulsión, ni castigo celeste. La sentencia de 6:5-7 recae sobre la maldad humana.", "a": "El mito del ángel caído. No está en este texto."}, {"id": "lev16", "col": 1, "fam": 1, "sub": 3, "t": ["Levítico 16"], "d": "Azazel", "q": "Dos suertes: una <i>la-YHWH</i>, «para YHWH», y otra <i>la-azazel</i>. El paralelismo sintáctico es el argumento más fuerte para leer un destinatario y no una cosa.", "a": "Cuatro lecturas siguen en liza: ser demoníaco, topónimo, el chivo mismo, o función abstracta. La Septuaginta evita deliberadamente crear un nombre propio."}, {"id": "isa14", "col": 1, "fam": 1, "sub": 4, "t": ["Isaías 14"], "d": "Helel ben shajar", "q": "El propio versículo 4 dice a quién va dirigido el oráculo: <b>el rey de Babilonia</b>. Y 14:16-20 lo remata con un cadáver humano insepulto. <i>Helel ben shajar</i> es un <i>hapax</i>: «brillante hijo de la aurora», y su referente es Venus.", "a": "Un nombre propio. El texto no lo da: lo produce una historia de lectura de siglos."}, {"id": "ez28", "col": 2, "fam": 1, "sub": 1, "t": ["Ezequiel 28"], "d": "El querubín de Tiro", "q": "Oráculo contra el rey de Tiro, con lenguaje de jardín y piedras preciosas.", "a": "Su uso como retrato del diablo choca con un problema textual de primer orden: el masorético dice «tú eras el querubín», la Septuaginta dice «<b>con</b> el querubín»."}, {"id": "vig", "col": 3, "fam": 2, "sub": 1, "t": ["Libro de los", "Vigilantes"], "d": "1 Enoc 1-36 · s. IV-II a.C.", "q": "Aquí sí nace el mito: Shemihazah y sus doscientos, el juramento del Hermón, los Gigantes, y Asael revelando el conocimiento prohibido. Los fragmentos arameos de la cueva 4 de Qumrán lo confirman.", "a": "Y una corrección que casi nadie hace: el pecado de los Vigilantes <b>no es el orgullo</b>. Es lujuria, mezcla ilícita y revelación de secretos. El ángel soberbio que quiso ser como Dios es otro mito, y llega después."}, {"id": "lxx", "col": 3, "fam": 2, "sub": 4, "t": ["Septuaginta"], "d": "heosphoros", "q": "Traduce <i>helel</i> por <i>heosphóros</i>, «portador de la aurora»: sigue siendo el planeta, no un nombre propio.", "a": ""}, {"id": "qs", "col": 4, "fam": 2, "sub": 2, "t": ["Tratado de los", "dos espíritus"], "d": "1QS III,13-IV,26", "q": "Dos espíritus en los que camina el hombre, el Príncipe de las Luces y el Ángel de la Oscuridad, los hijos de la luz y los de la iniquidad.", "a": "El rasgo decisivo: es un dualismo <b>creacional y subordinado</b>. Los dos espíritus los crea Dios. No hay dos principios coeternos, y esa es la diferencia estructural con el dualismo zoroástrico maduro."}, {"id": "sab", "col": 4, "fam": 2, "sub": 4, "t": ["Sabiduría 2:24"], "d": "la envidia del diábolos", "q": "«Por la envidia del <i>diábolos</i> entró la muerte en el mundo.»", "a": "Se cita como prueba de que la serpiente es el diablo, pero se discute si el <i>diábolos</i> del versículo es la serpiente o <b>Caín</b>."}, {"id": "vae", "col": 6, "fam": 2, "sub": 3, "t": ["Vida de Adán", "y Eva"], "d": "fecha muy discutida", "q": "Aquí sí está el ángel que se niega a adorar a Adán, es expulsado y se venga en el jardín: el mito completo.", "a": "Su fecha está tan discutida —del siglo I al IV d.C.— que <b>no se puede usar para fijar prioridades</b>. Quien la data temprano hace de ella la fuente; quien la data tarde, el resultado."}, {"id": "ev", "col": 5, "fam": 3, "sub": 1, "t": ["Los evangelios"], "d": "Satanás y los demonios", "q": "Un adversario personal ya con nombre, exorcismos como núcleo de la actividad pública de Jesús, y un vocabulario demonológico heredado del Segundo Templo.", "a": ""}, {"id": "ap12", "col": 5, "fam": 3, "sub": 2, "t": ["Apocalipsis 12:9"], "d": "dragón = serpiente = Satán", "q": "Aquí sí se fusionan dragón, serpiente antigua, Diablo y Satanás, en un solo versículo.", "a": "Pero el marco es el <b>mito de combate</b>, no el jardín del Génesis: es la serpiente caótica primordial, no el animal que habla con Eva."}, {"id": "dospe", "col": 5, "fam": 3, "sub": 4, "t": ["2 Pedro 1:19", "Apocalipsis 22:16"], "d": "Cristo, el lucero", "q": "La misma palabra —<i>phosphóros</i>, <i>lucifer</i>, la estrella de la mañana— se aplica a <b>Cristo</b>.", "a": "Es el dato que zanja el asunto: si <i>lucifer</i> fuera el nombre del diablo, el Nuevo Testamento se lo estaría dando a Jesús."}, {"id": "just", "col": 6, "fam": 3, "sub": 1, "t": ["Justino Mártir"], "d": "Diálogo 103,5 · c. 155-165", "q": "La primera identificación <b>explícita y argumentada</b> que se puede documentar entre la serpiente del Edén y Satán.", "a": "Y se apoya en una etimología lingüísticamente falsa. Decirlo no debilita el dato: lo sitúa."}, {"id": "tert", "col": 6, "fam": 3, "sub": 2, "t": ["Tertuliano", "y Orígenes"], "d": "sobre Isaías 14", "q": "Tertuliano empieza a leer el oráculo contra el rey de Babilonia como la caída de Satán; Orígenes lo sistematiza, con Lucas 10:18 —«veía a Satán caer del cielo como un rayo»— como puente exegético.", "a": ""}, {"id": "vulg", "col": 7, "fam": 3, "sub": 3, "t": ["Vulgata"], "d": "Lucifer", "q": "Vierte <i>heosphóros</i> por <i>Lucifer</i>, que era desde siglos el nombre latino del planeta.", "a": "El paso decisivo no fue la traducción. Fue <b>leerla como nombre propio</b>, y eso ocurrió después y en otro sitio."}, {"id": "agus", "col": 7, "fam": 3, "sub": 4, "t": ["Agustín"], "d": "consolida la identificación", "q": "Con Agustín el conjunto —serpiente, orgullo, caída, Satán— queda soldado en una sola narración, y con ella llega a la Edad Media como si hubiera estado siempre ahí.", "a": ""}, {"id": "ant", "col": 7, "fam": 3, "sub": 0, "t": ["Vida de Antonio"], "d": "el demonio negro", "q": "El color antiguo del demonio es el <b>negro</b>, el del etíope de las tentaciones del desierto. No el rojo.", "a": ""}, {"id": "lat", "col": 4, "fam": 4, "sub": 1, "t": ["Lucifer en la", "poesía latina"], "d": "Cicerón, Virgilio, Ovidio", "q": "<i>Lucifer</i> es, en latín clásico y mucho antes de la Vulgata, el nombre común del planeta Venus como estrella de la mañana.", "a": ""}, {"id": "pan", "col": 6, "fam": 4, "sub": 4, "t": ["Pan y los sátiros"], "d": "repertorio disponible", "q": "Cuernos, pezuñas, patas de cabra: un vocabulario visual que existía y estaba a mano.", "a": "Pero la derivación directa tiene un <b>hueco cronológico de siglos</b> y compite con dos candidatos bíblicos: el cabrito de Mateo 25 y el chivo de Levítico 16."}, {"id": "rav", "col": 8, "fam": 5, "sub": 1, "t": ["Rávena y Rábula"], "d": "s. VI", "q": "En Sant'Apollinare Nuovo, la escena de las ovejas y los cabritos con una figura angélica azulada; en los Evangelios de Rábula, demonios ya rojos y pequeños.", "a": "El mosaico se cita como «la primera imagen del diablo». Es la candidata más citada <b>y la más discutida</b>: un ángel sin cuernos y sin inscripción."}, {"id": "cuer", "col": 9, "fam": 5, "sub": 2, "t": ["Los cuernos", "se estabilizan"], "d": "s. XI-XIII", "q": "Es en estos dos siglos cuando la figura cornuda, con pezuñas y cola, se vuelve la manera normal de dibujarlo. El Codex Gigas, de hacia 1229, cae justo en esa ventana.", "a": ""}, {"id": "dante", "col": 9, "fam": 5, "sub": 3, "t": ["Dante", "Infierno XXXIV"], "d": "c. 1320", "q": "El Lucifer de Dante <b>no tiene cuernos ni tridente</b>: tres caras, seis alas de murciélago, hundido en el hielo hasta el pecho y <b>mudo</b>. No dice una sola palabra.", "a": ""}, {"id": "milton", "col": 10, "fam": 5, "sub": 1, "t": ["Milton", "Paraíso perdido"], "d": "1667", "q": "El Satán de Milton no tiene cuernos, ni pezuñas, ni piel roja. Tiene <b>voz</b>, y es lo primero que se recuerda de él.", "a": "De aquí sale la personalidad; de la imagen medieval, la forma. Son dos historias distintas y conviene no cruzarlas."}, {"id": "teatro", "col": 10, "fam": 5, "sub": 4, "t": ["El Fausto", "en el teatro"], "d": "s. XIX", "q": "El rojo con barba de chivo, la capa y la pluma en el sombrero: el Mefistófeles de las puestas en escena decimonónicas.", "a": "Es <b>lo último en llegar</b>, no lo primero. La imagen que hoy cualquiera dibujaría si le piden un diablo tiene poco más de siglo y medio."}, {"id": "af1", "col": 1, "fam": 6, "sub": 6, "t": ["«los ángeles caídos", "están en el Génesis»"], "d": "Entrega I", "q": "Génesis 6:1-4 no contiene ningún verbo de caída aplicado a los hijos de Elohim, ni rebelión, ni castigo celeste. El mito nace en el Libro de los Vigilantes, y la relación exacta entre los dos textos sigue en discusión.", "a": ""}, {"id": "af2", "col": 2, "fam": 6, "sub": 6, "t": ["«la serpiente del", "Edén es Satán»"], "d": "Entrega IV", "q": "Ningún texto del Antiguo Testamento lo dice. La primera identificación explícita documentable es Justino Mártir, hacia 155-165 d.C., y Agustín la consolida.", "a": ""}, {"id": "af3", "col": 3, "fam": 6, "sub": 6, "t": ["«Lucifer es el nombre", "del diablo»"], "d": "Entrega III", "q": "Isaías 14:4 dice que el oráculo va contra el rey de Babilonia; <i>helel</i> es el planeta Venus; y la misma palabra se aplica a Cristo en 2 Pedro 1:19 y Apocalipsis 22:16.", "a": ""}, {"id": "af4", "col": 7, "fam": 6, "sub": 6, "t": ["«el diablo cristiano", "viene de Ahriman»"], "d": "Entrega II", "q": "El Ahriman simétrico es sasánida, de los siglos III al VII d.C.: posterior al cristianismo. Y si la influencia fue oral, no dejó el rastro que permitiría demostrarla.", "a": ""}, {"id": "af5", "col": 4, "fam": 6, "sub": 6, "t": ["«los cuernos", "vienen de la Biblia»"], "d": "Entrega VI", "q": "La Biblia no describe su aspecto físico ni una sola vez. Cuernos, pezuñas, cola, tridente, piel roja y barba de chivo son todos extrabíblicos.", "a": ""}, {"id": "af6", "col": 10, "fam": 6, "sub": 6, "t": ["«Dante inventó", "el tridente»"], "d": "Entrega VI", "q": "El Lucifer del Infierno XXXIV no tiene cuernos ni tridente: está mudo y congelado en el hielo. El tridente viene de la iconografía, no de Dante.", "a": ""}], ARISTAS=[{"a": "gathas", "b": "ahriman", "k": "c", "l": "Desarrollo interno de la tradición irania, a lo largo de más de mil años."}, {"a": "gathas", "b": "qs", "k": "d", "l": "Hay paralelos, y había contacto: Judá fue provincia persa. Lo que no hay es prueba de derivación."}, {"a": "gen6", "b": "vig", "k": "d", "l": "Tres posiciones en liza: que Enoc depende del Génesis, que el Génesis resume una tradición ya enóquica, o que ambos son desarrollos independientes de un fondo común. La tercera gana terreno."}, {"a": "lev16", "b": "vig", "k": "d", "l": "El Asael arameo es el Azazel griego, eso es firme. Lo discutido es la dirección: si Enoc mitologiza el rito de Levítico o si ambos beben de una demonología anterior."}, {"a": "vig", "b": "ev", "k": "c", "l": "La demonología del Nuevo Testamento presupone este marco. Judas 14-15 cita a Enoc por su nombre."}, {"a": "qs", "b": "ev", "k": "d", "l": "Marco dualista compartido, con la diferencia de que en Qumrán los dos espíritus los crea Dios."}, {"a": "isa14", "b": "lxx", "k": "c", "l": "La Septuaginta vierte <i>helel</i> por <i>heosphóros</i>. Sigue siendo el planeta."}, {"a": "lxx", "b": "vulg", "k": "c", "l": "La Vulgata latiniza: <i>Lucifer</i>."}, {"a": "lat", "b": "vulg", "k": "c", "l": "La palabra ya existía en latín, y significaba Venus. Jerónimo no inventó nada: usó el término disponible."}, {"a": "lat", "b": "dospe", "k": "p", "l": "La misma palabra, el mismo planeta, aplicada a Cristo. No hay dependencia: hay un uso común que desmonta la lectura posterior."}, {"a": "isa14", "b": "tert", "k": "c", "l": "Tertuliano lee el oráculo como la caída de Satán. Es el comienzo documentable de la lectura."}, {"a": "ez28", "b": "tert", "k": "d", "l": "Se suma al retrato, pero arrastra su problema textual: «eras el querubín» frente a «con el querubín»."}, {"a": "tert", "b": "agus", "k": "c", "l": "De Orígenes a Agustín la lectura se sistematiza y pasa a ser la normal."}, {"a": "gen3", "b": "just", "k": "c", "l": "Justino es quien identifica por primera vez, de forma explícita y argumentada, la serpiente con Satán."}, {"a": "sab", "b": "just", "k": "d", "l": "Eslabón disputado: no está claro si el <i>diábolos</i> de Sabiduría es la serpiente o Caín."}, {"a": "ap12", "b": "just", "k": "c", "l": "La fusión dragón-serpiente-Satán ya estaba disponible, aunque en el marco del mito de combate."}, {"a": "vae", "b": "just", "k": "d", "l": "La fecha del texto está tan discutida que la flecha podría ir en cualquiera de los dos sentidos."}, {"a": "just", "b": "agus", "k": "c", "l": "Agustín consolida lo que Justino abrió."}, {"a": "ant", "b": "rav", "k": "c", "l": "El negro es el color antiguo del demonio; el rojo aparece después."}, {"a": "rav", "b": "cuer", "k": "c", "l": "De las primeras figuras del siglo VI a la normalización de la forma cornuda."}, {"a": "pan", "b": "cuer", "k": "p", "l": "Paralelo sin contacto demostrado: entre el Pan romano y el diablo cornudo hay siglos de hueco."}, {"a": "lev16", "b": "cuer", "k": "d", "l": "El chivo de Levítico y el cabrito de Mateo 25 compiten con Pan como fuente del animal."}, {"a": "cuer", "b": "dante", "k": "c", "l": "La iconografía ya estaba fijada cuando Dante escribe. Él no la sigue."}, {"a": "dante", "b": "milton", "k": "d", "l": "Influencia literaria, no iconográfica: ninguno de los dos describe cuernos."}, {"a": "cuer", "b": "teatro", "k": "c", "l": "La forma física llega al escenario por la imagen medieval, no por los textos."}, {"a": "milton", "b": "teatro", "k": "c", "l": "La personalidad —la voz, el orgullo, el argumento— llega por Milton."}, {"a": "gen6", "b": "af1", "k": "x", "l": "Se le atribuye al Génesis un mito que no contiene."}, {"a": "gen3", "b": "af2", "k": "x", "l": "Se le atribuye al Génesis una identificación que aparece siete siglos después."}, {"a": "isa14", "b": "af3", "k": "x", "l": "Se le atribuye a Isaías un nombre propio que el texto no da."}, {"a": "ahriman", "b": "af4", "k": "x", "l": "Se invierte la cronología: el Ahriman de la comparación es posterior al cristianismo."}, {"a": "lev16", "b": "af5", "k": "x", "l": "Se le atribuye a la Biblia una descripción física que no existe en ningún versículo."}, {"a": "dante", "b": "af6", "k": "x", "l": "Se le atribuye a Dante una figura que su texto contradice explícitamente."}], FAM=[["Irán", "#7fa8c4"], ["Biblia hebrea", "#e0a35c"], ["Segundo Templo", "#d9c25e"], ["Cristianismo antiguo", "#e08a72"], ["Greco-romano", "#a3c47f"], ["Imagen y literatura", "#b79ad8"], ["Lo que se afirma", "#8a8f99"]], ERAS=["s. XII-X a.C.", "s. VIII-VI a.C.", "s. VI a.C.", "s. IV-II a.C.", "s. II-I a.C.", "s. I d.C.", "s. II-III d.C.", "s. IV-V d.C.", "s. VI d.C.", "s. XI-XIV", "s. XVII-XIX"];
+var COL=150, X0=96, NW=132, ROW=112, Y0=104, NH=56;
+var svg=document.getElementById('g'), card=document.getElementById('card');
+var byId={}; NODOS.forEach(function(n){byId[n.id]=n;});
+var vis={c:1,d:1,p:1,x:1};
+var sel=null;
+
+function nx(n){return X0+n.col*COL;}
+function ny(n){return Y0+n.sub*ROW;}
+function cx(n){return nx(n)+NW/2;}
+function cy(n){return ny(n)+NH/2;}
+function el(t,at){var e=document.createElementNS('http://www.w3.org/2000/svg',t);
+  for(var k in at){e.setAttribute(k,at[k]);}return e;}
+
+var W=X0*2+10*COL+NW, H=Y0+6*ROW+NH+56;
+svg.setAttribute('viewBox','0 0 '+W+' '+H);
+
+// franjas de epoca
+ERAS.forEach(function(t,i){
+  var x=X0+i*COL+NW/2;
+  var tx=el('text',{x:x,y:56,'text-anchor':'middle','class':'era'}); tx.textContent=t; svg.appendChild(tx);
+  svg.appendChild(el('line',{x1:x,y1:66,x2:x,y2:H-46,'class':'eraline'}));
+});
+// divisoria sobre la fila de afirmaciones
+svg.appendChild(el('line',{x1:40,y1:Y0+6*ROW-22,x2:W-40,y2:Y0+6*ROW-22,
+  stroke:'rgba(201,86,78,.34)','stroke-width':1,'stroke-dasharray':'6 5'}));
+var fl=el('text',{x:44,y:Y0+6*ROW-30,'class':'famlab',fill:'#a86a62'});
+fl.textContent='LO QUE SE AFIRMA'; svg.appendChild(fl);
+
+// aristas primero, para que queden debajo
+var gEd=el('g',{}); svg.appendChild(gEd);
+var gNd=el('g',{}); svg.appendChild(gNd);
+
+var edges=[];
+ARISTAS.forEach(function(e,i){
+  var A=byId[e.a], B=byId[e.b]; if(!A||!B) return;
+  var x1=cx(A), y1=cy(A), x2=cx(B), y2=cy(B), d, mx, midx, midy;
+  if(A.col===B.col){
+    // misma columna: sale por abajo/arriba y describe un arco lateral, para no
+    // pasar por encima de las cajas que quedan en medio
+    var dir = A.col>0 ? -1 : 1, bow = 96*dir;
+    y1 = (y2>y1) ? ny(A)+NH : ny(A);
+    y2 = (y2>y1) ? ny(B) : ny(B)+NH;
+    d='M'+x1+','+y1+' C'+(x1+bow)+','+y1+' '+(x2+bow)+','+y2+' '+x2+','+y2;
+    midx = x1 + bow*0.75; midy = (y1+y2)/2;
+  } else {
+    if(x2>x1){x1=nx(A)+NW; x2=nx(B);} else {x1=nx(A); x2=nx(B)+NW;}
+    mx=(x1+x2)/2;
+    d='M'+x1+','+y1+' C'+mx+','+y1+' '+mx+','+y2+' '+x2+','+y2;
+    midx=(x1+3*mx+3*mx+x2)/8; midy=(y1+y2)/2;
+  }
+  var st={c:{s:'#d9a94a',w:2,da:''},d:{s:'#8fb0c4',w:2,da:'8 5'},
+          p:{s:'#a3c47f',w:2,da:'2 6'},x:{s:'#c9564e',w:2,da:'1 0'}}[e.k];
+  var p=el('path',{d:d,'class':'ed','stroke':st.s,'stroke-width':st.w,
+    'stroke-dasharray':st.da,opacity:e.k==='x'?.5:.62});
+  gEd.appendChild(p);
+  var hit=el('path',{d:d,'class':'edhit'});
+  gEd.appendChild(hit);
+  var cr=null;
+  if(e.k==='x'){
+    var px=midx, py=midy;
+    cr=el('g',{'class':'cross'});
+    cr.appendChild(el('line',{x1:px-6,y1:py-6,x2:px+6,y2:py+6,stroke:'#c9564e','stroke-width':2.2}));
+    cr.appendChild(el('line',{x1:px+6,y1:py-6,x2:px-6,y2:py+6,stroke:'#c9564e','stroke-width':2.2}));
+    gEd.appendChild(cr);
+  }
+  var rec={p:p,cr:cr,e:e};
+  edges.push(rec);
+  hit.addEventListener('click',function(ev){ev.stopPropagation();showEdge(e);});
+});
+
+// nodos
+var nodeEls={};
+NODOS.forEach(function(n){
+  var claim=n.sub===6;
+  var g=el('g',{'class':'nd'+(claim?' claim':''),tabindex:'0'});
+  var col=FAM[n.fam][1];
+  g.appendChild(el('rect',{x:nx(n),y:ny(n),width:NW,height:NH,rx:8,stroke:col}));
+  var lines=n.t, base=ny(n)+ (lines.length>1?18:22);
+  lines.forEach(function(L,i){
+    var t=el('text',{x:cx(n),y:base+i*14.5,'text-anchor':'middle','class':'t'});
+    t.textContent=L; g.appendChild(t);
+  });
+  var d=el('text',{x:cx(n),y:ny(n)+NH-9,'text-anchor':'middle','class':'d'});
+  d.textContent=n.d; g.appendChild(d);
+  g.addEventListener('click',function(ev){ev.stopPropagation();showNode(n);});
+  g.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();showNode(n);}});
+  gNd.appendChild(g); nodeEls[n.id]=g;
+});
+
+function esc(s){return s;}
+function showNode(n){
+  sel=n.id; paint();
+  var claim=n.sub===6;
+  var h='<div class="lab">'+(claim?'Afirmaci\u00f3n corriente':FAM[n.fam][0])+'</div>'+
+        '<h3>'+n.t.join(' ')+'</h3><div class="dt">'+n.d+'</div>'+
+        '<p>'+n.q+'</p>';
+  if(n.a) h+='<div class="sec">'+(claim?'':'Lo que se le atribuye sin fundamento')+'</div><p>'+n.a+'</p>';
+  card.innerHTML=h;
+}
+function showEdge(e){
+  sel=null; paint();
+  var A=byId[e.a], B=byId[e.b];
+  var lab={c:'V\u00ednculo con consenso',d:'Hip\u00f3tesis en debate',
+           p:'Paralelo sin contacto demostrado',x:'Lo afirma la divulgaci\u00f3n; las fuentes no'}[e.k];
+  var h='<div class="lab">'+lab+'</div><h3>'+A.t.join(' ')+' \u2192 '+B.t.join(' ')+'</h3>'+
+        '<div class="dt">'+A.d+'  \u00b7  '+B.d+'</div><p>'+e.l+'</p>';
+  card.innerHTML=h;
+}
+function paint(){
+  edges.forEach(function(r){
+    var on=vis[r.e.k];
+    r.p.classList.toggle('hid',!on);
+    if(r.cr) r.cr.classList.toggle('hid',!on);
+    var dim = sel && on && r.e.a!==sel && r.e.b!==sel;
+    r.p.classList.toggle('dim',!!dim);
+  });
+  NODOS.forEach(function(n){
+    var g=nodeEls[n.id];
+    g.classList.toggle('sel',n.id===sel);
+    var conn=false;
+    if(sel){ conn = n.id===sel || ARISTAS.some(function(e){
+      return vis[e.k] && ((e.a===sel&&e.b===n.id)||(e.b===sel&&e.a===n.id));});}
+    g.classList.toggle('dim',!!(sel&&!conn));
+  });
+}
+document.querySelectorAll('.ctrl button[data-k]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var k=b.getAttribute('data-k'); vis[k]=vis[k]?0:1;
+    b.classList.toggle('on',!!vis[k]); b.classList.toggle('off',!vis[k]); paint();
+  });
+});
+document.getElementById('reset').addEventListener('click',function(){
+  sel=null;
+  card.innerHTML='<div class="lab">C\u00f3mo se lee</div><h3>Pulsa un nodo o una l\u00ednea</h3>'+
+    '<div class="dt">Los nodos son textos y culturas; las l\u00edneas, v\u00ednculos con su estatus</div>'+
+    '<p>El trazo es el argumento. Una l\u00ednea continua es una dependencia con consenso; una discontinua, '+
+    'una hip\u00f3tesis en debate; una punteada, un paralelo del que no hay contacto demostrado. '+
+    'Y una l\u00ednea tachada es algo que se repite mucho y que las fuentes no sostienen.</p>'+
+    '<p>Las seis l\u00edneas tachadas son, adem\u00e1s, el \u00edndice de esta serie: cada una es la afirmaci\u00f3n '+
+    'que desmonta una entrega.</p>';
+  paint();
+});
+document.getElementById('reset').click();
+</script>
+</body></html>

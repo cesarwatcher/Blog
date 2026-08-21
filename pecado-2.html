@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuatro lenguas, un pronombre · Estratos</title>
+<meta name="description" content="Romanos 5:12 y el ἐφ᾿ ᾧ que la tradición latina vertió como in quo. El griego dejaba dos puertas abiertas y el género femenino de mors cerró una. Con el aparato de la concordancia, y con los versículos 18 y 19, que no dependen del pronombre.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4a2f3a;--mid:#7a5364;--pale:#8a5a68;
+    --rel:#8a4a2a;--exc:#4a2f3a;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  .glifos .tr{font-style:italic;font-size:.78em;color:#8a7a5e}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(122,83,100,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#7a6852}
+  figcaption .cr a{color:#6d5a45;text-decoration:underline;text-decoration-color:rgba(122,106,69,.45)}
+  figcaption .cr a:hover{text-decoration-color:#7a6a45}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c0aeb4,#a8808e 42%,#7a5364 70%,#4a2f3a)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d3d6,#cdbcc2);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .conc{max-width:960px;margin:3rem auto;background:rgba(242,234,215,.72);
+    border:1px solid rgba(180,150,100,.5);border-radius:14px;padding:1.5rem 1.4rem 1.6rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .conc .bk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);margin-bottom:.4rem}
+  .conc h2.bt{font-size:1.5rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .conc .bs{font-size:.98rem;color:#4a3f33;margin-bottom:1.2rem}
+  .conc .tabs{display:flex;gap:.4rem;border-bottom:1px solid rgba(150,130,95,.4);margin-bottom:1.2rem}
+  .conc .tabs button{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;
+    padding:.55rem .95rem;border:0;background:transparent;color:#8a7a5e;cursor:pointer;
+    border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s}
+  .conc .tabs button.on{color:var(--deep);border-bottom-color:var(--deep)}
+  .conc .pane{display:none}
+  .conc .pane.on{display:block}
+  .conc .langs{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.1rem}
+  .conc .langs button{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;padding:.45rem .9rem;
+    border-radius:2rem;border:1px solid rgba(150,130,95,.5);background:transparent;color:#5a4d38;
+    cursor:pointer;transition:all .22s;text-align:left;line-height:1.3}
+  .conc .langs button span{display:block;font-size:.58rem;color:#8a7a5e;font-weight:400}
+  .conc .langs button.on{background:#e3d6da;border-color:var(--mid);color:#3a2f36;font-weight:700}
+  .conc .verse{background:#efe6d2;border:1px solid rgba(150,130,95,.45);border-left:4px solid var(--mid);
+    border-radius:10px;padding:1rem 1.15rem;margin-bottom:.7rem}
+  .conc .verse .vt{font-size:1.12rem;color:#2f2a1c;line-height:1.62}
+  .conc .verse .vt b{font-weight:400;background:#d9c3cb;padding:.05rem .3rem;border-radius:3px;color:#4a2f3a}
+  .conc .verse .vn{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;color:#5a4d38;
+    margin-top:.7rem;padding-top:.6rem;border-top:1px dashed rgba(150,130,95,.5)}
+  .conc .verse .vn b{color:var(--deep);font-weight:700}
+  .conc .clab{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:#8a7a5e;margin:1.2rem 0 .6rem}
+  .conc .cands{display:grid;gap:.55rem}
+  .conc .cd{background:#efe6d2;border:1px solid rgba(150,130,95,.45);border-radius:9px;
+    padding:.8rem .95rem;border-left:4px solid #999}
+  .conc .cd .ch{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;
+    flex-wrap:wrap;margin-bottom:.35rem}
+  .conc .cd .cn{font-size:1.02rem;color:#2f2a1c}
+  .conc .cd .cs{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;color:#fff;border-radius:2rem;padding:.2rem .6rem;
+    white-space:nowrap}
+  .conc .cd p{font-size:.94rem;color:#4a3f33;margin:0;line-height:1.6}
+  .conc .cd p b{font-weight:400;color:#5c2f3a;box-shadow:inset 0 -.45em 0 rgba(122,83,100,.18)}
+  .conc .cd p i{font-style:italic}
+  .conc .foot{margin-top:1.2rem;background:#33383f;border-radius:12px;padding:1.1rem 1.25rem;
+    border-left:3px solid #c99a4a}
+  .conc .foot .fl{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:#d9a94a;margin-bottom:.4rem}
+  .conc .foot p{font-size:.95rem;color:#d6d2c8;margin:0 0 .6rem;line-height:1.62}
+  .conc .foot p:last-child{margin:0}
+  .conc .foot b{font-weight:400;color:#f0d79c}
+  .conc .foot i{font-style:italic}
+  @media(max-width:600px){.conc{padding:1.2rem 1rem 1.3rem}.conc .tabs button{font-size:.66rem;padding:.5rem .6rem}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Entrega II &middot; La invenci&oacute;n del pecado</span>
+  <h1>Cuatro lenguas, <span class="em">un pronombre</span></h1>
+  <div class="glifos"><span>ἐφ᾿ ᾧ</span> <span class="tr">eph᾿ hō</span><span class="sep">&#10022;</span><span class="tr">in quo</span><span class="sep">&#10022;</span><span class="tr">«porque todos pecaron»</span></div>
+  <p class="stand">De qué sea el antecedente de un pronombre relativo depende buena parte de la historia del cristianismo occidental. Y quien decide qué antecedentes son posibles es la gramática.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Hay dos palabras griegas de las que depende buena parte de la historia del
+cristianismo occidental. Son <em>ἐφ᾿ ᾧ</em>, están al final de Romanos 5:12, y llevan dieciocho
+siglos discutiéndose.</p>
+
+<p>La versión popular de este asunto dice que el pecado original nació de una mala traducción de esas
+dos palabras. Y es una simplificación con un núcleo verdadero, que es la peor clase de afirmación:
+la que no se puede repetir tal cual ni descartar sin más. Lo que hay debajo es mejor.</p>
+
+<div class="secnum">01</div><h2>La frase que Pablo no terminó</h2>
+
+<p>Empecemos por el texto, en traducción lo más neutra posible: «Por esto, como por medio de un solo
+hombre el pecado entró en el mundo, y por medio del pecado la muerte, y así la muerte alcanzó a todos
+los hombres, <em>ἐφ᾿ ᾧ</em> todos pecaron —».</p>
+
+<p>El guion final no es un adorno. El versículo es un <strong>anacoluto</strong>: Pablo abre una
+comparación con <em>hōsper</em>, «como», y <strong>no la cierra nunca</strong>. La segunda mitad de la
+frase &mdash;el «así también» que uno espera&mdash; no llega, y el tema se retoma seis versículos más
+abajo. Cualquier lectura de esas dos palabras se hace, por tanto, sobre una frase gramaticalmente
+inacabada.</p>
+
+<p>Eso explica de entrada por qué el pasaje es un <em>crux interpretum</em> desde la Antigüedad. No es
+que los lectores fueran torpes: es que la frase no está terminada.</p>
+
+<figure>
+  <img src="papiro-46.jpg" alt="Folio del Papiro 46, con texto de las cartas de Pablo">
+  <figcaption>Folio del <strong>Papiro 46</strong>, la copia conservada m&aacute;s antigua de las cartas de Pablo. El folio de la imagen contiene 2 Corintios 11:33-12:9, no Romanos: sirve como testimonio de la antig&uuml;edad material del corpus paulino, no del vers&iacute;culo que discute esta entrega. <span class="cr">Chester Beatty / University of Michigan, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">02</div><h2>Cinco maneras de leer dos palabras</h2>
+
+<p><em>ἐφ᾿ ᾧ</em> es la preposición <em>epí</em> con el dativo del pronombre relativo. Y ese relativo
+es <strong>masculino o neutro</strong> &mdash;nunca femenino&mdash;, dato que va a resultar decisivo.
+Las opciones que la crítica discute son cinco.</p>
+
+<p>Puede tener <strong>valor causal</strong>: «porque todos pecaron». Es <strong>la lectura
+mayoritaria hoy</strong> entre los helenistas del Nuevo Testamento, y la que traen las traducciones
+críticas modernas. Puede tener <strong>valor consecutivo</strong>: «con el resultado de que todos
+pecaron». Es la tesis que defendió Joseph Fitzmyer en un artículo de <em>New Testament Studies</em> de
+1993; minoritaria, pero seria. Puede tener <strong>valor restrictivo</strong>: «en la medida en que».
+Puede ser un <strong>relativo con antecedente</strong>, y entonces hay que preguntarse cuál.</p>
+
+<p>Y puede ser lo que la tradición latina leyó: <strong>«en quien todos pecaron»</strong>, con Adán
+como antecedente. Esta última es insostenible en griego, y por dos razones que no dependen una de
+otra. La primera es de preposición: «en quien» exigiría <em>ἐν ᾧ</em>, y el texto dice
+<em>ἐφ᾿ ᾧ</em>; son giros distintos. La segunda es de distancia: «un solo hombre» está a diez palabras
+y dos cláusulas de allí, y entre los dos se interpone «la muerte».</p>
+
+<p>Lo cual conduce al punto interesante, porque «la muerte» &mdash;<em>ho thánatos</em>&mdash; es
+masculino en griego. Es decir: <strong>el griego permite leer «la muerte, a causa de la cual todos
+pecaron»</strong>. Y es exactamente lo que leyeron los padres griegos.</p>
+
+<div class="conc">
+  <div class="bk">Pieza interactiva &middot; el aparato de la concordancia</div>
+  <h2 class="bt">Cuatro lenguas, un pronombre</h2>
+  <p class="bs">Romanos 5:12 termina con un pronombre relativo, y de qu&eacute; sea su antecedente
+  depende buena parte de la historia del cristianismo occidental. Cambia de lengua y observa la lista
+  de candidatos: <b>lo que decide qu&eacute; lecturas son posibles no es el traductor, es la
+  gram&aacute;tica de la lengua de llegada.</b></p>
+  <div class="tabs">
+    <button class="on" data-t="a">El pronombre y sus candidatos</button>
+    <button data-t="b">Lo que no depende del pronombre</button>
+  </div>
+
+  <div class="pane on" data-p="a">
+    <div class="langs"><button data-l="gr">Griego<span>el original · s. I d.C.</span></button><button data-l="la">Latín<span>Vetus Latina y Vulgata · s. IV</span></button><button data-l="sy">Siríaco<span>Peshitta</span></button><button data-l="es">Castellano<span>las traducciones</span></button></div>
+    <div class="verse" id="cverse"></div>
+    <div class="clab">Candidatos a antecedente en esta lengua</div>
+    <div class="cands" id="ccands"></div>
+    <div class="foot">
+      <div class="fl">Un detalle que casi siempre se omite</div>
+      <p>El vers&iacute;culo est&aacute; <b>gramaticalmente inacabado</b>. Pablo abre una
+      comparaci&oacute;n con ὥσπερ, «como», y no la cierra nunca: la segunda mitad de la frase no
+      llega, y el tema se retoma seis vers&iacute;culos m&aacute;s tarde. Cualquier lectura del
+      pronombre se hace, por tanto, sobre un anacoluto.</p>
+      <p>Eso explica por qu&eacute; el pasaje es, desde hace siglos, un <i>crux interpretum</i>: no es
+      que los lectores fueran torpes. Es que la frase no est&aacute; terminada.</p>
+    </div>
+  </div>
+
+  <div class="pane" data-p="b">
+    <div class="verse">
+      <div class="vt">«As&iacute; pues, como por la transgresi&oacute;n de uno vino la
+      condenaci&oacute;n a todos los hombres, as&iacute; tambi&eacute;n por la justicia de uno vino a
+      todos los hombres la justificaci&oacute;n de vida.»<br><br>«Porque como por la desobediencia de
+      un solo hombre los muchos fueron constituidos pecadores, as&iacute; tambi&eacute;n por la
+      obediencia de uno los muchos ser&aacute;n constituidos justos.»</div>
+      <div class="vn"><b>Romanos 5:18-19.</b> Sin pronombre ambiguo, sin problema de concordancia y
+      sin discusi&oacute;n textual.</div>
+    </div>
+    <div class="foot">
+      <div class="fl">Por qu&eacute; esta pesta&ntilde;a est&aacute; aqu&iacute;</div>
+      <p>Porque sin ella la pieza ser&iacute;a un truco. Se repite mucho que el pecado original
+      «naci&oacute; de una mala traducci&oacute;n», y esa frase es una simplificaci&oacute;n con
+      n&uacute;cleo verdadero: la ambig&uuml;edad del pronombre y su resoluci&oacute;n latina
+      importan, y mucho.</p>
+      <p>Pero <b>la doctrina no cuelga de dos palabras.</b> Seis vers&iacute;culos m&aacute;s abajo,
+      en griego indiscutido y sin ning&uacute;n pronombre que interpretar, Pablo dice que por la
+      transgresi&oacute;n de uno vino condenaci&oacute;n para todos. Quien reduzca todo el asunto a un
+      error de traducci&oacute;n <b>no podr&aacute; explicar los vers&iacute;culos 18 y 19</b>, y
+      tendr&aacute; que dar marcha atr&aacute;s en cuanto alguien los cite.</p>
+      <p>Lo que el aparato de la izquierda muestra no es que la doctrina sea un malentendido. Es algo
+      m&aacute;s fino: que <i>una</i> de las lecturas posibles qued&oacute; cerrada por el g&eacute;nero
+      de una palabra, y que la tradici&oacute;n latina construy&oacute; sobre la que qued&oacute;.</p>
+    </div>
+  </div>
+</div>
+
+<div class="secnum">03</div><h2>El latín no se equivocó: decidió</h2>
+
+<p>Ahora, tres precisiones que casi nunca se hacen juntas.</p>
+
+<p><strong>La primera: <em>in quo</em> está en la Vulgata.</strong> Hay que decirlo sin rodeos, porque
+circula una versión del relato según la cual fue un desliz de Ambrosiaster que la Vulgata luego
+corrigió. No es así: «<em>in omnes homines mors pertransiit, in quo omnes peccaverunt</em>» es el texto
+de la Vulgata, y también el del latín antiguo que circulaba en el siglo IV.</p>
+
+<p><strong>La segunda: no es un error de bulto.</strong> <em>Epí</em> con dativo se vierte al latín con
+<em>in</em> y ablativo de manera perfectamente rutinaria. <em>In quo</em> es una rendición literal,
+palabra por palabra, del giro griego. El problema no es que sea absurda: es que
+<strong>en latín resulta más ambigua que en griego, y esa ambigüedad se resolvió en una sola
+dirección</strong>.</p>
+
+<p><strong>Y la tercera es el mecanismo, que es el hallazgo de esta entrega.</strong> En latín,
+<em>mors</em> es <strong>femenino</strong>. <em>In quo</em>, que es masculino o neutro, no puede
+referirse a ella: tendría que decir <em>in qua</em>. La opción que el griego dejaba abierta &mdash;y
+que los padres griegos habían tomado&mdash; queda <strong>cerrada por el género gramatical de una
+palabra latina</strong>. Y el único antecedente masculino que queda disponible en la frase es
+<em>unum hominem</em>: Adán.</p>
+
+<p>Conviene añadir en seguida lo que matiza el hallazgo, porque si no se convierte en un truco:
+<em>peccatum</em>, «el pecado», es <strong>neutro</strong>, y el relativo admite el neutro. La frase
+latina podía leerse «en el cual [pecado] todos pecaron». Esa puerta quedó abierta y la tradición no la
+atravesó. El latín no obligó a leer «en Adán»: hizo que fuera la lectura más natural entre las que
+quedaban, y entre una persona y una abstracción, la lectura eligió la persona.</p>
+
+<figure>
+  <img src="vulgata-romanos.jpg" alt="Comienzo de Romanos en una Biblia Vulgata del siglo XIII">
+  <figcaption>Comienzo de la carta a los Romanos en una Biblia Vulgata del siglo XIII, del sur de Francia, con una inicial historiada: Pablo sentado con una espada, hablando al busto de Dios. Es la p&aacute;gina donde, unos vers&iacute;culos m&aacute;s adelante, dice <em>in quo omnes peccaverunt</em>. <span class="cr">Cleveland Museum of Art, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener">CC0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">04</div><h2>Y una ironía sobre quién puso ese texto ahí</h2>
+
+<p><strong>Jerónimo no tradujo Romanos.</strong> Su intervención en el Nuevo Testamento latino se
+limitó a los evangelios; el resto lo heredó de la tradición previa. ¿Quién estuvo detrás del texto
+latino de las cartas de Pablo? No se sabe con certeza, y entre los candidatos que se han propuesto
+figuran <strong>Rufino el Sirio y Pelagio mismo</strong>. El indicio que fija la fecha máxima es que
+<strong>Pelagio ya cita ese texto</strong>, de modo que existía antes del 410.</p>
+
+<p>Dicho de otro modo: el texto latino sobre el que Agustín construyó el pecado original pudo haber
+sido transmitido por el círculo de su gran adversario. No hay que hacer de esto más de lo que es
+&mdash;es una cuestión de historia textual, no una ironía cósmica&mdash;, pero conviene saberlo.</p>
+
+<p>Sobre <strong>Ambrosiaster</strong> hay que ser igual de escrupuloso. Se lee con frecuencia, y lo
+dice la Wikipedia inglesa, que fue «el primero en introducir» la traducción <em>in quo</em>. Eso
+<strong>no es verificable</strong>. Su comentario es uno de nuestros testimonios principales del texto
+latino de Pablo anterior a la Vulgata: comenta el texto que tenía delante, y no hay evidencia de que
+lo fabricara. La formulación defendible es más modesta y más exacta: <em>in quo</em> está atestiguado
+en el latín del siglo IV y pasó a la Vulgata, y Ambrosiaster es el primer autor conocido que construye
+sobre él una argumentación de pecado transmitido.</p>
+
+<div class="secnum">05</div><h2>El siríaco, testigo independiente</h2>
+
+<p>Hay una confirmación que llega de donde nadie la busca, y es elegante porque es completamente
+independiente del debate latino.</p>
+
+<p>La <strong>Peshitta</strong>, la versión siríaca, construye el pasaje con un relativo
+<strong>femenino</strong>. Y un relativo femenino no puede referirse a Adán. Andrew Koperski, tras
+corregir su propia lectura con la ayuda de un semitista, concluye que la construcción funciona como
+«en cuanto que», «por el hecho de que»: es decir, el siríaco <strong>excluye la lectura adánica de
+raíz</strong> y resuelve la ambigüedad en la dirección contraria al latín, coincidiendo con la
+lectura mayoritaria de los helenistas.</p>
+
+<p>Tres lenguas antiguas, tres resultados. El griego deja dos puertas abiertas. El siríaco cierra la
+de Adán. El latín cierra la de la muerte. Y la doctrina occidental se construyó sobre la única que el
+latín dejó a mano.</p>
+
+<figure>
+  <img src="peshitta-manuscrito.jpg" alt="Manuscrito de la Peshitta en pergamino, siglo IX">
+  <figcaption>Manuscrito de la Peshitta en pergamino, del siglo IX, expuesto en la Biblioteca Nacional de Israel. La versi&oacute;n sir&iacute;aca es el testigo independiente de esta entrega: construye el pasaje con un relativo femenino, y un relativo femenino no puede referirse a Ad&aacute;n. <span class="cr">JHistory, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">06</div><h2>Cómo lo leyeron los griegos</h2>
+
+<p>Lo anterior no es una reconstrucción hipotética: se puede comprobar en lo que hizo el Oriente
+cristiano con el mismo versículo.</p>
+
+<p>Los padres griegos &mdash;Juan Crisóstomo entre ellos&mdash; leyeron el pasaje sin derivar de él una
+doctrina de culpa heredada. Tenían delante el mismo texto de Pablo, en su propia lengua, sin
+intermediación de traducción alguna. Y con «la muerte» disponible como antecedente masculino, el
+versículo les decía algo distinto: que la muerte entró en el mundo y que, en el ámbito de la muerte,
+todos pecaron. Efecto universal, sí; imputación de culpa a los recién nacidos, no.</p>
+
+<p>Es el dato que hace falta para que el argumento de esta entrega no sea un juego de palabras.
+<strong>No estamos comparando el texto con una reconstrucción moderna: lo estamos comparando con lo
+que hicieron durante siglos los lectores que no necesitaban traducirlo.</strong></p>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">El griego</div>
+    <div class="what">dos puertas abiertas</div>
+    <p>El relativo es masculino o neutro. «La muerte» es masculino y está justo al lado; Adán está a diez palabras y exigiría otra preposición. Y cabe además el valor causal, que es la lectura mayoritaria hoy.</p>
+  </div>
+  <div class="post max">
+    <div class="who">El latín</div>
+    <div class="what">una puerta cerrada</div>
+    <p><em>Mors</em> es femenino: <em>in quo</em> no puede ser la muerte. Queda <em>peccatum</em>, que es neutro y estaba disponible, y queda Adán. Se impuso Adán.</p>
+  </div>
+  <div class="post min">
+    <div class="who">El siríaco</div>
+    <div class="what">la otra puerta cerrada</div>
+    <p>Relativo femenino, que excluye a Adán por completo. La construcción funciona como «en cuanto que»: coincide con los helenistas y contradice al latín.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Los padres griegos</div>
+    <div class="what">la prueba de control</div>
+    <p>Leyeron el mismo versículo en su propia lengua, sin traducir nada, y no derivaron de él una culpa heredada. Es lo que impide tratar todo esto como una especulación moderna.</p>
+  </div>
+</div>
+
+<div class="secnum">07</div><h2>Y aun así: los versículos 18 y 19</h2>
+
+<p>Aquí es donde este artículo tiene que hacer algo que la divulgación sobre el asunto casi nunca
+hace, que es desactivar su propia conclusión favorita.</p>
+
+<p>Seis versículos más abajo, sin pronombre ambiguo, sin problema de concordancia y sin discusión
+textual, Pablo escribe que <strong>por la transgresión de uno vino la condenación a todos los
+hombres</strong>, y que <strong>por la desobediencia de un solo hombre los muchos fueron constituidos
+pecadores</strong>. Está en griego indiscutido. No depende de ninguna preposición.</p>
+
+<p>De modo que <strong>la doctrina no cuelga de dos palabras</strong>. Quien reduzca todo el asunto a
+un error de traducción tendrá que dar marcha atrás en cuanto alguien le cite los versículos 18 y 19, y
+con razón.</p>
+
+<p>Lo que sí se puede sostener, y es bastante, es esto: en Romanos 5 hay una solidaridad real entre el
+acto de Adán y la situación de todos &mdash;eso está en el texto griego y no se va a ir&mdash;; pero
+el paso de esa solidaridad a una <em>culpa imputada al recién nacido y remitida por un
+sacramento</em> no está en Pablo. Ese paso se dio en otro sitio, en otra lengua y por otras razones. Y
+una de esas razones, la más concreta y la menos teológica de todas, es de lo que trata la entrega
+siguiente: que se estaba bautizando a recién nacidos, y había que explicar de qué.</p>
+
+<div class="meter">
+  <div class="q">Que <em>ἐφ᾿ ᾧ</em> no puede significar «en quien», porque eso exigiría <em>ἐν ᾧ</em>, y que la lectura mayoritaria hoy es causal.</div>
+  <div class="bar"><span class="pin" style="left:88%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Es un dato de gramática griega, comprobable en los léxicos estándar, y así lo vierten las traducciones críticas modernas. La discusión viva es entre el valor causal y el consecutivo, no sobre «en quien».</div>
+</div>
+
+<div class="meter">
+  <div class="q">Que la doctrina del pecado original se debe a una mala traducción de Romanos 5:12.</div>
+  <div class="bar"><span class="pin" style="left:26%" data-l="Simplificación"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">La ambigüedad del pronombre y su resolución latina son reales e importan. Pero Romanos 5:18-19 dice, en griego indiscutido y sin pronombre que interpretar, que por la transgresión de uno vino condenación para todos. La doctrina no cuelga de dos palabras.</div>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <strong>dato firme</strong> el texto griego de Romanos 5:12 y su carácter de anacoluto: la comparación abierta con ὥσπερ no se cierra. Lo es que <em>ἐφ᾿ ᾧ</em> es ἐπί con dativo del relativo, masculino o neutro y nunca femenino; que «en quien» exigiría <span class="k">ἐν ᾧ</span>; y que <span class="k">ὁ θάνατος</span> es masculino y es el antecedente más próximo. Lo es que la lectura mayoritaria hoy es la causal, y que Fitzmyer defendió la consecutiva en <em>New Testament Studies</em> 39/3 (1993), 321-339. Lo es que <em>in quo</em> está en la Vulgata y en el latín antiguo del siglo IV; que <em>mors</em> es femenino en latín y por tanto <em>in quo</em> no puede referirse a ella; que <em>peccatum</em> es neutro y sí estaba disponible; que Jerónimo sólo revisó los evangelios; y que la Peshitta usa un relativo femenino, observación de Andrew Koperski.</p>
+  <p><span class="k">Debate abierto:</span> entre los valores causal, consecutivo y restrictivo de <em>ἐφ᾿ ᾧ</em>, con Fitzmyer del lado consecutivo y la mayoría del causal. Quién estuvo detrás del texto latino de las cartas de Pablo, donde se han propuesto a Rufino el Sirio y a Pelagio sin que la cuestión esté resuelta. Y una precisión sobre nuestras propias fuentes: la afirmación de que Ambrosiaster «introdujo» <em>in quo</em>, que circula en la Wikipedia inglesa, <strong>no es verificable</strong> y aquí no se sostiene. La inferencia de que el género de <em>mors</em> cerró una opción de lectura es nuestra, coherente con Meyendorff y con Koperski, y se presenta como inferencia y no como cita. Tampoco damos el número de interpretaciones de <em>ἐφ᾿ ᾧ</em> que se suele atribuir al catálogo de Fitzmyer, porque no lo hemos podido comprobar.</p>
+  <p>Este artículo no sostiene que el pecado original sea un malentendido, y ha dedicado su último apartado a explicar por qué no puede sostenerlo. Lo que describe es más interesante que eso: cómo una frase inacabada, en tres lenguas con tres gramáticas distintas, ofreció a cada tradición un juego de lecturas diferente, y cómo una de ellas se convirtió en doctrina. Que el latín cerrara una puerta no acusa a nadie de nada: los traductores latinos hicieron lo que hace cualquier traductor honrado, verter literalmente lo que tenían delante. Las consecuencias de una decisión gramatical rutinaria no son culpa de quien la tomó.</p>
+</div>
+
+</div></div>
+
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var L=[["gr", "Griego", "el original · s. I d.C.", "καὶ οὕτως εἰς πάντας ἀνθρώπους ὁ θάνατος διῆλθεν, <b>ἐφ᾿ ᾧ</b> πάντες ἥμαρτον", "<b>ἐφ᾿ ᾧ</b> es ἐπί con el dativo del relativo ᾧ, que es <b>masculino o neutro</b>. Nunca femenino."], ["la", "Latín", "Vetus Latina y Vulgata · s. IV", "et ita in omnes homines mors pertransiit, <b>in quo</b> omnes peccaverunt", "<b>in quo</b> es <i>in</i> con el ablativo del relativo, también <b>masculino o neutro</b>. Es la rendición literal, palabra por palabra, del giro griego."], ["sy", "Siríaco", "Peshitta", "que la Peshitta construye con un relativo <b>femenino</b> (<i>b-hay d-</i>)", "El relativo es <b>femenino</b>. Eso cambia por completo qué puede y qué no puede ser su antecedente."], ["es", "Castellano", "las traducciones", "y así la muerte alcanzó a todos los hombres, <b>[ ? ]</b> todos pecaron", "Aquí ya no decide la gramática: decide el traductor, y tiene que elegir una de las opciones anteriores y cerrar las demás."]], C={"gr": [["«la muerte» · ὁ θάνατος", "ok", "Es <b>masculino</b> y es el antecedente <b>más próximo</b>: está justo antes del pronombre. La frase se lee entonces «la muerte, a causa de la cual todos pecaron». Y es precisamente la lectura de los padres griegos."], ["«el pecado» · ἡ ἁμαρτία", "no", "Excluido por género: ἁμαρτία es <b>femenino</b>. Para referirse a él el texto tendría que decir ἐφ᾿ ᾗ, no ἐφ᾿ ᾧ."], ["Adán · ἑνὸς ἀνθρώπου", "mal", "Insostenible por dos motivos independientes. Uno: «en quien» exigiría <b>ἐν ᾧ</b>, no ἐφ᾿ ᾧ; son preposiciones distintas. Y dos: ἀνθρώπου está a diez palabras y dos cláusulas de distancia, con ὁ θάνατος interpuesto por medio."], ["Ningún antecedente: valor causal", "gana", "ἐφ᾿ ᾧ funcionando como conjunción: «porque todos pecaron», «puesto que todos pecaron». <b>Es la lectura mayoritaria hoy</b> entre los helenistas del Nuevo Testamento, y la que traen las traducciones críticas modernas. Fitzmyer defendió además un valor consecutivo —«con el resultado de que»— en un artículo de <i>New Testament Studies</i> de 1993."]], "la": [["«la muerte» · mors", "no", "<b>Aquí está todo el asunto.</b> <i>Mors</i> es <b>femenino</b> en latín. <i>In quo</i> no puede referirse a ella: tendría que decir <i>in qua</i>. La opción que el griego dejaba abierta —y que los padres griegos tomaron— queda cerrada por el género de una palabra latina."], ["«el pecado» · peccatum", "ok", "Gramaticalmente sí: <i>peccatum</i> es <b>neutro</b> y el relativo admite neutro. La frase podría leerse «en el cual [pecado] todos pecaron». Es una puerta abierta que la tradición no atravesó."], ["Adán · unum hominem", "gana", "Es el <b>único antecedente masculino disponible</b> en la frase latina. Y es el que se impuso: «en quien todos pecaron». No porque el latín lo obligara —el neutro seguía disponible— sino porque, entre una persona y una abstracción, la lectura eligió la persona."], ["Valor causal", "ok", "También cabe en latín, y algunos lo defendieron. Perdió."]], "sy": [["Adán", "no", "Excluido por género: el relativo siríaco de este pasaje es <b>femenino</b>, y por tanto no puede referirse a Adán. La versión siríaca <b>elimina</b> la lectura adánica de raíz."], ["Valor restrictivo o causal", "gana", "Andrew Koperski observa que <i>b-hay d-</i> funciona como «en cuanto que», «por el hecho de que». Es decir: el siríaco resuelve la ambigüedad en la dirección contraria al latín, y coincide con la lectura mayoritaria de los helenistas."]], "es": [["«porque todos pecaron»", "gana", "Lo que traen las traducciones críticas modernas. Corresponde a la lectura causal, que es la mayoritaria."], ["«en quien todos pecaron»", "no", "Lo que traen las versiones que siguen a la Vulgata. Traslada al castellano una decisión tomada en latín, con una gramática que el castellano no comparte: aquí el pronombre no tiene género que lo restrinja."], ["«por cuanto todos pecaron»", "ok", "Una solución intermedia, frecuente en versiones antiguas en castellano: mantiene el valor causal sin cerrar del todo la puerta."]]}, E={"ok": ["#3f6b46", "Disponible"], "no": ["#8f3a3f", "Excluido"], "mal": ["#8f3a3f", "Insostenible"], "gana": ["#5a4a86", "La que se impuso"]};
+  var vs=document.getElementById('cverse'), cs=document.getElementById('ccands');
+  function lang(id){
+    var d=L.filter(function(x){return x[0]===id;})[0]; if(!d) return;
+    document.querySelectorAll('.conc .langs button').forEach(function(b){b.classList.toggle('on',b.dataset.l===id);});
+    vs.innerHTML='<div class="vt">'+d[3]+'</div><div class="vn">'+d[4]+'</div>';
+    cs.innerHTML=C[id].map(function(c){
+      return '<div class="cd" style="border-left-color:'+E[c[1]][0]+'"><div class="ch">'+
+        '<span class="cn">'+c[0]+'</span><span class="cs" style="background:'+E[c[1]][0]+'">'+
+        E[c[1]][1]+'</span></div><p>'+c[2]+'</p></div>';
+    }).join('');
+  }
+  document.querySelectorAll('.conc .langs button').forEach(function(b){
+    b.addEventListener('click',function(){lang(b.dataset.l);});
+  });
+  document.querySelectorAll('.conc .tabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.conc .tabs button').forEach(function(x){x.classList.toggle('on',x===b);});
+      document.querySelectorAll('.conc .pane').forEach(function(p){p.classList.toggle('on',p.dataset.p===b.dataset.t);});
+    });
+  });
+  lang('gr');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4a2f3a">↑ <a href="serie-pecado.html" style="color:#4a2f3a">Serie: La invención del pecado</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="pecado-1.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#4a2f3a">Adán no es la causa</span></a>
+    <a class="epnav-btn next disabled" href="#"><span class="lbl">Próxima entrega</span><span class="ttl">El niño y el agua</span></a>
+  </div>
+</nav>
+</body></html>

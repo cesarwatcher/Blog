@@ -1,0 +1,404 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adán no es la causa · Estratos</title>
+<meta name="description" content="La palabra «pecado» no aparece en Génesis 3 y su primera ocurrencia en el libro es Génesis 4:7, sobre Caín. Ezequiel 18 niega expresamente la herencia de la culpa. Y dos apocalipsis judíos casi contemporáneos llegan a conclusiones opuestas sobre Adán.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4a2f3a;--mid:#7a5364;--pale:#8a5a68;
+    --rel:#8a4a2a;--exc:#4a2f3a;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  .glifos .tr{font-style:italic;font-size:.78em;color:#8a7a5e}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(122,83,100,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#7a6852}
+  figcaption .cr a{color:#6d5a45;text-decoration:underline;text-decoration-color:rgba(122,106,69,.45)}
+  figcaption .cr a:hover{text-decoration-color:#7a6a45}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c0aeb4,#a8808e 42%,#7a5364 70%,#4a2f3a)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d3d6,#cdbcc2);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Entrega I &middot; La invenci&oacute;n del pecado</span>
+  <h1>Ad&aacute;n <span class="em">no es la causa</span></h1>
+  <div class="glifos"><span>חַטָּאת</span> <span class="tr">ḥaṭṭāʾt</span><span class="sep">&#10022;</span><span>יצר הרע</span> <span class="tr">yeṣer ha-raʿ</span><span class="sep">&#10022;</span><span class="tr">o tu quid fecisti Adam?</span></div>
+  <p class="stand">La palabra «pecado» no está en Génesis 3. Tampoco la palabra «caída». Y después del jardín, nadie en la Biblia hebrea vuelve sobre Adán para explicar el mal.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Llamamos a ese pasaje «la Caída». Es un nombre tan establecido que parece
+descriptivo: ocurre algo, algo se rompe, y de ahí para abajo. Pero el nombre no está en el texto, y
+lo que el texto sí tiene es más raro y más interesante de lo que el nombre permite ver.</p>
+
+<p>La entrega anterior de esta etapa demostró que
+<a href="diablo-4.html">la serpiente del Edén no era Satán</a>, y que hicieron falta siete siglos
+para que alguien lo dijera. Esta serie demuestra la otra mitad: que <strong>la caída tampoco era el
+pecado original</strong>, y que para llegar de una a otro hicieron falta cuatro siglos, una práctica
+bautismal, un debate judío que ya estaba abierto y el género gramatical de una palabra latina.</p>
+
+<div class="secnum">01</div><h2>Cuatro ausencias</h2>
+
+<p>Conviene empezar por lo que no hay, porque es sorprendentemente mucho.</p>
+
+<p><strong>No aparece la palabra «pecado».</strong> La raíz hebrea <em>ḥṭʾ</em>, que es la del
+vocabulario del pecado, no está en Génesis 3. Su primera aparición en el libro llega un capítulo
+más tarde, en <strong>Génesis 4:7</strong>, y no es sobre Adán: es Yahvé hablando a Caín, «el pecado
+está agazapado a la puerta». Es un dato de concordancia, no una interpretación. El relato del jardín
+no clasifica lo ocurrido con las palabras que el hebreo tiene para eso.</p>
+
+<p><strong>No aparece «caída».</strong> No hay en Génesis 3 ningún término hebreo que signifique caer
+aplicado al episodio. El <em>lapsus</em> latino y la <em>ptōsis</em> griega son categorías de la
+recepción posterior. Y el detalle que lo remata: «la Caída» como nombre del pasaje es un uso
+<strong>cristiano</strong>. La tradición judía no llama así a ese capítulo.</p>
+
+<p><strong>Adán no es maldecido.</strong> Las maldiciones explícitas del texto, con la raíz que
+significa maldecir, recaen sobre dos destinatarios: la serpiente, en 3:14, y el suelo, la
+<em>ʾadamah</em>, en 3:17. El hombre y la mujer reciben sentencias &mdash;dolor, trabajo, una
+relación torcida&mdash;, pero el texto no los declara malditos. La diferencia importa: una sentencia
+describe consecuencias, una maldición cambia el estatuto.</p>
+
+<p><strong>Y la inmortalidad previa no se afirma.</strong> Que Adán y Eva fueran inmortales antes de
+comer es una inferencia, no algo que el texto diga; de hecho 3:22 &mdash;«no vaya a tomar también del
+árbol de la vida y viva para siempre»&mdash; se lee más naturalmente como que <em>todavía no</em>
+habían accedido a la inmortalidad. Es la lectura de James Barr, muy influyente y no unánime.</p>
+
+<figure>
+  <img src="caida-sixtina.jpg" alt="La ca&iacute;da y la expulsi&oacute;n del para&iacute;so, de Miguel &Aacute;ngel, Capilla Sixtina">
+  <figcaption><em>La ca&iacute;da y la expulsi&oacute;n del Jard&iacute;n del Ed&eacute;n</em>, de Miguel &Aacute;ngel, 1509-1510, en la b&oacute;veda de la Capilla Sixtina. Cuando Miguel &Aacute;ngel pinta esta escena, el nombre &laquo;la Ca&iacute;da&raquo; lleva mil cien a&ntilde;os siendo la manera normal de llamarla. El texto hebreo no la llama de ninguna manera. <span class="cr">Miguel Ángel, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">02</div><h2>¿Hay entonces una caída?</h2>
+
+<p>La pregunta es legítima y tiene tres respuestas vivas en la investigación.</p>
+
+<p>Una dice que <strong>no hay caída en absoluto</strong>: el relato es etiológico, explica por qué se
+trabaja la tierra con esfuerzo, por qué se pare con dolor, por qué morimos y por qué estamos separados
+de los animales. Es la línea de Claus Westermann y de Barr. Otra sostiene que <strong>sí hay una
+pérdida narrativa real</strong> &mdash;se pierde el acceso al jardín y al árbol de la vida&mdash;
+aunque no una corrupción de la naturaleza. Y la tercera lee <strong>una caída en germen</strong> que
+los capítulos 6 al 11 desarrollan, con el diluvio y Babel, como una historia de deterioro progresivo:
+es la lectura de quienes toman Génesis 1-11 como una unidad redaccional.</p>
+
+<p>Las tres son defendibles y la discusión sigue. Lo que no está en discusión es esto: <strong>nada en
+Génesis 3 habla de transmisión hereditaria de la culpa ni de corrupción de la naturaleza
+humana.</strong> Ninguna de las tres posiciones lo encuentra ahí.</p>
+
+<div class="meter">
+  <div class="q">Que Génesis 3 no habla de transmisión hereditaria de la culpa ni de corrupción de la naturaleza humana.</div>
+  <div class="bar"><span class="pin" style="left:94%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Es el punto en que coinciden las tres lecturas que se discuten sobre el pasaje, incluida la que sí ve en él una pérdida real. Ninguna encuentra ahí una herencia.</div>
+</div>
+
+<div class="secnum">03</div><h2>Y nadie vuelve sobre Adán</h2>
+
+<p>Aquí está el dato que suele desconcertar más, y es puramente estadístico. Después de la genealogía
+de Génesis 5 y de la lista de 1 Crónicas 1, <strong>el Adán del jardín no reaparece en toda la Biblia
+hebrea como explicación del mal humano.</strong> Ni una vez. No hay un solo texto del canon hebreo que
+vuelva sobre el fruto prohibido para decir «de ahí viene lo que nos pasa».</p>
+
+<p>Hay una excepción aparente, Oseas 6:7, donde aparece <em>kə-ʾādām</em>, que puede traducirse «como
+Adán», «como hombres» o incluso «en Adán» tomándolo por un topónimo. El texto es oscuro, y un
+versículo oscuro no sostiene una doctrina.</p>
+
+<p>Y en cambio sí hay lo contrario, dicho con una claridad que no deja lugar a dudas. <strong>Ezequiel
+18</strong> es un capítulo entero dedicado a refutar un proverbio que el propio profeta cita para
+negarlo: «los padres comieron uvas verdes y los hijos tienen la dentera».</p>
+
+<blockquote>El alma que peca, ésa morirá. El hijo no cargará con la iniquidad del padre, ni el padre
+cargará con la iniquidad del hijo: la justicia del justo será sobre él, y la maldad del malvado será
+sobre él.<cite>Ezequiel 18:20</cite></blockquote>
+
+<p>Deuteronomio 24:16 formula el mismo principio en clave jurídica: «cada uno morirá por su propio
+pecado». Dos textos, dos géneros, un principio: <strong>la culpa no se hereda.</strong></p>
+
+<div class="aviso">
+  <div class="t">Una simplificación que conviene no cometer</div>
+  <p>Presentar Ezequiel 18 como «la» postura del judaísmo bíblico sería tan inexacto como lo contrario. La Biblia hebrea <strong>no es unívoca</strong> en este punto: Éxodo 20:5 y 34:7, y Deuteronomio 5:9, afirman que Dios «visita la iniquidad de los padres sobre los hijos hasta la tercera y cuarta generación». Hay una tensión interna real, y Ezequiel 18 &mdash;probablemente exílico&mdash; y Deuteronomio 24:16 representan un polo frente a la fórmula de la culpa transgeneracional. Lo defendible es que la Biblia hebrea contiene una corriente explícita, desarrollada y nada marginal contra la herencia de la culpa. No que sea su única voz.</p>
+</div>
+
+<div class="secnum">04</div><h2>La inclinación que Dios creó</h2>
+
+<p>Si el mal humano no viene de una herencia, ¿de dónde viene? El judaísmo tenía una respuesta
+elaborada, y no se parece en nada a la que vendría después.</p>
+
+<p>Es el <em>yeṣer ha-raʿ</em>, la «inclinación mala», y su base está en el propio Génesis: en 6:5,
+«todo <em>yeṣer</em> de los pensamientos de su corazón era sólo mal», y en 8:21, «el <em>yeṣer</em> del
+corazón del hombre es malo desde su juventud». Pero el detalle decisivo es cómo funciona la doctrina, y
+son tres rasgos que conviene tener juntos.</p>
+
+<p>Primero: el <em>yeṣer</em> malo <strong>está emparejado</strong> con un <em>yeṣer ha-tov</em>, una
+inclinación buena. No es una tara única, es una tensión. Segundo: <strong>forma parte de la creación de
+Dios</strong>, no es consecuencia de ningún delito ancestral. Y tercero, que es el que lo explica todo:
+es <strong>la condición del mérito</strong>. Sin inclinación al mal no habría elección real, y sin
+elección real no habría nada que recompensar.</p>
+
+<p>Puesto al lado de la <em>concupiscentia</em> agustiniana, el contraste es estructural en los tres
+puntos. El <em>yeṣer</em> es creado y no heredado de un pecado; es dual y no unívocamente corruptor; y
+lo que pide no es un sacramento sino disciplina, estudio y arrepentimiento.</p>
+
+<p>El texto clásico está en el <strong>Eclesiástico</strong>, hacia el 180 a.C., y es de una claridad
+casi provocadora: «no digas: por causa del Señor me he apartado»; «no digas: él me ha hecho errar»; y
+en 15:14, «lo dejó en poder de su propia inclinación». La palabra griega que ahí traduce
+<em>yeṣer</em> es <em>diaboulion</em>, «deliberación», «designio». Es decir: en este texto, el
+<em>yeṣer</em> <strong>es la capacidad de elegir</strong>, no un defecto de fábrica.</p>
+
+<p>Con una cautela obligatoria: el mismo libro contiene, en 25:24, «de la mujer tuvo comienzo el pecado,
+y por ella morimos todos». Se cita a menudo como prueba de una doctrina de pecado heredado, y no puede
+usarse así: su interpretación está en disputa &mdash;puede ser una referencia a Eva o una sentencia
+misógina genérica sobre la mujer mala del contexto&mdash;, y leerlo como doctrina obligaría a poner al
+Eclesiástico en contradicción consigo mismo diez capítulos antes.</p>
+
+<div class="secnum">05</div><h2>Dos apocalipsis, dos respuestas opuestas</h2>
+
+<p>Y ahora la parte mejor. Después de la destrucción del Templo, a finales del siglo I, dos apocalipsis
+judíos casi contemporáneos se hacen la misma pregunta sobre Adán y llegan a conclusiones contrarias.</p>
+
+<p><strong>4 Esdras</strong> es el más oscuro de los dos, y a ratos suena desesperado. En 3:20-22
+lamenta que Dios no quitara a los hombres el <em>cor malignum</em>, el corazón malo, «para que tu ley
+diese fruto en ellos». Y en 7:118 pronuncia la frase que resume el libro: <em>«Oh Adán, ¿qué has hecho?
+Porque, aunque fuiste tú quien pecó, la caída no fue tuya sola, sino también nuestra, de los que somos
+tus descendientes.»</em></p>
+
+<p>Es el texto judío antiguo que más se acerca a algo parecido al pecado original. Y contiene, en el
+mismo pasaje, el detalle que lo separa de él por completo: <strong>4 Esdras 3:21 dice que Adán
+<em>ya estaba cargado</em> con el corazón malo cuando transgredió.</strong> El <em>cor malignum</em>
+precede a su pecado; no se deriva de él. Lo que Adán transmite es el efecto &mdash;la muerte, la
+«enfermedad», la debilidad&mdash;, no la creación de la tara. Es exactamente la lógica inversa a la
+agustiniana.</p>
+
+<p><strong>2 Baruc</strong>, escrito en el mismo ambiente y sobre el mismo problema, responde al
+contrario. Concede el efecto sin discutirlo: Adán «trajo la muerte prematura sobre todos». Y niega la
+causalidad moral con una frase que merece leerse dos veces:</p>
+
+<blockquote>Adán no es, pues, la causa, sino sólo de su propia alma; sino que cada uno de nosotros ha
+sido el Adán de su propia alma.<cite>2 Baruc 54:19</cite></blockquote>
+
+<p>Consecuencia física heredada por un lado, culpa personal no heredada por el otro, y la distinción
+hecha con precisión de cirujano.</p>
+
+<div class="wall">
+  <div class="post max">
+    <div class="who">4 Esdras</div>
+    <div class="what">finales del s. I d.C. · el polo adánico</div>
+    <p>«Oh Adán, ¿qué has hecho? Porque, aunque fuiste tú quien pecó, la caída no fue tuya sola, sino también nuestra.» Hereda el <em>cor malignum</em> y la «enfermedad» permanente. Pocos se salvan.</p>
+  </div>
+  <div class="post min">
+    <div class="who">2 Baruc</div>
+    <div class="what">finales del s. I d.C. · el polo contrario</div>
+    <p>«Adán no es la causa… cada uno de nosotros ha sido el Adán de su propia alma.» Hereda la muerte prematura, sí; la culpa, no. Se salvan los que guardan la Ley.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">El <em>yeṣer</em> rabínico</div>
+    <div class="what">la vía que quedó como normativa</div>
+    <p>La inclinación mala está creada por Dios, emparejada con la buena, y es la condición del mérito. No se hereda de un delito: se combate con disciplina, Torá y arrepentimiento.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Eclesiástico 15</div>
+    <div class="what">c. 180 a.C. · el anti-determinismo</div>
+    <p>«No digas: él me ha hecho errar.» Lo dejó en poder de su propia inclinación, y delante del hombre están la vida y la muerte. Aquí el <em>yeṣer</em> es la capacidad de elegir.</p>
+  </div>
+</div>
+
+<figure>
+  <img src="expulsion-masaccio.jpg" alt="La expulsi&oacute;n del para&iacute;so, de Masaccio, Capilla Brancacci">
+  <figcaption><em>La expulsi&oacute;n del Jard&iacute;n del Ed&eacute;n</em>, de Masaccio, 1426-1427, en la Capilla Brancacci de Florencia. Ad&aacute;n se cubre la cara y Eva grita: el sufrimiento como consecuencia inmediata y personal. Es una lectura del episodio, y una de las m&aacute;s poderosas que se han pintado. <span class="cr">Masaccio; fotografía de Paolo Villa, <a href="https://creativecommons.org/licenses/by/4.0/deed.es" target="_blank" rel="noopener">CC BY 4.0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">06</div><h2>Lo que se puede decir y lo que no</h2>
+
+<p>De aquí salen tres formulaciones, y dos de ellas son falsas.</p>
+
+<p>Es <strong>falso</strong> decir que el judaísmo no tenía nada parecido: 4 Esdras existe, y dice lo
+que dice. Es <strong>falso</strong> decir que Pablo simplemente heredó la doctrina judía sobre Adán:
+no había <em>una</em> doctrina, había una discusión con posiciones incompatibles. Y lo que sí es
+defendible es esto: <strong>Pablo escribe dentro de un espacio de debate judío ya abierto sobre el
+alcance del acto de Adán, y lo que hace en Romanos 5 es intervenir en ese debate</strong> &mdash;ni
+inventar ni repetir.</p>
+
+<p>Queda por precisar qué es exactamente lo que no hay. La doctrina occidental del pecado original
+tiene cuatro elementos: culpa imputada al recién nacido; transmisión por generación biológica;
+privación de la visión de Dios como pena de esa culpa; y necesidad de un rito sacramental para
+remitirla. <strong>No hay ninguna fuente judía antigua donde los cuatro aparezcan juntos.</strong> Lo
+que hay son efectos heredados de Adán en los dos apocalipsis, y una inclinación creada &mdash;no
+heredada de un delito&mdash; en la línea rabínica.</p>
+
+<div class="meter">
+  <div class="q">Que existe una doctrina de pecado heredado, en el sentido occidental, en alguna fuente judía antigua.</div>
+  <div class="bar"><span class="pin" style="left:11%" data-l="No hay tal cosa"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Ninguna fuente reúne los cuatro elementos que definen la doctrina. Lo que hay son efectos heredados en 4 Esdras y 2 Baruc, y una inclinación creada en la línea rabínica: dos cosas distintas de la tercera.</div>
+</div>
+
+<p>Y un dato de recepción que cierra el capítulo con una ironía perfecta. El judaísmo rabínico
+normativo &mdash;Mishná, Talmudes, midrashim&mdash; nunca desarrolló una doctrina de pecado heredado:
+se quedó con el <em>yeṣer</em>, la libertad de elección y el arrepentimiento. Los dos apocalipsis
+quedaron fuera del canon rabínico. <strong>La corriente judía más adánica sobrevivió porque la
+copiaron los cristianos.</strong> 4 Esdras nos ha llegado en latín, siríaco y etíope; el original
+hebreo o arameo se perdió.</p>
+
+<p>Así que el material estaba disponible, disperso y sin decidir. Lo que viene ahora es cómo se
+decidió, y el sitio donde se decidió es más pequeño de lo que nadie esperaría: dos palabras de una
+carta de Pablo, y la gramática de la lengua a la que se tradujeron.</p>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <strong>dato firme</strong> que la raíz hebrea <em>ḥṭʾ</em> no aparece en Génesis 3 y que su primera ocurrencia en el libro es <span class="k">Génesis 4:7</span>, a propósito de Caín; que no hay término de caída aplicado al episodio y que «la Caída» es un nombre de la recepción cristiana; que las maldiciones explícitas recaen sobre la serpiente y el suelo, no sobre Adán; y que nada en el capítulo habla de herencia de culpa. Lo es que el Adán del jardín no reaparece en la Biblia hebrea como explicación del mal, y que <span class="k">Ezequiel 18</span> y Deuteronomio 24:16 formulan expresamente el principio de no transmisión. Lo son el contenido y la estructura del <em>yeṣer ha-raʿ</em>, el anti-determinismo de Eclesiástico 15:11-20, y las citas de <span class="k">4 Esdras 3:20-22 y 7:118</span> y <span class="k">2 Baruc 54:15 y 54:19</span>. Y lo es el dato de recepción: los dos apocalipsis quedaron fuera del canon rabínico y se conservaron por transmisión cristiana.</p>
+  <p><span class="k">Debate abierto:</span> si hay o no una «caída» en el relato, con tres posiciones vivas &mdash;etiológica, de pérdida narrativa, y de caída en germen desarrollada en Génesis 6-11&mdash;. La inmortalidad previa de Adán y Eva, que Barr lee como no afirmada por el texto, en una posición influyente y no unánime. El sentido de <em>kə-ʾādām</em> en Oseas 6:7, que es oscuro. La interpretación de Eclesiástico 25:24, que no se usa aquí como prueba. Si hay determinismo real en 4 Esdras, donde la posición dominante es que el texto mantiene deliberadamente la tensión. Y la tesis reciente de Umbarger, que propone la <em>sarx</em> paulina como cognado teológico del <em>yeṣer</em>: publicada y revisada, pero minoritaria. Las referencias rabínicas concretas sobre el <em>yeṣer</em> se citan aquí en bloque y no versículo a versículo, porque no se han cotejado una por una en la edición Vilna.</p>
+  <p>Nada de esto dice si el relato del jardín es verdadero, ni si una doctrina construida siglos después es legítima como doctrina. Son preguntas distintas y este artículo no entra en ellas. Lo que hace es separar dos capas: lo que el texto hebreo dice, y lo que cuatro siglos de lectura le fueron añadiendo. Y conviene notar algo que suele perderse: la discusión judía que aquí se describe no era tibia ni vaga. Era una discusión seria sobre el mal, con posiciones incompatibles defendidas con argumentos. Describirla como un vacío que el cristianismo vino a llenar sería tan injusto como inexacto.</p>
+</div>
+
+</div></div>
+
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4a2f3a">↑ <a href="serie-pecado.html" style="color:#4a2f3a">Serie: La invención del pecado</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev disabled" href="#"><span class="lbl">← Anterior</span><span class="ttl">Inicio de la serie</span></a>
+    <a class="epnav-btn next" href="pecado-2.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#4a2f3a">Cuatro lenguas, un pronombre</span></a>
+  </div>
+</nav>
+</body></html>

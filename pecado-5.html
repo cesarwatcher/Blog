@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El expediente de un condenado · Estratos</title>
+<meta name="description" content="Pelagio, Celestio y Juliano de Eclana no son la misma persona ni dijeron lo mismo. Cinco procedimientos entre 411 y 529, con la columna de lo que cada uno no decidió. Y Pelagio absuelto en Dióspolis por obispos orientales.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4a2f3a;--mid:#7a5364;--pale:#8a5a68;
+    --rel:#8a4a2a;--exc:#4a2f3a;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  .glifos .tr{font-style:italic;font-size:.78em;color:#8a7a5e}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(122,83,100,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#7a6852}
+  figcaption .cr a{color:#6d5a45;text-decoration:underline;text-decoration-color:rgba(122,106,69,.45)}
+  figcaption .cr a:hover{text-decoration-color:#7a6a45}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c0aeb4,#a8808e 42%,#7a5364 70%,#4a2f3a)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d3d6,#cdbcc2);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .exp{max-width:960px;margin:3rem auto;background:rgba(242,234,215,.72);
+    border:1px solid rgba(180,150,100,.5);border-radius:14px;padding:1.5rem 1.4rem 1.6rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .exp .bk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);margin-bottom:.4rem}
+  .exp h2.bt{font-size:1.5rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .exp .bs{font-size:.98rem;color:#4a3f33;margin-bottom:1.3rem}
+  .exp .rows{display:grid;gap:.5rem;margin-bottom:1.2rem}
+  .exp .row{display:grid;grid-template-columns:92px 1fr 150px;gap:.7rem;align-items:center;
+    text-align:left;background:#efe6d2;border:1px solid rgba(150,130,95,.45);
+    border-left:4px solid var(--mid);border-radius:9px;padding:.7rem .9rem;cursor:pointer;
+    transition:transform .18s,box-shadow .18s,background .2s}
+  .exp .row:hover{transform:translateX(3px);box-shadow:0 5px 14px var(--shadow)}
+  .exp .row.on{background:#e3d6da;border-left-color:var(--deep)}
+  .exp .row .yr{font-family:"Trebuchet MS",sans-serif;font-size:.9rem;font-weight:700;color:var(--deep)}
+  .exp .row .sd{font-size:1.02rem;color:#2f2a1c}
+  .exp .row .sd span{display:block;font-family:"Trebuchet MS",sans-serif;font-size:.62rem;
+    color:#8a7a5e;margin-top:.15rem}
+  .exp .row .rr{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;color:#5a4d38;text-align:right}
+  .exp .row .rr b{display:block;font-size:.72rem;color:var(--deep)}
+  .exp .det{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+  @media(max-width:700px){.exp .det{grid-template-columns:1fr}
+    .exp .row{grid-template-columns:70px 1fr}.exp .row .rr{display:none}}
+  .exp .box{border-radius:12px;padding:1.1rem 1.25rem}
+  .exp .box.si{background:#33383f;border-left:3px solid #7a9a72}
+  .exp .box.no{background:#33383f;border-left:3px solid #c9564e}
+  .exp .box .bl{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;margin-bottom:.45rem}
+  .exp .box.si .bl{color:#9dc094}
+  .exp .box.no .bl{color:#e08a82}
+  .exp .box p{font-size:.96rem;color:#d6d2c8;margin:0;line-height:1.64}
+  .exp .box p b{font-weight:400;color:#f0d79c}
+  .exp .seis{margin-top:1.3rem;background:#efe6d2;border:1px solid rgba(150,130,95,.45);
+    border-left:4px solid #8a6220;border-radius:10px;padding:1rem 1.15rem}
+  .exp .seis .sl{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:#8a6220;margin-bottom:.6rem}
+  .exp .seis ol{margin:0 0 .7rem 1.2rem;padding:0}
+  .exp .seis li{font-size:.93rem;color:#4a3f33;margin-bottom:.3rem}
+  .exp .seis .sn{font-size:.94rem;color:#5a4d38;font-style:italic;margin:0}
+  @media(max-width:600px){.exp{padding:1.2rem 1rem 1.3rem}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Entrega V &middot; La invenci&oacute;n del pecado</span>
+  <h1>El expediente de <span class="em">un condenado</span></h1>
+  <div class="glifos"><span class="tr">posse non peccare</span><span class="sep">&#10022;</span><span class="tr">Libellus fidei</span></div>
+  <p class="stand">Casi todo lo que sabemos de Pelagio nos llega en las comillas de quien lo estaba refutando. Y bajo un solo rótulo hay tres hombres que dijeron cosas distintas.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Todo el mundo sabe qué enseñaba Pelagio. Que el hombre puede salvarse por sus propias
+fuerzas, que la gracia no hace falta, que el ser humano nace limpio y basta con esforzarse. Es el
+manual del pelagianismo, se enseña así y se repite así.</p>
+
+<p>El problema es que <strong>casi nada de eso está en Pelagio</strong>, y que la razón por la que
+sabemos tan poco de él es la misma por la que lo sabemos todo de Agustín: uno ganó y el otro no.</p>
+
+<div class="secnum">01</div><h2>El problema de las fuentes, antes que nada</h2>
+
+<p>Hay que empezar por aquí, porque condiciona todo lo demás. <strong>Casi todo lo que se atribuye a
+Pelagio nos llega a través de sus adversarios.</strong></p>
+
+<p>Sus obras mayores &mdash;<em>De natura</em>, <em>De libero arbitrio</em>, <em>De fide
+Trinitatis</em>&mdash; <strong>sobreviven sólo en fragmentos citados por Agustín para refutarlos</strong>.
+El <em>De natura</em> lo conocemos porque Agustín lo cita en su propio <em>De natura et gratia</em>. Es
+decir: leemos a Pelagio en las comillas de quien lo estaba desmontando.</p>
+
+<p>Lo que sí tenemos en extensión es su <strong>comentario a las trece epístolas paulinas</strong>, y
+tiene una historia que parece inventada: se transmitió durante siglos <strong>bajo el nombre de
+Jerónimo</strong>, y no fue restituido a Pelagio hasta el trabajo de H. Zimmer, con edición crítica de
+Alexander Souter en los años veinte. Y tenemos su <em>Libellus fidei</em>, la profesión de fe que
+dirigió al papa Inocencio.</p>
+
+<p>La consecuencia metodológica es de primer orden y hay que enunciarla sin rodeos: <strong>«pelagianismo»
+es en buena medida una construcción doxográfica de sus adversarios.</strong> Cualquier cita de «lo que
+Pelagio enseñaba» debería indicar de dónde procede.</p>
+
+<div class="secnum">02</div><h2>Y no son la misma persona</h2>
+
+<p>Segundo problema, y explica gran parte del enredo: bajo el rótulo «pelagianismo» hay <strong>tres
+hombres distintos</strong> que dijeron cosas distintas.</p>
+
+<p><strong>Pelagio</strong>, hacia 354-418, asceta britano o irlandés activo en Roma. Su preocupación
+central es <em>moral y pastoral</em>: la responsabilidad, contra el fatalismo y la resignación. Su tesis
+más citada es <em>posse non peccare</em>, que el ser humano <em>puede</em> no pecar si quiere. Y
+&mdash;esto es lo importante&mdash; <strong>no niega la gracia</strong>.</p>
+
+<p><strong>Celestio</strong>, laico, abogado y monje, seguidor suyo y muchísimo más combativo y
+sistemático. Es <em>su</em> candidatura al diaconado en Cartago la que desencadena el proceso, y son
+<em>sus</em> proposiciones las que se condenan. Dicho como se debe decir:
+<strong>buena parte de lo que llamamos pelagianismo es celestianismo.</strong></p>
+
+<p><strong>Juliano de Eclana</strong>, obispo depuesto en 418, el intelectual del grupo y adversario
+directo de Agustín durante once años. Sabía griego, y fue él quien presionó a Agustín sobre el texto de
+Romanos 5:12, como vimos dos entregas atrás. Su acusación central era que Agustín, al hacer del mal algo
+transmitido con la naturaleza, <strong>recaía en el maniqueísmo de su juventud</strong>. Y muchas de las
+tesis más duras que se atribuyen al pelagianismo son de él, no de Pelagio.</p>
+
+<div class="exp">
+  <div class="bk">Pieza interactiva &middot; el expediente procesal</div>
+  <h2 class="bt">Cinco procedimientos, y lo que ninguno decidi&oacute;</h2>
+  <p class="bs">De 411 a 529. En cada uno, a qui&eacute;n se juzga y qu&eacute; se decide &mdash;pero
+  sobre todo <b>qu&eacute; no se decide</b>, que es la columna que suele faltar y donde est&aacute;n las
+  sorpresas. Pulsa cada actuaci&oacute;n.</p>
+  <div class="rows"><button class="row" data-id="c411"><span class="yr">411-412</span><span class="sd">Cartago<span>Sínodo local</span></span><span class="rr"><b>Celestio</b>procesado</span></button><button class="row" data-id="d415"><span class="yr">415</span><span class="sd">Dióspolis (Lida)<span>Sínodo oriental</span></span><span class="rr"><b>Pelagio</b>procesado</span></button><button class="row" data-id="c418"><span class="yr">418</span><span class="sd">Cartago<span>Concilio · el decisivo</span></span><span class="rr"><b>el pelagianismo</b>procesado</span></button><button class="row" data-id="e431"><span class="yr">431</span><span class="sd">Éfeso<span>Concilio cristológico</span></span><span class="rr"><b>los depuestos</b>procesado</span></button><button class="row" data-id="o529"><span class="yr">529</span><span class="sd">Orange<span>Sínodo galo</span></span><span class="rr"><b>el semipelagianismo</b>procesado</span></button></div>
+  <div class="det">
+    <div class="box si" id="expsi"></div>
+    <div class="box no" id="expno"></div>
+  </div>
+  <div class="seis">
+    <div class="sl">Las seis proposiciones condenadas en Cartago &mdash; y son de Celestio</div>
+    <ol><li>Adán habría muerto igualmente aun sin pecar.</li><li>El pecado de Adán dañó sólo a él, no al género humano.</li><li>Los recién nacidos están en el mismo estado que Adán antes de la caída.</li><li>Ni muere todo el género humano por el pecado de Adán ni resucita todo por la resurrección de Cristo.</li><li>La Ley conduce al Reino igual que el Evangelio.</li><li>Hubo hombres sin pecado antes de la venida de Cristo.</li></ol>
+    <p class="sn">L&eacute;alas otra vez buscando una negaci&oacute;n de la gracia. No hay ninguna.
+    Lo que se condena es una antropolog&iacute;a.</p>
+  </div>
+</div>
+
+<div class="secnum">03</div><h2>Lo que Pelagio sostuvo de verdad</h2>
+
+<p>Con el expediente delante, se puede reconstruir su posición sin pasar por el filtro de la polémica.</p>
+
+<p><strong>Afirmó la gracia</strong>, y la entendía en tres sentidos: la creación misma del libre
+albedrío; la revelación divina, es decir la Ley y el ejemplo y la enseñanza de Cristo; y el perdón de
+los pecados en el bautismo. Se puede discutir si eso es <em>suficiente</em> gracia &mdash;Agustín pensaba
+que no, y ahí está el debate real&mdash;, pero decir que negaba la gracia es simplemente inexacto.</p>
+
+<p><strong>Rechazó la transmisión del pecado por generación:</strong> para él el mal se propaga por
+ejemplo y costumbre, no por herencia física. En su comentario a Romanos 6 rechaza expresamente la
+lectura maniquea, que el pecado esté mezclado en la naturaleza del cuerpo. Su categoría alternativa a la
+propagación es la del ejemplo.</p>
+
+<p>Y sobre los niños, el dato que casi siempre se omite: los consideraba inocentes, sí, pero
+<strong>admitía el bautismo de niños</strong>. Le daba otro sentido, y concedía a los no bautizados la
+«vida eterna» aunque no el «Reino de Dios», razonando que Dios no condenaría a quien no es personalmente
+culpable. No estaba negando una práctica: estaba proponiendo otra explicación de la misma práctica.</p>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">Pelagio</div>
+    <div class="what">c. 354 - c. 418 · asceta</div>
+    <p>Preocupación moral y pastoral: la responsabilidad, contra el fatalismo. <em>Posse non peccare</em>. Afirmó la gracia en tres sentidos y admitió el bautismo de niños, dándole otro significado.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Celestio</div>
+    <div class="what">el sistematizador combativo</div>
+    <p>Su candidatura al diaconado desencadena el proceso y sus seis proposiciones son las condenadas. Buena parte de lo que llamamos pelagianismo es, en rigor, celestianismo.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Juliano de Eclana</div>
+    <div class="what">c. 380 - c. 455 · el intelectual</div>
+    <p>Once años de polémica directa con Agustín. Sabía griego y le presionó sobre Romanos 5:12. Lo acusó de recaer en el maniqueísmo. Muchas de las tesis más duras del «pelagianismo» son suyas.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Y lo que tenemos de ellos</div>
+    <div class="what">el problema de fondo</div>
+    <p>Las obras mayores de Pelagio sólo sobreviven en fragmentos citados por Agustín para refutarlas. Su comentario a Pablo circuló durante siglos bajo el nombre de Jerónimo.</p>
+  </div>
+</div>
+
+<div class="secnum">04</div><h2>La tesis revisionista, y su recepción</h2>
+
+<p>En 2018, Ali Bonner publicó un libro que ha desplazado bastante la conversación. Su tesis es que el
+«pelagianismo» como herejía coherente es en buena medida <strong>una ficción polémica construida</strong>,
+y que las posiciones de Pelagio estaban dentro de la corriente ascética cristiana corriente de su
+tiempo. Lo argumenta examinando la difusión manuscrita y el vocabulario del ascetismo, para mostrar que
+las ideas atribuidas a un «movimiento pelagiano» eran lugares comunes.</p>
+
+<p>Y aquí hay que hacer lo que este blog hace siempre con una tesis nueva y atractiva: decir cómo la
+recibió el campo. Generó una discusión considerable &mdash;trece reseñas en revistas de primera
+línea&mdash; y <strong>no todos los reseñadores quedaron convencidos</strong>. Así que la formulación
+prudente es: Bonner ha argumentado que el pelagianismo es en gran medida una construcción polémica; su
+tesis es influyente <em>y discutida</em>. No es un nuevo consenso, y presentarla como tal sería exactamente
+el vicio contra el que ella misma escribe.</p>
+
+<div class="meter">
+  <div class="q">Que las seis proposiciones condenadas en Cartago son de Celestio y no de Pelagio, y que ninguna de ellas niega la gracia.</div>
+  <div class="bar"><span class="pin" style="left:87%" data-l="Bien establecido"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Es un dato de actas: fue el diácono Paulino de Milán quien las presentó, en el proceso abierto por la candidatura de Celestio. Y las seis se pueden leer una por una.</div>
+</div>
+
+<div class="meter">
+  <div class="q">Que el «pelagianismo» como herejía coherente es en gran medida una construcción polémica.</div>
+  <div class="bar"><span class="pin" style="left:52%" data-l="Tesis influyente y discutida"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Es la propuesta de Ali Bonner en 2018, con trece reseñas en revistas de primera línea y sin unanimidad entre ellas. Ha desplazado la conversación; no la ha cerrado.</div>
+</div>
+
+<div class="secnum">05</div><h2>Y no hay retrato</h2>
+
+<p>Al reunir las imágenes de esta serie apareció un detalle que no era el que buscábamos. De Agustín
+existe el fresco de Letrán, del siglo VI, y hay después mil años de retratos: Botticelli, Carpaccio,
+manuscritos iluminados, altares enteros. <strong>De Pelagio no existe ninguna imagen.</strong> Ni de
+Celestio, ni de Juliano de Eclana.</p>
+
+<p>No es un hueco en el archivo: es el archivo funcionando como funciona siempre. No se pintan retratos
+de los condenados, no se copian sus libros, y cuando alguien los copia &mdash;como ocurrió con el
+comentario a Pablo&mdash; lo hace bajo otro nombre. Lo que sabemos de esta discusión lo sabemos porque el
+lado que ganó citó al que perdió para refutarlo, y esa es una condición de la evidencia, no una
+casualidad.</p>
+
+<p>Conviene tenerlo presente al leer cualquier historia de una herejía. La entrega siguiente, que cierra
+la serie, va precisamente sobre lo que ocurre cuando una distinción se construye mucho después de los
+hechos: el Oriente cristiano, Trento, y una antítesis que en gran medida es obra del siglo XX.</p>
+
+<figure>
+  <img src="cartago-ruinas.jpg" alt="Ruinas de Cartago">
+  <figcaption>Ruinas de Cartago. Aqu&iacute; se celebraron los dos concilios que decidieron el asunto: el s&iacute;nodo de 411-412 que conden&oacute; a Celestio, y el concilio de 418 que defini&oacute; el pecado original y el bautismo de los ni&ntilde;os. Es la &uacute;nica imagen de esta entrega, y no por falta de b&uacute;squeda: de los tres hombres de los que trata no se conserva ning&uacute;n retrato. <span class="cr">Ludmiła Pilecka, <a href="https://creativecommons.org/licenses/by/3.0/deed.es" target="_blank" rel="noopener">CC BY 3.0</a>.</span></figcaption>
+</figure>
+
+<div class="aviso">
+  <div class="t">Por qué esto no es una rehabilitación</div>
+  <p>Decir que Pelagio no negaba la gracia, que las proposiciones condenadas eran de Celestio y que fue absuelto en Dióspolis no equivale a darle la razón. Había un desacuerdo real y de fondo &mdash;sobre qué puede una voluntad humana y qué hace falta para que pueda&mdash;, y ese desacuerdo no se resuelve con precisiones de expediente. Lo que las precisiones hacen es distinto: permiten discutir el desacuerdo real en lugar de una caricatura. Y de paso recuerdan que la historia de las doctrinas la escriben, casi siempre, quienes ganaron las discusiones.</p>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <strong>dato firme</strong> que las obras mayores de Pelagio sobreviven sólo en fragmentos citados por sus adversarios, y que su comentario a las trece epístolas paulinas se transmitió bajo el nombre de Jerónimo hasta que H. Zimmer lo restituyó, con edición crítica de <span class="k">Alexander Souter</span> y traducciones posteriores de Theodore de Bruyn y Thomas Scheck. Lo es la distinción entre Pelagio, Celestio y Juliano de Eclana, y que las seis proposiciones condenadas en <span class="k">Cartago 411-412</span> las presentó Paulino de Milán en el proceso abierto por la candidatura de Celestio. Lo es que <span class="k">Pelagio fue absuelto en Dióspolis</span> en 415 por obispos orientales; que admitía el bautismo de niños con otro sentido; que Juliano sabía griego y presionó a Agustín sobre Romanos 5:12; y que Éfeso 431 actuó por vía disciplinar y no definió doctrinalmente el pecado original.</p>
+  <p><span class="k">Debate abierto:</span> la tesis de <span class="k">Ali Bonner</span> sobre el pelagianismo como construcción polémica, influyente y no aceptada por todos sus reseñadores. Y una cautela sobre nuestras propias fuentes: <strong>no hemos podido cotejar el texto latino literal</strong> del comentario de Pelagio a Romanos 5:12 &mdash;la fórmula <em>per exemplum vel per formam</em> que suele citarse&mdash; en las ediciones de Souter o de Bruyn, y por eso no se cita aquí entre comillas. Los cánones concretos de Cartago 418 y de Orange 529 se manejan por síntesis y no por el texto conciliar numerado, de modo que este artículo describe su contenido sin dar números de canon.</p>
+  <p>La historia de una herejía tiene un sesgo incorporado que no se puede eliminar, sólo declarar: los textos del perdedor se conservan mal o no se conservan, y los que se conservan pasan por las manos del ganador. Eso no invalida lo que sabemos, pero obliga a decir de dónde viene cada cosa. Este artículo no pretende decidir quién tenía razón sobre la gracia y la voluntad, que es una pregunta teológica y sigue abierta para quien quiera hacérsela. Pretende que la discusión, si se tiene, sea sobre lo que se dijo.</p>
+</div>
+
+</div></div>
+
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var D={"c411": {"a": "411-412", "s": "Cartago", "d": "Celestio, laico y candidato al diaconado, es condenado y se le niega la ordenación. El diácono Paulino de Milán presenta <b>seis proposiciones</b> y el sínodo las condena.", "n": "No condena a <b>Pelagio</b>: no estuvo presente y no fue juzgado aquí. Y —el dato que casi nunca se da— <b>ninguna de las seis proposiciones niega la gracia</b>. Lo que se condena es una antropología: la neutralidad del recién nacido y la no solidaridad en Adán."}, "d415": {"a": "415", "s": "Dióspolis (Lida)", "d": "Pelagio comparece, explica sus posiciones y es <b>absuelto</b>. Por obispos orientales, en Palestina.", "n": "No es un detalle menor ni un tecnicismo: significa que <b>el juicio no era obvio</b> para los obispos griegos que lo escucharon en persona. Quien presente el pelagianismo como una herejía evidente tiene que explicar esta absolución."}, "c418": {"a": "418", "s": "Cartago", "d": "Aquí se <b>define</b>. Ocho o nueve cánones: la muerte viene del pecado y no de una necesidad física; los niños <b>deben ser bautizados a causa del pecado original</b> y contraen de Adán un pecado real; la gracia no sólo perdona lo pasado, ayuda a no pecar; sin la gracia no se puede obrar el bien; y los santos confiesan sus pecados de verdad, no por humildad retórica.", "n": "Niega expresamente que exista un <b>«lugar intermedio o feliz»</b> para los niños no bautizados. Y no se queda en lo conciliar: siguen condenas papales de Zósimo y condenas <b>imperiales</b> de Honorio. El elemento coercitivo estatal forma parte del expediente y no conviene omitirlo."}, "e431": {"a": "431", "s": "Éfeso", "d": "Ratifica la deposición de los pelagianos y cierra el paso a su rehabilitación. Los cánones pertinentes son el <b>V y el VI</b>, y sirven para cortar el apoyo que Celestio y los suyos habían buscado en Oriente, cerca de Nestorio.", "n": "<b>No define doctrinalmente el pecado original.</b> Éfeso es un concilio convocado por la controversia cristológica, y sus cánones sobre este asunto son <b>disciplinares</b>: prohíben rehabilitar a los depuestos y sancionan a quien intente anular lo decidido. Se exagera rutinariamente su papel."}, "o529": {"a": "529", "s": "Orange", "d": "El objetivo ya no es Pelagio sino la corriente de Casiano y los monjes de Lérins: la idea de que el primer movimiento hacia Dios pueda partir del hombre. Afirma la <b>gracia preveniente</b> &mdash;incluso el inicio de la fe y el deseo del bautismo son obra de la gracia&mdash; y que la caída dañó a todo el género humano.", "n": "<b>Condena expresamente la predestinación al mal.</b> Es decir: Orange consagra el agustinismo sobre la gracia <b>recortando sus consecuencias más duras</b>. No es «Agustín íntegro», y presentarlo así falsea lo que hizo. Bonifacio II lo confirmó en 531, dándole autoridad en todo Occidente."}}, si=document.getElementById('expsi'), no=document.getElementById('expno');
+  function show(id){
+    var d=D[id]; if(!d) return;
+    document.querySelectorAll('.exp .row').forEach(function(r){r.classList.toggle('on',r.dataset.id===id);});
+    si.innerHTML='<div class="bl">Qu\u00e9 decide &middot; '+d.a+', '+d.s+'</div><p>'+d.d+'</p>';
+    no.innerHTML='<div class="bl">Qu\u00e9 NO decide</div><p>'+d.n+'</p>';
+  }
+  document.querySelectorAll('.exp .row').forEach(function(r){
+    r.addEventListener('click',function(){show(r.dataset.id);});
+  });
+  show('c411');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4a2f3a">↑ <a href="serie-pecado.html" style="color:#4a2f3a">Serie: La invención del pecado</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="pecado-4.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#4a2f3a">Agustín, y lo que no dijo</span></a>
+    <a class="epnav-btn next" href="pecado-6.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#4a2f3a">Oriente, Trento y el siglo XX</span></a>
+  </div>
+</nav>
+</body></html>

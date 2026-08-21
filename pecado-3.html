@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El niño y el agua · Estratos</title>
+<meta name="description" content="Si se bautizaba a recién nacidos para remisión de los pecados, ¿de qué pecado? Cipriano ya lo argumenta hacia 253, siglo y medio antes de Agustín. Y Tertuliano desaconsejaba bautizar niños: los materiales estaban, el edificio no.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4a2f3a;--mid:#7a5364;--pale:#8a5a68;
+    --rel:#8a4a2a;--exc:#4a2f3a;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  .glifos .tr{font-style:italic;font-size:.78em;color:#8a7a5e}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(122,83,100,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#7a6852}
+  figcaption .cr a{color:#6d5a45;text-decoration:underline;text-decoration-color:rgba(122,106,69,.45)}
+  figcaption .cr a:hover{text-decoration-color:#7a6a45}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c0aeb4,#a8808e 42%,#7a5364 70%,#4a2f3a)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d3d6,#cdbcc2);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Entrega III &middot; La invenci&oacute;n del pecado</span>
+  <h1>El ni&ntilde;o y <span class="em">el agua</span></h1>
+  <div class="glifos"><span class="tr">unum baptisma in remissionem peccatorum</span><span class="sep">&#10022;</span><span class="tr">aliena peccata</span></div>
+  <p class="stand">La fórmula del bautismo dice «para la remisión de los pecados». De ahí sale una pregunta que no es teológica sino de sentido común, y que alguien tenía que contestar.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Las dos entregas anteriores han trabajado con textos: un relato hebreo que no dice
+lo que se le atribuye, y un pronombre griego que en latín se resolvió en una dirección. Esta trabaja
+con algo distinto, y probablemente más determinante: <strong>con lo que la gente estaba haciendo</strong>.</p>
+
+<p>Porque en algún momento de los primeros siglos las iglesias empezaron a bautizar a recién nacidos.
+Y la fórmula del bautismo decía, y sigue diciendo, «para la remisión de los pecados». De ahí sale una
+pregunta que no es teológica sino de sentido común, y que alguien tenía que responder: <strong>¿de qué
+pecado?</strong> Un recién nacido no tiene ninguno propio.</p>
+
+<div class="secnum">01</div><h2>Cipriano, hacia el año 253</h2>
+
+<p>La respuesta más antigua que se puede documentar es mucho más temprana de lo que casi nadie espera,
+y no viene de Agustín: viene de <strong>Cipriano de Cartago</strong>, siglo y medio antes.</p>
+
+<p>La ocasión es una consulta menuda. Un obispo llamado Fido preguntó si había que esperar al octavo
+día para bautizar, por analogía con la circuncisión. Cipriano responde en una carta &mdash;la
+<em>Epístola</em> 64, que en la numeración inglesa antigua aparece como la 58&mdash; y no responde
+solo: la respaldan unos sesenta y seis obispos reunidos en sínodo. La respuesta es que no hay que
+esperar, porque no se puede negar «la misericordia y la gracia de Dios a nadie nacido de hombre».</p>
+
+<p>Pero lo que importa son las dos frases con las que lo razonan. La primera dice que el recién nacido,
+«habiendo nacido según la carne conforme a Adán, <strong>ha contraído el contagio de la muerte antigua
+en su mismísimo nacimiento</strong>». Y la segunda es la que deja sin aire: al niño bautizado
+<strong>«le son remitidos, no sus propios pecados, sino los pecados de otro»</strong>. En latín,
+<em>aliena peccata</em>.</p>
+
+<p>Es difícil exagerar lo que hay ahí. Hacia el 253, un sínodo africano está razonando ya que un
+neonato recibe la remisión de un pecado <em>ajeno</em> contraído por nacimiento. El armazón conceptual
+está montado. Lo que falta es el edificio.</p>
+
+<figure>
+  <img src="bautismo-san-calixto.jpg" alt="Escena de bautismo en la catacumba de San Calixto, siglo III">
+  <figcaption>Escena de bautismo en la catacumba de San Calixto, en Roma, del <strong>siglo III</strong>. Es decir: contempor&aacute;nea de la carta de Cipriano a Fido. Cuando se pinta esta escena, la pregunta de qu&eacute; se le remite a un reci&eacute;n nacido ya est&aacute; planteada y ya tiene una respuesta sinodal. <span class="cr">Catacumba de San Calixto, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">02</div><h2>Y los materiales no son el edificio</h2>
+
+<p>Ésta es la distinción que hace decente todo este capítulo, y se la debemos a un trabajo de Anthony
+Dupont de 2017 que examina exactamente esto: cuánto pecado original hay en Tertuliano y en Cipriano
+antes de Agustín.</p>
+
+<p><strong>Tertuliano</strong> maneja las expresiones <em>vitium originis</em> y <em>tradux
+peccati</em> &mdash;algo así como «vicio de origen» y «esqueje del pecado»&mdash;, que suenan
+tremendamente agustinianas. Pero acentúa el libre albedrío y la responsabilidad individual. Y hay un
+dato que lo remata: <strong>Tertuliano desaconsejaba bautizar niños.</strong> Lo dice en su tratado
+sobre el bautismo. Eso encaja mal, muy mal, con una noción de culpa heredada en el neonato: si el niño
+naciera reo, retrasar su bautismo sería temerario.</p>
+
+<p><strong>Cipriano</strong> presenta la tensión inversa. Apoya el bautismo infantil y lo vincula al
+pecado de Adán, como acabamos de ver; pero afirma también, en otro lugar, que <strong>nadie puede ser
+hecho culpable por otro</strong>. Las dos cosas conviven en el mismo autor sin que él parezca notar el
+problema, porque el problema todavía no se ha planteado.</p>
+
+<p>La conclusión de Dupont es la formulación exacta que hace falta: ambos comparten con Agustín cierto
+marco conceptual común sobre las consecuencias del pecado, pero <strong>sus teologías siguen siendo
+fundamentalmente distintas</strong> de la doctrina sistemática del pecado original y su culpa heredada.
+Los materiales estaban ahí. El edificio no.</p>
+
+<figure>
+  <img src="cipriano-de-cartago.jpg" alt="Cipriano de Cartago en un manuscrito iluminado de los siglos XI-XII">
+  <figcaption>Cipriano de Cartago, en un panel de manuscrito iluminado de los siglos XI o XII. La imagen es muy posterior a &eacute;l, como casi todos los retratos de los padres antiguos: lo que se conserva de Cipriano son sus cartas, y con eso basta para fechar el argumento en el 253. <span class="cr">Manuscrito iluminado de los siglos XI-XII, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">03</div><h2>Agustín usa la práctica como prueba</h2>
+
+<p>Siglo y medio después, cuando la polémica estalla, Agustín hace algo muy inteligente: no argumenta
+desde la especulación, argumenta desde <strong>lo que la Iglesia ya hace</strong>. Y lo hace en la
+primera de sus grandes obras antipelagianas, de 412, cuyo título completo incluye ya la cuestión: sobre
+los méritos y la remisión de los pecados <em>y sobre el bautismo de los niños</em>.</p>
+
+<p>Su argumento es una pregunta encadenada, y es demoledora en su propio terreno: ¿por qué se llevan
+los niños a la fuente bautismal, si no es para asegurarles la entrada en el Reino? ¿Y por qué se les
+somete a exorcismos, si no han de ser librados del diablo? La práctica está ahí, es antigua y es
+universal. Si el niño no trae nada de qué ser librado, <em>¿qué está haciendo la Iglesia con él?</em></p>
+
+<p>Nótese la dirección del razonamiento. No va del dogma a la práctica: va <strong>de la práctica al
+dogma</strong>. Y ésa es exactamente la cuestión que hay que examinar ahora.</p>
+
+<figure>
+  <img src="baptisterio-neoniano.jpg" alt="Interior del Baptisterio Neoniano de R&aacute;vena">
+  <figcaption>El Baptisterio Neoniano de R&aacute;vena, de la primera mitad del siglo V: exactamente la &eacute;poca de la pol&eacute;mica pelagiana. Un edificio entero dedicado a un solo rito da la medida de la importancia que hab&iacute;a alcanzado, y de por qu&eacute; explicar qu&eacute; ocurr&iacute;a dentro no era una cuesti&oacute;n menor. <span class="cr">Sailko, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">04</div><h2>¿La práctica generó la doctrina?</h2>
+
+<p>Aquí hay una discusión real y no la vamos a cerrar.</p>
+
+<p>La <strong>tesis fuerte</strong> es de Pier Franco Beatrice, en un libro traducido al inglés en 2013:
+el rito genera la doctrina. Y añade una propuesta más audaz todavía, que conviene presentar como lo que
+es &mdash;una hipótesis&mdash;: que la doctrina del pecado hereditario y del bautismo infantil se
+origina en medios <strong>encratitas</strong> heterodoxos, que rechazaban el cuerpo y la procreación y
+teorizaron que el cuerpo está contaminado desde el nacimiento, y que de ahí se infiltró en la ortodoxia
+norteafricana.</p>
+
+<p>Y hay una <strong>crítica publicada</strong> que conviene leer junto a ella. Isabella Image elogia la
+erudición de Beatrice pero objeta tres cosas: que la teoría descansa en una base textual limitada; que
+<em>invierte la causalidad</em>, porque la práctica probablemente precedió a la teología en lugar de
+derivarse de ella; y que si el encratismo norteafricano hubiera sido determinante, habría que explicar
+por qué Agustín ganó apoyo <em>fuera</em> de África. Su conclusión es que el encratismo es una
+influencia entre varias, no la fuente exclusiva.</p>
+
+<p>La posición más defendible es la intermedia, y no por comodidad: <strong>práctica y doctrina se
+retroalimentaron</strong>. La práctica creó la presión explicativa; la explicación consolidó y
+universalizó la práctica; y la polémica pelagiana forzó la definición dogmática. Tres fases, tres
+mecanismos distintos, y ninguno reducible a los otros.</p>
+
+<div class="wall">
+  <div class="post max">
+    <div class="who">Pier Franco Beatrice</div>
+    <div class="what">la tesis fuerte</div>
+    <p>El rito genera la doctrina. Y propone además un origen encratita: medios heterodoxos que rechazaban el cuerpo y la procreación, y que teorizaron la contaminación desde el nacimiento.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Isabella Image</div>
+    <div class="what">la crítica publicada</div>
+    <p>Base textual limitada; la causalidad está invertida, porque la práctica precedió a la teología; y habría que explicar por qué Agustín ganó apoyo fuera de África. El encratismo es una influencia entre varias.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Anthony Dupont</div>
+    <div class="what">el matiz decisivo</div>
+    <p>Tertuliano y Cipriano comparten con Agustín un marco conceptual común, pero sus teologías son fundamentalmente distintas. Los materiales estaban; el edificio no.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">La posición intermedia</div>
+    <div class="what">la más defendible</div>
+    <p>Práctica y doctrina se retroalimentaron: el rito creó la presión explicativa, la explicación universalizó el rito, y la polémica forzó la definición.</p>
+  </div>
+</div>
+
+<div class="meter">
+  <div class="q">Que el bautismo de niños con fórmula de remisión de pecados estaba en uso al menos desde mediados del siglo III, y que Cipriano lo justificó con lenguaje de pecado ajeno contraído por nacimiento.</div>
+  <div class="bar"><span class="pin" style="left:90%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">La carta a Fido existe, está fechada y la respalda un sínodo. «No sus propios pecados, sino los pecados de otro» es una cita, no una interpretación.</div>
+</div>
+
+<div class="meter">
+  <div class="q">Que la práctica bautismal <em>generó</em> la doctrina, y no sólo la reforzó.</div>
+  <div class="bar"><span class="pin" style="left:44%" data-l="Debate abierto"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Que funcionó como argumento decisivo es firme: Agustín lo usa así de forma explícita. Que fuera la causa es la tesis de Beatrice, discutida por sus reseñadores. La posición intermedia —se retroalimentaron— es la que menos supuestos exige.</div>
+</div>
+
+<div class="secnum">05</div><h2>Cartago 418: la presión se convierte en definición</h2>
+
+<p>El momento en que todo esto deja de ser una discusión y pasa a ser doctrina tiene fecha y lugar. El
+concilio de <strong>Cartago de 418</strong> define que los niños son verdaderamente bautizados para la
+remisión de los pecados, y rechaza expresamente que no contraigan de Adán ningún rastro de pecado
+original.</p>
+
+<p>Y añade algo que conviene no pasar por alto, porque es donde la doctrina se vuelve dura: niega que
+exista un <strong>«lugar intermedio o feliz»</strong> para los niños no bautizados. No es una nota al
+pie. Es la decisión que va a pesar sobre siglos de familias, y de la que la propia tradición pasará el
+resto de su historia intentando escapar &mdash;con el limbo escolástico primero, y con matizaciones
+sucesivas después&mdash;.</p>
+
+<p>Del expediente conciliar completo, con lo que cada procedimiento decidió y con lo que <em>no</em>
+decidió, se ocupa la entrega V. Antes hay que ver de cerca al hombre que puso el nombre a todo esto, y
+separar lo que sostuvo de las tres caricaturas que lo acompañan.</p>
+
+<div class="aviso">
+  <div class="t">Una precisión sobre lo que este capítulo no dice</div>
+  <p>Que la práctica precediera a la explicación no convierte la explicación en un fraude, y no es una objeción a nadie. Las instituciones humanas funcionan así con enorme frecuencia: primero se hace algo porque parece bueno hacerlo, y después se articula por qué. Un rito de acogida de los recién nacidos en la comunidad tiene motivos suficientes sin ninguna teoría detrás &mdash;el miedo a la mortalidad infantil, altísima; el deseo de que el hijo pertenezca a lo mismo que los padres&mdash;. Lo que este artículo describe es cómo esa práctica, ya establecida, empujó a la teología en una dirección determinada. No que alguien la inventara para justificarse.</p>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <strong>dato firme</strong> que el bautismo de niños se practicaba en el norte de África a mediados del siglo III, y el contenido de la carta de <span class="k">Cipriano a Fido</span> &mdash;<em>Ep.</em> 64 en la numeración Hartel, <em>Ep.</em> 58 en la de los <em>Ante-Nicene Fathers</em>&mdash;, respaldada por un sínodo cartaginés de unos sesenta y seis obispos, con las expresiones «contagio de la muerte antigua» y <em>aliena peccata</em>. Lo es que Agustín usó la práctica bautismal como argumento explícito, en <em>De peccatorum meritis et remissione et de baptismo parvulorum</em>, de 412. Lo es que <span class="k">Tertuliano</span> maneja <em>vitium originis</em> y <em>tradux peccati</em> y a la vez desaconsejaba bautizar niños, y que Cipriano afirma en otro lugar que nadie puede ser hecho culpable por otro: ambos datos están en el trabajo de <span class="k">Anthony Dupont</span> en la <em>Revue d'Études Augustiniennes et Patristiques</em> 63 (2017), 1-29. Y lo es el contenido del concilio de <span class="k">Cartago 418</span>, incluida la negación de un lugar intermedio o feliz.</p>
+  <p><span class="k">Debate abierto:</span> la dirección de la causalidad entre práctica y doctrina, donde no hay consenso. Beatrice defiende que el rito genera la doctrina y propone además un origen encratita; Isabella Image objeta en su reseña que la base textual es limitada y que la causalidad está invertida. Aquí se adopta la posición intermedia por ser la que menos supuestos exige, y se declara como opción y no como consenso. Las referencias de Cipriano se dan con su doble numeración precisamente porque la doble numeración induce a error con frecuencia.</p>
+  <p>Este artículo no discute si el bautismo de niños es una buena práctica ni si la doctrina que lo explicó es verdadera. Describe el orden en que aparecieron las cosas, que es una pregunta histórica y tiene respuesta documental. Y conviene subrayar algo que el relato puede hacer perder de vista: detrás de todo esto hay padres que llevaban a sus hijos a una pila porque la mortalidad infantil era altísima y querían que el niño perteneciera a lo mismo que ellos. Las doctrinas se discuten en concilios, pero empiezan en sitios como ése.</p>
+</div>
+
+</div></div>
+
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4a2f3a">↑ <a href="serie-pecado.html" style="color:#4a2f3a">Serie: La invención del pecado</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="pecado-2.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#4a2f3a">Cuatro lenguas, un pronombre</span></a>
+    <a class="epnav-btn next" href="pecado-4.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#4a2f3a">Agustín, y lo que no dijo</span></a>
+  </div>
+</nav>
+</body></html>

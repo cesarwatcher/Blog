@@ -1,0 +1,375 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oriente, Trento y el siglo XX · Estratos</title>
+<meta name="description" content="Pecado ancestral frente a pecado original: una diferencia antigua y una frontera moderna. Trullo ratificó los cánones de Cartago en 692. Anselmo lo redefine, Trento cita el in quo en su canon segundo, y Humani generis exige el monogenismo por el pecado original.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4a2f3a;--mid:#7a5364;--pale:#8a5a68;
+    --rel:#8a4a2a;--exc:#4a2f3a;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  .glifos .tr{font-style:italic;font-size:.78em;color:#8a7a5e}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#8a7a5e;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(122,83,100,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#7a6852}
+  figcaption .cr a{color:#6d5a45;text-decoration:underline;text-decoration-color:rgba(122,106,69,.45)}
+  figcaption .cr a:hover{text-decoration-color:#7a6a45}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c0aeb4,#a8808e 42%,#7a5364 70%,#4a2f3a)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:nowrap;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#8a7a5e}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#9a8a6e;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#867a45}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e0d3d6,#cdbcc2);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#8a7a5e;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Entrega VI &middot; La invenci&oacute;n del pecado</span>
+  <h1>Oriente, Trento y <span class="em">el siglo XX</span></h1>
+  <div class="glifos"><span>προπατορικὴ ἁμαρτία</span> <span class="tr">propatorikḗ hamartía</span><span class="sep">&#10022;</span><span class="tr">peccatum originale</span></div>
+  <p class="stand">La diferencia entre las dos tradiciones es real y antigua. La frontera limpia que se traza entre ellas es, en buena medida, obra del siglo XX.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap"><div class="col-text">
+
+<p class="first">Hay una frase que circula mucho y que suena bien: el pecado original es un invento
+occidental, y el cristianismo oriental nunca lo tuvo. Lo que tiene el Oriente, se dice, es el «pecado
+ancestral», que es otra cosa: heredamos la mortalidad, no la culpa.</p>
+
+<p>La distinción es real y es importante. Y su historia es bastante más reciente de lo que la frase
+sugiere.</p>
+
+<div class="secnum">01</div><h2>Dos vocabularios</h2>
+
+<p>El griego dice <em>propatorikḗ hamartía</em>, «pecado del primer padre», o
+<em>propatorikòn hamártēma</em>. El latín dice <em>peccatum originale</em>. Y sobre esos dos términos se
+ha construido, en los dos últimos siglos, una de las distinciones más citadas de la teología comparada.</p>
+
+<p>Con una advertencia que hay que hacer de entrada: <strong>el uso técnico de
+<em>propatorikḗ hamartía</em> como contraconcepto deliberado de «pecado original» es en gran medida
+moderno</strong>, sistematizado en la teología ortodoxa de los siglos XIX y XX. No es que los padres
+griegos acuñaran conscientemente una alternativa; es que teólogos posteriores encontraron en su
+vocabulario los elementos para formular una. Presentar el término como si fuera una réplica patrística
+consciente sería adelantar el reloj.</p>
+
+<div class="secnum">02</div><h2>Pero la diferencia sí existe, y es sustantiva</h2>
+
+<p>Dicho eso, la diferencia de fondo <strong>no es un invento del siglo XX</strong>: se puede documentar
+en los textos antiguos, y afecta a todas las piezas del sistema.</p>
+
+<p>La categoría central de Occidente es el <em>reatus</em>, la culpa entendida como reato jurídico. La de
+Oriente es la <em>phthorá</em> y el <em>thánatos</em>: corrupción y mortalidad. Lo que se hereda, según
+Occidente, es culpa más concupiscencia más mortalidad; según Oriente, mortalidad y corrupción, y
+<strong>no culpa personal</strong>. El modelo occidental es forense &mdash;deuda, imputación,
+remisión&mdash;; el oriental es médico y ontológico &mdash;enfermedad, curación, deificación&mdash;. Y el
+recién nacido es, en un caso, reo de una culpa ajena; en el otro, sujeto a la mortalidad y no culpable.</p>
+
+<p>Y hay una diferencia final que es la más elegante de todas, porque es exactamente la que dependía del
+pronombre de la entrega II: en la causalidad occidental, <strong>el pecado produce la muerte</strong> y
+la culpa está en Adán. En la oriental, <strong>la muerte produce el pecado</strong>: la mortalidad induce
+a pecar. Es la lectura que el griego permitía y que el género de <em>mors</em> cerró en latín. La
+divergencia dogmática de mil quinientos años y la ambigüedad gramatical de un relativo son, en este
+punto, la misma cosa vista desde dos sitios.</p>
+
+<figure>
+  <img src="anastasis-fresco.jpg" alt="Fresco de la An&aacute;stasis, iglesia de Chora, Estambul">
+  <figcaption>La <em>An&aacute;stasis</em>, fresco del siglo XIV en la iglesia de Chora, Estambul. Cristo saca a Ad&aacute;n y a Eva de sus sepulcros tirando de sus mu&ntilde;ecas. Es la teolog&iacute;a oriental en una imagen: el problema no es una deuda que pagar, es una muerte de la que hay que sacar a alguien. <span class="cr">Joseph Kranak, <a href="https://creativecommons.org/licenses/by/2.0/deed.es" target="_blank" rel="noopener">CC BY 2.0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">03</div><h2>Y sin embargo el Oriente no es ajeno al asunto</h2>
+
+<p>Ahora la parte incómoda, que es la que hace falta para que el capítulo no sea propaganda de un lado.</p>
+
+<p>El primer dato es de derecho canónico y es contundente: <strong>el concilio de Trullo, en 692,
+ratificó los cánones de Cartago</strong>. Todos, incluido el que manda bautizar a los niños a causa del
+pecado original. Es decir: la Iglesia oriental está formalmente vinculada a los cánones antipelagianos
+de Cartago. Eso complica gravemente cualquier narración de un Oriente que pasara de largo por la
+cuestión.</p>
+
+<p>El segundo es de época moderna: las <strong>confesiones ortodoxas de 1642 y 1672</strong> usan
+lenguaje de culpa heredada. No matizado, no en otro registro: lenguaje de culpa heredada.</p>
+
+<p>De donde se sigue una conclusión que hay que sostener con las dos manos, porque incomoda a los dos
+lados: <strong>la antítesis nítida entre «pecado ancestral» y «pecado original» es en gran medida una
+construcción del siglo XX</strong>, sistematizada por teólogos como Romanides y Meyendorff, sobre una
+diferencia de acento que sí es antigua. Hay una diferencia real; la frontera limpia no lo es.</p>
+
+<div class="meter">
+  <div class="q">Que hay una diferencia real y sustantiva entre la doctrina occidental y la oriental sobre lo que se hereda de Adán.</div>
+  <div class="bar"><span class="pin" style="left:83%" data-l="Consenso, con matices"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">La diferencia de categorías —culpa frente a mortalidad— y de modelos —forense frente a médico— se documenta en los textos antiguos. Lo que es moderno es la frontera nítida, no la diferencia.</div>
+</div>
+
+<div class="secnum">04</div><h2>Anselmo cambia la definición</h2>
+
+<p>Mientras tanto, en Occidente, la doctrina no se queda quieta. El paso más importante lo da
+<strong>Anselmo de Canterbury</strong> a comienzos del siglo XII, y consiste en redefinir qué es el
+pecado original: no una mancha positiva que se hereda, sino la <strong>privación de la justicia
+debida</strong>. Una ausencia, no una presencia.</p>
+
+<p>El cambio parece técnico y tiene una consecuencia enorme: <strong>aligera la carga sexual
+agustiniana</strong>. Si lo que se transmite es una privación, la concupiscencia deja de ser el vehículo
+necesario, y el sistema puede funcionar sin que el acto de engendrar sea el conducto de la culpa. La
+escolástica posterior, con Tomás, trabaja sobre esa base.</p>
+
+<figure>
+  <img src="anselmo-vidriera.jpg" alt="Anselmo de Canterbury en una vidriera inglesa del siglo XIX">
+  <figcaption>Anselmo de Canterbury en una vidriera inglesa del &uacute;ltimo cuarto del siglo XIX &mdash;una imagen victoriana, no medieval&mdash;. Su aportaci&oacute;n al asunto es de las que no se ven en un retrato: redefinir el pecado original como privaci&oacute;n de la justicia debida, y con ello aligerar la carga sexual del sistema agustiniano. <span class="cr">Vidriera inglesa del siglo XIX, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">05</div><h2>Trento cita <em>in quo</em></h2>
+
+<p>Y en el siglo XVI ocurre algo que cierra el círculo de esta serie de una manera que ninguna
+reconstrucción habría podido inventar.</p>
+
+<p>El concilio de Trento define el pecado original. Recoge literalmente la fórmula agustiniana
+&mdash;<em>propagatione, non imitatione</em>, por propagación y no por imitación&mdash;. Y en su
+<strong>canon segundo cita Romanos 5:12 con el <em>in quo</em></strong>.</p>
+
+<p>Es decir: la lectura discutida, la que el griego no permite y el siríaco excluye, la que quedó
+disponible en latín porque <em>mors</em> es femenino, <strong>queda incorporada al texto de una
+definición dogmática</strong>. No como argumento accesorio: dentro del canon.</p>
+
+<figure>
+  <img src="concilio-de-trento.jpg" alt="El concilio de Trento, pintura de Elia Naurizio, 1633">
+  <figcaption>La congregaci&oacute;n general del concilio de Trento, pintada por Elia Naurizio en 1633. En este concilio la f&oacute;rmula <em>propagatione, non imitatione</em> pasa literalmente de Agust&iacute;n al dogma, y el canon segundo cita Romanos 5:12 con el <em>in quo</em>: la lectura discutida entra en el texto de una definici&oacute;n. <span class="cr">Elia Naurizio; fotografía de Laurom, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">06</div><h2>La Reforma, y el problema moderno</h2>
+
+<p>La Reforma no discute el pecado original: lo intensifica. Lutero y Calvino desarrollan la doctrina de
+la <strong>depravación total</strong>, que lleva la incapacidad de la voluntad caída más lejos de donde
+la había dejado Agustín. En este punto, y contra lo que suele suponerse, el siglo XVI es más agustiniano
+que la Edad Media.</p>
+
+<figure>
+  <img src="lutero-cranach.jpg" alt="Retrato de Martín Lutero, de Lucas Cranach el Viejo, 1528">
+  <figcaption>Mart&iacute;n Lutero retratado por Lucas Cranach el Viejo en 1528. La Reforma no discute el pecado original: lo intensifica. La depravaci&oacute;n total lleva la incapacidad de la voluntad ca&iacute;da m&aacute;s lejos de donde la hab&iacute;a dejado Agust&iacute;n. <span class="cr">Lucas Cranach el Viejo, Dominio público.</span></figcaption>
+</figure>
+
+<p>Y queda el problema del siglo XX, que es de otro orden. Si el pecado original se transmite desde
+<em>un</em> primer hombre, la doctrina exige que haya habido un primer hombre: exige el
+<strong>monogenismo</strong>. Y la biología evolutiva no describe orígenes así, sino poblaciones.</p>
+
+<p>La dirección de la exigencia conviene precisarla, porque suele contarse al revés. La encíclica
+<em>Humani generis</em>, en su párrafo 37, no dice que el poligenismo sea científicamente falso: dice que
+no se ve cómo podría conciliarse con lo que las fuentes enseñan <strong>sobre el pecado original</strong>.
+<strong>Es la doctrina la que exige el monogenismo</strong>, y no al contrario. La distinción no es un
+detalle: sitúa exactamente dónde está la tensión.</p>
+
+<div class="wall">
+  <div class="post max">
+    <div class="who">Occidente agustiniano</div>
+    <div class="what">modelo forense</div>
+    <p>Se hereda culpa, concupiscencia y mortalidad. El recién nacido es reo de una culpa ajena. El pecado produce la muerte, y la culpa está en Adán.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Oriente griego</div>
+    <div class="what">modelo médico</div>
+    <p>Se heredan mortalidad y corrupción, no culpa personal. El recién nacido está sujeto a la muerte y no es culpable. Y la muerte produce el pecado: la mortalidad induce a pecar.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Trullo, 692</div>
+    <div class="what">el dato que complica</div>
+    <p>Ratificó los cánones de Cartago, incluido el del bautismo de niños por el pecado original. El Oriente está formalmente vinculado a ellos.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">El siglo XX</div>
+    <div class="what">quién trazó la frontera</div>
+    <p>La antítesis nítida entre pecado ancestral y pecado original la sistematizan Romanides y Meyendorff, sobre una diferencia de acento que sí es antigua.</p>
+  </div>
+</div>
+
+<div class="meter">
+  <div class="q">Que el cristianismo oriental nunca tuvo doctrina de pecado original.</div>
+  <div class="bar"><span class="pin" style="left:19%" data-l="Falso como se enuncia"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Trullo ratificó los cánones de Cartago en 692, y las confesiones ortodoxas de 1642 y 1672 usan lenguaje de culpa heredada. Hay una diferencia de acento y de modelo, no una ausencia.</div>
+</div>
+
+<div class="secnum">07</div><h2>El arco completo</h2>
+
+<p>Seis entregas después, el recorrido se puede decir en una respiración.</p>
+
+<p>En Génesis 3 no hay pecado, ni caída, ni herencia, y después del jardín <strong>nadie en la Biblia
+hebrea vuelve sobre Adán</strong> para explicar el mal. El judaísmo del Segundo Templo discutía el
+asunto con posiciones incompatibles &mdash;«Oh Adán, ¿qué has hecho?» frente a «cada uno ha sido el Adán
+de su propia alma»&mdash; y Pablo interviene en ese debate. Su frase clave termina en un pronombre
+ambiguo dentro de una oración inacabada, y el latín, al verterla literalmente, cierra una de las dos
+lecturas posibles por el género de una palabra. Mientras eso ocurre, las iglesias llevan siglo y medio
+bautizando recién nacidos y necesitan explicar de qué. Agustín ensambla las piezas y les pone nombre
+técnico, dejando expresamente sin resolver el mecanismo. Un concilio africano lo define, un emperador lo
+respalda, y el bando que pierde nos llega en las comillas del que gana. Anselmo lo redefine como
+privación, Trento lo fija citando el <em>in quo</em>, la Reforma lo endurece, y el siglo XX descubre que
+la doctrina necesita una biología que no existe.</p>
+
+<p><strong>Nada de eso es un fraude.</strong> Es lo que le pasa a una idea cuando vive mil quinientos
+años: se apoya en lo que encuentra, resuelve los problemas que le van saliendo y hereda las
+gramáticas de las lenguas por las que pasa. Que se pueda contar así, con fechas y con nombres, no la
+desmiente. La hace conocible, que es de lo que va este blog.</p>
+
+<p>La tercera etapa continúa. La idea siguiente es la que hemos estado rozando todo el tiempo sin
+entrar en ella: qué le pasa a alguien después de muerto, y cómo cuatro concepciones incompatibles
+acabaron conviviendo en la misma frase.</p>
+
+<div class="aviso">
+  <div class="t">Sobre lo que esta serie no ha hecho</div>
+  <p>No ha discutido si el pecado original es verdadero, ni si es una buena doctrina, ni si explica algo del mundo. Son preguntas legítimas, y no son históricas: no se contestan con manuscritos ni con cánones conciliares. Lo que sí se puede contestar con manuscritos es cuándo apareció cada pieza, quién la puso y qué problema resolvía. Y hay una consecuencia de todo esto que conviene no dejar implícita: una doctrina que se construyó puede también reconstruirse. Buena parte de la teología de los últimos ochenta años, católica y ortodoxa y protestante, consiste exactamente en eso. Saber cómo se hizo la primera vez es lo que permite entender la discusión actual.</p>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <strong>dato firme</strong> la diferencia de categorías entre las dos tradiciones: <em>reatus</em> frente a <span class="k">phthorá</span> y <span class="k">thánatos</span>, modelo forense frente a modelo médico-ontológico, y la inversión de la causalidad en Romanos 5:12 —muerte que induce al pecado en la lectura griega—. Lo es que <span class="k">Trullo, en 692</span>, ratificó los cánones de Cartago, y que las confesiones ortodoxas de 1642 y 1672 emplean lenguaje de culpa heredada. Lo es que Anselmo redefine el pecado original como privación de la justicia debida; que <span class="k">Trento</span> recoge <em>propagatione, non imitatione</em> y cita <em>in quo</em> en su canon segundo; y que <em>Humani generis</em> 37 formula el problema del poligenismo precisamente por su dificultad para conciliarse con el pecado original.</p>
+  <p><span class="k">Debate abierto:</span> la antigüedad del término griego <em>propatorikḗ hamartía</em>, cuya <strong>primera atestiguación no hemos podido establecer</strong>. De ella depende cuánto del contraste Oriente-Occidente es patrístico y cuánto es sistematización moderna, así que la formulación de este artículo &mdash;diferencia antigua, frontera nítida moderna&mdash; es la prudente y no la única posible. Los cánones de Cartago 418 y de Orange 529 se manejan por síntesis y no por texto conciliar numerado. Y la recepción medieval de Anselmo y de Tomás se resume aquí en dos párrafos: es un tramo que merecería una serie propia y que esta no cubre.</p>
+  <p>Esta serie ha descrito cómo se construyó una doctrina, y conviene decir en su última línea lo que no se sigue de eso. Que una idea tenga historia no la refuta; todas la tienen, incluidas las nuestras. Que se apoyara en un pronombre ambiguo, en una práctica bautismal y en el género de una palabra latina no la convierte en un malentendido: la convierte en <em>humana</em>, que es la única clase de cosa que los historiadores sabemos estudiar. Iluminar el origen de un relato no es desmentirlo. Ha sido el propósito de este blog desde la primera entrega y sigue siéndolo en la última de esta serie.</p>
+</div>
+
+</div></div>
+
+
+<footer><span class="glyph">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4a2f3a">↑ <a href="serie-pecado.html" style="color:#4a2f3a">Serie: La invención del pecado</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="pecado-5.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#4a2f3a">El expediente de un condenado</span></a>
+    <a class="epnav-btn next" href="serie-pecado.html"><span class="lbl">Fin de la serie</span><span class="ttl" style="color:#4a2f3a">Volver al índice</span></a>
+  </div>
+</nav>
+</body></html>

@@ -199,6 +199,101 @@
   .idxrow .k{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#a0906c;text-transform:uppercase;letter-spacing:.06em}
   .idxrow.soon{opacity:.5}
   @media(max-width:600px){.ep{grid-template-columns:auto 1fr;gap:.9rem}.ep .chev{display:none}header.hero{padding:14vh 0 2vh}.idxrow .k{display:none}}
+
+  /* ============================================================
+     PORTADA EDITORIAL (opción B)
+     Una tarjeta grande de «Lo último» y debajo el corte completo del blog en
+     bandas por etapa, en orden invertido: tercera arriba, primera abajo. Como
+     en una columna estratigráfica real, el estrato reciente está en la
+     superficie y se desciende hacia lo antiguo.
+     Sin colores ni fuentes nuevas: se reutilizan las variables de :root, las
+     barras cap-* de cada serie y los tonos de la tabla de tonos.
+     ============================================================ */
+  .lo-ultimo{max-width:1120px;margin:1.2rem auto 0;padding:0 24px}
+  .lu-lab{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+  .lu-lab span{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.24em;
+    text-transform:uppercase;font-weight:700;color:var(--clay-deep)}
+  .lu-lab i{flex:1;height:1px;background:var(--rule)}
+  /* Tarjeta de pergamino: se distingue por tamaño y por su barra de color, no
+     por el fondo. La portada queda luminosa de arriba abajo. */
+  .lu{background:var(--sand-light);border:1px solid rgba(180,150,100,.4);border-radius:14px;
+    overflow:hidden;box-shadow:0 12px 34px var(--shadow)}
+  /* La barra de color está declarada arriba como «.scard .cap», es decir, solo
+     dentro de una tarjeta .scard. Aquí el contenedor es .lu, así que sin esta
+     regla la barra existe en el HTML pero mide 0px de alto y no se ve.
+     Es el mismo fallo de selector que ya ha aparecido con «article h2». */
+  .lu .cap{height:11px;width:100%}
+  .lu-body{display:grid;grid-template-columns:1.18fr .82fr}
+  @media(max-width:820px){.lu-body{grid-template-columns:1fr}}
+  .lu-main{padding:1.9rem 2.1rem 2rem}
+  .lu-main .lk{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;display:block}
+  .lu-main h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:400;margin:.55rem 0 .75rem;
+    line-height:1.14;color:var(--ink)}
+  .lu-main h2 .em{font-style:italic}
+  .lu-main p{font-size:1.02rem;color:#564936;margin:0 0 1.3rem;max-width:54ch}
+  .lu-main .go{font-family:"Trebuchet MS",sans-serif;font-size:.82rem;font-weight:700;
+    letter-spacing:.04em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+  .lu-main .go .arrow{transition:transform .3s}
+  .lu-main .go:hover .arrow{transform:translateX(5px)}
+  .lu-side{background:rgba(255,255,255,.55);border-left:1px solid rgba(180,150,100,.35);
+    padding:1.7rem 1.8rem}
+  @media(max-width:820px){.lu-side{border-left:0;border-top:1px solid rgba(180,150,100,.35)}}
+  .lu-side .sl{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:#7a6a4a;margin-bottom:.8rem}
+  .lu-side a{display:block;text-decoration:none;padding:.62rem 0;
+    border-bottom:1px dotted rgba(180,150,100,.5)}
+  .lu-side a:last-child{border-bottom:0;padding-bottom:0}
+  .lu-side a .n{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    font-weight:700}
+  .lu-side a .t{display:block;font-size:1.02rem;color:var(--slate-deep);margin-top:.1rem;line-height:1.3}
+  .lu-side a:hover .t{color:var(--clay-deep)}
+
+  /* ---- el corte completo ---- */
+  .mapa{max-width:1120px;margin:3.2rem auto 0;padding:0 24px}
+  .m-band{margin-bottom:2.2rem}
+  .m-head{padding-bottom:.55rem;border-bottom:2px solid var(--rule);margin-bottom:1rem}
+  .m-head .mtop{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap}
+  .m-head .mk{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.2em;
+    text-transform:uppercase;font-weight:700;color:#7a5c38}
+  .m-head h3{font-size:1.42rem;font-weight:400;color:#3a2f22;margin:0}
+  .m-head .mn{margin-left:auto;font-family:"Trebuchet MS",sans-serif;font-size:.7rem;color:#7a6a4a;
+    white-space:nowrap}
+  @media(max-width:600px){.m-head .mn{margin-left:0}}
+  .m-head .md{font-size:.93rem;color:#6a5c46;font-style:italic;margin-top:.4rem;max-width:66ch}
+  .m-rows{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:.35rem}
+  .m-row{display:grid;grid-template-columns:5px 1fr auto;gap:.85rem;align-items:center;
+    text-decoration:none;color:inherit;padding:.6rem .8rem .6rem 0;border-radius:8px;
+    transition:background .2s,transform .2s}
+  .m-row:hover{background:rgba(255,255,255,.6);transform:translateX(3px)}
+  .m-row .bar{align-self:stretch;border-radius:3px;min-height:34px}
+  .m-row .tt{font-size:1.02rem;color:#3a3320;line-height:1.3}
+  .m-row .tt .em{font-style:italic}
+  .m-row .cc{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#7a6a4a;white-space:nowrap}
+  .m-row .cc.soon{font-style:italic}
+  /* Edición especial: dentro de su banda, con el dorado de «pieza única» que ya
+     usa la tarjeta .scard-especial. Ocupa la fila entera de la retícula. */
+  .m-row.esp{grid-column:1/-1;background:rgba(212,161,58,.08);
+    border:1px solid rgba(212,161,58,.4);padding:.6rem .8rem;gap:.9rem;
+    grid-template-columns:5px auto 1fr auto}
+  .m-row.esp:hover{background:rgba(212,161,58,.16)}
+  .m-row.esp .pill{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:700;color:#241a06;background:#d4a13a;
+    padding:.2rem .6rem;border-radius:2rem;white-space:nowrap}
+  /* En móvil la cabecera de banda se apila siempre igual (rótulo, título,
+     recuento) en vez de depender de si el título cabe o no en la línea, y la
+     fila de la edición especial pasa a una sola columna para no perder el
+     rótulo dorado. */
+  @media(max-width:600px){
+    .m-head .mtop{display:block}
+    .m-head .mk{display:block;margin-bottom:.2rem}
+    .m-head .mn{display:block;margin-left:0;margin-top:.3rem}
+    .m-row.esp{grid-template-columns:5px 1fr}
+    .m-row.esp .pill,.m-row.esp .tt,.m-row.esp .cc{grid-column:2}
+    .m-row.esp .bar{grid-row:1/span 3}
+    .m-row.esp .pill{justify-self:start;margin-bottom:.35rem}
+    .m-row.esp .cc{margin-top:.25rem}
+  }
 </style></head><body>
 <div class="topbar">
   <a class="home" href="index.html"><span class="glyph">✦</span> Estratos</a>
@@ -211,236 +306,145 @@
   <p class="lede">Un blog sobre los orígenes de las tradiciones abrahámicas, leídos capa por capa: arqueología, crítica textual y la larga historia de cómo <em>muchos dioses</em> se volvieron uno.</p>
   <div class="rule-orn"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
 </div></header>
-<div class="wrap">
-    <div class="etapa-head">
-      <span class="etapa-kicker">Primera etapa</span>
-      <h2 class="etapa-title">Crítica textual</h2>
-      <p class="etapa-desc">Cómo se escribieron, editaron y transmitieron los textos sagrados. El origen de las ideas, leído en la página.</p>
-    </div>
-  <div class="timeline">
-    <div class="tl-item feat">
-      <span class="tl-era">El punto de partida</span><span class="tl-node"></span>
-      <a class="scard" href="serie-monoteismo.html">
-      <div class="cap cap-featured"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#8a3d20">Serie completa</span><span>Serie</span></div>
-        <h2>El nacimiento del <span class="em" style="color:#8a3d20">Dios único</span></h2>
-        <p>Cómo el politeísmo cananeo fue absorbido, capa sobre capa, hasta dar lugar a un solo Dios.</p>
-        <span class="go" style="color:#8a3d20">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">5 entregas</div>
+<div class="lo-ultimo">
+  <div class="lu-lab"><span>Lo último</span><i></i></div>
+  <div class="lu">
+    <div class="cap cap-pecado"></div>
+    <div class="lu-body">
+      <div class="lu-main">
+        <span class="lk" style="color:#4a2f3a">Tercera etapa · Recién completada</span>
+        <h2>La invención del <span class="em" style="color:#4a2f3a">pecado</span></h2>
+        <p>El pecado original no está en el Génesis. Es una doctrina que se construyó en cuatro siglos, con materiales judíos, una práctica bautismal, un pronombre griego ambiguo y el género gramatical de una palabra latina. Seis entregas siguiendo cómo se hizo.</p>
+        <a class="go" style="color:#4a2f3a" href="serie-pecado.html">Ver la serie completa <span class="arrow">→</span></a>
       </div>
-    </a>
-    </div>
-    <div class="tl-item left">
-      <span class="tl-node"></span>
-      <a class="scard" href="serie-corte.html">
-      <div class="cap cap-council"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#26333a">Serie completa</span><span>Serie</span></div>
-        <h2>La corte celestial y sus <span class="em" style="color:#26333a">criaturas</span></h2>
-        <p>Qué pasó dentro del cielo una vez que hubo un solo Dios: acusadores, ecos de viejos mitos y figuras que poblaron la asamblea divina.</p>
-        <span class="go" style="color:#26333a">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">3 entregas</div>
+      <div class="lu-side">
+        <div class="sl">Últimas entregas</div>
+        <a href="pecado-4.html"><span class="n" style="color:#4a2f3a">IV</span><span class="t">Agustín, y lo que no dijo</span></a>
+        <a href="pecado-5.html"><span class="n" style="color:#4a2f3a">V</span><span class="t">El expediente de un condenado</span></a>
+        <a href="pecado-6.html"><span class="n" style="color:#4a2f3a">VI</span><span class="t">Oriente, Trento y el siglo XX</span></a>
       </div>
-    </a>
-    </div>
-    <div class="tl-item right">
-      <span class="tl-node"></span>
-      <a class="scard" href="serie-diosas.html">
-      <div class="cap cap-goddess"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#6e3546">Serie completa</span><span>Serie</span></div>
-        <h2>Las diosas que no <span class="em" style="color:#6e3546">desaparecieron</span></h2>
-        <p>Lo femenino divino fue expulsado por la puerta y volvió por la ventana, una y otra vez. De Aserá a María.</p>
-        <span class="go" style="color:#6e3546">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">4 entregas</div>
-      </div>
-    </a>
-    </div>
-    <div class="tl-item left">
-      <span class="tl-node"></span>
-      <a class="scard" href="serie-apocalipsis.html">
-      <div class="cap cap-apoc"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#5a4d7a">Serie completa</span><span>Serie</span></div>
-        <h2>El fin del <span class="em" style="color:#5a4d7a">mundo</span></h2>
-        <p>Cómo se inventó el apocalipsis. La esperanza de un salvador, un juicio final y un mundo nuevo no estaba al principio: nació de siglos de derrota.</p>
-        <span class="go" style="color:#5a4d7a">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">4 entregas</div>
-      </div>
-    </a>
-    </div>
-    <div class="tl-item right">
-      <span class="tl-node"></span>
-      <a class="scard" href="serie-libros.html">
-      <div class="cap cap-books"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#5a4226">Serie completa</span><span>Serie</span></div>
-        <h2>Los libros <span class="em" style="color:#5a4226">perdidos</span></h2>
-        <p>Cómo se decidió qué entró en la Biblia y qué quedó fuera: el canon, los apócrifos, los manuscritos del Mar Muerto y los evangelios que no entraron.</p>
-        <span class="go" style="color:#5a4226">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">4 entregas</div>
-      </div>
-    </a>
-    </div>
-    <div class="tl-item left">
-      <span class="tl-node"></span>
-      <a class="scard" href="serie-islam.html">
-      <div class="cap cap-islam"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#264a38">Serie completa</span><span>Serie</span></div>
-        <h2>El Islam y las <span class="em" style="color:#264a38">raíces compartidas</span></h2>
-        <p>La tercera gran tradición abrahámica: cómo el Corán dialoga con los relatos judíos y cristianos, los profetas comunes y la raíz semítica que une a las tres.</p>
-        <span class="go" style="color:#264a38">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">4 entregas</div>
-      </div>
-    </a>
     </div>
   </div>
-    <div class="etapa-head arqueo">
-      <span class="etapa-kicker">Segunda etapa</span>
-      <h2 class="etapa-title">Arqueología e historia</h2>
-      <p class="etapa-desc">La otra mitad de la disciplina: qué dice la pala del arqueólogo y la historia de los imperios sobre lo que cuentan los textos. Del suelo de Judá a Roma.</p>
-    </div>
-  <div class="timeline">
-    <div class="tl-item feat">
-      <span class="tl-era">El punto de partida</span><span class="tl-node"></span>
-      <a class="scard scard-arqueo" href="serie-biblia.html">
-      <div class="cap cap-earth"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#7a4428">Completa</span><span>Serie</span></div>
-        <h2>La Biblia <span class="em" style="color:#7a4428">desenterrada</span></h2>
-        <p>Una nueva etapa: la arqueología frente al texto. Basada en la obra de Israel Finkelstein, en diálogo con sus críticos. Qué dice la tierra sobre el Éxodo, David, Salomón y la escritura de la Biblia.</p>
-        <span class="go" style="color:#7a4428">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">4 entregas</div>
+</div>
+<div class="mapa">
+  <div class="lu-lab"><span>El corte completo</span><i></i></div>
+  <section class="m-band">
+    <div class="m-head">
+      <div class="mtop">
+        <span class="mk">Tercera etapa</span>
+        <h3>La biografía de las ideas</h3>
+        <span class="mn">2 series · 12 entregas</span>
       </div>
-    </a>
+      <p class="md">Ni por cronología ni por yacimientos: siguiendo una sola idea a través del tiempo y de las culturas, para ver dónde nació de verdad y qué se le fue pegando por el camino.</p>
     </div>
-    <div class="tl-item left">
-      <span class="tl-node"></span>
-      <a class="scard scard-arqueo" href="serie-reyes.html">
-      <div class="cap cap-reyes"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#5a5230">Completa</span><span>Serie</span></div>
-        <h2>El reino <span class="em" style="color:#5a5230">partido</span></h2>
-        <p>Dos tronos, doscientos años y dos derrumbes. La historia de Israel y Judá contada con los reyes que dejaron huella fuera de la Biblia, y con los que solo existen dentro de ella. Estrena el sinóptico de dos reinos.</p>
-        <span class="go" style="color:#5a5230">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">7 entregas</div>
-      </div>
-    </a>
-    </div>
-    <div class="tl-item especial">
-      <span class="tl-era">Pieza única</span><span class="tl-node"></span>
-      <a class="scard scard-especial scard-arqueo" href="edicion-jerusalen.html">
-        <div class="cap cap-especial"></div>
-        <div class="body">
-          <div class="snum"><span class="status status-especial">Edición especial</span><span>Interactiva</span></div>
-          <h2>La Fecha: ¿cuándo cayó <span class="em em-especial">Jerusalén</span>?</h2>
-          <p>587 o 586 a.C.: cómo las crónicas babilónicas y la astronomía del cielo antiguo fijan con precisión la fecha de la destrucción del Primer Templo. Con una visualización interactiva de la evidencia.</p>
-          <span class="go go-especial">Ver la edición especial <span class="arrow">→</span></span>
-          <div class="count">Interactiva</div>
-        </div>
+    <div class="m-rows">
+      <a class="m-row" href="serie-diablo.html">
+        <span class="bar" style="background:linear-gradient(180deg,#5c1f26,#8f3a3f)"></span>
+        <span class="tt">¿De dónde viene el <span class="em" style="color:#5c1f26">diablo</span>?</span>
+        <span class="cc">6 entregas</span>
+      </a>
+      <a class="m-row" href="serie-pecado.html">
+        <span class="bar" style="background:linear-gradient(180deg,#4a2f3a,#7a5364)"></span>
+        <span class="tt">La invención del <span class="em" style="color:#4a2f3a">pecado</span></span>
+        <span class="cc">6 entregas</span>
       </a>
     </div>
-    <div class="tl-item right">
-      <span class="tl-node"></span>
-      <a class="scard scard-imperial" href="serie-imperios.html">
-      <div class="cap cap-imperial"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#eed596">Completa</span><span>Serie</span></div>
-        <h2>Los vecinos <span class="em" style="color:#eed596">imperiales</span></h2>
-        <p>Egipto, Asiria, Babilonia y Persia: cómo las grandes potencias que rodearon a Israel moldearon su religión. Del exilio que forjó el monoteísmo a la Persia que dio forma al fin del mundo.</p>
-        <span class="go" style="color:#eed596">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">4 entregas</div>
+  </section>
+  <section class="m-band">
+    <div class="m-head">
+      <div class="mtop">
+        <span class="mk">Segunda etapa</span>
+        <h3>Arqueología e historia</h3>
+        <span class="mn">7 series · 39 entregas · 1 pieza única</span>
       </div>
-    </a>
+      <p class="md">La otra mitad de la disciplina: qué dice la pala del arqueólogo y la historia de los imperios sobre lo que cuentan los textos. Del suelo de Judá a Roma.</p>
     </div>
-    <div class="tl-item left">
-      <span class="tl-node"></span>
-      <a class="scard scard-marble" href="serie-grecia-roma.html">
-      <div class="cap cap-marble"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#6a3a5a">Completa</span><span>Serie</span></div>
-        <h2>Grecia y <span class="em" style="color:#6a3a5a">Roma</span></h2>
-        <p>El mundo grecorromano que vio nacer el cristianismo: de la conquista de Alejandro a la destrucción del Templo en el 70 d.C. Helenización, Macabeos, Herodes y el nacimiento de dos religiones.</p>
-        <span class="go" style="color:#6a3a5a">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">4 entregas</div>
+    <div class="m-rows">
+      <a class="m-row" href="serie-biblia.html">
+        <span class="bar" style="background:linear-gradient(180deg,#7a4428,#a8663e)"></span>
+        <span class="tt">La Biblia <span class="em" style="color:#7a4428">desenterrada</span></span>
+        <span class="cc">4 entregas</span>
+      </a>
+      <a class="m-row" href="serie-reyes.html">
+        <span class="bar" style="background:linear-gradient(180deg,#5a5230,#867a45)"></span>
+        <span class="tt">El reino <span class="em" style="color:#5a5230">partido</span></span>
+        <span class="cc">7 entregas</span>
+      </a>
+      <a class="m-row esp" href="edicion-jerusalen.html">
+        <span class="bar" style="background:linear-gradient(180deg,#2d4a7a,#d4a13a)"></span>
+        <span class="pill">Edición especial</span>
+        <span class="tt">La Fecha: ¿cuándo cayó <span class="em">Jerusalén</span>?</span>
+        <span class="cc">Interactiva</span>
+      </a>
+      <a class="m-row" href="serie-imperios.html">
+        <span class="bar" style="background:linear-gradient(180deg,#2a4a6a,#3a6a9a)"></span>
+        <span class="tt">Los vecinos <span class="em" style="color:#2a4a6a">imperiales</span></span>
+        <span class="cc">4 entregas</span>
+      </a>
+      <a class="m-row" href="serie-grecia-roma.html">
+        <span class="bar" style="background:linear-gradient(180deg,#6a3a5a,#8a5a7a)"></span>
+        <span class="tt">Grecia y <span class="em" style="color:#6a3a5a">Roma</span></span>
+        <span class="cc">4 entregas</span>
+      </a>
+      <a class="m-row" href="serie-jesus.html">
+        <span class="bar" style="background:linear-gradient(180deg,#2a3a5a,#3e5480)"></span>
+        <span class="tt">El Jesús <span class="em" style="color:#2a3a5a">histórico</span></span>
+        <span class="cc">4 entregas</span>
+      </a>
+      <a class="m-row" href="serie-origen.html">
+        <span class="bar" style="background:linear-gradient(180deg,#7d3320,#a8452a)"></span>
+        <span class="tt">Cómo el ser humano creó a los <span class="em" style="color:#7d3320">dioses</span></span>
+        <span class="cc">8 entregas</span>
+      </a>
+      <a class="m-row" href="serie-genesis.html">
+        <span class="bar" style="background:linear-gradient(180deg,#2a5049,#3d7068)"></span>
+        <span class="tt">Génesis a <span class="em" style="color:#2a5049">prueba</span></span>
+        <span class="cc">8 entregas</span>
+      </a>
+    </div>
+  </section>
+  <section class="m-band">
+    <div class="m-head">
+      <div class="mtop">
+        <span class="mk">Primera etapa</span>
+        <h3>Crítica textual</h3>
+        <span class="mn">6 series · 24 entregas</span>
       </div>
-    </a>
+      <p class="md">Cómo se escribieron, editaron y transmitieron los textos sagrados. El origen de las ideas, leído en la página.</p>
     </div>
-    <div class="tl-item right">
-      <span class="tl-node"></span>
-      <a class="scard scard-arqueo" href="serie-jesus.html">
-      <div class="cap cap-jesus"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#2a3a5a">Completa</span><span>Serie</span></div>
-        <h2>El Jesús <span class="em" style="color:#2a3a5a">histórico</span></h2>
-        <p>Qué sabe la historia —no la fe— del Jesús de Nazaret que vivió en la Galilea del siglo I: las fuentes, su mundo, la cruz y el nacimiento de una nueva religión.</p>
-        <span class="go" style="color:#2a3a5a">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">4 entregas</div>
-      </div>
-    </a>
+    <div class="m-rows">
+      <a class="m-row" href="serie-monoteismo.html">
+        <span class="bar" style="background:linear-gradient(180deg,#8a3d20,#b5613a)"></span>
+        <span class="tt">El nacimiento del <span class="em" style="color:#8a3d20">Dios único</span></span>
+        <span class="cc">5 entregas</span>
+      </a>
+      <a class="m-row" href="serie-corte.html">
+        <span class="bar" style="background:linear-gradient(180deg,#26333a,#3a4a52)"></span>
+        <span class="tt">La corte celestial y sus <span class="em" style="color:#26333a">criaturas</span></span>
+        <span class="cc">3 entregas</span>
+      </a>
+      <a class="m-row" href="serie-diosas.html">
+        <span class="bar" style="background:linear-gradient(180deg,#6e3546,#9c5a6c)"></span>
+        <span class="tt">Las diosas que no <span class="em" style="color:#6e3546">desaparecieron</span></span>
+        <span class="cc">4 entregas</span>
+      </a>
+      <a class="m-row" href="serie-apocalipsis.html">
+        <span class="bar" style="background:linear-gradient(180deg,#5a4d7a,#8a7bb0)"></span>
+        <span class="tt">El fin del <span class="em" style="color:#5a4d7a">mundo</span></span>
+        <span class="cc">4 entregas</span>
+      </a>
+      <a class="m-row" href="serie-libros.html">
+        <span class="bar" style="background:linear-gradient(180deg,#5a4226,#7a5c38)"></span>
+        <span class="tt">Los libros <span class="em" style="color:#5a4226">perdidos</span></span>
+        <span class="cc">4 entregas</span>
+      </a>
+      <a class="m-row" href="serie-islam.html">
+        <span class="bar" style="background:linear-gradient(180deg,#264a38,#3a6b52)"></span>
+        <span class="tt">El Islam y las <span class="em" style="color:#264a38">raíces compartidas</span></span>
+        <span class="cc">4 entregas</span>
+      </a>
     </div>
-    <div class="tl-item left">
-      <span class="tl-node"></span>
-      <a class="scard scard-arqueo" href="serie-origen.html">
-      <div class="cap cap-origen"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#7d3320">Completa</span><span>Serie</span></div>
-        <h2>Cómo el ser humano creó a los <span class="em" style="color:#7d3320">dioses</span></h2>
-        <p>El origen mismo de lo sagrado: cómo la humanidad, mucho antes de Israel, empezó a tener dioses. De una tumba de hace cien mil años a Göbekli Tepe y la ciencia de por qué creemos.</p>
-        <span class="go" style="color:#7d3320">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">8 entregas</div>
-      </div>
-    </a>
-    </div>
-    <div class="tl-item right">
-      <span class="tl-node"></span>
-      <a class="scard scard-arqueo" href="serie-genesis.html">
-      <div class="cap cap-genesis"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#2a5049">Completa</span><span>Serie</span></div>
-        <h2>Génesis a <span class="em" style="color:#2a5049">prueba</span></h2>
-        <p>Los grandes relatos del principio de la Biblia frente a la arqueología y la ciencia. No para desmentir, sino para iluminar de dónde viene cada historia. De la creación a la conquista de Canaán.</p>
-        <span class="go" style="color:#2a5049">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">8 entregas</div>
-      </div>
-    </a>
-    </div>
-  </div>
-    <div class="etapa-head ideas">
-      <span class="etapa-kicker">Tercera etapa</span>
-      <h2 class="etapa-title">La biografía de las ideas</h2>
-      <p class="etapa-desc">Ni por cronología ni por yacimientos: siguiendo una sola idea a través del tiempo y de las culturas, para ver dónde nació de verdad y qué se le fue pegando por el camino.</p>
-    </div>
-  <div class="timeline">
-    <div class="tl-item feat">
-      <span class="tl-era">El punto de partida</span><span class="tl-node"></span>
-      <a class="scard scard-ideas" href="serie-diablo.html">
-      <div class="cap cap-diablo"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#f0b58e">Completa</span><span>Serie</span></div>
-        <h2>¿De dónde viene el <span class="em" style="color:#f0b58e">diablo</span>?</h2>
-        <p>No está en el Génesis. Ni los cuernos, ni el nombre, ni la caída. Seis entregas siguiendo el rastro de una idea que tardó mil quinientos años en tomar la forma que hoy reconoce cualquiera. Abre la tercera etapa y estrena el grafo de linaje.</p>
-        <span class="go" style="color:#f0b58e">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">6 entregas</div>
-      </div>
-    </a>
-    </div>
-    <div class="tl-item left">
-      <span class="tl-node"></span>
-      <a class="scard scard-ideas" href="serie-pecado.html">
-      <div class="cap cap-pecado"></div>
-      <div class="body">
-        <div class="snum"><span class="status" style="color:#f0b58e">Completa</span><span>Serie</span></div>
-        <h2>La invención del <span class="em" style="color:#f0b58e">pecado</span></h2>
-        <p>El pecado original no está en el Génesis. Es una doctrina que se construyó en cuatro siglos, con materiales judíos, una práctica bautismal, un pronombre griego ambiguo y el género gramatical de una palabra latina. Seis entregas siguiendo cómo se hizo.</p>
-        <span class="go" style="color:#f0b58e">Ver la serie <span class="arrow">→</span></span>
-        <div class="count">6 entregas</div>
-      </div>
-    </a>
-    </div>
-  </div>
+  </section>
 </div>
 <div class="about"><div class="wrap">
   <h3>Sobre este blog</h3>

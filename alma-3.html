@@ -1,0 +1,672 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuatro vecinos que sí tenían piezas sueltas — Estratos</title>
+<meta name="description" content="Egipto, Mesopotamia, Grecia e Irán sí tenían componentes separables de la persona, y ninguno se traduce por «alma». Pero paralelo no es contacto: cada tradición con su vía, su fecha y la etiqueta de si la influencia es demostrable, plausible o analogía.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#54626b;--mid:#68767f;--pale:#5d6a73;
+    --rel:#8a4a2a;--exc:#54626b;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #626a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#626a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#626a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(93,106,115,.26)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#626a72}
+  figcaption .cr a{color:#5a6870;text-decoration:underline;text-decoration-color:rgba(90,104,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a6870}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c3cdd2,#9aa7ae 42%,#68767f 70%,#54626b)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#626a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#626a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#68767f}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#dde3e6,#c8d1d6);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#626a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#626a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .rutas{width:min(1120px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,150,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .rutas .rk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .rutas h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .rutas .rs{font-size:.98rem;color:#4a4f53;margin:0 0 1.2rem;max-width:70ch}
+
+  .ru-sw{display:flex;gap:0;border:1px solid var(--mid);border-radius:2rem;overflow:hidden;
+    width:fit-content;margin:0 0 .6rem}
+  .ru-sw .sw{font-family:"Trebuchet MS",sans-serif;font-size:.78rem;font-weight:700;
+    padding:.5rem 1.1rem;border:0;background:transparent;color:var(--deep);cursor:pointer;
+    transition:background .25s,color .25s}
+  .ru-sw .sw.on{background:var(--deep);color:#f2f5f6}
+  .ru-sw .sw:not(.on):hover{background:rgba(84,98,107,.12)}
+  .ru-aviso{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#4a4f53;
+    margin:0 0 1.3rem;max-width:72ch;line-height:1.55;min-height:2.6em}
+  .ru-aviso b{color:var(--deep)}
+
+  .ru-fila{display:grid;grid-template-columns:170px minmax(0,1fr);gap:.9rem;
+    padding:.75rem 0;border-top:1px solid rgba(120,132,140,.32);align-items:start}
+  .ru-fila .nom{font-family:"Trebuchet MS",sans-serif}
+  .ru-fila .nom b{display:block;font-size:.88rem;color:var(--deep);font-weight:700;
+    line-height:1.3}
+  .ru-fila .nom span{display:block;font-size:.68rem;color:#5a6167;margin-top:.2rem;
+    line-height:1.35}
+  .ru-fila .nom em{display:block;font-style:normal;font-size:.66rem;font-weight:700;
+    color:#7a4550;margin-top:.35rem;opacity:0;transition:opacity .3s}
+  .ru-fila .nom em.hay{opacity:1}
+  .rutas.c-atest .ru-fila .nom em,.rutas.c-esc .ru-fila .nom em{opacity:.75}
+
+  .ru-via{display:flex;flex-wrap:wrap;gap:.35rem;align-items:stretch}
+  .est{position:relative;background:#fbfaf6;border:1px solid rgba(120,132,140,.5);
+    border-radius:9px;padding:.42rem .6rem .38rem;cursor:pointer;text-align:left;
+    font-family:inherit;max-width:15rem;transition:opacity .35s,filter .35s,background .2s,
+    border-color .2s}
+  .est:hover{background:#fff;border-color:var(--mid)}
+  .est.on{background:#fff;border-color:var(--deep);box-shadow:0 0 0 2px rgba(84,98,107,.3)}
+  .est .et{display:block;font-size:.79rem;color:#2f3a40;line-height:1.3}
+  .est .fe{display:block;font-family:"Trebuchet MS",sans-serif;font-size:.62rem;
+    color:#5d666c;margin-top:.18rem;letter-spacing:.02em}
+  .est i{font-style:italic}
+  /* La estación que cae bajo el corte no se borra: se apaga y se tacha, para que
+     el lector vea CUÁNTAS caen y no solo cuántas quedan. Borrarla escondería
+     justamente el dato. */
+  .rutas.c-atest .est.t-atest,.rutas.c-esc .est.t-esc{opacity:.3;filter:grayscale(1)}
+  .rutas.c-atest .est.t-atest .et,.rutas.c-esc .est.t-esc .et{text-decoration:line-through;
+    text-decoration-color:#7a4550;text-decoration-thickness:1.5px}
+
+  .ru-det{margin-top:1.2rem;background:#fbfaf6;border:1px solid rgba(120,132,140,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:8rem}
+  .ru-det .dr{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--deep);margin-bottom:.3rem}
+  .ru-det h4{font-size:1.1rem;font-weight:400;color:var(--deep);margin:0 0 .15rem}
+  .ru-det .df{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;color:#5d666c;
+    margin:0 0 .6rem}
+  .ru-det p{font-size:.95rem;color:#3f454a;margin:0;line-height:1.62}
+  .ru-det .estr{margin-top:.7rem;padding-top:.6rem;border-top:1px dashed rgba(120,132,140,.55);
+    font-family:"Trebuchet MS",sans-serif;font-size:.73rem;color:#4a4f53;line-height:1.5}
+  .ru-det .estr b{color:var(--deep)}
+
+  .ru-pie{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(120,132,140,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4f53;line-height:1.6}
+  .ru-pie b{color:var(--deep)}
+
+  @media(max-width:720px){
+    .ru-fila{grid-template-columns:1fr;gap:.45rem}
+    .est{max-width:none;flex:1 1 100%}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El alma que no estaba · Entrega III</span>
+  <h1>Cuatro vecinos que sí tenían piezas <span class="em">sueltas</span></h1>
+  <div class="glifos"><span>𓂀</span><span class="sep">·</span><span class="tr">b3</span><span class="sep">·</span><span>ψυχή</span><span class="sep">·</span><span class="tr">psychē</span></div>
+  <p class="stand">La resurrección de los cuerpos es irania. El alma inmortal es griega. Invertir esas dos atribuciones es el error más repetido del comparativismo.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">Las dos entregas anteriores dejaron a Israel sin alma: un léxico corporal,
+un inframundo sin juicio y una tumba con comida dentro. La conclusión fácil sería que en el
+mundo antiguo nadie pensaba en almas y que la idea es un invento posterior. Esa conclusión
+es falsa, y conviene decirlo pronto, porque es el error contrario y se comete con la misma
+alegría.</p>
+
+<p>Los cuatro vecinos de Israel <strong>sí tenían piezas sueltas</strong>. Egipto tenía
+varias. Mesopotamia tenía un espectro que sobrevive a su dueño. Grecia acabó teniendo un
+alma inmortal —aunque tardó cuatro siglos en llegar a eso, y no todos llegaron—. E Irán
+tenía un juicio individual y una resurrección de los cuerpos.</p>
+
+<p>La pregunta interesante no es, por tanto, si había ideas parecidas. Las había. La
+pregunta es si de ahí se puede deducir que unas vinieran de otras. Y la respuesta exige
+distinguir con cuidado entre tres cosas que la divulgación mezcla sin pestañear:
+<strong>influencia demostrada</strong>, <strong>influencia plausible</strong> y
+<strong>mera analogía</strong>.</p>
+
+<div class="secnum">01</div><h2>Egipto: siete piezas y ninguna es un alma</h2>
+
+<figure>
+  <img src="pesaje-del-corazon.jpg" data-alt="hunefer.jpg|papiro-hunefer.jpg|psicostasia.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Escena del pesaje del corazón en el papiro de Hunefer">
+  <figcaption>El pesaje del corazón, papiro de Hunefer, hacia 1275 a.C. Museo Británico, EA 9901. Lo que se busca en la balanza no es que el corazón pese menos: es el <em>equilibrio</em> con Maat. Y el escarabeo de corazón le pedía al propio corazón que no declarase en contra de su dueño. <span class="cr">Museo Británico, Dominio público.</span></figcaption>
+</figure>
+
+<p>El caso egipcio es el más rico y el peor contado. Circula por todas partes la frase «los
+egipcios creían que el alma tenía cinco partes» —o siete, o nueve, según quién la repita—.
+Es falsa en su forma misma. No son partes de un alma; no hay número canónico; la lista varía
+según la época y el texto; y las «cinco partes del alma egipcia» son una invención de la
+divulgación esotérica del siglo XX.</p>
+
+<p>Lo que hay es un repertorio de componentes con funciones distintas. El cadáver
+(<em>ḫ3t</em>) y el cuerpo transfigurado por el ritual (<em>sꜥḥ</em>). Dos corazones: el
+<em>jb</em>, entrañas, y el <em>ḥ3tj</em>, el corazón-conciencia que será pesado. El nombre
+(<em>rn</em>), que hay que seguir pronunciando. La sombra (<em>šwt</em>). El <em>b3</em>,
+que sale de día y vuelve de noche al cuerpo, y por eso se representa como un pájaro con
+cabeza humana. El <em>k3</em>, que recibe las ofrendas.</p>
+
+<p>Y el <em>3ḫ</em>, que es el que rompe el esquema: <strong>no es un componente, es un
+estado que hay que llegar a ser</strong>. Como lo formula Jiří Janák: una persona no
+<em>tenía</em> un <em>akh</em>, tenía que <em>convertirse</em> en uno.</p>
+
+<p>Ahí está la diferencia decisiva con lo que vendrá después. En Egipto <strong>nada
+sobrevive por naturaleza</strong>. Sobrevive lo que el ritual reintegra y lo que los vivos
+sostienen: el cuerpo tratado, las ofrendas al <em>k3</em>, el nombre pronunciado. La
+supervivencia egipcia es un contrato de mantenimiento, no una propiedad del difunto.</p>
+
+<figure>
+  <img src="ba-pajaro.jpg" data-alt="ba.jpg|pajaro-ba.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Estatuilla de madera del pájaro ba, con cuerpo de ave y cabeza humana">
+  <figcaption>Estatuilla del <em>ba</em>, madera, época ptolemaica (305-30 a.C.). Museo de Bellas Artes de Boston, 72.4178. El concepto es antiquísimo; esta figurilla no. El <em>ba</em> sale de día y vuelve de noche al cuerpo: no es un alma que asciende, es movilidad que depende de que el cuerpo siga ahí. <span class="cr">Fotografía de Rama, CC BY-SA 3.0 FR.</span></figcaption>
+</figure>
+
+<p>¿Y el juicio? Sí lo hay, y es el más famoso del mundo antiguo: el corazón en un platillo
+de la balanza y Maat en el otro, con Osiris presidiendo y cuarenta y dos asesores. Pero se
+cuenta mal en tres puntos.</p>
+
+<p>El primero: <strong>lo que se busca no es que el corazón pese menos, sino el
+equilibrio</strong> con Maat. El segundo: el contrapeso no es siempre una pluma; puede ser
+la figura entera de la diosa. Y el tercero, que es el bueno: <strong>es un juicio con
+guion</strong>. La declaración de inocencia es formularia, hay que saberse los nombres de
+los cuarenta y dos asesores, y el escarabeo de corazón lleva grabada una fórmula que le pide
+expresamente al propio corazón que no testifique en contra de su dueño. Todo el aparato está
+diseñado para garantizar la absolución. No es un tribunal de resultado incierto: es un rito
+de paso.</p>
+
+<p>Y si falla, lo que Ammit devora es <strong>el corazón</strong>, y el resultado es la no
+existencia. No hay tormento perpetuo. No hay infierno egipcio.</p>
+
+<div class="meter">
+  <div class="q">¿Es firme que ninguno de los términos egipcios se traduce por «alma»?</div>
+  <div class="bar"><span class="pin" style="left:90%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Lo es entre egiptólogos, y la razón es estructural: los componentes no son partes de una entidad unitaria, tienen funciones distintas y dependen del ritual. Donde sí hay <i>debate</i> reciente es en otra cosa vecina: la llamada «democratización del más allá» en el Reino Medio, que Mark Smith y Harold Hays han desmontado —Hays llega a decir que la tesis «puede considerarse obsoleta» y que persiste por inercia—. Lo que cambió fue el soporte y el decoro, no el acceso; y el acceso real dependía del dinero.</div>
+</div>
+
+<div class="secnum">02</div><h2>Mesopotamia: el pariente léxico</h2>
+
+<p>Mesopotamia interesa aquí por una razón que no suele señalarse: es donde aparece el
+<strong>hermano léxico exacto del <em>nefesh</em></strong>. El acadio <em>napištu</em>
+significa vida, aliento y garganta —las tres cosas, como la palabra hebrea— y traduce el
+sumerio <em>zi</em>. La misma metáfora corporal, en dos lenguas semíticas vecinas, con la
+misma ambigüedad.</p>
+
+<p>Lo que sobrevive a la muerte es el <em>eṭemmu</em>, un espectro. Y su modo de existir es
+lo relevante: <strong>es dependiente</strong>. Necesita sepultura, necesita que alguien
+pronuncie su nombre y necesita ofrendas. Sin descendientes que ofrenden, el
+<em>eṭemmu</em> vaga y acaba apagándose, más o menos al ritmo en que una familia deja de
+recordar a los suyos: tres generaciones. Eso no es inmortalidad. Es <strong>persistencia
+asistida</strong>.</p>
+
+<p>El rito que la sostiene se llama <em>kispu</em>: comida y agua para los muertos, en
+fechas fijas, a cargo del heredero. Guárdese el nombre, porque vuelve. Deuteronomio 26,14
+hace decir al israelita que presenta sus diezmos que no ha dado de aquello «a un muerto». Se
+está prohibiendo algo, y una prohibición presupone que alguien lo hacía.</p>
+
+<p>¿Juicio? Aquí hay que afinar, porque la formulación divulgativa —«en Mesopotamia todos
+los muertos eran iguales»— es falsa. Las suertes eran enormemente distintas, y hay figuras
+judiciales: Šamaš, y Gilgameš como juez de los muertos. Lo que no hay es
+<strong>criterio moral</strong>. Lo que decide la suerte del difunto es cuántos hijos tuvo,
+si fue enterrado, si recibe ofrendas y de qué manera murió. La formulación correcta no es
+«no había diferencias»: es «no había juicio moral».</p>
+
+<div class="secnum">03</div><h2>Grecia: cuatro siglos, tres respuestas incompatibles</h2>
+
+<figure>
+  <img src="lecito-caronte.jpg" data-alt="caronte.jpg|lekythos-caronte.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Lécito ático de fondo blanco con Caronte y su barca">
+  <figcaption>Lécito ático de fondo blanco, hacia 435 a.C. Museum für Kunst und Gewerbe de Hamburgo, 1984.442. Lo que Caronte transporta no es todavía un alma inmortal: en Homero es un <em>eidōlon</em> sin <em>phrenes</em>, una imagen que chilla. <span class="cr">Museum für Kunst und Gewerbe, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener">CC0</a>.</span></figcaption>
+</figure>
+
+<p>De Grecia se dice con enorme ligereza que «creía en el alma inmortal». Como
+generalización es falsa, y sus propios contraejemplos internos son de primer orden.</p>
+
+<p>Empecemos por Homero, donde la sorpresa es grande. La <em>psychē</em> homérica
+<strong>no piensa, no siente y no decide</strong>. Como resume Hendrik Lorenz, Homero nunca
+dice que nadie haga nada en virtud de su alma o con ella. Lo que piensa y siente son el
+<em>thymos</em>, el <em>noos</em>, las <em>phrenes</em>, el <em>kradiē</em> — y todas están
+ligadas al cuerpo. La <em>psychē</em> es solo el signo de que había vida; cuando el guerrero
+cae, se marcha, y lo que queda en el Hades es un <em>eidōlon</em> sin <em>phrenes</em>: una
+imagen que chilla. Aquiles intenta abrazar a Patroclo y no hay nada.</p>
+
+<p>Que un lector de Homero y un lector del Salmo 88 habrían estado de acuerdo en casi todo
+es uno de los datos más útiles de esta serie.</p>
+
+<p>Lo que cambia eso es el giro órfico-pitagórico, y con él la <em>psychē</em> deja de ser
+un residuo para convertirse en <strong>lo que uno verdaderamente es</strong>, preexistente
+al cuerpo y destinada a volver a nacer. El testimonio más antiguo es contemporáneo y es
+hostil: un fragmento de Jenófanes, del siglo VI o V a.C., que se burla de Pitágoras por
+reconocer el alma de un amigo en los ladridos de un perro.</p>
+
+<p>Y luego Platón, que lo sistematiza: el alma tripartita, el cuerpo como
+<em>desmōtērion</em> —prisión—, el juicio y la reencarnación del mito de Er. Conviene
+subrayar una consecuencia que casi nunca se saca: <strong>en este esquema la resurrección
+del cuerpo sería un mal</strong>, no un premio. Lo que se busca es salir del cuerpo y no
+volver.</p>
+
+<figure>
+  <img src="platon-busto.jpg" data-alt="platon.jpg|busto-platon.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Busto de mármol de Platón">
+  <figcaption>Busto de Platón, Museos Vaticanos. Con el <em>Fedón</em> el cuerpo pasa a ser <em>desmōtērion</em>, prisión. De donde se sigue algo que casi nunca se subraya: en este esquema la resurrección del cuerpo sería un mal. <span class="cr">Fotografía de Dudva, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</span></figcaption>
+</figure><figure>
+  <img src="faravahar-persepolis.jpg" data-alt="faravahar.jpg|persepolis-faravahar.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Relieve del faravahar tallado en piedra en Persépolis">
+  <figcaption>El <em>faravahar</em>, Persépolis. Se lo identifica popularmente con el <em>fravaši</em>, la entidad preexistente y protectora — que <strong>no aparece en las Gathas</strong>. La identificación misma del símbolo está discutida. <span class="cr">Fotografía de Napishtim, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure>
+
+<p>Pero Grecia no se acaba ahí, y esto es lo que desmonta la generalización. Aristóteles
+sostiene que preguntar si el alma y el cuerpo son una sola cosa es una pregunta mal hecha,
+como preguntar si la cera y su forma son una: el alma es la forma del cuerpo, y no sobrevive
+a su materia como una cosa separada. Epicuro hace el alma de átomos y la disgrega al morir.
+Los estoicos la hacen material y temporal —y Crisipo, además, reserva la supervivencia a los
+sabios—. Y la epigrafía funeraria masiva, que es lo que de verdad pensaba la gente, ni
+siquiera se plantea la cuestión.</p>
+
+<div class="wall">
+  <div class="post min">
+    <div class="who">Homero</div>
+    <div class="what">ss. VIII-VII a.C.</div>
+    <p>La <i>psychē</i> no piensa, no siente y no decide. Lorenz: «Homero nunca dice que nadie haga nada en virtud de su alma, o con ella».</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Jenófanes, fr. 7</div>
+    <div class="what">s. VI-V a.C.</div>
+    <p>El testimonio más antiguo de la metempsícosis pitagórica, y es una burla: Pitágoras manda parar de golpear a un perro porque ha reconocido en sus ladridos el alma de un amigo. <b>Contemporáneo y hostil</b>, que son las dos mejores cualidades de un testimonio.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Platón, <i>Fedón</i></div>
+    <div class="what">s. IV a.C.</div>
+    <p>El alma preexistente e inmortal, y el cuerpo como prisión. Aquí sí está la idea que buscábamos — cuatro siglos después de Homero, y en una sola de las escuelas.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Aristóteles, <i>De anima</i> 412b</div>
+    <div class="what">s. IV a.C.</div>
+    <p>Preguntar si el alma y el cuerpo son una sola cosa es pregunta mal hecha, como preguntarlo de la cera y su forma. <b>El alumno de Platón no cree en el alma separable.</b></p>
+  </div>
+  <div class="post min">
+    <div class="who">Epicuro</div>
+    <div class="what">s. IV-III a.C.</div>
+    <p>El alma es atómica y se disgrega. No sobrevive nada, y esa es precisamente la buena noticia que el epicureísmo viene a dar.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Crisipo</div>
+    <div class="what">s. III a.C.</div>
+    <p>Para los estoicos la supervivencia es material y temporal; y según Crisipo, además, solo la alcanzan los sabios. «Los griegos creían en el alma inmortal» no sobrevive a ninguna de estas cuatro filas.</p>
+  </div>
+</div>
+
+<div class="secnum">04</div><h2>Irán: donde la fecha de la fuente lo decide todo</h2>
+
+<p>Llegamos al bloque delicado, y hay que empezar por el método porque aquí el método
+<em>es</em> el argumento.</p>
+
+<p>Del zoroastrismo se dice que le dio al judaísmo el cielo, el infierno, el juicio final,
+la resurrección, Satán y los ángeles. La afirmación es insostenible <em>tal como se
+formula</em>, y no porque la influencia irania sea imposible —volveremos a eso—, sino porque
+mezcla materiales separados por mil quinientos años.</p>
+
+<p>El Avesta tiene estratos, y la diferencia entre ellos importa más que cualquier otra cosa
+de esta entrega:</p>
+
+<ul>
+<li><strong>Avéstico antiguo</strong>: las Gathas. Datación convencional en torno al 1000
+a.C., y la horquilla real del debate académico va de ~1500 a ~600 a.C. Como resume Helmut
+Humbach, todas las fechas transmitidas para la vida de Zoroastro son especulativas.</li>
+<li><strong>Avéstico reciente</strong>: los <em>Yašts</em>, el <em>Hādōxt Nask</em>, el
+<em>Vidēvdād</em>. Aproximadamente de época aqueménida.</li>
+<li><strong>Libros pahlavi</strong>: el <em>Bundahišn</em>, el <em>Dēnkard</em>, el
+<em>Ardā Wīrāz-nāmag</em>. Redactados en los <strong>siglos IX y X de nuestra era</strong>,
+ya en época islámica — el <em>Bundahišn</em> menciona a los conquistadores árabes.</li>
+</ul>
+
+<p>Y una cosa más, que es la que casi nadie dice en voz alta: <strong>el Avesta se
+transmitió oralmente</strong>. Como establece Jean Kellens, hasta comienzos de nuestra era
+al menos, los textos litúrgicos del mazdeísmo solo pudieron ser objeto de tradición oral; la
+vulgata avéstica procede de un canon fijado por escrito bajo los sasánidas, hacia el siglo
+IV d.C.; y los manuscritos conservados son del siglo XIII en adelante.</p>
+
+<div class="rutas" id="rutas">
+  <span class="rk">Pieza interactiva &middot; rutas del m&aacute;s all&aacute;</span>
+  <h3>Seis trayectos, y la fecha de cada estaci&oacute;n</h3>
+  <p class="rs">Qu&eacute; se separa del cuerpo, ad&oacute;nde va, si hay juicio, si vuelve, si resucita.
+  Cada estaci&oacute;n lleva <b>la fecha de la fuente m&aacute;s antigua que la atestigua</b>, de modo que
+  al comparar dos rutas se vea tambi&eacute;n qui&eacute;n lleg&oacute; antes. Pulsa cualquiera. Y luego prueba
+  los dos cortes, que no son el mismo corte.</p>
+  <div class="ru-sw" role="group" aria-label="Corte cronol&oacute;gico">
+    <button type="button" class="sw on" data-m="todo">Todas</button>
+    <button type="button" class="sw" data-m="atest">Atestiguado antes del 300&nbsp;a.C.</button>
+    <button type="button" class="sw" data-m="esc">Escrito antes de nuestra era</button>
+  </div>
+  <p class="ru-aviso" id="ruaviso" aria-live="polite"></p>
+  <div class="ru-fila"><div class="nom"><b>Israel monárquico</b><span>Judá, ss. X-VI a.C.</span><em data-atest="2" data-esc="0" data-tot="7"></em></div><div class="ru-via"><button type="button" class="est " data-id="israel-muere"><span class="et">Muere el cuerpo</span><span class="fe">ss. X-VI a.C.</span></button><button type="button" class="est " data-id="israel-baja"><span class="et">Se baja al Sheol</span><span class="fe">ss. X-VI a.C.</span></button><button type="button" class="est " data-id="israel-nojuicio"><span class="et">No hay juicio</span><span class="fe">ss. X-VI a.C.</span></button><button type="button" class="est " data-id="israel-huesos"><span class="et">Los huesos, al repositorio</span><span class="fe">ss. VIII-VI a.C.</span></button><button type="button" class="est " data-id="israel-ofrenda"><span class="et">Comida, bebida y luz</span><span class="fe">ss. VIII-VI a.C.</span></button><button type="button" class="est t-atest" data-id="israel-camaras"><span class="et">Cámaras separadas para justos y pecadores</span><span class="fe">s. III a.C.</span></button><button type="button" class="est t-atest" data-id="israel-resu"><span class="et">Resurrección de los que duermen en el polvo</span><span class="fe">c. 165 a.C.</span></button></div></div>
+  <div class="ru-fila"><div class="nom"><b>Egipto</b><span>del Reino Antiguo al Reino Nuevo</span><em data-atest="0" data-esc="0" data-tot="6"></em></div><div class="ru-via"><button type="button" class="est " data-id="egipto-muere"><span class="et">Muere el cuerpo, y se le trata</span><span class="fe">c. 2350 a.C.</span></button><button type="button" class="est " data-id="egipto-piezas"><span class="et">Las piezas de la persona</span><span class="fe">c. 2350 a.C.</span></button><button type="button" class="est " data-id="egipto-ba"><span class="et">El <i>b3</i> sale de día y vuelve de noche</span><span class="fe">c. 2350 a.C.</span></button><button type="button" class="est " data-id="egipto-ka"><span class="et">El <i>k3</i> recibe las ofrendas</span><span class="fe">c. 2350 a.C.</span></button><button type="button" class="est " data-id="egipto-pesaje"><span class="et">Pesaje del corazón ante Osiris</span><span class="fe">Reino Nuevo</span></button><button type="button" class="est " data-id="egipto-iaru"><span class="et">Campos de Iaru, barca solar, o la propia tumba</span><span class="fe">Reino Nuevo</span></button></div></div>
+  <div class="ru-fila"><div class="nom"><b>Mesopotamia</b><span>Sumer, Babilonia, Asiria</span><em data-atest="0" data-esc="0" data-tot="6"></em></div><div class="ru-via"><button type="button" class="est " data-id="meso-muere"><span class="et">Se apaga el <i>napištu</i></span><span class="fe">III milenio a.C.</span></button><button type="button" class="est " data-id="meso-etemmu"><span class="et">Queda el <i>eṭemmu</i></span><span class="fe">III milenio a.C.</span></button><button type="button" class="est " data-id="meso-kur"><span class="et">Baja al Kur, «la tierra sin retorno»</span><span class="fe">c. 1800 a.C.</span></button><button type="button" class="est " data-id="meso-kispu"><span class="et">Los vivos ofrendan: el <i>kispu</i></span><span class="fe">c. 1800 a.C.</span></button><button type="button" class="est " data-id="meso-nojuicio"><span class="et">Hay jueces, pero no criterio moral</span><span class="fe">c. 1800 a.C.</span></button><button type="button" class="est " data-id="meso-olvido"><span class="et">Se desvanece con la memoria</span><span class="fe">c. 1800 a.C.</span></button></div></div>
+  <div class="ru-fila"><div class="nom"><b>Grecia homérica</b><span>ss. VIII-VII a.C.</span><em data-atest="0" data-esc="0" data-tot="4"></em></div><div class="ru-via"><button type="button" class="est " data-id="homero-muere"><span class="et">La <i>psychē</i> abandona el cuerpo</span><span class="fe">ss. VIII-VII a.C.</span></button><button type="button" class="est " data-id="homero-eidolon"><span class="et">Queda un <i>eidōlon</i> sin <i>phrenes</i></span><span class="fe">ss. VIII-VII a.C.</span></button><button type="button" class="est " data-id="homero-hades"><span class="et">Al Hades, indiferenciado</span><span class="fe">ss. VIII-VII a.C.</span></button><button type="button" class="est " data-id="homero-nojuicio"><span class="et">No hay juicio</span><span class="fe">ss. VIII-VII a.C.</span></button></div></div>
+  <div class="ru-fila"><div class="nom"><b>Grecia órfico-platónica</b><span>ss. VI-IV a.C.</span><em data-atest="0" data-esc="0" data-tot="5"></em></div><div class="ru-via"><button type="button" class="est " data-id="platon-separa"><span class="et">El alma se separa —y es ella el sujeto</span><span class="fe">ss. VI-V a.C.</span></button><button type="button" class="est " data-id="platon-prision"><span class="et">El cuerpo era una prisión</span><span class="fe">s. IV a.C.</span></button><button type="button" class="est " data-id="platon-juicio"><span class="et">Juicio, castigo o recompensa milenaria</span><span class="fe">s. IV a.C.</span></button><button type="button" class="est " data-id="platon-metem"><span class="et">Y vuelve: metempsícosis</span><span class="fe">ss. VI-V a.C.</span></button><button type="button" class="est " data-id="platon-noresu"><span class="et">No hay resurrección corporal</span><span class="fe">s. IV a.C.</span></button></div></div>
+  <div class="ru-fila"><div class="nom"><b>Irán / zoroastrismo</b><span>y aquí la fecha de la fuente lo decide todo</span><em data-atest="2" data-esc="7" data-tot="7"></em></div><div class="ru-via"><button type="button" class="est t-esc" data-id="iran-urvan"><span class="et">El <i>urvan</i> permanece tres noches junto a la cabeza</span><span class="fe">avéstico reciente</span></button><button type="button" class="est t-esc" data-id="iran-daena"><span class="et">Al alba se le aparece la <i>daēnā</i></span><span class="fe">avéstico reciente</span></button><button type="button" class="est t-esc" data-id="iran-puente"><span class="et">Cruza el puente Činvat</span><span class="fe">Gathas</span></button><button type="button" class="est t-atest t-esc" data-id="iran-rasnu"><span class="et">Rašnu pesa los actos en una balanza</span><span class="fe">pahlavi, s. IX-X d.C.</span></button><button type="button" class="est t-esc" data-id="iran-casas"><span class="et">Casa del Canto o Casa de la Mentira</span><span class="fe">Gathas</span></button><button type="button" class="est t-atest t-esc" data-id="iran-hamis"><span class="et">O al <i>hamistagān</i>, el intermedio</span><span class="fe">pahlavi, s. IX-X d.C.</span></button><button type="button" class="est t-esc" data-id="iran-frasho"><span class="et">Resurrección de los cuerpos y renovación del mundo</span><span class="fe">s. IV a.C. por fuente externa</span></button></div></div>
+  <div class="ru-det" id="rudet" aria-live="polite"></div>
+  <div class="ru-pie"><b>Paralelo no es contacto.</b> Este cuadro pone seis rutas al lado y no
+  afirma que ninguna derive de otra: el contacto hist&oacute;rico hay que demostrarlo tradici&oacute;n por
+  tradici&oacute;n, y es lo que hace el art&iacute;culo. Lo que el cuadro s&iacute; muestra es una asimetr&iacute;a de
+  evidencia. De las 35 estaciones, 4 dependen de fuentes posteriores al
+  300&nbsp;a.C. Y con el segundo corte, el de la escritura, se apagan 7 &mdash;de las cuales
+  <b>7 son la ruta irania entera</b>, justo la que m&aacute;s se invoca para explicar el juda&iacute;smo
+  del Segundo Templo&mdash;.</div>
+</div>
+
+<p>Eso no invalida el uso de las Gathas: la filología reconstruye el avéstico antiguo con
+confianza, y lo que está en las Gathas está. Lo que invalida es cualquier argumento que
+dependa de la <em>fijación textual</em> en época aqueménida.</p>
+
+<p>Con ese filtro, el reparto queda así. <strong>Se puede usar</strong>: el puente Činvat,
+que está en las Gathas; la retribución individual por los actos, que también; la Casa del
+Canto y la Casa de la Mentira, igualmente; y la resurrección universal con derrota final del
+mal, que además tiene una garantía externa magnífica — <strong>Teopompo de Quíos, un griego
+del siglo IV a.C., la describe</strong>, de modo que su antigüedad no depende de la
+transmisión irania.</p>
+
+<p><strong>No se puede usar sin advertirlo</strong>: el <em>fravaši</em>, ausente de las
+Gathas; el infierno articulado, que Gignoux señala que no está explícitamente en ellas; y
+todo el aparato del <em>hamistagān</em>, la balanza de Rašnu, los cincuenta y siete años de
+la renovación, la ordalía universal del metal fundido y la jerarquía de resucitados, que es
+pahlavi del siglo IX-X. Y el <em>Ardā Wīrāz-nāmag</em> como modelo de los viajes al infierno
+judíos y cristianos tiene <strong>la flecha cronológica invertida</strong>: su forma
+definitiva es ochocientos años posterior a 1 Enoc.</p>
+
+<div class="aviso">
+  <div class="t">Una precisión que cambia el sentido de toda la comparación</div>
+  <p>De las cuatro tradiciones, <strong>la resurrección corporal es irania</strong> y <strong>el alma inmortal e incorpórea es griega</strong>. No al revés. La divulgación comparativa invierte estas dos atribuciones con una frecuencia asombrosa, y de ahí salen frases como «el zoroastrismo dio al cristianismo el alma inmortal», que es exactamente lo contrario de lo que dicen las fuentes. Y hay un detalle que lo remata: el cielo zoroástrico incluye <em>placeres físicos</em> — Shaked recoge el gusto de comer carne y la relación sexual, aunque sin procreación. Un alma incorpórea no comería.</p>
+</div>
+
+<div class="secnum">05</div><h2>Una corrección a algo que ya publicamos</h2>
+
+<p>En «Dos espíritus en el desierto», la segunda entrega de la serie del diablo, escribimos
+que <em>el Ahriman simétrico del dualismo comparado es sasánida y por tanto posterior al
+cristianismo</em>. La investigación de esta serie la ha puesto a prueba, y como está
+formulada <strong>es vulnerable</strong>.</p>
+
+<p>Lo que Gherardo Gnoli establece en la <em>Encyclopaedia Iranica</em> es más fino. Hay dos
+espíritus primordiales <strong>gemelos</strong> ya en el avéstico antiguo: <em>Yasna</em>
+30,3-4, «los dos Espíritus primordiales que son gemelos». Y hay griegos del siglo IV a.C.
+—Aristóteles, Eudemo de Rodas, y Teopompo otra vez— que informan de una pareja
+Oromasdes/Areimanios. La oposición dualista, por tanto, no es tardía.</p>
+
+<p>Lo que sí es sasánida es la <strong>simetría metafísica</strong>: Ahriman como
+coprincipio ontológico, el esquema de los tres tiempos, la mecánica de la mezcla y la
+separación. La formulación que sustituye a la nuestra es esta:</p>
+
+<blockquote>Lo sasánida es la simetría metafísica y el aparato cosmológico. Lo que no es
+sasánida es la oposición dualista misma.
+<cite>Corrección a «Dos espíritus en el desierto», sobre Gnoli, «Dualism», <em>Encyclopaedia
+Iranica</em></cite></blockquote>
+
+<p>Nuestra tesis anterior era correcta sobre la <em>forma</em> del Ahriman que usa el
+comparativismo, e incorrecta si se leía —y se podía leer— como si el dualismo iranio fuera
+post-cristiano. Queda corregido aquí, y el artículo original llevará la enmienda.</p>
+
+<div class="secnum">06</div><h2>Paralelo no es contacto</h2>
+
+<p>Y ahora la pregunta que da sentido a todo lo anterior. Que cuatro culturas vecinas
+tuvieran piezas separables de la persona, ¿prueba que la idea judía del alma viniera de
+ellas? No. Prueba que la idea estaba disponible. Para afirmar contacto hace falta demostrar
+la vía, el periodo y el mecanismo, y el resultado es desigual.</p>
+
+<p>Con <strong>Egipto</strong> hubo contacto denso y continuo, y hay una influencia literaria
+demostrada —la <em>Instrucción de Amenemope</em> detrás de Proverbios 22-24—. Pero en materia
+de más allá no hay nada demostrable: la psicostasia, los componentes de la persona, la
+momificación, los Campos de Iaru no dejan huella en el corpus hebreo. Es analogía.</p>
+
+<p>Con <strong>Mesopotamia</strong> el contacto fue todavía más denso —imperio, deportación,
+exilio, lengua— y hay préstamos demostrados en el diluvio, la cosmogonía y el derecho. En
+nuestro asunto, lo plausible son los ritos de duelo, el culto a los parientes muertos y la
+terminología del inframundo; y buena parte del parecido se explica mejor por sustrato
+semítico común que por préstamo.</p>
+
+<p>Con <strong>Grecia</strong> es donde hay influencia demostrada en sentido estricto, y es
+la que menos se subraya: <strong>el alma inmortal e incorruptible entra en la literatura
+judía por vía griega</strong>, y se puede ver en la Septuaginta, en la Sabiduría de Salomón,
+en 4 Macabeos y en Filón. Es la entrega siguiente.</p>
+
+<p>Con <strong>Irán</strong>, la respuesta honesta es la más incómoda: <strong>contacto sí,
+mecanismo desconocido, elementos concretos no demostrables</strong>. Hubo dos siglos de
+dominio aqueménida, arameo imperial, préstamos léxicos y un judaísmo babilónico largamente
+instalado en territorio iranio. Shaul Shaked, que es el mejor defensor de la influencia,
+concede él mismo el problema metodológico en una frase que conviene citar entera: sigue
+siendo discutido si está justificado ampliar las escasas alusiones de los textos avésticos
+leyendo en ellas las ideas escatológicas de la tradición posterior.</p>
+
+<p>Y hay que decir también la trampa espejo, porque el campo tiene sesgo en las dos
+direcciones. «La influencia persa está refutada» es igual de falso. El escepticismo
+metodológico no es una refutación: es una exigencia de prueba. Y parte del escepticismo del
+siglo XX fue reacción —legítima— a la ideología aria del comparativismo anterior.</p>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Lo que es <span class="k">consenso</span> en esta entrega: que ningún término egipcio equivale a «alma» y que el <em>3ḫ</em> es un estado y no un componente; que el <em>eṭemmu</em> mesopotámico es dependiente de las ofrendas; que la <em>psychē</em> homérica no piensa ni decide; que el puente Činvat y las dos Casas están en las Gathas; y que el <em>hamistagān</em>, la balanza de Rašnu y la ordalía del metal fundido en su forma desarrollada son de libros pahlavi del siglo IX-X.</p>
+  <p>Lo que está en <span class="k">debate abierto</span>: la datación de las Gathas, donde la horquilla académica va de ~1500 a ~600 a.C.; la datación aqueménida del zurvanismo, que es tesis de Gnoli y está disputada; y el grado en que el juicio egipcio estaba «amañado» ritualmente, que es lectura de Assmann y otros, no dato. Y sobre la influencia irania en el judaísmo del Segundo Templo, el estado real de la cuestión es <strong>contacto sí, mecanismo desconocido, elementos concretos no demostrables</strong>.</p>
+  <p>Una <span class="k">verificación fallida</span> que decimos en vez de callar. La fórmula epigráfica latina <em>non fui, fui, non sum, non curo</em> —«no fui, fui, no soy, no me importa»— se cita constantemente como prueba de un escepticismo epicúreo popular extendido en Roma. <strong>No conseguimos verificar ni una referencia del <em>Corpus Inscriptionum Latinarum</em> para ella</strong>: circula sin anclaje epigráfico en todas las fuentes en línea consultadas. Y aunque estuviera atestiguada, la norma del epitafio latino es <em>D. M.</em> y la memoria social, no la polémica escatológica. Presentarla como «lo que pensaban los romanos» sería un error de muestreo.</p>
+  <p>Y una advertencia de método para uso del lector, porque vale fuera de aquí. Varias fuentes secundarias de aspecto respetable —enciclopedias en línea, sitios de museos— reproducen sin referencia afirmaciones que la literatura especializada ha matizado o rechazado: la «democratización» del más allá, la pluma como contrapeso invariable, la fórmula que acabamos de mencionar. La regla que seguimos es preguntar, para cada dato, de qué década es la última discusión especializada.</p>
+</div>
+
+<p>Queda una cosa por decir, y es la que ordena la entrega siguiente. De las cuatro rutas,
+<strong>la resurrección corporal es irania</strong>, no griega ni egipcia. Y
+<strong>el alma inmortal es griega</strong>, no persa. Invertir esas dos atribuciones es el
+error más repetido del comparativismo divulgativo, y conviene tenerlas derechas antes de
+entrar en el Segundo Templo judío, donde las dos cosas se encuentran y donde alguien va a
+tener que hacerlas convivir.</p>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p><strong>Egipto.</strong> Jiří Janák, «Ba» (2016) y «Akh» (2013), <em>UCLA Encyclopedia of
+  Egyptology</em> · Jan Assmann, <em>Death and Salvation in Ancient Egypt</em>, Cornell
+  University Press, 2005 · Mark Smith, «Democratization of the Afterlife», <em>UEE</em>, 2009 ·
+  Harold M. Hays, «The Death of the Democratisation of the Afterlife», 2011 · Stephen Quirke,
+  Digital Egypt (UCL), sobre el Libro de los Muertos y la numeración de Lepsius (1843).</p>
+  <p><strong>Mesopotamia.</strong> <em>The Assyrian Dictionary of the Oriental Institute</em>,
+  s.vv. <em>napištu</em> y <em>eṭemmu</em> · <em>Gilgameš, Enkidu y el inframundo</em> y el
+  <em>Descenso de Ištar</em>, ediciones del ETCSL y de SAA · sobre el <em>kispu</em>, la
+  bibliografía reunida en el dossier II de esta serie.</p>
+  <p><strong>Grecia.</strong> Hendrik Lorenz, «Ancient Theories of Soul», <em>Stanford
+  Encyclopedia of Philosophy</em> · Carl Huffman, «Pythagoras», <em>SEP</em> · el papiro de
+  Derveni (tratado del último cuarto del s. V a.C.; el rollo, de fines del IV o inicios del
+  III) y las láminas de oro desde ~400 a.C. (Hiponio).</p>
+  <p><strong>Irán.</strong> Todas las entradas citadas son de la <em>Encyclopaedia Iranica</em>:
+  Jean Kellens, «Avesta i» y «Hādōxt Nask» · Helmut Humbach, «Gathas i» · Gherardo Gnoli,
+  «Dualism» · Shaul Shaked, «Eschatology i. In Zoroastrianism and Zoroastrian Influence» ·
+  D. N. MacKenzie, «Bundahišn» · Philippe Gignoux, «Dēnkard» y «Ardā Wīrāz».</p>
+  <p><strong>Sobre la dicotomía hebreo/griego.</strong> Oscar Cullmann, <em>Immortality of the
+  Soul or Resurrection of the Dead?</em>, 1956 — y la crítica de James Barr, <em>The Semantics
+  of Biblical Language</em>, 1961, que la acusa de esencialismo lingüístico. El judaísmo
+  helenístico ya era griego, y la contraposición tajante es una construcción del siglo XX.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var D={"israel-muere": {"t": "Muere el cuerpo", "f": "ss. X-VI a.C.", "fu": "Textos narrativos y poéticos del TM", "q": "No se separa nada. <i>Nefesh</i>, <i>ruaḥ</i> y <i>neshamah</i> nombran el aliento, la garganta y el ánimo, no una pieza desmontable. Lo que el texto dice es que el aliento cesa.", "es": "", "r": "Israel monárquico"}, "israel-baja": {"t": "Se baja al Sheol", "f": "ss. X-VI a.C.", "fu": "Gn 37,35; Job 7,9; Is 14,11", "q": "Nunca se «va»: se <b>baja</b>, <i>yarad</i>. Es el punto más bajo del cosmos. Polvo, oscuridad, silencio, olvido.", "es": "", "r": "Israel monárquico"}, "israel-nojuicio": {"t": "No hay juicio", "f": "ss. X-VI a.C.", "fu": "Ausencia verificada en los 66 pasajes", "q": "Ningún pasaje aplica al Sheol vocabulario judicial. Lo que describen los textos no es retribución sino cese de función.", "es": "", "r": "Israel monárquico"}, "israel-huesos": {"t": "Los huesos, al repositorio", "f": "ss. VIII-VI a.C.", "fu": "Arqueología: Ketef Hinnom, Silwan", "q": "Segundo tiempo del funeral: cuando la carne ha desaparecido, los huesos se pasan al repositorio comunal y se mezclan con los de los antepasados. Es lo que significa «fue reunido con sus padres».", "es": "", "r": "Israel monárquico"}, "israel-ofrenda": {"t": "Comida, bebida y luz", "f": "ss. VIII-VI a.C.", "fu": "Ajuares funerarios excavados", "q": "Cerámica de mesa, decantadores, lámparas, amuletos. Que eso sea culto y no exhibición de estatus es la lectura mayoritaria, no un hecho: Schmidt y Johnston sostienen lo contrario con argumentos válidos.", "es": "", "r": "Israel monárquico"}, "israel-camaras": {"t": "Cámaras separadas para justos y pecadores", "f": "s. III a.C.", "fu": "1 Enoc 22 (Libro de los Vigilantes)", "q": "La primera aparición datable de compartimentos dentro del ámbito de los muertos. Y es judía y apocalíptica, no griega: los manuscritos arameos de Qumrán fijan el límite superior a comienzos del s. II a.C.", "es": "", "r": "Israel monárquico"}, "israel-resu": {"t": "Resurrección de los que duermen en el polvo", "f": "c. 165 a.C.", "fu": "Daniel 12,2", "q": "Unos para vida eterna y otros para oprobio. Pero el destino diferenciado está <b>después</b> de la resurrección, no dentro del Sheol. Y es posterior a 1 Enoc 22, no anterior.", "es": "", "r": "Israel monárquico"}, "egipto-muere": {"t": "Muere el cuerpo, y se le trata", "f": "c. 2350 a.C.", "fu": "Textos de las Pirámides", "q": "El cadáver (<i>ḫ3t</i>) se convierte por el ritual en cuerpo transfigurado (<i>sꜥḥ</i>). <b>Nada sobrevive por naturaleza:</b> sobrevive lo que el rito reintegra.", "es": "", "r": "Egipto"}, "egipto-piezas": {"t": "Las piezas de la persona", "f": "c. 2350 a.C.", "fu": "Textos de las Pirámides", "q": "Cuerpo, dos corazones (<i>jb</i> y <i>ḥ3tj</i>), nombre (<i>rn</i>), sombra (<i>šwt</i>), <i>b3</i> y <i>k3</i>. Ninguna se traduce por «alma». Y el <i>3ḫ</i> no es una pieza: es un <b>estado que hay que llegar a ser</b>. Las «cinco partes del alma egipcia» son invención esotérica del siglo XX.", "es": "", "r": "Egipto"}, "egipto-ba": {"t": "El <i>b3</i> sale de día y vuelve de noche", "f": "c. 2350 a.C.", "fu": "Textos de las Pirámides; Libro de los Muertos", "q": "De ahí la figurilla del pájaro con cabeza humana. No es un alma que asciende: es movilidad, y depende de que el cuerpo siga ahí para volver a él.", "es": "", "r": "Egipto"}, "egipto-ka": {"t": "El <i>k3</i> recibe las ofrendas", "f": "c. 2350 a.C.", "fu": "Capillas y estelas funerarias", "q": "La supervivencia es un contrato con los vivos: alguien tiene que seguir llevando pan y cerveza, y alguien tiene que seguir pronunciando el nombre.", "es": "", "r": "Egipto"}, "egipto-pesaje": {"t": "Pesaje del corazón ante Osiris", "f": "Reino Nuevo", "fu": "Libro de los Muertos, cap. 125", "q": "Con tribunal de 42 asesores. Pero es un <b>juicio con guion</b>: la declaración de inocencia es formularia, el escarabeo de corazón pide expresamente al corazón que no testifique en contra, y hay que saberse los nombres de los 42. Está diseñado para absolver. Y lo que se busca no es que el corazón pese menos que la pluma: es el <b>equilibrio</b> con Maat.", "es": "", "r": "Egipto"}, "egipto-iaru": {"t": "Campos de Iaru, barca solar, o la propia tumba", "f": "Reino Nuevo", "fu": "Libro de los Muertos; Libros del Más Allá", "q": "Destinos múltiples y compatibles, no excluyentes. Si el pesaje falla, Ammit devora <b>el corazón</b> y el resultado es la <b>no existencia</b>, no un tormento perpetuo. No hay infierno egipcio.", "es": "", "r": "Egipto"}, "meso-muere": {"t": "Se apaga el <i>napištu</i>", "f": "III milenio a.C.", "fu": "Literatura sumeria", "q": "<i>Napištu</i> es vida, aliento, garganta — y es el <b>hermano léxico exacto</b> del <i>nefesh</i> hebreo. La misma metáfora corporal en dos lenguas semíticas.", "es": "", "r": "Mesopotamia"}, "meso-etemmu": {"t": "Queda el <i>eṭemmu</i>", "f": "III milenio a.C.", "fu": "Literatura sumeria; rituales", "q": "Un espectro. Y —esto es lo decisivo— <b>dependiente</b>: necesita sepultura, nombre recordado y ofrendas. No es inmortalidad: es persistencia asistida.", "es": "", "r": "Mesopotamia"}, "meso-kur": {"t": "Baja al Kur, «la tierra sin retorno»", "f": "c. 1800 a.C.", "fu": "<i>Descenso de Ištar</i>; <i>Gilgameš</i>", "q": "Subterránea, oscura, con siete puertas, regida por Ereškigal. Polvo por alimento y arcilla por pan.", "es": "", "r": "Mesopotamia"}, "meso-kispu": {"t": "Los vivos ofrendan: el <i>kispu</i>", "f": "c. 1800 a.C.", "fu": "Rituales paleobabilónicos", "q": "Comida y agua para los muertos, en fechas fijas, a cargo del heredero. El rito que la ley israelita <b>prohíbe</b> en Deuteronomio 26,14 — y una prohibición presupone que alguien lo hacía.", "es": "", "r": "Mesopotamia"}, "meso-nojuicio": {"t": "Hay jueces, pero no criterio moral", "f": "c. 1800 a.C.", "fu": "<i>Gilgameš, Enkidu y el inframundo</i>", "q": "Šamaš y Gilgameš aparecen como jueces de los muertos, y las suertes son enormemente distintas. Pero el criterio es el número de hijos, la sepultura, las ofrendas y el modo de morir. «No había diferencias» es falso; lo correcto es <b>no había juicio moral</b>.", "es": "", "r": "Mesopotamia"}, "meso-olvido": {"t": "Se desvanece con la memoria", "f": "c. 1800 a.C.", "fu": "Rituales del <i>kispu</i>", "q": "Tres generaciones, más o menos: lo que dura el recuerdo de una familia. Sin descendientes que ofrenden, el <i>eṭemmu</i> vaga y se apaga.", "es": "", "r": "Mesopotamia"}, "homero-muere": {"t": "La <i>psychē</i> abandona el cuerpo", "f": "ss. VIII-VII a.C.", "fu": "<i>Ilíada</i>, <i>Odisea</i>", "q": "Y no es lo que parece. La <i>psychē</i> homérica <b>no piensa, no siente y no decide</b>: es solo el signo de que había vida. Lo que piensa y siente son el <i>thymos</i>, el <i>noos</i>, las <i>phrenes</i> — todas ligadas al cuerpo.", "es": "", "r": "Grecia homérica"}, "homero-eidolon": {"t": "Queda un <i>eidōlon</i> sin <i>phrenes</i>", "f": "ss. VIII-VII a.C.", "fu": "<i>Ilíada</i> 23,104", "q": "Una imagen que chilla y se escapa como humo. Aquiles intenta abrazar a Patroclo y no hay nada. Decir que «Homero ya creía en el alma inmortal» es falso.", "es": "", "r": "Grecia homérica"}, "homero-hades": {"t": "Al Hades, indiferenciado", "f": "ss. VIII-VII a.C.", "fu": "<i>Odisea</i> XI", "q": "Sin separación y sin retribución. Aquiles prefiere ser jornalero de un pobre entre los vivos antes que rey de todos los muertos.", "es": "", "r": "Grecia homérica"}, "homero-nojuicio": {"t": "No hay juicio", "f": "ss. VIII-VII a.C.", "fu": "Ausencia en el corpus homérico", "q": "Con excepciones marginales, y ninguna organiza el destino de los muertos corrientes.", "es": "", "r": "Grecia homérica"}, "platon-separa": {"t": "El alma se separa —y es ella el sujeto", "f": "ss. VI-V a.C.", "fu": "Jenófanes fr. 7; láminas de oro", "q": "Aquí sí. La <i>psychē</i> deja de ser un residuo y pasa a ser <b>lo que uno verdaderamente es</b>, preexistente al cuerpo. En Platón, además, tripartita: razón, ánimo, apetito.", "es": "", "r": "Grecia órfico-platónica"}, "platon-prision": {"t": "El cuerpo era una prisión", "f": "s. IV a.C.", "fu": "Platón, <i>Fedón</i>", "q": "<i>Desmōtērion</i>. Y de ahí una consecuencia que se olvida siempre: en este esquema la <b>resurrección del cuerpo sería un mal</b>, no un premio.", "es": "", "r": "Grecia órfico-platónica"}, "platon-juicio": {"t": "Juicio, castigo o recompensa milenaria", "f": "s. IV a.C.", "fu": "Platón, <i>República</i> 614b-621d", "q": "El mito de Er. Con la cautela que el propio Platón pone: lo presenta como mito, no como física.", "es": "", "r": "Grecia órfico-platónica"}, "platon-metem": {"t": "Y vuelve: metempsícosis", "f": "ss. VI-V a.C.", "fu": "Jenófanes fr. 7 (testimonio contemporáneo)", "q": "El núcleo de la posición órfico-pitagórica, y la diferencia más nítida con todo lo demás de este cuadro. Ninguna de las otras cinco rutas vuelve.", "es": "", "r": "Grecia órfico-platónica"}, "platon-noresu": {"t": "No hay resurrección corporal", "f": "s. IV a.C.", "fu": "Platón, <i>Fedón</i>", "q": "Y no por falta de imaginación: porque en este esquema volver al cuerpo es exactamente lo que se quiere evitar.", "es": "", "r": "Grecia órfico-platónica"}, "iran-urvan": {"t": "El <i>urvan</i> permanece tres noches junto a la cabeza", "f": "avéstico reciente", "fu": "<i>Hādōxt Nask</i>", "q": "Incapaz de percibir o moverse. La escena está en el avéstico reciente, no en las Gathas.", "es": "Composición estimada: época aqueménida o poco anterior · Fijación escrita: s. IV d.C. · Manuscrito conservado: s. XIII d.C.", "r": "Irán / zoroastrismo"}, "iran-daena": {"t": "Al alba se le aparece la <i>daēnā</i>", "f": "avéstico reciente", "fu": "<i>Hādōxt Nask</i>", "q": "Una doncella formada por los propios actos del difunto: hermosa si obró bien, espantosa si obró mal. <b>Su descripción completa es pahlavi</b>; lo avéstico es la figura, no el detalle.", "es": "Composición estimada: época aqueménida · Fijación escrita: s. IV d.C. · Descripción desarrollada: libros pahlavi, s. IX-X d.C.", "r": "Irán / zoroastrismo"}, "iran-puente": {"t": "Cruza el puente Činvat", "f": "Gathas", "fu": "<i>Yasna</i> 46,10-11; 51,13", "q": "<b>Esto sí es antiguo, y es lo que se puede usar.</b> El puente está en el avéstico antiguo, y la retribución individual por los actos también (<i>Y.</i> 31,14).", "es": "Composición estimada: c. 1000 a.C. (datación convencional y disputada; la horquilla real del debate va de ~1500 a ~600 a.C.) · Fijación escrita: s. IV d.C. · Manuscrito: s. XIII d.C.", "r": "Irán / zoroastrismo"}, "iran-rasnu": {"t": "Rašnu pesa los actos en una balanza", "f": "pahlavi, s. IX-X d.C.", "fu": "<i>Bundahišn</i>; <i>Dēnkard</i>", "q": "La mecánica del juicio —los nombres de los jueces, la balanza, la anchura del puente en 37 pértigas— <b>es de libros redactados mil quinientos años después de las Gathas</b>, y ochocientos después del Nuevo Testamento.", "es": "No hay atestiguación avéstica de este detalle. Redacción: s. IX-X d.C., ya en época islámica.", "r": "Irán / zoroastrismo"}, "iran-casas": {"t": "Casa del Canto o Casa de la Mentira", "f": "Gathas", "fu": "<i>Yasna</i>, avéstico antiguo", "q": "Los dos destinos están en las Gathas. Lo que <b>no</b> está explícitamente en ellas es el infierno articulado, con su catálogo de penas: eso lo advierte Gignoux.", "es": "Composición estimada: c. 1000 a.C. · Fijación escrita: s. IV d.C.", "r": "Irán / zoroastrismo"}, "iran-hamis": {"t": "O al <i>hamistagān</i>, el intermedio", "f": "pahlavi, s. IX-X d.C.", "fu": "<i>Bundahišn</i>", "q": "El «limbo» zoroástrico para quien tiene los actos empatados. Se cita constantemente en la literatura comparativa como si fuera antiguo. No lo es.", "es": "Ausente del Avesta conservado. Redacción: s. IX-X d.C.", "r": "Irán / zoroastrismo"}, "iran-frasho": {"t": "Resurrección de los cuerpos y renovación del mundo", "f": "s. IV a.C. por fuente externa", "fu": "Teopompo de Quíos; <i>Yašt</i> 19", "q": "<b>Y esto es lo importante del cuadro entero.</b> La resurrección corporal es irania, no griega. Y está garantizada por un testimonio <b>externo</b> e independiente: un griego del s. IV a.C. la describe. El sistema completo —los 57 años, la jerarquía de resucitados, la ordalía universal del metal fundido que al justo le sabe a leche tibia— es pahlavi.", "es": "Núcleo atestiguado en griego, s. IV a.C., y en avéstico reciente · Sistema completo: <i>Bundahišn</i> cap. XXXIV, s. IX-X d.C.", "r": "Irán / zoroastrismo"}};
+  var caja=document.getElementById('rutas'), det=document.getElementById('rudet');
+  if(!caja||!det) return;
+  function show(id){
+    var d=D[id];
+    caja.querySelectorAll('.est').forEach(function(e){e.classList.toggle('on',e.dataset.id===id);});
+    var estr=d.es?'<div class="estr"><b>Estratos de la fuente:</b> '+d.es+'</div>':'';
+    det.innerHTML='<div class="dr">'+d.r+'</div><h4>'+d.t+'</h4>'+
+      '<p class="df">'+d.f+'  \u00b7  '+d.fu+'</p><p>'+d.q+'</p>'+estr;
+  }
+  caja.querySelectorAll('.est').forEach(function(e){
+    e.addEventListener('click',function(){show(e.dataset.id);});
+  });
+  var avis=document.getElementById('ruaviso');
+  var T={
+    todo:'Las seis rutas completas, cada estaci\u00f3n con la fecha de la fuente m\u00e1s antigua que la atestigua. Solo con esas fechas ya se ve algo: <b>Egipto documenta en el III milenio lo que Grecia discute en el siglo IV</b>.',
+    atest:'Primer corte: <b>solo lo atestiguado en una fuente anterior al a\u00f1o 300 a.C.</b> Lo que cae no se borra, se tacha, para que se vea cu\u00e1nto cae. En Israel se apagan las dos estaciones que son del Segundo Templo. En Ir\u00e1n resisten el puente \u010cinvat y las dos Casas, porque est\u00e1n en las Gathas; se apagan la balanza de Ra\u0161nu y el <i>hamistag\u0101n</i>, que son de libros redactados en el siglo IX o X de nuestra era, ochocientos a\u00f1os despu\u00e9s del Nuevo Testamento.',
+    esc:'Segundo corte, y es otro: <b>solo lo que estaba PUESTO POR ESCRITO antes de nuestra era.</b> Cinco rutas no se mueven \u2014Hom\u00e9ro, Plat\u00f3n, los Textos de las Pir\u00e1mides y las tablillas acadias se escribieron en su \u00e9poca\u2014. La ruta irania se cae entera, porque <b>el Avesta se transmiti\u00f3 oralmente hasta el arquetipo sas\u00e1nida del siglo IV d.C.</b> Y hay que decir en el acto lo que esto NO significa: no significa que las Gathas sean tardías, porque la filolog\u00eda reconstruye el av\u00e9stico antiguo con confianza. Significa que cualquier argumento que dependa de la <i>fijaci\u00f3n textual</i> en \u00e9poca aquem\u00e9nida se queda sin suelo.'
+  };
+  function modo(m){
+    caja.classList.toggle('c-atest', m==='atest');
+    caja.classList.toggle('c-esc', m==='esc');
+    caja.querySelectorAll('.ru-sw .sw').forEach(function(b){b.classList.toggle('on',b.dataset.m===m);});
+    caja.querySelectorAll('.ru-fila .nom em').forEach(function(e){
+      e.classList.toggle('hay', m!=='todo' && +e.dataset[m]>0);
+      if(m!=='todo') e.textContent = (+e.dataset[m]>0)
+        ? ('caen '+e.dataset[m]+' de '+e.dataset.tot) : 'intacta';
+      else e.textContent='';
+    });
+    avis.innerHTML=T[m];
+  }
+  caja.querySelectorAll('.ru-sw .sw').forEach(function(b){
+    b.addEventListener('click',function(){modo(b.dataset.m);});
+  });
+  modo('todo');
+  show('iran-puente');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#54626b">↑ <a href="serie-alma.html" style="color:#54626b">Serie: El alma que no estaba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="alma-2.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#54626b">El lugar del que nadie habla si no tiene miedo</span></a>
+    <a class="epnav-btn next" href="alma-4.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#54626b">El intervalo que nadie había previsto</span></a>
+  </div>
+</nav>
+</body></html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El alma que no estaba — Estratos</title><style>
+  :root{--ink:#1c1814;--clay:#b5613a;--clay-deep:#8a3d20;--sand:#e8ddc7;--sand-light:#f2ead7;
+    --parchment:#f6efe0;--slate:#3a4a52;--slate-deep:#26333a;--gold:#c19a3e;--rule:#cbb994;--shadow:rgba(40,28,16,.18);
+    --line:#c9b79a;--night:#161d2e;--night-deep:#0f1420;--night-gold:#e5c576}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
+    padding:.9rem 1.4rem;background:rgba(246,239,224,.9);backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar .home{font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.02em;text-decoration:none;color:var(--clay-deep);display:inline-flex;align-items:center;gap:.5rem}
+  .topbar .home .glyph{color:var(--clay)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;letter-spacing:.04em;text-decoration:none;color:var(--slate);border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+  header.hero{padding:16vh 0 4vh;text-align:center}
+  .eyebrow{font-family:"Trebuchet MS",sans-serif;text-transform:uppercase;letter-spacing:.42em;font-size:.72rem;color:var(--clay-deep);font-weight:700;margin-bottom:2rem;display:inline-block;padding-left:.42em}
+  header.hero h1{font-size:clamp(2.6rem,7vw,5rem);line-height:1;font-weight:400;letter-spacing:-.02em;margin-bottom:1.2rem}
+  header.hero h1 .em{font-style:italic;color:var(--clay-deep)}
+  .glyphs{font-size:clamp(1.3rem,3.6vw,2rem);letter-spacing:.28em;color:var(--slate);margin:1rem 0 1.6rem;direction:rtl}
+  header.hero p.lede{max-width:600px;margin:0 auto;font-size:clamp(1.05rem,2.2vw,1.24rem);color:#4a3f33}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:3rem auto 0;max-width:340px}
+  .rule-orn .line{height:1px;background:var(--rule);flex:1}
+  .rule-orn .dot{width:6px;height:6px;background:var(--clay);transform:rotate(45deg)}
+  .section-label{text-align:center;margin:4rem 0 2rem;font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:#8a7a5e;font-weight:700}
+
+  /* ETAPA separators */
+  .etapa-head{text-align:center;max-width:620px;margin:3rem auto 1.8rem;padding-top:2.5rem;border-top:1px solid rgba(150,130,95,.3);position:relative}
+  .etapa-head:first-of-type{border-top:none;padding-top:0;margin-top:1rem}
+  .etapa-kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:#a8663e;display:inline-block;margin-bottom:.7rem}
+  .etapa-title{font-size:1.9rem;font-weight:400;line-height:1.1;margin-bottom:.6rem;color:#3a2f22}
+  .etapa-desc{font-size:1rem;color:#6a5c46;font-style:italic;margin:0 auto;max-width:520px}
+  .etapa-head.arqueo{background-image:linear-gradient(rgba(122,68,40,.09) 1px, transparent 1px),linear-gradient(90deg, rgba(122,68,40,.09) 1px, transparent 1px);background-size:26px 26px;padding:2.5rem 1.5rem 0;border-radius:10px}
+  .etapa-head.arqueo .etapa-kicker{color:#7a4428}
+  .etapa-head.arqueo .etapa-title{color:#7a4428}
+  .etapa-head.ideas{background:linear-gradient(180deg,rgba(29,26,36,.06),transparent);
+    padding:2.5rem 1.5rem 0;border-radius:10px}
+  .etapa-head.ideas .etapa-kicker{color:#8a3f2a}
+  .etapa-head.ideas .etapa-title{color:#2a2130}
+  .etapa-head.ideas .etapa-desc{color:#5e5462}
+
+  /* series cards (usadas en el hilo cronológico y en las páginas de serie) */
+  .series-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.6rem;padding-bottom:2rem}
+  .scard{position:relative;display:block;text-decoration:none;color:inherit;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.4);border-radius:12px;overflow:hidden;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s}
+  .scard:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(40,28,16,.26)}
+  .scard-soon{cursor:default;opacity:.72;background:#efe9dd;border-style:dashed;border-color:rgba(150,130,95,.5)}
+  .scard-soon:hover{transform:none;box-shadow:0 6px 20px var(--shadow)}
+  /* TERCERA ETAPA · la biografía de las ideas: fondo de tinta y regla luminosa.
+     La etapa se distingue por tratamiento y no por color, porque con trece series
+     la rueda de tonos ya está saturada y cualquier matiz nuevo se parece a alguno. */
+  .scard-ideas{background:linear-gradient(165deg,#1d1a24,#141219 60%,#1a1620);
+    border-color:rgba(200,150,110,.3)}
+  .scard-ideas::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;
+    pointer-events:none;background:linear-gradient(90deg,transparent,rgba(240,180,140,.75) 18%,
+    rgba(240,180,140,.75) 82%,transparent)}
+  .scard-ideas::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+    opacity:.5;background:radial-gradient(120% 90% at 12% 0%,rgba(201,116,63,.16),transparent 60%)}
+  .scard-ideas .body{position:relative;z-index:1}
+  .scard-ideas:hover{box-shadow:0 18px 40px rgba(0,0,0,.5)}
+  .scard-arqueo{background:linear-gradient(160deg,#e0d0b4,#d4c19c)}
+  .scard-arqueo::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;border-radius:inherit;
+    background-image:linear-gradient(rgba(122,68,40,.1) 1px, transparent 1px),linear-gradient(90deg, rgba(122,68,40,.1) 1px, transparent 1px);
+    background-size:22px 22px}
+  .scard-arqueo .body{position:relative;z-index:1}
+  .scard-imperial{background:linear-gradient(160deg,#33445a,#232f40);color:#e8ecf2}
+  .scard-imperial::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;border-radius:inherit;
+    background-image:repeating-linear-gradient(90deg, rgba(201,162,39,.25) 0 1px, transparent 1px 14px)}
+  .scard-imperial .body{position:relative;z-index:1}
+  .scard-marble{background:linear-gradient(160deg,#f0ecec,#e4dce2)}
+  .scard-marble::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.4;border-radius:inherit;
+    background-image:repeating-linear-gradient(90deg, rgba(106,58,90,.08) 0 1px, transparent 1px 16px)}
+  .scard-marble .body{position:relative;z-index:1}
+  .cap-soon{background:repeating-linear-gradient(90deg,#b8ab90,#b8ab90 10px,#a89a7e 10px,#a89a7e 20px)}
+  .status-soon{color:#8a7a5a !important;font-style:italic}
+  .em-soon{color:#7a6a4a !important}
+  .go-soon{color:#8a7a5a;font-style:italic}
+  .scard .cap{height:9px;width:100%}
+  .cap-featured{background:linear-gradient(90deg,#8a3d20,#b5613a,#d89a6a)}
+  .cap-council{background:linear-gradient(90deg,#26333a,#3a4a52,#7c9aa6)}
+  .cap-goddess{background:linear-gradient(90deg,#6e3546,#9c5a6c,#c98ba0)}
+  .cap-apoc{background:linear-gradient(90deg,#0f1420,#5a4d7a,#d4af5a)}
+  .cap-books{background:linear-gradient(90deg,#5a4226,#7a5c38,#b08344)}
+  .cap-islam{background:linear-gradient(90deg,#1a3327,#3a6b52,#b8944a)}
+  .cap-earth{background:linear-gradient(90deg,#5a5560,#a8663e,#c08a3e)}
+  .cap-imperial{background:linear-gradient(90deg,#2a4a6a,#3a6a9a,#c9a227)}
+  .cap-marble{background:linear-gradient(90deg,#6a3a5a,#a07890,#c9a227)}
+  .cap-jesus{background:linear-gradient(90deg,#2a3a5a,#3e5480,#c9a227)}
+  .cap-origen{background:linear-gradient(90deg,#3a352e,#7d3320,#a8452a)}
+  .cap-genesis{background:linear-gradient(90deg,#2a5049,#3d7068,#b0503a)}
+  .cap-reyes{background:linear-gradient(90deg,#3a3a2a,#5a5230,#a89a5e)}
+  .cap-diablo{background:linear-gradient(90deg,#1a1418,#5c1f26,#c9743f)}
+  .cap-pecado{background:linear-gradient(90deg,#231c26,#4a2f3a,#a87a6a)}
+  /* El unico cap que termina en un tono palido y frio: los dieciseis
+     existentes terminan en ocre, oro o color saturado. */
+  .cap-alma{background:linear-gradient(90deg,#20262b,#54626b,#c3cdd2)}
+  .cap-especial{background:linear-gradient(90deg,#2d4a7a,#d4a13a,#c06a3a)}
+  .scard .body{padding:1.8rem 1.8rem 2rem}
+  .scard .snum{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#8a7a5e;margin-bottom:.6rem;display:flex;justify-content:space-between}
+  .scard .status{color:var(--clay-deep)}
+  .scard h2{font-size:1.5rem;font-weight:400;line-height:1.15;margin-bottom:.7rem}
+  .scard h2 .em{font-style:italic}
+  .scard p{font-size:.97rem;color:#564936;margin-bottom:1.2rem}
+  .scard .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;letter-spacing:.05em;font-weight:700;display:inline-flex;align-items:center;gap:.5rem}
+  .scard .go .arrow{transition:transform .3s}
+  .scard:hover .go .arrow{transform:translateX(5px)}
+  .scard .count{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;color:#8a7a5e;margin-top:.2rem}
+  /* Tarjetas de fondo oscuro o de tratamiento propio: los overrides de color van
+     DESPUÉS de las reglas base de .scard, porque tienen la misma especificidad y
+     de lo contrario pierden y el texto sale en el ocre del tema claro. */
+  .scard-imperial .snum{color:#c2cddc}
+  .scard-imperial h2{color:#f7ecd2}
+  .scard-imperial p{color:#dbe2eb}
+  .scard-imperial .count{color:#c2cddc}
+  .scard-marble h2{color:#6a3a5a}
+  .scard-ideas h2{color:#f4e6dc}
+  .scard-ideas p{color:#c9c0bb}
+  .scard-ideas .snum{color:#a99c96}
+  .scard-ideas .count{color:#a99c96}
+
+  /* Edición especial: overrides DESPUÉS de las reglas base para garantizar contraste */
+  .scard-especial{background:linear-gradient(160deg,#1a2133,#0f1420);border-color:rgba(212,161,58,.45)}
+  .scard-especial:hover{box-shadow:0 16px 36px rgba(0,0,0,.5)}
+  .scard-especial h2{color:#f0ead8}
+  .scard-especial .em-especial{color:#e5c576;font-style:italic}
+  .scard-especial p{color:#c8c2b2}
+  .scard-especial .snum{color:#a89e86}
+  .scard-especial .status-especial{color:#0f1420;background:#d4a13a;padding:.22rem .8rem;border-radius:2rem;font-weight:700;letter-spacing:.1em}
+  .scard-especial .go-especial{color:#e5c576;font-weight:700}
+  .scard-especial .count{color:#a89e86}
+
+  /* ===== HILO CRONOLÓGICO (portada, rediseño A+C) ===== */
+  .timeline{position:relative;max-width:1080px;margin:2.5rem auto 0;padding-bottom:1rem}
+  .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;
+    background:linear-gradient(180deg,transparent,var(--line) 5%,var(--line) 95%,transparent);transform:translateX(-50%);z-index:0}
+  @media(max-width:820px){.timeline::before{left:22px}}
+  .tl-item{position:relative;margin-bottom:2.2rem;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+  @media(max-width:820px){.tl-item{grid-template-columns:1fr;padding-left:54px;margin-bottom:1.6rem}}
+  .tl-node{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:15px;height:15px;border-radius:50%;
+    background:var(--clay);border:3px solid var(--parchment);box-shadow:0 0 0 2px var(--clay);z-index:3}
+  @media(max-width:820px){.tl-node{left:22px}}
+  .tl-era{position:absolute;left:50%;transform:translateX(-50%);top:-2.3rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute,#8a7a5e);white-space:nowrap;
+    background:var(--parchment);padding:0 .7rem;z-index:2}
+  @media(max-width:820px){.tl-era{left:22px;transform:none}}
+  .tl-item .scard{grid-column:1;z-index:2}
+  .tl-item.right .scard{grid-column:2;margin-left:2.6rem}
+  .tl-item.left .scard{grid-column:1;margin-right:2.6rem}
+  @media(max-width:820px){.tl-item.left .scard,.tl-item.right .scard{grid-column:1;margin:0}}
+  .tl-item.feat{grid-template-columns:1fr}
+  .tl-item.feat .scard{grid-column:1;max-width:700px;margin:0 auto}
+  .tl-item.feat .tl-node{top:0;background:var(--gold);box-shadow:0 0 0 2px var(--gold),0 0 16px rgba(193,154,62,.5)}
+  .tl-item.feat .tl-era{top:-2.3rem}
+  .tl-item.especial .tl-node{background:var(--gold);box-shadow:0 0 0 2px var(--parchment),0 0 16px rgba(212,161,58,.6)}
+
+  /* about */
+  .about{background:linear-gradient(180deg,var(--slate-deep),var(--slate));color:var(--sand-light);margin-top:4rem;padding:4rem 0}
+  .about .wrap{max-width:720px;text-align:center}
+  .about h3{font-size:1.6rem;font-weight:400;color:#fff;margin-bottom:1.2rem}
+  .about p{color:#d9cfba;font-size:1.05rem;margin-bottom:1rem}
+  /* El oro de la paleta da 3,49:1 sobre el tramo claro del degradado de
+     .about. Aqui se aclara a #d8b661 (4,73:1 en el peor punto). La variable
+     --gold no se toca: en la linea de tiempo se usa como FONDO, no como texto. */
+  .about .key{color:#d8b661;font-style:italic}
+  /* #8a7a5e daba 3,65:1 sobre pergamino, por debajo de AA. */
+  footer{text-align:center;padding:3rem 0;color:#77694f;font-size:.82rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--clay);font-size:1rem}
+
+  /* series page header */
+  .serieshead{padding:15vh 0 2vh;text-align:center}
+  .serieshead .back{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.04em;text-decoration:none;color:var(--slate);display:inline-block;margin-bottom:2rem}
+  .serieshead .badge{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:1rem}
+  .serieshead h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:400;line-height:1.1;margin-bottom:1.2rem}
+  .serieshead h1 .em{font-style:italic}
+  .serieshead p{max-width:600px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+
+  /* episode list (páginas de serie) */
+  .eplist{max-width:760px;margin:3rem auto 0;padding:0 24px;display:grid;gap:1.2rem;padding-bottom:3rem}
+  .ep{position:relative;display:block;text-decoration:none;color:inherit;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.4);border-radius:12px;padding:1.5rem 1.6rem;box-shadow:0 5px 18px var(--shadow);
+    transition:transform .3s,box-shadow .3s;display:grid;grid-template-columns:auto 1fr auto;gap:1.2rem;align-items:center}
+  .ep:hover{transform:translateX(4px);box-shadow:0 10px 26px rgba(40,28,16,.22)}
+  .ep .roman{font-family:"Trebuchet MS",sans-serif;font-size:1.1rem;font-weight:700;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .ep .meta .kind{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.3rem}
+  .ep .meta h3{font-size:1.24rem;font-weight:400;line-height:1.2;margin-bottom:.35rem;color:var(--slate-deep)}
+  .ep .meta p{font-size:.94rem;color:#564936}
+  .ep .chev{font-size:1.3rem;color:var(--rule)}
+  .ep.soon{opacity:.6;border-style:dashed;cursor:default;box-shadow:none}
+  .ep.soon:hover{transform:none;box-shadow:none}
+  .ep.soon .roman{background:#bcae90!important}
+
+  /* index page groups (indice.html) */
+  .idxgroup{max-width:760px;margin:2.5rem auto 0;padding:0 24px}
+  .idxgroup h2{font-size:1.4rem;font-weight:400;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule)}
+  .idxgroup h2 .em{font-style:italic}
+  .idxrow{display:flex;align-items:baseline;gap:.8rem;padding:.7rem 0;text-decoration:none;color:inherit;border-bottom:1px dotted rgba(180,150,100,.4)}
+  .idxrow:hover{color:var(--clay-deep)}
+  /* #8a7a5e daba 3,65:1 y #a0906c 2,74:1 sobre pergamino. Los numeros romanos
+     y el rotulo de formato son texto, no adorno: tienen que pasar AA. */
+  .idxrow .r{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;color:#726245;min-width:2.2rem}
+  .idxrow .t{font-size:1.05rem;flex:1}
+  .idxrow .k{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#726245;text-transform:uppercase;letter-spacing:.06em}
+  .idxrow.soon{opacity:.5}
+  @media(max-width:600px){.ep{grid-template-columns:auto 1fr;gap:.9rem}.ep .chev{display:none}header.hero{padding:14vh 0 2vh}.idxrow .k{display:none}}
+
+  /* ============================================================
+     PORTADA EDITORIAL (opción B)
+     Una tarjeta grande de «Lo último» y debajo el corte completo del blog en
+     bandas por etapa, en orden invertido: tercera arriba, primera abajo. Como
+     en una columna estratigráfica real, el estrato reciente está en la
+     superficie y se desciende hacia lo antiguo.
+     Sin colores ni fuentes nuevas: se reutilizan las variables de :root, las
+     barras cap-* de cada serie y los tonos de la tabla de tonos.
+     ============================================================ */
+  .lo-ultimo{max-width:1120px;margin:1.2rem auto 0;padding:0 24px}
+  .lu-lab{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+  .lu-lab span{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.24em;
+    text-transform:uppercase;font-weight:700;color:var(--clay-deep)}
+  .lu-lab i{flex:1;height:1px;background:var(--rule)}
+  /* Tarjeta de pergamino: se distingue por tamaño y por su barra de color, no
+     por el fondo. La portada queda luminosa de arriba abajo. */
+  .lu{background:var(--sand-light);border:1px solid rgba(180,150,100,.4);border-radius:14px;
+    overflow:hidden;box-shadow:0 12px 34px var(--shadow)}
+  /* La barra de color está declarada arriba como «.scard .cap», es decir, solo
+     dentro de una tarjeta .scard. Aquí el contenedor es .lu, así que sin esta
+     regla la barra existe en el HTML pero mide 0px de alto y no se ve.
+     Es el mismo fallo de selector que ya ha aparecido con «article h2». */
+  .lu .cap{height:11px;width:100%}
+  .lu-body{display:grid;grid-template-columns:1.18fr .82fr}
+  @media(max-width:820px){.lu-body{grid-template-columns:1fr}}
+  .lu-main{padding:1.9rem 2.1rem 2rem}
+  .lu-main .lk{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;display:block}
+  .lu-main h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:400;margin:.55rem 0 .75rem;
+    line-height:1.14;color:var(--ink)}
+  .lu-main h2 .em{font-style:italic}
+  .lu-main p{font-size:1.02rem;color:#564936;margin:0 0 1.3rem;max-width:54ch}
+  .lu-main .go{font-family:"Trebuchet MS",sans-serif;font-size:.82rem;font-weight:700;
+    letter-spacing:.04em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+  .lu-main .go .arrow{transition:transform .3s}
+  .lu-main .go:hover .arrow{transform:translateX(5px)}
+  .lu-side{background:rgba(255,255,255,.55);border-left:1px solid rgba(180,150,100,.35);
+    padding:1.7rem 1.8rem}
+  @media(max-width:820px){.lu-side{border-left:0;border-top:1px solid rgba(180,150,100,.35)}}
+  .lu-side .sl{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:#7a6a4a;margin-bottom:.8rem}
+  .lu-side a{display:block;text-decoration:none;padding:.62rem 0;
+    border-bottom:1px dotted rgba(180,150,100,.5)}
+  .lu-side a:last-child{border-bottom:0;padding-bottom:0}
+  .lu-side a .n{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    font-weight:700}
+  .lu-side a .t{display:block;font-size:1.02rem;color:var(--slate-deep);margin-top:.1rem;line-height:1.3}
+  .lu-side a:hover .t{color:var(--clay-deep)}
+
+  /* ---- el corte completo ---- */
+  .mapa{max-width:1120px;margin:3.2rem auto 0;padding:0 24px}
+  .m-band{margin-bottom:2.2rem}
+  .m-head{padding-bottom:.55rem;border-bottom:2px solid var(--rule);margin-bottom:1rem}
+  .m-head .mtop{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap}
+  .m-head .mk{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.2em;
+    text-transform:uppercase;font-weight:700;color:#7a5c38}
+  .m-head h3{font-size:1.42rem;font-weight:400;color:#3a2f22;margin:0}
+  .m-head .mn{margin-left:auto;font-family:"Trebuchet MS",sans-serif;font-size:.7rem;color:#7a6a4a;
+    white-space:nowrap}
+  @media(max-width:600px){.m-head .mn{margin-left:0}}
+  .m-head .md{font-size:.93rem;color:#6a5c46;font-style:italic;margin-top:.4rem;max-width:66ch}
+  .m-rows{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:.35rem}
+  .m-row{display:grid;grid-template-columns:5px 1fr auto;gap:.85rem;align-items:center;
+    text-decoration:none;color:inherit;padding:.6rem .8rem .6rem 0;border-radius:8px;
+    transition:background .2s,transform .2s}
+  .m-row:hover{background:rgba(255,255,255,.6);transform:translateX(3px)}
+  .m-row .bar{align-self:stretch;border-radius:3px;min-height:34px}
+  .m-row .tt{font-size:1.02rem;color:#3a3320;line-height:1.3}
+  .m-row .tt .em{font-style:italic}
+  .m-row .cc{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#726245;white-space:nowrap}
+  .m-row .cc.soon{font-style:italic}
+  /* Edición especial: dentro de su banda, con el dorado de «pieza única» que ya
+     usa la tarjeta .scard-especial. Ocupa la fila entera de la retícula. */
+  .m-row.esp{grid-column:1/-1;background:rgba(212,161,58,.08);
+    border:1px solid rgba(212,161,58,.4);padding:.6rem .8rem;gap:.9rem;
+    grid-template-columns:5px auto 1fr auto}
+  .m-row.esp:hover{background:rgba(212,161,58,.16)}
+  .m-row.esp .pill{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:700;color:#241a06;background:#d4a13a;
+    padding:.2rem .6rem;border-radius:2rem;white-space:nowrap}
+  /* En móvil la cabecera de banda se apila siempre igual (rótulo, título,
+     recuento) en vez de depender de si el título cabe o no en la línea, y la
+     fila de la edición especial pasa a una sola columna para no perder el
+     rótulo dorado. */
+  @media(max-width:600px){
+    .m-head .mtop{display:block}
+    .m-head .mk{display:block;margin-bottom:.2rem}
+    .m-head .mn{display:block;margin-left:0;margin-top:.3rem}
+    .m-row.esp{grid-template-columns:5px 1fr}
+    .m-row.esp .pill,.m-row.esp .tt,.m-row.esp .cc{grid-column:2}
+    .m-row.esp .bar{grid-row:1/span 3}
+    .m-row.esp .pill{justify-self:start;margin-bottom:.35rem}
+    .m-row.esp .cc{margin-top:.25rem}
+  }
+</style></head><body>
+<div class="topbar">
+  <a class="home" href="index.html"><span class="glyph" aria-hidden="true">✦</span> Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los artículos</a>
+</div>
+<header class="serieshead"><div class="wrap">
+  <a class="back" href="index.html">← Todas las series</a>
+  <span class="badge" style="color:#54626b">Completa</span>
+  <h1>El <span class="em" style="color:#54626b">alma</span> que no estaba</h1>
+  <p>El castellano «alma» hace un trabajo que ninguna palabra de los textos originales hacía. No hay en la Biblia hebrea un término que signifique sustancia inmaterial, separable y superviviente por naturaleza: hay una garganta, un aliento, un pecho que decide y unos riñones que se examinan. Seis entregas siguiendo cómo se formó la entidad que hoy llamamos alma — y una advertencia: la historia de una idea no decide su verdad.</p>
+</div></header>
+<div class="eplist">
+  <a class="ep" href="alma-1.html">
+    <div class="roman" style="background:#68767f">I</div>
+    <div class="meta">
+      <div class="kind" style="color:#54626b">El cuerpo anotado</div>
+      <h3>Una garganta, no un alma</h3>
+      <p>Génesis 2,7 no dice que el ser humano recibiera un alma: dice que llegó a ser nefesh ḥayyah, la misma etiqueta que llevan los peces y las bestias. Y la ley sacerdotal llama nefesh al cadáver. Estrena el cuerpo anotado, un diagrama anatómico como aparato.</p>
+    </div>
+    <!-- Separador puramente decorativo: el enlace lleva su propio texto. -->
+    <div class="chev" aria-hidden="true">›</div>
+  </a>
+  <a class="ep" href="alma-2.html">
+    <div class="roman" style="background:#68767f">II</div>
+    <div class="meta">
+      <div class="kind" style="color:#54626b">La ficha del lugar vacío</div>
+      <h3>El lugar del que nadie habla si no tiene miedo</h3>
+      <p>El Sheol no tiene juicio, ni fuego, ni separación de justos y malvados. Y la Gehena no fue el basurero ardiente de Jerusalén: esa leyenda se rastrea hasta un comentario de hacia 1200. Pero Israel sí tuvo un más allá, y estaba excavado en la roca.</p>
+    </div>
+    <!-- Separador puramente decorativo: el enlace lleva su propio texto. -->
+    <div class="chev" aria-hidden="true">›</div>
+  </a>
+  <a class="ep" href="alma-3.html">
+    <div class="roman" style="background:#68767f">III</div>
+    <div class="meta">
+      <div class="kind" style="color:#54626b">Rutas del más allá</div>
+      <h3>Cuatro vecinos que sí tenían piezas sueltas</h3>
+      <p>Egipto, Mesopotamia, Grecia e Irán sí tenían componentes separables de la persona, y ninguno se traduce por «alma». Pero paralelo no es contacto. Estrena las rutas del más allá, con la fecha de la fuente más antigua en cada estación.</p>
+    </div>
+    <!-- Separador puramente decorativo: el enlace lleva su propio texto. -->
+    <div class="chev" aria-hidden="true">›</div>
+  </a>
+  <a class="ep" href="alma-4.html">
+    <div class="roman" style="background:#68767f">IV</div>
+    <div class="meta">
+      <div class="kind" style="color:#54626b">El cuadro de dos modelos</div>
+      <h3>El intervalo que nadie había previsto</h3>
+      <p>El estado intermedio no es griego: está en 1 Enoc 22, siglo III a.C., antes que Daniel 12. Y Pablo no tiene doctrina del alma, tiene un problema pastoral y un vocabulario que no fue hecho para resolverlo.</p>
+    </div>
+    <!-- Separador puramente decorativo: el enlace lleva su propio texto. -->
+    <div class="chev" aria-hidden="true">›</div>
+  </a>
+  <a class="ep" href="alma-5.html">
+    <div class="roman" style="background:#68767f">V</div>
+    <div class="meta">
+      <div class="kind" style="color:#54626b">Lo que no se definió</div>
+      <h3>El alma se define en 1513</h3>
+      <p>Los concilios definieron una y otra vez qué les pasa a las almas, sin definir nunca qué son. Hasta Letrán V, 19 de diciembre de 1513. La prueba no es un argumento histórico: es la nota al pie del §366 del Catecismo actual.</p>
+    </div>
+    <!-- Separador puramente decorativo: el enlace lleva su propio texto. -->
+    <div class="chev" aria-hidden="true">›</div>
+  </a>
+  <a class="ep" href="alma-6.html">
+    <div class="roman" style="background:#68767f">VI</div>
+    <div class="meta">
+      <div class="kind" style="color:#54626b">Cuadro comparado de traducciones</div>
+      <h3>Todas las palabras son aliento</h3>
+      <p>Nefesh, ruaḥ, psychē, pneuma, anima, spiritus, nafs, rūḥ, ātman. Con dos excepciones que hay que declarar: el germánico Seele, de origen desconocido, y psychē, que nunca significó aliento. Y el cierre: la falacia genética por su nombre.</p>
+    </div>
+    <!-- Separador puramente decorativo: el enlace lleva su propio texto. -->
+    <div class="chev" aria-hidden="true">›</div>
+  </a>
+</div>
+<footer><span class="glyph" aria-hidden="true">✦</span><br>Estratos · Historia de las religiones del Cercano Oriente</footer>
+</body></html>

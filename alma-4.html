@@ -1,0 +1,625 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El intervalo que nadie había previsto — Estratos</title>
+<meta name="description" content="El estado intermedio —almas alojadas, conscientes, esperando el juicio— no es griego. Está en 1 Enoc 22, siglo III a.C., antes que Daniel 12. Y Pablo no tiene doctrina del alma: tiene un problema pastoral y un vocabulario que no fue hecho para resolverlo.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#54626b;--mid:#68767f;--pale:#5d6a73;
+    --rel:#8a4a2a;--exc:#54626b;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #626a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#626a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#626a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(93,106,115,.26)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#626a72}
+  figcaption .cr a{color:#5a6870;text-decoration:underline;text-decoration-color:rgba(90,104,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a6870}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c3cdd2,#9aa7ae 42%,#68767f 70%,#54626b)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#626a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#626a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#68767f}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#dde3e6,#c8d1d6);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#626a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#626a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .mod{width:min(1120px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,150,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .mod .mk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .mod h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .mod .ms{font-size:.98rem;color:#4a4f53;margin:0 0 1.3rem;max-width:70ch}
+
+  .mo-cab{display:grid;grid-template-columns:92px repeat(4,minmax(0,1fr));gap:.45rem;
+    position:sticky;top:3.1rem;background:var(--sand-light);padding:.4rem 0 .45rem;z-index:2;
+    box-shadow:0 6px 10px -8px var(--shadow)}
+  .mo-cab .h{font-family:"Trebuchet MS",sans-serif;padding:.35rem .5rem;
+    border-bottom:2px solid var(--mid)}
+  .mo-cab .h b{display:block;font-size:.74rem;font-weight:700;color:var(--deep);line-height:1.25}
+  .mo-cab .h span{display:block;font-size:.63rem;color:#5a6167;margin-top:.2rem;line-height:1.35}
+  .mo-cab .h.vac{border-bottom-color:transparent}
+
+  .mo-fila{display:grid;grid-template-columns:92px repeat(4,minmax(0,1fr));gap:.45rem;
+    border-bottom:1px solid rgba(120,132,140,.26);align-items:stretch}
+  .mo-fila .fe{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;color:#5d666c;
+    padding:.55rem .4rem;display:flex;align-items:center;line-height:1.3}
+  .mo-cel{padding:.28rem 0}
+  .mo-tx{display:block;width:100%;text-align:left;background:#fbfaf6;
+    border:1px solid rgba(120,132,140,.5);border-radius:8px;padding:.42rem .55rem;
+    cursor:pointer;font-family:inherit;font-size:.79rem;color:#2f3a40;line-height:1.3;
+    transition:background .2s,border-color .2s,box-shadow .2s}
+  .mo-tx:hover{background:#fff;border-color:var(--mid)}
+  .mo-tx.on{background:#fff;border-color:var(--deep);box-shadow:0 0 0 2px rgba(84,98,107,.3)}
+  .mo-tx i{font-style:italic}
+  .mo-tx sup{font-size:.7em}
+
+  .mo-det{margin-top:1.3rem;background:#fbfaf6;border:1px solid rgba(120,132,140,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:11rem}
+  .mo-det .dh{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin-bottom:.6rem}
+  .mo-det h4{font-size:1.12rem;font-weight:400;color:var(--deep);margin:0}
+  .mo-det .df{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;color:#5d666c}
+  .mo-det .pill{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;font-weight:700;
+    letter-spacing:.05em;color:#fff;padding:.16rem .5rem;border-radius:20px}
+  .mo-lados{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem}
+  @media(max-width:640px){.mo-lados{grid-template-columns:1fr}}
+  .mo-lado{border:1px solid rgba(120,132,140,.4);border-radius:8px;padding:.6rem .7rem;
+    background:rgba(255,255,255,.55)}
+  .mo-lado .lt{font-family:"Trebuchet MS",sans-serif;font-size:.61rem;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--deep);margin-bottom:.3rem}
+  .mo-lado p{font-size:.9rem;color:#3f454a;margin:0;line-height:1.55}
+  .mo-det .nota{font-size:.94rem;color:#3f454a;margin:0;line-height:1.62}
+
+  .mo-pie{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(120,132,140,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4f53;line-height:1.6}
+  .mo-pie b{color:var(--deep)}
+
+  @media(max-width:780px){
+    .mo-cab{display:none}
+    .mo-fila{grid-template-columns:1fr;gap:0;padding:.5rem 0 .6rem}
+    .mo-fila .fe{padding:.25rem .2rem;font-weight:700;color:var(--deep)}
+    .mo-cel:empty{display:none}
+    .mo-tx::before{content:attr(data-col) " \00b7 ";font-family:"Trebuchet MS",sans-serif;
+      font-size:.63rem;color:#5a6167;letter-spacing:.03em}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El alma que no estaba · Entrega IV</span>
+  <h1>El intervalo que nadie había <span class="em">previsto</span></h1>
+  <div class="glifos"><span>ψυχή</span><span class="sep">·</span><span class="tr">psychē</span><span class="sep">·</span><span>ἀνάστασις</span><span class="sep">·</span><span class="tr">anástasis</span></div>
+  <p class="stand">La historia dice que los griegos trajeron el alma inmortal. En su punto decisivo, esa historia tiene un problema de fechas.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">La historia se cuenta siempre igual. Israel creía en la resurrección de los
+cuerpos, que es una idea hebrea y corporal. Luego llegó Alejandro, y con él el griego, y con
+el griego la idea platónica de un alma inmortal que se separa del cuerpo al morir. El
+cristianismo heredó las dos, no supo elegir, y de esa indecisión salió el esquema que
+todavía se enseña: el alma al cielo primero, el cuerpo al final.</p>
+
+<p>La historia es buena. Tiene un culpable identificable, una fecha y una moraleja. Y en su
+punto decisivo <strong>es cronológicamente falsa</strong>.</p>
+
+<p>Porque la idea de que los muertos están <em>en algún sitio</em>, conscientes, alojados y
+esperando el juicio —lo que la teología llamará «estado intermedio»— aparece por escrito en
+un texto judío del <strong>siglo III a.C.</strong>, anterior a Daniel 12, anterior a los
+Macabeos y anterior a que el vocabulario filosófico griego entre en la literatura judía. No
+es un préstamo. Es un desarrollo interno de la apocalíptica.</p>
+
+<figure>
+  <img src="cueva-4-de-qumran.jpg" data-alt="cuevas-de-qumran.jpg|qumran.jpg|cueva-qumran.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Las cuevas excavadas en el acantilado de Qumrán">
+  <figcaption>Las cuevas de Qumrán, junto al mar Muerto. En la cueva 4 aparecieron los fragmentos arameos de 1 Enoc que fijan el límite superior de su datación: el más antiguo es de comienzos del siglo II a.C. La fotografía muestra las cuevas, no los manuscritos. <span class="cr">Fotografía de Hoshvilim, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">01</div><h2>El texto que está antes</h2>
+
+<p>El Libro de los Vigilantes son los capítulos 1 a 36 de lo que llamamos 1 Enoc, y su
+datación en el siglo III a.C. es consenso. No depende de argumentos internos: los fragmentos
+arameos hallados en la cueva 4 de Qumrán ponen un límite superior duro. El más antiguo,
+4QEn<sup>a</sup>, es de comienzos del siglo II a.C. por paleografía, y un manuscrito no es
+nunca el original.</p>
+
+<p>En el capítulo 22, Enoc es llevado a una montaña en occidente y ve unos «lugares
+huecos» —cámaras— donde los espíritus de los muertos están reunidos. Y están
+<strong>separados</strong>: los justos junto a una fuente de agua luminosa; los pecadores
+retenidos «con gran dolor hasta el gran día del juicio».</p>
+
+<blockquote>Estos lugares huecos han sido hechos para que los espíritus de los muertos se
+reúnan en ellos… hasta el día de su juicio.
+<cite>1 Enoc 22</cite></blockquote>
+
+<p>Enumérese lo que hay ahí: muertos que persisten como espíritus, separación entre justos y
+pecadores, sufrimiento actual de unos, espera de todos, y un juicio futuro que todavía no ha
+ocurrido. Es el estado intermedio completo, y está montado en un texto judío, en arameo,
+antes de Daniel.</p>
+
+<p>Compárese con lo que dice Daniel 12,2, hacia el 165 a.C. y en plena crisis macabea:
+despertarán «los que duermen en el suelo de polvo», unos para vida eterna y otros para
+oprobio. No hay intervalo, no hay cámaras, no hay conciencia: hay sueño y hay despertar. El
+texto famoso es <em>posterior</em> al texto que introduce el intervalo, y más simple.</p>
+
+<p>Conviene ser preciso sobre qué prueba esto y qué no. No prueba que no hubiera influencia
+griega en el judaísmo del Segundo Templo: la hubo, y masiva, y llegaremos a ella en un
+momento. Lo que desmonta es la <strong>secuencia</strong>: que primero hubiera un modelo
+hebreo puro y que el intervalo entrase después desde fuera. El intervalo ya estaba.</p>
+
+<div class="meter">
+  <div class="q">¿Es firme que el estado intermedio aparece en 1 Enoc 22 antes que en ninguna fuente griega influyente sobre el judaísmo?</div>
+  <div class="bar"><span class="pin" style="left:88%" data-l="Consenso sobre las fechas"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">La datación del Libro de los Vigilantes en el siglo III a.C. es consenso, y no depende de argumentos internos: los fragmentos arameos de Qumrán ponen un límite superior duro. Lo que sí admite discusión es la <b>etiqueta</b>: si llamar «estado intermedio» a lo que describe 1 Enoc 22 no es ya proyectar sobre el texto una categoría teológica posterior. Es una objeción legítima, y por eso la afirmación que firmamos es la cronológica —los elementos están ahí antes— y no la terminológica.</div>
+</div>
+
+<div class="secnum">02</div><h2>El mismo martirio, contado dos veces</h2>
+
+<p>Hay una manera de ver el cambio de lengua sin ninguna teoría de por medio: coger un mismo
+relato contado dos veces con dos siglos de diferencia.</p>
+
+<p>El relato es el de la madre y los siete hermanos torturados por Antíoco. En <strong>2
+Macabeos 7</strong>, del siglo II a.C., uno de los hermanos extiende las manos ante el
+verdugo y dice que las recibió del Cielo y que espera recibirlas otra vez. Otro dice que el
+Rey del universo los resucitará a vida eterna. La esperanza es corporal, concreta y
+localizada en los miembros que están a punto de cortarle.</p>
+
+<p>En <strong>4 Macabeos</strong>, que es una reelaboración retórica del mismo episodio
+escrita en griego entre el 20 y el 130 de nuestra era, el mismo martirio produce otra cosa.
+Los mártires reciben «almas puras e inmortales» de manos de Dios. Y hay un detalle que vale
+más que cualquier argumento: <strong>4 Macabeos no menciona la resurrección ni una sola
+vez</strong>.</p>
+
+<p>Dos textos, un episodio, dos modelos incompatibles. No hay aquí ninguna polémica entre
+ellos; simplemente el segundo autor dispone de otro vocabulario y lo usa sin sentir que esté
+cambiando nada.</p>
+
+<figure>
+  <img src="martirio-macabeos.jpg" data-alt="macabeos-vellert.jpg|vellert-macabeos.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Grabado del martirio de los siete hermanos Macabeos y su madre">
+  <figcaption>Dirck Vellert, <em>El martirio de los siete hermanos Macabeos y su madre</em>. El mismo episodio se cuenta en 2 Macabeos 7 con devolución de los miembros, y en 4 Macabeos con almas puras e inmortales — y sin mencionar la resurrección ni una vez. <span class="cr">Metropolitan Museum of Art, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener">CC0</a>.</span></figcaption>
+</figure>
+
+<p>Lo mismo, con más aparato, en la <strong>Sabiduría de Salomón</strong> y en
+<strong>Filón</strong>. La Sabiduría trae <em>athanasía</em> y <em>aphtharsía</em>, y una
+frase que no podría estar en la Biblia hebrea: «el cuerpo corruptible agrava al alma». Filón
+lee Génesis 1,27 y Génesis 2,7 como dos hombres distintos, y llama al cuerpo tumba y cárcel.
+El préstamo griego, aquí, es indiscutible: esta es la <em>influencia demostrada</em> que la
+entrega anterior dejó anotada.</p>
+
+<div class="secnum">03</div><h2>Josefo, o el testigo que nos estorba</h2>
+
+<p>Para saber qué pensaban de verdad fariseos, saduceos y esenios sobre la supervivencia
+dependemos casi por completo de Flavio Josefo. Y es un problema, porque Josefo escribe en
+griego, para lectores griegos, y traduce lo que describe a categorías que sus lectores
+reconozcan.</p>
+
+<p>El dato que lo delata es léxico: cuando Josefo describe la creencia de los fariseos,
+<strong>usa el vocabulario de la inmortalidad y no usa nunca <em>anástasis</em></strong>, la
+palabra griega para resurrección. De los esenios dice que tienen el cuerpo por una prisión,
+con una topografía del más allá que es de manual griego. Y de los saduceos, que sostienen
+que «las almas mueren con los cuerpos».</p>
+
+<p>¿Qué hacemos con eso? Hay tres lecturas y las tres son serias. C. D. Elledge sostiene que
+es resurrección helenizada: Josefo traduce para que se le entienda. Sami Yli-Karjanmaa lo
+toma literalmente. Jonathan Klawans sostiene que lo que estamos leyendo es la teología del
+propio Josefo, no la de los grupos que describe. Lo honesto es decir que
+<strong>no lo sabemos</strong>, y que sobre los saduceos, además, tenemos una sola fuente y
+es hostil.</p>
+
+<div class="mod" id="modelos">
+  <span class="mk">Pieza interactiva &middot; el cuadro de dos modelos</span>
+  <h3>Veintinueve textos, dos maneras incompatibles de sobrevivir</h3>
+  <p class="ms">Cada texto en la columna del modelo que sostiene, y todos ordenados por fecha, de
+  arriba abajo. Lo que hay que mirar no es ninguna casilla: es <b>la forma de la nube</b>. Si los
+  dos modelos se hubieran sucedido, las columnas se ir&iacute;an vaciando y llenando por turnos. Pulsa
+  cualquier texto para ver el argumento de cada lado.</p>
+  <div class="mo-cab"><div class="h vac">&nbsp;</div><div class="h"><b>Resurrección del cuerpo</b><span>Lo que sobrevive no sobrevive: vuelve. Modelo apocalíptico judío.</span></div><div class="h"><b>Los dos, soldados</b><span>Un intervalo consciente <b>y</b> una resurrección al final. Alguien ha tenido que hacerlos convivir.</span></div><div class="h"><b>Inmortalidad del alma</b><span>Algo separable que sobrevive por sí mismo, sin esperar a nada.</span></div><div class="h"><b>Indeterminable</b><span>La evidencia no alcanza. Decirlo es parte del trabajo.</span></div></div>
+  <div class="mo-fila"><div class="fe">s. III a.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="en22" data-col="Inmortalidad del alma">1 Enoc 22</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">s. III a.C. (orig.)</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="4qinst" data-col="Indeterminable">4QInstruction</button></div></div>
+  <div class="mo-fila"><div class="fe">s. II a.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="jub" data-col="Inmortalidad del alma">Jubileos 23,31</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 165 a.C.</div><div class="mo-cel"><button type="button" class="mo-tx" data-id="dan" data-col="Resurrección del cuerpo">Daniel 12,2-3</button></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">s. II a.C.</div><div class="mo-cel"><button type="button" class="mo-tx" data-id="2mac" data-col="Resurrección del cuerpo">2 Macabeos 7</button></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">s. II a.C.</div><div class="mo-cel"><button type="button" class="mo-tx" data-id="4q385" data-col="Resurrección del cuerpo">4Q385 Pseudo-Ezequiel</button></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">s. II-I a.C.</div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="en102" data-col="Los dos, soldados">1 Enoc 102-104</button></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">s. I a.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="1qs" data-col="Indeterminable">1QS III-IV · los Dos Espíritus</button></div></div>
+  <div class="mo-fila"><div class="fe">s. I a.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="1qh" data-col="Indeterminable">1QH · Hodayot</button></div></div>
+  <div class="mo-fila"><div class="fe">s. I a.C.</div><div class="mo-cel"><button type="button" class="mo-tx" data-id="4q521" data-col="Resurrección del cuerpo">4Q521</button></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 30 a.C.-40 d.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="sab" data-col="Inmortalidad del alma">Sabiduría de Salomón</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 20 a.C.-50 d.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="filon" data-col="Inmortalidad del alma">Filón de Alejandría</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 50 d.C.</div><div class="mo-cel"><button type="button" class="mo-tx" data-id="1ts" data-col="Resurrección del cuerpo">1 Tesalonicenses 4,13-18</button></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 54 d.C.</div><div class="mo-cel"><button type="button" class="mo-tx" data-id="1cor" data-col="Resurrección del cuerpo">1 Corintios 15</button></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 55-56 d.C.</div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="2cor" data-col="Los dos, soldados">2 Corintios 5,1-10</button></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 57 d.C.</div><div class="mo-cel"><button type="button" class="mo-tx" data-id="rm8" data-col="Resurrección del cuerpo">Romanos 8,10-11.23</button></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 60 d.C.</div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="flp" data-col="Los dos, soldados">Filipenses 1,21-24</button></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 60-90 d.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="heb" data-col="Inmortalidad del alma">Hebreos 12,23</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 75-94 d.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="jos" data-col="Inmortalidad del alma">Josefo sobre fariseos, esenios y saduceos</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 70-100 d.C.</div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="4esd" data-col="Los dos, soldados">4 Esdras 7</button></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 80-90 d.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="lc16" data-col="Inmortalidad del alma">Lucas 16,19-31 · el rico y Lázaro</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 80-90 d.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="lc23" data-col="Inmortalidad del alma">Lucas 23,43 · la coma</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 80-90 d.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="mt10" data-col="Inmortalidad del alma">Mateo 10,28</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 80-90 d.C.</div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="hch7" data-col="Los dos, soldados">Hechos 7,59-60</button></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">20-130 d.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="4mac" data-col="Inmortalidad del alma">4 Macabeos</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 90-100 d.C.</div><div class="mo-cel"><button type="button" class="mo-tx" data-id="2bar" data-col="Resurrección del cuerpo">2 Baruc 49-51</button></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 95 d.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="ap6" data-col="Inmortalidad del alma">Apocalipsis 6,9-11</button></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">c. 95 d.C.</div><div class="mo-cel"><button type="button" class="mo-tx" data-id="ap20" data-col="Resurrección del cuerpo">Apocalipsis 20,4-6</button></div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"></div></div>
+  <div class="mo-fila"><div class="fe">s. II d.C.</div><div class="mo-cel"></div><div class="mo-cel"></div><div class="mo-cel"><button type="button" class="mo-tx" data-id="2pe" data-col="Inmortalidad del alma">2 Pedro 1,13-15</button></div><div class="mo-cel"></div></div>
+  <div class="mo-det" id="modet" aria-live="polite"></div>
+  <div class="mo-pie"><b>No se suceden: conviven.</b> Entre el texto m&aacute;s antiguo del cuadro y el
+  m&aacute;s reciente hay casi cinco siglos, y en ning&uacute;n tramo de ellos una columna sustituye a otra.
+  9 textos sostienen la resurrecci&oacute;n del cuerpo, 12 la inmortalidad del alma, 5 las dos
+  cosas a la vez y 3 no permiten decidir. Y la fila de arriba del todo &mdash;<b>1 Enoc 22,
+  siglo III a.C.</b>&mdash; es la que desmonta el relato habitual: el estado intermedio, con almas
+  alojadas y conscientes esperando el juicio, ya est&aacute; ah&iacute; <b>antes</b> de Daniel 12 y
+  <b>antes</b> de que el vocabulario griego entre en la literatura jud&iacute;a. De los veintinueve
+  textos, 12 son anteriores a nuestra era.</div>
+</div>
+
+<div class="secnum">04</div><h2>Qumrán, que es un agujero</h2>
+
+<p>Sería muy cómodo que los rollos del mar Muerto resolvieran la cuestión. No la resuelven, y
+hay que decirlo antes de citarlos.</p>
+
+<p>El tratado de los Dos Espíritus de 1QS habla de destinos, pero no de mecanismos: los
+espíritus son fuerzas asignadas a cada persona, y cualquiera de los dos modelos puede leerse
+ahí si uno va buscándolo. Es <strong>el punto más flojo de toda la evidencia</strong>. Los
+Hodayot han sido leídos por Émile Puech como testimonio de resurrección y por la mayoría
+como lenguaje de iluminación y santificación del vivo.</p>
+
+<p>Donde sí hay algo claro es en dos textos que <strong>no son sectarios</strong>, lo que
+paradójicamente los hace más útiles, porque no describen a la comunidad de Qumrán sino al
+judaísmo del que formaba parte: 4Q521, que dice que Dios «hará vivir a los muertos», y 4Q385
+Pseudo-Ezequiel, donde los huesos secos de Ezequiel 37 dejan de ser metáfora nacional y
+pasan a ser recompensa escatológica de personas concretas.</p>
+
+<p>Y luego está 4QInstruction, que ofrece una <strong>cuarta vía</strong> que no es ni alma
+ni resurrección: el destino del elegido es ser elevado a la comunión de los ángeles. Goff,
+Elgvin y Lange siguen discutiéndolo. Lo menciono porque la discusión pública tiende a
+plantearse como si solo hubiera dos opciones, y en los textos hay más.</p>
+
+<div class="secnum">05</div><h2>Pablo, que no tiene doctrina pero tiene un problema</h2>
+
+<figure>
+  <img src="papiro-123-1corintios.jpg" data-alt="codice-sinaitico.jpg|papiro-123.jpg|p123.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Fragmento de papiro con texto griego de 1 Corintios">
+  <figcaption>Papiro de Oxirrinco LXXII 4844, con 1 Corintios 14,31-34 y 15,3-6. El capítulo donde Pablo contrapone <em>sōma psychikón</em> a <em>sōma pneumatikón</em> — cuerpo a cuerpo, no cuerpo a espíritu. <span class="cr">Egypt Exploration Society / Universidad de Oxford, Dominio público.</span></figcaption>
+</figure>
+
+<p>Pablo no elabora una doctrina del alma. No la necesita y no le interesa. Lo que sí tiene
+es un problema práctico y urgente, y de él sale todo lo demás: <strong>cree que el fin está
+cerca, y sus fieles se están muriendo antes</strong>.</p>
+
+<p>El primero de sus textos sobre el asunto lo dice sin disimulo. En
+<strong>1 Tesalonicenses 4</strong>, hacia el año 50, los tesalonicenses están alarmados
+porque algunos han muerto antes de la venida del Señor. Y aquí hay que detenerse, porque el
+argumento más fuerte de toda la sección es negativo: <strong>ese apuro solo tiene sentido si
+no tenían ninguna doctrina consoladora del alma que sobrevive</strong>. Si la hubieran
+tenido, no habría nada que consolar.</p>
+
+<p>Lo que Pablo les responde es enteramente escatológico: los muertos «duermen», resucitarán
+primero, y después los vivos serán arrebatados a su encuentro. Ningún alma, ningún cielo
+inmediato. Y el sujeto que resucita no es «las almas de los muertos»: es «los muertos».</p>
+
+<p>Cuatro años más tarde, en <strong>1 Corintios 15</strong>, el problema es otro: los
+corintios encuentran absurda la resurrección corporal y preguntan con qué clase de cuerpo
+vuelve uno. La respuesta de Pablo es la pieza más malinterpretada del Nuevo Testamento, y
+casi siempre por culpa de la traducción.</p>
+
+<p>Pablo dice que se siembra <em>sōma psychikón</em> y se levanta <em>sōma pneumatikón</em>.
+La Reina-Valera pone «cuerpo natural» y «cuerpo espiritual», y ahí nace el malentendido,
+porque introduce una oposición natural/sobrenatural que no está en el griego. Los dos
+términos son <strong>adjetivos en <em>-ikós</em> sobre el mismo sustantivo</strong>, y en
+griego esos adjetivos denotan pertenencia o principio animador, no material de fabricación.
+Un cuerpo <em>pneumatikón</em> es un cuerpo <em>animado por</em> el espíritu, igual que un
+cuerpo <em>psychikón</em> es un cuerpo animado por la <em>psychē</em>.</p>
+
+<p>La prueba interna está en el propio Pablo: en 1 Corintios 2,14 el «hombre
+<em>psychikós</em>» no es un hombre hecho de alma, es un hombre regido por la <em>psychē</em>
+y no por el espíritu. Y el sustantivo que Pablo mantiene en los dos miembros es
+<em>sōma</em>: no contrapone cuerpo a espíritu, contrapone <strong>cuerpo a cuerpo</strong>.
+Si hubiera querido decir que el muerto resucita sin cuerpo tenía a mano toda la lengua de
+Filón, y no la usó.</p>
+
+<p>Lo mismo con «carne y sangre no pueden heredar el reino de Dios», que se cita siempre como
+si negara la resurrección física. <em>Sarx kai haima</em> es un semitismo —<em>basar
+wa-dam</em>— para «el ser humano en su condición mortal». Y el propio versículo lo explica,
+porque el segundo miembro del paralelismo sustituye «carne y sangre» por
+<strong>«la corrupción»</strong>. El problema no es la carne: es la corruptibilidad. Siete
+versículos después Pablo dice que «esto corruptible» tiene que vestirse de
+incorruptibilidad, y ese <em>esto</em> señala a este cuerpo.</p>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">1 Corintios 15,44</div>
+    <div class="what">Lo que dice el griego</div>
+    <p><i>Sōma psychikón</i> / <i>sōma pneumatikón</i>. Dos adjetivos en <i>-ikós</i> sobre el <b>mismo sustantivo</b>. En griego esos adjetivos denotan principio animador, no material de fabricación.</p>
+  </div>
+  <div class="post min">
+    <div class="who">1 Corintios 15,44</div>
+    <div class="what">Lo que pone la Reina-Valera</div>
+    <p>«Cuerpo natural» / «cuerpo espiritual». La oposición natural/sobrenatural <b>no está en el griego</b>, y es la que produce el malentendido.</p>
+  </div>
+  <div class="post min">
+    <div class="who">1 Corintios 2,14</div>
+    <div class="what">La prueba interna</div>
+    <p>El «hombre <i>psychikós</i>» de este versículo no es un hombre <b>hecho de</b> alma: es un hombre <b>regido por</b> la <i>psychē</i> y no por el espíritu. Mismo adjetivo, mismo autor, catorce capítulos antes.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">1 Corintios 15,50</div>
+    <div class="what">El semitismo</div>
+    <p>«Carne y sangre» es <i>basar wa-dam</i>: el ser humano en su condición mortal. Y el propio versículo lo glosa, porque el segundo miembro del paralelismo pone <b>«la corrupción»</b> en su lugar.</p>
+  </div>
+  <div class="post min">
+    <div class="who">1 Corintios 15,53</div>
+    <div class="what">El demostrativo</div>
+    <p>«Es preciso que <b>esto</b> corruptible se vista de incorruptibilidad.» <i>Toûto</i> señala a este cuerpo: continuidad con cambio, no sustitución.</p>
+  </div>
+</div>
+
+<p>Y entonces, un año después, en <strong>2 Corintios 5</strong>, algo se tuerce. Pablo habla
+de una tienda terrestre que se deshace y de una casa celeste, y dice que preferiría
+«ausentarse del cuerpo y estar presente al Señor». Eso suena exactamente a estado intermedio.
+Pero en los versículos 3 y 4 hace algo que no encaja: <strong>rechaza la desnudez</strong>.
+No quiere desvestirse, quiere <em>sobrevestirse</em>. Y estar sin cuerpo es, precisamente, lo
+que le da grima.</p>
+
+<p>Es el texto más disputado de todo el expediente. John Cooper y Murray Rae leen ahí un
+estado intermedio; Richard Middleton y Joel Green sostienen que no lo hay; N. T. Wright dice
+que Pablo lo contempla, pero como algo <em>indeseado</em>, y sin llamarlo alma en ningún
+momento.</p>
+
+<p>Y hay un detalle precioso, del que esta casa no se priva: en 2 Corintios 5,3
+<strong>se ve a un copista apretando el tornillo</strong>. La variante
+<em>ekdysámenoi</em>, «habiéndonos desvestido», invierte el sentido de la frase. Alguien, en
+algún momento de la transmisión, encontró el pasaje incómodo y lo empujó.</p>
+
+<p>Finalmente, en <strong>Filipenses 1</strong>, hacia el año 60, Pablo escribe que desea
+«partir y estar con Cristo, lo cual es muchísimo mejor». Es el texto difícil para quien
+defiende que Pablo no admite ningún intervalo consciente — y conviene señalar que los propios
+defensores de esa posición lo reconocen como tal, Middleton el primero. La respuesta que dan
+es filológica y no es mala: <em>analŷsai</em> es un verbo náutico y militar —levar anclas,
+levantar el campamento—, no antropológico, y en el pasaje no se nombra ningún alma.</p>
+
+<div class="aviso">
+  <div class="t">Dos cosas que circulan mal y conviene corregir aquí</div>
+  <p>Sobre <strong>Hebreos 12,23</strong> —«los espíritus de los justos hechos perfectos»— se lee a menudo que Attridge y Koester, los dos comentaristas de referencia, lo leen como prueba de un alma separable y consciente. <strong>No hay base para esa atribución.</strong> Los paralelos que se aducen en la discusión —Jubileos 23,30-31; 1 Enoc 22,9; 2 Baruc 30,2— empujan en la dirección contraria: la de una fórmula apocalíptica corriente para los fieles muertos que todavía esperan. Lo que sí sigue abierto es si el marco global de Hebreos es platónico o apocalíptico.<br><br>Y sobre <strong>Lucas 23,43</strong> —«hoy estarás conmigo en el paraíso»— dos precisiones. La primera: <strong>no hay variante textual</strong>; las únicas del versículo son la adición de «Jesús» como sujeto y el orden de dos palabras. Todo el debate es de <em>puntuación editorial</em>, y de seis ediciones críticas cinco puntúan antes de «hoy» mientras el SBLGNT se abstiene de puntuar. La segunda: la lectura alternativa <strong>no es solo de los Testigos de Jehová</strong>. La defienden, en revistas revisadas, Wilson Paroschi, Thomas Shepherd, E. W. Bullinger, Leroy Froom y Samuele Bacchiocchi. Sigue siendo minoritaria y no está cerca del consenso; pero decir «solo los Testigos» es un error de hecho, y los errores de hecho debilitan al que los comete, no al contrario.</p>
+</div>
+
+<div class="secnum">06</div><h2>Lo que hay al final de la secuencia</h2>
+
+<p>Puestos en orden —1 Tesalonicenses 4, 1 Corintios 15, 2 Corintios 5, Filipenses 1— los
+cuatro textos no forman una doctrina. Forman otra cosa, y es más interesante:
+<strong>la presión creciente de un problema sobre un vocabulario que no fue hecho para
+responderlo</strong>. El sueño, la transformación, la casa celeste, la desnudez temida, el
+estar-con-Cristo. Recursos incompatibles acumulados por alguien que tiene que consolar a
+gente concreta cuyos muertos no esperaban.</p>
+
+<p>La costura que el cristianismo posterior soldará —alma al cielo, cuerpo al final— está
+aquí en estado de material bruto.</p>
+
+<p>Quien la suelda del todo, y sin fricción ninguna, es <strong>4 Esdras 7</strong>, hacia el
+año 100. Ahí el espíritu sale del cuerpo, adora, pasa siete días de tránsito y va a una de
+siete órdenes de gozo o de tormento, en cámaras guardadas — y todo eso ocurre
+<em>antes</em> de la resurrección escatológica final, que sigue estando. Cincuenta años
+después de Pablo, el híbrido ya no es un problema para nadie: es la arquitectura normal.</p>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Lo que es <span class="k">consenso</span>: la datación del Libro de los Vigilantes en el siglo III a.C.; que 4 Macabeos no menciona la resurrección; que Pablo mantiene <em>sōma</em> en los dos miembros de 1 Corintios 15,44 y que <em>sōma pneumatikón</em> no significa «inmaterial»; y que la soldadura de los dos modelos está completa y sin fricción en 4 Esdras 7.</p>
+  <p>Lo que está en <span class="k">debate abierto</span>: qué significa exactamente <em>sōma pneumatikón</em> —cuerpo <em>hecho de</em> materia neumática para Dale Martin y Engberg-Pedersen, <em>animado por</em> el Espíritu para Wright y Zerbe, <em>informado por</em> él para Tappenden—; si 2 Corintios 5 enseña un estado intermedio; y qué estaban pensando de verdad los fariseos y los esenios, sobre lo que dependemos de un testigo que traduce.</p>
+  <p>Una cifra que <span class="k">no vamos a dar redonda</span>, porque no lo es. <em>Psychē</em> aparece en el Nuevo Testamento <strong>102</strong> veces según el texto del SBLGNT, <strong>103</strong> según la lectura del Nestle-Aland en Judas 15, y <strong>105</strong> en el Textus Receptus —que es la cifra del recuento de la King James, y cuadra—. La diferencia no es ruido: son cuatro decisiones críticas concretas, en Marcos 12,33, Lucas 9,56, Hechos 2,31 y Judas 15. Hay además una cifra de 104 muy citada que <strong>no corresponde a ninguna edición impresa</strong>: es una lista mixta. Dar «<em>psychē</em> aparece N veces» sin decir sobre qué edición es el error metodológico más repetido de la literatura apologética <em>de los dos bandos</em>.</p>
+  <p>Y sobre Qumrán, la honestidad obligada: <strong>no resuelve la cuestión</strong>. El tratado de los Dos Espíritus es el punto más flojo de la evidencia y admite las dos lecturas. Lo decimos antes de citarlo, no después.</p>
+</div>
+
+<p>Queda una pregunta que esta entrega no puede responder y que la siguiente sí: si hacia el
+año 100 la arquitectura ya está montada, ¿por qué la Iglesia tarda catorce siglos en definir
+qué es exactamente eso que se va al cielo? La respuesta corta es que fue definiendo una y
+otra vez <em>qué les pasa</em> a las almas, y no definió nunca <em>qué son</em>. Hasta que lo
+hizo, con anatema, en 1513.</p>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p>Texto griego cotejado contra el SBLGNT (Michael W. Holmes, 2010) y su aparato, y contra el
+  Textus Receptus de Scrivener (1894) para los recuentos comparados.</p>
+  <p>C. D. Elledge, <em>Resurrection of the Dead in Early Judaism, 200 BCE-CE 200</em>, Oxford
+  University Press, 2017 · George W. E. Nickelsburg, <em>1 Enoch 1</em>, Hermeneia, Fortress ·
+  John Granger Cook, sobre Jubileos 23 (2024) · Émile Puech, <em>La croyance des Esséniens en la
+  vie future</em>.</p>
+  <p><strong>Sobre Pablo.</strong> Oscar Cullmann, <em>Immortality of the Soul or Resurrection of
+  the Dead?</em>, 1955 · Robert H. Gundry, <em>Sōma in Biblical Theology</em>, 1976 · Dale B.
+  Martin, <em>The Corinthian Body</em>, Yale University Press, 1995 · Troels Engberg-Pedersen,
+  <em>Cosmology and Self in the Apostle Paul</em>, OUP, 2010 · N. T. Wright, <em>The Resurrection
+  of the Son of God</em>, Fortress, 2003 · John W. Cooper, <em>Body, Soul, and Life
+  Everlasting</em>, Eerdmans, 1989 · Joel B. Green, <em>Body, Soul, and Human Life</em>, Baker,
+  2008 · Gordon Zerbe, «Paul on the Human Being as a "Psychic Body"», <em>Direction</em> 37/2
+  (2008) 168-184 · Frederick S. Tappenden, <em>Resurrection in Paul</em>, SBL Press, 2016 ·
+  J. Richard Middleton, <em>A New Heaven and a New Earth</em>, Baker, 2014.</p>
+  <p><strong>Sobre Hebreos 12,23.</strong> Gareth Lee Cockerill, «Hebrews 12:18-24: Apocalyptic
+  Typology or Platonic Dualism?», <em>Tyndale Bulletin</em> 69.2 (2018) 225-239 · David M.
+  Moffitt, <em>Atonement and the Logic of Resurrection in the Epistle to the Hebrews</em>,
+  NovTSup 141, Brill, 2011.</p>
+  <p><strong>Sobre Lucas 23,43.</strong> Wilson Paroschi, «The Significance of a Comma: An
+  Analysis of Luke 23:43», <em>Ministry</em>, junio de 2013 · Thomas R. Shepherd,
+  <em>JATS</em> 32/1-2 (2021) 171-189 · Alexey Somov, <em>Representations of the Afterlife in
+  Luke-Acts</em>, LNTS, T&amp;T Clark, 2017.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var D={"en22": {"t": "1 Enoc 22", "f": "s. III a.C.", "a": "Espíritus de difuntos alojados en cámaras separadas, activos, esperando.", "b": "Las cámaras son «hasta el gran día del juicio»: presuponen un acto futuro.", "st": "consenso", "n": "<b>La estación clave de toda la serie.</b> Es la primera aparición datable de un estado intermedio con compartimentos, y es <b>anterior a Daniel 12</b> y anterior a que Platón entre en la conversación judía. Los manuscritos arameos de Qumrán fijan el límite: 4QEn<sup>a</sup>, comienzos del s. II a.C. El estado intermedio no es griego: es apocalíptico judío."}, "4qinst": {"t": "4QInstruction", "f": "s. III a.C. (orig.)", "a": "Elevación del elegido a la comunión angélica.", "b": "Sin resurrección explícita en ninguna parte.", "st": "debate", "n": "Una <b>cuarta vía</b> que no es ni A ni B: el destino no es sobrevivir ni volver, sino ser elevado a la condición de los ángeles. Goff, Elgvin y Lange siguen discutiéndolo."}, "jub": {"t": "Jubileos 23,31", "f": "s. II a.C.", "a": "«Sus huesos descansarán en la tierra y sus espíritus tendrán mucho gozo»: partición explícita.", "b": "Ninguno.", "st": "consenso", "n": "Que aquí no hay resurrección corporal es consenso. Lo que John Granger Cook discute (2024) es la etiqueta alternativa: sostiene que tampoco hay «resurrección espiritual», que es como se venía leyendo."}, "dan": {"t": "Daniel 12,2-3", "f": "c. 165 a.C.", "a": "Ninguno.", "b": "No hay alma y no hay intervalo: solo el despertar de «los que duermen en el suelo de polvo», unos a vida eterna y otros a oprobio.", "st": "consenso", "n": "El texto que todo el mundo cita como el comienzo. Y es el comienzo de la <i>resurrección </i>, no del más allá diferenciado — que ya llevaba un siglo largo en 1 Enoc 22."}, "2mac": {"t": "2 Macabeos 7", "f": "s. II a.C.", "a": "Ninguno.", "b": "El mártir extiende las manos y dice que las recibió del Cielo y que espera recibirlas de nuevo. <b>Devolución de los miembros</b>, literal.", "st": "consenso", "n": "Guárdese este texto: vuelve en 4 Macabeos, con el mismo martirio contado de otra manera, y la comparación es lo más elocuente del cuadro."}, "4q385": {"t": "4Q385 Pseudo-Ezequiel", "f": "s. II a.C.", "a": "Ninguno.", "b": "Ezequiel 37 individualizado: los huesos secos dejan de ser metáfora nacional y pasan a ser recompensa escatológica de personas.", "st": "mayoritario", "n": "Dimant, Puech, Kister y Qimron. Y no es sectario, lo que lo hace más útil: no describe a la comunidad de Qumrán, describe el judaísmo del que Qumrán formaba parte."}, "en102": {"t": "1 Enoc 102-104", "f": "s. II-I a.C.", "a": "Los espíritus de los justos «vivirán y se alegrarán»; «no perecerán».", "b": "Serán «levantados del Seol»; y el destino es astral y angélico, no terreno.", "st": "mayoritario", "n": "Aquí ya están las dos cosas a la vez, y sin que el autor parezca notar ninguna tensión. Es la lectura de C. D. Elledge."}, "1qs": {"t": "1QS III-IV · los Dos Espíritus", "f": "s. I a.C.", "a": "Los espíritus son fuerzas asignadas a cada persona, no almas separables.", "b": "Elledge: la «vida eterna» del texto es purificación, no trascender la muerte.", "st": "debate", "n": "<b>El punto más flojo de toda la evidencia</b>, y se dice. El texto habla de destinos pero no de mecanismos, y cualquiera de los dos modelos puede leerse en él si uno va buscándolo."}, "1qh": {"t": "1QH · Hodayot", "f": "s. I a.C.", "a": "Ninguno claro.", "b": "Émile Puech lee resurrección. La mayoría lee iluminación y santificación del vivo.", "st": "debate", "n": "Un caso de manual de cómo un mismo corpus sostiene dos lecturas incompatibles según qué se cuente como lenguaje figurado."}, "4q521": {"t": "4Q521", "f": "s. I a.C.", "a": "Ninguno.", "b": "«Hará vivir a los muertos.» Sin ambigüedad.", "st": "consenso", "n": "Consenso sobre el modelo; debate sobre el agente: Puech y Collins piensan en Elías, Wold en Ezequiel, Kvalbein en una metáfora nacional. No es un texto sectario."}, "sab": {"t": "Sabiduría de Salomón", "f": "c. 30 a.C.-40 d.C.", "a": "<i>Athanasía</i>, <i>aphtharsía</i>. «Las almas de los justos están en la mano de Dios.» Y el cuerpo corruptible <b>agrava</b> al alma (9,15).", "b": "No hay resurrección en ninguna parte; pero 3,7 introduce un «tiempo de la visitación» futuro y colectivo.", "st": "mayoritario", "n": "Aquí sí entra el vocabulario griego, y entra entero. Sobre cuánto de ello es platonismo hay discusión: Atkins subraya el componente <b>estoico</b>, que se cita menos."}, "filon": {"t": "Filón de Alejandría", "f": "c. 20 a.C.-50 d.C.", "a": "Dos hombres, el de Gn 1,27 y el de Gn 2,7. El cuerpo como tumba y cárcel. El alma como emanación divina.", "b": "Ninguno.", "st": "consenso", "n": "Consenso en el modelo. En debate, si hay reencarnación en Filón (Yli-Karjanmaa). Y una cautela: su hostilidad al cuerpo apunta al error <i>valorativo</i>, no a la materia."}, "1ts": {"t": "1 Tesalonicenses 4,13-18", "f": "c. 50 d.C.", "a": "Los muertos «duermen» — y hay quien lee ahí un estado.", "b": "El consuelo es íntegramente escatológico: ningún alma, ningún cielo inmediato, solo el día en que el Señor desciende.", "st": "consenso", "n": "<b>El texto paulino más antiguo sobre el asunto</b>, y el más limpio. Y el problema pastoral que lo provoca está a la vista: los suyos se están muriendo antes de lo previsto, y hay que decirles algo."}, "1cor": {"t": "1 Corintios 15", "f": "c. 54 d.C.", "a": "Usa <i>athanasía</i> y <i>aphtharsía</i>, el vocabulario de la inmortalidad; y niega la carne.", "b": "Dice <i>sōma</i>, cuerpo, en todo momento. «Carne y sangre» significa mortalidad, no corporalidad.", "st": "debate", "n": "La discusión es sobre <i>sōma pneumatikón</i>: ¿cuerpo <b>hecho de</b> materia neumática (Martin, Engberg-Pedersen), <b>animado por</b> el Espíritu (Wright, Zerbe), o <b>informado por</b> él (Tappenden)? Lo que es consenso es lo que <b>no</b> significa: no significa «inmaterial»."}, "2cor": {"t": "2 Corintios 5,1-10", "f": "c. 55-56 d.C.", "a": "«Ausentarnos del cuerpo y estar presentes al Señor» (5,8). La tienda que se desmonta.", "b": "Pablo <b>rechaza</b> la desnudez (5,3-4): no quiere desvestirse, quiere sobrevestirse.", "st": "debate", "n": "El texto más disputado del expediente paulino. Cooper y Rae leen estado intermedio; Middleton y Green, no; Wright dice que Pablo lo contempla pero como algo <i>indeseado</i>, y sin llamarlo alma. <b>Y hay un copista apretando el tornillo</b>: la variante <i>ekdysámenoi</i> en 5,3 invierte el sentido."}, "rm8": {"t": "Romanos 8,10-11.23", "f": "c. 57 d.C.", "a": "8,10 opone <i>sōma</i> a <i>pneuma</i>.", "b": "8,11: «vivificará vuestros cuerpos mortales». 8,23: «la redención de nuestro cuerpo». La meta es el cuerpo.", "st": "consenso", "n": "El vocabulario es ambivalente y la meta no lo es."}, "flp": {"t": "Filipenses 1,21-24", "f": "c. 60 d.C.", "a": "«Partir y estar con Cristo, lo cual es muchísimo mejor.»", "b": "<i>Analŷsai</i> es un verbo náutico y militar —levar anclas, levantar el campamento—, no antropológico. Y no se nombra ningún alma.", "st": "debate", "n": "<b>El texto difícil de los monistas</b>, y lo reconocen ellos: Middleton lo admite como tal. Que la posición contraria señale el pasaje que más le cuesta es la señal de que la discusión es seria."}, "heb": {"t": "Hebreos 12,23", "f": "c. 60-90 d.C.", "a": "«Los espíritus de los justos hechos perfectos», en presente, ya en la Jerusalén celeste.", "b": "Es fórmula apocalíptica corriente para los fieles muertos que <b>aún esperan</b> la resurrección.", "st": "mayoritario", "n": "Cuidado aquí con lo que se lee por ahí. <b>No se puede atribuir a Attridge ni a Koester la tesis de un alma separable y consciente</b>: los paralelos que se aducen —Jubileos 23,30-31; 1 Enoc 22,9; 102,4; 2 Baruc 30,2— empujan justamente en la otra dirección, la del idiom apocalíptico. Lo que sí sigue abierto es si el marco global de Hebreos es platónico o apocalíptico, que es el eje de Cockerill (2018) y de Moffitt (2011)."}, "jos": {"t": "Josefo sobre fariseos, esenios y saduceos", "f": "c. 75-94 d.C.", "a": "Léxico íntegramente de inmortalidad; <b>nunca</b> <i>anástasis</i>. Los esenios con el cuerpo como prisión. Y de los saduceos: «las almas mueren con los cuerpos».", "b": "Elledge: es resurrección helenizada para lectores griegos.", "st": "debate", "n": "<b>Josefo es el mediador que nos impide saber lo que pensaban de verdad.</b> Elledge lee B disfrazado de A; Yli-Karjanmaa lo toma literalmente; Klawans sostiene que estamos leyendo la teología de Josefo, no la de los grupos. Y sobre los saduceos es fuente <b>hostil y única</b>."}, "4esd": {"t": "4 Esdras 7", "f": "c. 70-100 d.C.", "a": "El espíritu sale del cuerpo, adora, y va a siete órdenes de gozo o de tormento; hay cámaras guardadas y siete días de tránsito.", "b": "Y todo eso ocurre <b>antes</b> de la resurrección escatológica final, que también está.", "st": "consenso", "n": "La soldadura funciona sin fricción ninguna. Cien años después de Pablo, el híbrido ya no es un problema para nadie: es la arquitectura normal."}, "lc16": {"t": "Lucas 16,19-31 · el rico y Lázaro", "f": "c. 80-90 d.C.", "a": "Retribución inmediata, Hades, un abismo infranqueable y el seno de Abrahán.", "b": "<b>No aparece la palabra <i>psychē</i> en todo el relato.</b> Y los personajes tienen ojos, lengua y sed: son <i>cuerpos</i> en el Hades.", "st": "mayoritario", "n": "Lehtipuu y Bauckham: es imaginería convencional folclórica, no doctrina. Somov añade que Lucas no es platónico. Y «el seno de Abrahán» no existe en la Biblia hebrea: es una construcción del siglo I."}, "lc23": {"t": "Lucas 23,43 · la coma", "f": "c. 80-90 d.C.", "a": "«Hoy estarás conmigo en el paraíso»: inmediatez.", "b": "Con la coma después de «hoy» la inmediatez desaparece.", "st": "mayoritario", "n": "<b>No hay variante textual</b>: las únicas del versículo son la adición de «Jesús» como sujeto y el orden de dos palabras. Todo el asunto es de <b>puntuación editorial</b>, y ahí el dato es bonito: de seis ediciones críticas, cinco puntúan antes de «hoy» y el SBLGNT <b>se abstiene de puntuar</b>. Y una corrección que hay que hacer: la lectura alternativa <b>no es solo de los Testigos de Jehová</b> — la defienden Paroschi (<i>Ministry</i>, 2013), Shepherd (<i>JATS</i>, 2021), Bullinger, Froom y Bacchiocchi. Sigue siendo minoritaria; «solo los Testigos» es un error de hecho."}, "mt10": {"t": "Mateo 10,28", "f": "c. 80-90 d.C.", "a": "<i>Psychē</i> y <i>sōma</i> separables: los perseguidores pueden matar el cuerpo y no el alma.", "b": "Pero la <i>psychē</i> es <b>destructible</b> por Dios. Si se puede destruir, no es inmortal por naturaleza.", "st": "consenso", "n": "El texto que los dos bandos citan, y los dos con razón. Está en la columna A por la primera mitad del versículo, y desmiente A en la segunda."}, "hch7": {"t": "Hechos 7,59-60", "f": "c. 80-90 d.C.", "a": "«Señor Jesús, recibe mi espíritu.»", "b": "Y a continuación, en el versículo siguiente: «dicho esto, se durmió». El modelo es el Salmo 31,6: el aliento que se devuelve.", "st": "debate", "n": "Los dos modelos en dos versículos consecutivos, sin que el autor parezca verlo."}, "4mac": {"t": "4 Macabeos", "f": "20-130 d.C.", "a": "Inmortalidad, y nada más. «Almas puras e inmortales» recibidas de Dios (18,23).", "b": "Ninguno. <b>No menciona la resurrección ni una sola vez.</b>", "st": "consenso", "n": "Y aquí está la comparación que vale por toda la entrega: <b>es el mismo martirio de 2 Macabeos 7</b>, contado otra vez. Donde el primero devuelve los miembros, el segundo habla de almas inmortales. Dos siglos, una lengua nueva y otro modelo, sobre el mismo relato."}, "2bar": {"t": "2 Baruc 49-51", "f": "c. 90-100 d.C.", "a": "Los justos serán «hechos semejantes a los ángeles», con esplendor luminoso.", "b": "Pero antes hay una primera etapa de forma física <b>idéntica, «sin ningún cambio»</b>, y está ahí por una razón concreta: para que los vivos puedan reconocerlos.", "st": "consenso", "n": "La estructura en dos fases es consenso, y el motivo de la primera —el reconocimiento— es de las cosas más humanas de todo el corpus."}, "ap6": {"t": "Apocalipsis 6,9-11", "f": "c. 95 d.C.", "a": "<i>Psychaí</i> conscientes bajo el altar, que hablan, reciben vestiduras y esperan. <b>Wright concede que es la excepción.</b>", "b": "Kuryliak y Kuryliak (2025) leen <i>psychē</i> aquí como «sangre» de los mártires, en clave holista.", "st": "mayoritario", "n": "Junto con Hebreos 12,23, el texto más incómodo para la lectura monista — y conviene decirlo así, porque es el que la pone a prueba."}, "ap20": {"t": "Apocalipsis 20,4-6", "f": "c. 95 d.C.", "a": "Habla de «almas» que «vivieron» y reinaron mil años.", "b": "Pero todo el esquema es resurreccional: hay una «primera resurrección» y una segunda.", "st": "debate", "n": "Un texto saturado de literatura confesional en las dos direcciones. Lo tratamos con brevedad a propósito."}, "2pe": {"t": "2 Pedro 1,13-15", "f": "s. II d.C.", "a": "El cuerpo es <i>skēnōma</i>, una tienda que se desmonta; y la muerte es <i>éxodos</i>, una salida.", "b": "Ninguno.", "st": "mayoritario", "n": "El vocabulario viene de Sabiduría 9,15 y de 2 Corintios 5,1. Y el texto es, según la datación mayoritaria, <b>el más tardío del cuadro</b>: la deriva se ve mejor por los extremos."}}, E={"consenso": ["Consenso", "#3d5a4a"], "mayoritario": ["Mayoritario", "#40566b"], "debate": ["Debate abierto", "#7a5c38"]};
+  var caja=document.getElementById('modelos'), det=document.getElementById('modet');
+  if(!caja||!det) return;
+  function show(id){
+    var d=D[id];
+    caja.querySelectorAll('.mo-tx').forEach(function(b){b.classList.toggle('on',b.dataset.id===id);});
+    var e=E[d.st];
+    det.innerHTML='<div class="dh"><h4>'+d.t+'</h4><span class="df">'+d.f+'</span>'+
+      '<span class="pill" style="background:'+e[1]+'">'+e[0]+'</span></div>'+
+      '<div class="mo-lados">'+
+      '<div class="mo-lado"><div class="lt">Lo que apoya el alma separable</div><p>'+d.a+'</p></div>'+
+      '<div class="mo-lado"><div class="lt">Lo que apoya la resurrección del cuerpo</div><p>'+d.b+'</p></div>'+
+      '</div><p class="nota">'+d.n+'</p>';
+    det.style.borderLeftColor=e[1];
+  }
+  caja.querySelectorAll('.mo-tx').forEach(function(b){
+    b.addEventListener('click',function(){show(b.dataset.id);});
+  });
+  show('en22');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#54626b">↑ <a href="serie-alma.html" style="color:#54626b">Serie: El alma que no estaba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="alma-3.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#54626b">Cuatro vecinos que sí tenían piezas sueltas</span></a>
+    <a class="epnav-btn next" href="alma-5.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#54626b">El alma se define en 1513</span></a>
+  </div>
+</nav>
+</body></html>

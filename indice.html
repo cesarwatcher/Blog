@@ -97,6 +97,9 @@
   .cap-reyes{background:linear-gradient(90deg,#3a3a2a,#5a5230,#a89a5e)}
   .cap-diablo{background:linear-gradient(90deg,#1a1418,#5c1f26,#c9743f)}
   .cap-pecado{background:linear-gradient(90deg,#231c26,#4a2f3a,#a87a6a)}
+  /* El unico cap que termina en un tono palido y frio: los dieciseis
+     existentes terminan en ocre, oro o color saturado. */
+  .cap-alma{background:linear-gradient(90deg,#20262b,#54626b,#c3cdd2)}
   .cap-especial{background:linear-gradient(90deg,#2d4a7a,#d4a13a,#c06a3a)}
   .scard .body{padding:1.8rem 1.8rem 2rem}
   .scard .snum{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#8a7a5e;margin-bottom:.6rem;display:flex;justify-content:space-between}
@@ -161,8 +164,12 @@
   .about .wrap{max-width:720px;text-align:center}
   .about h3{font-size:1.6rem;font-weight:400;color:#fff;margin-bottom:1.2rem}
   .about p{color:#d9cfba;font-size:1.05rem;margin-bottom:1rem}
-  .about .key{color:var(--gold);font-style:italic}
-  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  /* El oro de la paleta da 3,49:1 sobre el tramo claro del degradado de
+     .about. Aqui se aclara a #d8b661 (4,73:1 en el peor punto). La variable
+     --gold no se toca: en la linea de tiempo se usa como FONDO, no como texto. */
+  .about .key{color:#d8b661;font-style:italic}
+  /* #8a7a5e daba 3,65:1 sobre pergamino, por debajo de AA. */
+  footer{text-align:center;padding:3rem 0;color:#77694f;font-size:.82rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
   footer .glyph{color:var(--clay);font-size:1rem}
 
   /* series page header */
@@ -194,14 +201,111 @@
   .idxgroup h2 .em{font-style:italic}
   .idxrow{display:flex;align-items:baseline;gap:.8rem;padding:.7rem 0;text-decoration:none;color:inherit;border-bottom:1px dotted rgba(180,150,100,.4)}
   .idxrow:hover{color:var(--clay-deep)}
-  .idxrow .r{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;color:#8a7a5e;min-width:2.2rem}
+  /* #8a7a5e daba 3,65:1 y #a0906c 2,74:1 sobre pergamino. Los numeros romanos
+     y el rotulo de formato son texto, no adorno: tienen que pasar AA. */
+  .idxrow .r{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;color:#726245;min-width:2.2rem}
   .idxrow .t{font-size:1.05rem;flex:1}
-  .idxrow .k{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#a0906c;text-transform:uppercase;letter-spacing:.06em}
+  .idxrow .k{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#726245;text-transform:uppercase;letter-spacing:.06em}
   .idxrow.soon{opacity:.5}
   @media(max-width:600px){.ep{grid-template-columns:auto 1fr;gap:.9rem}.ep .chev{display:none}header.hero{padding:14vh 0 2vh}.idxrow .k{display:none}}
+
+  /* ============================================================
+     PORTADA EDITORIAL (opción B)
+     Una tarjeta grande de «Lo último» y debajo el corte completo del blog en
+     bandas por etapa, en orden invertido: tercera arriba, primera abajo. Como
+     en una columna estratigráfica real, el estrato reciente está en la
+     superficie y se desciende hacia lo antiguo.
+     Sin colores ni fuentes nuevas: se reutilizan las variables de :root, las
+     barras cap-* de cada serie y los tonos de la tabla de tonos.
+     ============================================================ */
+  .lo-ultimo{max-width:1120px;margin:1.2rem auto 0;padding:0 24px}
+  .lu-lab{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+  .lu-lab span{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.24em;
+    text-transform:uppercase;font-weight:700;color:var(--clay-deep)}
+  .lu-lab i{flex:1;height:1px;background:var(--rule)}
+  /* Tarjeta de pergamino: se distingue por tamaño y por su barra de color, no
+     por el fondo. La portada queda luminosa de arriba abajo. */
+  .lu{background:var(--sand-light);border:1px solid rgba(180,150,100,.4);border-radius:14px;
+    overflow:hidden;box-shadow:0 12px 34px var(--shadow)}
+  /* La barra de color está declarada arriba como «.scard .cap», es decir, solo
+     dentro de una tarjeta .scard. Aquí el contenedor es .lu, así que sin esta
+     regla la barra existe en el HTML pero mide 0px de alto y no se ve.
+     Es el mismo fallo de selector que ya ha aparecido con «article h2». */
+  .lu .cap{height:11px;width:100%}
+  .lu-body{display:grid;grid-template-columns:1.18fr .82fr}
+  @media(max-width:820px){.lu-body{grid-template-columns:1fr}}
+  .lu-main{padding:1.9rem 2.1rem 2rem}
+  .lu-main .lk{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;display:block}
+  .lu-main h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:400;margin:.55rem 0 .75rem;
+    line-height:1.14;color:var(--ink)}
+  .lu-main h2 .em{font-style:italic}
+  .lu-main p{font-size:1.02rem;color:#564936;margin:0 0 1.3rem;max-width:54ch}
+  .lu-main .go{font-family:"Trebuchet MS",sans-serif;font-size:.82rem;font-weight:700;
+    letter-spacing:.04em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+  .lu-main .go .arrow{transition:transform .3s}
+  .lu-main .go:hover .arrow{transform:translateX(5px)}
+  .lu-side{background:rgba(255,255,255,.55);border-left:1px solid rgba(180,150,100,.35);
+    padding:1.7rem 1.8rem}
+  @media(max-width:820px){.lu-side{border-left:0;border-top:1px solid rgba(180,150,100,.35)}}
+  .lu-side .sl{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:#7a6a4a;margin-bottom:.8rem}
+  .lu-side a{display:block;text-decoration:none;padding:.62rem 0;
+    border-bottom:1px dotted rgba(180,150,100,.5)}
+  .lu-side a:last-child{border-bottom:0;padding-bottom:0}
+  .lu-side a .n{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    font-weight:700}
+  .lu-side a .t{display:block;font-size:1.02rem;color:var(--slate-deep);margin-top:.1rem;line-height:1.3}
+  .lu-side a:hover .t{color:var(--clay-deep)}
+
+  /* ---- el corte completo ---- */
+  .mapa{max-width:1120px;margin:3.2rem auto 0;padding:0 24px}
+  .m-band{margin-bottom:2.2rem}
+  .m-head{padding-bottom:.55rem;border-bottom:2px solid var(--rule);margin-bottom:1rem}
+  .m-head .mtop{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap}
+  .m-head .mk{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.2em;
+    text-transform:uppercase;font-weight:700;color:#7a5c38}
+  .m-head h3{font-size:1.42rem;font-weight:400;color:#3a2f22;margin:0}
+  .m-head .mn{margin-left:auto;font-family:"Trebuchet MS",sans-serif;font-size:.7rem;color:#7a6a4a;
+    white-space:nowrap}
+  @media(max-width:600px){.m-head .mn{margin-left:0}}
+  .m-head .md{font-size:.93rem;color:#6a5c46;font-style:italic;margin-top:.4rem;max-width:66ch}
+  .m-rows{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:.35rem}
+  .m-row{display:grid;grid-template-columns:5px 1fr auto;gap:.85rem;align-items:center;
+    text-decoration:none;color:inherit;padding:.6rem .8rem .6rem 0;border-radius:8px;
+    transition:background .2s,transform .2s}
+  .m-row:hover{background:rgba(255,255,255,.6);transform:translateX(3px)}
+  .m-row .bar{align-self:stretch;border-radius:3px;min-height:34px}
+  .m-row .tt{font-size:1.02rem;color:#3a3320;line-height:1.3}
+  .m-row .tt .em{font-style:italic}
+  .m-row .cc{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#726245;white-space:nowrap}
+  .m-row .cc.soon{font-style:italic}
+  /* Edición especial: dentro de su banda, con el dorado de «pieza única» que ya
+     usa la tarjeta .scard-especial. Ocupa la fila entera de la retícula. */
+  .m-row.esp{grid-column:1/-1;background:rgba(212,161,58,.08);
+    border:1px solid rgba(212,161,58,.4);padding:.6rem .8rem;gap:.9rem;
+    grid-template-columns:5px auto 1fr auto}
+  .m-row.esp:hover{background:rgba(212,161,58,.16)}
+  .m-row.esp .pill{font-family:"Trebuchet MS",sans-serif;font-size:.6rem;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:700;color:#241a06;background:#d4a13a;
+    padding:.2rem .6rem;border-radius:2rem;white-space:nowrap}
+  /* En móvil la cabecera de banda se apila siempre igual (rótulo, título,
+     recuento) en vez de depender de si el título cabe o no en la línea, y la
+     fila de la edición especial pasa a una sola columna para no perder el
+     rótulo dorado. */
+  @media(max-width:600px){
+    .m-head .mtop{display:block}
+    .m-head .mk{display:block;margin-bottom:.2rem}
+    .m-head .mn{display:block;margin-left:0;margin-top:.3rem}
+    .m-row.esp{grid-template-columns:5px 1fr}
+    .m-row.esp .pill,.m-row.esp .tt,.m-row.esp .cc{grid-column:2}
+    .m-row.esp .bar{grid-row:1/span 3}
+    .m-row.esp .pill{justify-self:start;margin-bottom:.35rem}
+    .m-row.esp .cc{margin-top:.25rem}
+  }
 </style></head><body>
 <div class="topbar">
-  <a class="home" href="index.html"><span class="glyph">✦</span> Estratos</a>
+  <a class="home" href="index.html"><span class="glyph" aria-hidden="true">✦</span> Estratos</a>
   <a class="alllink" href="indice.html">Ver todos los artículos</a>
 </div>
 <header class="serieshead"><div class="wrap">
@@ -465,6 +569,27 @@
     </a>
   </div>
   <div class="idxgroup">
+    <h2><a href="serie-alma.html" style="text-decoration:none;color:inherit">El <span class="em">alma</span> que no estaba</a></h2>
+    <a class="idxrow" href="alma-1.html">
+      <span class="r">I</span><span class="t">Una garganta, no un alma</span><span class="k">El cuerpo anotado</span>
+    </a>
+    <a class="idxrow" href="alma-2.html">
+      <span class="r">II</span><span class="t">El lugar del que nadie habla si no tiene miedo</span><span class="k">La ficha del lugar vacío</span>
+    </a>
+    <a class="idxrow" href="alma-3.html">
+      <span class="r">III</span><span class="t">Cuatro vecinos que sí tenían piezas sueltas</span><span class="k">Rutas del más allá</span>
+    </a>
+    <a class="idxrow" href="alma-4.html">
+      <span class="r">IV</span><span class="t">El intervalo que nadie había previsto</span><span class="k">El cuadro de dos modelos</span>
+    </a>
+    <a class="idxrow" href="alma-5.html">
+      <span class="r">V</span><span class="t">El alma se define en 1513</span><span class="k">Lo que no se definió</span>
+    </a>
+    <a class="idxrow" href="alma-6.html">
+      <span class="r">VI</span><span class="t">Todas las palabras son aliento</span><span class="k">Cuadro comparado de traducciones</span>
+    </a>
+  </div>
+  <div class="idxgroup">
     <h2><a href="serie-pecado.html" style="text-decoration:none;color:inherit">La invención del <span class="em">pecado</span></a></h2>
     <a class="idxrow" href="pecado-1.html">
       <span class="r">I</span><span class="t">Adán no es la causa</span><span class="k">El debate abierto</span>
@@ -485,5 +610,5 @@
       <span class="r">VI</span><span class="t">Oriente, Trento y el siglo XX</span><span class="k">Cierre del arco</span>
     </a>
   </div>
-<footer><span class="glyph">✦</span><br>Estratos · Historia de las religiones del Cercano Oriente</footer>
+<footer><span class="glyph" aria-hidden="true">✦</span><br>Estratos · Historia de las religiones del Cercano Oriente</footer>
 </body></html>

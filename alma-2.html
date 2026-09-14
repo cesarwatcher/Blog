@@ -1,0 +1,612 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El lugar del que nadie habla si no tiene miedo — Estratos</title>
+<meta name="description" content="El Sheol no tiene juicio, ni fuego, ni separación de justos y malvados. Y la Gehena no fue el basurero ardiente de Jerusalén: esa leyenda se rastrea hasta un comentario rabínico de hacia 1200. Pero Israel sí tuvo un más allá, y estaba excavado en la roca.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#54626b;--mid:#68767f;--pale:#5d6a73;
+    --rel:#8a4a2a;--exc:#54626b;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #626a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#626a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#626a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(93,106,115,.26)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#626a72}
+  figcaption .cr a{color:#5a6870;text-decoration:underline;text-decoration-color:rgba(90,104,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a6870}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c3cdd2,#9aa7ae 42%,#68767f 70%,#54626b)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#626a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#626a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#68767f}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#dde3e6,#c8d1d6);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#626a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#626a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .ficha{width:min(1060px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,150,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .ficha .fk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .ficha h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .ficha .fs{font-size:.98rem;color:#4a4f53;margin:0 0 1.3rem;max-width:68ch}
+
+  .fi-cab{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) minmax(0,1fr);
+    gap:.5rem;margin-bottom:.3rem}
+  .fi-cab .h{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;font-weight:700;
+    letter-spacing:.05em;color:var(--deep);padding:.5rem .6rem;border-bottom:2px solid var(--mid)}
+  .fi-cab .h span{display:block;font-weight:400;font-size:.64rem;color:#5a6167;
+    letter-spacing:0;margin-top:.15rem}
+  .fi-cab .h.vacia{border-bottom-color:transparent}
+
+  .fi-fila{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) minmax(0,1fr);
+    gap:.5rem;border-bottom:1px solid rgba(120,132,140,.3)}
+  .fi-fila .pr{font-size:.92rem;color:#3f454a;padding:.6rem .6rem;display:flex;
+    align-items:center}
+  .fi-cel{background:transparent;border:0;text-align:left;cursor:pointer;padding:.55rem .6rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.03em;
+    transition:background .2s;border-radius:6px;color:inherit}
+  .fi-cel .pill{display:inline-block;padding:.2rem .5rem;border-radius:20px;color:#fff}
+  .fi-cel:hover .pill{filter:brightness(1.12)}
+  .fi-cel.on{background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px rgba(84,98,107,.5)}
+
+  .fi-det{margin-top:1.1rem;background:#fbfaf6;border:1px solid rgba(120,132,140,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:7.5rem}
+  .fi-det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;margin-bottom:.35rem}
+  .fi-det h4{font-size:1.1rem;font-weight:400;color:var(--deep);margin:0 0 .5rem}
+  .fi-det p{font-size:.95rem;color:#3f454a;margin:0;line-height:1.62}
+  .fi-det i{font-style:italic}
+
+  .fi-pie{display:flex;align-items:flex-start;gap:.9rem;flex-wrap:wrap;margin-top:1.3rem;
+    padding-top:1rem;border-top:1px solid rgba(120,132,140,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4f53;line-height:1.55}
+  .fi-pie b{color:var(--deep)}
+
+  @media(max-width:760px){
+    .fi-cab{display:none}
+    .fi-fila{grid-template-columns:1fr;gap:0;padding:.5rem 0 .7rem}
+    .fi-fila .pr{padding:.4rem .2rem;font-weight:700;color:var(--deep)}
+    .fi-cel{display:flex;align-items:center;gap:.5rem;padding:.35rem .2rem}
+    /* En movil las tres columnas se apilan, asi que cada casilla tiene que
+       decir de que columna es. El rotulo va en data-col2 y NO en data-col,
+       que es la clave que lee el JS: sobrescribir un dataset que ya usa el
+       guion es un fallo que ya cometi una vez. */
+    .fi-cel::before{content:attr(data-col2);font-weight:400;font-size:.66rem;color:#5a6167;
+      min-width:9.5em}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El alma que no estaba · Entrega II</span>
+  <h1>El lugar del que nadie habla si no tiene <span class="em">miedo</span></h1>
+  <div class="glifos"><span>שְׁאוֹל</span><span class="sep">·</span><span class="tr">sheʾol</span><span class="sep">·</span><span>גֵּיא בֶן־הִנֹּם</span><span class="sep">·</span><span class="tr">el valle de Hinom</span></div>
+  <p class="stand">Israel no tuvo cielo ni infierno. Más allá sí tuvo, y era doble: uno subterráneo del que solo se habla con pánico, y otro con dirección postal, comida y luz.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">Hay una palabra hebrea que aparece sesenta y cinco o sesenta y seis veces en
+la Biblia —ya veremos por qué la cifra baila— y que las traducciones castellanas reparten
+entre «sepulcro», «abismo», «profundo» y, treinta y una veces en la Biblia del rey Jacobo,
+directamente «infierno». La palabra es <em>sheʾol</em>. Y el reparto es ya una
+interpretación: el hebreo usa un solo término donde el traductor decide, versículo a
+versículo, si está hablando de una fosa o de la condenación eterna.</p>
+
+<p>Sobre lo que el Sheol <em>no</em> es se puede ser bastante preciso, porque los textos
+son pocos y están todos listados. Lo difícil es la otra mitad del asunto, y es la que casi
+nunca se cuenta: que la ausencia de un infierno no significa que Israel no tuviera un más
+allá. Tenía uno. Estaba a veinte metros de su casa, excavado en la roca, y le llevaban
+comida.</p>
+
+<figure>
+  <img src="valle-de-hinom.jpg" data-alt="valle-hinom.jpg|gehena.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="El valle de Hinom visto desde el sur de Jerusalén">
+  <figcaption>El valle de Hinom, al sur de la Ciudad Vieja de Jerusalén. Aquí estuvo el Tofet, y de aquí toma su nombre la <em>Gehena</em>. Lo que no estuvo aquí fue el basurero de la ciudad: ese está excavado, y está en el valle del Cedrón. <span class="cr">Fotografía de Deror avi, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">01</div><h2>Un lugar del que se habla solo con miedo</h2>
+
+<p>Antes de entrar en qué hay en el Sheol conviene una observación de método que hizo
+Philip S. Johnston y que, una vez vista, ya no se puede desver: <strong><em>sheʾol</em> no
+aparece nunca en narración en tercera persona ni en material legal</strong>. No hay una
+sola ley sobre el Sheol, ni una sola crónica que lo mencione de pasada. Aparece casi
+exclusivamente en primera persona: lamentos, súplicas, discurso directo, poesía.</p>
+
+<p>Es decir: el Sheol no es un elemento del mobiliario doctrinal de Israel. Es lo que
+alguien dice cuando está aterrorizado. Jacob lo nombra creyendo que José ha muerto. Ezequías
+lo nombra desde la enfermedad. Los salmistas lo nombran cuando están hundidos. Y esa
+distribución explica por qué el material es tan escaso y tan uniformemente negro: nadie
+describe el Sheol con calma, porque nadie habla del Sheol si no tiene miedo.</p>
+
+<p>Lo que esos textos le atribuyen es consistente. Está abajo: al Sheol no se «va», se
+<strong>baja</strong> —<em>yarad</em>, con la terminación direccional <em>sheʾolah</em>—, y
+es el punto más bajo del cosmos. Hay polvo, oscuridad, silencio y olvido. Tiene puertas y
+cuerdas. Sus habitantes son los <em>refaim</em>, sombras débiles. No se sale. Y —esto es lo
+que más sorprende a quien espera un reino enemigo— <strong>Dios llega hasta allí</strong>:
+«si tiendo mi lecho en el Sheol, ahí estás tú».</p>
+
+<blockquote>אִם־אֶסַּק שָׁמַיִם שָׁם אָתָּה וְאַצִּיעָה שְּׁאוֹל הִנֶּךָּ
+<cite>Salmo 139,8</cite></blockquote>
+
+<div class="secnum">02</div><h2>Cuatro cosas que no están</h2>
+
+<p><strong>No hay juicio.</strong> Ninguno de los pasajes donde aparece la palabra contiene
+vocabulario judicial —<em>shafat</em>, <em>din</em>, <em>mishpat</em>— aplicado al Sheol. No
+hay tribunal, no hay juez, no hay sentencia. Lo que los textos describen no es retribución
+sino cese de función: «los muertos no saben nada», «no hay obra ni cálculo ni conocimiento
+ni sabiduría en el Sheol».</p>
+
+<p><strong>No hay separación de justos y malvados.</strong> Todos bajan. Jacob espera
+reunirse allí con José; Saúl, con Samuel; y los reyes de Babilonia y de Egipto están allí
+también. Hay un pasaje que se cita en contra, Ezequiel 32,17-32, y merece que se mire de
+cerca porque es el más interesante del expediente: ahí sí se distribuye a los muertos por
+grupos. Pero el criterio no es moral. Es nacional y militar: unos bajaron «con sus armas de
+guerra y con sus espadas bajo sus cabezas», otros yacen «incircuncisos, atravesados por la
+espada». Eso es una <strong>distinción de honor entre muertos</strong>, categoría bien
+atestiguada en todo el Próximo Oriente, y no un premio y un castigo.</p>
+
+<p><strong>No hay fuego.</strong> El texto que siempre se cita es Deuteronomio 32,22: «un
+fuego se ha encendido en mi nariz y ha ardido <em>hasta el Sheol más bajo</em>». Léase
+entera la frase y se ve lo que dice: describe <em>hasta dónde llega</em> la ira de YHWH
+—hasta el punto más bajo del universo—, y sigue con la tierra, sus frutos y los cimientos
+de los montes. No hay muertos ardiendo. El otro candidato, Isaías 66,24, sí tiene gusano y
+fuego inextinguibles, pero están sobre <strong>cadáveres</strong>, fuera de Jerusalén, a la
+vista de los vivos, y el versículo no menciona el Sheol: es la imagen de la negación de
+sepultura, que en esa cultura era lo peor imaginable.</p>
+
+<p><strong>Y no hay alabanza</strong>, que es la ausencia que de verdad angustia a los
+salmistas. «Los muertos no alaban a YH.» «¿Contarán tu misericordia en el sepulcro?» El
+problema del Sheol, para quien escribió esos versos, no es que allí se sufra. Es que allí
+se deja de dar culto. Para esa religión, eso es peor.</p>
+
+<div class="meter">
+  <div class="q">¿Es firme que en el Sheol del Texto Masorético no hay juicio, fuego ni separación?</div>
+  <div class="bar"><span class="pin" style="left:95%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Es una afirmación negativa y por eso se puede verificar entera: los pasajes están listados y son sesenta y cinco o sesenta y seis. Lo que sí tiene disidencia identificable es una tesis vecina: Philip S. Johnston sostiene en <i>Shades of Sheol</i> (2002) que el Sheol es predominantemente destino de los impíos. La objeción publicada de John McLaughlin le opone dos textos que su tesis no explica: Job 14,13, donde Job <i>pide</i> que Dios lo esconda en el Sheol como refugio de la ira divina, y Salmo 139,8, donde el Sheol es lugar de encuentro con YHWH, no de castigo.</div>
+</div>
+
+<div class="secnum">03</div><h2>El basurero que nunca existió</h2>
+
+<p>Casi todo el mundo ha oído la explicación: la <em>Gehena</em> era el valle de Hinom, al
+sur de Jerusalén, donde la ciudad quemaba su basura y los cadáveres de los criminales; los
+fuegos ardían de continuo, y de ahí sacó Jesús su imagen del fuego que no se apaga. Es
+ordenada, es material, es satisfactoria y <strong>no tiene ninguna base en fuente
+antigua</strong>.</p>
+
+<p>La afirmación se puede rastrear. Aparece por primera vez en el comentario al Salmo 27 de
+<strong>David Kimhi</strong>, el Radak, rabino provenzal que vivió entre 1160 y 1235 y
+escribió ese comentario hacia 1200 —o sea, mil doscientos años después de los hechos que
+supuestamente describe—. Quien hizo el rastreo fue Lloyd R. Bailey en <em>The Biblical
+Archaeologist</em> en 1986, y su veredicto es que la teoría no tiene «apoyo en fuentes
+literarias ni en datos arqueológicos». Antes que él lo había dicho Edward Robinson en 1841
+y James Montgomery en 1908; después, Strack y Billerbeck, Beasley-Murray, y Davies y
+Allison en el comentario crítico internacional a Mateo.</p>
+
+<figure>
+  <img src="necropolis-de-silwan.jpg" data-alt="silwan.jpg|tumba-hija-del-faraon.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Monolito funerario excavado en la roca en la necrópolis de Silwan">
+  <figcaption>La llamada «tumba de la hija del faraón», necrópolis de Silwan, siglo VIII a.C. Un monolito entero excavado en la roca, con restos de una inscripción paleohebrea sobre la entrada. El cementerio de los altos funcionarios de Jerusalén. <span class="cr">MMO:VAS Monoliths, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.es" target="_blank" rel="noopener">CC0</a>.</span></figcaption>
+</figure>
+
+<p>Pero desmontar una leyenda sin más es perezoso, y hay tres cosas que la corrección debe
+añadir para ser honesta.</p>
+
+<p>La primera: <strong>el fuego del valle sí tiene origen textual, solo que otro</strong>.
+El valle de Hinom está asociado al fuego en los propios textos hebreos, y por una razón
+bastante peor que la basura. Allí estaba el Tofet, donde se quemaba a niños; Jeremías 7,31
+y 2 Reyes 23,10 lo dicen. Jeremías anuncia además que allí se enterrará «por falta de
+lugar». Jesús no necesitaba ver basura ardiendo para hablar de la Gehena: tenía a Jeremías
+y tenía a Isaías.</p>
+
+<p>La segunda: hay un apoyo antiguo remotamente relacionado, y conviene mencionarlo en vez
+de esconderlo. Nehemías nombra una «Puerta del Muladar» en el sector sur de la muralla. Pero
+dónde estaba exactamente y qué relación tenía con el Hinom es inferencia, no dato; el texto
+no dice nada de fuegos; y que hubiera un vertedero no implica un vertedero <em>ardiendo
+perpetuamente</em>. Es un argumento débil, y decirlo así es más fuerte que callarlo.</p>
+
+<p>Y la tercera, que remata el asunto y que casi nadie usa: <strong>sabemos dónde tiraba su
+basura Jerusalén en el siglo I, porque está excavada</strong>. Está en la ladera oriental
+del valle del Cedrón, a unos cien metros al sudeste del Monte del Templo, y se extiende al
+menos cuatrocientos metros. La cerámica y las monedas la datan entre el siglo I a.C. y el
+año 70. Está en el otro valle. Y el estudio no reporta combustión sistemática.</p>
+
+<div class="wall">
+  <div class="post min">
+    <div class="who">Robinson, 1841</div>
+    <div class="what"><i>Biblical Researches in Palestine</i></div>
+    <p>«No hay evidencia de que se mantuvieran otros fuegos en el valle.» Es la primera negación publicada, y es de hace casi dos siglos.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Montgomery, 1908</div>
+    <div class="what"><i>Journal of Biblical Literature</i> 27</div>
+    <p>El lugar «no parece tener nada físicamente desagradable». Un arqueólogo mirando el valle real, no el valle de la homilía.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Bailey, 1986</div>
+    <div class="what"><i>The Biblical Archaeologist</i> 49/3</div>
+    <p>El rastreo hasta Kimhi, y el veredicto en cinco palabras: <b>«sin apoyo en fuentes literarias ni en datos arqueológicos»</b>.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Davies y Allison</div>
+    <div class="what"><i>Matthew 1-7</i>, ICC</div>
+    <p>La teoría es «sin apoyo antiguo». Cuando el comentario crítico internacional a Mateo lo dice en esos términos, el asunto está cerrado.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Bar-Oz y otros, 2007</div>
+    <div class="what"><i>Levant</i> 39</div>
+    <p>El basurero real, excavado: ladera oriental del Cedrón, cuatrocientos metros de largo, siglo I a.C. al año 70. <b>En el otro valle. Y sin combustión sistemática.</b></p>
+  </div>
+</div>
+
+<div class="secnum">04</div><h2>La mujer de Endor, y lo que el hebreo dice de verdad</h2>
+
+<p>Antes de llegar a la tumba conviene detenerse en el episodio que siempre se cita como
+prueba de que Israel creía en almas: Saúl, la víspera de su última batalla, va a ver a una
+mujer de Endor para que le suba a Samuel del inframundo.</p>
+
+<figure>
+  <img src="endor-la-medium.jpg" data-alt="endor.jpg|saul-endor.jpg|samuel-endor.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Pintura de la sombra de Samuel apareciendo ante Saúl y la mujer de Endor">
+  <figcaption>Dmitri Nikíforovich Martýnov, <em>La sombra de Samuel invocada por Saúl</em>, 1857. Museo de Arte Regional de Uliánovsk. El hebreo de 1 Samuel 28,13 no dice que la mujer viera un alma: dice <em>ʾelohim ʿolim</em>, «seres divinos que suben», en plural. <span class="cr">Dmitri N. Martýnov, 1857, Dominio público.</span></figcaption>
+</figure>
+
+<p>El episodio sirve, pero no para lo que se le suele hacer servir, y la razón está en dos
+palabras del hebreo. Cuando la mujer ve lo que sube, no dice que vea un alma ni un espíritu.
+Dice <em>ʾelohim ʿolim min-haʾareṣ</em>: <strong>«seres divinos que suben de la
+tierra»</strong>, y lo dice en <strong>plural</strong>.</p>
+
+<p>No hay <em>nefesh</em> en el pasaje, no hay nada incorpóreo ascendiendo, y lo que sube no
+pertenece a una categoría antropológica sino a una categoría divina — la misma palabra con
+que el texto nombra a Dios y a los miembros de la corte celeste. Samuel, además, aparece
+reconocible: viejo, envuelto en un manto. No es una sombra: es alguien con ropa.</p>
+
+<p>Lo que el episodio sí prueba es lo que importa aquí: <strong>alguien pensaba que los
+muertos seguían estando en algún sitio y que en circunstancias extremas se les podía
+sacar</strong>. Y lo prueba también por otra vía, la de la ley: la Biblia prohíbe la
+necromancia repetidamente, y una prohibición insistente es la mejor evidencia de que la cosa
+se hacía.</p>
+
+<p>Sobre cuánto se hacía hay debate real y conviene darlo. Philip Johnston sostiene que estos
+episodios son aberraciones que no reflejan la práctica corriente israelita; John McLaughlin le
+responde con un argumento difícil de esquivar: <strong>la ley responde a la práctica</strong>.
+Y Brian Schmidt añade una tesis que da la vuelta a lo que suele decirse — que la necromancia
+no sería un residuo cananeo antiguo sino una <strong>importación mesopotámica tardía</strong>,
+de la monarquía final o del exilio.</p>
+
+<div class="secnum">05</div><h2>Lo que sí había: un más allá con dirección postal</h2>
+
+<p>Aquí es donde la divulgación se equivoca en la otra dirección. «Los israelitas no creían
+en el más allá» se repite tanto como lo del basurero, y es igual de engañoso, porque
+confunde dos proposiciones distintas: <em>no había cielo ni infierno</em> —que es cierto— y
+<em>no había más allá</em> —que es falso—.</p>
+
+<p>El más allá de Israel estaba en la roca. La tumba de banco del Hierro II es una cámara
+excavada con bancos tallados a lo largo de tres paredes, a veces con reposacabezas en forma
+de herradura, y un repositorio hundido al fondo. El procedimiento tenía dos tiempos: el
+cadáver se depositaba en el banco; cuando la carne había desaparecido, los huesos se
+recogían y se pasaban al repositorio, donde se mezclaban con los de las generaciones
+anteriores.</p>
+
+<p>Eso es, literalmente, lo que significa la fórmula bíblica «fue reunido con sus padres».
+No es una metáfora piadosa: es una descripción de lo que se hacía con los huesos.</p>
+
+<figure>
+  <img src="tumba-de-banco.jpg" data-alt="tumba-ketef-hinom.jpg|cueva-funeraria.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Reconstrucción de una cueva funeraria de Ketef Hinnom con su ajuar">
+  <figcaption>Cueva funeraria de Ketef Hinnom reconstruida con sus ofrendas, siglos VII-VI a.C., en el Museo de Israel. Los bancos tallados, las lámparas, la cerámica de mesa. El más allá de Judá tenía dirección postal. <span class="cr">Fotografía de Chamberí, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure><figure>
+  <img src="amuletos-ketef-hinom.jpg" data-alt="ketef-hinom-rollos.jpg|amuleto-ketef-hinom.jpg|ketef-hinnom.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Los dos rollitos de plata de Ketef Hinnom">
+  <figcaption>Los rollos de plata de Ketef Hinnom, Museo de Israel. Hallados en 1979 por Gabriel Barkay y Judith Hadley; tardaron tres años en poder desenrollarse. Llevan una forma de la bendición sacerdotal de Números 6,24-26 y estaban en el mismo depósito que una figurilla de Bastet. <span class="cr">Fotografía de Bachrach44, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure>
+
+<p>Y con los muertos se dejaban cosas. Cerámica de mesa, decantadores de vino, jarras de
+agua, cuencos, muchas lámparas de aceite, frasquitos de perfume, joyas, amuletos,
+figurillas, sonajeros. El caso mejor documentado es la cámara 25 de la cueva 24 de
+<strong>Ketef Hinnom</strong>, excavada por Gabriel Barkay en siete campañas entre 1975 y
+1996: el derrumbe del techo la selló y la escondió de los saqueadores antiguos, y es el
+único repositorio del Jerusalén del Primer Templo hallado con su contenido intacto. Más de
+mil objetos, correspondientes al menos a noventa y cinco individuos.</p>
+
+<p>Entre ellos, en 1979, aparecieron dos rollitos de plata enrollados. Tardaron tres años en
+poder desenrollarse. Llevan grabada una forma de la bendición sacerdotal de Números 6,24-26
+—«que te bendiga YHWH, que te guarde»— y son de los testimonios más antiguos del nombre
+divino en escritura hebrea, anteriores en casi cuatro siglos a los manuscritos del mar
+Muerto.</p>
+
+<p>Dos precisiones sobre eso, porque son de las que esta casa no se salta. La primera:
+<strong>no prueban que el Pentateuco existiera en el Primer Templo</strong>, y los propios
+especialistas lo advierten expresamente. La segunda, más interesante: los amuletos con el
+nombre de YHWH estaban en el mismo depósito que una figurilla de <strong>Bastet</strong> y
+un ojo de Horus. La religiosidad doméstica de Judá no distinguía tanto como distinguen los
+manuales.</p>
+
+<div class="ficha" id="ficha">
+  <span class="fk">Pieza interactiva &middot; la ficha del lugar vac&iacute;o</span>
+  <h3>Dos m&aacute;s all&aacute;, el mismo cuestionario</h3>
+  <p class="fs">Israel no tuvo cielo ni infierno. Pero m&aacute;s all&aacute; s&iacute; tuvo, y eran dos: uno
+  cosmol&oacute;gico, del que hablan los textos, y otro familiar y material, del que habla el suelo. Se les
+  hacen las mismas doce preguntas y se ponen las dos fichas una al lado de la otra. Pulsa cualquier
+  casilla.</p>
+  <div class="fi-cab">
+    <div class="h vacia">&nbsp;</div>
+    <div class="h">El Sheol<span>lo que dicen los textos</span></div>
+    <div class="h">La tumba familiar<span>lo que dice el suelo</span></div>
+  </div>
+  <div class="fi-fila"><div class="pr">¿Dónde está?</div><button type="button" class="fi-cel" data-col="sheol" data-k="donde" data-col2="El Sheol"><span class="pill" style="background:#3d5a4a">Consta</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="donde" data-col2="La tumba"><span class="pill" style="background:#3d5a4a">Consta</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Quién va?</div><button type="button" class="fi-cel" data-col="sheol" data-k="quien" data-col2="El Sheol"><span class="pill" style="background:#3d5a4a">Consta</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="quien" data-col2="La tumba"><span class="pill" style="background:#7a5c38">En discusión</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Hay juicio?</div><button type="button" class="fi-cel" data-col="sheol" data-k="juicio" data-col2="El Sheol"><span class="pill" style="background:#5d666c">No consta</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="juicio" data-col2="La tumba"><span class="pill" style="background:#5d666c">No consta</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Hay fuego?</div><button type="button" class="fi-cel" data-col="sheol" data-k="fuego" data-col2="El Sheol"><span class="pill" style="background:#5d666c">No consta</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="fuego" data-col2="La tumba"><span class="pill" style="background:#3d5a4a">Consta</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Se separa a los justos de los malvados?</div><button type="button" class="fi-cel" data-col="sheol" data-k="separa" data-col2="El Sheol"><span class="pill" style="background:#5d666c">No consta</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="separa" data-col2="La tumba"><span class="pill" style="background:#5d666c">No consta</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Se puede volver?</div><button type="button" class="fi-cel" data-col="sheol" data-k="vuelta" data-col2="El Sheol"><span class="pill" style="background:#7a4550">Consta lo contrario</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="vuelta" data-col2="La tumba"><span class="pill" style="background:#5d666c">No consta</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Llega Dios hasta allí?</div><button type="button" class="fi-cel" data-col="sheol" data-k="dios" data-col2="El Sheol"><span class="pill" style="background:#3d5a4a">Consta</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="dios" data-col2="La tumba"><span class="pill" style="background:#3d5a4a">Consta</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Se alaba allí a Dios?</div><button type="button" class="fi-cel" data-col="sheol" data-k="habla" data-col2="El Sheol"><span class="pill" style="background:#7a4550">Consta lo contrario</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="habla" data-col2="La tumba"><span class="pill" style="background:#7a5c38">En discusión</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Se le lleva algo al muerto?</div><button type="button" class="fi-cel" data-col="sheol" data-k="objetos" data-col2="El Sheol"><span class="pill" style="background:#5d666c">No consta</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="objetos" data-col2="La tumba"><span class="pill" style="background:#3d5a4a">Consta</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Se conserva el nombre?</div><button type="button" class="fi-cel" data-col="sheol" data-k="nombre" data-col2="El Sheol"><span class="pill" style="background:#7a4550">Consta lo contrario</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="nombre" data-col2="La tumba"><span class="pill" style="background:#3d5a4a">Consta</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Quién lo describe?</div><button type="button" class="fi-cel" data-col="sheol" data-k="quienes" data-col2="El Sheol"><span class="pill" style="background:#7a5c38">En discusión</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="quienes" data-col2="La tumba"><span class="pill" style="background:#3d5a4a">Consta</span></button></div>
+  <div class="fi-fila"><div class="pr">¿Cuántas veces aparece la palabra?</div><button type="button" class="fi-cel" data-col="sheol" data-k="cuantas" data-col2="El Sheol"><span class="pill" style="background:#7a5c38">En discusión</span></button><button type="button" class="fi-cel" data-col="tumba" data-k="cuantas" data-col2="La tumba"><span class="pill" style="background:#5d666c">No consta</span></button></div>
+  <div class="fi-det" id="fidet"></div>
+  <div class="fi-pie"><span>De las doce preguntas, <b>7</b> se contestan en la columna del
+  Sheol con un &laquo;no consta&raquo; o con lo contrario de lo que se le atribuye; en la columna de la tumba
+  hay <b>6</b> respuestas documentadas. La inmortalidad que Israel conoci&oacute; no era la de un
+  alma que sube: era la de un nombre que se recuerda y unos huesos que alguien cuida.</span></div>
+</div>
+
+<div class="secnum">06</div><h2>La proporción que hay que ver</h2>
+
+<p>Y ahora el dato que obliga a matizarlo todo, y que casi nunca acompaña a las fotografías
+de las tumbas de banco: <strong>esas tumbas son de élite</strong>. Se conocen unas
+trescientas de todo el período monárquico de Judá. Según el cálculo de Barkay, las de
+Jerusalén corresponden a alrededor del <strong>1,5 %</strong> de los difuntos de la ciudad
+durante la monarquía. La inmensa mayoría de los judaítas se enterró en fosas simples que no
+dejan prácticamente rastro arqueológico.</p>
+
+<p>De modo que todo lo anterior describe lo que hacía con sus muertos quien podía pagarlo.
+De lo que hacía el resto sabemos muy poco, y conviene no rellenar ese hueco con la
+imaginación.</p>
+
+<p>Sobre lo que significan los ajuares hay además un debate real que no se puede resolver
+desde el suelo. La lectura mayoritaria —Elizabeth Bloch-Smith, Theodore Lewis, Francesca
+Stavrakopoulou, Matthew Suriano— es que implican la creencia de que el muerto necesitaba
+sustento, y se apoya en el paralelo mesopotámico del <em>kispum</em> y en textos como
+Deuteronomio 26,14, que <em>prohíbe</em> dar comida a los muertos —una prohibición que
+presupone que alguien lo hacía—. Frente a ella, Brian Schmidt y Philip Johnston sostienen,
+con razón, que un ajuar no es por sí mismo un rito repetido, y que puede ser exhibición de
+estatus o provisión para un viaje.</p>
+
+<p>Lo firmable es esto: el suelo dice que se puso comida, bebida y luz junto a los muertos.
+El suelo no dice, por sí solo, si eso era culto, cortesía o prestigio. Eso lo dicen los
+textos, y los textos están en litigio.</p>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Las ausencias de esta entrega son <span class="k">consenso</span> y se pueden comprobar una a una, que es la ventaja de las afirmaciones negativas cuando el corpus es pequeño: no hay vocabulario judicial aplicado al Sheol, no hay fuego dentro de él, no hay separación moral de sus habitantes. La falsedad de la leyenda del basurero también es consenso, con expediente de negaciones publicadas desde 1841.</p>
+  <p>Lo que está en <span class="k">debate abierto</span> es qué significan los ajuares. Que se depositó comida, bebida y luz es descripción arqueológica. Que eso implique un culto a los parientes muertos es la lectura mayoritaria —Bloch-Smith, Lewis, Stavrakopoulou, Suriano—, pero Brian Schmidt y Philip Johnston oponen un argumento válido: un ajuar no es <i>ipso facto</i> un rito repetido. Y la lámpara junto a la cabeza que «iluminaba el camino en el inframundo» es <span class="k">interpretación simbólica</span> sin sustento textual antiguo: se dice como hipótesis o no se dice.</p>
+  <p>Dos cifras con su procedencia, no promediadas. <strong>Sheol aparece entre 65 y 66 veces</strong>: dos versículos la traen dos veces, y el caso litigioso es Isaías 7,11, donde el texto masorético vocaliza «profundiza la <i>petición</i>» y la Septuaginta leyó «hacia el Sheol». Y las <strong>trescientas tumbas de banco</strong> conocidas representan, según el cálculo de Barkay, en torno al 1,5 % de los difuntos de la Jerusalén monárquica: la muestra arqueológica está sesgada hacia arriba, y hay que decirlo cada vez que se enseña una.</p>
+  <p>Y la simetría obligatoria: el escepticismo divulgativo exagera tanto como la homilía. Matthew McAffee le reprocha a Suriano que su «inmortalidad funcional» excluya toda esperanza de más allá en el pensamiento bíblico. La discusión sobre si la resurrección es un desarrollo interno o un estímulo exterior sigue abierta, y es el asunto de las dos entregas siguientes.</p>
+</div>
+
+<div class="secnum">07</div><h2>La fecha en que el lugar cambió</h2>
+
+<p>El Sheol indiferenciado no dura para siempre. En algún momento aparecen compartimentos,
+y con ellos el juicio. La pregunta es cuándo, y la respuesta tiene fecha y texto.</p>
+
+<p>No es Daniel 12, aunque sea el pasaje famoso. Daniel 12,2 —hacia el 165 a.C.— habla de
+despertar «de los que duermen en el suelo de polvo», unos para vida eterna y otros para
+oprobio, pero ese destino diferenciado está <em>después</em> de la resurrección, no dentro
+del Sheol.</p>
+
+<p>El primer texto datable que pone compartimentos <em>dentro</em> del ámbito de los muertos
+es <strong>1 Enoc 22</strong>, del Libro de los Vigilantes, <strong>siglo III a.C.</strong>
+Enoc es llevado a una montaña en occidente donde hay «lugares huecos», cámaras, en las que
+los espíritus de los muertos se reúnen separados: los justos junto a una fuente de agua
+luminosa, y los pecadores retenidos «con gran dolor hasta el gran día del juicio». Los
+manuscritos arameos hallados en Qumrán fijan el límite: el más antiguo es de comienzos del
+siglo II a.C.</p>
+
+<p>Eso importa mucho más de lo que parece, y es el hilo que esta serie va a tirar en la
+entrega IV. Porque la historia que todo el mundo cuenta —que el alma inmortal y el estado
+intermedio llegaron al judaísmo desde Grecia— tiene, en su punto decisivo, un problema de
+fechas.</p>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p>Texto hebreo cotejado contra la edición <em>Miqra according to the Masorah</em>. Los
+  sesenta y seis pasajes de <em>sheʾol</em> están listados y verificados uno a uno.</p>
+  <p>Philip S. Johnston, <em>Shades of Sheol: Death and Afterlife in the Old Testament</em>,
+  Apollos/IVP, 2002 · John L. McLaughlin, reseña de Johnston en <em>The Journal of Hebrew
+  Scriptures</em> · Matthew J. Suriano, <em>A History of Death in the Hebrew Bible</em>, Oxford
+  University Press, 2018 · Elizabeth Bloch-Smith, <em>Judahite Burial Practices and Beliefs
+  about the Dead</em>, 1992 · Brian B. Schmidt, <em>Israel's Beneficent Dead</em>.</p>
+  <p>Sobre la Gehena: Lloyd R. Bailey, «Gehenna: The Topography of Hell», <em>The Biblical
+  Archaeologist</em> 49/3 (1986) 187-191 · Edward Robinson, <em>Biblical Researches in
+  Palestine</em> I (1841) 404-405 · James A. Montgomery, «The Holy City and Gehenna»,
+  <em>JBL</em> 27/1 (1908) 34 · G. Bar-Oz, R. Bouchnick, E. Weiss, L. Weissbrod y R. Reich,
+  «"Holy Garbage": A Quantitative Study of the City-Dump of Early Roman Jerusalem»,
+  <em>Levant</em> 39 (2007) 1-12.</p>
+  <p>Sobre la arqueología funeraria: Gabriel Barkay, «The Riches of Ketef Hinnom»,
+  <em>Biblical Archaeology Review</em> · Gabriel Barkay, Marilyn J. Lundberg, Andrew G. Vaughn
+  y Bruce Zuckerman, «The Amulets from Ketef Hinnom: A New Edition and Evaluation»,
+  <em>BASOR</em> 334 (2004) · Alexander Fantalkin, «The Appearance of Rock-Cut Bench Tombs in
+  Iron Age Judah as a Reflection of State Formation», en <em>Bene Israel</em>, Brill, 2008,
+  17-54 · David Ussishkin, <em>The Village of Silwan</em>, Israel Exploration Society, 1993 ·
+  Jeremy D. Smoak, <em>The Priestly Blessing in Inscription and Scripture</em>, Oxford
+  University Press, 2016.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var D={"sheol": {"donde": {"p": "¿Dónde está?", "e": "si", "t": "Abajo. Nunca se «va» al Sheol: se <b>baja</b> —<i>yarad</i>, con la <i>he</i> direccional: <i>sheʾolah</i>—. Es el punto más bajo del cosmos: <i>sheʾol taḥtit</i>, «el Sheol más bajo», en Deuteronomio 32,22 y Salmo 86,13.", "lug": "El Sheol"}, "quien": {"p": "¿Quién va?", "e": "si", "t": "Todos. Jacob espera reunirse allí con José; Saúl con Samuel; y los reyes de Babilonia y de Egipto están allí también. No hay puerta de entrada selectiva porque no hay selección.", "lug": "El Sheol"}, "juicio": {"p": "¿Hay juicio?", "e": "no", "t": "Ninguno de los pasajes en que aparece la palabra contiene vocabulario judicial —<i>shafat</i>, <i>din</i>, <i>mishpat</i>— aplicado al Sheol. Lo que describen los textos no es retribución sino <b>cese de función</b>: «los muertos no saben nada» (Ecl 9,5); «no hay obra ni cálculo ni conocimiento ni sabiduría en el Sheol» (Ecl 9,10).", "lug": "El Sheol"}, "fuego": {"p": "¿Hay fuego?", "e": "no", "t": "Nunca. El texto que siempre se cita, Deuteronomio 32,22, dice que el fuego de la ira divina «ha ardido <b>hasta</b> el Sheol más bajo»: describe hasta dónde llega esa ira —hasta el punto más bajo del universo—, no lo que hay allí. Y el gusano y el fuego inextinguibles de Isaías 66,24 están sobre <b>cadáveres insepultos</b>, fuera de Jerusalén, a la vista de los vivos, y el versículo no menciona el Sheol.", "lug": "El Sheol"}, "separa": {"p": "¿Se separa a los justos de los malvados?", "e": "no", "t": "No. Ezequiel 32,17-32 sí distribuye a los muertos por grupos, pero el criterio es <b>nacional y militar</b>: unos bajaron con sus armas y con la espada bajo la cabeza, otros yacen incircuncisos y atravesados. Es una distinción de honor entre muertos, bien atestiguada en el Próximo Oriente, no un premio y un castigo.", "lug": "El Sheol"}, "vuelta": {"p": "¿Se puede volver?", "e": "contra", "t": "Los textos lo niegan expresamente, y es de lo poco que afirman en positivo: «el que baja al Sheol no sube» (Job 7,9-10); «iré a él, mas él no volverá a mí» (2 Sm 12,23). La única excepción es teológica, no topográfica: «YHWH hace bajar al Sheol y hace subir» (1 Sm 2,6).", "lug": "El Sheol"}, "dios": {"p": "¿Llega Dios hasta allí?", "e": "si", "t": "Sí, y conviene no saltárselo, porque desmiente la imagen de un reino ajeno: «si tiendo mi lecho en el Sheol, ahí estás tú» (Sal 139,8); «el Sheol está desnudo delante de él» (Job 26,6); «aunque caven hasta el Sheol, de allá los tomará mi mano» (Am 9,2).", "lug": "El Sheol"}, "habla": {"p": "¿Se alaba allí a Dios?", "e": "contra", "t": "Al contrario, y es el argumento con que los salmistas le piden a Dios que los deje vivir: «los muertos no alaban a YH» (Sal 115,17); «¿contarán tu misericordia en el sepulcro?» (Sal 88,12). El Sheol no es un lugar de castigo: es un lugar donde el culto se acaba, que para esa religión es peor.", "lug": "El Sheol"}, "objetos": {"p": "¿Se le lleva algo al muerto?", "e": "no", "t": "Al Sheol, nada. No hay en el Texto Masorético un solo rito dirigido al Sheol, ni una ofrenda, ni un sacerdote, ni un calendario. Ojo: eso vale para el Sheol. Para la tumba la respuesta es otra, y es la columna de al lado.", "lug": "El Sheol"}, "nombre": {"p": "¿Se conserva el nombre?", "e": "contra", "t": "«Tierra del olvido» —<i>ʾereṣ neshiyyah</i>, Salmo 88,13—, y el olvido va en las dos direcciones: los muertos no recuerdan y no son recordados. «Su memoria es olvidada» (Ecl 9,5).", "lug": "El Sheol"}, "quienes": {"p": "¿Quién lo describe?", "e": "parcial", "t": "Y esta es la observación más fina del expediente, de Philip S. Johnston: <i>sheʾol</i> <b>no aparece nunca en narración en tercera persona ni en material legal</b>. Aparece casi solo en primera persona: lamentos, súplicas, discurso directo, poesía. Es decir, el Sheol es un lugar del que los textos hablan cuando alguien tiene miedo.", "lug": "El Sheol"}, "cuantas": {"p": "¿Cuántas veces aparece la palabra?", "e": "parcial", "t": "Entre <b>65 y 66</b>, y la horquilla no es pereza. Dos versículos la traen dos veces (Os 13,14; Sal 49,16). Y el caso litigioso es Isaías 7,11: el texto masorético vocaliza <i>sheʾalah</i>, «profundiza la <b>petición</b>», de la raíz «pedir»; la Septuaginta y la Vulgata leyeron «hacia el Sheol». Quien acepta la enmienda cuenta 66; quien sigue la vocalización masorética, 65.", "lug": "El Sheol"}}, "tumba": {"donde": {"p": "¿Dónde está?", "e": "si", "t": "Excavada en la roca, en las laderas que rodean Jerusalén: Ketef Hinnom, Silwan, San Esteban. Cámara con acceso bajo, <b>bancos tallados en tres paredes</b>, a menudo con reposacabezas en herradura, y un repositorio hundido al fondo.", "lug": "La tumba familiar"}, "quien": {"p": "¿Quién va?", "e": "parcial", "t": "Aquí hay que ser honestos, y es el dato que casi nunca se da: la tumba de banco es <b>una institución de élite</b>. Se conocen unas 300 de todo el período monárquico, y según el cálculo de Barkay corresponden a alrededor del <b>1,5 %</b> de los difuntos de la Jerusalén monárquica. La inmensa mayoría se enterró en fosas simples que no dejan rastro arqueológico. Lo que sigue describe lo que hacía quien podía pagarlo.", "lug": "La tumba familiar"}, "juicio": {"p": "¿Hay juicio?", "e": "no", "t": "Tampoco. La tumba no juzga a nadie. Lo que ofrece no es veredicto: es continuidad.", "lug": "La tumba familiar"}, "fuego": {"p": "¿Hay fuego?", "e": "si", "t": "Lámparas de aceite, y muchas. En el repositorio sellado de Ketef Hinnom aparecieron más de 250 vasos completos, entre ellos lámparas. <b>Que iluminaran «el camino del difunto en el inframundo» es interpretación, no dato</b>, y la damos como hipótesis o no la damos.", "lug": "La tumba familiar"}, "separa": {"p": "¿Se separa a los justos de los malvados?", "e": "no", "t": "No: se separa a las familias. El criterio de la tumba no es moral, es genealógico. Y ese es exactamente el punto.", "lug": "La tumba familiar"}, "vuelta": {"p": "¿Se puede volver?", "e": "no", "t": "No, pero la pregunta está mal hecha para este lugar. La tumba no promete retorno: promete permanencia. El muerto no vuelve; se queda, y sigue estando con los suyos.", "lug": "La tumba familiar"}, "dios": {"p": "¿Llega Dios hasta allí?", "e": "si", "t": "Y con su nombre escrito. Los dos rollitos de plata de Ketef Hinnom, hallados por Barkay y Judith Hadley en 1979, llevan grabada una forma de la bendición sacerdotal de Números 6,24-26 —«que te bendiga YHWH, que te guarde»— y son de los testimonios más antiguos del nombre divino en escritura hebrea. Estaban <b>en la misma bolsa</b> que una figurilla de Bastet y un ojo de Horus.", "lug": "La tumba familiar"}, "habla": {"p": "¿Se alaba allí a Dios?", "e": "parcial", "t": "No hay liturgia documentada, pero sí hay palabra sagrada convertida en objeto: los amuletos se llevaban <b>sobre el cuerpo</b>. No eran manuscritos de estudio, eran salvaguarda portátil.", "lug": "La tumba familiar"}, "objetos": {"p": "¿Se le lleva algo al muerto?", "e": "si", "t": "Comida, bebida y luz. Cerámica de servicio, decantadores de vino, jarras de agua, cuencos, lámparas, frasquitos de perfume, joyas, amuletos, figurillas, sonajeros. En la cámara 25 de la cueva 24 de Ketef Hinnom —sellada por un derrumbe y por eso intacta— aparecieron más de mil objetos con al menos 95 individuos. <b>Que eso sea culto y no cortesía o exhibición de estatus es la lectura mayoritaria, no un hecho</b>: Schmidt y Johnston sostienen con razón que un ajuar no es por sí mismo un rito repetido.", "lug": "La tumba familiar"}, "nombre": {"p": "¿Se conserva el nombre?", "e": "si", "t": "Es el objeto entero de la institución. Los huesos se recogían del banco tras la descomposición y se pasaban al <b>repositorio comunal</b>, donde se mezclaban con los de las generaciones anteriores. Eso es, literalmente, «fue reunido con sus padres».", "lug": "La tumba familiar"}, "quienes": {"p": "¿Quién lo describe?", "e": "si", "t": "El suelo. Y esa es la diferencia de estatuto entre las dos fichas: la de la izquierda se construye con textos que hablan casi siempre en primera persona y con miedo; la de la derecha, con excavaciones publicadas.", "lug": "La tumba familiar"}, "cuantas": {"p": "¿Cuántas veces aparece la palabra?", "e": "no", "t": "No hay palabra. No existe en hebreo bíblico un término para «el más allá familiar», porque nadie necesitaba nombrarlo: se hacía. Esta casilla vacía es, quizá, la más elocuente de las veinticuatro.", "lug": "La tumba familiar"}}}, E={"no": ["No consta", "#5d666c"], "si": ["Consta", "#3d5a4a"], "contra": ["Consta lo contrario", "#7a4550"], "parcial": ["En discusión", "#7a5c38"]};
+  var det=document.getElementById('fidet');
+  if(!det) return;
+  function show(col,k){
+    var d=D[col][k];
+    document.querySelectorAll('.ficha .fi-cel').forEach(function(c){
+      c.classList.toggle('on', c.dataset.col===col && c.dataset.k===k);});
+    var e=E[d.e];
+    det.innerHTML='<div class="dl" style="color:'+e[1]+'">'+e[0]+'  \u00b7  '+d.lug+
+      '</div><h4>'+d.p+'</h4><p>'+d.t+'</p>';
+    det.style.borderLeftColor=e[1];
+  }
+  document.querySelectorAll('.ficha .fi-cel').forEach(function(c){
+    c.addEventListener('click',function(){show(c.dataset.col,c.dataset.k);});
+  });
+  show('sheol','juicio');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#54626b">↑ <a href="serie-alma.html" style="color:#54626b">Serie: El alma que no estaba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="alma-1.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#54626b">Una garganta, no un alma</span></a>
+    <a class="epnav-btn next" href="alma-3.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#54626b">Cuatro vecinos que sí tenían piezas sueltas</span></a>
+  </div>
+</nav>
+</body></html>

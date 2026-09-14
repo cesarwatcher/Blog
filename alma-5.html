@@ -1,0 +1,628 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El alma se define en 1513 — Estratos</title>
+<meta name="description" content="Los concilios definieron una y otra vez qué les pasa a las almas, sin definir nunca qué son. Hasta Letrán V, 19 de diciembre de 1513. La prueba no es un argumento histórico: es la nota al pie del §366 del Catecismo actual.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#54626b;--mid:#68767f;--pale:#5d6a73;
+    --rel:#8a4a2a;--exc:#54626b;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #626a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#626a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#626a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(93,106,115,.26)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#626a72}
+  figcaption .cr a{color:#5a6870;text-decoration:underline;text-decoration-color:rgba(90,104,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a6870}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c3cdd2,#9aa7ae 42%,#68767f 70%,#54626b)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#626a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#626a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#68767f}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#dde3e6,#c8d1d6);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#626a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#626a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .expv{width:min(1080px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,150,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .expv .ek{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .expv h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .expv .es{font-size:.98rem;color:#4a4f53;margin:0 0 1.1rem;max-width:70ch}
+
+  .ex-leyenda{display:flex;flex-wrap:wrap;gap:.9rem 1.4rem;margin:0 0 1rem;padding:.7rem .8rem;
+    background:rgba(255,255,255,.5);border:1px solid rgba(120,132,140,.35);border-radius:9px}
+  .ex-leyenda div{display:flex;align-items:center;gap:.4rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.7rem;color:#3f454a}
+  .ex-leyenda i{width:.78rem;height:.78rem;border-radius:50%;display:inline-block;flex:none}
+
+  .ex-cab{display:grid;grid-template-columns:minmax(0,1fr) 168px;gap:.7rem;
+    padding:0 .2rem .4rem;border-bottom:2px solid var(--mid)}
+  .ex-cab .h{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;font-weight:700;
+    color:var(--deep);letter-spacing:.04em}
+  .ex-cab .h.q{text-align:right}
+
+  .ex-fila{display:grid;grid-template-columns:minmax(0,1fr) 168px;gap:.7rem;width:100%;
+    text-align:left;background:transparent;border:0;border-bottom:1px solid rgba(120,132,140,.3);
+    padding:.65rem .2rem;cursor:pointer;transition:background .2s;align-items:center;
+    font-family:inherit;color:inherit}
+  .ex-fila:hover{background:rgba(255,255,255,.45)}
+  .ex-fila.on{background:rgba(255,255,255,.72)}
+  .ex-fila .fch{display:block;font-family:"Trebuchet MS",sans-serif;font-size:.64rem;
+    color:#5d666c;letter-spacing:.03em;margin-bottom:.15rem}
+  .ex-fila .org{display:block;font-size:.94rem;color:#2f3a40;line-height:1.35}
+  .ex-fila .org i{font-style:italic}
+  .ex-fila.t-concilio .org{font-weight:700;color:var(--deep)}
+  .ex-fila.t-nada .org{color:#5d666c}
+  .ex-puntos{display:flex;gap:.4rem;justify-content:flex-end}
+  .ex-puntos i{width:.92rem;height:.92rem;border-radius:50%;display:inline-block;
+    border:1px solid rgba(90,100,108,.45);transition:background .3s}
+  .ex-puntos i.def{box-shadow:0 0 0 3px rgba(122,69,80,.22)}
+
+  .ex-det{margin-top:1.3rem;background:#fbfaf6;border:1px solid rgba(120,132,140,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:10rem}
+  .ex-det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--deep);margin-bottom:.25rem}
+  .ex-det h4{font-size:1.12rem;font-weight:400;color:var(--deep);margin:0 0 .6rem}
+  .ex-det h4 i{font-style:italic}
+  .ex-det p{font-size:.95rem;color:#3f454a;margin:0;line-height:1.62}
+
+  .ex-pie{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(120,132,140,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4f53;line-height:1.6}
+  .ex-pie b{color:var(--deep)}
+
+  @media(max-width:720px){
+    .ex-cab{display:none}
+    .ex-fila{grid-template-columns:1fr;gap:.45rem;align-items:start}
+    .ex-puntos{justify-content:flex-start}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El alma que no estaba · Entrega V</span>
+  <h1>El alma se define en <span class="em">1513</span></h1>
+  <div class="glifos"><span>anima</span><span class="sep">·</span><span class="tr">el alma</span><span class="sep">·</span><span>forma corporis</span><span class="sep">·</span><span class="tr">forma del cuerpo</span></div>
+  <p class="stand">Justino dice que el alma vive por participación. Tertuliano dice que es un cuerpo. Agustín dice que no sabe de dónde viene. Y el Catecismo actual remite a 1513.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">El Catecismo de la Iglesia Católica enseña, en el párrafo 366, que toda alma
+espiritual es creada inmediatamente por Dios y que es inmortal. Es una de las frases más
+citadas del documento. Lo que casi nadie mira es la nota al pie.</p>
+
+<p>La nota remite a tres textos. Uno es la encíclica <em>Humani generis</em> de Pío XII, de
+1950. Otro es una profesión de fe de Pablo VI. Y el tercero, el que sostiene específicamente
+la inmortalidad, es este: <strong>«Concilio Letrán V (1513): DS 1440»</strong>.</p>
+
+<p>El magisterio contemporáneo ancla la inmortalidad del alma en un decreto de 1513. No lo
+decimos nosotros: está en la nota. Y esa fecha, tan tardía, es la puerta de entrada a la
+historia de esta entrega — que no es la historia de una creencia, sino la de una definición,
+y las dos cosas no coinciden.</p>
+
+<figure>
+  <img src="justino-martir.jpg" data-alt="justino.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Retrato imaginario de Justino Mártir en un grabado del siglo XVI">
+  <figcaption>Justino Mártir, <em>retrato imaginario</em>. André Thévet, <em>Les Vrais Pourtraits et Vies des Hommes Illustres</em>, 1584. Y aquí un hallazgo que salió de las propias fichas: los tres Padres retratados en esta entrega —Justino, Tertuliano y Orígenes— salen del mismo taller parisino y del mismo año. Nadie tenía la menor idea de qué cara tenían; se les inventó una mil cuatrocientos años después, a la vez y en la misma imprenta. <span class="cr">André Thévet, 1584, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">01</div><h2>Los Padres que no creían que el alma fuera inmortal por naturaleza</h2>
+
+<p>Conviene empezar por donde más incomoda, y sin exagerar nada, porque el material se
+sostiene solo.</p>
+
+<p><strong>Justino Mártir</strong>, en el <em>Diálogo con Trifón</em>, hace decir al anciano
+que lo instruye antes de su conversión que el alma no debe llamarse inmortal, y el argumento
+es estrictamente metafísico: si es inmortal, es ingénita; si es ingénita, es divina. Y la
+formulación positiva es la que vale: el alma «no vive porque sea vida, sino porque
+<em>participa</em> de la vida»; y no participará «cuando Dios no quiera que viva».</p>
+
+<p>Aquí hay que poner una cautela inmediata, porque esta cita se usa mucho y se usa mal. La
+tesis está en boca de un personaje literario, no del propio Justino; y Justino afirma en
+otros lugares el castigo eterno consciente de los impíos. La pregunta bien planteada no es
+«¿creía Justino en el alma inmortal?», sino <strong>«¿inmortal por naturaleza o inmortal por
+don?»</strong>. Y a esa pregunta el texto responde sin ambigüedad: por don.</p>
+
+<p><strong>Taciano</strong> es más explícito, y en su caso no hay personaje interpuesto: «el
+alma no es en sí misma inmortal, griegos, sino mortal. Y sin embargo le es posible no
+morir». Si no conoce la verdad, se disuelve con el cuerpo y vuelve a levantarse al final con
+él. Nótese que Taciano no elimina el castigo: lo <em>traslada</em> a después de la
+resurrección.</p>
+
+<p><strong>Ireneo</strong> dice que las almas perduran «conforme a la voluntad de Dios», y
+que solo Dios es sin principio y sin fin. Y añade un detalle que casi nunca se cita: atribuye
+al alma separada <strong>la figura del cuerpo</strong> al que estuvo unida, y memoria de lo
+que hizo.</p>
+
+<div class="meter">
+  <div class="q">¿Es exacto decir que la inmortalidad del alma no fue definida hasta 1513?</div>
+  <div class="bar"><span class="pin" style="left:78%" data-l="Exacto, con matiz"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Es la primera vez que un concilio ecuménico define la inmortalidad <i>en cuanto tal</i>, con anatema, y la prueba más fuerte no es histórica sino magisterial: el Catecismo actual cita DS 1440, es decir 1513, como apoyo del §366. Pero deducir de ahí que la Iglesia no la creyera antes es falso: la presuponía en cada definición sobre el destino de los difuntos desde 1274, y la escolástica la tenía por demostrada. Lo honesto es dar las dos mitades. Es <b>exacto en sentido técnico y engañoso en sentido ordinario</b>, y por eso este medidor no llega a noventa: la afirmación desnuda, sin su matiz, induce a error.</div>
+</div>
+
+<div class="secnum">02</div><h2>Tertuliano, que sostiene que el alma es un cuerpo</h2>
+
+<figure>
+  <img src="tertuliano.jpg" data-alt="tertulliano.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Grabado alegórico de Tertuliano">
+  <figcaption>Tertuliano. Grabado de <em>Les Vrais Pourtraits</em>, Lyon, 1584. Sostuvo que el alma es un cuerpo —<em>corpus sui generis</em>— con la forma del cuerpo humano, y de ahí su traducianismo. <span class="cr">André Thévet, 1584, Dominio público.</span></figcaption>
+</figure>
+
+<p>Y luego está Tertuliano, que es donde la distancia con el vocabulario moderno se vuelve
+vertiginosa. Para el teólogo latino más influyente antes de Agustín, <strong>el alma es un
+cuerpo</strong> —<em>corpus sui generis</em>— y tiene forma: la forma del cuerpo humano que
+la contiene.</p>
+
+<p>No es una excentricidad aislada, y de ahí sale su traducianismo: si el alma es corpórea,
+se transmite de padres a hijos como se transmite todo lo corpóreo. Es una posición coherente,
+razonada, y es incompatible con lo que la Iglesia definirá mil trescientos años después.</p>
+
+<p>Aquí hay que desactivar dos trampas a la vez. La primera es la de quien cita a Tertuliano
+para decir que «los primeros cristianos eran materialistas»: Tertuliano es estoico en su
+física, no materialista en el sentido moderno, y su alma corpórea es inmortal. La segunda es
+la de quien lo esconde por incómodo. Lo que el expediente muestra no es que los Padres
+negaran el alma: es que <strong>no tenían una doctrina común sobre qué era</strong>, y eso
+es un dato histórico, no una munición.</p>
+
+<div class="secnum">03</div><h2>El caso de Orígenes, y el concilio que no lo condenó</h2>
+
+<figure>
+  <img src="origenes.jpg" data-alt="origen.jpg|origenes-adamantius.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Retrato imaginario de Orígenes">
+  <figcaption>Orígenes. Grabado de Guillaume Chaudière, 1584 — que era precisamente el impresor de Thévet. Los quince anatemas que llevan su nombre no figuran en las actas del concilio ecuménico de 553. <span class="cr">Guillaume Chaudière, 1584, Dominio público.</span></figcaption>
+</figure>
+
+<p>Orígenes sostuvo la preexistencia de las almas y la restauración final de todos los seres
+racionales. La tradición posterior tuvo que expulsar las dos cosas, y la expulsión se cuenta
+casi siempre mal.</p>
+
+<p>La frase que circula es que «el concilio ecuménico de 553 condenó la preexistencia del
+alma». En el mejor de los casos es un atajo.</p>
+
+<p>El Segundo Concilio de Constantinopla se celebró entre el 5 de mayo y el 2 de junio de
+553, convocado por Justiniano, y su objeto declarado fue la controversia de los Tres
+Capítulos. Promulgó catorce anatematismos. En la convocatoria no hay nada sobre Orígenes.</p>
+
+<p>Los <strong>quince anatemas contra Orígenes</strong> que todo el mundo cita
+<strong>no forman parte de sus actas</strong>. La edición estándar de los decretos
+conciliares, la de Norman Tanner de 1990, los excluye con una nota editorial explícita: «no
+incluimos el texto de los anatemas contra Orígenes, puesto que estudios recientes han
+mostrado que no pueden atribuirse a este concilio». Vienen de otra parte: del edicto de
+Justiniano y del sínodo local de <strong>543</strong>, y de un conjunto suscrito por los
+obispos reunidos en Constantinopla probablemente <em>antes de la apertura formal</em> del
+concilio — lo que explica que las actas no registren ningún debate sobre origenismo.</p>
+
+<p>Lo único que los actos oficiales dicen de Orígenes es su nombre, en una lista de herejes
+cristológicos, sin doctrina asociada y fuera de orden cronológico. Y desde Franz Diekamp, en
+1899, hay una corriente académica sustancial que considera ese nombre añadido
+<em>ex post facto</em>.</p>
+
+<p>Pero <strong>no demos la interpolación por establecida</strong>, porque hay una objeción
+metodológica seria y hay que recogerla. Michael McClymond se la opone a Ilaria Ramelli en
+estos términos: si la interpolación se añadió tan pronto que nadie la reconoció como tal en
+su momento, ¿cómo se la reconoce mil quinientos años después?</p>
+
+<p>Y una distinción que confunden los dos bandos: <strong>que la condena no tenga sello
+ecuménico no la hizo inoperante</strong>. El origenismo quedó proscrito, los monjes
+origenistas fueron expulsados de Palestina y la preexistencia desapareció como opción viva.
+Una cosa es la eficacia histórica, que es indiscutible, y otra el estatuto canónico, que es
+discutido.</p>
+
+<div class="aviso">
+  <div class="t">Cómo se cita mal el concilio de 553, y por qué importa</div>
+  <p>La cadena de citas que sostiene «el concilio ecuménico de 553 condenó la preexistencia del alma» suele remontar a la edición de Koetschau de Orígenes, que <strong>incorporó al texto del propio Orígenes esos mismos anatemas</strong>. Es decir: se lee en Orígenes lo que sus condenadores dijeron de él, y luego se usa como prueba de lo que Orígenes decía.<br><br>La formulación que sí se sostiene es esta. La única condena antigua explícita de la preexistencia del alma <strong>no figura en los anatematismos oficiales del V Concilio Ecuménico</strong>; procede del edicto de Justiniano, del sínodo local de 543 y de un conjunto de quince anatemas que la edición crítica estándar excluye expresamente. Y hay una nota al margen que merece la pena, de Antoine Guillaumont: buena parte de lo condenado en 553 es en rigor <strong>evagriano</strong> —de Evagrio Póntico— y no origeniano. Casi nadie lo menciona.</p>
+</div>
+
+<div class="secnum">04</div><h2>Agustín declara que no lo sabe</h2>
+
+<p>En el año 415, y durante los veinticinco años siguientes, Agustín enumera una y otra vez
+cuatro hipótesis sobre el origen del alma —¿viene de los padres?, ¿la crea Dios en cada
+concepción?, ¿preexiste y es enviada?, ¿preexiste y desciende por su voluntad?— y declara
+que <strong>no sabe cuál es verdadera</strong>. No es una reticencia retórica: lo repite en
+las <em>Retractationes</em>, al final de su obra, revisando lo que había escrito.</p>
+
+<p>Y aquí está el ángulo que esta entrega aporta sobre lo que ya contamos en la serie del
+pecado original, y que invierte la causalidad habitual. Se suele decir que Agustín no pudo
+resolver la transmisión del pecado original. Lo cierto es más preciso: <strong>no pudo
+resolverla porque no pudo resolver el origen del alma</strong>, que es la cuestión
+lógicamente previa.</p>
+
+<p>Piénsese. Si Dios crea cada alma directamente en la concepción, ¿cómo llega esa alma ya
+manchada por un pecado que no cometió, sin hacer a Dios autor de la mancha? Y si el alma
+viene de los padres, ¿es entonces corpórea, como quería Tertuliano? El pecado original tiene
+un agujero en los cimientos, y el agujero es este.</p>
+
+<div class="expv" id="expv">
+  <span class="ek">Pieza interactiva &middot; la cronolog&iacute;a de lo que no se defini&oacute;</span>
+  <h3>Cuatro preguntas, y cu&aacute;ndo se cierra cada una</h3>
+  <p class="es">Los cuatro c&iacute;rculos de la derecha son cuatro preguntas sobre el alma, y viajan de
+  fila en fila. Lo interesante no es cu&aacute;ndo se encienden: es <b>cu&aacute;ntas filas pasan con los dos
+  &uacute;ltimos apagados</b>. Pulsa cualquier fila.</p>
+  <div class="ex-leyenda"><div><i style="background:#a8b0b5"></i>Abierta</div><div><i style="background:#7a4550"></i>Se define aquí</div><div><i style="background:#5d666c"></i>Ya definida</div><div><i style="background:#7a5c38"></i>Se sostiene lo contrario</div></div>
+  <div class="ex-cab"><div class="h">Fecha y &oacute;rgano</div>
+    <div class="h q">¿Qué les pasa a las almas al morir? &middot; ¿Qué relación tiene el alma con el cuerpo? &middot; ¿Es inmortal? &middot; ¿Hay una por cada cuerpo?</div></div>
+  <button type="button" class="ex-fila t-autor" data-id="justino"><span><span class="fch">c. 155-165</span><span class="org">Justino Mártir, <i>Diálogo con Trifón</i> 5-6</span></span><span class="ex-puntos"><i class="" style="background:#a8b0b5" title="¿Qué les pasa a las almas al morir? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Qué relación tiene el alma con el cuerpo? — Abierta"></i><i class="neg" style="background:#7a5c38" title="¿Es inmortal? — Se sostiene lo contrario"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-autor" data-id="taciano"><span><span class="fch">c. 165-175</span><span class="org">Taciano, <i>Discurso a los griegos</i> 13</span></span><span class="ex-puntos"><i class="" style="background:#a8b0b5" title="¿Qué les pasa a las almas al morir? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Qué relación tiene el alma con el cuerpo? — Abierta"></i><i class="neg" style="background:#7a5c38" title="¿Es inmortal? — Se sostiene lo contrario"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-autor" data-id="ireneo"><span><span class="fch">c. 180</span><span class="org">Ireneo, <i>Adversus Haereses</i> II 34</span></span><span class="ex-puntos"><i class="" style="background:#a8b0b5" title="¿Qué les pasa a las almas al morir? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Qué relación tiene el alma con el cuerpo? — Abierta"></i><i class="neg" style="background:#7a5c38" title="¿Es inmortal? — Se sostiene lo contrario"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-autor" data-id="tert"><span><span class="fch">c. 210</span><span class="org">Tertuliano, <i>De anima</i></span></span><span class="ex-puntos"><i class="" style="background:#a8b0b5" title="¿Qué les pasa a las almas al morir? — Abierta"></i><i class="neg" style="background:#7a5c38" title="¿Qué relación tiene el alma con el cuerpo? — Se sostiene lo contrario"></i><i class="" style="background:#a8b0b5" title="¿Es inmortal? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-autor" data-id="orig"><span><span class="fch">c. 230</span><span class="org">Orígenes, <i>De principiis</i></span></span><span class="ex-puntos"><i class="" style="background:#a8b0b5" title="¿Qué les pasa a las almas al morir? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Qué relación tiene el alma con el cuerpo? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Es inmortal? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-autor" data-id="agus"><span><span class="fch">415-420</span><span class="org">Agustín, <i>Epístola</i> 166 y <i>Retractationes</i></span></span><span class="ex-puntos"><i class="" style="background:#a8b0b5" title="¿Qué les pasa a las almas al morir? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Qué relación tiene el alma con el cuerpo? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Es inmortal? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-nada" data-id="553"><span><span class="fch">543 y 553</span><span class="org">Justiniano, el sínodo de 543 y los quince anatemas</span></span><span class="ex-puntos"><i class="" style="background:#a8b0b5" title="¿Qué les pasa a las almas al morir? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Qué relación tiene el alma con el cuerpo? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Es inmortal? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-autor" data-id="tomas"><span><span class="fch">1265-1274</span><span class="org">Tomás de Aquino, <i>Summa Theologiae</i> I, qq. 75-76 y 89</span></span><span class="ex-puntos"><i class="" style="background:#a8b0b5" title="¿Qué les pasa a las almas al morir? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Qué relación tiene el alma con el cuerpo? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Es inmortal? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-concilio" data-id="lyon"><span><span class="fch">6 de julio de 1274</span><span class="org">Lyon II, sesión 4</span></span><span class="ex-puntos"><i class="def" style="background:#7a4550" title="¿Qué les pasa a las almas al morir? — Se define aquí"></i><i class="" style="background:#a8b0b5" title="¿Qué relación tiene el alma con el cuerpo? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Es inmortal? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-concilio" data-id="vienne"><span><span class="fch">1311-1312</span><span class="org">Vienne, decreto <i>Fidei catholicae fundamento</i></span></span><span class="ex-puntos"><i class="ya" style="background:#5d666c" title="¿Qué les pasa a las almas al morir? — Ya definida"></i><i class="def" style="background:#7a4550" title="¿Qué relación tiene el alma con el cuerpo? — Se define aquí"></i><i class="" style="background:#a8b0b5" title="¿Es inmortal? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-papal" data-id="bened"><span><span class="fch">29 de enero de 1336</span><span class="org">Benedicto XII, <i>Benedictus Deus</i></span></span><span class="ex-puntos"><i class="ya" style="background:#5d666c" title="¿Qué les pasa a las almas al morir? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Qué relación tiene el alma con el cuerpo? — Ya definida"></i><i class="" style="background:#a8b0b5" title="¿Es inmortal? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-concilio" data-id="flor"><span><span class="fch">6 de julio de 1439</span><span class="org">Florencia, bula <i>Laetentur caeli</i></span></span><span class="ex-puntos"><i class="ya" style="background:#5d666c" title="¿Qué les pasa a las almas al morir? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Qué relación tiene el alma con el cuerpo? — Ya definida"></i><i class="" style="background:#a8b0b5" title="¿Es inmortal? — Abierta"></i><i class="" style="background:#a8b0b5" title="¿Hay una por cada cuerpo? — Abierta"></i></span></button>
+  <button type="button" class="ex-fila t-concilio" data-id="letran"><span><span class="fch">19 de diciembre de 1513</span><span class="org">Letrán V, sesión VIII, <i>Apostolici regiminis</i></span></span><span class="ex-puntos"><i class="ya" style="background:#5d666c" title="¿Qué les pasa a las almas al morir? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Qué relación tiene el alma con el cuerpo? — Ya definida"></i><i class="def" style="background:#7a4550" title="¿Es inmortal? — Se define aquí"></i><i class="def" style="background:#7a4550" title="¿Hay una por cada cuerpo? — Se define aquí"></i></span></button>
+  <button type="button" class="ex-fila t-nada" data-id="trento"><span><span class="fch">1545-1563</span><span class="org">Trento</span></span><span class="ex-puntos"><i class="ya" style="background:#5d666c" title="¿Qué les pasa a las almas al morir? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Qué relación tiene el alma con el cuerpo? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Es inmortal? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Hay una por cada cuerpo? — Ya definida"></i></span></button>
+  <button type="button" class="ex-fila t-papal" data-id="hg"><span><span class="fch">12 de agosto de 1950</span><span class="org">Pío XII, <i>Humani generis</i></span></span><span class="ex-puntos"><i class="ya" style="background:#5d666c" title="¿Qué les pasa a las almas al morir? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Qué relación tiene el alma con el cuerpo? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Es inmortal? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Hay una por cada cuerpo? — Ya definida"></i></span></button>
+  <button type="button" class="ex-fila t-papal" data-id="cce"><span><span class="fch">1992 / 1997</span><span class="org">Catecismo de la Iglesia Católica, §§365-366</span></span><span class="ex-puntos"><i class="ya" style="background:#5d666c" title="¿Qué les pasa a las almas al morir? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Qué relación tiene el alma con el cuerpo? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Es inmortal? — Ya definida"></i><i class="ya" style="background:#5d666c" title="¿Hay una por cada cuerpo? — Ya definida"></i></span></button>
+  <div class="ex-det" id="exdet" aria-live="polite"></div>
+  <div class="ex-pie"><b>Se defini&oacute; siempre lo mismo, y no era lo que parece.</b> Desde 1274 la
+  Iglesia define una y otra vez <i>qu&eacute; les pasa</i> a las almas &mdash;al cielo enseguida, al
+  infierno enseguida, purificaci&oacute;n intermedia, visi&oacute;n de la esencia divina antes del juicio&mdash;
+  y en 1312 define <i>c&oacute;mo se relacionan</i> con el cuerpo. Pero <i>qu&eacute; son</i> no se define hasta
+  <b>1513</b>: 239 a&ntilde;os despu&eacute;s de la primera definici&oacute;n sobre su destino. Y la
+  multiplicidad num&eacute;rica &mdash;una alma por cuerpo&mdash; no la hab&iacute;a definido nadie nunca.</div>
+</div>
+
+<div class="secnum">05</div><h2>Tomás, y la factura del aristotelismo</h2>
+
+<p>La síntesis que la Iglesia acabará adoptando es la de Tomás de Aquino: el alma es
+<strong>forma sustancial</strong> del cuerpo, subsistente e incorpórea. Con ella se gana
+mucho — sobre todo, una explicación de por qué el ser humano es uno y no dos cosas pegadas.</p>
+
+<p>Pero tiene un precio, y Tomás lo asume con una honestidad que casi nadie cita. En la
+cuestión 89 de la primera parte de la <em>Summa</em> sostiene que <strong>el alma separada no
+es una persona</strong>, y que conoce de un modo imperfecto y antinatural, porque le falta
+justamente aquello para lo que está hecha. Si el alma es la forma de un cuerpo, un alma sin
+cuerpo es un ser incompleto.</p>
+
+<p>Esa factura se paga en 1336, y merece la pena ver cómo.</p>
+
+<div class="secnum">06</div><h2>Un papa contra su antecesor</h2>
+
+<p>La secuencia conciliar sobre el alma empieza en <strong>Lyon II</strong>, el 6 de julio de
+1274, con la profesión de fe suscrita por Miguel VIII Paleólogo: las almas libres de pecado
+son recibidas <em>enseguida</em> en el cielo, las de quienes mueren en pecado mortal van
+enseguida al infierno, y hay purificación tras la muerte. Precisión de crítica de fuentes,
+porque es de las que el blog no se salta: <strong>ese texto no lo redactó el concilio</strong>.
+Lo redactó Clemente IV en 1267; en Lyon II se leyó y se suscribió.</p>
+
+<p>Sigue el <strong>concilio de Vienne</strong>, en 1311-1312, que define la
+<em>relación</em>: el alma racional es «por sí y esencialmente forma del cuerpo humano», y
+quien sostenga lo contrario «ha de ser considerado hereje». Tres cautelas otra vez: Pedro
+Juan Olivi <em>no es nombrado</em> en el decreto y había muerto trece años antes; la
+proposición condenada es una versión endurecida de lo que él sostenía; y las actas del
+concilio se han perdido salvo un fragmento. Además, los decretos no se publicaron entonces:
+los promulgó Juan XXII en 1317.</p>
+
+<p>Y llegamos a <strong><em>Benedictus Deus</em></strong>, del 29 de enero de 1336, que es
+donde está el dato de oro de toda esta historia.</p>
+
+<p>Benedicto XII define que las almas plenamente purificadas ven la esencia divina «con visión
+intuitiva y cara a cara», <em>enseguida después de la muerte</em>, <strong>antes</strong> de
+recuperar sus cuerpos y antes del juicio general.</p>
+
+<p>¿Por qué hizo falta definir eso? Porque <strong>su propio antecesor había sostenido lo
+contrario</strong>. Juan XXII predicó públicamente, hacia 1331-1334, que los bienaventurados
+no gozan de la visión plena hasta el juicio final. <em>Benedictus Deus</em> es la clausura de
+esa crisis.</p>
+
+<p>La doctrina del alma separada no bajó del cielo: se decidió en una disputa, y en la disputa
+un papa le enmendó la plana a otro.</p>
+
+<div class="wall">
+  <div class="post min">
+    <div class="who">1274 · Lyon II</div>
+    <div class="what">Qué les pasa</div>
+    <p>Las almas sin pecado, <i>mox in caelum</i>; las que mueren en pecado mortal, al infierno; purificación intermedia. <b>Nada sobre qué son.</b></p>
+  </div>
+  <div class="post mid">
+    <div class="who">1312 · Vienne</div>
+    <div class="what">Qué relación tienen con el cuerpo</div>
+    <p>El alma racional es «por sí y esencialmente forma del cuerpo humano». Se define la relación. <b>Nada sobre la inmortalidad ni sobre la multiplicidad.</b></p>
+  </div>
+  <div class="post mid">
+    <div class="who">1336 · <i>Benedictus Deus</i></div>
+    <div class="what">Qué les pasa, con más precisión</div>
+    <p>Visión intuitiva de la esencia divina, <b>antes</b> de recuperar los cuerpos. Se define un alma separada plenamente operativa <b>sin haber definido nunca que el alma sea inmortal</b>.</p>
+  </div>
+  <div class="post min">
+    <div class="who">1439 · Florencia</div>
+    <div class="what">Qué les pasa, otra vez</div>
+    <p>Purificación post mortem; las almas sin mancha «son recibidas inmediatamente en el cielo». Tercera definición sobre el destino. Ninguna sobre la naturaleza.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">1513 · Letrán V</div>
+    <div class="what">Qué son</div>
+    <p>Inmortal. Y multiplicada, una por cada cuerpo. <b>Con anatema.</b> Doscientos treinta y nueve años después de la primera definición sobre su destino.</p>
+  </div>
+</div>
+
+<p>Y repárese en lo que esa definición implica. Definir que un sujeto separado ejerce el acto
+cognitivo más alto concebible —la visión de la esencia divina— equivale a definir que ese
+sujeto existe, que es numéricamente el mismo que el difunto, y que es sujeto de premio y de
+pena. Se está definiendo un alma inmortal, individual y plenamente operativa
+<strong>sin haber definido nunca que el alma sea inmortal</strong>.</p>
+
+<p>La escatología va ciento setenta y siete años por delante de la antropología. Y de paso, la
+visión facial que <em>Benedictus Deus</em> atribuye al alma separada choca de frente con la
+cuestión 89 de Tomás, que le negaba a esa misma alma el conocimiento pleno. Los tomistas
+resuelven la tensión distinguiendo lo natural de lo sobrenatural — pero la tensión existe, y
+está exactamente en el punto donde el aristotelismo paga su factura.</p>
+
+<div class="secnum">07</div><h2>19 de diciembre de 1513</h2>
+
+<figure>
+  <img src="concilio-letran-v.jpg" data-alt="letran-v.jpg|quinto-concilio-letran.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Grabado del siglo XVI que representa una sesión del Quinto Concilio de Letrán">
+  <figcaption>El Quinto Concilio de Letrán, grabado del siglo XVI. En la sesión VIII, el 19 de diciembre de 1513, la bula <em>Apostolici regiminis</em> define la inmortalidad del alma y su multiplicidad numérica, con anatema. <span class="cr">Grabado del siglo XVI, Dominio público.</span></figcaption>
+</figure><figure>
+  <img src="tomas-de-aquino.jpg" data-alt="tomas-aquino-crivelli.jpg|aquino-crivelli.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Santo Tomás de Aquino pintado por Carlo Crivelli">
+  <figcaption>Carlo Crivelli, <em>Santo Tomás de Aquino</em>, 1476. National Gallery, NG788.9. El alma como forma sustancial del cuerpo — y la consecuencia que Tomás acepta sin disimulo: el alma separada no es una persona. <span class="cr">National Gallery, Dominio público.</span></figcaption>
+</figure>
+
+<p>Letrán V, sesión VIII. Bula <em>Apostolici regiminis</em>. El alma no solo es forma del
+cuerpo, dice el decreto, «sino que además <strong>es inmortal</strong>; y más aún, para el
+enorme número de cuerpos en que se infunde individualmente, <strong>puede y debe ser y es
+multiplicada</strong>». Y condena expresamente a quienes sostienen que el alma intelectiva es
+mortal, o que es una sola en todos los seres humanos.</p>
+
+<p>Tres cosas se definen ahí, y solo una es la que se suele citar.</p>
+
+<p>La primera es la inmortalidad, que pasa de presupuesto operativo a proposición definida con
+anatema. La segunda es <strong>la multiplicidad numérica</strong> —una alma por cuerpo—, que
+es la tesis realmente nueva, que nadie había definido nunca, y que apunta directamente al
+averroísmo padovano: al intelecto único de Ibn Rushd.</p>
+
+<p>Y la tercera es la que convierte 1513 en un acontecimiento de la historia de la
+universidad y no solo de la teología: se define que <strong>ninguna afirmación contraria a la
+verdad de la fe puede ser verdadera</strong>, y se obliga a los profesores de filosofía a
+refutar ante sus alumnos las tesis contrarias. Según una lectura académica influyente, la de
+Eric Constant, el blanco inmediato del decreto no era ni siquiera la tesis mortalista, sino
+la llamada doctrina de la doble verdad: la posición de que la filosofía puede concluir lo
+contrario de la fe sin que haya conflicto.</p>
+
+<p>Dos datos que devuelven la escena a escala humana. <strong>Cayetano</strong> —Tommaso de
+Vio, el teólogo dominico más importante del momento— <strong>votó en contra</strong> de la
+parte disciplinar del decreto, sin éxito. Y <strong>Pietro Pomponazzi</strong> publicó su
+<em>Tractatus de immortalitate animae</em> en Bolonia en 1516, tres años después: le quemaron
+el libro públicamente en Venecia, le llovieron refutaciones, y nunca fue procesado ni abjuró,
+protegido por el cardenal Bembo.</p>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Lo que es <span class="k">consenso</span> en esta entrega: las fechas y los textos de los decretos, que son verificables uno a uno en la edición de Tanner; que Vienne define la forma y no la inmortalidad; que <em>Benedictus Deus</em> define la visión intuitiva antes de la resurrección de los cuerpos; que Letrán V añade la inmortalidad y la multiplicidad numérica con anatema; y que el Catecismo actual remite a 1513 en la nota del §366.</p>
+  <p>Lo que está en <span class="k">debate abierto</span>: el estatuto de los quince anatemas contra Orígenes, donde la tesis de la interpolación tiene apoyo sustancial desde Diekamp (1899) pero <strong>no puede darse por establecida</strong>, por la objeción metodológica de McClymond; y cuál era el blanco real de <em>Apostolici regiminis</em>, donde Eric Constant sostiene que fue la doctrina de la doble verdad más que la tesis mortalista.</p>
+  <p>Una <span class="k">cautela sobre las atribuciones patrísticas</span>. El pasaje de Justino está en boca de un personaje literario y su interpretación se discute: hay quien lee inmortalidad condicional o donada y quien lo toma por una etapa de su itinerario, no su doctrina madura. No hay consenso. Lo que el texto sí dice sin discusión es que la vida del alma es <em>participada</em> y no propia, y eso es lo que se afirma aquí. Con Taciano no hace falta cautela: lo dice él, en primera persona y sin personaje interpuesto.</p>
+  <p>Y lo que esta entrega <span class="k">no hace</span>: usar la fecha de 1513 como argumento contra la creencia. Que una doctrina se defina tarde no dice nada sobre si es verdadera. Lo que la cronología documenta es cómo se formó una definición, no si lo definido existe — y confundir las dos cosas tiene nombre propio, que daremos en la entrega siguiente.</p>
+</div>
+
+<div class="secnum">08</div><h2>Lo que 1513 significa y lo que no</h2>
+
+<p>Y ahora la parte que separa este artículo de la versión polémica de la misma historia,
+porque la versión polémica existe y es mala.</p>
+
+<p><strong>No es cierto que la Iglesia no creyera en la inmortalidad del alma hasta 1513.</strong>
+La había presupuesto en cada definición sobre el destino de los difuntos desde 1274, la
+escolástica la consideraba demostrada, y era doctrina universalmente enseñada. Quien use la
+fecha de 1513 para insinuar que la creencia se inventó entonces está haciendo trampa.</p>
+
+<p>Lo que ocurre en 1513 es otra cosa, y formularlo bien cuesta una frase entera: la Iglesia
+no empieza a creer en el alma inmortal — <strong>deja de poder no creerlo</strong>. La tesis
+pasa de doctrina común a proposición definida, con anatema y con una obligación disciplinar
+para quien enseñe filosofía.</p>
+
+<p>Añádase un detalle que remata el cuadro: <strong>Trento no definió nada sobre la
+naturaleza del alma</strong>. El concilio que todo el mundo asocia con la definición
+doctrinal católica se ocupó de la justificación, de los sacramentos y del purgatorio. No hacía
+falta volver sobre el alma: ya estaba cerrada treinta y dos años antes.</p>
+
+<p>Y la última pregunta de Agustín —de dónde viene el alma— no se cierra hasta
+<strong>1950</strong>, y no en un concilio, sino en <em>Humani generis</em>, una encíclica
+cuyo asunto era el evolucionismo. El alma espiritual es creada inmediatamente por Dios; el
+traducianismo de Tertuliano queda fuera. Mil quinientos treinta y cinco años después de que
+Agustín declarase no saberlo, y por la puerta lateral.</p>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p>Los textos conciliares se citan por <strong>Norman P. Tanner (ed.), <em>Decrees of the
+  Ecumenical Councils</em></strong>, Georgetown University Press / Sheed &amp; Ward, 1990, con
+  la numeración de Denzinger-Schönmetzer entre paréntesis: Lyon II, DS 851-861 · Vienne,
+  <em>Fidei catholicae fundamento</em>, DS 902 · <em>Benedictus Deus</em>, DS 1000-1002 ·
+  Florencia, <em>Laetentur caeli</em>, DS 1304-1306 · Letrán V, <em>Apostolici regiminis</em>,
+  DS 1440-1441.</p>
+  <p><strong>Patrística.</strong> Justino, <em>Diálogo con Trifón</em> 5-6 · Taciano,
+  <em>Discurso a los griegos</em> 13 · Ireneo, <em>Adversus Haereses</em> II 34 · Teófilo de
+  Antioquía, <em>Ad Autolycum</em> II 27 · Tertuliano, <em>De anima</em>.</p>
+  <p><strong>Sobre el concilio de 553.</strong> Richard Price, <em>The Acts of the Council of
+  Constantinople of 553</em>, 2 vols., Translated Texts for Historians 51, Liverpool University
+  Press, 2009 · Franz Diekamp, <em>Die origenistischen Streitigkeiten im sechsten Jahrhundert
+  und das fünfte allgemeine Concil</em>, Münster, 1899 · Antoine Guillaumont, <em>Les
+  «Kephalaia Gnostica» d'Évagre le Pontique</em>, París, 1962 · Daniël Hombergen, <em>The Second
+  Origenist Controversy</em>, Studia Anselmiana 132, Roma, 2001 · Ilaria Ramelli, s.v.
+  «Constantinople, Second Council of», <em>Brill Encyclopedia of Early Christianity</em>.</p>
+  <p><strong>Sobre Letrán V.</strong> Eric A. Constant, «A Reinterpretation of the Fifth Lateran
+  Council Decree <em>Apostolici regiminis</em> (1513)», <em>The Sixteenth Century Journal</em>
+  33/2 (2002) 353-379 · Christoph Sander, «<em>In dubio pro fide</em>», <em>Educazione.
+  Giornale di pedagogia critica</em> (2014) · Craig Martin, s.v. «Pietro Pomponazzi»,
+  <em>Stanford Encyclopedia of Philosophy</em> · Robert Pasnau, s.v. «Peter John Olivi»,
+  <em>SEP</em>.</p>
+  <p><strong>Magisterio contemporáneo.</strong> Pío XII, <em>Humani generis</em>, 1950, DS 3896 ·
+  <em>Catecismo de la Iglesia Católica</em>, §§365-367, con sus notas.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var D={"justino": {"fe": "c. 155-165", "or": "Justino Mártir, <i>Diálogo con Trifón</i> 5-6", "q": "El anciano que instruye a Justino antes de su conversión niega que el alma sea inmortal, y el argumento es metafísico: si es inmortal, es ingénita; si es ingénita, es divina. Y la formulación positiva es la que importa: el alma «no vive porque sea vida, sino porque <b>participa</b> de la vida»; y «no participará cuando Dios no quiera que viva».<br><br><b>Cautela obligatoria:</b> atribuir esto a Justino sin más es discutible. La tesis está en boca de un personaje literario, y Justino afirma en otros lugares el castigo eterno consciente de los impíos. La pregunta bien hecha no es «¿creía Justino en el alma inmortal?» sino «¿inmortal <i>por naturaleza</i> o <i>por don</i>?». Ahí el texto es claro: por don."}, "taciano": {"fe": "c. 165-175", "or": "Taciano, <i>Discurso a los griegos</i> 13", "q": "El testimonio patrístico más explícito, y no admite mucha interpretación: «<b>El alma no es en sí misma inmortal, griegos, sino mortal. Y sin embargo le es posible no morir.</b>» Si no conoce la verdad, muere y se disuelve con el cuerpo, y vuelve a levantarse al final con él. Nótese que Taciano no elimina el castigo: lo <b>traslada</b> a después de la resurrección."}, "ireneo": {"fe": "c. 180", "or": "Ireneo, <i>Adversus Haereses</i> II 34", "q": "Las almas «perduran, y extienden su existencia a lo largo de una larga serie de edades <b>conforme a la voluntad de Dios</b>, su Creador». Solo Dios es sin principio y sin fin. <br><br>Y un dato que casi nunca se cita: Ireneo atribuye al alma separada <b>la figura del cuerpo</b> al que estuvo unida, y memoria de lo que hizo. Está mucho más cerca de Tertuliano que del espiritualismo posterior."}, "tert": {"fe": "c. 210", "or": "Tertuliano, <i>De anima</i>", "q": "Y aquí la posición que más desconcierta al lector moderno: para Tertuliano <b>el alma es un cuerpo</b>, <i>corpus sui generis</i>, y tiene forma — la forma del cuerpo humano. De ahí su traducianismo: si el alma es corpórea, se transmite de padres a hijos como se transmite todo lo corpóreo.<br><br>No es una excentricidad aislada: es lo que sostiene el teólogo latino más influyente antes de Agustín, y es incompatible con lo que la Iglesia definirá mil trescientos años después."}, "orig": {"fe": "c. 230", "or": "Orígenes, <i>De principiis</i>", "q": "Preexistencia de las almas y restauración final de todos los seres racionales. Es la posición que la tradición posterior tendrá que expulsar, y la expulsión tiene un expediente más complicado de lo que suele contarse — la fila siguiente."}, "agus": {"fe": "415-420", "or": "Agustín, <i>Epístola</i> 166 y <i>Retractationes</i>", "q": "El punto que da vuelta a la causalidad habitual. Agustín enumera cuatro hipótesis sobre el origen del alma y declara, durante <b>veinticinco años</b> y hasta el final de su obra, que <b>no sabe cuál es verdadera</b>.<br><br>Y eso importa más de lo que parece para la otra serie de esta casa: Agustín no pudo resolver la transmisión del pecado original <b>porque</b> no pudo resolver el origen del alma, que es la cuestión lógicamente previa. Si el alma la crea Dios en cada concepción, ¿cómo llega ya manchada? Si viene de los padres, ¿es corpórea? El pecado original tiene un agujero en los cimientos, y el agujero es éste."}, "553": {"fe": "543 y 553", "or": "Justiniano, el sínodo de 543 y los quince anatemas", "q": "<b>La fila del asterisco.</b> «El concilio ecuménico de 553 condenó la preexistencia del alma» es, en el mejor de los casos, un atajo.<br><br>Los quince anatemas contra Orígenes <b>no están en las actas del V Concilio Ecuménico</b>. La edición estándar de los decretos conciliares —Tanner, 1990— los excluye con nota explícita: «nuestra edición no incluye el texto de los anatemas contra Orígenes, puesto que estudios recientes han mostrado que no pueden atribuirse a este concilio». Vienen del edicto de Justiniano y del sínodo local de <b>543</b>, y de un conjunto suscrito por los obispos reunidos en Constantinopla probablemente <b>antes de la apertura formal</b> del concilio.<br><br>Lo único que las actas dicen de Orígenes es su nombre, en una lista de herejes cristológicos, sin doctrina asociada — y desde Diekamp (1899) hay una corriente sustancial que lo considera añadido después.<br><br><b>Pero no se dé la interpolación por establecida:</b> McClymond le opone a Ramelli una objeción seria — si la interpolación se hizo tan pronto que nadie la reconoció como tal, ¿cómo se la reconoce mil quinientos años después? Y una distinción que los dos bandos confunden: que la condena no tenga sello ecuménico no la hizo inoperante. El origenismo quedó proscrito. Una cosa es la <b>eficacia histórica</b>, indiscutible, y otra el <b>estatuto canónico</b>, discutido."}, "tomas": {"fe": "1265-1274", "or": "Tomás de Aquino, <i>Summa Theologiae</i> I, qq. 75-76 y 89", "q": "El alma es <b>forma sustancial</b> del cuerpo, subsistente, incorpórea. La síntesis que la Iglesia adoptará.<br><br>Y una consecuencia que Tomás asume con toda honestidad y que casi nadie cita: en la cuestión 89 sostiene que <b>el alma separada no es una persona</b> y que conoce de modo imperfecto y antinatural, porque le falta aquello para lo que está hecha. El precio del aristotelismo es que el alma sin cuerpo queda incompleta — y la factura se pagará en 1336."}, "lyon": {"fe": "6 de julio de 1274", "or": "Lyon II, sesión 4", "q": "La profesión de fe suscrita por Miguel VIII Paleólogo: las almas libres de pecado son recibidas <i>mox in caelum</i>, enseguida en el cielo; las de quienes mueren en pecado mortal, al infierno; y hay purificación tras la muerte.<br><br><b>Y una precisión de crítica de fuentes:</b> el texto no lo redactó el concilio. Lo redactó Clemente IV en 1267, y en Lyon II se leyó y se suscribió. La «definición conciliar» es, en rigor, la ratificación de un formulario papal."}, "vienne": {"fe": "1311-1312", "or": "Vienne, decreto <i>Fidei catholicae fundamento</i>", "q": "Se define la <b>relación</b>: el alma racional o intelectiva es «por sí y esencialmente forma del cuerpo humano», y quien sostenga lo contrario «ha de ser considerado hereje».<br><br>Tres cautelas. Olivi <b>no es nombrado</b> en el decreto, había muerto trece años antes, y la proposición condenada es una versión endurecida de lo que él sostenía. Las actas del concilio <b>se han perdido</b> salvo un fragmento. Y los decretos no se publicaron entonces: los promulgó Juan XXII en <b>1317</b>.<br><br>Lo que Vienne no define: la inmortalidad, ni la multiplicidad. Ése es el hueco."}, "bened": {"fe": "29 de enero de 1336", "or": "Benedicto XII, <i>Benedictus Deus</i>", "q": "Las almas purificadas «ven la esencia divina con visión intuitiva y cara a cara», <i>mox post mortem</i>, <b>antes</b> de recuperar sus cuerpos y antes del juicio general.<br><br>Y aquí está el dato de oro del expediente. Esta bula es la clausura de una crisis que había abierto el papa anterior: <b>Juan XXII sostuvo públicamente, en sermones, que los bienaventurados no gozan de la visión plena hasta el juicio final</b>. Su sucesor definió lo contrario. La doctrina del alma separada no bajó del cielo: se decidió en una disputa.<br><br>Y nótese lo que esto implica. Definir que un sujeto separado ejerce el acto cognitivo más alto concebible es definir que existe, que es el mismo que el difunto, y que es sujeto de premio y de pena — <b>sin haber definido nunca que el alma sea inmortal</b>. La escatología va ciento setenta y siete años por delante de la antropología."}, "flor": {"fe": "6 de julio de 1439", "or": "Florencia, bula <i>Laetentur caeli</i>", "q": "Otra vez el destino: purificación post mortem, y las almas sin mancha «son recibidas inmediatamente en el cielo y ven claramente a Dios uno y trino tal como es». <br><br>Tercera definición sobre <i>qué les pasa</i> a las almas. Sigue sin haber ninguna sobre <i>qué son</i>."}, "letran": {"fe": "19 de diciembre de 1513", "or": "Letrán V, sesión VIII, <i>Apostolici regiminis</i>", "q": "La fila en la que se cierra el expediente. El alma no solo es forma del cuerpo, «<b>sino que además es inmortal; y más aún, para el enorme número de cuerpos en que se infunde individualmente, puede y debe ser y es multiplicada</b>». Con condena expresa de quienes sostienen que el alma intelectiva es mortal o que es una sola en todos los seres humanos.<br><br><b>Lo nuevo no es solo la inmortalidad: es la multiplicidad numérica</b>, que nadie había definido nunca y que apunta al averroísmo padovano. Y hay un tercer elemento, que es el que convierte 1513 en un acontecimiento en la historia de la universidad y no solo de la teología: se define que ninguna afirmación contraria a la fe puede ser verdadera, y se obliga a los profesores de filosofía a refutar las tesis contrarias ante sus alumnos.<br><br><b>Dos datos que humanizan la escena.</b> Cayetano —el teólogo dominico más importante del momento— <b>votó en contra</b> de la parte disciplinar. Y Pomponazzi publicó su <i>Tractatus de immortalitate animae</i> en Bolonia en <b>1516</b>, tres años después del decreto: le quemaron el libro en Venecia, pero nunca fue procesado ni abjuró."}, "trento": {"fe": "1545-1563", "or": "Trento", "q": "<b>No define nada sobre la naturaleza del alma.</b> Trento se ocupa de la justificación, de los sacramentos y del purgatorio. La fila está aquí precisamente porque está vacía: el concilio que todo el mundo asocia con la definición doctrinal católica no toca esta cuestión, porque ya estaba cerrada treinta y dos años antes."}, "hg": {"fe": "12 de agosto de 1950", "or": "Pío XII, <i>Humani generis</i>", "q": "Y aquí se cierra, por fin, la pregunta que Agustín declaró no saber responder en el año 415: el alma espiritual es <b>creada inmediatamente por Dios</b>, no producida por los padres. El traducianismo de Tertuliano queda excluido.<br><br>Repárese en cómo se cierra: no en un concilio, sino en una encíclica cuyo asunto era el evolucionismo. La cuestión que fundaba el problema del pecado original se resuelve <b>mil quinientos treinta y cinco años después</b>, y por la puerta lateral."}, "cce": {"fe": "1992 / 1997", "or": "Catecismo de la Iglesia Católica, §§365-366", "q": "<b>La prueba más limpia de todo el expediente no es un argumento histórico: es una nota al pie.</b><br><br>El §365 enseña que el alma es la «forma» del cuerpo, y remite en nota al <b>concilio de Vienne (1312), DS 902</b>. El §366 enseña que el alma es creada inmediatamente por Dios y que es <b>inmortal</b>, y remite en nota a <b><i>Humani generis</i>, DS 3896</b> y al <b>concilio Letrán V (1513), DS 1440</b>.<br><br>El magisterio contemporáneo ancla la inmortalidad del alma en 1513. No lo decimos nosotros: está en la nota."}}, P=[["destino", "¿Qué les pasa a las almas al morir?"], ["forma", "¿Qué relación tiene el alma con el cuerpo?"], ["inmo", "¿Es inmortal?"], ["numero", "¿Hay una por cada cuerpo?"]], E={"": ["Abierta", "#a8b0b5"], "def": ["Se define aquí", "#7a4550"], "ya": ["Ya definida", "#5d666c"], "neg": ["Se sostiene lo contrario", "#7a5c38"]};
+  var caja=document.getElementById('expv'), det=document.getElementById('exdet');
+  if(!caja||!det) return;
+  function show(id){
+    var d=D[id];
+    caja.querySelectorAll('.ex-fila').forEach(function(f){f.classList.toggle('on',f.dataset.id===id);});
+    det.innerHTML='<div class="dl">'+d.fe+'</div><h4>'+d.or+'</h4><p>'+d.q+'</p>';
+  }
+  caja.querySelectorAll('.ex-fila').forEach(function(f){
+    f.addEventListener('click',function(){show(f.dataset.id);});
+  });
+  show('letran');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#54626b">↑ <a href="serie-alma.html" style="color:#54626b">Serie: El alma que no estaba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="alma-4.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#54626b">El intervalo que nadie había previsto</span></a>
+    <a class="epnav-btn next" href="alma-6.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#54626b">Todas las palabras son aliento</span></a>
+  </div>
+</nav>
+</body></html>

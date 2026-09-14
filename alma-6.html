@@ -1,0 +1,625 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todas las palabras son aliento — Estratos</title>
+<meta name="description" content="Nefesh, ruaḥ, psychē, pneuma, anima, spiritus, nafs, rūḥ, ātman: las palabras del alma en las lenguas de las Escrituras son palabras del aire. Con dos excepciones que hay que declarar. Y el cierre de la serie: la falacia genética por su nombre.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#54626b;--mid:#68767f;--pale:#5d6a73;
+    --rel:#8a4a2a;--exc:#54626b;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #626a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#626a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#626a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(93,106,115,.26)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#626a72}
+  figcaption .cr a{color:#5a6870;text-decoration:underline;text-decoration-color:rgba(90,104,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a6870}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#c3cdd2,#9aa7ae 42%,#68767f 70%,#54626b)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#626a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#626a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#68767f}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#dde3e6,#c8d1d6);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#626a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#626a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .trad{width:min(1060px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,150,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .trad .tk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .trad h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .trad .ts{font-size:.98rem;color:#4a4f53;margin:0 0 1.2rem;max-width:70ch}
+
+  .tr-gr{background:#fbfaf6;border:1px solid rgba(120,132,140,.45);border-radius:10px;
+    padding:.8rem .95rem;margin-bottom:1.3rem}
+  .tr-gr .gl{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--deep);margin-bottom:.35rem}
+  .tr-gr .gt{font-size:1.06rem;line-height:1.65;color:#2f3a40}
+  .tr-gr .gt b{color:#7a4550;font-weight:700}
+
+  .tr-rej{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:.5rem}
+  .tr-v{background:#fbfaf6;border:1px solid rgba(120,132,140,.5);border-radius:9px;
+    padding:.5rem .65rem;cursor:pointer;text-align:left;font-family:inherit;
+    transition:background .2s,border-color .2s,box-shadow .2s}
+  .tr-v:hover{background:#fff;border-color:var(--mid)}
+  .tr-v.on{background:#fff;border-color:var(--deep);box-shadow:0 0 0 2px rgba(84,98,107,.3)}
+  .tr-v .vn{display:block;font-size:.82rem;color:#2f3a40;line-height:1.28}
+  .tr-v .va{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;color:#5d666c}
+  .tr-v .vw{display:inline-block;margin-top:.35rem;font-family:"Trebuchet MS",sans-serif;
+    font-size:.68rem;font-weight:700;color:#fff;padding:.16rem .5rem;border-radius:20px}
+
+  .tr-det{margin-top:1.2rem;background:#fbfaf6;border:1px solid rgba(120,132,140,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:9rem}
+  .tr-det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.65rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;margin-bottom:.28rem}
+  .tr-det h4{font-size:1.1rem;font-weight:400;color:var(--deep);margin:0 0 .5rem}
+  .tr-det p{font-size:.95rem;color:#3f454a;margin:0;line-height:1.62}
+  .tr-det i{font-style:italic}
+
+  .tr-cata{margin-top:1.5rem;padding-top:1.1rem;border-top:1px solid rgba(120,132,140,.4)}
+  .tr-cata h4{font-size:1.02rem;font-weight:400;color:var(--deep);margin:0 0 .1rem}
+  .tr-cata .or{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;color:#5d666c;
+    margin:0 0 .6rem}
+  .tr-cata .fl{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem}
+  .tr-cata .ch{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;background:#fbfaf6;
+    border:1px solid rgba(120,132,140,.5);border-radius:20px;padding:.24rem .65rem;color:#3f454a}
+  .tr-cata .ch b{color:#2f3a40}
+  .tr-cata .ch i{width:.55rem;height:.55rem;border-radius:50%;display:inline-block;
+    margin-right:.35rem;vertical-align:baseline}
+  .tr-cata p{font-size:.93rem;color:#3f454a;margin:0;line-height:1.6}
+
+  .tr-pie{margin-top:1.3rem;padding-top:1rem;border-top:1px solid rgba(120,132,140,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4f53;line-height:1.6}
+  .tr-pie b{color:var(--deep)}
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">El alma que no estaba · Entrega VI y última</span>
+  <h1>Todas las palabras son <span class="em">aliento</span></h1>
+  <div class="glifos"><span>רוּחַ</span><span class="sep">·</span><span class="tr">ruaḥ</span><span class="sep">·</span><span>روح</span><span class="sep">·</span><span class="tr">rūḥ</span></div>
+  <p class="stand">Con dos excepciones declaradas. Y una honestidad final: el título de esta serie es una tesis, no un hecho — y la generación siguiente la está reabriendo.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">Póngase en fila el vocabulario. Hebreo: <em>nefesh</em>, garganta;
+<em>ruaḥ</em>, viento y aliento; <em>neshamah</em>, lo que entra por la nariz. Acadio:
+<em>napištu</em>, la misma raíz que <em>nefesh</em>. Griego: <em>pneuma</em>, de
+<em>pnein</em>, soplar. Latín: <em>anima</em> y <em>spiritus</em>, de <em>spirare</em>,
+respirar. Árabe: <em>nafs</em> y <em>rūḥ</em>. Sánscrito: <em>ātman</em>, que en el Ṛgveda
+todavía significa aliento.</p>
+
+<p>La conclusión se escribe sola, y por eso hay que escribirla con cuidado: <strong>las
+palabras del alma en las lenguas de las Escrituras son palabras del aire</strong>. No hay
+ninguna que nazca significando «sustancia inmaterial». Todas empiezan diciendo que alguien
+respira.</p>
+
+<p>Ahora bien, esta entrega cierra una serie que se ha pasado cinco capítulos distinguiendo
+lo que es consenso de lo que es hipótesis. No vamos a redondear en la última. Hay dos
+excepciones a ese cuadro tan limpio, y las dos son importantes.</p>
+
+<div class="secnum">01</div><h2>Las dos excepciones</h2>
+
+<p><strong>La primera es <em>psychē</em>, y es más fina de lo que parece.</strong> Su
+etimología apunta, probablemente, a <em>psýchō</em>, «soplar» — aunque el mismo verbo
+significa también «enfriar», y cuál de los dos sentidos es primario está discutido; y la raíz
+indoeuropea que se le ha propuesto, Beekes la considera poco convincente. Pero el problema
+verdadero es otro, y es de uso, no de etimología: <strong><em>psychē</em> nunca significó
+«aliento» en griego, ni siquiera en Homero</strong>. Si esta serie hubiera escrito en algún
+momento que «<em>psychē</em> significa aliento», habría escrito algo falso.</p>
+
+<p><strong>La segunda es germánica, y es una excepción entera.</strong> El grupo
+<em>saiwalō</em> —gótico <em>saiwala</em>, inglés antiguo <em>sāwol</em> de donde
+<em>soul</em>, alto alemán antiguo <em>sēla</em> de donde <em>Seele</em>, neerlandés
+<em>ziel</em>, nórdico antiguo <em>sála</em>— <strong>no se explica como metáfora del
+aliento</strong>. Su origen es desconocido, y así lo dice el diccionario etimológico de
+referencia del alemán, el de Pfeifer, en dos palabras: <em>Herkunft unbekannt</em>.</p>
+
+<p>Se han propuesto dos hipótesis y ninguna convence. Una la deriva de <em>See</em>, «lago,
+mar» —«lo que viene del mar»—, apoyándose en la creencia germánica de que las almas habitaban
+en el agua antes de nacer y después de morir; y la propia entrada de Pfeifer añade
+inmediatamente que «queda dudoso si esa creencia estuvo generalmente difundida». La otra la
+declara palabra tabú no explicada. La entrada inglesa de Etymonline remata el asunto con una
+frase que merece ser epígrafe: distinguir <em>soul</em> de <em>spirit</em> «es un asunto que
+más vale dejar a los teólogos».</p>
+
+<div class="meter">
+  <div class="q">¿Es firme que todas las palabras del alma proceden del aliento o del viento?</div>
+  <div class="bar"><span class="pin" style="left:62%" data-l="Verdadero con dos excepciones declaradas"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">En las lenguas de las Escrituras y en el vocabulario filosófico indio, sí, y es consenso léxico. Pero <b>la formulación absoluta es falsa</b>, y hay que decirlo antes de que lo diga un germanista: la palabra germánica —<i>soul</i>, <i>Seele</i>— no procede del aliento, y su origen es desconocido; y <i>psychē</i>, aunque su etimología apunte quizá al soplo, nunca significó «aliento» en griego. La versión corregida es más fuerte que la original, no más débil: muestra que el vocabulario europeo del alma se construyó <b>traduciendo</b>, no por una intuición autóctona.</div>
+</div>
+
+<p>Y esa excepción, bien mirada, <strong>refuerza la tesis en vez de debilitarla</strong>. Si
+las lenguas germánicas tenían una palabra propia para el alma cuyo origen no es el aliento, y
+sin embargo el vocabulario europeo del alma acabó siendo el del aliento, es porque
+<strong>ese vocabulario se construyó traduciendo</strong>. Etymonline lo registra con
+precisión: el uso más antiguo de <em>spirit</em> en inglés procede sobre todo de pasajes de
+la Vulgata, donde la palabra latina traduce el griego <em>pneuma</em> y el hebreo
+<em>ruaḥ</em>. Y en la teología cristiana de época imperial, <em>spiritus</em> desplazó a
+<em>animus</em> como equivalente habitual de <em>pneuma</em>.</p>
+
+<p>El vocabulario europeo del alma no nace de una intuición autóctona. Nace en el acto de
+traducir la Biblia.</p>
+
+<div class="wall">
+  <div class="post min">
+    <div class="who">Hebreo</div>
+    <div class="what"><i>nefesh</i> · <i>ruaḥ</i> · <i>neshamah</i></div>
+    <p>Garganta; viento y aliento sin línea divisoria; lo que entra por la nariz. <b>Del aliento.</b></p>
+  </div>
+  <div class="post min">
+    <div class="who">Acadio</div>
+    <div class="what"><i>napištu</i></div>
+    <p>Vida, aliento, garganta — las tres cosas, como en hebreo. La misma raíz semítica. <b>Del aliento.</b></p>
+  </div>
+  <div class="post min">
+    <div class="who">Árabe</div>
+    <div class="what"><i>nafs</i> · <i>rūḥ</i></div>
+    <p>La misma raíz que <i>nefesh</i>; y <i>rūḥ</i> comparte raíz con <i>rīḥ</i>, «viento», en el propio Corán. <b>Del aliento.</b></p>
+  </div>
+  <div class="post min">
+    <div class="who">Latín</div>
+    <div class="what"><i>anima</i> · <i>spiritus</i></div>
+    <p><i>Spiritus</i>, de <i>spirare</i>, respirar; <i>anima</i>, cognada del griego <i>ánemos</i>, «viento». <b>Del aliento.</b> Aunque de Vaan sugiere que <i>spirare</i> podría ser onomatopéyico y sin cognados confirmados.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Sánscrito</div>
+    <div class="what"><i>ātman</i></div>
+    <p>En el Ṛgveda todavía significa «aliento»; de ahí a «alma», a «sí mismo» y a «alma del mundo». Cognado del alemán <i>Atem</i>. <b>Del aliento.</b></p>
+  </div>
+  <div class="post mid">
+    <div class="who">Griego</div>
+    <div class="what"><i>pneuma</i> · <i>psychē</i></div>
+    <p><i>Pneuma</i>, de <i>pnein</i>, soplar: es la etimología más segura del cuadro. Pero <b><i>psychē</i> nunca significó «aliento» en griego, ni siquiera en Homero</b>, aunque su etimología pueda apuntar al soplo. <b>Excepción de uso.</b></p>
+  </div>
+  <div class="post mid">
+    <div class="who">Germánico</div>
+    <div class="what"><i>saiwalō</i> · <i>soul</i> · <i>Seele</i></div>
+    <p><b>Origen desconocido.</b> Pfeifer, en dos palabras: <i>Herkunft unbekannt</i>. Las dos hipótesis —derivación de «mar», palabra tabú— no convencen a los lexicógrafos. <b>Excepción entera.</b></p>
+  </div>
+</div>
+
+<div class="secnum">02</div><h2>El islam, con el mismo rigor</h2>
+
+<figure>
+  <img src="coran-kufico.jpg" data-alt="coran-samarcanda.jpg|coran-cufico.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Lámina de un Corán en escritura cúfica">
+  <figcaption>Edición fototípica de San Petersburgo, 1905, del Corán cúfico de Samarcanda. Museo Nacional de Tartaristán. Conviene decirlo: la lámina es de 1905, no del siglo VIII. En el texto coránico, <em>rūḥ</em> («espíritu», 21 veces) y <em>rīḥ</em> («viento», 29) no son palabras parecidas: son la misma raíz. <span class="cr">Fotografía de Viacheslav Kirilin, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</span></figcaption>
+</figure>
+
+<p>El Corán da un caso de laboratorio para lo anterior, porque ahí la identidad léxica está
+en la superficie del texto y no hay que reconstruir nada. La raíz <em>r-w-ḥ</em> aparece
+cincuenta y siete veces, y entre sus derivados están <strong><em>rūḥ</em>, «espíritu»,
+veintiuna veces, y <em>rīḥ</em>, «viento», veintinueve</strong>. No son palabras parecidas:
+son la misma raíz. El árabe coránico no necesita metaforizar el aliento para hablar del
+espíritu.</p>
+
+<p>Y <em>nafs</em> —la raíz <em>n-f-s</em> aparece doscientas noventa y ocho veces— tampoco es
+un término técnico de psicología dualista. Cubre al menos cuatro valores: alma, persona
+individual, «sí mismo» en función reflexiva, y esencia interior. En muchísimos pasajes es
+simplemente el pronombre reflexivo. Es <em>nefesh</em> otra vez, y no por casualidad: es la
+misma raíz semítica.</p>
+
+<p>Sobre el <strong><em>barzaj</em></strong>, el supuesto estado intermedio islámico, conviene
+mirar el texto antes que los manuales. La palabra aparece <strong>tres veces</strong> en el
+Corán, y en dos de ellas designa una barrera física entre dos masas de agua, sin ningún
+contenido escatológico. Solo la tercera, en 23,100, tiene valor escatológico — y ahí el
+contexto es la súplica del moribundo, «déjame volver, para que haga el bien», y la respuesta
+es que no: <strong>detrás de ellos hay un <em>barzaj</em> hasta el día en que sean
+resucitados</strong>.</p>
+
+<p>Gramaticalmente, en el Corán el <em>barzaj</em> es <strong>lo que impide el paso, no un
+lugar donde se está</strong>. Es una barrera, no un limbo. Esta es la tesis de George Archer,
+y es la lectura filológicamente más económica.</p>
+
+<p>Pero hay que dar la objeción, porque es buena y es de un arabista competente. Ramon Harvey
+le señala a Archer cuatro problemas, y uno es concreto y decisivo: Archer sostiene que la
+interacción de los ángeles con los muertos es posterior al Corán, pero <strong>las aleyas 8,50
+y 6,93 muestran ángeles actuando en el momento de la muerte</strong>. La línea entre Corán y
+tradición no es tan limpia como el argumento requiere.</p>
+
+<p>Con el <strong>castigo de la tumba</strong> —<em>ʿadhāb al-qabr</em>— la estratigrafía es
+más nítida, y hay consenso. En el Corán <strong>no hay ninguna aleya que lo enseñe de manera
+explícita</strong>. Los textos que la teología sunní adujo son inferencias: sobre todo 40,46,
+donde la gente del Faraón es expuesta al Fuego «mañana y tarde» <em>antes</em> de la Hora. El
+material abundante y gráfico —los dos ángeles Munkar y Nakīr que interrogan al muerto, el
+interrogatorio, el premio y el castigo en la tumba— <strong>es de hadiz, no coránico</strong>.</p>
+
+<div class="aviso">
+  <div class="t">Cómo se cita mal el barzaj, y la objeción que hay que dar</div>
+  <p>El <em>barzaj</em> aparece <strong>tres veces</strong> en el Corán, y en dos de ellas es una barrera física entre dos masas de agua. La única aleya con valor escatológico es 23,100, y ahí es lo que <em>impide</em> volver, no un lugar donde se está. La transformación del <em>barzaj</em> en estado intermedio habitado —con almas separadas, ángeles, interrogatorio y castigo antes de la resurrección— es desarrollo posterior; es la tesis de George Archer, y es la lectura filológicamente más económica.<br><br><strong>Pero hay que dar la objeción de Ramon Harvey</strong>, porque es de un arabista competente y es concreta: Archer sostiene que la interacción de ángeles con los muertos es pos-coránica, y sin embargo las aleyas 8,50 y 6,93 muestran ángeles actuando en el momento de la muerte. La línea entre Corán y tradición no es tan limpia como el argumento necesita. Harvey le reprocha además apoyarse en historiografía superada y ser inconsistente sobre la oralidad. Damos la tesis y damos la objeción.</p>
+</div>
+
+<div class="secnum">03</div><h2>Un andalusí en el concilio de Letrán</h2>
+
+<figure>
+  <img src="averroes-bonaiuto.jpg" data-alt="averroes.jpg|triunfo-santo-tomas.jpg|bonaiuto.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Fresco del Triunfo de santo Tomás con Averroes vencido a sus pies">
+  <figcaption>Andrea di Bonaiuto, <em>El triunfo de santo Tomás</em>, 1366-67, Santa Maria Novella, Florencia. Averroes es la figura vencida a los pies del santo. Su tesis del intelecto único —que excluye la inmortalidad personal individual— es una de las que Letrán V tiene delante en 1513. <span class="cr">Santa Maria Novella, Florencia, Dominio público.</span></figcaption>
+</figure>
+
+<p>Y hay un hilo que conviene ver entero, porque cierra un círculo de esta serie.</p>
+
+<p><strong>Ibn Rushd</strong> —Averroes, muerto en 1198— sostuvo que el intelecto material es
+una sustancia <strong>única, separada y eterna</strong>, compartida por todos los seres
+humanos. Era consciente de la audacia: dice haber llegado a esa tesis «después de larga
+reflexión e intenso cuidado», y no haberla visto en nadie antes que él.</p>
+
+<p>La consecuencia es la que importa aquí: si la individuación del alma depende del cuerpo,
+al morir el cuerpo <strong>no queda inmortalidad personal individual</strong>. Lo que queda de
+cada uno se envuelve en el único Intelecto Agente.</p>
+
+<p>Sus comentarios a Aristóteles se traducen al latín en Toledo y en el sur de Italia en los
+siglos XII y XIII, y se convierten en material curricular. En la década de 1260 la
+<em>unicitas intellectus</em> es ya el punto caliente de París; Tomás de Aquino escribe contra
+ella en 1270. Y en 1513, Letrán V define que el alma es inmortal <strong>y</strong> que se
+multiplica, una por cada cuerpo.</p>
+
+<p>La conjunción de los dos miembros no es casual: «inmortal de suyo» excluye la mortalidad
+del alma, y «una por cada cuerpo» excluye el intelecto único. Lo que se define en Roma en
+1513 se define, entre otras cosas, contra una tesis formulada en Córdoba tres siglos
+antes.</p>
+
+<p>Con una cautela historiográfica obligatoria, que ya dimos en la entrega anterior y que
+repetimos aquí porque es donde más tienta el atajo: <strong>«Letrán V condenó el averroísmo»
+es una simplificación que la investigación reciente discute</strong>. La opinión corriente
+sitúa el blanco inmediato en Pomponazzi y los aristotélicos seculares, y Eric Constant
+sostiene que el objetivo era en realidad la doctrina de la doble verdad. Lo defendible es
+esto: Letrán V definió la inmortalidad del alma <em>en un contexto en que el averroísmo
+latino era una de las posiciones en liza</em>.</p>
+
+<div class="secnum">04</div><h2>La palabra en castellano</h2>
+
+<figure>
+  <img src="avicena.jpg" data-alt="ibn-sina.jpg|avicenna.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Retrato de Avicena">
+  <figcaption>Avicena (Ibn Sīnā, m. 1037), reproducción fotomecánica de 1952. U.S. National Library of Medicine, B029612. Su <em>Kitāb al-Nafs</em> se traduce al latín en el siglo XII y entra en las facultades de artes europeas: el alma inmaterial e inmortal llega a la escolástica también por vía árabe. <span class="cr">U.S. National Library of Medicine, Sin restricciones conocidas.</span></figcaption>
+</figure>
+
+<p>Queda la última pieza, que es la nuestra. <em>Alma</em> viene del latín <em>anima</em>, y
+la propia Real Academia marca el sentido inmortal como culturalmente condicionado: lo define
+como «en algunas religiones y culturas, sustancia espiritual e inmortal de los seres
+humanos». Es un detalle pequeño y dice bastante.</p>
+
+<p>Y una corrección que hay que hacer aquí, porque circula mucho: <strong><em>anima</em> no
+viene del griego <em>ánemos</em></strong>. Son cognados: las dos descienden independientemente
+de una raíz indoeuropea que significa «respirar». Dicho de otro modo, <em>anima</em> y
+«viento» son la misma palabra indoeuropea en dos lenguas.</p>
+
+<div class="trad" id="trad">
+  <span class="tk">Pieza interactiva &middot; cuadro comparado de traducciones</span>
+  <h3>Un vers&iacute;culo, doce decisiones</h3>
+  <p class="ts">Mateo 10,28 es el vers&iacute;culo que la teolog&iacute;a popular considera la prueba
+  escritur&iacute;stica del alma separable: los perseguidores pueden matar el cuerpo, pero no
+  <i>eso otro</i>. Si alguna vez el castellano iba a decir &laquo;alma&raquo;, es aqu&iacute;. Estas son doce
+  versiones castellanas, cotejadas una a una. Pulsa cualquiera.</p>
+  <div class="tr-gr"><div class="gl">El griego</div><div class="gt">μὴ φοβεῖσθε ἀπὸ τῶν ἀποκτεννόντων τὸ σῶμα, τὴν δὲ <b>ψυχὴν</b> μὴ δυναμένων ἀποκτεῖναι</div></div>
+  <div class="tr-rej"><button type="button" class="tr-v" data-id="rvr60"><span class="vn">Reina-Valera <span class="va">1960</span></span><span class="vw" style="background:#5d666c">alma</span></button>
+  <button type="button" class="tr-v" data-id="lbla"><span class="vn">La Biblia de las Américas <span class="va">1986</span></span><span class="vw" style="background:#5d666c">alma</span></button>
+  <button type="button" class="tr-v" data-id="bj"><span class="vn">Biblia de Jerusalén <span class="va">1967 / rev. 1998</span></span><span class="vw" style="background:#5d666c">alma</span></button>
+  <button type="button" class="tr-v" data-id="nvi"><span class="vn">Nueva Versión Internacional <span class="va">1999</span></span><span class="vw" style="background:#5d666c">alma</span></button>
+  <button type="button" class="tr-v" data-id="dhh"><span class="vn">Dios habla hoy <span class="va">1966 / rev. 1994</span></span><span class="vw" style="background:#5d666c">el alma</span></button>
+  <button type="button" class="tr-v" data-id="rvc"><span class="vn">Reina Valera Contemporánea <span class="va">2011</span></span><span class="vw" style="background:#5d666c">alma</span></button>
+  <button type="button" class="tr-v" data-id="ntv"><span class="vn">Nueva Traducción Viviente <span class="va">2010</span></span><span class="vw" style="background:#5d666c">el alma</span></button>
+  <button type="button" class="tr-v" data-id="blp"><span class="vn">La Palabra <span class="va">2010</span></span><span class="vw" style="background:#5d666c">alma</span></button>
+  <button type="button" class="tr-v" data-id="bti"><span class="vn">Traducción Interconfesional <span class="va">2008</span></span><span class="vw" style="background:#5d666c">alma</span></button>
+  <button type="button" class="tr-v" data-id="btx"><span class="vn">Biblia Textual <span class="va">3.ª ed.</span></span><span class="vw" style="background:#5d666c">alma</span></button>
+  <button type="button" class="tr-v" data-id="tla"><span class="vn">Traducción en lenguaje actual <span class="va">2000</span></span><span class="vw" style="background:#7a4550">la vida</span></button>
+  <button type="button" class="tr-v" data-id="nbe"><span class="vn">Nueva Biblia Española <span class="va">1975</span></span><span class="vw" style="background:#7a4550">la vida</span></button></div>
+  <div class="tr-det" id="trdet" aria-live="polite"></div>
+  <div class="tr-cata"><h4>Génesis 2,7</h4><p class="or">נֶפֶשׁ חַיָּה · <i>nefesh ḥayyah</i></p><div class="fl"><span class="ch"><i style="background:#5d666c"></i><b>Reina-Valera 1909</b> &middot; alma viviente</span><span class="ch"><i style="background:#7a4550"></i><b>Reina-Valera 1960</b> &middot; ser viviente</span><span class="ch"><i style="background:#7a4550"></i><b>La Biblia de las Américas</b> &middot; ser viviente</span><span class="ch"><i style="background:#7a4550"></i><b>Nueva Biblia Española</b> &middot; ser vivo</span><span class="ch"><i style="background:#7a4550"></i><b>Biblia de Nuestro Pueblo</b> &middot; ser vivo</span></div><p>Aquí la fila se rompe en la dirección contraria, y es importante decirlo: <b>casi todas las versiones modernas ya se han apartado del calco</b>. La Reina-Valera de 1909 decía «y fue el hombre <i>en</i> alma viviente», calcando el latín hasta en la preposición; la de 1960 ya dice «un ser viviente». En este versículo no estamos peleando con nadie: la corrección ya está hecha. Lo que no se ha hecho es sacar la consecuencia.</p></div>
+  <div class="tr-cata"><h4>1 Tesalonicenses 5,23</h4><p class="or">πνεῦμα καὶ ψυχὴ καὶ σῶμα</p><div class="fl"><span class="ch"><i style="background:#5d666c"></i><b>Biblia Textual</b> &middot; espíritu, alma y cuerpo</span><span class="ch"><i style="background:#7a4550"></i><b>Nueva Biblia Española</b> &middot; entera persona, alma y cuerpo</span></div><p>El versículo con el que se ha construido la antropología tricotómica —espíritu, alma y cuerpo como tres piezas— y que Pablo escribe como una fórmula de bendición, no como un tratado.<br><br><b>Y aquí una advertencia que va en la pieza porque corresponde:</b> la lectura de la Nueva Biblia Española parece romper la tríada, pero el cotejo se hizo sobre una edición en línea y <b>no permite decidir</b> si traduce πνεῦμα por «entera persona» o si colapsa πνεῦμα y ψυχή en un solo término. Está pendiente de comprobar contra la edición impresa. Lo decimos en vez de rellenar la casilla.</p></div>
+  <div class="tr-pie"><b>2 de 12.</b> Diez versiones dicen &laquo;alma&raquo; y dos no.
+  Y las dos que no lo dicen no lo evitan por descuido: la Nueva Biblia Espa&ntilde;ola toma <b>dos</b>
+  decisiones en el mismo vers&iacute;culo &mdash;ni &laquo;alma&raquo; ni &laquo;infierno&raquo;&mdash; y las dos van en la misma
+  direcci&oacute;n. Lo que este cuadro muestra no es que diez traductores se equivoquen: es que
+  <b>traducir es decidir</b>, que la decisi&oacute;n mayoritaria est&aacute; tomada desde hace siglos, y que
+  cuando alguien la toma al rev&eacute;s hace falta un m&eacute;todo declarado para sostenerla.</div>
+</div>
+
+<p>Sobre las decisiones de la Nueva Biblia Española hay que añadir una advertencia de método.
+Lo que está verificado son <strong>las decisiones de traducción mismas</strong>, cotejadas
+versículo a versículo. Lo que <em>no</em> hemos encontrado es una declaración explícita de
+Schökel o de Mateos sobre la palabra «alma» en particular, ni en el prólogo ni en
+<em>La traducción bíblica</em>. De modo que la formulación correcta es que las decisiones de
+la NBE muestran un criterio consistente — no que la NBE declare haberlo adoptado.</p>
+
+<p>Y hay una coincidencia cronológica que conviene mencionar con cuidado. La Nueva Biblia
+Española es de 1975. En 1979, la Congregación para la Doctrina de la Fe publica una carta
+sobre escatología en la que hace dos movimientos distintos. Uno es ontológico: afirma la
+subsistencia, después de la muerte, de «un elemento espiritual» dotado de conciencia y
+voluntad, de modo que subsiste el mismo «yo» humano. El otro es <strong>lexicográfico</strong>:
+justifica la palabra «alma» no por su adecuación conceptual, sino por estar
+<strong>«consagrada por el uso de la Sagrada Escritura»</strong>.</p>
+
+<p>Es un dato extraordinario para una serie sobre la historia de una palabra: la propia
+autoridad doctrinal reconoce implícitamente que «alma» es un término cuyo uso hay que
+defender, y no algo evidente por sí mismo. Y hay que decirlo <em>sin sarcasmo</em>, porque la
+Congregación está haciendo exactamente lo que un cuerpo doctrinal debe hacer: proteger la
+continuidad de un vocabulario compartido. <strong>Y no afirmamos causalidad</strong>: no
+tenemos ninguna evidencia de que la carta apunte a Schökel ni a ninguna traducción concreta.
+La cronología es sugerente y se queda en eso.</p>
+
+<div class="secnum">05</div><h2>Dos cosas que hay que decir antes de terminar</h2>
+
+<p>La primera tiene nombre técnico y conviene darlo. Si alguien concluye de estas seis
+entregas que el alma no existe, ha cometido una <strong>falacia genética</strong>: inferir la
+falsedad de una afirmación a partir de su origen. Que podamos documentar cómo y cuándo entró
+en el pensamiento judío y cristiano la idea de un alma inmortal <strong>no dice absolutamente
+nada sobre si existe</strong>. La historia de una idea y su verdad son dos cuestiones
+distintas, y esta serie solo ha tratado la primera.</p>
+
+<p>Vale también en la dirección contraria, y eso se dice menos: que una doctrina tenga una
+formación histórica larga y accidentada no la desacredita. Todas la tienen.</p>
+
+<p>La segunda es sobre el estado actual del debate, y aquí hay que poner las dos manos sobre
+la mesa. <strong>La antropología unitaria —«el alma que no estaba»— fue el consenso de una
+generación de investigadores, y la siguiente lo está reabriendo.</strong></p>
+
+<p>El mapa, sin tomar partido. Del lado monista o fisicalista no reductivo están Joel Green,
+Nancey Murphy y, con matices distintos, N. T. Wright, para quienes <em>nefesh</em> y
+<em>psychē</em> designan a la criatura viva entera y «alma» es una traducción anacrónica. Del
+lado del dualismo holístico están John Cooper, Jonathan Loose y Brandon Rickabaugh, y sus
+argumentos no son de relleno.</p>
+
+<p>Rickabaugh sostiene tres cosas que hay que recoger. Que el léxico funcional no decide la
+ontología: hablar de personas y no de almas no prueba que las personas no sean almas
+encarnadas. Que «dualismo platónico» es un hombre de paja, porque los dualistas históricos no
+llegaron a su posición tapando huecos explicativos, sino por argumentos positivos sobre la
+conciencia. Y —este es el más fuerte— que la antropología hebrea <strong>es compatible</strong>
+con el dualismo, y que hay pensamiento dualista <em>dentro</em> de marcos judíos: la Sabiduría
+de Salomón es el caso claro, y el propio Wright lo reconoce.</p>
+
+<p>Sobre el argumento neurocientífico hay además una crítica formulada desde dentro del campo
+no dualista, la de Lynne Rudder Baker: la correlación entre estados mentales y estados
+cerebrales no establece identidad, y confundir mecanismo con fenómeno es un error de
+categoría.</p>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Lo que es <span class="k">consenso</span>: las etimologías de <em>anima</em>, <em>spiritus</em>, <em>pneuma</em>, <em>ruaḥ</em>, <em>nafs</em> y <em>ātman</em>; que <em>anima</em> y <em>ánemos</em> son cognados y no deriva una de otra; que <em>rūḥ</em> y <em>rīḥ</em> comparten raíz en el Corán; que el origen del germánico <em>saiwalō</em> es desconocido; que <em>psychē</em> nunca significó «aliento»; y que el Corán no enseña explícitamente el castigo de la tumba.</p>
+  <p>Lo que está en <span class="k">debate abierto</span>: si <em>spirare</em> es onomatopéyico y sin cognados, como sugiere de Vaan; cuál de los dos sentidos de <em>psýchō</em> es primario; si «garganta» es el sentido más primitivo de la raíz <em>n-p-š</em> o una especialización; la lectura del <em>barzaj</em> como barrera y no como lugar; y —el gran debate— si la antropología bíblica es monista o admite un dualismo holístico.</p>
+  <p>Dos cosas <span class="k">no verificadas</span> que decimos en vez de callar. <strong>No encontramos una declaración explícita de Schökel o de Mateos sobre la palabra «alma»</strong>, ni en el prólogo de la Nueva Biblia Española ni en <em>La traducción bíblica</em>: lo verificado son las decisiones de traducción mismas, no una doctrina declarada sobre ese término. Y la lectura de 1 Tesalonicenses 5,23 en la NBE, que parece romper la tríada, se cotejó sobre una edición en línea que no permite decidir si traduce <em>pneuma</em> por «entera persona» o si colapsa dos términos: queda pendiente de comprobar contra la edición impresa.</p>
+  <p>Y una <span class="k">coincidencia que no convertimos en causa</span>. La Nueva Biblia Española es de 1975; la carta de la Congregación para la Doctrina de la Fe que defiende la palabra «alma» por estar «consagrada por el uso de la Sagrada Escritura» es de 1979. La cronología es sugerente. <strong>No tenemos ninguna evidencia de que la carta apunte a Schökel ni a ninguna traducción concreta</strong>, y afirmarlo sería especulación.</p>
+</div>
+
+<p>Y una última honestidad, que es la que este blog debe a quien lo lea hasta aquí:
+<strong>los dos bandos tienen intereses teológicos</strong>. Los monistas suelen querer una
+escatología centrada en la resurrección y en la creación. Los dualistas suelen querer sostener
+la oración por los difuntos, el estado intermedio y la continuidad personal. Ninguno de los
+dos llega al texto sin agenda, y eso no descalifica a ninguno: es la situación normal de la
+exégesis, y nosotros tampoco estamos fuera de ella.</p>
+
+<div class="secnum">06</div><h2>Lo que queda</h2>
+
+<p>Al final de seis entregas, lo que se sostiene es más modesto y más firme que el título de
+la serie.</p>
+
+<p>Se sostiene que en la Biblia hebrea no hay un término que signifique «sustancia inmaterial,
+individual, separable y superviviente por naturaleza». Se sostiene que había una garganta, un
+aliento, un pecho que decidía y unos riñones que se examinaban. Se sostiene que el Sheol no
+tenía juicio ni fuego, y que la tumba familiar sí tenía comida. Se sostiene que el estado
+intermedio es apocalíptico judío y no griego, y que 1 Enoc 22 es anterior a Daniel 12. Se
+sostiene que Pablo no tenía una doctrina del alma y sí un problema. Se sostiene que los
+concilios definieron durante dos siglos qué les pasa a las almas antes de definir qué son, y
+que lo segundo ocurrió el 19 de diciembre de 1513.</p>
+
+<p>Y no se sostiene —porque no se puede— que de todo eso se siga nada sobre si el alma
+existe.</p>
+
+<p><strong>«El alma que no estaba» es el título de una tesis, no el enunciado de un
+hecho.</strong> Es la tesis mayoritaria, está bien fundada, y está siendo discutida ahora
+mismo por gente competente. Lo que esta serie ha intentado no es cerrar esa discusión, sino
+poner sobre la mesa lo que hay que saber para seguirla: las fechas, los textos, y qué se
+puede firmar y qué no.</p>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p><strong>Etimologías.</strong> Wolfgang Pfeifer, <em>Etymologisches Wörterbuch des
+  Deutschen</em>, s.v. «Seele» (DWDS) · Etymonline, s.vv. «anima», «spirit», «psyche», «pneuma»,
+  «soul» · Robert Beekes, <em>Etymological Dictionary of Greek</em> · Michiel de Vaan,
+  <em>Etymological Dictionary of Latin</em> · <em>Diccionario de la lengua española</em>, RAE,
+  s.v. «alma».</p>
+  <p><strong>Islam.</strong> Quranic Arabic Corpus, raíces <em>n-f-s</em> y <em>r-w-ḥ</em> ·
+  Muhammad Faruque, «The Self (nafs)», <em>St Andrews Encyclopaedia of Theology</em>, 2024 ·
+  P. E. Laffoon, <em>The Qurʾanic Word Rūḥ and Its Restricted Interpretations</em>, University
+  of Birmingham, 2019 · George Archer, <em>A Place Between Two Places: The Qurʾānic
+  Barzakh</em>, Gorgias Press, 2017, con la reseña de Ramon Harvey en <em>Journal of Islamic
+  Studies</em> 30/3 (2019) 406 ss. · Jane I. Smith y Yvonne Y. Haddad, <em>The Islamic
+  Understanding of Death and Resurrection</em>, SUNY, 2002 · <em>Stanford Encyclopedia of
+  Philosophy</em>, s.vv. «Ibn Rushd» y «Arabic and Islamic Psychology».</p>
+  <p><strong>Biblias castellanas.</strong> Luis Alonso Schökel y Juan Mateos, <em>Nueva Biblia
+  Española</em>, Ediciones Cristiandad, 1975 · Luis Alonso Schökel y Eduardo Zurro, <em>La
+  traducción bíblica. Lingüística y estilística</em>, Cristiandad, 1977 · Javier del Barco,
+  «Alonso Schökel, Luis», <em>Portal Digital de Historia de la Traducción en España</em>.</p>
+  <p><strong>El debate actual.</strong> John W. Cooper, <em>Body, Soul, and Life
+  Everlasting</em>, Eerdmans, 1989, y «Exaggerated Rumors of Dualism's Demise»,
+  <em>Philosophia Christi</em> 11/2 (2009) 453-464 · Joel B. Green, <em>Body, Soul, and Human
+  Life</em>, Baker, 2008 · Nancey Murphy, <em>Bodies and Souls, or Spirited Bodies?</em>,
+  Cambridge University Press, 2006 · Brandon L. Rickabaugh, «Responding to N. T. Wright's
+  Rejection of the Soul», <em>The Heythrop Journal</em> (2016) · Jonathan J. Loose, «Biblical
+  Anthropology is Holistic and Dualistic», en <em>The Blackwell Companion to Substance
+  Dualism</em>, Wiley-Blackwell, 2018, 411-426 · Lynne Rudder Baker, sobre el uso de la
+  neurociencia.</p>
+  <p><strong>Magisterio.</strong> Pío XII, <em>Humani generis</em>, 12 de agosto de 1950 ·
+  Congregación para la Doctrina de la Fe, «Carta sobre algunas cuestiones referentes a la
+  escatología», 17 de mayo de 1979.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+(function(){
+  var D={"rvr60": {"v": "Reina-Valera", "an": "1960", "c": "alma", "q": "La versión de referencia de esta casa, y la de la mayoría del mundo protestante de habla castellana: «mas el <b>alma</b> no pueden matar»."}, "lbla": {"v": "La Biblia de las Américas", "an": "1986", "c": "alma", "q": "Mantiene «alma» de manera sistemática en todos los pasajes de esta serie, con una sola excepción: Génesis 2,7, donde pone «ser viviente»."}, "bj": {"v": "Biblia de Jerusalén", "an": "1967 / rev. 1998", "c": "alma", "q": "La versión católica de referencia en España. Cotejada expresamente para este versículo."}, "nvi": {"v": "Nueva Versión Internacional", "an": "1999", "c": "alma", "q": "Cotejada expresamente para este versículo."}, "dhh": {"v": "Dios habla hoy", "an": "1966 / rev. 1994", "c": "alma", "q": "Y esto es un dato en sí mismo: una versión de equivalencia dinámica, pensada para que se entienda, que en otros pasajes <b>sí</b> se aparta del calco —en el Salmo 16,10 pone «no me dejarás en el sepulcro», sin «alma»— y aquí, en cambio, lo conserva."}, "rvc": {"v": "Reina Valera Contemporánea", "an": "2011", "c": "alma", "q": "Igual que Dios habla hoy: prescinde de «alma» en el Salmo 16,10 y la mantiene aquí."}, "ntv": {"v": "Nueva Traducción Viviente", "an": "2010", "c": "alma", "q": "Y en el Salmo 16,10 tampoco se aparta: «no dejarás <b>mi alma</b> entre los muertos»."}, "blp": {"v": "La Palabra", "an": "2010", "c": "alma", "q": "Traducción interconfesional reciente, cotejada expresamente para este versículo."}, "bti": {"v": "Traducción Interconfesional", "an": "2008", "c": "alma", "q": "Cotejada expresamente para este versículo."}, "btx": {"v": "Biblia Textual", "an": "3.ª ed.", "c": "alma", "q": "Una versión que declara como criterio la fidelidad al texto base. También aquí, «alma» — y también en 1 Tesalonicenses 5,23."}, "tla": {"v": "Traducción en lenguaje actual", "an": "2000", "c": "otra", "q": "La primera de las dos que rompen la fila: «no pueden matar <b>la vida</b> que está en…». Una versión pensada para lectores sin formación bíblica previa, que decide que «alma» no comunica lo que el griego dice."}, "nbe": {"v": "Nueva Biblia Española", "an": "1975", "c": "otra", "q": "Luis Alonso Schökel y Juan Mateos. «Tampoco tengan miedo de los que matan el cuerpo pero no pueden matar <b>la vida</b>; teman si acaso al que puede acabar con vida y cuerpo en <b>el fuego</b>.»<br><br><b>Y ahí hay una segunda decisión en el mismo versículo:</b> γέεννα no se traduce «el infierno», sino «<b>el fuego</b>». La misma versión que se niega a decir «alma» se niega a decir «infierno», y las dos negativas van juntas. Desmonta a la vez el alma separable y el infierno topográfico.<br><br>Schökel formalizó su método en <i>La traducción bíblica. Lingüística y estilística</i> (1977): el literalismo estricto «en muchas ocasiones traiciona, paradójicamente, el significado de los textos originales»."}}, C={"alma": ["Dice «alma»", "#5d666c"], "otra": ["No dice «alma»", "#7a4550"]};
+  var caja=document.getElementById('trad'), det=document.getElementById('trdet');
+  if(!caja||!det) return;
+  function show(id){
+    var d=D[id];
+    caja.querySelectorAll('.tr-v').forEach(function(b){b.classList.toggle('on',b.dataset.id===id);});
+    var c=C[d.c];
+    det.innerHTML='<div class="dl" style="color:'+c[1]+'">'+c[0]+'  \u00b7  '+d.an+'</div>'+
+      '<h4>'+d.v+'</h4><p>'+d.q+'</p>';
+    det.style.borderLeftColor=c[1];
+  }
+  caja.querySelectorAll('.tr-v').forEach(function(b){
+    b.addEventListener('click',function(){show(b.dataset.id);});
+  });
+  show('nbe');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#54626b">↑ <a href="serie-alma.html" style="color:#54626b">Serie: El alma que no estaba</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="alma-5.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#54626b">El alma se define en 1513</span></a>
+    <a class="epnav-btn next" href="serie-alma.html"><span class="lbl">Fin de la serie</span><span class="ttl" style="color:#54626b">Volver al índice</span></a>
+  </div>
+</nav>
+</body></html>

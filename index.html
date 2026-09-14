@@ -97,6 +97,9 @@
   .cap-reyes{background:linear-gradient(90deg,#3a3a2a,#5a5230,#a89a5e)}
   .cap-diablo{background:linear-gradient(90deg,#1a1418,#5c1f26,#c9743f)}
   .cap-pecado{background:linear-gradient(90deg,#231c26,#4a2f3a,#a87a6a)}
+  /* El unico cap que termina en un tono palido y frio: los dieciseis
+     existentes terminan en ocre, oro o color saturado. */
+  .cap-alma{background:linear-gradient(90deg,#20262b,#54626b,#c3cdd2)}
   .cap-especial{background:linear-gradient(90deg,#2d4a7a,#d4a13a,#c06a3a)}
   .scard .body{padding:1.8rem 1.8rem 2rem}
   .scard .snum{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#8a7a5e;margin-bottom:.6rem;display:flex;justify-content:space-between}
@@ -161,8 +164,12 @@
   .about .wrap{max-width:720px;text-align:center}
   .about h3{font-size:1.6rem;font-weight:400;color:#fff;margin-bottom:1.2rem}
   .about p{color:#d9cfba;font-size:1.05rem;margin-bottom:1rem}
-  .about .key{color:var(--gold);font-style:italic}
-  footer{text-align:center;padding:3rem 0;color:#8a7a5e;font-size:.82rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  /* El oro de la paleta da 3,49:1 sobre el tramo claro del degradado de
+     .about. Aqui se aclara a #d8b661 (4,73:1 en el peor punto). La variable
+     --gold no se toca: en la linea de tiempo se usa como FONDO, no como texto. */
+  .about .key{color:#d8b661;font-style:italic}
+  /* #8a7a5e daba 3,65:1 sobre pergamino, por debajo de AA. */
+  footer{text-align:center;padding:3rem 0;color:#77694f;font-size:.82rem;font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
   footer .glyph{color:var(--clay);font-size:1rem}
 
   /* series page header */
@@ -194,9 +201,11 @@
   .idxgroup h2 .em{font-style:italic}
   .idxrow{display:flex;align-items:baseline;gap:.8rem;padding:.7rem 0;text-decoration:none;color:inherit;border-bottom:1px dotted rgba(180,150,100,.4)}
   .idxrow:hover{color:var(--clay-deep)}
-  .idxrow .r{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;color:#8a7a5e;min-width:2.2rem}
+  /* #8a7a5e daba 3,65:1 y #a0906c 2,74:1 sobre pergamino. Los numeros romanos
+     y el rotulo de formato son texto, no adorno: tienen que pasar AA. */
+  .idxrow .r{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;color:#726245;min-width:2.2rem}
   .idxrow .t{font-size:1.05rem;flex:1}
-  .idxrow .k{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#a0906c;text-transform:uppercase;letter-spacing:.06em}
+  .idxrow .k{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#726245;text-transform:uppercase;letter-spacing:.06em}
   .idxrow.soon{opacity:.5}
   @media(max-width:600px){.ep{grid-template-columns:auto 1fr;gap:.9rem}.ep .chev{display:none}header.hero{padding:14vh 0 2vh}.idxrow .k{display:none}}
 
@@ -269,7 +278,7 @@
   .m-row .bar{align-self:stretch;border-radius:3px;min-height:34px}
   .m-row .tt{font-size:1.02rem;color:#3a3320;line-height:1.3}
   .m-row .tt .em{font-style:italic}
-  .m-row .cc{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#7a6a4a;white-space:nowrap}
+  .m-row .cc{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#726245;white-space:nowrap}
   .m-row .cc.soon{font-style:italic}
   /* Edición especial: dentro de su banda, con el dorado de «pieza única» que ya
      usa la tarjeta .scard-especial. Ocupa la fila entera de la retícula. */
@@ -296,7 +305,7 @@
   }
 </style></head><body>
 <div class="topbar">
-  <a class="home" href="index.html"><span class="glyph">✦</span> Estratos</a>
+  <a class="home" href="index.html"><span class="glyph" aria-hidden="true">✦</span> Estratos</a>
   <a class="alllink" href="indice.html">Ver todos los artículos</a>
 </div>
 <header class="hero"><div class="wrap">
@@ -309,19 +318,19 @@
 <div class="lo-ultimo">
   <div class="lu-lab"><span>Lo último</span><i></i></div>
   <div class="lu">
-    <div class="cap cap-pecado"></div>
+    <div class="cap cap-alma"></div>
     <div class="lu-body">
       <div class="lu-main">
-        <span class="lk" style="color:#4a2f3a">Tercera etapa · Recién completada</span>
-        <h2>La invención del <span class="em" style="color:#4a2f3a">pecado</span></h2>
-        <p>El pecado original no está en el Génesis. Es una doctrina que se construyó en cuatro siglos, con materiales judíos, una práctica bautismal, un pronombre griego ambiguo y el género gramatical de una palabra latina. Seis entregas siguiendo cómo se hizo.</p>
-        <a class="go" style="color:#4a2f3a" href="serie-pecado.html">Ver la serie completa <span class="arrow">→</span></a>
+        <span class="lk" style="color:#54626b">Tercera etapa · Recién completada</span>
+        <h2>El <span class="em" style="color:#54626b">alma</span> que no estaba</h2>
+        <p>El castellano «alma» hace un trabajo que ninguna palabra de los textos originales hacía. No hay en la Biblia hebrea un término que signifique sustancia inmaterial, separable y superviviente por naturaleza: hay una garganta, un aliento, un pecho que decide y unos riñones que se examinan. Seis entregas siguiendo cómo se formó la entidad que hoy llamamos alma — y una advertencia: la historia de una idea no decide su verdad.</p>
+        <a class="go" style="color:#54626b" href="serie-alma.html">Ver la serie completa <span class="arrow">→</span></a>
       </div>
       <div class="lu-side">
         <div class="sl">Últimas entregas</div>
-        <a href="pecado-4.html"><span class="n" style="color:#4a2f3a">IV</span><span class="t">Agustín, y lo que no dijo</span></a>
-        <a href="pecado-5.html"><span class="n" style="color:#4a2f3a">V</span><span class="t">El expediente de un condenado</span></a>
-        <a href="pecado-6.html"><span class="n" style="color:#4a2f3a">VI</span><span class="t">Oriente, Trento y el siglo XX</span></a>
+        <a href="alma-4.html"><span class="n" style="color:#54626b">IV</span><span class="t">El intervalo que nadie había previsto</span></a>
+        <a href="alma-5.html"><span class="n" style="color:#54626b">V</span><span class="t">El alma se define en 1513</span></a>
+        <a href="alma-6.html"><span class="n" style="color:#54626b">VI</span><span class="t">Todas las palabras son aliento</span></a>
       </div>
     </div>
   </div>
@@ -333,7 +342,7 @@
       <div class="mtop">
         <span class="mk">Tercera etapa</span>
         <h3>La biografía de las ideas</h3>
-        <span class="mn">2 series · 12 entregas</span>
+        <span class="mn">3 series · 18 entregas</span>
       </div>
       <p class="md">Ni por cronología ni por yacimientos: siguiendo una sola idea a través del tiempo y de las culturas, para ver dónde nació de verdad y qué se le fue pegando por el camino.</p>
     </div>
@@ -341,6 +350,11 @@
       <a class="m-row" href="serie-diablo.html">
         <span class="bar" style="background:linear-gradient(180deg,#5c1f26,#8f3a3f)"></span>
         <span class="tt">¿De dónde viene el <span class="em" style="color:#5c1f26">diablo</span>?</span>
+        <span class="cc">6 entregas</span>
+      </a>
+      <a class="m-row" href="serie-alma.html">
+        <span class="bar" style="background:linear-gradient(180deg,#54626b,#68767f)"></span>
+        <span class="tt">El <span class="em" style="color:#54626b">alma</span> que no estaba</span>
         <span class="cc">6 entregas</span>
       </a>
       <a class="m-row" href="serie-pecado.html">
@@ -450,5 +464,5 @@
   <h3>Sobre este blog</h3>
   <p>Aquí se explora la historia de las religiones del Cercano Oriente con enfoque <span class="key">histórico-crítico</span>: no para afirmar ni negar creencias, sino para entender cómo se formaron los textos y las ideas sobre lo divino.</p>
 </div></div>
-<footer><span class="glyph">✦</span><br>Estratos · Historia de las religiones del Cercano Oriente</footer>
+<footer><span class="glyph" aria-hidden="true">✦</span><br>Estratos · Historia de las religiones del Cercano Oriente</footer>
 </body></html>

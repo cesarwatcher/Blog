@@ -1,0 +1,561 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un segundo Dios — Estratos</title>
+<meta name="description" content="Justino Mártir sitúa a Cristo «en el segundo lugar» y lo llama «otro Dios». Teófilo estrena la palabra «tríada» para Dios, su Logos y su Sofía. Y Tertuliano forja el vocabulario trinitario latino dentro de una polémica.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4c2c60;--mid:#704e86;--pale:#5a3d70;
+    --rel:#8a4a2a;--exc:#4c2c60;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #5f4a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#5f4a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#5f4a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(90,61,112,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#5f4a72}
+  figcaption .cr a{color:#5a3d70;text-decoration:underline;text-decoration-color:rgba(90,61,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a3d70}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#cdc0d8,#9b86ad 42%,#704e86 70%,#4c2c60)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#704e86}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2dae8,#cdc0d8);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#5f4a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#5f4a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .puno{width:min(1040px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,140,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .puno .pk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .puno h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .puno .ps{font-size:.98rem;color:#4a4450;margin:0 0 1.2rem;max-width:68ch}
+
+  .pu-cab{display:grid;grid-template-columns:minmax(0,1.15fr) 120px minmax(0,2fr);
+    gap:.6rem;padding:0 .25rem .35rem;border-bottom:2px solid var(--mid);margin-bottom:.2rem}
+  .pu-cab .h{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;font-weight:700;
+    letter-spacing:.05em;color:var(--deep)}
+  .pu-cab .h span{display:block;font-weight:400;font-size:.63rem;letter-spacing:0;
+    color:#5a5464;margin-top:.15rem}
+
+  .pu-fila{display:grid;grid-template-columns:minmax(0,1.15fr) 120px minmax(0,2fr);
+    gap:.6rem;width:100%;text-align:left;background:transparent;border:0;
+    border-bottom:1px solid rgba(120,110,132,.3);padding:.7rem .25rem;cursor:pointer;
+    align-items:center;font-family:inherit;color:inherit;transition:background .2s}
+  .pu-fila:hover{background:rgba(255,255,255,.45)}
+  .pu-fila.on{background:rgba(255,255,255,.72)}
+  .pu-fila .nm{font-size:1rem;color:#2f2a38;line-height:1.3}
+  .pu-fila .nm b{font-weight:400;display:block;font-family:"Trebuchet MS",sans-serif;
+    font-size:.66rem;color:#5a5464;margin-top:.15rem}
+  .pu-fila .ind{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;
+    color:#7a2f3a;text-align:center}
+
+  .pu-bar{position:relative;height:30px;background:rgba(255,255,255,.5);
+    border:1px solid rgba(120,110,132,.35);border-radius:6px;overflow:hidden}
+  .pu-bar i{position:absolute;top:0;bottom:0;left:0;display:block}
+  .pu-bar .adv{background:linear-gradient(90deg,#8d7fa0,#6b5b80)}
+  .pu-bar .pro{background:var(--deep);border-right:2px solid #1c1420}
+  /* El rotulo de la barra vacia se pintaba directamente sobre la barra del
+     adversario, y cuando esa barra ocupa todo el ancho —Praxeas, los
+     ebionitas— caia sobre el violeta y daba 1,86:1. Ahora lleva su propio
+     fondo: el contraste se mide contra el, no contra lo que haya debajo. */
+  .pu-bar .vac{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.62rem;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;color:#7a2f3a;
+    background:rgba(255,255,255,.94);border:1px solid rgba(122,47,58,.4);
+    border-radius:4px;padding:.12rem .4rem;white-space:nowrap;max-width:calc(100% - 12px);
+    overflow:hidden;text-overflow:ellipsis}
+  .pu-cifra{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;color:#4a4450;
+    margin-top:.25rem;line-height:1.4}
+  .pu-cifra b{color:var(--deep)}
+
+  .pu-det{margin-top:1.3rem;background:#fbf9fb;border:1px solid rgba(120,110,132,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:10rem}
+  .pu-det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;margin-bottom:.28rem;color:var(--pale)}
+  .pu-det h4{font-size:1.1rem;font-weight:400;color:var(--deep);margin:0 0 .5rem}
+  .pu-det p{font-size:.95rem;color:#3d3847;margin:0;line-height:1.62}
+  .pu-det i{font-style:italic}
+
+  .pu-leyenda{display:flex;flex-wrap:wrap;gap:1.1rem;margin:1rem 0 .2rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#4a4450}
+  .pu-leyenda span{display:flex;align-items:center;gap:.4rem}
+  .pu-leyenda em{width:14px;height:11px;border-radius:2px;display:inline-block}
+
+  .pu-pie{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(120,110,132,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4450;line-height:1.6}
+  .pu-pie b{color:var(--deep)}
+
+  @media(max-width:760px){
+    .pu-cab{display:none}
+    .pu-fila{grid-template-columns:1fr;gap:.35rem}
+    .pu-fila .ind{text-align:left}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Cómo Jesús se convirtió en Dios · Entrega III</span>
+  <h1>Un <span class="em">segundo</span> Dios</h1>
+  <div class="glifos"><span>ἐν δευτέρᾳ χώρᾳ</span><span class="sep">·</span><span class="tr">en segundo lugar</span><span class="sep">·</span><span>τριάς</span><span class="sep">·</span><span class="tr">tríada</span></div>
+  <p class="stand">En el siglo II casi todos sostenían algo que después se llamará herejía — y varios de ellos son hoy santos.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">Hacia el año ciento cincuenta, un filósofo convertido escribe en Roma una
+defensa del cristianismo dirigida al emperador. Explica por qué los cristianos adoran a
+Jesucristo, y lo explica así: lo tienen «en segundo lugar», y al Espíritu profético «en tercer
+rango».</p>
+
+<p>El filósofo se llama Justino, morirá mártir y la Iglesia lo cuenta entre sus santos. Y la
+frase que acaba de escribir, si la escribiera doscientos años después, lo pondría del lado
+equivocado de una frontera.</p>
+
+<div class="secnum">01</div><h2>El segundo lugar, y el tercer rango</h2>
+
+<p>Conviene mirar el griego, porque Justino usa <strong>dos palabras distintas</strong> y las
+traducciones suelen fundirlas en una. Al Hijo lo tiene <em>en deutéra chóra</em>, en segundo
+<em>lugar</em>; al Espíritu <em>en trítē táxei</em>, en tercer <em>rango</em>. No es una
+repetición: es una graduación, con dos términos tomados del vocabulario filosófico de su
+tiempo.</p>
+
+<p>Y no es una ocurrencia aislada, porque Justino <strong>aplica el mismo esquema a
+Platón</strong> unas páginas más adelante, en la misma obra. Es decir: está usando una
+estructura de graduación que ya existía, no inventando una cristiana.</p>
+
+<p>En el <em>Diálogo con Trifón</em> va más lejos. Sostiene, contra un interlocutor judío, que
+«hay, y se dice que hay, <strong>otro Dios y Señor</strong> bajo el Hacedor de todas las
+cosas»; que el que apareció a Abrahán, a Jacob y a Moisés es distinto del que hizo todas las
+cosas; y precisa cómo de distinto: <strong>«numéricamente, digo, no en voluntad»</strong>. El
+principio que sostiene todo el argumento lo formula al final de la obra: lo engendrado es
+numéricamente distinto del que engendra.</p>
+
+<figure>
+  <img src="justino-teofanes.jpg" data-alt="justino-martir.jpg|justino.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Fresco de Justino Mártir, de pie y con rollo, pintado por Teófanes el Cretense">
+  <figcaption><strong>Justino Mártir</strong>, por Teófanes el Cretense, 1545-46. Y conviene leer la fecha dos veces: no es un icono portátil sino un fresco del katholikón del monasterio de Stavronikita, en el Monte Athos, pintado <em>mil cuatrocientos años después</em> de la muerte del retratado. Nadie sabe qué cara tenía Justino. Ésta se la puso un cretense del siglo XVI. <span class="cr">Teófanes el Cretense, monasterio de Stavronikita, Dominio público.</span></figcaption>
+</figure>
+
+<p>¿Es esto subordinacionismo? Depende de a quién se pregunte, y conviene no resolverlo de un
+brochazo. Hay quien lee la ordenación como subordinación <em>económica</em> —de función en la
+historia de la salvación—, no ontológica, dado que Justino sostiene a la vez la preexistencia
+del Logos. Y hay quien sostiene, con el mismo texto delante, que el esquema de Justino
+sencillamente <strong>no es trinitario</strong>. Las dos lecturas son defendibles y la
+discusión sigue viva. Lo que no se discute es la frase.</p>
+
+<p>Por eso esta entrega se llama como se llama. En el siglo II, decir que Cristo es un segundo
+dios no era una provocación: era <strong>una manera disponible de decirlo</strong>, y la usaba
+un hombre que murió por su fe y a quien nadie acusó de nada.</p>
+
+<div class="secnum">02</div><h2>Un vocabulario que nace peleando</h2>
+
+<p>La palabra «Trinidad» tiene fecha de nacimiento, o al menos su antepasado griego la tiene.
+Hacia el año ciento ochenta, Teófilo de Antioquía escribe que los tres días anteriores a la
+creación de los astros son figuras de la <em>triás</em>. Es el primer uso conservado del
+término.</p>
+
+<p><strong>Y conviene leer la frase entera, porque dice algo distinto de lo que se le hace
+decir.</strong> La tríada de Teófilo es «Dios, su Logos y su Sofía». No es Padre, Hijo y
+Espíritu Santo: es Dios, su palabra y su sabiduría, una estructura de origen sapiencial judío
+y filosófico. Decir que Teófilo usó por primera vez la palabra «Trinidad» es literalmente
+cierto sobre el término y <strong>engañoso sobre el referente</strong>.</p>
+
+<p>En latín, el responsable es Tertuliano, y lo que hizo exactamente merece precisión. Fue, que
+conste, el primero en usar <em>trinitas</em> de forma atestiguada — aunque como el griego
+<em>triás</em> ya existía desde Teófilo, unas tres décadas antes, lo más probable es que
+calcara el griego y no que inventara de la nada. <em>Substantia</em> y <em>persona</em> no las
+acuñó: son palabras latinas corrientes que él <strong>reespecializó</strong>.</p>
+
+<p>Y hay que desmentir una cita que todo el mundo le atribuye. <strong>La fórmula «una
+substantia, tres personae» no aparece como tal en <em>Adversus Praxean</em>.</strong> Lo que
+hay es «de una sola sustancia» y «una sola sustancia en tres que se adhieren». La fórmula
+canónica es una destilación posterior de Tertuliano, no una frase suya. Si la ve
+entrecomillada como cita, está mal puesta.</p>
+
+<p>Pero el dato que de verdad importa de Tertuliano no es terminológico, sino de género.
+<strong>Todo ese vocabulario nace dentro de una polémica.</strong> <em>Adversus Praxean</em>
+es, como su nombre indica, un ataque; y el vocabulario trinitario latino se forja ahí, en el
+calor de una discusión contra alguien, no en una confesión de fe redactada en frío. La
+sentencia que abre el tratado da el tono: Práxeas hizo en Roma dos obras del diablo, «puso en
+fuga al Paráclito y crucificó al Padre».</p>
+
+<figure>
+  <img src="tertuliano-cristo.jpg" data-alt="tertuliano.jpg|tertulliano.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Grabado del siglo XVI que representa a Tertuliano">
+  <figcaption><strong>Tertuliano</strong>, grabado de <em>Des vrais pourtraits et vies des hommes illustres</em>, de André Thévet, París, 1584. Pequeño hallazgo doméstico: es el mismo libro y el mismo año de donde salieron los retratos de Justino, Tertuliano y Orígenes en «El alma que no estaba». Nadie sabía qué cara tenían, se la puso un taller parisino en un solo año, y ese taller lleva ya dos series amueblando la iconografía de este blog. <span class="cr">André Thévet, 1584, Dominio público.</span></figcaption>
+</figure>
+
+<p>De esa frase sale la etiqueta <em>patripasianismo</em> —«el Padre padeció»—, que los latinos
+usaron contra sus adversarios modalistas. Es un apodo acuñado en una pelea, y como tantos
+apodos acuñados en peleas, acabó siendo el nombre oficial de una doctrina en los manuales.</p>
+
+<div class="secnum">03</div><h2>El otro extremo del campo</h2>
+
+<p>Enfrente de los que ponían a Cristo en segundo lugar estaban los que no querían poner nada
+en segundo lugar: los monarquianos, así llamados porque defendían la <em>monarquía</em>, el
+gobierno único, de Dios. Y venían en dos variedades incompatibles entre sí.</p>
+
+<p>La <strong>dinámica o adopcionista</strong>: Jesús nació hombre, y en él habitó el Logos o
+descendió el Espíritu en el bautismo. Un hombre que llegó a ser Dios, no Dios hecho hombre. La
+sostuvieron Teodoto el Curtidor, excomulgado en Roma hacia el 190 —y de quien se cuenta que
+negó a Cristo en la persecución alegando que solo negaba «a un hombre»—; Teodoto el Banquero,
+que añadió una especulación sobre Melquisedec como potencia celeste; un tal Artemón, de cuya
+doctrina <strong>apenas se sabe nada</strong>; y, el más importante, Pablo de Samosata, obispo
+de Antioquía.</p>
+
+<p>La <strong>modalista</strong>: Padre e Hijo son <em>modos</em> de una sola persona. La
+sostuvieron Noeto de Esmirna, Práxeas y Sabelio, y es la que atrajo el apodo del Padre
+crucificado.</p>
+
+<p>Y aquí hay que hacer una advertencia metodológica que vale para todo el párrafo anterior.
+<strong>Todo ese cuadro procede de herejiólogos hostiles</strong>, y buena parte de él de una
+sola obra perdida —el <em>Syntagma</em> de Hipólito— reconstruida a partir de tres epítomes.
+Las fuentes no son independientes entre sí: en gran medida son una sola fuente vista tres
+veces.</p>
+
+<p>Lo del caso de Pablo de Samosata merece contarse entero, porque casi nunca se cuenta.
+Un sínodo lo depuso en 268 o 269. <strong>Y la deposición no se ejecutó.</strong> Pablo
+conservó la residencia episcopal unos cuatro años más bajo la protección de Zenobia de
+Palmira, y solo la perdió a finales del 272, cuando Aureliano derrotó a Palmira y un tribunal
+imperial —apoyándose en el dictamen de los obispos de Italia y de Roma— le ordenó entregar la
+sede. Es, que se sepa, el <strong>primer caso documentado de un poder imperial todavía pagano
+arbitrando una disputa doctrinal cristiana</strong>. Cuarenta años antes de Constantino.</p>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">Justino, h. 155</div>
+    <div class="what"><i>1 Apolog&iacute;a</i> 13</div>
+    <p>A Cristo lo tiene <b>«en segundo lugar»</b> y al Esp&iacute;ritu prof&eacute;tico «en tercer rango». Dos palabras griegas distintas, <i>ch&oacute;ra</i> y <i>t&aacute;xis</i>, que casi todas las traducciones funden en una.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Justino, <i>Di&aacute;logo</i> 56</div>
+    <div class="what">Contra un interlocutor jud&iacute;o</div>
+    <p>Hay «<b>otro Dios y Se&ntilde;or</b> bajo el Hacedor de todas las cosas», distinto de &eacute;l «<b>num&eacute;ricamente, digo, no en voluntad</b>».</p>
+  </div>
+  <div class="post min">
+    <div class="who">Te&oacute;filo, h. 180</div>
+    <div class="what"><i>A Aut&oacute;lico</i> II,15</div>
+    <p>Primer uso conservado de <i>tri&aacute;s</i>. Y la tr&iacute;ada es <b>«Dios, su Logos y su Sof&iacute;a»</b>, no Padre, Hijo y Esp&iacute;ritu Santo.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Tertuliano, h. 213</div>
+    <div class="what"><i>Adversus Praxean</i> 1,5</div>
+    <p>Pr&aacute;xeas «puso en fuga al Par&aacute;clito y <b>crucific&oacute; al Padre</b>». De esta frase sale la etiqueta <i>patripasianismo</i>.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Tertuliano, 12,7</div>
+    <div class="what">La f&oacute;rmula que no dijo</div>
+    <p>Escribe «<b>una sola sustancia en tres que se adhieren</b>». <b>«Una substantia, tres personae» no est&aacute; en el tratado</b>: es una destilaci&oacute;n posterior.</p>
+  </div>
+</div>
+
+<div class="secnum">04</div><h2>Y de casi todos ellos, nada</h2>
+
+<p>Hasta aquí la entrega ha ido nombrando posiciones y atribuyéndolas a personas. Toca decir
+sobre qué base.</p>
+
+<p>De Noeto no se conserva ninguna obra: hay siete frases puestas en su boca dentro del tratado
+que lo refuta, y cada una es una sola frase. De Práxeas no se conserva una palabra, y su
+existencia histórica está en duda. De Sabelio, ninguna obra; lo que hay son citas y paráfrasis
+en cuatro adversarios distintos. De los ebionitas, siete citas dentro del <em>Panarion</em> de
+Epifanio — y nada más en el mundo.</p>
+
+<p>Esto se puede decir, y se ha dicho muchas veces. Lo que no se ha hecho, que yo sepa, es
+<strong>medirlo</strong>.</p>
+
+<div class="puno" id="puno">
+  <span class="pk">Pieza interactiva &middot; lo que se conserva de su pu&ntilde;o</span>
+  <h3>Una balanza con dos pesos reales</h3>
+  <p class="ps">No es una valoraci&oacute;n: es una <b>proporci&oacute;n</b>. Para cada posici&oacute;n derrotada, la
+  pieza pone en la misma escala cu&aacute;nto texto se conserva escrito <b>por</b> ella y cu&aacute;nto se
+  conserva escrito <b>contra</b> ella. La columna de la izquierda es la que importa, y est&aacute;
+  entera a cero. Pulsa cualquier fila.</p>
+
+  <div class="pu-cab">
+    <div class="h">Posici&oacute;n condenada<span>Y cu&aacute;ndo se la combate</span></div>
+    <div class="h">Obras de transmisi&oacute;n<br>independiente<span>Sin pasar por el adversario</span></div>
+    <div class="h">La proporci&oacute;n<span>P&aacute;ginas de edici&oacute;n cr&iacute;tica, en la misma escala</span></div>
+  </div>
+  <button type="button" class="pu-fila" data-id="noeto"><span class="nm">Noeto de Esmirna<b>c. 200</b></span><span class="ind">0</span><span><div class="pu-bar"><i class="adv" style="width:42.73%"></i><i class="pro" style="width:0.350%"></i></div><span class="pu-cifra"><b>Siete frases en estilo directo.</b> Frente a Hipólito: <i>Refutatio</i> 542 pp. + <i>Contra Noetum</i> 155 pp.</span></span></button>
+  <button type="button" class="pu-fila" data-id="praxeas"><span class="nm">Práxeas<b>c. 200-210</b></span><span class="ind">0</span><span><div class="pu-bar"><i class="adv" style="width:100.00%"></i><span class="vac">nada de su mano</span></div><span class="pu-cifra"><b>Nada. Ni una palabra.</b> Frente a Tertuliano: 31 tratados, CCSL 1 (726 pp.) + CCSL 2 (905 pp.)</span></span></button>
+  <button type="button" class="pu-fila" data-id="sabelio"><span class="nm">Sabelio<b>c. 215-220</b></span><span class="ind">0</span><span><div class="pu-bar"><span class="vac">disperso en cuatro adversarios</span></div><span class="pu-cifra"><b>Citas y paráfrasis dispersas.</b> Frente a Hipólito, Epifanio, Atanasio y Novaciano: Cuatro adversarios distintos, ninguna obra propia</span></span></button>
+  <button type="button" class="pu-fila" data-id="ebionitas"><span class="nm">Los ebionitas<b>s. II-IV</b></span><span class="ind">0</span><span><div class="pu-bar"><i class="adv" style="width:91.97%"></i><i class="pro" style="width:0.350%"></i></div><span class="pu-cifra"><b>Siete citas, todas dentro del <i>Panarion</i>.</b> Frente a Epifanio de Salamina: Solo el <i>Panarion</i>: c. 1.500 pp. en la edición de Holl, GCS</span></span></button>
+  <button type="button" class="pu-fila" data-id="pablo"><span class="nm">Pablo de Samosata<b>268-272</b></span><span class="ind">0</span><span><div class="pu-bar"><i class="adv" style="width:91.97%"></i><i class="pro" style="width:0.920%"></i></div><span class="pu-cifra"><b>Quince páginas de selección crítica, con introducción y notas.</b> Frente a Eusebio y Epifanio: La carta sinodal en <i>HE</i> VII,30; <i>Panarion</i> 65</span></span></button>
+  <button type="button" class="pu-fila" data-id="arrio"><span class="nm">Arrio<b>318-336</b></span><span class="ind">0</span><span><div class="pu-bar"><i class="adv" style="width:52.12%"></i><i class="pro" style="width:0.613%"></i></div><span class="pu-cifra"><b>Tres cartas y unas ochenta líneas en disputa.</b> Frente a Atanasio: 76 obras auténticas en la <i>Clavis</i>; &gt;850 pp. publicadas y la edición sin terminar</span></span></button>
+
+  <div class="pu-leyenda">
+    <span><em style="background:var(--deep)"></em> lo suyo</span>
+    <span><em style="background:#6b5b80"></em> lo de quien lo transmite</span>
+    <span style="color:#7a2f3a">&mdash; barra vac&iacute;a: no se conserva nada de su mano</span>
+  </div>
+
+  <div class="pu-det" id="pudet" aria-live="polite"></div>
+
+  <div class="pu-pie"><b>C&oacute;mo est&aacute; medido, para que se pueda discutir.</b> No existe una unidad
+  com&uacute;n entre corpus griegos y latinos editados en siglos distintos, as&iacute; que la medida son
+  <b>p&aacute;ginas de edici&oacute;n cr&iacute;tica</b>, que es el dato m&aacute;s defendible porque es cat&aacute;logo editorial
+  verificable. Comparar p&aacute;ginas del <i>Corpus Christianorum</i> con p&aacute;ginas de la
+  <i>Griechische christliche Schriftsteller</i> vale como <b>orden de magnitud y no como medida
+  exacta</b>: los formatos y la densidad tipogr&aacute;fica difieren. Donde la cifra incluye
+  introducci&oacute;n y traducci&oacute;n, est&aacute; dicho en el detalle, porque redondear a mi favor ser&iacute;a hacer
+  trampa.<br><br>
+  <b>La suma.</b> Solo entre Tertuliano, Epifanio e Hip&oacute;lito se conservan m&aacute;s de <b>tres mil
+  seiscientas p&aacute;ginas</b> de edici&oacute;n cr&iacute;tica. De las 6 posiciones derrotadas de esta tabla
+  &mdash;siglo y medio de discusiones&mdash; no se llega a cincuenta, <b>y 6 de las 6 tienen
+  cero obras de transmisi&oacute;n independiente</b>.<br><br>
+  <b>Y la honradez obliga a a&ntilde;adir lo contrario</b>, que casi nunca se a&ntilde;ade: tambi&eacute;n se perdi&oacute;
+  parte del corpus de los vencedores. El <i>Syntagma</i> de Hip&oacute;lito &mdash;su obra herejiol&oacute;gica
+  anterior, y la fuente de Epifanio para los teodocianos&mdash; <b>est&aacute; perdido</b>, y solo se
+  reconstruye por ep&iacute;tomes. La asimetr&iacute;a no es absoluta. Es, simplemente, masiva.</div>
+</div>
+
+<div class="secnum">05</div><h2>Lo que esto no autoriza a concluir</h2>
+
+<p>Tres cosas, y conviene decirlas antes de que la entrega se use para lo que no sirve.</p>
+
+<p>La primera: <strong>que las fuentes vengan de los vencedores no las invalida</strong>. Son
+las que hay, y con ellas se trabaja. Lo que obliga es a distinguir, en cada caso, entre lo que
+un autor dice de sí mismo y lo que su adversario dice de él. Un historiador que descarte a
+Epifanio porque es parte interesada se queda sin historia.</p>
+
+<p>La segunda: <strong>que alguien haya sido caricaturizado no significa que tuviera
+razón</strong>. Sabelio puede haber sido mal entendido y seguir estando equivocado. Las dos
+cosas son compatibles y el error de confundirlas es tan grande como el contrario.</p>
+
+<p>Y la tercera, que es la que de verdad importa para la serie: <strong>en el siglo II no había
+todavía un dentro y un fuera</strong>. Justino diciendo «otro Dios», Teófilo con su tríada de
+Dios, su palabra y su sabiduría, Tertuliano forjando el latín trinitario en una pelea, los
+monarquianos defendiendo que Dios es uno de verdad — todo eso ocurre en el mismo campo, y
+ninguno de ellos se veía a sí mismo como el margen de nada. Las fronteras llegan después, y
+cuando llegan dejan fuera a gente que llevaba cien años dentro.</p>
+
+<figure>
+  <img src="fractio-panis-priscila.jpg" data-alt="fractio-panis.jpg|catacumba-priscila.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Fresco de una comida con varias figuras sentadas, en la catacumba de Priscila">
+  <figcaption>La <em>fractio panis</em> —la fracción del pan— en la «capilla griega» de la <strong>catacumba de Priscila</strong>, Roma, siglos II-IV. Siete figuras reclinadas alrededor de una mesa. Es cristianismo del siglo II sin un solo dogma encima: ni naturalezas, ni sustancias, ni personas. Solo gente comiendo. <span class="cr">Catacumba de Priscila, Roma, Dominio público.</span></figcaption>
+</figure>
+
+<p>La primera la traza un concilio reunido en 325, y la entrega siguiente es sobre el hombre
+que quedó del otro lado.</p>
+
+<div class="meter">
+  <div class="q">¿Es firme que en el siglo II convivían posiciones que después serían condenadas?</div>
+  <div class="bar"><span class="pin" style="left:95%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Lo es, y se comprueba con los propios textos de los autores que después serán santos: Justino en el segundo lugar y el otro Dios; Teófilo con una tríada que no es la trinitaria; Tertuliano forjando el vocabulario en una polémica. Donde hay <i>debate abierto</i> no es en el hecho sino en cómo describirlo: si la ordenación de Justino es subordinación económica u ontológica se discute con los mismos textos delante y sin acuerdo. Y hay un segundo foco de discusión, menos visible: <b>qué enseñaron realmente</b> Sabelio y Práxeas, dado que todo lo que sabemos de ellos pasa por Tertuliano e Hipólito, y los propios especialistas advierten que pueden haberlos tergiversado.</div>
+</div>
+
+<div class="aviso">
+  <div class="t">Una obra perdida que lo condiciona todo</div>
+  <p>Buena parte de lo que sabemos de los monarquianos viene del <em>Syntagma</em> de Hipólito, su tratado herejiológico anterior a la <em>Refutatio</em>. <strong>El <em>Syntagma</em> está perdido.</strong> Se reconstruye a partir de tres epítomes posteriores —el pseudo-Tertuliano, Filastrio y Epifanio—, lo que significa que las tres fuentes que parecen confirmarse entre sí <strong>no son independientes</strong>: en gran medida son la misma fuente vista tres veces.<br><br>Y esto tiene una segunda lectura, que la pieza de esta entrega recoge y que conviene no olvidar: <strong>también se perdió parte del corpus de los vencedores</strong>. La asimetría entre lo que se conserva de unos y de otros no es absoluta. Es, simplemente, masiva.</p>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <span class="k">consenso</span> que Justino sitúa al Hijo en segundo lugar y al Espíritu en tercer rango y que llama a Cristo «otro Dios»; que el primer uso conservado de <em>triás</em> es de Teófilo de Antioquía hacia 180 y se refiere a Dios, su Logos y su Sofía; que Tertuliano es el primer testigo latino de <em>trinitas</em>; y que de Noeto, Práxeas, Sabelio, Pablo de Samosata y los ebionitas no se conserva ninguna obra de transmisión independiente.</p>
+  <p>Está en <span class="k">debate abierto</span> si la ordenación de Justino es subordinación económica u ontológica; si Tertuliano <em>acuñó</em> <em>trinitas</em> o calcó el griego de Teófilo —hay quien sostiene que el término ya circulaba antes de él—; y si Práxeas fue una persona real, un apodo de otro, o una figura retórica construida por Tertuliano para tener a quien refutar.</p>
+  <p>Dos <span class="k">correcciones a lo que suele leerse</span>, y las doy expresamente porque las he visto repetidas en obras serias. La primera: «una substantia, tres personae» <strong>no es una cita de Tertuliano</strong>; es una destilación posterior, y el texto latino de <em>Adversus Praxean</em> dice otras cosas. La segunda: la tríada de Teófilo no es la trinitaria, y presentarla como el primer testimonio de la Trinidad cambia el referente sin cambiar la palabra.</p>
+  <p>Y la <span class="k">condición de método</span> que esta entrega pone en forma de medida, por si la pieza no la dejó clara: que las fuentes vengan de los vencedores no las invalida, y que alguien fuera caricaturizado no lo convierte en acertado. Las dos cosas hay que decirlas juntas o no decir ninguna.</p>
+</div>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p><strong>Textos.</strong> Justino, <em>1 Apología</em> 13 y 60, y <em>Diálogo con
+  Trifón</em> 56, 62-63, 128 y 129; edición griega de Denis Minns y Paul Parvis, Oxford
+  University Press, 2009, y de Miroslav Marcovich, PTS 47, De Gruyter, 1997 · Teófilo de
+  Antioquía, <em>A Autólico</em> II,15 · Tertuliano, <em>Adversus Praxean</em> 1; 2,4; 3,1;
+  11,9; 12, texto latino en CCSL 2, Brepols, 1954 · Hipólito, <em>Contra Noetum</em>, ed. Robert
+  Butterworth, Heythrop Monographs 2, Londres, 1977, y <em>Refutatio omnium haeresium</em>, ed.
+  Miroslav Marcovich, PTS 25, De Gruyter, 1986 · Epifanio, <em>Panarion</em> 30, 54, 55, 57, 62
+  y 65, ed. Karl Holl, GCS, 1915-1933 · Eusebio, <em>Historia eclesiástica</em> V,28 y
+  VII,27-30.</p>
+  <p><strong>Estudios.</strong> Stuart E. Parsons, «Very Early Trinitarian Expressions»,
+  <em>Tyndale Bulletin</em> 65/1 (2014) 141-152 · W. H. Oliver, «The praxis of <em>Adversus
+  Praxeam</em>: Tertullian's views on the Trinity», <em>Verbum et Ecclesia</em> 42/1 (2021) ·
+  Friedrich Loofs, <em>Paulus von Samosata</em>, TU 44/5, Leipzig, 1924 · Henri de Riedmatten,
+  <em>Les actes du procès de Paul de Samosate</em>, Paradosis 6, Friburgo, 1952 · E. Fiano, M.
+  Papazian y M. DelCogliano, «Paul of Samosata, Selected Fragments», en M. DelCogliano (ed.),
+  <em>The Cambridge Edition of Early Christian Writings</em> II, Cambridge University Press,
+  2022, 197-211.</p>
+  <p><strong>Para la medida de la pieza.</strong> Las cifras de páginas proceden de catálogo
+  editorial: CCSL 1 y 2 para Tertuliano (Brepols, 1954); Holl, GCS, para el <em>Panarion</em>;
+  Marcovich, PTS 25 (1986), para la <em>Refutatio</em>; Butterworth (1977) para el <em>Contra
+  Noetum</em>; Ehrman y Pleše, <em>The Apocryphal Gospels</em>, Oxford University Press, 2011,
+  210-215, para el evangelio ebionita; <em>Athanasius Werke</em> I-III para Atanasio. Las
+  comparaciones valen como orden de magnitud y no como medida exacta, y así se dice dentro de la
+  pieza.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+
+(function(){
+  var D={"noeto": {"n": "Noeto de Esmirna", "l": "c. 200", "t": "De Noeto no se conserva <b>ninguna obra</b>. Lo que hay son <b>siete frases</b> puestas en su boca, en estilo directo, dentro del <i>Contra Noetum</i> de Hipólito — un tratado de dieciocho capítulos escrito para refutarlo. Cada una de las siete es <b>una sola frase</b>; la tesis central que se le atribuye —que Cristo era el Padre mismo— ni siquiera aparece como cita: está en estilo indirecto.<br><br>Las cifras del vehículo: la <i>Refutatio omnium haeresium</i> ocupa 542 páginas en la edición de Marcovich (PTS 25, De Gruyter, 1986); el <i>Contra Noetum</i>, 155 en la de Butterworth (1977), <b>y esas 155 incluyen introducción, texto griego y traducción</b>. Lo digo porque inflar la cifra del adversario sería hacer trampa en mi propio favor."}, "praxeas": {"n": "Práxeas", "l": "c. 200-210", "t": "<b>El caso límite, y conviene mirarlo despacio.</b> De Práxeas no se conserva una sola palabra. Tertuliano dice que firmó una retractación por escrito, pero ese documento ya no estaba disponible para los lectores posteriores. La fuente es <i>Adversus Praxean</i> y prácticamente nada más.<br><br>Y hay algo peor, o mejor, según se mire: <b>su existencia histórica está en duda</b>. Se ha propuesto que «Práxeas» sea apodo o seudónimo de otro —Calixto, Epigonio—, y se ha propuesto también que sea una <i>persona</i> retórica construida por el propio Tertuliano para tener a quien refutar. Hay quien sostiene que los argumentos que Tertuliano combate son más bien los de Epigonio y Cleómenes.<br><br>De modo que tenemos mil seiscientas treinta y una páginas de edición crítica de un autor cuyo adversario quizá no existió. <b>Esa desproporción es el objeto de esta pieza.</b>"}, "sabelio": {"n": "Sabelio", "l": "c. 215-220", "t": "De Sabelio <b>no se conserva ninguna obra</b>. Hay que decirlo con cuidado, porque las referencias corrientes se contradicen: unas dicen «no sobrevive nada de sus escritos» y otras «sobreviven unos pocos fragmentos». <b>La formulación segura es la primera</b>: lo que existe son citas y paráfrasis dentro de cuatro adversarios —Hipólito en la <i>Refutatio</i> IX-X, Epifanio en el <i>Panarion</i> 62, Atanasio en <i>Contra Arianos</i> IV y Novaciano en <i>De Trinitate</i> 12—.<br><br>De Epifanio procede la analogía del sol que todo el mundo cita como «de Sabelio»: un solo cuerpo con tres operaciones, forma, luz y calor. Es la imagen que el heresiólogo eligió para explicar lo que combatía.<br><br>Los propios especialistas advierten que <b>se discute qué enseñaron realmente Sabelio y Práxeas</b>, y que Tertuliano e Hipólito pueden haberlos tergiversado. No es una sospecha moderna de sobremesa: es la posición normal de la investigación."}, "ebionitas": {"n": "Los ebionitas", "l": "s. II-IV", "t": "<b>Ésta es la barra que da sentido a la pieza entera.</b><br><br>El llamado <i>Evangelio de los Ebionitas</i> existe <b>únicamente</b> como citas dentro del <i>Panarion</i> de Epifanio, y todas en el mismo capítulo, el 30, que es el dedicado a combatirlos. Son <b>siete</b>, en <i>Pan.</i> 30,13,2-3; 30,13,4; 30,13,6; 30,13,7-8; 30,14,5; 30,16,4-5 y 30,22,4.<br><br>Y una precisión que no me puedo ahorrar: <b>el número siete es convencional</b>. Es el recuento estándar —el de Vielhauer y Strecker en Schneemelcher— pero depende de dónde se trace el límite de cada cita; hay editores que ordenan distinto y hay quien parte el cuarto fragmento en dos. No es un dato duro.<br><br>En la edición bilingüe de Ehrman y Pleše (Oxford, 2011) las siete citas ocupan las páginas 210 a 215, <b>con la traducción inglesa enfrentada</b>: unas tres páginas de griego. El vehículo que las transporta tiene alrededor de mil quinientas. Lo que nos queda del evangelio ebionita viene a ser <b>dos milésimas del texto del cazador de herejías que lo transmitió</b>.<br><br>¿Y el resto de su literatura? No hay resto. Las <i>Ascensiones de Santiago</i> es una obra <b>perdida</b>, conocida solo porque Epifanio la describe; la fuente judeocristiana que suele identificarse con ella dentro de las <i>Recognitiones</i> pseudoclementinas está en discusión —Van Voorst la sitúa en un tramo, Stanley Jones rechaza esa asignación y considera no resuelta la relación— y <b>no está establecido que sea ebionita</b>: es judeocristiana, que no es lo mismo."}, "pablo": {"n": "Pablo de Samosata", "l": "268-272", "t": "Obispo de Antioquía, depuesto por un sínodo en <b>268 o 269</b>. Conviene decir el resto, porque casi nunca se cuenta: <b>la deposición no se ejecutó</b>. Pablo conservó la residencia episcopal unos cuatro años más bajo la protección de Zenobia de Palmira, y solo la perdió a finales de <b>272</b>, cuando Aureliano derrotó a Palmira y un tribunal imperial, apoyándose en el dictamen de los obispos de Italia y de Roma, le ordenó entregar la sede. Es, que se sepa, <b>el primer caso documentado de un poder imperial todavía pagano arbitrando una disputa doctrinal cristiana</b>.<br><br>De sus obras no queda ninguna. Lo que hay: la carta sinodal de los obispos que lo depusieron, conservada por Eusebio —es <i>sobre</i> él, no <i>de</i> él, pero es el único documento indiscutiblemente contemporáneo—; fragmentos atribuidos a sus <i>Discursos a Sabino</i>, transmitidos en florilegios cristológicos muy posteriores; y fragmentos del debate con Malquión.<br><br>La cifra de quince páginas sale de la selección crítica más reciente en inglés (Fiano, Papazian y DelCogliano, en <i>The Cambridge Edition of Early Christian Writings</i> II, 2022, pp. 197-211), <b>y esas quince incluyen introducción, traducción y notas</b>. La autenticidad de los fragmentos lleva un siglo en disputa, desde Loofs (1924) frente a De Riedmatten (1952)."}, "arrio": {"n": "Arrio", "l": "318-336", "t": "<b>El mejor documentado de los seis, y aun así mire dónde está la barra.</b><br><br>De Arrio se conservan <b>tres piezas epistolares completas</b> —no dos, como se repite—: la carta a Eusebio de Nicomedia, la carta a Alejandro de Alejandría (que no es suya en solitario: la firman él y sus colegas) y la confesión presentada a Constantino a finales de 327, que firman Arrio y Euzoio. Las tres sobreviven <b>porque sus adversarios las transcribieron</b>: Teodoreto y Epifanio la primera, Atanasio, Epifanio e Hilario la segunda, Sócrates y Sozomeno la tercera.<br><br>De la <i>Thalía</i> no se conserva nada en forma continua. Lo que hay son unas <b>82 líneas</b> reconstruidas a partir de <i>De synodis</i> 15,3 y de las <i>Orationes contra Arianos</i> I,5-6, 9, 11 y 14 — es decir, <b>de dos obras de Atanasio escritas para refutarlo</b>. Y la cifra misma está en disputa: hay quien incluye paráfrasis del propio Atanasio, y <b>M. L. West acepta como textuales solo dos frases</b> del <i>Contra Arianos</i>.<br><br>Atanasio lo dice él mismo por escrito: son «partes de las fábulas que hay en el ridículo tratado de Arrio». <b>Admite estar seleccionando</b>, lo hace con criterio polémico y lo hace treinta años después del concilio. El hombre que dedicó tres <i>Orationes</i> a refutar a Arrio es quien decide qué ochenta líneas de Arrio sobreviven.<br><br>En la <i>Clavis Patrum Graecorum</i> Arrio tiene <b>cuatro números</b>; Atanasio, <b>setenta y seis</b>."}};
+  var caja=document.getElementById('puno'), det=document.getElementById('pudet');
+  if(!caja||!det) return;
+  function show(id){
+    var d=D[id];
+    caja.querySelectorAll('.pu-fila').forEach(function(f){f.classList.toggle('on',f.dataset.id===id);});
+    det.innerHTML='<div class="dl">'+d.l+'</div><h4>'+d.n+'</h4><p>'+d.t+'</p>';
+  }
+  caja.querySelectorAll('.pu-fila').forEach(function(f){
+    f.addEventListener('click',function(){show(f.dataset.id);});
+  });
+  show('ebionitas');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4c2c60">↑ <a href="serie-cristo.html" style="color:#4c2c60">Serie: Cómo Jesús se convirtió en Dios</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="cristo-2.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#4c2c60">La curva que no existe</span></a>
+    <a class="epnav-btn next" href="cristo-4.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#4c2c60">El hombre que no dijo lo que le hacen decir</span></a>
+  </div>
+</nav>
+</body></html>

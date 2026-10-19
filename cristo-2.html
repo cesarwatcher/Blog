@@ -1,0 +1,613 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La curva que no existe — Estratos</title>
+<meta name="description" content="El relato estándar dibuja una pendiente de Marcos a Juan. Se rompe con el orden real de los documentos: las cartas de Pablo son anteriores a todos los evangelios. Y el argumento que suele usarse para romperla —el himno de Filipenses— es circular.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4c2c60;--mid:#704e86;--pale:#5a3d70;
+    --rel:#8a4a2a;--exc:#4c2c60;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #5f4a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#5f4a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#5f4a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(90,61,112,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#5f4a72}
+  figcaption .cr a{color:#5a3d70;text-decoration:underline;text-decoration-color:rgba(90,61,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a3d70}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#cdc0d8,#9b86ad 42%,#704e86 70%,#4c2c60)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#704e86}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2dae8,#cdc0d8);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#5f4a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#5f4a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .careo{width:min(1020px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,140,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .careo .ck{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .careo h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .careo .cs{font-size:.98rem;color:#4a4450;margin:0 0 1.1rem;max-width:68ch}
+
+  .ce-linea{position:relative;height:96px;background:rgba(255,255,255,.5);
+    border:1px solid rgba(120,110,132,.4);border-radius:10px;margin-bottom:1.2rem}
+  .ce-linea .ax{position:absolute;left:3%;right:3%;top:58px;height:2px;background:var(--mid)}
+  .ce-hito{position:absolute;transform:translateX(-50%);text-align:center;width:max-content;
+    max-width:7.5rem}
+  .ce-hito .pt{display:block;width:11px;height:11px;border-radius:50%;background:var(--deep);
+    border:2px solid #fff;margin:0 auto}
+  .ce-hito .tx{display:block;font-family:"Trebuchet MS",sans-serif;font-size:.63rem;
+    font-weight:700;color:#2f2a38;line-height:1.2}
+  .ce-hito .fe{display:block;font-family:"Trebuchet MS",sans-serif;font-size:.58rem;
+    color:#5a5464}
+
+  .ce-banda{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--deep);
+    margin:1.3rem 0 .5rem;padding-bottom:.3rem;border-bottom:2px solid var(--mid)}
+  .ce-banda span{display:block;font-weight:400;font-size:.66rem;letter-spacing:0;
+    text-transform:none;color:#5a5464;margin-top:.2rem}
+
+  .ce-fila{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) 160px;gap:.6rem;
+    width:100%;text-align:left;background:transparent;border:0;
+    border-bottom:1px solid rgba(120,110,132,.3);padding:.6rem .25rem;cursor:pointer;
+    align-items:center;font-family:inherit;color:inherit;transition:background .2s}
+  .ce-fila:hover{background:rgba(255,255,255,.45)}
+  .ce-fila.on{background:rgba(255,255,255,.72)}
+  .ce-fila .qn{font-size:.98rem;color:#2f2a38;line-height:1.3}
+  .ce-fila .sb{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;color:#5a5464;
+    line-height:1.35}
+  .ce-fila .vd{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;font-weight:700;
+    color:#fff;padding:.2rem .55rem;border-radius:20px;justify-self:end;text-align:center}
+
+  .ce-det{margin-top:1.2rem;background:#fbf9fb;border:1px solid rgba(120,110,132,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:9rem}
+  .ce-det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;margin-bottom:.28rem}
+  .ce-det h4{font-size:1.1rem;font-weight:400;color:var(--deep);margin:0 0 .5rem}
+  .ce-det p{font-size:.95rem;color:#3d3847;margin:0;line-height:1.62}
+  .ce-det i{font-style:italic}
+
+  .ce-pie{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(120,110,132,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4450;line-height:1.6}
+  .ce-pie b{color:var(--deep)}
+
+  @media(max-width:760px){
+    .ce-fila{grid-template-columns:1fr;gap:.25rem}
+    .ce-fila .vd{justify-self:start;margin-top:.2rem}
+    .ce-linea{height:120px}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Cómo Jesús se convirtió en Dios · Entrega II</span>
+  <h1>La curva que no <span class="em">existe</span></h1>
+  <div class="glifos"><span>μαρανα θα</span><span class="sep">·</span><span class="tr">maranatha</span><span class="sep">·</span><span>ἐν μορφῇ θεοῦ</span><span class="sep">·</span><span class="tr">en forma de Dios</span></div>
+  <p class="stand">Dos palabras en arameo al final de una carta griega prueban más que el himno de Filipenses, y casi nadie las cita.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">La historia se cuenta así, y se cuenta bien, porque es ordenada y es
+pedagógica. Marcos, el evangelio más antiguo, presenta a un hombre: un carpintero galileo al
+que el cielo declara hijo suyo en el bautismo. Mateo y Lucas le añaden una concepción
+virginal, de modo que ya lo es desde el principio. Juan lo hace preexistente, un Verbo que
+estaba junto a Dios antes de la creación. Y trescientos años después, Nicea remata.</p>
+
+<p>Una pendiente. Un dibujo que sube de izquierda a derecha y que explica el final por la
+suma de los pasos. Y <strong>se rompe con una sola fecha</strong>.</p>
+
+<div class="secnum">01</div><h2>El orden real de los documentos</h2>
+
+<p>Las siete cartas que nadie discute que escribió Pablo —Romanos, las dos a los Corintios,
+Gálatas, Filipenses, 1 Tesalonicenses y Filemón— se fechan entre los años cuarenta y ocho y
+los sesenta y dos. El evangelio de Marcos se fecha hacia el setenta, con una horquilla de
+consenso que va del sesenta y cinco al setenta y cinco.</p>
+
+<p>Es decir: <strong>los textos cristianos más antiguos que se conservan no son los
+evangelios</strong>. Son cartas, y preceden al primer evangelio en una distancia que, según
+qué extremos se tomen, va de unos catorce a unos veintisiete años.</p>
+
+<p>Conviene no exagerar la precisión, porque exagerarla sería cometer el mismo vicio que
+estamos denunciando. «Pablo escribe veinte años antes que Marcos» es correcto como orden de
+magnitud y engañoso como dato: los dos extremos tienen márgenes de cinco a siete años, y la
+datación de Marcos lleva décadas moviéndose dentro de ese rango.</p>
+
+<p>Lo que importa es el orden, no los números exactos. Y el orden dice que en los textos más
+antiguos está ya el material cristológico <em>más elevado</em> del Nuevo Testamento.</p>
+
+<figure>
+  <img src="papiro-46.jpg" data-alt="p46.jpg|papiro-p46.jpg|papyrus-46.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Bifolio del papiro 46, con texto griego en columnas sobre papiro">
+  <figcaption>El <strong>papiro 46</strong>, Egipto, hacia el año 200: la copia casi completa más antigua que se conserva de las cartas paulinas. De sus 112 folios originales sobreviven 86, repartidos entre la Chester Beatty Library y la Universidad de Michigan. Este bifolio trae Romanos 11, el final de Filipenses y el comienzo de Colosenses. <em>El himno de Filipenses 2,6-11 no está en este folio</em>: el versículo se lee en el texto del artículo, que es donde toca. <span class="cr">Chester Beatty Library, BP II ff. 15 y 90, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">02</div><h2>El error que produce la curva</h2>
+
+<p>Hay además un segundo problema, y es más fino que el de las fechas. Comparar «Marcos 70»
+con «Pablo 55» como si fueran dos fotogramas de una misma película supone que la cristología
+de un texto es la de su fecha de redacción. Y no lo es.</p>
+
+<p>Los evangelios son <strong>compilaciones de tradiciones anteriores</strong>. Que Marcos se
+escriba hacia el año setenta no significa que su cristología sea la del año setenta: significa
+que el material que recoge estaba disponible <em>como muy tarde</em> en esa fecha. La fecha de
+un documento es el <em>terminus ad quem</em> de las tradiciones que contiene, no su
+<em>terminus a quo</em>.</p>
+
+<p>Esto no tiene nombre técnico establecido en la bibliografía, y no voy a inventarle uno.
+Circulan etiquetas —«falacia cronológica», «falacia del documento tardío»— que no son
+terminología reconocida, sino acuñaciones de quien las usa. Se enuncia con los dos términos
+latinos y se entiende igual de bien.</p>
+
+<div class="secnum">03</div><h2>El argumento que hay que soltar</h2>
+
+<p>Llegados aquí, el movimiento habitual es sacar el himno. Filipenses 2,6-11: el texto que
+dice que Cristo, «siendo en forma de Dios», no retuvo como rapiña la igualdad con Dios, sino
+que se vació, tomó forma de siervo y se humilló hasta la muerte de cruz; y que por eso Dios lo
+exaltó y le dio el nombre sobre todo nombre, para que toda rodilla se doble y toda lengua
+confiese. Se sostiene que Pablo no lo compuso, sino que lo <em>cita</em>: que es un himno
+anterior a él, por razones formales —la fórmula con pronombre relativo, el ritmo, el
+vocabulario inusual, el lenguaje elevado—. Y de ahí se concluye que lo más alto es anterior a
+los años cincuenta.</p>
+
+<p><strong>Ese argumento no se sostiene en la forma en que se usa, y hay que decirlo aunque
+nos convenga lo contrario.</strong></p>
+
+<p>Es circular. El criterio principal para fechar el material como prepaulino es precisamente
+su carácter «no paulino», de modo que la conclusión está metida en la premisa. Gordon Fee lo
+dijo en 1992 con una fórmula que ha hecho fortuna: no es un himno citado, es <em>prosa paulina
+exaltada</em>. Ralph Brucker, en 1997, lo lee como prosa epidíctica, un género retórico
+grecorromano bien documentado. Y en 2015 Benjamin Edsall y Jennifer Strawbridge desmontaron
+uno a uno los cinco criterios clásicos de Ralph Martin: la prosa rítmica era normal en la
+escritura formal grecorromana, el pronombre relativo como marcador es circular, y falta la
+estructura tripartita que un himno antiguo tendría.</p>
+
+<p>Pero el argumento que de verdad pesa es otro, y es de recepción. El pasaje se cita
+<strong>más de quinientas setenta veces</strong> en la literatura cristiana anterior a Nicea.
+Y en ninguna de esas quinientas setenta veces <strong>un autor antiguo lo llama himno</strong>
+ni lo sitúa en un contexto litúrgico. Nadie, durante tres siglos, parece haber sabido que
+estaba leyendo una canción.</p>
+
+<p>Hay además un detalle que da vértigo cuando se cae en él. La «forma de himno» que ve el
+lector moderno —las estrofas, los versos cortos, la sangría— no está en los manuscritos:
+<strong>es una decisión editorial del siglo XX</strong>. La disposición estrófica que imprime
+el Nestle-Aland, que es la edición crítica que todo el mundo usa, es la que propuso Ernst
+Lohmeyer en 1928. Vemos un himno porque un alemán decidió maquetarlo así hace cien años.</p>
+
+<figure>
+  <img src="papiro-16-filipenses.jpg" data-alt="papiro-16.jpg|p16-filipenses.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Fragmento del papiro 16, con texto griego de la carta a los Filipenses">
+  <figcaption>El <strong>papiro 16</strong>, Oxirrinco 1009, siglo III, con Filipenses 3,10-17 y 4,2-8. Otro testimonio antiguo de la misma carta — y <em>tampoco éste contiene el capítulo 2</em>. Lo digo porque es la clase de precisión que distingue ilustrar de insinuar: ninguno de los dos papiros que acompañan esta entrega muestra el pasaje del que la entrega habla. <span class="cr">Museo Egipcio de El Cairo, JE 47424, Dominio público.</span></figcaption>
+</figure>
+
+<p>Conste que no todo el mundo lo da por perdido: Hengel, Hofius, Martin y el propio Hurtado
+siguen defendiendo la hipótesis con cautelas, y en 2015 Michael Wade Martin y Bryan Nash
+publicaron una defensa nueva del carácter hímnico. El estado de la cuestión es
+<strong>debate abierto y en retroceso</strong>, no consenso en ninguna de las dos
+direcciones.</p>
+
+<p>Lo que sí aguanta de Filipenses 2 es otra cosa, y es importante: el final del pasaje aplica
+a Jesús <strong>Isaías 45,23</strong>, dentro del tramo más insistentemente monoteísta de todo
+el Deuteroisaías, donde la rodilla que se dobla y la lengua que confiesa se doblan y confiesan
+<em>ante YHWH</em>. Esa alusión no la discute nadie. Lo que se discute es cuánto peso soporta.
+Y el mismo Pablo cita el mismo versículo, referido a Dios, en Romanos 14,11.</p>
+
+<div class="secnum">04</div><h2>Dos palabras en arameo que nadie tradujo</h2>
+
+<p>La mejor prueba de esta entrega es la que menos se cita, y cabe en dos palabras.</p>
+
+<p>Al final de la primera carta a los Corintios, escribiendo en griego a una comunidad griega
+de una ciudad griega, Pablo escribe <em>maranatha</em>. Y <strong>no lo traduce</strong>.</p>
+
+<p>Una fórmula aramea conservada sin traducir dentro de una carta griega solo tiene una
+explicación razonable: que llegara ya fosilizada, como fórmula heredada, acuñada en el medio
+arameófono de Palestina o de Siria y, por tanto, <strong>anterior a la misión griega de
+Pablo</strong>. Es exactamente el mismo tipo de argumento que el <em>abba</em> de Romanos 8 y
+Gálatas 4. Y la fórmula reaparece, también sin traducir, en la <em>Didaché</em>, en contexto
+eucarístico.</p>
+
+<p>De aquí se sigue algo, y conviene decir exactamente qué. Se sigue que ya en los años
+treinta o cuarenta, en comunidades que hablaban arameo, a Jesús se le <strong>invocaba</strong>
+—no solo se le recordaba— con el título «Señor nuestro», en lo que formalmente es una plegaria
+dirigida a él.</p>
+
+<p>Y no se sigue el resto, que es donde la divulgación se despeña. <em>Mar</em> en arameo
+<strong>no es</strong> el tetragrámaton: es un título de respeto que se aplica a un maestro, a
+un patrón o a un soberano. La ecuación «Señor» igual a YHWH funciona en el griego de la
+Septuaginta, no automáticamente en el arameo. La fórmula es <strong>escatológica, no
+ontológica</strong>: pide una venida, no describe una naturaleza. Y hay encima un problema de
+corte: los manuscritos antiguos no separan las palabras, y según dónde se corte se lee
+«Señor nuestro, ven» o «nuestro Señor ha venido». La primera lectura es mayoritaria. La
+segunda deja la fórmula sin fuerza invocatoria.</p>
+
+<div class="careo" id="careo">
+  <span class="ck">Pieza interactiva &middot; el careo de dataciones</span>
+  <h3>Cinco pruebas, dos veredictos cada una</h3>
+  <p class="cs">La pendiente que todo el mundo dibuja &mdash;Marcos humano, Juan preexistente, Nicea
+  remata&mdash; se rompe con mirar el orden real de los documentos. Pero las pruebas que se usan
+  para romperla <b>tampoco prueban todo lo que se les hace decir</b>. Cada fila trae las dos
+  cosas: qu&eacute; establece y qu&eacute; no. Pulsa cualquiera.</p>
+
+  <div class="ce-linea">
+    <div class="ax" aria-hidden="true"></div>
+    <span class="ce-hito" style="left:8%;top:14px"><span class="tx">Las cartas de Pablo</span><span class="fe">c. 48-62</span><span class="pt" aria-hidden="true"></span></span>
+    <span class="ce-hito" style="left:30%;top:14px"><span class="tx">Marcos</span><span class="fe">c. 65-75</span><span class="pt" aria-hidden="true"></span></span>
+    <span class="ce-hito" style="left:52%;top:14px"><span class="tx">Mateo y Lucas</span><span class="fe">c. 80-90</span><span class="pt" aria-hidden="true"></span></span>
+    <span class="ce-hito" style="left:76%;top:14px"><span class="tx">Juan</span><span class="fe">c. 90-110</span><span class="pt" aria-hidden="true"></span></span>
+    <span class="ce-hito" style="left:94%;top:14px"><span class="tx">Nicea</span><span class="fe">325</span><span class="pt" aria-hidden="true"></span></span>
+  </div>
+
+  <div class="ce-banda">Las pruebas<span>Qu&eacute; establece cada una, y d&oacute;nde hay que parar</span></div>
+  <button type="button" class="ce-fila" data-id="fechas"><span class="qn">Las fechas</span><span class="sb">Pablo c. 48-62 &middot; Marcos c. 65-75</span><span class="vd" style="background:#4a6b52">Firme</span></button>
+  <button type="button" class="ce-fila" data-id="flp2"><span class="qn">Filipenses 2,6-11</span><span class="sb">El himno que quiz&aacute; no es himno</span><span class="vd" style="background:#8a4550">Argumento circular</span></button>
+  <button type="button" class="ce-fila" data-id="cor86"><span class="qn">1 Corintios 8,6</span><span class="sb">El Shem&aacute; partido en dos</span><span class="vd" style="background:#7a5c38">Menos de lo que se dice</span></button>
+  <button type="button" class="ce-fila" data-id="maran"><span class="qn"><i>Maranatha</i></span><span class="sb">1 Corintios 16,22, sin traducir</span><span class="vd" style="background:#4a6b52">Firme</span></button>
+  <button type="button" class="ce-fila" data-id="adan"><span class="qn">La lectura ad&aacute;nica</span><span class="sb">Dunn y Casey sobre Filipenses 2</span><span class="vd" style="background:#7a5c38">Menos de lo que se dice</span></button>
+
+  <div class="ce-banda">Los cuatro programas<span>No son bandos: son programas de investigaci&oacute;n
+  con objeciones publicadas</span></div>
+  <button type="button" class="ce-fila" data-id="hurtado"><span class="qn">La explosi&oacute;n temprana</span><span class="sb">Larry Hurtado y Richard Bauckham</span><span class="vd" style="background:#40566b">Programa de investigaci&oacute;n</span></button>
+  <button type="button" class="ce-fila" data-id="dunn"><span class="qn">«Alto no significa niceno»</span><span class="sb">James Dunn y Maurice Casey</span><span class="vd" style="background:#40566b">Programa de investigaci&oacute;n</span></button>
+  <button type="button" class="ce-fila" data-id="ehrman"><span class="qn">Las dos cristolog&iacute;as conviven</span><span class="sb">Bart Ehrman</span><span class="vd" style="background:#40566b">Programa de investigaci&oacute;n</span></button>
+  <button type="button" class="ce-fila" data-id="kok"><span class="qn">La objeci&oacute;n metodol&oacute;gica</span><span class="sb">Michael Kok y Paula Fredriksen</span><span class="vd" style="background:#40566b">Programa de investigaci&oacute;n</span></button>
+
+  <div class="ce-det" id="cedet" aria-live="polite"></div>
+  <div class="ce-pie"><b>La conclusi&oacute;n de la pieza no es que la cristolog&iacute;a alta sea antigua.</b>
+  Es que la pregunta &laquo;&iquest;cu&aacute;ndo?&raquo; est&aacute; mal planteada mientras se suponga una sola l&iacute;nea. Hay
+  cuatro respuestas serias en competencia, y las cuatro tienen objeciones publicadas por gente
+  del oficio.<br><br>
+  Y un dato que descoloca a todos a la vez: <b>Michael Peppard</b> ha mostrado que en el mundo
+  romano la adopci&oacute;n no era una filiaci&oacute;n de segunda, sino la v&iacute;a normal y prestigiosa de la
+  sucesi&oacute;n al poder &mdash; <b>Augusto es hijo divino por adopci&oacute;n</b>. De modo que llamar
+  &laquo;adopcionista&raquo; a una cristolog&iacute;a para colocarla en el escal&oacute;n de abajo usa una jerarqu&iacute;a que
+  el siglo I no ten&iacute;a. Las reservas de sus propios rese&ntilde;istas conviene darlas tambi&eacute;n: que deriva
+  el t&iacute;tulo casi solo de C&eacute;sar y Octaviano, descuidando las ra&iacute;ces helen&iacute;sticas, egipcias,
+  asirias e israelitas, probablemente m&aacute;s relevantes.</div>
+</div>
+
+<div class="secnum">05</div><h2>Cuatro respuestas, y ninguna es un bando</h2>
+
+<p>Si la curva no existe, la pregunta «¿cuándo se convirtió?» hay que rehacerla. Hay al menos
+cuatro maneras serias de rehacerla, y tienen nombres.</p>
+
+<p>La primera es la <strong>explosión temprana</strong>, de Larry Hurtado y Richard Bauckham.
+El argumento de Hurtado es histórico y no doctrinal: lo decisivo no son los títulos sino un
+patrón devocional observable, y sin paralelo en el judaísmo del Segundo Templo — se invoca a
+Jesús en la plegaria, se bautiza en su nombre, se le cantan himnos, se le aclama, se celebra
+una comida cultual suya. Hurtado lo llamó <em>culto binitario</em>, y después prefirió
+<em>diádico</em> para que nadie leyera ahí una Trinidad incipiente. No es un culto nuevo a una
+segunda divinidad: es una <strong>mutación dentro del monoteísmo judío</strong>, y está en
+marcha antes de Pablo. Bauckham llega a algo parecido por otro camino: su categoría no es
+«naturaleza» sino <strong>identidad divina</strong>, definida por la creación, la soberanía,
+el Nombre y el culto, y sostiene que los primeros cristianos incluyeron a Jesús dentro de los
+cuatro rasgos.</p>
+
+<p>La segunda es la de <strong>James Dunn y Maurice Casey</strong>, y se resume en que «alto»
+no significa «niceno». Que haya culto a Jesús no está en discusión; lo que se discute es qué
+se sigue. Para Dunn, los primeros cristianos no veían el culto a Jesús como alternativa al
+culto a Dios: es culto a Dios <em>a través de</em> Jesús. Y dedica una sección entera de su
+libro de 2010 a preguntar hasta qué punto ayuda reformular el problema en términos de
+«identidad divina», que es tanto como decir: a discutirle la categoría a Bauckham.</p>
+
+<p>La tercera es la de <strong>Bart Ehrman</strong>, y aquí hay que deshacer un malentendido
+que se repite en los dos bandos. Su tesis no es que una cristología baja evolucionara hacia
+una alta. Es que dos modelos —el de <em>exaltación</em>, donde un hombre es elevado en un
+momento determinado, y el de <em>encarnación</em>, donde un preexistente desciende—
+<strong>coexistieron desde muy pronto</strong> en comunidades distintas, y el primero sobrevivió
+mucho después de aparecer el segundo. En este punto Ehrman es aliado de la crítica a la curva,
+no su exponente. Su otra aportación está respaldada muy por fuera de él: en el mundo antiguo
+la divinidad <strong>no era binaria sino una escala</strong>. Filón llama al Logos «segundo
+Dios». Justino llamará a Cristo «otro Dios». Llamar dios a alguien en el siglo I no es
+automáticamente identificarlo con YHWH.</p>
+
+<p>Y la cuarta no es una respuesta sino una objeción al método, de <strong>Michael Kok</strong>
+y <strong>Paula Fredriksen</strong>, y es la más incómoda de las cuatro. Kok señala que el
+paradigma evolutivo y el modelo que viene a sustituirlo comparten un vicio: los dos presuponen
+<strong>una trayectoria unilineal que culmina en la divinización de Jesús</strong>. Fechar la
+cristología alta lo más pronto posible convierte el reconocimiento en algo instantáneo, cuando
+el objeto propio del historiador debería ser la cristología más antigua que se pueda
+<em>recuperar</em>, que no es lo mismo que la más alta que se pueda fechar pronto. Añade dos
+reproches más: que apoyarse solo en fuentes judías aísla la devoción a Cristo de las
+influencias grecorromanas, el culto imperial entre ellas, y que los sinópticos
+<strong>no articulan preexistencia</strong>, lo que estropea el retrato de un cristianismo
+primitivo homogéneo.</p>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">Hurtado, 2003</div>
+    <div class="what"><i>Lord Jesus Christ</i></div>
+    <p>El dato no es la doctrina: es el <b>culto</b>. Se invoca a Jesús, se bautiza en su nombre, se le cantan himnos. Y Pablo lo da por supuesto <b>sin argumentarlo</b>.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Bauckham, 1998 y 2008</div>
+    <div class="what"><i>God Crucified</i></div>
+    <p>La categoría no es «naturaleza» sino <b>identidad divina</b>: creación, soberanía, el Nombre y el culto. Jesús queda incluido en los cuatro rasgos.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Dunn, 2010</div>
+    <div class="what"><i>Did the First Christians Worship Jesus?</i></div>
+    <p>Sí hubo culto — pero «los primeros cristianos no lo veían como alternativa al culto a Dios». Es culto a Dios <b>a través de</b> Jesús.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Fredriksen, 2020</div>
+    <div class="what">«How High Can Early High Christology Be?»</div>
+    <p>El monoteísmo judío «puro» que el argumento necesita <b>nunca existió</b>; y el Cristo de 1 Corintios 15,24-28 está <b>subordinado</b> al Padre.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Kok, 2015</div>
+    <div class="what">«Critical Questions for the Early High Christology Club»</div>
+    <p>Los dos modelos comparten el vicio: <b>presuponen una trayectoria unilineal que culmina en la divinización</b>. Y la historia no decide verdades teológicas.</p>
+  </div>
+</div>
+
+<div class="secnum">06</div><h2>El dato que descoloca a los cuatro</h2>
+
+<p>Hay una pieza que no encaja bien en ninguno de los cuatro programas, y viene de fuera: del
+estudio de la institución romana de la adopción.</p>
+
+<p>Michael Peppard ha mostrado que en el mundo romano la adopción <strong>no era una filiación
+de segunda</strong>. Era el mecanismo normal y prestigioso por el que las élites aseguraban la
+sucesión, y la condición de Augusto como <em>divi filius</em>, hijo del divino, descansa
+precisamente sobre su adopción por el César divinizado. Además, la adopción imperial se
+entendía a menudo como una declaración de los dioses.</p>
+
+<p>La consecuencia para nosotros es de categorías, no de datos: llamar «adopcionista» a una
+cristología <em>para colocarla en el escalón de abajo</em> usa una jerarquía que el siglo I no
+tenía. En el mundo de Pablo, decir que Dios adoptó a alguien como hijo no era rebajarlo. El
+escalón de abajo lo hemos puesto nosotros, y lo hemos puesto con material niceno.</p>
+
+<p>Conviene dar también las objeciones que ha recibido, porque las tiene y son de fondo: que
+deriva el título «Hijo de Dios» casi exclusivamente de César y Octaviano, descuidando las
+raíces helenísticas y las tradiciones egipcia, asiria e israelita, probablemente más
+relevantes para el cristianismo primitivo; y que los lectores de Marcos conocían a la vez la
+ideología imperial romana <em>y</em> la Escritura judía.</p>
+
+<figure>
+  <img src="pablo-catacumba-santa-tecla.jpg" data-alt="pablo-santa-tecla.jpg|pablo-de-tarso.jpg|san-pablo-catacumba.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Retrato al fresco de Pablo de Tarso en las catacumbas de Santa Tecla">
+  <figcaption>Pablo de Tarso, hacia 380, catacumbas de Santa Tecla, en Roma — hallado bajo capas de cal que lo cubrían. Es de los retratos más antiguos que se conservan de él, y <strong>tiene tres siglos menos que sus cartas</strong>. Esa distancia es, en pequeño, el asunto de toda esta entrega: la imagen que tenemos de alguien suele ser muy posterior a lo que ese alguien escribió. <span class="cr">Fotografía de Old-Patres, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure>
+
+<div class="meter">
+  <div class="q">¿Es firme que las cartas de Pablo son anteriores a todos los evangelios?</div>
+  <div class="bar"><span class="pin" style="left:93%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Lo es, y es de las pocas cosas de esta entrega que no tienen disidencia identificable: las siete cartas indiscutidas se fechan entre los años cuarenta y ocho y los sesenta y dos, y Marcos hacia el setenta, con horquilla del sesenta y cinco al setenta y cinco. La única propuesta reciente de datación radicalmente temprana de Marcos —la de James Crossley, que lo sitúa entre los años treinta y cinco y cuarenta y cinco— fue rechazada por sus reseñistas. Lo que no es consenso, y por eso la aguja no llega al final, es la <i>consecuencia</i> que suele sacarse del orden: eso ocupa el resto de la entrega.</div>
+</div>
+
+<div class="secnum">07</div><h2>Lo que esta entrega no concluye</h2>
+
+<p>No concluye que todo estuviera ahí desde el principio. Esa es la tesis contraria a la curva
+y es igual de mala: convierte treinta años de discusiones en un desembalaje.</p>
+
+<p>Lo que concluye es más modesto y más útil. Que <strong>la pregunta «¿cuándo?» está mal
+planteada mientras se suponga una sola línea</strong>; que el material más elevado está en los
+textos más antiguos, no en los más tardíos; y que lo que ocurre entre el año treinta y el
+cuatrocientos cincuenta y uno no se parece a una pendiente.</p>
+
+<p>Se parece, como veremos a partir de la entrega siguiente, a un campo ancho que se estrecha.</p>
+
+<div class="aviso">
+  <div class="t">Por qué esta entrega pierde a propósito su mejor argumento</div>
+  <p>La manera cómoda de escribir este capítulo era usar Filipenses 2 como himno prepaulino y cerrar el asunto en tres párrafos. <strong>No se puede</strong>, porque el argumento es circular y porque lleva treinta años recibiendo objeciones publicadas que nadie ha refutado.<br><br>Soltarlo cuesta un argumento y gana algo más valioso: lo que queda en pie —el orden de los documentos y el <em>maranatha</em> arameo— aguanta solo, y no depende de una hipótesis literaria alemana de 1928. Cuando un argumento hay que defenderlo con la premisa que quería demostrar, conviene dejarlo ir antes de que lo deje ir otro por ti.</p>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <span class="k">consenso</span> que las siete cartas indiscutidas de Pablo preceden a todos los evangelios conservados; que <em>maranatha</em> es arameo y está sin traducir en una carta griega; que Filipenses 2,10-11 alude a Isaías 45,23; y que en el mundo antiguo la divinidad se concebía gradualmente y no como una frontera binaria.</p>
+  <p>Está en <span class="k">debate abierto</span> casi todo lo demás, y la entrega lo dice dentro y no en esta nota: si Filipenses 2,6-11 es un himno citado o prosa paulina exaltada —Fee, Brucker y Edsall-Strawbridge contra Hengel, Hofius y Martin—; si 1 Corintios 8,6 <em>reformula</em> el Shemá incluyendo a Jesús, como sostiene Bauckham, o lo <em>amplía</em>, como replican McGrath y Fredriksen; y si la lectura adánica de Dunn y Casey describe bien el pasaje, que es hoy posición minoritaria pero no abandonada.</p>
+  <p>Una <span class="k">precisión de vocabulario</span> que afecta a toda la serie. Las etiquetas «cristología alta» y «cristología baja» son cómodas y las seguimos usando, pero son un eje niceno aplicado a textos anteriores a Nicea, como se dijo en la primera entrega. Y «adopcionista» arrastra además una jerarquía romana que el propio mundo romano no tenía.</p>
+  <p>Y una <span class="k">cautela sobre las cifras</span>. «Pablo escribe veinte años antes que Marcos» es correcto como orden de magnitud y falsamente preciso como dato: los dos extremos tienen márgenes de cinco a siete años. Damos la horquilla, como hicimos con las sesenta y cinco o sesenta y seis apariciones del Sheol, porque redondear a un número limpio es el primer paso para convertir una estimación en un hecho.</p>
+</div>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p><strong>Sobre la datación.</strong> W. R. Telford, <em>The Theology of the Gospel of
+  Mark</em>, Cambridge University Press, 1999 · Helen K. Bond, <em>The First Biography of
+  Jesus</em>, Eerdmans, 2020 · para la propuesta minoritaria, James G. Crossley, <em>The Date of
+  Mark's Gospel</em>, T&amp;T Clark, 2004, con las reseñas que la discuten.</p>
+  <p><strong>Sobre Filipenses 2,6-11.</strong> Ernst Lohmeyer, <em>Kyrios Jesus. Eine
+  Untersuchung zu Phil. 2,5-11</em>, Heidelberg, 1928 · Ralph P. Martin, <em>Carmen Christi</em>,
+  1967 · Gordon D. Fee, «Philippians 2:5-11: Hymn or Exalted Pauline Prose?», <em>Bulletin for
+  Biblical Research</em> 2 (1992) 29-46 · Ralph Brucker, <em>Christushymnen oder «epideiktische
+  Passagen»?</em>, FRLANT 176, 1997 · Benjamin Edsall y Jennifer R. Strawbridge, «The Songs we
+  Used to Sing? Hymn "Traditions" and Reception in Pauline Letters», <em>JSNT</em> 37/3 (2015)
+  290-311 · Michael Wade Martin y Bryan A. Nash, «Philippians 2:6-11 as Subversive
+  <em>Hymnos</em>», <em>JTS</em> 66 (2015) 90-138.</p>
+  <p><strong>Sobre el culto y la identidad divina.</strong> Larry W. Hurtado, <em>One God, One
+  Lord</em>, 1988, y <em>Lord Jesus Christ: Devotion to Jesus in Earliest Christianity</em>,
+  Eerdmans, 2003 · Richard Bauckham, <em>God Crucified</em>, 1998, y <em>Jesus and the God of
+  Israel</em>, Eerdmans, 2008 · James D. G. Dunn, <em>Christology in the Making</em>, 2.ª ed.,
+  1989, y <em>Did the First Christians Worship Jesus?</em>, 2010 · Maurice Casey, <em>From
+  Jewish Prophet to Gentile God</em>, 1991 · James F. McGrath, <em>The Only True God</em>,
+  University of Illinois Press, 2009.</p>
+  <p><strong>Sobre el método.</strong> Michael J. Kok, «Critical Questions for the Early High
+  Christology Club», <em>The Bible and Interpretation</em>, julio de 2015 —pieza de opinión
+  académica, y se cita como tal— · Paula Fredriksen, «How High Can Early High Christology Be?»,
+  en M. V. Novenson (ed.), <em>Monotheism and Christology in Greco-Roman Antiquity</em>, Brill,
+  2020, 293-319 · Michael Peppard, <em>The Son of God in the Roman World</em>, Oxford University
+  Press, 2011, con las reseñas de Babett Edelmann-Singer en <em>sehepunkte</em> 12 (2012) y de
+  Joshua W. Jipp en <em>Themelios</em> 37/1 · Bart D. Ehrman, <em>How Jesus Became God</em>,
+  HarperOne, 2014.</p>
+  <p><strong>Sobre el <em>maranatha</em>.</strong> C. F. D. Moule, «A Reconsideration of the
+  Context of Maranatha», <em>NTS</em> 6 (1959-60) 307-310 · Martin Hengel, «Abba, Maranatha,
+  Hosanna und die Anfänge der Christologie» · <em>Didaché</em> 10,6.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+
+(function(){
+  var D={"fechas": {"q": "Las fechas", "s": "Pablo c. 48-62 &middot; Marcos c. 65-75", "v": "firme", "t": "<b>Lo que establece.</b> Las siete cartas indiscutidas de Pablo son los textos cristianos conservados más antiguos, y preceden al primer evangelio. La distancia típica —Romanos hacia el 56, Marcos hacia el 70— es de unos <b>catorce años</b>; la máxima defendible, unos veintisiete. Con eso basta para romper la pendiente: <b>el material cristológico más elevado del Nuevo Testamento está en los textos más antiguos</b>, no en los más tardíos.<br><br><b>Lo que no establece.</b> «Pablo escribe veinte años antes que Marcos» es correcto como orden de magnitud y falsamente preciso como dato: los dos extremos tienen horquillas de cinco a siete años. Y sobre todo: la fecha de un documento es el <i>terminus ad quem</i> de las tradiciones que contiene, <b>no su <i>terminus a quo</i></b>. Que Marcos se escriba hacia el 70 no significa que su cristología sea la del año 70. Ese error no tiene nombre técnico reconocido, y no se lo voy a inventar: se enuncia así, con los dos términos latinos."}, "flp2": {"q": "Filipenses 2,6-11", "s": "El himno que quiz&aacute; no es himno", "v": "circ", "t": "<b>Lo que se suele decir.</b> Que Pablo <i>cita</i> un himno anterior a él, por razones formales —fórmula con pronombre relativo, ritmo, vocabulario inusual, lenguaje elevado—, y que por tanto la cristología alta es anterior a los años cincuenta.<br><br><b>Y aquí hay que frenar, porque el argumento es circular</b> en su forma habitual: el criterio principal para fechar el material como prepaulino es precisamente su carácter «no paulino». Gordon Fee lo llamó en 1992 «prosa paulina exaltada», no un himno citado; Ralph Brucker (1997) lo lee como prosa epidíctica grecorromana; y Edsall y Strawbridge (2015) desmontaron los cinco criterios clásicos de Ralph Martin uno a uno.<br><br><b>El argumento más fuerte en contra es de recepción, y es demoledor:</b> el pasaje se cita más de <b>quinientas setenta veces</b> en la literatura anterior a Nicea — y <b>ningún autor antiguo lo llama himno</b> ni lo sitúa en contexto litúrgico. La «forma de himno» que ve el lector moderno es una decisión editorial del siglo XX: la disposición estrófica que imprime el Nestle-Aland es la que propuso Ernst Lohmeyer en 1928.<br><br><b>Lo que sigue en pie.</b> Que el pasaje aplica a Jesús <b>Isaías 45,23</b> —el texto más insistentemente monoteísta del Deuteroisaías, donde toda rodilla se dobla ante YHWH— es alusión reconocida. La tesis cronológica puede sostenerse por otras vías. <b>Lo que no puede es descansar sobre ésta.</b>"}, "cor86": {"q": "1 Corintios 8,6", "s": "El Shem&aacute; partido en dos", "v": "menos", "t": "<b>Lo que propone Bauckham.</b> Que Pablo no <i>añade</i> a Jesús junto al Shemá —eso sería, dice él, diteísmo puro y duro— sino que <b>toma todas las palabras</b> de Deuteronomio 6,4 y las redistribuye: «un solo Dios» al Padre, «un solo Señor» a Jesucristo. Jesús queda identificado como el Señor que el Shemá afirma que es uno. A eso llama «cristología de la identidad divina».<br><br><b>Lo que está en disputa, y no por aficionados.</b> James McGrath sostiene que Pablo <i>sí</i> añade, apoyándose en otros textos judíos que amplían el Shemá sin romper el monoteísmo. Paula Fredriksen objeta algo más de fondo: que la dicotomía creado/increado que Bauckham necesita es <b>anacrónica</b> —la creación <i>ex nihilo</i> es posterior— y que es inverosímil que Pablo codificara afirmaciones de identidad divina en alusiones escriturarias sutiles dirigidas a gentiles recién convertidos que no podían descodificarlas.<br><br><b>El reparto exacto.</b> Que 1 Corintios 8,6 <i>evoca</i> el Shemá es consenso. Que lo <i>reformula incluyendo a Jesús en la identidad divina</i> es la tesis de Bauckham, con oposición cualificada. Las dos cosas se citan como si fueran la misma."}, "maran": {"q": "<i>Maranatha</i>", "s": "1 Corintios 16,22, sin traducir", "v": "firme", "t": "<b>La mejor prueba de la entrega, y la menos citada.</b> Pablo escribe en griego a una comunidad griega y, llegando al final de la carta, deja caer dos palabras en <b>arameo sin traducirlas</b>. Una fórmula aramea conservada sin traducir en una carta griega solo se explica si llegó ya fosilizada: acuñada en el medio arameófono de Palestina o Siria, <b>anterior a la misión griega de Pablo</b>. Es el mismo tipo de argumento que <i>abba</i>.<br><br><b>Lo que se infiere legítimamente:</b> que ya en los años treinta o cuarenta, en comunidades arameófonas, a Jesús se le <b>invocaba</b> —no solo se le recordaba— con el título «Señor nuestro», en lo que es formalmente una plegaria dirigida a él.<br><br><b>Y lo que no se infiere, donde la divulgación falla sistemáticamente.</b> <i>Mar</i> en arameo <b>no es</b> el tetragrámaton: es un título de respeto aplicable a un maestro, a un patrón o a un soberano. La ecuación <i>kýrios</i> = YHWH funciona en el griego de la Septuaginta, no automáticamente en el arameo. Y la fórmula es <b>escatológica, no ontológica</b>: pide la venida. No dice nada de preexistencia ni de naturaleza. Hay además una incómoda cuestión de corte de palabras —los manuscritos antiguos no separan— y si la división correcta fuera <i>māran ʾathā</i>, «nuestro Señor ha venido», la fuerza invocatoria desaparece."}, "adan": {"q": "La lectura ad&aacute;nica", "s": "Dunn y Casey sobre Filipenses 2", "v": "menos", "t": "<b>Qué dice.</b> Que Filipenses 2 no describe la encarnación de un preexistente sino un <b>contraste entre Adán y Cristo</b>: Adán estaba «en la forma de Dios» y sí consideró rapiña la igualdad con Dios; Cristo, en la misma condición, no lo hizo. La exaltación del versículo 9 sería entonces el otorgamiento del estatus que Adán perdió. Si tiene razón, el pasaje es compatible con un cristianismo judío <b>sin preexistencia</b>.<br><br><b>Las objeciones, que son serias.</b> El texto dice <i>morph&ecirc; theo&ucirc;</i> y no <i>eik&ocirc;n theo&ucirc;</i>, y la ecuación entre ambas, imprescindible para Dunn, no es obvia. En Génesis 3 la iniciativa es de Eva. «Tomando forma de siervo» y «hecho a semejanza de los hombres» describen <b>una transición de estado</b> que no encaja con un Adán que ya era hombre. Y Bauckham replica que el trasfondo es el Deuteroisaías, no el Génesis.<br><br><b>El reparto honesto:</b> la lectura adánica no está muerta y la sostiene gente cualificada, pero <b>no es la posición mayoritaria</b>. Presentarla como «lo que dice la crítica» es tan falso como ignorarla."}, "hurtado": {"q": "La explosi&oacute;n temprana", "s": "Larry Hurtado y Richard Bauckham", "v": "prog", "t": "<b>El argumento, y es fuerte.</b> Hurtado sostiene que lo históricamente decisivo no son los títulos ni las proposiciones, sino un <b>patrón devocional</b> observable y sin paralelo en el judaísmo del Segundo Templo: a Jesús se le invoca en la plegaria, se bautiza en su nombre, se le cantan himnos, se le aclama, se profetiza en su nombre y se celebra una comida cultual suya. Llamó a eso <b>culto binitario</b>, y después prefirió «diádico» para evitar que se leyera como una Trinidad incipiente. No es un culto nuevo a una segunda divinidad: es una <b>mutación dentro del monoteísmo judío</b>, y está operativa ya antes de Pablo — su indicio favorito es que Pablo lo da por supuesto sin argumentarlo.<br><br><b>Bauckham llega a lo mismo por otro camino</b>, y conviene no fundirlos. Su categoría no es «naturaleza» sino <b>identidad divina</b>, definida por cuatro rasgos: la creación, la soberanía, el Nombre y el culto. Los primeros cristianos incluyeron a Jesús dentro de los cuatro. Para Hurtado el culto es el <b>dato primario</b>; para Bauckham es el <b>corolario</b> de una inclusión previa. Y en el origen discrepan de plano: Hurtado apela a experiencia revelatoria, Bauckham a lógica monoteísta."}, "dunn": {"q": "«Alto no significa niceno»", "s": "James Dunn y Maurice Casey", "v": "prog", "t": "Que haya culto a Jesús no está en discusión; lo que se discute es qué se sigue de ello. Dunn sostiene que los primeros cristianos <b>no veían el culto a Jesús como alternativa al culto a Dios</b>: es culto a Dios <i>a través de</i> Jesús. Y dedica una sección entera de su libro de 2010 a preguntar hasta qué punto ayuda reexpresar el problema en términos de «identidad divina» — es decir, a cuestionar la categoría de Bauckham.<br><br>El punto general, que vale más allá de este programa: <b>«alto» es una palabra de la escala nicena</b>. Decir que la cristología de Pablo es alta no dice que sea la de 325, y deslizar lo uno en lo otro es lo que produce la curva."}, "ehrman": {"q": "Las dos cristolog&iacute;as conviven", "s": "Bart Ehrman", "v": "prog", "t": "<b>Y aquí hay un malentendido que conviene deshacer</b>, porque el libro de Ehrman se cita de los dos lados y casi siempre mal. Su tesis <b>no</b> es que una cristología baja evolucionara en una alta por una pendiente limpia. Es que dos modelos —el de <b>exaltación</b>, donde un hombre es elevado en un momento determinado (resurrección, bautismo, nacimiento), y el de <b>encarnación</b>, donde un ser preexistente desciende— <b>coexistieron desde muy pronto</b> en comunidades distintas, y el primero persistió mucho después de aparecer el segundo. En este punto Ehrman es aliado de la crítica al modelo evolutivo, no su exponente.<br><br>Su otra aportación, que está respaldada muy por fuera de él: en el mundo antiguo la divinidad <b>no era binaria sino una escala</b> — dioses supremos, dioses menores, daímones, héroes, emperadores divinizados, ángeles, figuras como Moisés o Henoc. Filón llama al Logos «segundo Dios»; Justino llamará a Cristo «otro Dios». Llamar dios a alguien en el siglo I no es automáticamente identificarlo con YHWH."}, "kok": {"q": "La objeci&oacute;n metodol&oacute;gica", "s": "Michael Kok y Paula Fredriksen", "v": "prog", "t": "<b>El reproche de teleología, y es el mejor argumento de la entrega.</b> Kok señala que el paradigma evolutivo y el modelo que viene a sustituirlo <b>comparten un vicio</b>: los dos presuponen una trayectoria unilineal que culmina en la divinización de Jesús. Y que el objeto propio del historiador no debería ser «la cristología más alta que se pueda fechar pronto», sino <b>la cristología más antigua que se pueda recuperar</b>, que no es lo mismo.<br><br>Sus otras dos preguntas: que apoyarse solo en fuentes judías <b>aísla</b> la devoción a Cristo de las influencias grecorromanas, el culto imperial entre ellas; y que el retrato de un cristianismo primitivo homogéneo no resiste, porque <b>los sinópticos no articulan preexistencia</b>.<br><br>Fredriksen, que se describe a sí misma como de la «iglesia baja» del club, acepta preexistencia y agencia creadora en el Cristo de Pablo pero rechaza lo que llama «cristología del Big Bang»: el monoteísmo puramente judío que el argumento necesita nunca existió; no hay evidencia de culto a Jesús en la práctica de Jerusalén; y el Cristo de 1 Corintios 15,24-28 está <b>subordinado</b> al Padre. Añade una observación incómoda: «monoteísmo» es un concepto moderno, de finales del siglo XVII, proyectado hacia atrás."}}, V={"firme": ["Firme", "#4a6b52"], "menos": ["Menos de lo que se dice", "#7a5c38"], "circ": ["Argumento circular", "#8a4550"], "prog": ["Programa de investigaci&oacute;n", "#40566b"]};
+  var caja=document.getElementById('careo'), det=document.getElementById('cedet');
+  if(!caja||!det) return;
+  function show(id){
+    var d=D[id];
+    caja.querySelectorAll('.ce-fila').forEach(function(f){f.classList.toggle('on',f.dataset.id===id);});
+    var v=V[d.v];
+    det.innerHTML='<div class="dl" style="color:'+v[1]+'">'+v[0]+'  \u00b7  '+d.s+'</div>'+
+      '<h4>'+d.q+'</h4><p>'+d.t+'</p>';
+    det.style.borderLeftColor=v[1];
+  }
+  caja.querySelectorAll('.ce-fila').forEach(function(f){
+    f.addEventListener('click',function(){show(f.dataset.id);});
+  });
+  show('maran');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4c2c60">↑ <a href="serie-cristo.html" style="color:#4c2c60">Serie: Cómo Jesús se convirtió en Dios</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="cristo-1.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#4c2c60">Ungido no quería decir eso</span></a>
+    <a class="epnav-btn next" href="cristo-3.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#4c2c60">Un segundo Dios</span></a>
+  </div>
+</nav>
+</body></html>

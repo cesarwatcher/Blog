@@ -1,0 +1,529 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una palabra que nadie quería — Estratos</title>
+<meta name="description" content="Las siete leyendas de Nicea, desmontadas con el rastreo de su origen. Y el centro: el homoousios no era una palabra consagrada sino un término problemático, y entre 325 y los años cincuenta casi nadie la usó, ni siquiera quienes la firmaron.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4c2c60;--mid:#704e86;--pale:#5a3d70;
+    --rel:#8a4a2a;--exc:#4c2c60;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #5f4a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#5f4a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#5f4a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(90,61,112,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#5f4a72}
+  figcaption .cr a{color:#5a3d70;text-decoration:underline;text-decoration-color:rgba(90,61,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a3d70}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#cdc0d8,#9b86ad 42%,#704e86 70%,#4c2c60)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#704e86}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2dae8,#cdc0d8);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#5f4a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#5f4a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .leyen{width:min(1040px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,140,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .leyen .lk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .leyen h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .leyen .ls{font-size:.98rem;color:#4a4450;margin:0 0 1.1rem;max-width:68ch}
+
+  .le-cab{display:grid;grid-template-columns:minmax(0,1.6fr) 150px 160px;gap:.6rem;
+    padding:0 .25rem .35rem;border-bottom:2px solid var(--mid);margin-bottom:.2rem}
+  .le-cab .h{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;font-weight:700;
+    letter-spacing:.05em;color:var(--deep)}
+  .le-cab .h span{display:block;font-weight:400;font-size:.62rem;letter-spacing:0;
+    color:#5a5464;margin-top:.15rem}
+
+  .le-fila{display:grid;grid-template-columns:minmax(0,1.6fr) 150px 160px;gap:.6rem;width:100%;
+    text-align:left;background:transparent;border:0;
+    border-bottom:1px solid rgba(120,110,132,.3);padding:.65rem .25rem;cursor:pointer;
+    align-items:center;font-family:inherit;color:inherit;transition:background .2s}
+  .le-fila:hover{background:rgba(255,255,255,.45)}
+  .le-fila.on{background:rgba(255,255,255,.72)}
+  .le-fila .qn{font-size:.98rem;color:#2f2a38;line-height:1.3}
+  .le-fila .ds{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;color:#5a5464;
+    line-height:1.3}
+  .le-fila .ds b{color:#7a2f3a;font-weight:700}
+  .le-fila .vd{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;font-weight:700;
+    color:#fff;padding:.2rem .55rem;border-radius:20px;justify-self:end;text-align:center}
+
+  .le-det{margin-top:1.2rem;background:#fbf9fb;border:1px solid rgba(120,110,132,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:9rem}
+  .le-det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;margin-bottom:.28rem}
+  .le-det h4{font-size:1.1rem;font-weight:400;color:var(--deep);margin:0 0 .5rem}
+  .le-det p{font-size:.95rem;color:#3d3847;margin:0;line-height:1.62}
+  .le-det i{font-style:italic}
+
+  .le-pie{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(120,110,132,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4450;line-height:1.6}
+  .le-pie b{color:var(--deep)}
+
+  @media(max-width:760px){
+    .le-cab{display:none}
+    .le-fila{grid-template-columns:1fr;gap:.25rem}
+    .le-fila .vd{justify-self:start;margin-top:.2rem}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Cómo Jesús se convirtió en Dios · Entrega V</span>
+  <h1>Una palabra que nadie <span class="em">quería</span></h1>
+  <div class="glifos"><span>ὁμοούσιος</span><span class="sep">·</span><span class="tr">homooúsios</span><span class="sep">·</span><span class="tr">de la misma sustancia</span></div>
+  <p class="stand">La palabra bandera del concilio no era bíblica, tenía antecedentes maniqueos y un sínodo anterior la había objetado. Y el mejor testigo de eso es el propio Arrio.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">El concilio de Nicea es, probablemente, el acontecimiento de la historia del
+cristianismo sobre el que circulan más cosas falsas por metro cuadrado. Y lo interesante no es
+desmentirlas —eso es fácil— sino <strong>rastrear de dónde salen</strong>, porque casi todas
+tienen un origen localizable, con fecha y con autor.</p>
+
+<p>Pero antes de las leyendas conviene contar lo que sí pasó, que es menos espectacular y más
+raro.</p>
+
+<div class="secnum">01</div><h2>Lo que ocurrió, en el orden en que ocurrió</h2>
+
+<p>Lo convoca <strong>Constantino</strong>, y lo convoca dos veces: la primera carta fijaba la
+sede en Ancira de Galacia, y una segunda —conservada solo en siríaco— la traslada a Nicea de
+Bitinia, alegando la conveniencia de los obispos de Italia y de Europa y, con una franqueza
+encantadora, «la excelente temperatura del aire». Nicea estaba además a un paso de Nicomedia,
+donde residía el emperador.</p>
+
+<p>Los obispos llegan a principios de mayo de 325. El concilio abre el <strong>20 de
+mayo</strong>. Hay antes un debate preliminar entre un filósofo y la posición arriana. El
+emperador llega el <strong>19 de junio</strong>, recibe memoriales con acusaciones de unos
+obispos contra otros, <strong>los quema sin leerlos</strong> y exhorta a la reconciliación. Y
+ese mismo 19 de junio se adopta el credo, con la palabra <em>homoousios</em> y con cuatro
+anatemas al final.</p>
+
+<p>Después se condena a Arrio y a sus escritos, se le destierra, y se depone a los obispos que
+no firman. Se trata la <strong>fecha de Pascua</strong> —se condena la práctica de sirios,
+cilicios y mesopotámicos de seguir el cómputo judío, y se adopta la independencia del
+calendario judío, <em>sin fijar los detalles del cómputo</em>—, y se resuelve el cisma
+meleciano. Y se aprueban veinte cánones de disciplina sobre eunucos, ordenaciones,
+cohabitación clerical, concilios provinciales, derechos metropolitanos, usura y el honor de la
+sede de Jerusalén.</p>
+
+<p>¿Cuándo terminó? Aquí hay una discrepancia real entre las fuentes, y prefiero decirla a
+elegir una en silencio: hay quien da el <strong>25 de agosto</strong> y quien sitúa la clausura
+<strong>a finales de julio</strong>, antes de la celebración del día 25. Lo seguro es la
+apertura, el credo y que todo ello sucede en torno a los veinte años de reinado de
+Constantino.</p>
+
+<figure>
+  <img src="quema-de-libros-arrianos.jpg" data-alt="libros-arrianos.jpg|constantino-quema-libros.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Dibujo medieval sobre vitela: Constantino y el concilio, con libros ardiendo debajo">
+  <figcaption>Constantino y el concilio de Nicea, con la quema de los libros arrianos en el registro inferior. Dibujo sobre vitela de un compendio de derecho canónico del norte de Italia, hacia 825 — <strong>quinientos años después del concilio</strong>. La inscripción latina dice: «el sínodo de Nicea, donde el número de santos padres fue <em>CCCXVIII</em>, y todos suscribieron»; y debajo, «herejes arrianos condenados». Es decir: aquí está la cifra discutida, escrita a mano, cinco siglos después de los hechos que numera. <span class="cr">MS CLXV, Biblioteca Capitular de Vercelli; reproducción de James Steakley, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">02</div><h2>Trescientos dieciocho padres que no cuadran</h2>
+
+<p>La cifra más citada del concilio es 318. Y <strong>no cuadra con ninguna otra cosa que
+sepamos</strong>.</p>
+
+<p>Los testigos antiguos dan números distintos. <strong>Eusebio de Cesarea</strong>, que estuvo
+allí, escribe que el número de obispos «excedía los doscientos cincuenta».
+<strong>Eustacio de Antioquía</strong>, que también estuvo, da unos doscientos setenta.
+Historiadores posteriores —Gelasio, Sócrates— hablan de más de trescientos, y a continuación
+citan la cifra menor de Eusebio, lo que ya dice bastante.</p>
+
+<p>Las listas de firmantes que se conservan traen entre <strong>doscientos y doscientos
+treinta</strong> nombres, según quién cuente, y varían entre las versiones latina, siríaca,
+copta, griega, árabe y armenia. <strong>Ninguna llega a 318.</strong></p>
+
+<p>¿De dónde sale entonces la cifra? De <strong>Génesis 14,14</strong>, donde Abrahán arma a
+sus 318 siervos para rescatar a Lot y vence a los reyes. El primer testigo que liga el número
+al pasaje es Hilario de Poitiers en 359, y Atanasio la usa en un texto de hacia 369 — es decir,
+<strong>unos cuarenta años después del concilio</strong>, y contra los testimonios oculares.
+Más tarde se añadirá una lectura alegórica de la grafía griega: 318 se escribe ΤΙΗ, y las dos
+últimas letras abrevian «Jesús» mientras la primera tiene forma de cruz.</p>
+
+<p>Es una <strong>cifra teológica, no un recuento</strong>. Damos la horquilla con su
+procedencia, como hicimos con las sesenta y cinco o sesenta y seis apariciones del Sheol,
+porque la discrepancia es en sí misma un dato: sobre cómo se recuerda un concilio, y sobre con
+qué facilidad una cifra redonda desplaza a los que estaban delante.</p>
+
+<figure>
+  <img src="coloso-de-constantino.jpg" data-alt="constantino.jpg|coloso-constantino.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Cabeza colosal de mármol del emperador Constantino, con los ojos muy abiertos">
+  <figcaption>Cabeza del coloso de <strong>Constantino I</strong>, mármol, 313-324, Museos Capitolinos. El emperador que convocó el concilio, que quemó sin leerlos los memoriales de unos obispos contra otros, y que —según la carta con que Eusebio explicó a su iglesia por qué había firmado— aconsejó suscribir el credo «con la inserción de la sola palabra». Esa frase es el núcleo verdadero de la leyenda de que impuso el resultado, y por eso la leyenda no se puede desmentir sin matizar. <span class="cr">Fotografía de Lepimate, Museos Capitolinos, Dominio público.</span></figcaption>
+</figure>
+
+<div class="leyen" id="leyen">
+  <span class="lk">Pieza interactiva &middot; el registro de leyendas</span>
+  <h3>Siete cosas que no pasaron en Nicea, y de d&oacute;nde salen</h3>
+  <p class="ls">Desmontar una leyenda sin decir de d&oacute;nde sale es perezoso, y adem&aacute;s no convence
+  a nadie. Cada entrada de este registro trae dos fechas: la del concilio y la de la <b>primera
+  huella localizable</b> de la historia. La distancia entre las dos es, en varios casos, de m&aacute;s
+  de mil a&ntilde;os. Pulsa cualquier fila.</p>
+
+  <div class="le-cab">
+    <div class="h">Lo que se dice<span>Las siete, en el orden en que se oyen</span></div>
+    <div class="h">Cu&aacute;ndo aparece<span>Primer testimonio que he podido localizar</span></div>
+    <div class="h">Veredicto<span>Con su expediente</span></div>
+  </div>
+  <button type="button" class="le-fila" data-id="divinidad"><span class="qn">Que all&iacute; se vot&oacute; la divinidad de Jes&uacute;s</span><span class="ds">Primera huella:<br><b>2003</b></span><span class="vd" style="background:#8a4550">No ocurri&oacute;</span></button>
+  <button type="button" class="le-fila" data-id="canon"><span class="qn">Que all&iacute; se fij&oacute; el canon del Nuevo Testamento</span><span class="ds">Primera huella:<br><b>887</b></span><span class="vd" style="background:#8a4550">No ocurri&oacute;</span></button>
+  <button type="button" class="le-fila" data-id="quema"><span class="qn">Que se quemaron evangelios</span><span class="ds">Primera huella:<br><b>el propio a&ntilde;o 325</b></span><span class="vd" style="background:#8a4550">No ocurri&oacute;</span></button>
+  <button type="button" class="le-fila" data-id="bofetada"><span class="qn">Que san Nicol&aacute;s abofete&oacute; a Arrio</span><span class="ds">Primera huella:<br><b>1370</b></span><span class="vd" style="background:#8a4550">No ocurri&oacute;</span></button>
+  <button type="button" class="le-fila" data-id="constantino"><span class="qn">Que Constantino impuso el resultado</span><span class="ds">Primera huella:<br><b>el propio a&ntilde;o 325</b></span><span class="vd" style="background:#7a5c38">Ni verdadero ni falso</span></button>
+  <button type="button" class="le-fila" data-id="trinidad"><span class="qn">Que all&iacute; se invent&oacute; la Trinidad</span><span class="ds">Primera huella:<br><b>el propio a&ntilde;o 325</b></span><span class="vd" style="background:#8a4550">No ocurri&oacute;</span></button>
+  <button type="button" class="le-fila" data-id="218"><span class="qn">Que se vot&oacute; 218 contra 2</span><span class="ds">Primera huella:<br><b>sin atestiguar</b></span><span class="vd" style="background:#6b4a7a">Sin fuente ninguna</span></button>
+
+  <div class="le-det" id="ledet" aria-live="polite"></div>
+  <div class="le-pie"><b>De las 7, 1 no tiene ninguna fuente</b> &mdash;ni antigua ni
+  moderna&mdash; y una no es leyenda del todo: la de Constantino tiene un n&uacute;cleo documental real
+  que no se puede desmentir sin mentir. Las otras cinco nacen entre el siglo IX y el XVI.<br><br>
+  <b>Y conviene decir en qu&eacute; direcci&oacute;n corta este registro, porque corta en las dos.</b> Contra
+  quien usa Nicea para decir que la divinidad de Jes&uacute;s se decidi&oacute; a mano alzada en el siglo IV,
+  aqu&iacute; est&aacute;n los expedientes. Y contra quien lea esto como una defensa del concilio: el
+  n&uacute;cleo verdadero &mdash;que un emperador sugiri&oacute; la palabra clave, que los libros del perdedor se
+  mandaron quemar, que los dos que no firmaron fueron desterrados&mdash; <b>est&aacute; todo aqu&iacute;
+  dentro</b>, y no necesita leyendas.</div>
+</div>
+
+<div class="secnum">03</div><h2>Una palabra que no era de nadie</h2>
+
+<p>Y ahora el centro de la entrega, que es lo que casi nunca se cuenta.</p>
+
+<p><em>Homoousios</em> —«de la misma sustancia»— es la palabra bandera de Nicea. En 325
+<strong>era un término problemático</strong>, y por tres razones acumuladas.</p>
+
+<p><strong>No es bíblica.</strong> No aparece en el Nuevo Testamento, y eso en el siglo IV
+pesaba mucho más que hoy. Lo reconocen los propios nicenos: Atanasio recuerda que Dionisio de
+Alejandría, acusado ante Roma, se defendió alegando que no hallaba el término en la Escritura
+aunque su doctrina fuera conforme. Y Eusebio, en la carta con que explicó a su iglesia por qué
+había firmado, dice que había objetado las expresiones no escriturísticas antes de
+aceptarlas.</p>
+
+<p><strong>Tenía antecedentes incómodos.</strong> El término circulaba en contextos gnósticos
+—Hipólito, Ireneo y Clemente lo documentan— y se asociaba además a los maniqueos. Y aquí hay
+un testimonio que vale más que cualquier otro, porque viene del lado contrario: en su carta a
+Alejandro, <strong>Arrio rechaza que el Hijo sea una «porción consustancial del Padre» y
+atribuye esa idea a los maniqueos</strong>. Es decir: el mejor testigo de que la palabra tenía
+resonancia herética y materialista antes del concilio es el propio condenado, cinco años
+antes.</p>
+
+<p><strong>Y había un precedente conciliar en contra.</strong> Tres autores del siglo IV
+—Atanasio, Basilio e Hilario— dicen que el sínodo de Antioquía que depuso a Pablo de Samosata,
+hacia 268, se había pronunciado contra el término.</p>
+
+<p>Aquí hay que ser exacto, porque la cosa se cita más redonda de lo que es.
+<strong>Atanasio</strong> sí dice que aquellos obispos «dijeron que el Hijo no es consustancial
+con el Padre», y explica por qué: Pablo argüía que, si Cristo fuera consustancial, habría tres
+esencias, una previa y dos derivadas; el concilio rechazó la palabra para desarmar ese sofisma,
+tomándola en sentido corporal. <strong>Basilio es más cauto</strong> de lo que suele citarse:
+no dice que la anularan, dice que «encontraron falta en el término, como desafortunado» — y a
+continuación <em>defiende</em> el vocablo con energía. <strong>Hilario</strong> argumenta que
+el Samosateno <em>usó mal</em> la palabra, y pregunta por qué eso habría de impedirle a él
+entenderla bien.</p>
+
+<p>Y falta el dato incómodo, que es un silencio. <strong>Eusebio conserva el relato más
+antiguo y extenso del caso de Pablo de Samosata</strong>, con la carta sinodal incluida — y
+<strong>no menciona el término</strong>. Un argumento de silencio no prueba nada por sí solo, y
+Eusebio no reproduce las actas completas sino extractos escogidos. Pero conviene notar que los
+tres testigos que afirman el rechazo escriben <em>todos</em> en el siglo IV, <em>todos</em> en
+plena polémica y <em>todos</em> con interés en el asunto — y que los tres lo mencionan, muy
+significativamente, <em>a su pesar</em>: para neutralizar un argumento que circulaba contra
+ellos. Lo que refuerza que el argumento existía.</p>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">Eusebio de Cesarea</div>
+    <div class="what"><i>Vida de Constantino</i> III,8</div>
+    <p>Estuvo all&iacute;. Escribe que el n&uacute;mero de obispos «<b>exced&iacute;a los doscientos cincuenta</b>».</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Eustacio de Antioqu&iacute;a</div>
+    <div class="what">v&iacute;a Teodoreto, <i>HE</i> 1,8</div>
+    <p>Tambi&eacute;n estuvo. Da <b>unos doscientos setenta</b>.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Las listas de firmantes</div>
+    <div class="what">Seis versiones en seis lenguas</div>
+    <p>Entre <b>doscientos y doscientos treinta</b> nombres, con variaciones entre las versiones latina, sir&iacute;aca, copta, griega, &aacute;rabe y armenia. <b>Ninguna llega a 318.</b></p>
+  </div>
+  <div class="post max">
+    <div class="who">Hilario, 359 &middot; Atanasio, h. 369</div>
+    <div class="what">La cifra de Abrah&aacute;n</div>
+    <p><b>318</b>, treinta y cuatro y cuarenta y cuatro a&ntilde;os despu&eacute;s del concilio. Y el n&uacute;mero sale de <b>G&eacute;nesis 14,14</b>: los siervos con que Abrah&aacute;n venci&oacute; a los reyes.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Ambrosio, finales del s. IV</div>
+    <div class="what">La alegor&iacute;a de la grafi&#769;a</div>
+    <p>318 se escribe <b>&Tau;&Iota;&Eta;</b> en griego: las dos &uacute;ltimas letras abrevian «Jes&uacute;s» y la primera tiene forma de cruz. La cifra ya no necesita a nadie que la cuente.</p>
+  </div>
+</div>
+
+<div class="secnum">04</div><h2>El cuarto de siglo en que nadie la usó</h2>
+
+<p>Si <em>homoousios</em> hubiera sido el triunfo que la divulgación describe, se esperaría
+encontrarla por todas partes después de 325. Ocurre lo contrario, y el dato es
+desconcertante.</p>
+
+<p><strong>Antes de los años cincuenta, Atanasio emplea la palabra una sola vez</strong> en
+todo lo que escribe. Una. En las <em>Orationes contra Arianos</em> nunca presenta abiertamente
+las fórmulas de Nicea como marca consensuada de ortodoxia, aunque su lenguaje muestre
+compromiso con la teología nicena. La primera defensa extensa del término es el <em>De
+decretis</em>, que se fecha hacia 353 — <strong>casi treinta años después del concilio</strong>
+y ya dentro de un segundo conflicto.</p>
+
+<p>Conviene matizar la fórmula, porque «desapareció» es demasiado fuerte. El término no estaba
+olvidado: <strong>estaba disputado y evitado</strong>. Los años cuarenta y cincuenta son de
+tensión credal creciente, y los anatemas de Sirmio de 351 atacan precisamente el lenguaje de
+la sustancia. Lo exacto es esto: entre 325 y los años cincuenta, <em>homoousios</em> no
+funcionó como criterio de ortodoxia <strong>ni siquiera para sus defensores</strong>. Su
+conversión en bandera es obra de Atanasio a partir del <em>De decretis</em>, y solo se
+consolida con la teología pro-nicena de los años sesenta y setenta del siglo IV.</p>
+
+<figure>
+  <img src="nicolas-abofetea-a-arrio.jpg" data-alt="bofetada-arrio.jpg|nicolas-arrio.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Detalle de icono griego: un obispo golpea el rostro de otra figura">
+  <figcaption>Nicolás de Mira abofetea a Arrio, detalle de un icono griego bajomedieval. La escena <strong>no ocurrió</strong>: la primera huella localizable es de hacia 1370-1400 y en ella la víctima es «cierto arriano» <em>sin nombre</em>; Arrio no aparece nombrado hasta 1570. Y Nicolás de Mira no figura en las listas de firmantes más fiables. Ilustrar el desmontaje de una leyenda con la imagen que la leyenda produjo es, exactamente, lo que esta entrega quiere hacer. <span class="cr">Pintor de iconos bizantino, Dominio público.</span></figcaption>
+</figure>
+
+<p>Y eso deja la historia estándar —«Nicea decidió y el asunto quedó zanjado»— insostenible
+desde dentro del propio bando vencedor. La palabra que se presenta como el triunfo de 325 fue,
+durante un cuarto de siglo, <strong>una palabra que casi nadie quería usar</strong>, incluidos
+los que la habían firmado.</p>
+
+<p>Lo que viene después de 325 no es la paz. Son cincuenta y seis años, y la entrega siguiente
+es sobre ellos.</p>
+
+<figure>
+  <img src="nicea-surikov.jpg" data-alt="surikov-nicea.jpg|concilio-surikov.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Boceto al óleo del concilio de Nicea, con una multitud de obispos">
+  <figcaption>Vasili Súrikov, <em>Primer concilio ecuménico de Nicea</em>, 1876-77. No es el cuadro: es el <strong>boceto</strong>, de 39,9 por 32,3 centímetros, para una pintura del muro del coro de la catedral de Cristo Salvador de Moscú. Sirve justamente por ser decimonónico — enseña cómo se imaginaba Nicea en el ochocientos, que es otra cosa que cómo fue. <span class="cr">Vasili Súrikov, Museo Ruso, Dominio público.</span></figcaption>
+</figure>
+
+<div class="meter">
+  <div class="q">¿Es firme que el <i>homoousios</i> era un término problemático en 325?</div>
+  <div class="bar"><span class="pin" style="left:88%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Lo es en lo sustancial: que no es bíblico no lo discute nadie; que circulaba en contextos gnósticos y maniqueos está documentado, y el mejor testigo es el propio Arrio rechazándolo como idea manicea; y que su uso fue escaso y disputado durante un cuarto de siglo está establecido por el estudio de los propios escritos de Atanasio. Lo que <i>no</i> está cerrado es la prehistoria del término —el especialista que más lo ha trabajado abre su estudio reconociendo que los largos debates no han producido acuerdo— y el alcance exacto de lo ocurrido en Antioquía hacia 268: Basilio dice que los obispos «encontraron falta en el término», que es menos que anularlo, y el relato más antiguo del caso no menciona la palabra.</div>
+</div>
+
+<div class="aviso">
+  <div class="t">En qué dirección corta esta entrega, que es en las dos</div>
+  <p>Contra quien use Nicea para decir que la divinidad de Jesús se decidió a mano alzada en el siglo IV, aquí están los expedientes de las siete leyendas, con su fecha de nacimiento.<br><br>Y contra quien lea esto como una defensa del concilio: el núcleo verdadero <strong>está todo aquí dentro y no necesita leyendas</strong>. Un emperador sugirió la palabra clave y la glosó; los libros del perdedor se mandaron quemar; los dos obispos que no firmaron fueron desterrados; y la cifra de padres que la tradición repite viene de un versículo del Génesis, no de una lista. Nada de eso hace falta inventarlo.</p>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <span class="k">consenso</span> la secuencia de 325 —convocatoria por Constantino, apertura el 20 de mayo, credo el 19 de junio, condena de Arrio, fecha de Pascua, cisma meleciano y cánones disciplinares—; que las cifras antiguas de asistentes discrepan entre sí y que ninguna lista de firmantes llega a 318; que <em>homoousios</em> no es un término bíblico; y que su uso fue escaso entre 325 y los años cincuenta.</p>
+  <p>Está en <span class="k">debate abierto</span> la fecha de clausura del concilio —las fuentes discrepan entre finales de julio y el 25 de agosto, y la cronología antigua está confusa—; el número exacto de cánones; la prehistoria del término <em>homoousios</em>, sobre la que no hay acuerdo; y qué significó exactamente la objeción de Antioquía hacia 268, que una lectura reciente explica por un marco conceptual en el que <em>ousía</em> e <em>hypóstasis</em> se usaban indistintamente para una entidad individual, y en el que la palabra sencillamente no cabía.</p>
+  <p>Dos <span class="k">cifras que no damos</span>. La primera: el «más de trescientos» que se atribuye a Constantino <strong>no procede de Constantino</strong>; procede de historiadores posteriores, y no he localizado ninguna carta suya con un número de asistentes. La segunda: el resultado «218 contra 2» <strong>no tiene fuente</strong>, ni antigua ni moderna. Lo señalo en la pieza y lo repito aquí porque circula con aire de dato preciso.</p>
+  <p>Y una <span class="k">cautela sobre Eusebio</span>, que es la fuente principal del punto más delicado. Su carta a la iglesia de Cesarea —donde cuenta que el emperador aconsejó suscribir el credo «con la inserción de la sola palabra»— es una <em>justificación personal</em>: está explicando por qué firmó algo que al principio objetó. El testimonio es tendencioso, y lo es en las dos direcciones a la vez: sirve para exagerar el papel de Constantino y sirve para minimizarlo, según qué frase se recorte.</p>
+</div>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p><strong>Para el concilio.</strong> Eusebio, <em>Vida de Constantino</em> III,6-14 y la
+  carta a la iglesia de Cesarea (Opitz, <em>Urkunde</em> 22; también en Atanasio, <em>De
+  decretis</em> 33, Sócrates, <em>HE</em> 1,8 y Teodoreto, <em>HE</em> 1,12) · Sócrates,
+  <em>HE</em> 1,8-13 · Teodoreto, <em>HE</em> 1,7-12 · Credo y anatemas de 325, Opitz,
+  <em>Urk.</em> 24 · Glen L. Thompson, <em>The Council of Nicaea According to the Ancient
+  Sources</em>, 2024.</p>
+  <p><strong>Para las listas y la cifra.</strong> H. Gelzer, H. Hilgenfeld y O. Cuntz,
+  <em>Patrum Nicaenorum nomina latine, graece, coptice, syriace, arabice, armeniace</em>,
+  Teubner, Leipzig, 1898 · Ernest Honigmann, «La liste originale des Pères de Nicée»,
+  <em>Byzantion</em> 14 (1939) · David M. Gwynn y Young Richard Kim (ed.), <em>The Cambridge
+  Companion to the Council of Nicaea</em>, Cambridge University Press, 2021 · Hilario, <em>De
+  synodis</em> 86 · Atanasio, <em>Ad Afros</em> 2 · Ambrosio, <em>De fide</em> I, prólogo.</p>
+  <p><strong>Para las leyendas.</strong> <em>Synodicon Vetus</em> 35, ed. John Duffy y John
+  Parker, Dumbarton Oaks, 1979 · Voltaire, <em>Dictionnaire philosophique</em>, artículo
+  «Conciles», edición de 1767 · Petrus de Natalibus, <em>Catalogus sanctorum</em>, Lyon, 1508,
+  fol. VII · Damasceno el Monje, <em>Thesaurós</em>, Venecia, 1570 · Gustav Anrich, <em>Hagios
+  Nikolaos</em>, I, p. 459 · Sócrates, <em>HE</em> 1,9 y Sozomeno, <em>HE</em> 1,21, para la
+  orden de quemar los escritos de Arrio.</p>
+  <p><strong>Para el <em>homoousios</em>.</strong> Atanasio, <em>De synodis</em> 43-45 ·
+  Basilio, <em>Carta</em> 52 · Hilario, <em>De synodis</em> 81 y 86 · Arrio, <em>Urk.</em> 6,3,
+  para la atribución a los maniqueos · Pier Franco Beatrice, «The Word "Homoousios" from
+  Hellenism to Christianity», <em>Church History</em> 71/2 (2002) 243-272 · Dragoș Andrei
+  Giulea, «Antioch 268 and Its Legacy in the Fourth-Century Theological Debates», <em>Harvard
+  Theological Review</em> 111/2 (2018) 192-215 · Lewis Ayres, «Athanasius' Initial Defense of
+  the Term <em>homoousios</em>: Rereading the <em>De Decretis</em>», <em>Journal of Early
+  Christian Studies</em> 12/3 (2004) 337-359.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+
+(function(){
+  var D={"divinidad": {"q": "Que all&iacute; se vot&oacute; la divinidad de Jes&uacute;s", "v": "falso", "d": "1.678 a&ntilde;os", "t": "<b>Lo que se discutía no era eso.</b> Los dos bandos afirmaban que Cristo era divino; lo que se discutía era <b>cómo se genera el Hijo a partir del Padre</b> y con qué gramática se habla de Dios. Lewis Ayres rechaza expresamente el marco «¿era Cristo divino?» como una mala descripción de la controversia.<br><br><b>Y el margen tampoco.</b> Suscribieron todos menos dos: Teonas de Marmárica y Secundo de Ptolemaida, excomulgados y desterrados con Arrio. Un concilio no funcionaba además por votación nominal al modo parlamentario: la decisión se expresaba como consenso y suscripción, y la disidencia se resolvía por deposición, no por recuento.<br><br><b>De dónde sale.</b> La formulación «votación relativamente reñida» se populariza con <i>El código Da Vinci</i>, de 2003. No he localizado fuente anterior para esa forma concreta de la leyenda, y lo digo así en vez de atribuirla a alguien por intuición."}, "canon": {"q": "Que all&iacute; se fij&oacute; el canon del Nuevo Testamento", "v": "falso", "d": "562 a&ntilde;os", "t": "<b>No hay registro alguno de discusión del canon en Nicea.</b> Y esta leyenda tiene el expediente más limpio de las siete, porque se puede seguir eslabón por eslabón.<br><br><b>La fuente es una sola:</b> el <i>Synodicon Vetus</i>, obra anónima y pseudohistórica sobre sínodos que llega hasta el año 887 y que se data a finales del siglo IX. Su capítulo 35 cuenta que los libros se depositaron «junto al santo altar» y que el concilio pidió al Señor que los inspirados aparecieran encima y los espurios debajo — «y así ocurrió». El <i>Synodicon</i> contiene numerosos detalles que no se hallan en ninguna otra parte y que los especialistas consideran <b>inventados por su autor</b>; algunos de los sínodos que registra pueden no haber existido.<br><br><b>Y el eslabón que la pone en circulación: Voltaire</b>, en el artículo «Conciles» de su <i>Diccionario filosófico</i>, en la forma que adquiere en la edición de 1767. Allí los libros a rechazar «se arrojaron al suelo». Voltaire cita su fuente. Todas las versiones modernas remontan a esa cadena.<br><br>Nota filológica que conviene tener a mano: en Eusebio «espurio» significa <b>no canónico</b>, no «herético». Mucha confusión posterior nace de ahí."}, "quema": {"q": "Que se quemaron evangelios", "v": "falso", "d": "n&uacute;cleo real distorsionado", "t": "<b>Hay un núcleo verdadero, y conviene darlo antes de desmentir nada:</b> sí se ordenó quemar escritos. Los de <b>Arrio</b>. Sócrates conserva la carta de Constantino ordenando su destrucción, y Sozomeno recoge la orden a las ciudades de destruir obras arrianas. Eusebio recoge además un edicto contra los herejes que incluye la <b>búsqueda</b> de sus libros — aunque el texto no dice qué se hizo con ellos.<br><br><b>Ningún texto antiguo habla de quema de evangelios en Nicea.</b> Y la cifra que circula de «trescientas versiones de la Biblia quemadas» no tiene ninguna fuente antigua ni moderna localizable: se ha rastreado hasta foros de internet.<br><br>Quemar los libros del condenado es, por lo demás, exactamente el procedimiento que explica la pieza de la entrega anterior: por eso de Arrio no queda nada de su mano salvo lo que copiaron sus enemigos para rebatirlo."}, "bofetada": {"q": "Que san Nicol&aacute;s abofete&oacute; a Arrio", "v": "falso", "d": "m&aacute;s de mil a&ntilde;os", "t": "<b>La leyenda más popular y la más tardía.</b> Su primera aparición localizable está en Petrus de Natalibus, obispo de Equilio, muerto hacia 1400; su <i>Catalogus sanctorum</i> se imprimió en Lyon en 1508. <b>Y en esa versión la víctima no es Arrio:</b> Nicolás, «ya anciano», golpea en la mandíbula a «cierto arriano» <b>sin nombre</b>, y es privado de mitra y palio.<br><br><b>Arrio aparece nombrado como víctima solo a partir de 1570</b>, en el <i>Thesaurós</i> de Damasceno el Monje, impreso en Venecia — más de mil doscientos años después del concilio. Gustav Anrich, que estudió el dossier hagiográfico de Nicolás, fecha el núcleo de la leyenda en el siglo XIV como muy pronto, y considera la versión griega una vulgarización de la <i>Vita</i> de Simeón Metafrastes. De ahí pasa a la iconografía, con el manual de pintura de Dionisio de Furná.<br><br><b>Y el dato que cierra el expediente:</b> Nicolás de Mira <b>no figura en las listas de firmantes nicenas más fiables</b> y no aparece en ninguna fuente del siglo IV. Que estuviera allí es ya dudoso; que pegara a nadie no lo dice ningún texto hasta el gótico tardío."}, "constantino": {"q": "Que Constantino impuso el resultado", "v": "medias", "d": "n&uacute;cleo documental real", "t": "<b>Aquí no se puede desmentir sin más, y la honradez cuesta un párrafo largo.</b><br><br>Hay un documento. Eusebio de Cesarea escribió a su iglesia para explicar por qué había firmado algo que al principio objetó, y en esa carta dice que <b>el emperador elogió su credo como muy ortodoxo y aconsejó a todos suscribirlo «con la inserción de la sola palabra» <i>homooúsios</i></b>. Constantino incluso <b>glosa</b> el término: que el Hijo no es consustancial en sentido corporal, ni dividido ni separado del Padre. Y Eusebio admite que el acuerdo se alcanzó «no sin algún cuestionamiento».<br><br><b>Lo que eso acredita:</b> intervención imperial real y decisiva <b>en el nivel del léxico</b>. <b>Lo que no acredita:</b> que Constantino impusiera una cristología que nadie sostenía, ni que fuera miembro votante —no lo era—, ni que el contenido doctrinal fuera suyo.<br><br><b>Y una advertencia doble, porque esta leyenda se usa en las dos direcciones:</b> la divulgación antirreligiosa sobredimensiona la frase de Eusebio, y la apologética la minimiza. Eusebio es parte interesada y está escribiendo una justificación personal. El testimonio es tendencioso <b>en los dos sentidos a la vez</b>."}, "trinidad": {"q": "Que all&iacute; se invent&oacute; la Trinidad", "v": "falso", "d": "el propio credo lo desmiente", "t": "<b>Basta leer el credo de 325.</b> Dedica al Espíritu Santo <b>una sola cláusula y sin un solo predicado</b>: «y en el Espíritu Santo». Punto. No hay pneumatología, no hay doctrina trinitaria, no hay nada que inventar.<br><br>La divinidad del Espíritu se formula en <b>Constantinopla, en 381</b>, tras el trabajo de Atanasio en las <i>Cartas a Serapión</i>, de Basilio en <i>Sobre el Espíritu Santo</i> y de los capadocios. Y para Ayres la propia «teología pro-nicena» —la que sí articula una doctrina trinitaria madura— es un fenómeno de <b>c. 360-380</b>, ninguna de cuyas versiones es idéntica a una supuesta teología nicena de los años veinte y treinta del siglo IV.<br><br>Si el término <i>triás</i> interesa: lo usa por primera vez, que se sepa, Teófilo de Antioquía hacia el 180 — <b>y no para Padre, Hijo y Espíritu Santo</b>, sino para «Dios, su Logos y su Sofía». Ciento cuarenta y cinco años antes del concilio, y con otro referente."}, "218": {"q": "Que se vot&oacute; 218 contra 2", "v": "nada", "d": "ninguna fuente, antigua ni moderna", "t": "<b>La cifra «218 contra 2» no tiene fuente localizable.</b> No aparece en ningún texto antiguo ni en la literatura académica. La incluyo precisamente por eso: porque circula con aire de dato preciso y es el caso más puro de todo el registro.<br><br>Lo que sí consta es que suscribieron todos menos dos. Y hay una conjetura razonable sobre el origen de la cifra, que doy como conjetura y no como hallazgo: si se parte del 318 legendario, el resultado sería <b>316 contra 2</b>, no 218 contra 2 — lo que sugiere una <b>corrupción numérica de 318 en 218</b> en algún punto de la cadena de divulgación. No está documentado. Es una hipótesis mía y la etiqueto como tal."}}, V={"falso": ["No ocurri&oacute;", "#8a4550"], "medias": ["Ni verdadero ni falso", "#7a5c38"], "nada": ["Sin fuente ninguna", "#6b4a7a"]};
+  var caja=document.getElementById('leyen'), det=document.getElementById('ledet');
+  if(!caja||!det) return;
+  function show(id){
+    var d=D[id];
+    caja.querySelectorAll('.le-fila').forEach(function(f){f.classList.toggle('on',f.dataset.id===id);});
+    var v=V[d.v];
+    det.innerHTML='<div class="dl" style="color:'+v[1]+'">'+v[0]+'  \u00b7  '+d.d+'</div>'+
+      '<h4>'+d.q+'</h4><p>'+d.t+'</p>';
+    det.style.borderLeftColor=v[1];
+  }
+  caja.querySelectorAll('.le-fila').forEach(function(f){
+    f.addEventListener('click',function(){show(f.dataset.id);});
+  });
+  show('canon');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4c2c60">↑ <a href="serie-cristo.html" style="color:#4c2c60">Serie: Cómo Jesús se convirtió en Dios</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="cristo-4.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#4c2c60">El hombre que no dijo lo que le hacen decir</span></a>
+    <a class="epnav-btn next" href="cristo-6.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#4c2c60">Cincuenta y seis años sin cerrar nada</span></a>
+  </div>
+</nav>
+</body></html>

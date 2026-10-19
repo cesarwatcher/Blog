@@ -1,0 +1,640 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Las iglesias que dijeron que no — Estratos</title>
+<meta name="description" content="«Monofisita» es inexacto: lo que sostienen las iglesias copta, siríaca, armenia y etíope es miafisismo, y condenaron a Eutiques igual que Calcedonia. Y treinta y seis años después de Chambésy sigue sin haber comunión eucarística.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4c2c60;--mid:#704e86;--pale:#5a3d70;
+    --rel:#8a4a2a;--exc:#4c2c60;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #5f4a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#5f4a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#5f4a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(90,61,112,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#5f4a72}
+  figcaption .cr a{color:#5a3d70;text-decoration:underline;text-decoration-color:rgba(90,61,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a3d70}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#cdc0d8,#9b86ad 42%,#704e86 70%,#4c2c60)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#704e86}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2dae8,#cdc0d8);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#5f4a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#5f4a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .decl{width:min(1080px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,140,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .decl .dk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .decl h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .decl .ds{font-size:.98rem;color:#4a4450;margin:0 0 1.1rem;max-width:68ch}
+
+  .dc-cab{display:grid;grid-template-columns:118px repeat(3,minmax(0,1fr));gap:.5rem;
+    margin-bottom:.3rem}
+  .dc-cab .h{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;
+    color:var(--deep);padding:.5rem .6rem;border-bottom:2px solid var(--mid)}
+  .dc-cab .h .an{display:block;font-size:1.25rem;font-weight:400;line-height:1.1}
+  .dc-cab .h span{display:block;font-weight:400;font-size:.62rem;color:#5a5464;
+    letter-spacing:0;margin-top:.2rem}
+  .dc-cab .h.vacia{border-bottom-color:transparent}
+
+  .dc-fila{display:grid;grid-template-columns:118px repeat(3,minmax(0,1fr));gap:.5rem;
+    margin-bottom:.35rem}
+  .dc-fila .rot{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;font-weight:700;
+    letter-spacing:.03em;color:var(--deep);padding:.55rem .2rem;align-self:center;
+    line-height:1.3}
+  .dc-cel{background:rgba(255,255,255,.55);border:1px solid rgba(120,110,132,.38);
+    border-radius:8px;padding:.5rem .6rem;cursor:pointer;font-family:inherit;color:inherit;
+    text-align:left;font-size:.72rem;line-height:1.35;transition:background .2s;
+    font-family:"Trebuchet MS",sans-serif;min-height:3rem}
+  .dc-cel:hover{background:#fff}
+  .dc-cel.on{background:#fff;box-shadow:inset 0 0 0 2px var(--mid)}
+  .dc-fila.clave .dc-cel{border-color:rgba(122,47,58,.5)}
+  .dc-fila.clave .rot{color:#7a2f3a}
+
+  .dc-det{margin-top:1.2rem;background:#fbf9fb;border:1px solid rgba(120,110,132,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:10rem}
+  .dc-det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;margin-bottom:.28rem;color:var(--pale)}
+  .dc-det h4{font-size:1.1rem;font-weight:400;color:var(--deep);margin:0 0 .5rem}
+  .dc-det p{font-size:.95rem;color:#3d3847;margin:0;line-height:1.62}
+  .dc-det i{font-style:italic}
+
+  .dc-pie{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(120,110,132,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4450;line-height:1.6}
+  .dc-pie b{color:var(--deep)}
+
+  @media(max-width:760px){
+    .dc-cab{display:none}
+    .dc-fila{grid-template-columns:1fr;gap:.25rem;margin-bottom:.9rem}
+    .dc-fila .rot{border-bottom:1px solid rgba(120,110,132,.35);padding-bottom:.3rem}
+    .dc-cel::before{content:attr(data-anio) " \00b7 ";font-weight:700;color:var(--deep)}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Cómo Jesús se convirtió en Dios · Entrega VII</span>
+  <h1>Las iglesias que dijeron que <span class="em">no</span></h1>
+  <div class="glifos"><span>μία φύσις σεσαρκωμένη</span><span class="sep">·</span><span class="tr">una naturaleza encarnada</span><span class="sep">·</span><span>Θεοτόκος</span><span class="sep">·</span><span class="tr">la que da a luz a Dios</span></div>
+  <p class="stand">Las comisiones firmaron que la fe es la misma. Mil quinientos años de cisma reconocidos como un fracaso de traducción — y el cisma sigue ahí.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">En 451, en Calcedonia, el concilio definió a Cristo como un solo sujeto
+reconocido <em>en</em> dos naturalezas. Una parte muy considerable del cristianismo oriental
+dijo que no.</p>
+
+<p>Siguen diciendo que no. La Iglesia copta, la siríaca ortodoxa, la armenia apostólica, la
+etíope, la eritrea y la malankara no recibieron Calcedonia, y la Iglesia asiria de Oriente no
+recibió Éfeso. Son, juntas, decenas de millones de personas con mil quinientos años de
+liturgia continua a sus espaldas. Y en los manuales de divulgación aparecen, cuando aparecen,
+bajo dos etiquetas que ellas rechazan.</p>
+
+<div class="secnum">01</div><h2>El hombre que recuperó su propia voz en 1889</h2>
+
+<p>De Nestorio se sabía, hasta el siglo XIX, lo que dijeron sus adversarios: fragmentos dentro
+de la polémica y unas pocas cartas latinas. Nada suyo transmitido de forma independiente.</p>
+
+<p>Luego apareció un libro. El único ejemplar conocido de su obra de madurez —en siríaco— se
+conservaba en la biblioteca del patriarca de la Iglesia de Oriente, en Qudshanis, en las
+montañas del Hakkari, y había quedado mutilado en la masacre de 1843. En <strong>1889</strong>
+un sacerdote hizo una copia apresurada en Urmía; de ella derivan todas las demás. El original
+se perdió, probablemente durante la Primera Guerra Mundial. Paul Bedjan publicó el texto
+siríaco en <strong>1910</strong> y François Nau la traducción francesa el mismo año.</p>
+
+<p>Conviene precisar, porque la historia se cuenta a veces como un hallazgo romántico: 1889 es
+la fecha de <strong>la copia que puso el texto en circulación</strong>, no la del
+descubrimiento de un manuscrito ignorado. En la Iglesia de Oriente el libro se conocía.</p>
+
+<p>Y el título con que se conoce es un malentendido encantador. En siríaco se llama «el libro
+llamado Bazar de Heráclides». <strong>«Heráclides» es un seudónimo</strong>, para proteger la
+obra de un condenado. Y «Bazar» parece ser el resultado de una cadena de traducciones: el
+griego original diría probablemente <em>pragmateía</em> —«tratado», pero también «negocio»— y
+el siríaco lo vertió por una palabra que significa «mercancía». De ahí el bazar.</p>
+
+<p>¿Qué dice el libro? Que Nestorio <strong>niega haber enseñado dos personas</strong>; que
+afirma dos naturalezas en un solo <em>prósopon</em>; que <strong>acepta que María es madre de
+Dios</strong> en el sentido debido —«nació en la carne Cristo, que es Dios sobre todas las
+cosas»—; y que considera que Calcedonia lo vindicó, aun manteniendo su condena.</p>
+
+<p><strong>Y aquí hay que repartir con cuidado, porque el asunto se cita demasiado
+redondo.</strong> Hay consenso en que el «nestorianismo» de los manuales —dos personas en
+Cristo— no es la doctrina de Nestorio, y en que el rótulo aplicado a la Iglesia de Oriente es
+inexacto. <strong>No hay consenso</strong> en que su cristología equivalga a la calcedonense:
+Grillmeier y Scipioni sostienen que su esquema es estructuralmente insuficiente, se acepte o no
+la mala fe de sus acusadores.</p>
+
+<p>Añado que la pregunta «¿era Nestorio nestoriano?» es buen titular y mala pregunta.
+«Nestorianismo» es una construcción de sus adversarios, de modo que la respuesta es
+trivialmente que no. La pregunta sustantiva es si su cristología era <strong>adecuada</strong>,
+y esa sigue abierta.</p>
+
+<figure>
+  <img src="cirilo-de-alejandria.jpg" data-alt="cirilo.jpg|cyril-alexandria.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Icono al fresco de Cirilo de Alejandría con mitra y libro">
+  <figcaption>Cirilo de Alejandría, icono al fresco de los siglos XIV-XV. Ganó Éfeso en 431 abriendo el concilio sin esperar a la delegación contraria, y es el autor de la fórmula que acabaría siendo bandera de las iglesias que rechazaron Calcedonia. La fórmula, como se verá, no era suya — ni de quien él creía. <span class="cr">Icono al fresco, siglos XIV-XV, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">02</div><h2>Una palabra que hay que dejar de usar</h2>
+
+<p><strong>«Monofisita» es inexacto, y la corrección es la razón por la que esta entrega
+existe.</strong></p>
+
+<p>El monofisismo propiamente dicho es la doctrina de <strong>Eutiques</strong>: que tras la
+unión hay una sola naturaleza, ni puramente divina ni puramente humana, con la humanidad
+absorbida. Eutiques fue condenado en Constantinopla en 448, rehabilitado en el llamado
+«latrocinio» de Éfeso en 449 y <strong>condenado definitivamente en Calcedonia</strong>.</p>
+
+<p>Lo que sostienen las iglesias copta, siríaca, armenia, etíope, eritrea y malankara es el
+<strong>miafisismo</strong>: la fórmula de Cirilo, «una naturaleza encarnada del Dios Verbo»,
+donde <em>mía</em> no significa «única y simple» sino «una compuesta», y donde la humanidad se
+conserva íntegra y consustancial a la nuestra, sin mezcla, sin confusión y sin cambio.</p>
+
+<p>La diferencia en una línea: <strong>el eutiquianismo niega la integridad de la humanidad; el
+miafisismo la afirma.</strong> La discrepancia con Calcedonia no es sobre si la humanidad de
+Cristo es completa —ambos dicen que sí— sino sobre si <em>naturaleza</em> es el término
+adecuado para nombrar las dos realidades después de la unión, o debe reservarse para el sujeto
+único.</p>
+
+<p>Y el dato que lo cierra: <strong>esas iglesias condenaron a Eutiques igual que
+Calcedonia</strong>. El sínodo de Dioscoro no lo defendió por su doctrina, sino en un pleito
+de jurisdicciones.</p>
+
+<p>Hay que conceder una cosa a quien use la etiqueta antigua: en sentido estrictamente
+etimológico, <em>mía</em> es «una», y el miafisismo es una forma de «mono-fisismo». Por eso
+algunos historiadores siguen empleando el término en sentido amplio. Pero las iglesias
+implicadas lo rechazan porque evoca al Eutiques que ellas mismas condenaron, y una comisión
+mixta de 2014 lo calificó de <strong>«engañoso y ofensivo»</strong>. Cuando alguien dice que
+el nombre con que lo llaman describe una doctrina que él condena, la carga de la prueba cambia
+de lado.</p>
+
+<figure>
+  <img src="estela-de-xian.jpg" data-alt="estela-nestoriana.jpg|xian.jpg|nestorian-stele.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Fotografía antigua de una estela china de piedra sobre un pedestal con forma de tortuga">
+  <figcaption>La <strong>estela de Xi'an</strong>, grabada en 781, fotografiada hacia 1892 junto al templo de Chongren. Documenta la presencia de la Iglesia de Oriente en China en el siglo VIII: la comunidad que los manuales llaman «nestoriana» llevaba cristianismo a Chang'an mil doscientos años antes de que nadie en Europa supiera que seguía existiendo. Lo que se ve abajo es la cabeza de la tortuga <em>bixi</em> sobre la que se instaló la estela tras ser desenterrada en el siglo XVII. <span class="cr">Henri Havret, 1895; lámina III en Budge, 1928, Dominio público.</span></figcaption>
+</figure>
+
+<figure>
+  <img src="icono-copto.jpg" data-alt="copto.jpg|coptic-icon.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Icono copto del bautismo de Jesús, con figuras de trazo esquemático">
+  <figcaption>El bautismo de Jesús, iglesia copta de San Mercurio, en el Viejo Cairo; anterior al siglo XIX. Una nota de procedimiento que hacemos siempre: la ficha de esta imagen en el repositorio <strong>lleva un aviso de mantenimiento</strong> porque su etiqueta de dominio público está incompleta. La obra es muy anterior al XIX y la reproducción fiel de obra plana antigua es libre, de modo que el uso está cubierto; pero el expediente no está cerrado del todo, y preferimos decirlo a colarlo. <span class="cr">Iglesia copta de San Mercurio, Viejo Cairo, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">03</div><h2>La fórmula que era de otro</h2>
+
+<p>Y ahora una ironía filológica de primer orden, que conviene dar con tacto porque corta hacia
+dentro.</p>
+
+<p>La fórmula bandera del miafisismo —<em>mía physis tou theoû lógou sesarkoméne</em>— la
+atribuían Cirilo y Dioscoro a <strong>Atanasio</strong>. No es de Atanasio.
+<strong>Procede de Apolinar de Laodicea</strong>, condenado en Constantinopla en 381. El
+mecanismo está documentado: los escritos de la escuela apolinarista, condenados, sobrevivieron
+circulando bajo nombres ortodoxos, y la fórmula estaba mal archivada en la cancillería
+alejandrina. Cirilo la usó de buena fe <strong>mientras rechazaba expresamente el
+apolinarismo</strong>.</p>
+
+<p>Dos precisiones. La primera es gramatical y casi todas las traducciones la estropean:
+<em>sesarkoméne</em> es femenino y concuerda con <em>physis</em>, no con <em>lógou</em>. Lo
+encarnado es la naturaleza, no —gramaticalmente— el Verbo. La traducción corriente «una
+naturaleza del Verbo encarnado» pone el caso mal.</p>
+
+<p>La segunda es histórica y es la que impide usar esto como un «te pillé»:
+<strong>los críticos sirios ya lo denunciaron en vida de Cirilo</strong>, y hay buenas razones
+para pensar que después de 432 el propio Cirilo admitió que podían tener razón sobre la
+procedencia de la frase, desplazándose hacia el lenguaje de <em>hypóstasis</em> sin abandonar
+la teología de fondo. La sospecha sobre la fórmula es contemporánea, no un descubrimiento de la
+filología alemana del novecientos — aunque fuera esa filología, con la edición crítica del
+corpus apolinarista, la que fijó la atribución.</p>
+
+<p>Y lo que no se sigue de nada de esto, dicho antes de que alguien lo intente: <strong>que la
+fórmula venga de Apolinar no convierte a Cirilo en apolinarista</strong>, ni al miafisismo
+tampoco. Volveremos sobre este tipo exacto de inferencia al cerrar.</p>
+
+<div class="decl" id="decl">
+  <span class="dk">Pieza interactiva &middot; el cuadro comparado de declaraciones</span>
+  <h3>Tres documentos firmados, y una fila que no cuadra con los otros</h3>
+  <p class="ds">Tres declaraciones conjuntas, con su texto. Las tres primeras filas cuentan una
+  historia de reconciliaci&oacute;n. <b>La cuarta cuenta que no ha ocurrido</b>, y por eso est&aacute;
+  marcada. Pulsa cualquier casilla para leer el documento y lo que falta de &eacute;l.</p>
+
+  <div class="dc-cab"><div class="h vacia"></div>
+    <div class="h"><span class="an">1984</span>Roma y la Iglesia sir&iacute;aca ortodoxa<span>Juan Pablo II e Ignacio Zakka I Iwas &middot; Roma, 23 de junio</span></div>
+    <div class="h"><span class="an">1990</span>Ortodoxos bizantinos y orientales<span>Segunda Declaraci&oacute;n Acordada &middot; Chamb&eacute;sy, 23-28 de septiembre</span></div>
+    <div class="h"><span class="an">1994</span>Roma y la Iglesia asiria de Oriente<span>Juan Pablo II y Mar Dinkha IV &middot; San Pedro, 11 de noviembre</span></div></div>
+<div class="dc-fila">
+  <div class="rot">Qu&eacute; dice el texto</div>
+  <button type="button" class="dc-cel" data-k="dice|d1984" data-anio="1984">Que las confusiones y cismas posteriores «de ningún modo afectan ni tocan la sustancia de su fe, puesto que&hellip;</button>
+  <button type="button" class="dc-cel" data-k="dice|d1990" data-anio="1990">Que «ambas familias han mantenido siempre lealmente la misma auténtica fe cristológica ortodoxa», y que hay&hellip;</button>
+  <button type="button" class="dc-cel" data-k="dice|d1994" data-anio="1994">Que Cristo es «verdadero Dios y verdadero hombre», unidos en una sola persona, «sin confusión ni cambio, sin&hellip;</button>
+</div>
+<div class="dc-fila">
+  <div class="rot">Qu&eacute; concede</div>
+  <button type="button" class="dc-cel" data-k="concede|d1984" data-anio="1984">Que el cisma que arranca en 451 no versaba sobre la sustancia de la fe. Es, de los tres, el que lo dice con&hellip;</button>
+  <button type="button" class="dc-cel" data-k="concede|d1990" data-anio="1990">Que las dos familias nunca dejaron de profesar la misma fe. No que se hayan reconciliado: que el desacuerdo no&hellip;</button>
+  <button type="button" class="dc-cel" data-k="concede|d1994" data-anio="1994">El punto exacto por el que Roma depuso a Nestorio en 431. En 1994 Theotokos y Christotokos se declaran&hellip;</button>
+</div>
+<div class="dc-fila">
+  <div class="rot">Qu&eacute; no dice</div>
+  <button type="button" class="dc-cel" data-k="nodice|d1984" data-anio="1984">No restablece la comunión eucarística, y no levanta ningún anatema. Es una declaración común de dos jerarcas,&hellip;</button>
+  <button type="button" class="dc-cel" data-k="nodice|d1990" data-anio="1990">No dice que los anatemas estén levantados: dice que deben serlo. Es una recomendación de una comisión mixta, y&hellip;</button>
+  <button type="button" class="dc-cel" data-k="nodice|d1994" data-anio="1994">No resuelve el resto del expediente. Y una ironía que conviene no pasar por alto: la declaración afirma que los&hellip;</button>
+</div>
+<div class="dc-fila clave">
+  <div class="rot">Qu&eacute; ha pasado desde entonces</div>
+  <button type="button" class="dc-cel" data-k="luego|d1984" data-anio="1984">Nada decisivo. Hay acuerdos pastorales derivados, pero la comunión plena no se ha restablecido.</button>
+  <button type="button" class="dc-cel" data-k="luego|d1990" data-anio="1990">Treinta y seis años después, los anatemas siguen sin levantarse y no hay comunión eucarística.</button>
+  <button type="button" class="dc-cel" data-k="luego|d1994" data-anio="1994">Acuerdos subsiguientes sobre admisión a los sacramentos en casos concretos. Pero la comunión plena tampoco aquí.</button>
+</div>
+
+  <div class="dc-det" id="dcdet" aria-live="polite"></div>
+  <div class="dc-pie"><b>La secuencia que se cuenta</b> &mdash;1984, 1990, 1994: resuelto, era un
+  malentendido de mil quinientos a&ntilde;os&mdash; <b>es falsa como descripci&oacute;n del estado real</b>. Lo
+  que hay es: acuerdos cristol&oacute;gicos firmados por comisiones, sin recepci&oacute;n sinodal
+  generalizada, sin levantamiento de anatemas y sin comuni&oacute;n.<br><br>
+  <b>Y una parte de la raz&oacute;n es que la diferencia nunca fue solo de palabras.</b> Los no
+  calcedonianos ten&iacute;an objeciones reales: que Calcedonia dijera «<b>en</b> dos naturalezas» y
+  no «<b>de</b> dos naturalezas», abandonando el lenguaje de Cirilo justo donde Cirilo hab&iacute;a
+  ganado en 431; que <b>rehabilitara a Teodoreto de Ciro y a Ibas de Edesa</b>, adversarios
+  declarados de Cirilo, con tumulto en la propia sala; que tres pasajes del <i>Tomo</i> de Le&oacute;n
+  tuvieran que ser examinados cinco d&iacute;as por sospecha de nestorianismo; y que Diosc&oacute;ro fuera
+  depuesto sin comparecer.<br><br>
+  La prueba de que el agravio era real la dio el propio Imperio un siglo despu&eacute;s: en la
+  <b>controversia de los Tres Cap&iacute;tulos</b>, Justiniano y Constantinopla II (553) condenaron a
+  Teodoro de Mopsuestia, los escritos de Teodoreto contra Cirilo y la carta de Ibas
+  &mdash;<b>precisamente para recuperar a los no calcedonianos</b>&mdash; y rompieron por ello la
+  comuni&oacute;n con medio Occidente. <b>Si hubiera sido solo terminol&oacute;gico, nadie habr&iacute;a pagado ese
+  precio.</b><br><br>
+  Lo cual tampoco autoriza el error contrario: la tesis decimon&oacute;nica de que el miafisismo fue
+  nacionalismo copto o sirio disfrazado de teolog&iacute;a est&aacute; hoy ampliamente desacreditada. Hab&iacute;a
+  teolog&iacute;a, y hab&iacute;a jurisdicci&oacute;n, y hab&iacute;a lengua lit&uacute;rgica, y las tres cosas a la vez.</div>
+</div>
+
+<div class="secnum">04</div><h2>Lo que las comisiones firmaron, y lo que no ha pasado</h2>
+
+<p>En el siglo XX ocurrió algo notable y poco conocido: las jerarquías se sentaron a hablar y
+llegaron a acuerdos cristológicos. El cuadro de arriba trae los tres principales con su texto.
+En 1984 Roma y la Iglesia siríaca ortodoxa firman que las divisiones surgieron
+<em>únicamente</em> por diferencias de terminología y de cultura. En 1990, en Chambésy,
+ortodoxos bizantinos y orientales declaran que ambas familias han mantenido siempre la misma
+auténtica fe cristológica ortodoxa, y piden que se levanten los anatemas. En 1994 Roma y la
+Iglesia asiria reconocen la legitimidad de <em>Theotokos</em> y <em>Christotokos</em> como
+expresiones de la misma fe — es decir, Roma concede en 1994 el punto exacto por el que depuso a
+Nestorio en 431.</p>
+
+<p><strong>Y aquí es donde esta entrega se separa del relato que suele hacerse.</strong></p>
+
+<p>La secuencia «1984, 1990, 1994: resuelto, era un malentendido de mil quinientos años» es
+falsa como descripción del estado real. Treinta y seis años después de Chambésy,
+<strong>los anatemas siguen sin levantarse y no hay comunión eucarística</strong> entre
+ortodoxos bizantinos y orientales. El informe de la conferencia de Boston de noviembre de 2025,
+publicado en febrero de 2026, <em>sigue recomendando</em> que se levanten, y propone pasos
+intermedios —como una aceptación más amplia de la comunión para matrimonios mixtos entre las
+dos familias— que confirman por implicación que la comunión general no existe. Los documentos
+del diálogo de los últimos cincuenta años fueron recibidos formalmente solo por un número
+reducido de iglesias de ambos lados; el resto nunca emitió respuesta oficial.</p>
+
+<p>Hay además oposición organizada y con argumentos. El memorándum de la Sagrada Comunidad del
+Monte Athos objeta que la comisión trate como ortodoxa una cristología que los Padres llamaron
+herética, que los textos no muestren con claridad la aceptación de los concilios cuarto a
+séptimo, que la decisión de levantar anatemas <strong>careciera de autorización sinodal</strong>
+y que se haya permitido diferir el reconocimiento de la ecumenicidad de los concilios hasta
+<em>después</em> de la unión.</p>
+
+<div class="secnum">05</div><h2>Y una parte de la razón es que nunca fue solo terminológico</h2>
+
+<p>Este es el contrapeso obligatorio, y casi nadie lo da.</p>
+
+<p>Los no calcedonianos tenían objeciones <strong>reales</strong>, no verbales. Que la
+Definición dijera «<em>en</em> dos naturalezas» y no «<em>de</em> dos naturalezas» no era un
+sinónimo para Alejandría: era abandonar el lenguaje de Cirilo justo en el punto en que Cirilo
+había ganado en 431. Que Calcedonia <strong>rehabilitara a Teodoreto de Ciro y a Ibas de
+Edesa</strong> —depuestos en 449, adversarios declarados de Cirilo— provocó tumulto en la propia
+sala cuando el legado ordenó reponer a Teodoreto y darle asiento. Que <strong>tres pasajes del
+<em>Tomo</em> de León fueran impugnados como posiblemente nestorianos</strong>, hasta el punto
+de que una comisión necesitó cinco días para declararlo compatible con Cirilo. Y que Dioscoro
+fuera depuesto sin comparecer.</p>
+
+<p>La prueba de que el agravio era real la dio el propio Imperio un siglo después. En la
+<strong>controversia de los Tres Capítulos</strong>, Justiniano y el concilio de 553 condenaron
+a Teodoro de Mopsuestia, los escritos de Teodoreto contra Cirilo y la carta de Ibas —
+precisamente para recuperar a los no calcedonianos — y rompieron por ello la comunión con medio
+Occidente. <strong>Si el conflicto hubiera sido solo de palabras, nadie habría pagado ese
+precio.</strong></p>
+
+<p>Lo cual no autoriza el error contrario. La tesis decimonónica de que el miafisismo fue
+nacionalismo copto o sirio disfrazado de teología está hoy ampliamente desacreditada. Había
+teología, había jurisdicción y había lengua litúrgica, y las tres cosas a la vez.</p>
+
+<figure>
+  <img src="evangelios-abba-garima.jpg" data-alt="abba-garima.jpg|evangelio-etiope.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Miniatura etíope de un evangelista sentado, con colores planos y vivos">
+  <figcaption>Marcos evangelista, <strong>Evangelios de Garima</strong>, Etiopía, siglo VI. De los manuscritos iluminados cristianos más antiguos que existen, y copiados en una iglesia que no recibió Calcedonia. Es un buen correctivo contra la idea de que las iglesias que dijeron que no fueran periferias tardías: cuando se produjo este libro, el cisma tenía un siglo y la tradición que lo produjo ya era antigua. <span class="cr">Evangelios de Garima, Etiopía, Dominio público.</span></figcaption>
+</figure>
+
+<div class="wall">
+  <div class="post mid">
+    <div class="who">1984 &middot; Roma y Antioqu&iacute;a sir&iacute;aca</div>
+    <div class="what">Declaraci&oacute;n com&uacute;n</div>
+    <p>Las divisiones «de ning&uacute;n modo afectan ni tocan la sustancia de su fe, puesto que surgieron <b>&uacute;nicamente</b> a causa de diferencias de terminolog&iacute;a y de cultura».</p>
+  </div>
+  <div class="post mid">
+    <div class="who">1990 &middot; Chamb&eacute;sy</div>
+    <div class="what">Segunda Declaraci&oacute;n Acordada</div>
+    <p>«Ambas familias han mantenido siempre lealmente <b>la misma aut&eacute;ntica fe cristol&oacute;gica ortodoxa</b>.» Y el p&aacute;rrafo 10: los anatemas <b>deben ser levantados</b>.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">1994 &middot; Roma y la Iglesia asiria</div>
+    <div class="what">Declaraci&oacute;n cristol&oacute;gica com&uacute;n</div>
+    <p>Reconocen «la <b>legitimidad y la rectitud</b>» de <i>Theot&oacute;kos</i> y de <i>Christot&oacute;kos</i> como expresiones de la misma fe. El punto por el que Nestorio fue depuesto en 431.</p>
+  </div>
+  <div class="post max">
+    <div class="who">2026 &middot; el informe de Boston</div>
+    <div class="what">Publicado en febrero</div>
+    <p>Treinta y seis a&ntilde;os despu&eacute;s de Chamb&eacute;sy, <b>sigue recomendando</b> que se levanten los anatemas &mdash; y propone pasos intermedios. <b>No hay comuni&oacute;n eucar&iacute;stica.</b></p>
+  </div>
+  <div class="post min">
+    <div class="who">El Monte Athos</div>
+    <div class="what">Memor&aacute;ndum de la Sagrada Comunidad</div>
+    <p>Objeta que la decisi&oacute;n de levantar anatemas <b>careci&oacute; de autorizaci&oacute;n sinodal</b> y que se difiera el reconocimiento de los concilios <b>hasta despu&eacute;s de la uni&oacute;n</b>.</p>
+  </div>
+</div>
+
+<div class="secnum">06</div><h2>Lo que esta serie no ha hecho, dicho por su nombre</h2>
+
+<p>Siete entregas describiendo cómo se formaron unas definiciones: con qué materiales, en qué
+fechas, en qué discusiones y a costa de quién. Toca decir qué no se sigue de todo esto, y
+decirlo con el nombre técnico.</p>
+
+<p>La <strong>falacia genética</strong> consiste en inferir la verdad o falsedad de una
+proposición a partir de su origen, su historia o el proceso causal que la produjo, en lugar de
+a partir de sus razones y su contenido. Es una falacia informal de relevancia: el origen de una
+creencia es histórica y sociológicamente informativo, y <strong>lógicamente irrelevante</strong>
+para su valor de verdad.</p>
+
+<p>Y opera <strong>en las dos direcciones</strong>, que es lo que casi nunca se dice.</p>
+
+<p>En una: mostrar que la fórmula <em>mía physis</em> procede de Apolinar, que el credo que se
+recita es de 381 y no de 325, que <em>Theotokos</em> se impuso en una sola jornada el 22 de
+junio de 431, o que el canon 28 se fundó en el rango imperial de una ciudad, establece que esas
+formulaciones <strong>tienen una historia humana y contingente</strong>. No establece que sean
+falsas. Toda proposición verdadera fue formulada por primera vez por alguien, en algún sitio y
+por motivos mezclados.</p>
+
+<p>En la otra: «es antiguo, luego es verdadero» es igual de falaz, y es la forma dominante del
+argumento apologético. La antigüedad de una doctrina es un dato histórico, no una credencial
+epistémica.</p>
+
+<p>Hay un caso límite que conviene distinguir, porque es fino. Si Cirilo adoptó la fórmula
+<em>porque la creía de Atanasio</em>, entonces <strong>su razón para adoptarla era
+defectuosa</strong>, y eso sí afecta a la fuerza del argumento de autoridad que él estaba
+usando. Lo que no afecta es a la verdad de lo que la fórmula afirma. Distinguir «la razón que
+se dio era mala» de «lo afirmado es falso» es exactamente la distinción que la falacia genética
+borra.</p>
+
+<p>De modo que esta serie no ha demostrado que Jesús sea Dios, ni que no lo sea. Ha descrito un
+proceso. <strong>Una historia crítica de la formación del dogma no está en posición de
+pronunciarse sobre la verdad de lo que describe</strong>, y conviene decirlo expresamente para
+que ni la lectura devocional ni la antirreligiosa puedan reclamar estas siete entregas como
+munición. Las dos se llevarían un chasco si leyeran con cuidado.</p>
+
+<div class="secnum">07</div><h2>Lo que sí queda</h2>
+
+<p>Queda la forma del proceso, que no era la que se cuenta. Entre el año treinta y el
+cuatrocientos cincuenta y uno no hubo un ascenso: hubo <strong>un estrechamiento</strong>. Un
+campo ancho de maneras de decir qué es Jesús respecto del Dios de Israel, recortado frontera a
+frontera hasta dejar una franja muy delgada — y, fuera de ella, nombres puestos casi siempre
+por el otro lado.</p>
+
+<p>Y queda una imagen, que es con la que esta serie cierra.</p>
+
+<figure>
+  <img src="pantocrator-dafni.jpg" data-alt="pantocrator.jpg|dafni.jpg|cristo-pantocrator.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Mosaico bizantino de Cristo Pantocrátor en la cúpula, con libro y gesto de bendición">
+  <figcaption>Cristo Pantocrátor, monasterio de Dafni, Grecia, siglo XI. Siete entregas más tarde, aquí está el final del proceso: la imagen en que todo lo que esta serie ha seguido —los títulos, los concilios, las fórmulas, las fronteras— se ha convertido en una cara que mira desde una cúpula. Lo que no dice el mosaico, y ha ocupado estas siete entregas, es cuánto se discutió para llegar hasta él. <span class="cr">Fotografía de Michel Bakni, Dominio público.</span></figcaption>
+</figure>
+
+<p>Mil quinientos años de cisma reconocidos por escrito como un fracaso de traducción. Y el
+cisma sigue ahí.</p>
+
+<div class="meter">
+  <div class="q">¿Es firme que «monofisita» es una etiqueta inexacta para estas iglesias?</div>
+  <div class="bar"><span class="pin" style="left:89%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Lo es en lo sustantivo: el monofisismo propiamente dicho es la doctrina de Eutiques, y esas iglesias lo condenaron igual que Calcedonia; lo que sostienen conserva íntegra la humanidad de Cristo. La aguja no llega al extremo por una razón que conviene decir: en sentido estrictamente etimológico el miafisismo <i>es</i> una forma de monofisismo —<i>mía</i> es «una»—, y por eso algunos historiadores siguen usando el término en sentido amplio para todo anticalcedoniano. La objeción decisiva no es etimológica sino de uso: la palabra evoca al Eutiques que ellas condenaron, y una comisión mixta de 2014 la calificó de «engañosa y ofensiva». Lo neutro es «no calcedonianos» u «ortodoxos orientales», con «miafisismo» para la doctrina.</div>
+</div>
+
+<div class="aviso">
+  <div class="t">El seguro de toda la serie, puesto al final a propósito</div>
+  <p>Describir cómo se produjo una creencia <strong>no es pronunciarse sobre su verdad</strong>, y las siete entregas han hecho lo primero y no lo segundo. Esto no es una cautela de cortesía: es la diferencia entre historia y panfleto.<br><br>Quien quiera leer aquí que el dogma queda refutado por tener fecha de nacimiento comete una falacia con nombre. Y quien quiera leer que una doctrina es verdadera por ser antigua comete <strong>la misma falacia en la otra dirección</strong>. Las dos lecturas son igual de cómodas, igual de populares e igual de malas.</p>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <span class="k">consenso</span> que el «nestorianismo» de los manuales no es la doctrina de Nestorio y que el rótulo aplicado a la Iglesia de Oriente es inexacto; que el monofisismo propiamente dicho es la doctrina de Eutiques, condenada también por las iglesias no calcedonianas; que la fórmula <em>mía physis tou theoû lógou sesarkoméne</em> procede de Apolinar de Laodicea y no de Atanasio; y que a fecha de hoy no hay comunión eucarística entre ortodoxos bizantinos y orientales.</p>
+  <p>Está en <span class="k">debate abierto</span> si la cristología de Nestorio equivale a la calcedonense, que es cosa distinta de si fue malinterpretado: Bethune-Baker, Anastos y Chesnut sostienen lo primero, Grillmeier y Scipioni lo niegan. Y está en discusión hasta dónde llegó el propio Cirilo en su reconocimiento de que la fórmula podía no ser de Atanasio.</p>
+  <p>Dos <span class="k">correcciones de cita</span> que hago porque he visto las dos mal. La declaración de 1994 dice «legitimidad y rectitud de estas expresiones de la misma fe»; no dice «complementarias» ni «expresiones legítimas», que es como suele citarse. Y la de 1984 sí dice literalmente «únicamente» —ahí la memoria colectiva acierta—, pero es un documento pastoral de dos jerarcas, no un acto sinodal ni una tesis historiográfica.</p>
+  <p>Y una <span class="k">cautela sobre la fecha de edición</span> del corpus apolinarista, que es la pieza en que descansa la atribución de la fórmula: la obra crítica de referencia es la de Hans Lietzmann, y las fuentes bibliográficas discrepan entre 1904 y 1905, probablemente por diferencia entre fecha de impresión y de portada. Lo digo en vez de elegir una en silencio. Y no atribuyo la demostración a Dräseke, como se lee a veces, porque no he podido verificar el alcance de su contribución a este punto concreto.</p>
+</div>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p><strong>Nestorio.</strong> <em>Liber Heraclidis</em>, ed. siríaca de Paul Bedjan, Leipzig,
+  1910; trad. francesa de François Nau, París, 1910; trad. inglesa de G. R. Driver y L. Hodgson,
+  Oxford, 1925 · J. F. Bethune-Baker, <em>Nestorius and his Teaching</em>, Cambridge University
+  Press, 1908 · Roberta C. Chesnut, «The Two Prosopa in Nestorius' <em>Bazaar of
+  Heracleides</em>», <em>JTS</em>, 1978 · Aloys Grillmeier, <em>Christ in Christian
+  Tradition</em> · Sebastian Brock, sobre el carácter erróneo del rótulo «nestoriano» aplicado a
+  la Iglesia de Oriente · John A. McGuckin, <em>Saint Cyril of Alexandria and the Christological
+  Controversy</em>, 2004.</p>
+  <p><strong>Miafisismo y la fórmula.</strong> Cirilo de Alejandría, <em>Primera carta a
+  Suceso</em>, donde rechaza el apolinarismo mientras defiende la fórmula · Hans Lietzmann,
+  <em>Apollinaris von Laodicea und seine Schule</em>, Mohr, Tubinga, 1904 o 1905 según la
+  fuente · Declaración de la comisión mixta anglicano-ortodoxa oriental, 2014, sobre el carácter
+  «engañoso y ofensivo» de la etiqueta.</p>
+  <p><strong>Las declaraciones.</strong> Declaración común de Juan Pablo II e Ignacio Zakka I
+  Iwas, 23 de junio de 1984 · Segunda Declaración Acordada de la comisión mixta entre ortodoxos
+  y ortodoxos orientales, Chambésy, 23-28 de septiembre de 1990, con la primera del monasterio
+  de Anba Bishoy, junio de 1989 · Declaración cristológica común de la Iglesia católica y la
+  Iglesia asiria de Oriente, 11 de noviembre de 1994 · informe de la conferencia ortodoxa
+  oriental-ortodoxa oriental celebrada en Holy Cross, Boston, noviembre de 2025, publicado en
+  febrero de 2026 · Memorándum de la Sagrada Comunidad del Monte Athos sobre el diálogo con los
+  no calcedonianos.</p>
+  <p><strong>El contrapeso.</strong> Actas de Calcedonia sobre la rehabilitación de Teodoreto de
+  Ciro e Ibas de Edesa y sobre el examen del <em>Tomo</em> de León · edicto de Justiniano de
+  543-544 y concilio de Constantinopla II (553) sobre los Tres Capítulos.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+
+(function(){
+  var D={"dice|d1984": {"a": "1984", "p": "Roma y la Iglesia sir&iacute;aca ortodoxa", "f": "Qu&eacute; dice el texto", "t": "Que las confusiones y cismas posteriores «<b>de ningún modo afectan ni tocan la sustancia de su fe, puesto que surgieron únicamente a causa de diferencias de terminología y de cultura</b> y de las diversas fórmulas adoptadas por distintas escuelas teológicas para expresar la misma cosa».<br><br>Y la confesión cristológica conjunta: Jesucristo «es Dios perfecto en cuanto a su divinidad, hombre perfecto en cuanto a su humanidad».<br><br><b>Sí: la palabra «únicamente» está en el documento.</b> Lo compruebo porque es la pieza que suele citarse de memoria y conviene saber que esta vez la memoria acierta."}, "dice|d1990": {"a": "1990", "p": "Ortodoxos bizantinos y orientales", "f": "Qu&eacute; dice el texto", "t": "Que «<b>ambas familias han mantenido siempre lealmente la misma auténtica fe cristológica ortodoxa</b>», y que hay continuidad ininterrumpida de la tradición apostólica.<br><br>El párrafo 10 va más lejos que ningún otro de los tres: «todos los anatemas y condenas del pasado que ahora nos dividen <b>deben ser levantados por las Iglesias</b>», y el levantamiento se consumará sobre la base de que «los concilios y los Padres previamente anatematizados o condenados <b>no son herejes</b>»."}, "dice|d1994": {"a": "1994", "p": "Roma y la Iglesia asiria de Oriente", "f": "Qu&eacute; dice el texto", "t": "Que Cristo es «verdadero Dios y verdadero hombre», unidos en una sola persona, «<b>sin confusión ni cambio, sin división ni separación</b>» — los cuatro adverbios de Calcedonia, literalmente, <b>en un texto firmado con una Iglesia que nunca recibió Calcedonia</b>.<br><br>Y sobre el título mariano: la Iglesia asiria la invoca como «Madre de Cristo nuestro Dios y Salvador» y la tradición católica como «Madre de Dios»; ambas partes «reconocemos <b>la legitimidad y la rectitud</b> de estas expresiones de la misma fe».<br><br><b>Precisión de cita:</b> el texto dice «legitimidad y rectitud», no «complementarias». Se cita mal con frecuencia."}, "concede|d1984": {"a": "1984", "p": "Roma y la Iglesia sir&iacute;aca ortodoxa", "f": "Qu&eacute; concede", "t": "Que el cisma que arranca en 451 <b>no versaba sobre la sustancia de la fe</b>. Es, de los tres, el que lo dice con menos reservas."}, "concede|d1990": {"a": "1990", "p": "Ortodoxos bizantinos y orientales", "f": "Qu&eacute; concede", "t": "Que las dos familias <b>nunca dejaron de profesar la misma fe</b>. No que se hayan reconciliado: que el desacuerdo no existió en el plano en que se creyó que existía."}, "concede|d1994": {"a": "1994", "p": "Roma y la Iglesia asiria de Oriente", "f": "Qu&eacute; concede", "t": "El punto exacto por el que Roma depuso a Nestorio en 431. En <b>1994</b> <i>Theotokos</i> y <i>Christotokos</i> se declaran expresiones legítimas de la misma fe. Mil quinientos sesenta y tres años."}, "nodice|d1984": {"a": "1984", "p": "Roma y la Iglesia sir&iacute;aca ortodoxa", "f": "Qu&eacute; no dice", "t": "No restablece la comunión eucarística, y no levanta ningún anatema. Es una declaración común de dos jerarcas, con alcance pastoral; <b>no es un acto sinodal</b>."}, "nodice|d1990": {"a": "1990", "p": "Ortodoxos bizantinos y orientales", "f": "Qu&eacute; no dice", "t": "No dice que los anatemas <i>estén</i> levantados: dice que <b>deben</b> serlo. Es una recomendación de una comisión mixta, y <b>deja a cada Iglesia la forma concreta de hacerlo</b>. Esa cláusula, que parece prudente, es la puerta por la que se escapó la aplicación."}, "nodice|d1994": {"a": "1994", "p": "Roma y la Iglesia asiria de Oriente", "f": "Qu&eacute; no dice", "t": "No resuelve el resto del expediente. Y una ironía que conviene no pasar por alto: la declaración afirma que los anatemas del pasado se debieron en gran parte a <b>malentendidos</b> — lo que es a la vez generoso y discutible, porque en 431 hubo también un pleito de jurisdicciones muy poco teológico."}, "luego|d1984": {"a": "1984", "p": "Roma y la Iglesia sir&iacute;aca ortodoxa", "f": "Qu&eacute; ha pasado desde entonces", "t": "<b>Nada decisivo.</b> Hay acuerdos pastorales derivados, pero la comunión plena no se ha restablecido."}, "luego|d1990": {"a": "1990", "p": "Ortodoxos bizantinos y orientales", "f": "Qu&eacute; ha pasado desde entonces", "t": "<b>Treinta y seis años después, los anatemas siguen sin levantarse y no hay comunión eucarística.</b><br><br>El informe de la conferencia de Boston de noviembre de 2025, publicado en febrero de 2026, <b>sigue recomendando</b> que se levanten — es decir, sigue siendo una recomendación pendiente. Y propone <b>pasos intermedios</b>, como una aceptación más amplia de la comunión para matrimonios mixtos entre las dos familias, lo que confirma por implicación que la comunión general no existe.<br><br>Los documentos del diálogo de los últimos cincuenta años <b>fueron recibidos formalmente solo por un número reducido de iglesias de ambos lados</b>; el resto nunca emitió respuesta oficial.<br><br>Y hay oposición organizada y con argumentos. El memorándum de la Sagrada Comunidad del Monte Athos objeta que la comisión trate como ortodoxa una cristología que los Padres llamaron herética; que los textos no muestren con claridad que los no calcedonianos acepten los concilios IV a VII; que la decisión de levantar anatemas <b>careciera de autorización sinodal</b>; y que se haya permitido diferir el reconocimiento de la ecumenicidad de los concilios <b>hasta después de la unión</b>."}, "luego|d1994": {"a": "1994", "p": "Roma y la Iglesia asiria de Oriente", "f": "Qu&eacute; ha pasado desde entonces", "t": "Acuerdos subsiguientes sobre admisión a los sacramentos en casos concretos. Pero la comunión plena tampoco aquí."}};
+  var caja=document.getElementById('decl'), det=document.getElementById('dcdet');
+  if(!caja||!det) return;
+  function show(k){
+    var d=D[k];
+    caja.querySelectorAll('.dc-cel').forEach(function(c){c.classList.toggle('on',c.dataset.k===k);});
+    det.innerHTML='<div class="dl">'+d.a+'  \u00b7  '+d.p+'</div><h4>'+d.f+'</h4><p>'+d.t+'</p>';
+  }
+  caja.querySelectorAll('.dc-cel').forEach(function(c){
+    c.addEventListener('click',function(){show(c.dataset.k);});
+  });
+  show('luego|d1990');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4c2c60">↑ <a href="serie-cristo.html" style="color:#4c2c60">Serie: Cómo Jesús se convirtió en Dios</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="cristo-6.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#4c2c60">Cincuenta y seis años sin cerrar nada</span></a>
+    <a class="epnav-btn next" href="serie-cristo.html"><span class="lbl">Fin de la serie</span><span class="ttl" style="color:#4c2c60">Volver al índice</span></a>
+  </div>
+</nav>
+</body></html>

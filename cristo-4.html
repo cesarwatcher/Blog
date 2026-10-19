@@ -1,0 +1,562 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El hombre que no dijo lo que le hacen decir — Estratos</title>
+<meta name="description" content="De Arrio se conservan tres cartas y unas ochenta líneas citadas por sus enemigos. Y la frase con la que se le identifica —«hubo cuando no era»— es la fórmula del anatema de Nicea, no una cita suya.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4c2c60;--mid:#704e86;--pale:#5a3d70;
+    --rel:#8a4a2a;--exc:#4c2c60;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #5f4a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#5f4a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#5f4a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(90,61,112,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#5f4a72}
+  figcaption .cr a{color:#5a3d70;text-decoration:underline;text-decoration-color:rgba(90,61,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a3d70}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#cdc0d8,#9b86ad 42%,#704e86 70%,#4c2c60)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#704e86}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2dae8,#cdc0d8);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#5f4a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#5f4a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .puno{width:min(1040px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,140,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .puno .pk{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .puno h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .puno .ps{font-size:.98rem;color:#4a4450;margin:0 0 1.2rem;max-width:68ch}
+
+  .pu-cab{display:grid;grid-template-columns:minmax(0,1.15fr) 120px minmax(0,2fr);
+    gap:.6rem;padding:0 .25rem .35rem;border-bottom:2px solid var(--mid);margin-bottom:.2rem}
+  .pu-cab .h{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;font-weight:700;
+    letter-spacing:.05em;color:var(--deep)}
+  .pu-cab .h span{display:block;font-weight:400;font-size:.63rem;letter-spacing:0;
+    color:#5a5464;margin-top:.15rem}
+
+  .pu-fila{display:grid;grid-template-columns:minmax(0,1.15fr) 120px minmax(0,2fr);
+    gap:.6rem;width:100%;text-align:left;background:transparent;border:0;
+    border-bottom:1px solid rgba(120,110,132,.3);padding:.7rem .25rem;cursor:pointer;
+    align-items:center;font-family:inherit;color:inherit;transition:background .2s}
+  .pu-fila:hover{background:rgba(255,255,255,.45)}
+  .pu-fila.on{background:rgba(255,255,255,.72)}
+  .pu-fila .nm{font-size:1rem;color:#2f2a38;line-height:1.3}
+  .pu-fila .nm b{font-weight:400;display:block;font-family:"Trebuchet MS",sans-serif;
+    font-size:.66rem;color:#5a5464;margin-top:.15rem}
+  .pu-fila .ind{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;
+    color:#7a2f3a;text-align:center}
+
+  .pu-bar{position:relative;height:30px;background:rgba(255,255,255,.5);
+    border:1px solid rgba(120,110,132,.35);border-radius:6px;overflow:hidden}
+  .pu-bar i{position:absolute;top:0;bottom:0;left:0;display:block}
+  .pu-bar .adv{background:linear-gradient(90deg,#8d7fa0,#6b5b80)}
+  .pu-bar .pro{background:var(--deep);border-right:2px solid #1c1420}
+  /* El rotulo de la barra vacia se pintaba directamente sobre la barra del
+     adversario, y cuando esa barra ocupa todo el ancho —Praxeas, los
+     ebionitas— caia sobre el violeta y daba 1,86:1. Ahora lleva su propio
+     fondo: el contraste se mide contra el, no contra lo que haya debajo. */
+  .pu-bar .vac{position:absolute;left:6px;top:50%;transform:translateY(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.62rem;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;color:#7a2f3a;
+    background:rgba(255,255,255,.94);border:1px solid rgba(122,47,58,.4);
+    border-radius:4px;padding:.12rem .4rem;white-space:nowrap;max-width:calc(100% - 12px);
+    overflow:hidden;text-overflow:ellipsis}
+  .pu-cifra{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;color:#4a4450;
+    margin-top:.25rem;line-height:1.4}
+  .pu-cifra b{color:var(--deep)}
+
+  .pu-det{margin-top:1.3rem;background:#fbf9fb;border:1px solid rgba(120,110,132,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:10rem}
+  .pu-det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;margin-bottom:.28rem;color:var(--pale)}
+  .pu-det h4{font-size:1.1rem;font-weight:400;color:var(--deep);margin:0 0 .5rem}
+  .pu-det p{font-size:.95rem;color:#3d3847;margin:0;line-height:1.62}
+  .pu-det i{font-style:italic}
+
+  .pu-leyenda{display:flex;flex-wrap:wrap;gap:1.1rem;margin:1rem 0 .2rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.68rem;color:#4a4450}
+  .pu-leyenda span{display:flex;align-items:center;gap:.4rem}
+  .pu-leyenda em{width:14px;height:11px;border-radius:2px;display:inline-block}
+
+  .pu-pie{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(120,110,132,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4450;line-height:1.6}
+  .pu-pie b{color:var(--deep)}
+
+  @media(max-width:760px){
+    .pu-cab{display:none}
+    .pu-fila{grid-template-columns:1fr;gap:.35rem}
+    .pu-fila .ind{text-align:left}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Cómo Jesús se convirtió en Dios · Entrega IV</span>
+  <h1>El hombre que no dijo lo que le hacen <span class="em">decir</span></h1>
+  <div class="glifos"><span>ἦν ποτε ὅτε οὐκ ἦν</span><span class="sep">·</span><span class="tr">hubo cuando no era</span><span class="sep">·</span><span>κτίσμα τέλειον</span><span class="sep">·</span><span class="tr">criatura perfecta</span></div>
+  <p class="stand">La frase que todo el mundo le atribuye entre comillas es la manera en que sus adversarios la resumieron para poder maldecirla.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">Todo el mundo sabe lo que dijo Arrio. Dijo que hubo un tiempo en que el Hijo
+no existía. Es la frase con la que aparece en los manuales, en los documentales y en las
+discusiones de sobremesa, siempre entre comillas.</p>
+
+<p><strong>Esas comillas están mal puestas.</strong> La frase no está en ninguno de los textos
+conservados de Arrio. Es la fórmula del <em>anatema</em> con que el concilio de Nicea condenó
+su posición — es decir, la manera en que sus adversarios la resumieron para poder
+maldecirla.</p>
+
+<p>Y el detalle técnico que la versión divulgativa estropea es exactamente el que a él le
+importaba.</p>
+
+<div class="secnum">01</div><h2>«Hubo cuando no era»</h2>
+
+<p>El anatema niceno condena a quienes dicen <em>ēn pote hote ouk ēn</em>: «hubo
+<strong>cuando</strong> no era». No «hubo <strong>un tiempo</strong> cuando no era». La
+diferencia no es cosmética: <strong>Arrio evitaba deliberadamente las palabras «tiempo» y
+«eón»</strong>, porque para él el Hijo es anterior al tiempo mismo. Decir «hubo un tiempo en
+que no existía» le atribuye justo lo que su formulación estaba construida para evitar.</p>
+
+<p>Lo que él escribió, y esto sí está en sus cartas, es que el Hijo «no existía antes de ser
+engendrado». Y que fue engendrado «antes de los tiempos y de los eones».</p>
+
+<p>Conviene ser justo con la fórmula del concilio: resume su posición con fidelidad razonable.
+No es una tergiversación, es una condensación hostil. Pero la manera honrada de citarla es
+esta: <em>lo que Nicea condenó bajo la fórmula «hubo cuando no era» corresponde a lo que Arrio
+expresaba como «no existía antes de ser engendrado»</em>. Tres líneas en vez de cinco palabras,
+y la diferencia entre una cita y una atribución.</p>
+
+<figure>
+  <img src="arrio-bajo-los-pies.jpg" data-alt="arrio.jpg|nikea-arius.jpg|arrio-nicea.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Icono del concilio de Nicea con una figura derribada en la parte inferior">
+  <figcaption>Icono del monasterio de <strong>Mégalo Metéoron</strong>, en Grecia: el primer concilio de Nicea, con Arrio derribado en la parte inferior de la composición, bajo los pies de los padres. Es la caricatura hecha imagen — y la posición que ocupa en el cuadro, debajo y vencido, es información sobre <em>cómo se le recuerda</em>, no sobre lo que sostuvo. <span class="cr">Fotografía de Jjensen, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure>
+
+<div class="secnum">02</div><h2>Lo que sostuvo, según lo que escribió</h2>
+
+<p>De sus tres cartas conservadas y de los fragmentos de la <em>Thalía</em> se puede reconstruir
+una posición coherente, y es más interesante que su caricatura.</p>
+
+<p>Solo el Padre es ingénito, sin principio y eterno. «El Hijo tiene principio, pero Dios no
+tiene principio.» El Hijo fue engendrado antes de los tiempos y de los eones, por voluntad e
+intención del Padre. Es <strong>«criatura perfecta de Dios, pero no como una de las
+criaturas»</strong> — la segunda mitad de la frase se cae de casi todas las citas, y es la que
+lo distingue de un arrianismo de manual. Y fue engendrado «no en apariencia sino en
+realidad».</p>
+
+<p>Hay además un rechazo expreso que vale oro para la entrega siguiente: Arrio niega que el
+Hijo sea una «porción <em>consustancial</em> del Padre», y <strong>atribuye esa idea a los
+maniqueos</strong>. Es decir: el mejor testigo de que la palabra <em>homoousios</em> tenía ya
+resonancia herética y materialista <strong>es el propio Arrio, cinco años antes del
+concilio</strong>.</p>
+
+<p>¿Qué le movía? La reconstrucción mejor fundada —la de Rowan Williams— sitúa el núcleo en la
+<strong>doctrina de Dios</strong>, no en la cristología: la autosubsistencia única e inmaterial
+de Dios y la radical libertad de la voluntad divina. De ahí deduce el estatus creado del Hijo,
+y no al revés. Hay una segunda línea, que opera como motor y que conviene presentar como
+reconstrucción y no como cita: la <strong>impasibilidad</strong>. Si el Logos fuera del mismo
+ser del Padre, lo que le ocurre al Logos encarnado —nacer, sufrir, morir— tocaría el ser
+divino. Un Logos creado protege al Padre.</p>
+
+<p>Arrio, visto así, no es un racionalista que rebaja a Cristo. Es un conservador que lleva
+una preocupación tradicional —la trascendencia absoluta de Dios— hasta el punto en que choca
+con las demás.</p>
+
+<div class="secnum">03</div><h2>Lo que la investigación moderna sí demostró, y lo que no</h2>
+
+<p>Circula un titular: que Rowan Williams demostró que el arrianismo nunca existió.
+<strong>Es falso, y la historia real es mejor.</strong></p>
+
+<p>Lo que Williams demostró en <em>Arius: Heresy and Tradition</em> (1987, reeditado en 2001)
+es que <strong>Arrio no fue un innovador radical sino un teólogo-escolar alejandrino
+conservador</strong>, deudor y a la vez crítico de la tradición de su ciudad y del círculo de
+su propio obispo; ni lucianista ni adopcionista; y que lo que se discutía no era lectura
+literal contra lectura alegórica sino «el sentido de la Escritura» tomada como un todo.</p>
+
+<p>La demolición de la <em>categoría</em> «arrianismo» es obra colectiva y lleva setenta años.
+Telfer y Nautin empiezan a criticar el retrato atanasiano en 1949; Maurice Wiles ensaya una
+aproximación más simpática en 1962; <strong>Charles Kannengiesser</strong> da el giro
+metodológico en 1983 al sostener que la disputa entre Arrio y Alejandro no era de «arrianismo»
+sino hermenéutica; Williams publica en 1987; Hanson documenta en 1988 que el subordinacionismo
+era común; y en 1993 el volumen colectivo <em>Arianism after Arius</em> —editado por Michel R.
+Barnes y <strong>Daniel H.</strong> Williams, no Rowan, que ahí firma otro ensayo— reúne los
+trabajos que acaban con el esquema.</p>
+
+<p>De ese volumen sale la formulación que hoy se cita: <strong>no hubo consenso sobre qué
+significaba «Arrio» para quienes lo invocaban</strong>. Y Lewis Ayres, en 2004, codifica el
+resultado: «es virtualmente imposible identificar una escuela de pensamiento dependiente de la
+teología específica de Arrio»; «las relaciones entre los llamados arrianos deben
+<em>demostrarse, no presuponerse</em>»; «se encuentra poca evidencia de conspiración arriana
+alguna». Arrio es, en su frase, «la chispa que encendió un fuego que esperaba producirse».</p>
+
+<p>Ayres añade algo que merece subrayarse porque es lo contrario de lo que haría un polemista:
+<strong>se abstiene expresamente de construir una nueva tipología de partidos</strong>. No
+sustituye el esquema por otro. Lo disuelve en alianzas cambiantes, y prefiere hablar de
+<em>trayectorias</em>.</p>
+
+<div class="wall">
+  <div class="post min">
+    <div class="who">Telfer y Nautin, 1949</div>
+    <div class="what">Las primeras cr&iacute;ticas</div>
+    <p>Empiezan a cuestionar el <b>retrato atanasiano</b> de Arrio. Setenta y siete a&ntilde;os de desmontaje, y todav&iacute;a no ha llegado a la divulgaci&oacute;n.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Kannengiesser, 1983</div>
+    <div class="what">«Arius and the Arians»</div>
+    <p>El giro metodol&oacute;gico: la disputa entre Arrio y Alejandro <b>no es de «arrianismo» sino hermen&eacute;utica</b>.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Rowan Williams, 1987</div>
+    <div class="what"><i>Arius: Heresy and Tradition</i></div>
+    <p>Arrio es un <b>conservador alejandrino</b>, no un innovador radical. Y en el postscriptum: Atanasio «ten&iacute;a raz&oacute;n en lo importante».</p>
+  </div>
+  <div class="post min">
+    <div class="who">Hanson, 1988</div>
+    <div class="what"><i>The Search for the Christian Doctrine of God</i></div>
+    <p>El <b>subordinacionismo era com&uacute;n</b>. Ninguna «herej&iacute;a subordinacionista» eman&oacute; de Alejandr&iacute;a: era el aire que se respiraba.</p>
+  </div>
+  <div class="post max">
+    <div class="who">Ayres, 2004</div>
+    <div class="what"><i>Nicaea and its Legacy</i></div>
+    <p>«Las relaciones entre los llamados arrianos deben <b>demostrarse, no presuponerse</b>.» Y se abstiene expresamente de construir otra tipolog&iacute;a en su lugar.</p>
+  </div>
+</div>
+
+<div class="secnum">04</div><h2>El contrapeso, que es obligatorio</h2>
+
+<p>Hasta aquí, la entrega podría leerse como una defensa. No lo es, y toca decir por qué.</p>
+
+<p><strong>Que Arrio haya sido caricaturizado no significa que tuviera razón, y la posición
+nicena no era arbitraria.</strong> Tenía al menos tres argumentos de fondo, y los tres son
+serios.</p>
+
+<p>El primero lo pone sobre la mesa <strong>Alejandro de Alejandría</strong>, y es anterior al
+concilio: si el Hijo tiene principio, hubo un Padre que todavía no era Padre. La fórmula que
+exige —«siempre Dios, siempre Hijo»— es precisamente la que Arrio se queja, en su carta a
+Eusebio, de no poder suscribir. La disputa no la abre Nicea. La abre un obispo con una
+pregunta incómoda.</p>
+
+<p>El segundo es el <strong>argumento soteriológico de Atanasio</strong>, y se resume en una
+frase suya que ha hecho fortuna: «Él se hizo hombre para que nosotros fuéramos divinizados».
+La lógica es estricta: solo Dios diviniza, y una criatura no puede comunicar lo que no posee
+por naturaleza. Si el Logos es criatura, la salvación entendida como divinización se
+derrumba.</p>
+
+<p>Y el tercero es de coherencia del culto, y es quizá el más fuerte: los cristianos
+<strong>bautizan en el nombre del Hijo y lo adoran</strong>. Si el Hijo es criatura, el culto
+cristiano es idolatría. No es un argumento teórico: describe lo que la Iglesia ya estaba
+haciendo, y pregunta qué ontología hace falta para que eso no sea un disparate.</p>
+
+<p>Es exactamente la concesión que hace Rowan Williams en el postscriptum de su propio libro:
+que <strong>Atanasio «tenía razón en lo importante»</strong>, porque vio que la teología de
+Arrio no podía dar cuenta de lo que la Iglesia hacía. El hombre que devolvió a Arrio su
+estatura de teólogo serio no escribe como su abogado.</p>
+
+<figure>
+  <img src="atanasio-de-alejandria.jpg" data-alt="atanasio.jpg|athanasius.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Miniatura bizantina con dos obispos nimbados, Atanasio y Cirilo de Alejandría">
+  <figcaption>Atanasio y Cirilo de Alejandría en el <strong>Menologio de Basilio II</strong>, Constantinopla, año 985. Los dos alejandrinos que ganan sus respectivos concilios, en la misma miniatura y con cien años de diferencia entre ellos. Atanasio es, además, el vehículo de casi todo lo que sabemos de Arrio: <em>De synodis</em> 15 y las <em>Orationes contra Arianos</em> son el único transporte de la <em>Thalía</em>. <span class="cr">Menologio de Basilio II, Biblioteca Vaticana, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">05</div><h2>La letrina</h2>
+
+<p>Arrio murió en Constantinopla en 336, la víspera de su readmisión oficial, y murió —se
+cuenta— reventado en un retrete, con los intestinos fuera.</p>
+
+<p>El relato tiene una sola fuente primera: una carta de <strong>Atanasio</strong> a un tal
+Serapión. Y conviene enumerar lo que eso significa, porque la historia se repite como si fuera
+un parte médico.</p>
+
+<p>La cuenta <strong>su enemigo</strong>. La cuenta <strong>al menos cuatro años después</strong>,
+y quizá veintidós: la fecha de composición está en disputa, y hay un argumento fuerte a favor
+de la tardía —ningún escrito ni acta conciliar de Atanasio anterior a esa carta
+<strong>menciona la muerte de Arrio</strong>, y es difícil creer que guardara quince años un
+arma tan eficaz sin usarla—. La cuenta con <strong>un solo testigo, nombrado por él</strong>.
+La enmarca explícitamente como <strong>juicio divino</strong>, con eco deliberado de la muerte
+de Judas en Hechos 1,18. Y pide a Serapión que <strong>no lo divulgue ni lo copie</strong> —
+para a continuación repetir la historia él mismo en una carta circular a los obispos de Egipto
+y Libia.</p>
+
+<p>Después la historia crece, y crece de un modo que se puede seguir. Rufino le añade público y
+la traslada a plena luz, durante una procesión, en un retrete público. Sócrates la lleva al
+Foro de Constantino, junto a la columna de pórfido —por una ruta que no era la del palacio a
+la iglesia— y añade detalle físico. Sozomeno mantiene el retrete pero ofrece
+<strong>explicaciones alternativas</strong>: enfermedad cardíaca súbita, apoplejía, juicio
+divino o magia; y cuenta que un partidario de Arrio demolió la letrina para borrar la memoria.
+Solo Teodoreto reproduce la carta de Atanasio sin adornos.</p>
+
+<p>El estudio moderno de referencia no intenta averiguar de qué murió Arrio: dice que los
+detalles están «hace mucho fuera del alcance del historiador». Lo que rastrea es cómo mutó el
+rumor, y para qué servía — <strong>asociar la herejía con la inmundicia</strong>.</p>
+
+<p>Por lo demás: la hipótesis del envenenamiento que circula en libros de divulgación
+<strong>no tiene estatus de hipótesis académica</strong>. Es conjetura, y la doy como tal o no
+la doy.</p>
+
+<div class="puno" id="puno">
+  <span class="pk">Pieza interactiva &middot; lo que se conserva de su pu&ntilde;o (II)</span>
+  <h3>Las cuatro piezas de Arrio, una por una</h3>
+  <p class="ps">La misma medida de la entrega anterior, aplicada ahora a un solo hombre y con
+  lupa. Cuatro piezas, y las cuatro llegan <b>dentro de la obra de alguien que escrib&iacute;a para
+  refutarlas</b>. Pulsa cualquiera.</p>
+
+  <div class="pu-cab">
+    <div class="h">Pieza<span>Y su fecha</span></div>
+    <div class="h">Extensi&oacute;n<span>Edici&oacute;n de Opitz</span></div>
+    <div class="h">Qui&eacute;n la transmite<span>Siempre un adversario</span></div>
+  </div>
+  <button type="button" class="pu-fila" data-id="urk1"><span class="nm">Carta a Eusebio de Nicomedia<b>c. 318-320</b></span><span class="ind">Opitz, <i>Urk.</i> 1 &middot; pp. 1-3</span><span><span class="pu-cifra">Lo transmite: Teodoreto, <i>HE</i> 1,5 &middot; Epifanio, <i>Pan.</i> 69,6</span></span></button>
+  <button type="button" class="pu-fila" data-id="urk6"><span class="nm">Carta a Alejandro de Alejandría<b>c. 320</b></span><span class="ind">Opitz, <i>Urk.</i> 6 &middot; pp. 12-13</span><span><span class="pu-cifra">Lo transmite: Atanasio, <i>De synodis</i> <b>16</b> &middot; Epifanio, <i>Pan.</i> 69,7 &middot; Hilario, <i>De Trin.</i> 4,12</span></span></button>
+  <button type="button" class="pu-fila" data-id="urk30"><span class="nm">Confesión a Constantino<b>finales de 327</b></span><span class="ind">Opitz, <i>Urk.</i> 30 &middot; p. 64</span><span><span class="pu-cifra">Lo transmite: Sócrates, <i>HE</i> 1,26,2-7 &middot; Sozomeno, <i>HE</i> 2,27,6-10</span></span></button>
+  <button type="button" class="pu-fila" data-id="thalia"><span class="nm">La <i>Thalía</i><b>fecha discutida</b></span><span class="ind">~82 líneas reconstruidas</span><span><span class="pu-cifra">Lo transmite: Atanasio, <i>De synodis</i> <b>15,3</b> y <i>Or. c. Arianos</i> I,5-6; 9; 11; 14</span></span></button>
+
+  <div class="pu-det" id="pudet" aria-live="polite"></div>
+  <div class="pu-pie">Las cuatro juntas caben holgadamente en <b>menos de diez p&aacute;ginas
+  impresas</b>. Y ninguna de las cuatro ha llegado por transmisi&oacute;n independiente: las tres
+  cartas porque sus enemigos las copiaron para rebatirlas, y la <i>Thal&iacute;a</i> porque Atanasio
+  antolog&oacute; lo que le serv&iacute;a.<br><br>
+  <b>Esto no convierte a Arrio en v&iacute;ctima ni en acertado.</b> Que a alguien lo hayan
+  caricaturizado no significa que tuviera raz&oacute;n, y la entrega dedica a esa distinci&oacute;n el
+  espacio que merece. Lo que la medida establece es m&aacute;s modesto y m&aacute;s &uacute;til: que cada vez que
+  leemos &laquo;Arrio dec&iacute;a&raquo; estamos leyendo, literalmente, <b>una selecci&oacute;n hecha por el fiscal</b>,
+  y que lo honrado es decirlo cada vez.</div>
+</div>
+
+<div class="meter">
+  <div class="q">¿Es firme que «hubo cuando no era» no es una cita de Arrio?</div>
+  <div class="bar"><span class="pin" style="left:90%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Lo es: la fórmula aparece en el anatema del credo de 325 y no en ninguna de las tres cartas conservadas de Arrio ni en los fragmentos de la <i>Thalía</i>. Lo que él escribió fue que el Hijo «no existía antes de ser engendrado». La aguja no llega al extremo por una razón honesta: los fragmentos de la <i>Thalía</i> están en disputa —hay quien incluye ahí paráfrasis del propio Atanasio y M. L. West acepta como textuales solo dos frases—, de modo que la afirmación «no está en ningún texto suyo» descansa sobre un corpus que no todos delimitan igual. Lo que sí es indiscutible es que la fórmula <i>procede</i> del anatema, no de él.</div>
+</div>
+
+<div class="secnum">06</div><h2>Lo que queda en pie</h2>
+
+<p>Que de Arrio sabemos poco y casi todo por sus enemigos. Que la frase que lo define no es
+suya. Que «el arrianismo» como movimiento coherente es en buena medida una construcción
+polémica. Y que <strong>nada de eso lo convierte en acertado</strong>.</p>
+
+<p>La entrega siguiente va sobre el concilio que lo condenó, y sobre una palabra que, en 325,
+casi nadie quería usar.</p>
+
+<div class="aviso">
+  <div class="t">La pregunta que esta entrega no responde</div>
+  <p>Si usted ha llegado hasta aquí esperando saber quién tenía razón, la entrega le va a fallar, y le falla a propósito.<br><br>Describir cómo se formó una condena no decide si la condena era justa. El lado niceno tenía argumentos de fondo —la generación eterna, la divinización, la coherencia del culto— y Arrio tenía los suyos — la trascendencia absoluta de Dios y su impasibilidad—. <strong>Los dos lados discutían en serio</strong>, y presentar al perdedor como víctima es tan falso como presentarlo como villano. Esta entrega hace una sola cosa: devolver a Arrio sus propias palabras, que son pocas, y decir de dónde vienen las que le atribuimos.</p>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <span class="k">consenso</span> que de Arrio se conservan tres piezas epistolares completas —a Eusebio de Nicomedia, a Alejandro de Alejandría junto con sus colegas, y la confesión a Constantino firmada con Euzoio— y fragmentos de la <em>Thalía</em>; que las cuatro llegan por vía de adversarios; que <em>ēn pote hote ouk ēn</em> es la fórmula del anatema niceno; y que la categoría «arrianismo» como movimiento coherente no resiste el examen.</p>
+  <p>Está en <span class="k">debate abierto</span> cuánto de los fragmentos de la <em>Thalía</em> es textual —Stead en 1978 y West en 1982 llegaron a conclusiones distintas, y West acepta como literales solo dos frases—; dónde y por qué se escribió la obra; y la fecha de la carta de Atanasio sobre la muerte de Arrio, que unos sitúan hacia 340 y otros en 358 o 359.</p>
+  <p>Dos <span class="k">correcciones a lo que suele leerse</span>. La primera: el volumen colectivo de 1993 que consolidó la crítica a la categoría lo editaron Michel R. Barnes y <strong>Daniel H.</strong> Williams — no Rowan Williams, que colabora en él con un ensayo distinto, sobre el bautismo. El error es frecuente en castellano. La segunda: la carta a Alejandro se transmite en <em>De synodis</em> <strong>16</strong>; el 15 es la <em>Thalía</em>. Y esa carta no es de Arrio en solitario: la firman él y sus colegas.</p>
+  <p>Y lo que esta entrega <span class="k">no hace</span>, dicho una vez más porque aquí es donde más falta hace: decidir si Arrio tenía razón. La hagiografía del perdedor es un género tan cómodo como la hagiografía del vencedor, y produce libros igual de malos.</p>
+</div>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p><strong>Los textos de Arrio.</strong> Carta a Eusebio de Nicomedia (Opitz, <em>Urkunde</em>
+  1), en Teodoreto, <em>HE</em> 1,5 y Epifanio, <em>Panarion</em> 69,6 · Carta a Alejandro de
+  Alejandría (<em>Urk.</em> 6), en Atanasio, <em>De synodis</em> 16, Epifanio, <em>Pan.</em> 69,7
+  e Hilario, <em>De Trinitate</em> 4,12 · Confesión a Constantino de Arrio y Euzoio
+  (<em>Urk.</em> 30), en Sócrates, <em>HE</em> 1,26 y Sozomeno, <em>HE</em> 2,27 ·
+  <em>Thalía</em>, fragmentos en Atanasio, <em>De synodis</em> 15,3 y <em>Orationes contra
+  Arianos</em> I,5-6; 9; 11; 14. Edición: H.-G. Opitz, <em>Athanasius Werke</em> III/1, 1934, y
+  <em>Dokumente zur Geschichte des arianischen Streites</em>, ed. Brennecke, Heil, von
+  Stockhausen y Wintjes, De Gruyter, 2007.</p>
+  <p><strong>Sobre los fragmentos.</strong> G. C. Stead, «The <em>Thalia</em> of Arius and the
+  Testimony of Athanasius», <em>JTS</em> 29/1 (1978) 20-52 · M. L. West, «The Metre of Arius'
+  <em>Thalia</em>», <em>JTS</em> 33/1 (1982) 98-105 · Samuel Fernández, «Arrio y la configuración
+  inicial de la controversia arriana», <em>Scripta Theologica</em> 45 (2013) 9-40.</p>
+  <p><strong>La reevaluación.</strong> Charles Kannengiesser, «Arius and the Arians»,
+  <em>Theological Studies</em> 44/3 (1983) 456-475 · Rowan Williams, <em>Arius: Heresy and
+  Tradition</em>, Darton Longman &amp; Todd, 1987; 2.ª ed. SCM/Eerdmans, 2001, con el apéndice
+  «Arius since 1987» · R. P. C. Hanson, <em>The Search for the Christian Doctrine of God</em>,
+  T&amp;T Clark, 1988 · Michel R. Barnes y Daniel H. Williams (eds.), <em>Arianism after
+  Arius</em>, T&amp;T Clark, 1993 · Maurice Wiles, <em>Archetypal Heresy: Arianism through the
+  Centuries</em>, Oxford University Press, 1996 · Lewis Ayres, <em>Nicaea and its Legacy</em>,
+  Oxford University Press, 2004 · David M. Gwynn, <em>The Eusebians</em>, 2007.</p>
+  <p><strong>La muerte.</strong> Atanasio, <em>Epistula ad Serapionem de morte Arii</em> (Carta
+  54), CPG 2125, PG 25, 685-689 · Rufino, <em>HE</em> · Sócrates, <em>HE</em> 1,38 · Sozomeno,
+  <em>HE</em> 2,29 · Teodoreto, <em>HE</em> I,13 · Ellen Muehlberger, «The Legend of Arius'
+  Death: Imagination, Space and Filth in Late Ancient Historiography», <em>Past &amp;
+  Present</em> 227/1 (2015) 3-29.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+
+(function(){
+  var D={"urk1": {"n": "Carta a Eusebio de Nicomedia", "l": "c. 318-320", "t": "Saludo, cuatro secciones numeradas y despedida. Es la pieza donde Arrio se queja de que Alejandro los expulsa <b>por no afirmar</b> la fórmula <i>aeì theós, aeì hyiós</i>, «siempre Dios, siempre Hijo» — dato que importa mucho, porque significa que <b>la disputa no la abre Arrio: la abre el obispo que le exige esa fórmula</b>. Y aquí está la formulación propia de Arrio, la que él sí escribió: el Hijo «no existía antes de ser engendrado»."}, "urk6": {"n": "Carta a Alejandro de Alejandría", "l": "c. 320", "t": "Seis secciones, firmada por Arrio <b>y sus colegas</b>. Trae las fórmulas más citadas: el Hijo engendrado «antes de los tiempos y de los eones», «criatura perfecta de Dios, pero no como una de las criaturas», engendrado «no en apariencia sino en realidad».<br><br>Y trae el dato que la entrega V necesita y que casi nadie cuenta: Arrio rechaza aquí que el Hijo sea una «porción <i>consustancial</i> del Padre» <b>y atribuye esa idea a los maniqueos</b>. Es decir: el mejor testigo de que <i>homoousios</i> tenía resonancia herética y materialista antes de Nicea <b>es el propio Arrio</b>, cinco años antes del concilio."}, "urk30": {"n": "Confesión a Constantino", "l": "finales de 327", "t": "Firmada por <b>Arrio y Euzoio</b>, y es a la vez credo y petición de readmisión. Posterior a Nicea: no sirve para saber qué sostenía Arrio en 318, sirve para saber qué estaba dispuesto a firmar en 327."}, "thalia": {"n": "La <i>Thalía</i>", "l": "fecha discutida", "t": "No se conserva. Lo que hay son <b>unas ochenta y dos líneas</b> reconstruidas a partir de dos obras de quien la combatía: las líneas 1-38 vienen de <i>De synodis</i> 15,3, el bloque más largo; las 41-82, dispersas y mezcladas con comentario hostil, de las <i>Orationes</i>.<br><br><b>Y no se puede confirmar</b> ni que cada cita proceda realmente de la <i>Thalía</i>, ni que el tenor sea literal, ni que sean citas directas y no indirectas. G. C. Stead discutió el problema en 1978 y M. L. West el metro en 1982; <b>West acepta como textuales solo dos frases</b>. Hay además discusión sobre dónde y por qué se escribió: DelCogliano sostiene que fue en Cesarea, instado por Eusebio, tras la expulsión de Alejandría, contra la lectura tradicional de obra de divulgación.<br><br>De modo que la frase con la que todo el mundo identifica a Arrio no viene de Arrio: viene de la antología que hizo su acusador."}};
+  var caja=document.getElementById('puno'), det=document.getElementById('pudet');
+  if(!caja||!det) return;
+  function show(id){
+    var d=D[id];
+    caja.querySelectorAll('.pu-fila').forEach(function(f){f.classList.toggle('on',f.dataset.id===id);});
+    det.innerHTML='<div class="dl">'+d.l+'</div><h4>'+d.n+'</h4><p>'+d.t+'</p>';
+  }
+  caja.querySelectorAll('.pu-fila').forEach(function(f){
+    f.addEventListener('click',function(){show(f.dataset.id);});
+  });
+  show('thalia');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4c2c60">↑ <a href="serie-cristo.html" style="color:#4c2c60">Serie: Cómo Jesús se convirtió en Dios</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="cristo-3.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#4c2c60">Un segundo Dios</span></a>
+    <a class="epnav-btn next" href="cristo-5.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#4c2c60">Una palabra que nadie quería</span></a>
+  </div>
+</nav>
+</body></html>

@@ -1,0 +1,764 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cincuenta y seis años sin cerrar nada — Estratos</title>
+<meta name="description" content="Nicea no cerró nada. Durante veinte de los cincuenta y seis años que la separan de Constantinopla, la fe oficial del Imperio no fue la nicena. Y el credo que hoy se recita no es el de Nicea.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4c2c60;--mid:#704e86;--pale:#5a3d70;
+    --rel:#8a4a2a;--exc:#4c2c60;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #5f4a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#5f4a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#5f4a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(90,61,112,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#5f4a72}
+  figcaption .cr a{color:#5a3d70;text-decoration:underline;text-decoration-color:rgba(90,61,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a3d70}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#cdc0d8,#9b86ad 42%,#704e86 70%,#4c2c60)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#704e86}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2dae8,#cdc0d8);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#5f4a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#5f4a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .campo{width:min(1080px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,140,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .campo .ck{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .campo h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .campo .cs{font-size:.98rem;color:#4a4450;margin:0 0 1.1rem;max-width:68ch}
+
+  .ca-mandos{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-bottom:.5rem}
+  .ca-bt{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;font-weight:700;
+    letter-spacing:.03em;color:var(--deep);background:rgba(255,255,255,.6);
+    border:1px solid rgba(120,110,132,.5);border-radius:20px;padding:.42rem .85rem;
+    cursor:pointer;transition:background .2s,color .2s}
+  .ca-bt:hover{background:#fff}
+  .ca-bt.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+  .ca-bt small{display:block;font-weight:400;font-size:.6rem;letter-spacing:0;opacity:.85}
+
+  .ca-conm{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-bottom:1rem}
+  .ca-conm .et{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;color:#5a5464;margin-right:.2rem}
+
+  .ca-banda{position:relative;background:rgba(255,255,255,.45);
+    border:1px solid rgba(120,110,132,.4);border-radius:10px;padding:2.1rem .9rem 2.6rem;
+    margin-bottom:.9rem;overflow:hidden}
+  .ca-banda .bt{position:absolute;top:.5rem;left:.9rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--deep)}
+  .ca-banda .bq{position:absolute;top:.5rem;right:.9rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;color:#5a5464;
+    max-width:60%;text-align:right}
+  .ca-banda .ejes{position:absolute;bottom:.5rem;left:.9rem;right:.9rem;
+    display:flex;justify-content:space-between;font-family:"Trebuchet MS",sans-serif;
+    font-size:.6rem;color:#5a5464;line-height:1.3}
+  .ca-banda .ejes span:last-child{text-align:right}
+
+  .ca-plano{position:relative;height:var(--h)}
+  /* La sombra iba a .17 y, con los rotulos apagados al 26 % de opacidad, el
+     texto de lo que quedaba fuera daba 1,6:1 sobre ella. Era un error de
+     diseno, no solo de contraste: lo que el concilio deja fuera es
+     justamente lo que el lector tiene que poder leer. Ahora la sombra es mas
+     clara, los rotulos NO se atenuan, y el «fuera» lo dicen el punto gris y
+     el tachado. Medido: 10,3:1 el rotulo y 5,4:1 el subrotulo. */
+  .ca-sombra{position:absolute;top:0;bottom:0;background:rgba(70,55,90,.12);
+    border-left:1px dashed rgba(60,40,80,.5);border-right:1px dashed rgba(60,40,80,.5);
+    transition:left .45s ease,width .45s ease,opacity .35s;pointer-events:none;z-index:1}
+  .ca-frontera{position:absolute;top:0;bottom:0;border-left:2px solid var(--exc);
+    border-right:2px solid var(--exc);background:rgba(255,255,255,.3);
+    transition:left .45s ease,width .45s ease,opacity .35s;pointer-events:none;z-index:0}
+
+  .ca-pos{position:absolute;z-index:2;
+    background:transparent;border:0;padding:17px 0 0;cursor:pointer;font-family:inherit;
+    transition:left .45s ease,opacity .35s;text-align:center;width:max-content;
+    max-width:min(11rem,38vw)}
+    /* El punto marca la COORDENADA, no el centro del rotulo. En los extremos
+     el rotulo se ancla por su lado y su centro ya no coincide con la x, asi
+     que el punto se posiciona aparte, en --dx. En un plano de coordenadas
+     eso no es un detalle: es el dato. */
+  .ca-pos .pt{position:absolute;top:0;left:var(--dx,50%);transform:translateX(-50%);
+    width:13px;height:13px;border-radius:50%;
+    background:var(--deep);border:2px solid #fff;box-shadow:0 1px 4px rgba(20,16,10,.45)}
+  .ca-pos .lb{display:block;font-family:"Trebuchet MS",sans-serif;font-size:.68rem;
+    font-weight:700;color:#2f2a38;line-height:1.25}
+  .ca-pos .qn{display:block;font-family:"Trebuchet MS",sans-serif;font-size:.59rem;
+    color:#5a5464;line-height:1.25}
+  .ca-pos:hover .lb{color:var(--deep)}
+  .ca-pos.sel .pt{background:#c9a227;width:15px;height:15px}
+  .ca-pos.fuera .pt{background:#6b6478;box-shadow:0 1px 3px rgba(20,16,10,.3)}
+  .ca-pos.fuera .lb{text-decoration:line-through;
+    text-decoration-color:rgba(122,47,58,.8);text-decoration-thickness:1.5px}
+  .ca-pos.fuera .qn{font-style:italic}
+  .ca-pos.movido .pt{box-shadow:0 0 0 4px rgba(201,162,39,.35),0 1px 4px rgba(20,16,10,.45)}
+
+  .ca-marca{position:absolute;z-index:3;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.58rem;color:#7a2f3a;
+    background:rgba(255,255,255,.9);border:1px solid rgba(122,47,58,.45);
+    border-radius:4px;padding:.1rem .3rem;white-space:nowrap}
+
+  .ca-contador{display:flex;flex-wrap:wrap;gap:1.4rem;align-items:baseline;
+    background:rgba(255,255,255,.6);border:1px solid rgba(120,110,132,.4);
+    border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem}
+  .ca-contador .big{font-size:2rem;color:var(--deep);line-height:1}
+  .ca-contador .big b{font-weight:400}
+  .ca-contador .cl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;
+    letter-spacing:.08em;text-transform:uppercase;color:#5a5464}
+
+  .ca-det{background:#fbf9fb;border:1px solid rgba(120,110,132,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:9rem}
+  .ca-det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;margin-bottom:.28rem;color:var(--pale)}
+  .ca-det h4{font-size:1.1rem;font-weight:400;color:var(--deep);margin:0 0 .5rem}
+  .ca-det p{font-size:.95rem;color:#3d3847;margin:0 0 .6rem;line-height:1.62}
+  .ca-det p:last-child{margin-bottom:0}
+  .ca-det i{font-style:italic}
+
+  .ca-pie{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(120,110,132,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4450;line-height:1.6}
+  .ca-pie b{color:var(--deep)}
+
+  @media(max-width:700px){
+    .ca-pos{max-width:5.6rem}
+    .ca-pos .qn{display:none}
+    .ca-banda .bq{display:none}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Cómo Jesús se convirtió en Dios · Entrega VI</span>
+  <h1>Cincuenta y seis años sin cerrar <span class="em">nada</span></h1>
+  <div class="glifos"><span>οὐσία</span><span class="sep">·</span><span class="tr">esencia</span><span class="sep">·</span><span>ὑπόστασις</span><span class="sep">·</span><span class="tr">subsistencia</span></div>
+  <p class="stand">El campeón de la causa nicena pasó un tercio de su episcopado desterrado, y el credo que usted reza se escribió en otro concilio.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">La imagen que todo el mundo tiene de Nicea es la de un portazo: trescientos
+padres, una fórmula, y el asunto resuelto. Si fuera así, la historia del cristianismo tendría
+un capítulo menos y sería menos interesante.</p>
+
+<p>Lo que pasó después fue esto: durante <strong>veinte de los cincuenta y seis años</strong>
+que separan Nicea de Constantinopla, la fe oficial del Imperio romano <strong>no fue la
+nicena</strong>.</p>
+
+<div class="secnum">01</div><h2>El obispo que pasó diecisiete años fuera</h2>
+
+<p>Atanasio de Alejandría, que es el campeón de la causa nicena, fue obispo unos cuarenta y
+cinco años y pasó <strong>más de dieciséis en el exilio</strong>, en cinco destierros
+distintos: a Tréveris bajo Constantino, a Roma bajo Constancio II, al desierto de la Tebaida
+entre monjes durante seis años, al alto Egipto bajo Juliano, y a las afueras de su propia
+ciudad bajo Valente.</p>
+
+<p>La cifra se suele dar como «diecisiete años», y conviene no darla cerrada: la suma
+aritmética de los cinco periodos da en torno a dieciséis, la diferencia viene de los tramos sin
+fecha exacta, y la propia cronología atanasiana es objeto de discusión, porque las cartas
+festales y el índice siríaco no cuadran del todo con la <em>Historia acephala</em>. Lo
+defendible es «unos diecisiete años», que es más de un tercio de su episcopado.</p>
+
+<p>Un obispo no pasa un tercio de su vida episcopal desterrado en un imperio donde su posición
+ha ganado.</p>
+
+<div class="secnum">02</div><h2>359: el año en que el mundo se descubrió arriano</h2>
+
+<p>Constancio II, emperador único desde 353, impuso por vía conciliar e imperial una serie de
+fórmulas no nicenas. La secuencia de 359 es vertiginosa y vale la pena seguirla.</p>
+
+<p>En mayo se promulga el llamado <strong>credo fechado</strong> —se llama así porque empieza
+con la datación consular— que establece que el Hijo es «semejante al Padre». Se convocan dos
+concilios simultáneos: <strong>Rímini</strong> para Occidente, con unos cuatrocientos obispos,
+y <strong>Seleucia de Isauria</strong> para Oriente, con unos ciento cincuenta. En Rímini la
+mayoría reafirma Nicea y condena a los arrianos; una minoría de unos ochenta se separa y
+escribe al emperador. En octubre, los legados de Rímini, presionados, firman en Nicé de Tracia
+una versión revisada. El 31 de diciembre, representantes de ambos concilios asienten. Y en 360
+Constantinopla lo confirma.</p>
+
+<p>De ahí sale la frase de Jerónimo que se cita siempre: <em>ingemuit totus orbis et arianum se
+esse miratus est</em> — «gimió el mundo entero, y se asombró de ser arriano».</p>
+
+<p><strong>Y conviene usarla como lo que es.</strong> Es retórica polémica de un partidario
+niceno escribiendo unos veinte años después. No es un censo. Citarla como prueba estadística de
+que «el mundo era arriano» es exactamente el error que esta serie denuncia: úsese como
+testimonio de percepción, no de demografía.</p>
+
+<p>Lo que sí hay que decir del credo homeo de 360 es algo que casi nunca se cuenta:
+<strong>no es «arrianismo»</strong>. Es una moratoria imperial sobre el vocabulario
+metafísico. Prohíbe expresamente usar <em>ousía</em> <em>y</em> <em>hypóstasis</em> respecto
+del Padre, del Hijo y del Espíritu, «por no estar en las Escrituras y haber causado
+escándalo». Un compromiso por sustracción. Y fue el credo oficial del Imperio durante veinte
+años.</p>
+
+<figure>
+  <img src="basilio-de-cesarea.jpg" data-alt="basilio.jpg|basilio-magno.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Mosaico bizantino de Basilio de Cesarea, de pie y vestido de obispo">
+  <figcaption>Basilio el Grande, mosaico de Santa Sofía de Kiev, siglo XI. Suyas son la distinción operativa entre <em>ousía</em> e <em>hypóstasis</em> y la defensa del <em>homoousios</em> contra quienes lo recordaban objetado en Antioquía. Y suya es también la cautela que esta serie agradece: en su carta 52 no dice que aquel sínodo <em>anulara</em> el término, dice que los obispos «encontraron falta en él, como desafortunado». La diferencia importa, y la mayoría de las citas la pierde. <span class="cr">Mosaico de Santa Sofía de Kiev, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">03</div><h2>Cuatro partidos que no eran partidos</h2>
+
+<p>La historiografía ordena el campo del siglo IV en cuatro posiciones, y el esquema es útil
+siempre que se sepa lo que es.</p>
+
+<p>Los <strong>nicenos</strong>, con <em>homoousios</em>, «de la misma sustancia». Los
+<strong>homoiousianos</strong> de Basilio de Ancira, con <em>homoiousios</em>, «de sustancia
+semejante» — que rechazaban a la vez el anomeísmo y el <em>homoousios</em>, al que leían como
+sabeliano y como no escriturario, hasta el punto de prohibirlo en su sínodo de Ancira de 358.
+Los <strong>homeos</strong> de Acacio de Cesarea, Ursacio y Valente, con <em>homoios</em>,
+«semejante» a secas y sin vocabulario de sustancia. Y los <strong>anomeos</strong> de Aecio y
+Eunomio, con <em>anomoios</em>, «desemejante», cuyo argumento merece darse bien porque es
+fuerte: la esencia divina consiste en ser ingénita, lo ingénito no puede engendrar sin dejar
+de serlo, luego lo engendrado no comparte esa esencia.</p>
+
+<p><strong>Y ahora la advertencia, que es importante.</strong> Esos cuatro partidos son un mapa
+pedagógico retrospectivo. Ninguno era una organización estable, las alianzas se rehacían
+concilio a concilio, y las propias etiquetas son en buena medida construcciones de los
+heresiólogos del siglo IV y de la erudición del XIX. «Semiarriano», que todavía se lee, es un
+término polémico heredado y se aplica confusamente a cosas distintas.</p>
+
+<p>Lewis Ayres, que es quien mejor lo ha mostrado, hace algo que conviene subrayar:
+<strong>se abstiene expresamente de construir una nueva tipología</strong>. No cambia un
+esquema por otro. Lo disuelve en alianzas cambiantes y habla de <em>trayectorias</em>.</p>
+
+<div class="campo" id="campo">
+  <span class="ck">Pieza interactiva &middot; el campo que se estrecha</span>
+  <h3>Un espacio de posiciones, y cuatro concilios que lo recortan</h3>
+  <p class="cs">Entre el a&ntilde;o 30 y el 451 no ocurre un ascenso: ocurre <b>un estrechamiento</b>.
+  Pulsa los concilios en orden y mira encogerse el campo. Pulsa cualquier posici&oacute;n para leerla.
+  Y pulsa el conmutador de la fuente, porque <b>dos de ellas se mueven de sitio</b> seg&uacute;n qui&eacute;n
+  las describa.</p>
+
+  <div class="ca-mandos"><button type="button" class="ca-bt" data-c="c325" data-i="0">325<small>Nicea</small></button>
+    <button type="button" class="ca-bt" data-c="c381" data-i="1">381<small>Constantinopla</small></button>
+    <button type="button" class="ca-bt" data-c="c431" data-i="2">431<small>&Eacute;feso</small></button>
+    <button type="button" class="ca-bt" data-c="c451" data-i="3">451<small>Calcedonia</small></button></div>
+  <div class="ca-conm">
+    <span class="et">La fuente</span>
+    <button type="button" class="ca-bt" id="cafuente">Seg&uacute;n sus adversarios<small>Pulsa para
+    o&iacute;rlos a ellos</small></button>
+    <button type="button" class="ca-bt" id="canod">Lo que la frontera no decidi&oacute;<small>Marca
+    d&oacute;nde corta cada concilio</small></button>
+  </div>
+
+  <div class="ca-contador" id="canum" aria-live="polite"></div>
+
+<div class="ca-banda">
+  <span class="bt">La pregunta del siglo IV</span><span class="bq">&iquest;Qu&eacute; es el Hijo respecto del Padre?</span>
+  <div class="ca-plano" style="--h:422px">
+    <div class="ca-frontera" data-b="iv" style="opacity:0"></div>
+    <div class="ca-sombra" data-b="iv" data-lado="izq" style="opacity:0"></div>
+    <div class="ca-sombra" data-b="iv" data-lado="der" style="opacity:0"></div>
+    <span class="ca-marca" style="left:52%;top:-2px;display:none">325 corta aqu&iacute;</span>
+    <span class="ca-marca" style="left:22%;top:-2px;display:none">381, por la izquierda</span>
+    <span class="ca-marca" style="left:42%;top:-2px;display:none">381, por la derecha</span>
+    <button type="button" class="ca-pos" data-id="modal" style="left:5%;top:10px;transform:translateX(-12%);--dx:12%"><span class="pt" aria-hidden="true"></span><span class="lb">Modalismo</span><span class="qn">Noeto, Pr&aacute;xeas, Sabelio</span></button>
+    <button type="button" class="ca-pos" data-id="marcelo" style="left:17%;top:56px;transform:translateX(-50%);--dx:50%"><span class="pt" aria-hidden="true"></span><span class="lb">Marcelianismo</span><span class="qn">Marcelo de Ancira</span></button>
+    <button type="button" class="ca-pos" data-id="homoou" style="left:33%;top:102px;transform:translateX(-50%);--dx:50%"><span class="pt" aria-hidden="true"></span><span class="lb"><i>Homooúsios</i></span><span class="qn">Alejandro, Atanasio, los capadocios</span></button>
+    <button type="button" class="ca-pos" data-id="homoiou" style="left:47%;top:148px;transform:translateX(-50%);--dx:50%"><span class="pt" aria-hidden="true"></span><span class="lb"><i>Homoioúsios</i></span><span class="qn">Basilio de Ancira, Jorge de Laodicea</span></button>
+    <button type="button" class="ca-pos" data-id="homoios" style="left:60%;top:194px;transform:translateX(-50%);--dx:50%"><span class="pt" aria-hidden="true"></span><span class="lb"><i>Hómoios</i></span><span class="qn">Acacio de Cesarea, Ursacio y Valente</span></button>
+    <button type="button" class="ca-pos" data-id="anomeo" style="left:74%;top:240px;transform:translateX(-50%);--dx:50%"><span class="pt" aria-hidden="true"></span><span class="lb">An&oacute;moios</span><span class="qn">Aecio y Eunomio</span></button>
+    <button type="button" class="ca-pos" data-id="arrio" style="left:87%;top:286px;transform:translateX(-50%);--dx:50%"><span class="pt" aria-hidden="true"></span><span class="lb">Arrio</span><span class="qn">Arrio de Alejandr&iacute;a</span></button>
+    <button type="button" class="ca-pos" data-id="adop" style="left:96%;top:332px;transform:translateX(-88%);--dx:88%"><span class="pt" aria-hidden="true"></span><span class="lb">Adopcionismo</span><span class="qn">Los dos Teodotos, Pablo de Samosata</span></button>
+  </div>
+  <div class="ejes"><span>Es el Padre mismo<br>bajo otro modo</span><span>Es un hombre<br>a quien Dios exalta</span></div>
+</div>
+
+<div class="ca-banda">
+  <span class="bt">La pregunta del siglo V</span><span class="bq">&iquest;C&oacute;mo se relacionan lo divino y lo humano en Cristo?</span>
+  <div class="ca-plano" style="--h:330px">
+    <div class="ca-frontera" data-b="v" style="opacity:0"></div>
+    <div class="ca-sombra" data-b="v" data-lado="izq" style="opacity:0"></div>
+    <div class="ca-sombra" data-b="v" data-lado="der" style="opacity:0"></div>
+    <span class="ca-marca" style="left:82%;top:-2px;display:none">431 corta aqu&iacute;</span>
+    <span class="ca-marca" style="left:40%;top:-2px;display:none">451 corta aqu&iacute;</span>
+    <button type="button" class="ca-pos" data-id="eutiq" style="left:7%;top:10px;transform:translateX(-12%);--dx:12%"><span class="pt" aria-hidden="true"></span><span class="lb">Eutiquianismo</span><span class="qn">Eutiques</span></button>
+    <button type="button" class="ca-pos" data-id="apoli" style="left:16%;top:56px;transform:translateX(-50%);--dx:50%"><span class="pt" aria-hidden="true"></span><span class="lb">Apolinarismo</span><span class="qn">Apolinar de Laodicea</span></button>
+    <button type="button" class="ca-pos" data-id="miafi" style="left:29%;top:102px;transform:translateX(-50%);--dx:50%"><span class="pt" aria-hidden="true"></span><span class="lb">Miafisismo</span><span class="qn">Cirilo, Dioscoro, Severo</span></button>
+    <button type="button" class="ca-pos" data-id="calce" style="left:56%;top:148px;transform:translateX(-50%);--dx:50%"><span class="pt" aria-hidden="true"></span><span class="lb">Calcedonismo</span><span class="qn">La Definici&oacute;n de 451</span></button>
+    <button type="button" class="ca-pos" data-id="nesto" style="left:92%;top:194px;transform:translateX(-88%);--dx:88%"><span class="pt" aria-hidden="true"></span><span class="lb">Nestorio</span><span class="qn">Nestorio de Constantinopla</span></button>
+    <button type="button" class="ca-pos" data-id="antio" style="left:79%;top:240px;transform:translateX(-50%);--dx:50%"><span class="pt" aria-hidden="true"></span><span class="lb">Difisismo antioqueno</span><span class="qn">Teodoro de Mopsuestia, Teodoreto</span></button>
+  </div>
+  <div class="ejes"><span>Una sola naturaleza:<br>lo humano absorbido</span><span>Dos sujetos<br>distintos</span></div>
+</div>
+
+  <div class="ca-det" id="cadet"><div class="dl">C&oacute;mo se lee</div><h4>Todav&iacute;a no se ha reunido
+  nadie</h4><p>Las 14 posiciones de arriba y de abajo <b>convivieron</b>. Ninguna era «la
+  herej&iacute;a»: eran el repertorio disponible, y autores que despu&eacute;s ser&aacute;n santos sostuvieron varias
+  de ellas. Lo que hacen los concilios no es descubrir cu&aacute;l era la verdadera, sino <b>trazar
+  fronteras</b>, una tras otra, hasta que queda una franja muy delgada.</p><p>Las dos bandas no
+  son un capricho de dise&ntilde;o. Son <b>dos preguntas distintas</b>, y entre 381 y 431 la pregunta
+  cambia: se deja de discutir qu&eacute; es el Hijo respecto del Padre y se empieza a discutir c&oacute;mo se
+  relacionan lo divino y lo humano dentro de &eacute;l. Un plano de dos ejes continuos tendr&iacute;a que
+  colocar a Arrio en alg&uacute;n punto de la pregunta del siglo V, y ese punto ser&iacute;a inventado.</p></div>
+
+  <div class="ca-pie"><b>Lo que esta pieza no dice.</b> No dice que los concilios se equivocaran,
+  ni que acertaran. Describe una forma: un campo ancho que se estrecha. Que una posici&oacute;n quedara
+  fuera no la convierte en verdadera, y que otra quedara dentro no la convierte en falsa &mdash;
+  confundir el origen de una doctrina con su valor de verdad tiene nombre propio, <b>falacia
+  gen&eacute;tica</b>, y la &uacute;ltima entrega la dar&aacute; con ese nombre y en las dos direcciones.<br><br>
+  <b>Y una advertencia sobre el propio mapa.</b> Los «partidos» del siglo IV son un esquema
+  pedag&oacute;gico retrospectivo: ninguno era una organizaci&oacute;n estable, las alianzas se rehac&iacute;an
+  concilio a concilio, y «arrianismo» como bloque unitario es un artefacto pol&eacute;mico. Lewis Ayres,
+  que es quien mejor lo ha mostrado, <b>se abstiene expresamente de sustituir el esquema por otro</b>
+  y prefiere hablar de trayectorias. Si una pieza como &eacute;sta tiene un riesgo, es dar a seis
+  posiciones la apariencia de seis partidos con carn&eacute;. No lo eran.<br><br>
+  <b>Una nota de dise&ntilde;o, por si se nota.</b> Lo que queda fuera de una frontera <b>no se
+  atenu&uacute;a hasta hacerse ilegible</b>: se marca con el punto en gris y con el tachado, y el
+  r&oacute;tulo sigue le&iacute;ndose igual de bien. La primera versi&oacute;n de esta pieza apagaba el texto al 26 %
+  y daba 1,6:1 de contraste. Era un error de dise&ntilde;o antes que de accesibilidad: en una pieza
+  sobre lo que los concilios dejaron fuera, lo que queda fuera es justamente lo que hay que
+  poder leer.</div>
+</div>
+
+<div class="secnum">04</div><h2>Lo que hicieron los capadocios, y lo que no inventaron</h2>
+
+<p>La salida la dan tres hombres de Capadocia: Basilio de Cesarea, Gregorio de Nacianzo y
+Gregorio de Nisa. La fórmula es <strong>una <em>ousía</em>, tres <em>hypostáseis</em></strong>:
+una esencia, tres subsistencias. Lo común y lo propio.</p>
+
+<p>El relato de manual dice que los tres capadocios resolvieron el problema. Conviene
+matizarlo en dos direcciones.</p>
+
+<p>Primero: <strong>no fue creación de la nada</strong>. El precedente decisivo es el
+<em>Tomus ad Antiochenos</em> de Atanasio, de 362, que ante el cisma de Antioquía
+<strong>no obliga a ninguna de las dos partes a adoptar la fórmula de la otra</strong>: declara
+que quienes dicen «tres <em>hypostáseis</em>» no son triteístas y quienes dicen «una» no son
+sabelianos, porque ambos afirman lo mismo del Hijo. Ese documento <strong>desacopla</strong>
+<em>ousía</em> de <em>hypóstasis</em> — que hasta entonces eran sinónimos, incluso en los
+anatemas del propio credo de 325 — y deja el terreno preparado. Los capadocios construyen
+sobre eso desde los años setenta.</p>
+
+<p>Segundo: la lectura «social» de los capadocios —tres centros de conciencia— es moderna, y
+procede de un esquema del siglo XIX que oponía un Occidente que parte de la unidad a un
+Oriente que parte de la pluralidad. Ese esquema se ha proyectado hacia atrás durante cien
+años, y hoy está desmontado.</p>
+
+<p>Lo exacto es decir que los capadocios <strong>estabilizaron la distinción y la hicieron
+operativa</strong>, sobre una vía ya abierta.</p>
+
+<figure>
+  <img src="gregorio-nacianceno.jpg" data-alt="gregorio-de-nacianzo.jpg|gregorio.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Miniatura bizantina del Menologio de Basilio II con una figura episcopal">
+  <figcaption>Miniatura del <strong>Menologio de Basilio II</strong>, Constantinopla, año 985, Biblioteca Vaticana. La ficha del archivo no identifica a la figura representada, y por eso este pie no lo hace tampoco: acredita la miniatura y el manuscrito, que es lo que consta. El <em>Menologio</em> es, por lo demás, uno de los manuscritos iluminados bizantinos más importantes que se conservan, y de él proceden dos de las imágenes de esta serie. <span class="cr">Menologio de Basilio II, Biblioteca Vaticana, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">05</div><h2>381, y quién decidió antes que el concilio</h2>
+
+<p>El concilio de Constantinopla se reúne de mayo a julio de 381, con unos ciento cincuenta
+obispos y <strong>ningún obispo occidental</strong>. No fue «ecuménico» ni por convocatoria ni
+por composición.</p>
+
+<p>Y el orden de los acontecimientos importa más que el concilio. <strong>Teodosio I</strong>
+llega al trono de Oriente en 379, en un Oriente dominado por los homeos desde 360, y en
+<strong>febrero de 380</strong> promulga el edicto de Tesalónica, que impone como fe del
+Imperio la que profesan el obispo de Roma y el de Alejandría. Es decir: el concilio
+<strong>ratifica eclesiásticamente una decisión ya tomada políticamente</strong>, y no al
+revés. Demófilo, el obispo homeo de Constantinopla, es conminado a entregar las iglesias y las
+pierde.</p>
+
+<p>El concilio confirma la fe de Nicea y condena el arrianismo, la negación de la divinidad del
+Espíritu y el apolinarismo. Establece además, en su canon tercero, que el obispo de
+Constantinopla tiene la primacía de honor <em>después</em> del de Roma, «porque Constantinopla
+es la Nueva Roma» — una cláusula de consecuencias enormes y disputada desde el primer día.
+Gregorio de Nacianzo preside un tramo y <strong>dimite durante el propio concilio</strong>; le
+sucede Nectario, un laico sin bautizar.</p>
+
+<p>Y hay un dato que vale por toda la tesis de esta entrega: el segundo concilio ecuménico
+<strong>fue declarado ecuménico setenta años después de celebrarse</strong>, en Calcedonia.</p>
+
+<div class="secnum">06</div><h2>El credo que usted reza no es el de Nicea</h2>
+
+<p>Esto es lo que casi nadie ha oído, y es verificable palabra por palabra.</p>
+
+<p>El texto que se recita en las liturgias no es el credo de 325. Es el
+<strong>niceno-constantinopolitano</strong>, de 381, que respecto del anterior quita, añade y
+reformula.</p>
+
+<p><strong>Desaparece</strong> la glosa «esto es, de la sustancia del Padre», que era la frase
+más combativa del texto de 325. Desaparecen <strong>los cuatro anatemas finales</strong> — y
+con ellos la cláusula que identificaba <em>ousía</em> e <em>hypóstasis</em>, precisamente la
+que la distinción capadocia volvía insostenible.</p>
+
+<p><strong>Se añade</strong> «hacedor del cielo y de la tierra»; «engendrado del Padre antes de
+todos los siglos»; «se encarnó del Espíritu Santo y de María Virgen»; «crucificado por
+nosotros bajo Poncio Pilato»; «y fue sepultado»; «según las Escrituras»; «está sentado a la
+derecha del Padre»; «vendrá con gloria». Se añade <strong>«y su reino no tendrá fin»</strong>,
+que está escrita contra Marcelo de Ancira, aliado de Atanasio y firmante niceno, que enseñaba
+un reinado del Verbo con término. Y se añade <strong>todo el artículo largo del Espíritu
+Santo</strong> —«Señor y dador de vida, que procede del Padre, que con el Padre y el Hijo es
+adorado y glorificado, que habló por los profetas»— donde 325 tenía solamente «y en el Espíritu
+Santo», sin un predicado.</p>
+
+<p>El <em>Filioque</em>, de paso, no está en ninguna de las dos versiones: es un añadido latino
+posterior.</p>
+
+<figure>
+  <img src="concilio-de-nicea.jpg" data-alt="nicea.jpg|icono-nicea.jpg|nicaea-icon.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Icono del concilio de Nicea: diez padres sosteniendo un paño con texto griego">
+  <figcaption><strong>Y aquí está el mejor hallazgo de esta serie, y no lo hemos puesto nosotros.</strong> El icono representa el concilio de <em>Nicea</em>, y el texto griego que los padres sostienen <strong>no es el credo de Nicea</strong>: es el símbolo niceno-constantinopolitano en su forma litúrgica griega, basado en el texto adoptado en Constantinopla en 381, cincuenta y seis años después. La transcripción lo confirma: trae «Creo» en singular, el «antes de todos los siglos», y sigue hasta «padeció y fue sepultado». La imagen del concilio de Nicea lleva escrito el credo de otro concilio, y lleva siglos ahí. <span class="cr">Icono del primer concilio de Nicea, Dominio público.</span></figcaption>
+</figure>
+
+<p>Hay además un problema historiográfico que conviene no planchar. <strong>Ningún documento
+conservado cita ni menciona el texto de 381 antes de las actas de Calcedonia, en 451.</strong>
+Éfeso, en 431, reafirma el de 325, y su canon séptimo prohíbe componer otra fe. En Calcedonia
+muchos obispos no lo conocían: el texto se sacó de los archivos de Constantinopla y se aceptó
+«no como suplemento de omisión alguna, sino como interpretación auténtica de la fe de Nicea».
+La posición mayoritaria sigue siendo que se adoptó en 381 —Kelly observa que el concilio no fue
+tenido por ecuménico hasta 451, de modo que su falta de rastro en el intervalo no prueba
+nada—, y hay además buenas razones para pensar que deriva de un credo bautismal independiente
+retocado. Pero el primer testimonio textual es setenta años posterior, y eso se dice.</p>
+
+<div class="secnum">07</div><h2>Y después, dos concilios más</h2>
+
+<p>En <strong>431</strong>, Éfeso. Cirilo de Alejandría contra Nestorio de Constantinopla, por
+si María puede llamarse <em>Theotokos</em>, «la que da a luz a Dios». Y el modo en que se
+desarrolló conviene contarlo, porque es dato y no insidia: Cirilo <strong>abrió el concilio el
+22 de junio sin esperar</strong> a la delegación antioquena de Juan, que llevaba dos semanas de
+retraso, y sin los legados papales, que llegaron en julio. El representante imperial protestó y
+pidió aplazamiento. Nestorio fue depuesto y condenado <strong>en una sola jornada</strong>.
+Cinco días después llegó Juan de Antioquía, celebró concilio aparte y
+<strong>depuso a Cirilo</strong>. El emperador ratificó al principio las tres deposiciones.</p>
+
+<p>Dos años más tarde, la <strong>Fórmula de Unión de 433</strong> reconcilió a Cirilo con Juan
+sobre un texto de redacción antioquena que hablaba de «unión de las dos naturalezas» — y que
+cada parte pudo leer en su propia clave. Esa ambigüedad productiva es la que estalla en 451.</p>
+
+<figure>
+  <img src="concilio-de-efeso.jpg" data-alt="efeso.jpg|efeso-431.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Mosaico decimonónico del concilio de Éfeso con Cirilo, María y el Niño">
+  <figcaption>El concilio de Éfeso de 431 representado en la basílica de Notre-Dame de Fourvière, en Lyon: Cirilo en el centro, mostrando a María con el Niño. <strong>La basílica es del siglo XIX</strong> — enseña cómo se imaginaba Éfeso en el ochocientos, que es otra cosa que cómo fue. Lo real de aquella sala, según las actas, fue una carrera de procedimiento resuelta por quién tenía el quórum, el emperador y la calle. <span class="cr">Fotografía de Philippe Alès, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure>
+
+<p>En <strong>451</strong>, Calcedonia, convocado por el emperador Marciano, con unos
+quinientos veinte obispos o representantes. La Definición reconoce a un solo Cristo
+<strong>en dos naturalezas</strong>, «sin confusión, sin cambio, sin división, sin separación».
+Los dos primeros adverbios excluyen a Eutiques; los dos últimos, lo que se leía bajo el nombre
+de Nestorio. A Apolinar, de paso, <strong>no lo excluye ninguno de los cuatro</strong>: lo
+excluye otra cláusula, la que afirma que Cristo es consustancial a nosotros según la humanidad
+y tiene alma racional y cuerpo.</p>
+
+<p>Y la Definición dice «<strong>en</strong> dos naturalezas», no «<strong>de</strong> dos
+naturalezas». Esa preposición, que parece un detalle de gramática, es el epicentro del cisma
+que viene. De eso trata la última entrega.</p>
+
+<div class="wall">
+  <div class="post max">
+    <div class="who">325 &rarr; 360</div>
+    <div class="what">La fe oficial del Imperio</div>
+    <p>El credo <b>homeo</b> de Constantinopla 360 fue el credo oficial del Imperio <b>hasta 380</b>. Veinte de los cincuenta y seis a&ntilde;os.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Atanasio</div>
+    <div class="what">Cinco destierros</div>
+    <p><b>M&aacute;s de diecis&eacute;is a&ntilde;os</b> fuera de su sede, en un episcopado de unos cuarenta y cinco. Y la cronolog&iacute;a exacta la discuten todav&iacute;a los especialistas.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Jer&oacute;nimo, h. 379</div>
+    <div class="what"><i>Contra los luciferianos</i> 19</div>
+    <p>«Gimi&oacute; el mundo entero, y se asombr&oacute; de ser arriano.» <b>Ret&oacute;rica de un partidario veinte a&ntilde;os despu&eacute;s</b>, no un censo.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Teodosio, febrero de 380</div>
+    <div class="what">El edicto de Tesal&oacute;nica</div>
+    <p>Impone la fe de Roma y Alejandr&iacute;a <b>un a&ntilde;o antes</b> del concilio. El concilio ratifica lo ya decidido.</p>
+  </div>
+  <div class="post min">
+    <div class="who">Calcedonia, 451</div>
+    <div class="what">Setenta a&ntilde;os despu&eacute;s</div>
+    <p>Es el concilio que declara ecum&eacute;nico a Constantinopla 381 &mdash; y el primero que cita su credo. <b>Antes de 451 no hay rastro del texto.</b></p>
+  </div>
+</div>
+
+<div class="meter">
+  <div class="q">¿Es firme que el credo que hoy se recita no es el de Nicea?</div>
+  <div class="bar"><span class="pin" style="left:91%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">En lo sustantivo, sí: el texto litúrgico es el niceno-constantinopolitano, y la comparación con el de 325 se puede hacer cláusula por cláusula —desaparece «de la sustancia del Padre», desaparecen los anatemas, aparecen el artículo largo del Espíritu y «su reino no tendrá fin»—. Los especialistas sostienen además que no es una simple ampliación del de 325, sino que deriva probablemente de un credo bautismal independiente retocado. Donde hay <i>debate abierto</i> es en si el texto se aprobó efectivamente en 381: ningún documento lo cita antes de 451. La posición mayoritaria dice que sí, con el argumento de Kelly de que el concilio no fue tenido por ecuménico hasta Calcedonia. Presentar esa duda como «los historiadores dicen que el credo es falso» sería tan malo como ocultarla.</div>
+</div>
+
+<div class="aviso">
+  <div class="t">El icono que lleva siglos dando la razón a esta entrega</div>
+  <p>La imagen del concilio de Nicea que acompaña este capítulo representa a los padres de <strong>325</strong> sosteniendo un paño con el credo de <strong>381</strong>. No es un montaje nuestro ni una curiosidad: es un icono antiguo, su propia ficha lo dice, y la transcripción del griego lo confirma.<br><br>Que la iconografía haya fundido los dos concilios en uno solo, atribuyendo a Nicea un texto que Nicea no escribió, es <strong>exactamente el fenómeno que esta entrega describe</strong> — con la diferencia de que aquí no lo cuenta un historiador, lo cuenta un pintor que no sabía que lo estaba contando.</p>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Es <span class="k">consenso</span> que el Imperio fue mayoritariamente no niceno durante buena parte del periodo 325-381 y que el credo homeo de 360 fue la fe oficial hasta 380; que Atanasio sufrió cinco destierros; que el edicto de Tesalónica precede en un año al concilio de 381; que el texto litúrgico actual es el niceno-constantinopolitano y no el de 325; y que la Definición de Calcedonia dice «en dos naturalezas».</p>
+  <p>Está en <span class="k">debate abierto</span> si el texto de 381 se aprobó en 381, dado que el primer testimonio es de 451; y el esquema mismo de los «cuatro partidos», que la investigación reciente trata como un mapa retrospectivo y no como cuatro organizaciones estables.</p>
+  <p>Tres <span class="k">cifras y citas que no damos redondas</span>. Los años de exilio de Atanasio: la suma aritmética da unos dieciséis y la cifra corriente es diecisiete; damos «unos diecisiete» y decimos que la cronología se discute. La frase de Jerónimo: es retórica de parte escrita veinte años después, no un dato demográfico. Y el número de obispos de Calcedonia, que las fuentes dan entre quinientos veinte y más de seiscientos.</p>
+  <p>Y una <span class="k">precisión que la divulgación suele errar</span>: ninguno de los cuatro adverbios de Calcedonia apunta a Apolinar. A Apolinar lo excluye la cláusula que afirma que Cristo es consustancial a nosotros según la humanidad y posee alma racional y cuerpo. Decirlo importa, porque de Apolinar viene la fórmula que será bandera en la entrega siguiente.</p>
+</div>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p><strong>Para 325-381.</strong> Atanasio, <em>De synodis</em>, <em>Historia Arianorum</em> y
+  <em>Tomus ad Antiochenos</em> (362), en <em>Athanasius Werke</em> · Jerónimo, <em>Altercatio
+  Luciferiani et Orthodoxi</em> (<em>Dialogus contra Luciferianos</em>) 19, ed. Aline Canellis,
+  CCSL 79B, Brepols, 2000, y SC 473, Cerf, 2003 · credo homeo de Constantinopla 360 · Sócrates,
+  <em>HE</em> II · Sozomeno, <em>HE</em> IV · R. P. C. Hanson, <em>The Search for the Christian
+  Doctrine of God</em>, T&amp;T Clark, 1988 · Lewis Ayres, <em>Nicaea and its Legacy</em>, Oxford
+  University Press, 2004 · T. D. Barnes, <em>Athanasius and Constantius</em>, Harvard University
+  Press, 1993.</p>
+  <p><strong>Para los capadocios.</strong> Basilio, <em>Cartas</em> 38, 214 y 236, y <em>Sobre el
+  Espíritu Santo</em> · Gregorio de Nacianzo, <em>Discursos teológicos</em> 27-31 · Gregorio de
+  Nisa, <em>Contra Eunomio</em> y <em>Ad Ablabium</em>.</p>
+  <p><strong>Para 381 y el credo.</strong> Cánones del concilio de Constantinopla · edicto
+  <em>Cunctos populos</em> (Tesalónica, febrero de 380), <em>Codex Theodosianus</em> XVI,1,2 ·
+  J. N. D. Kelly, <em>Early Christian Creeds</em>, Longman, para el texto griego y la discusión
+  sobre su adopción.</p>
+  <p><strong>Para 431 y 451.</strong> Actas del concilio de Éfeso y Fórmula de Unión de 433,
+  transmitida en la carta de Cirilo a Juan de Antioquía · <em>Tomo</em> de León a Flaviano
+  (449) · Definición de Calcedonia, con los cuatro adverbios ἀσυγχύτως, ἀτρέπτως, ἀδιαιρέτως y
+  ἀχωρίστως · canon 28 de Calcedonia.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+
+(function(){
+  var P={"modal": {"b": "iv", "x": 5, "xp": null, "l": "Modalismo", "q": "Noeto, Pr&aacute;xeas, Sabelio", "t": "Padre e Hijo son <b>modos</b> de una sola persona. La consecuencia que le valió el apodo: si el Hijo es el Padre, el Padre padeció en la cruz — <i>patripassianismo</i>, etiqueta acuñada por los latinos a partir de la frase de Tertuliano contra Práxeas, «puso en fuga al Paráclito y crucificó al Padre».<br><br><b>Nicea no lo condenó.</b> El credo de 325 no dice una palabra contra el modalismo: iba dirigido al otro extremo del campo. Lo que en 325 deja fuera a esta posición no es el concilio sino el propio lenguaje de «engendrado del Padre»."}, "marcelo": {"b": "iv", "x": 17, "xp": null, "l": "Marcelianismo", "q": "Marcelo de Ancira", "t": "Aliado de Atanasio y firmante niceno, y aun así acabó fuera. Sostenía que el Logos se expande desde la mónada para la creación y la encarnación y <b>vuelve a contraerse al final</b>, de modo que el reinado del Hijo tiene término.<br><br><b>Por eso el credo de 381 añade una cláusula que el de 325 no tenía:</b> «y su reino no tendrá fin». Está escrita contra él. Es el ejemplo más limpio de lo que esta pieza quiere enseñar: una posición puede estar dentro de una frontera y fuera de la siguiente sin haber cambiado de sitio."}, "homoou": {"b": "iv", "x": 33, "xp": null, "l": "<i>Homooúsios</i>", "q": "Alejandro, Atanasio, los capadocios", "t": "«De la misma sustancia» que el Padre. Es la fórmula que gana, y conviene recordar a qué precio: <b>no es un término bíblico</b>, tenía antecedentes gnósticos y maniqueos, y lo reconocieron los propios nicenos.<br><br>Y el dato que desmonta la imagen de 325 como punto final: antes de los años cincuenta del siglo IV, <b>Atanasio emplea la palabra una sola vez</b> en todo lo que escribe (<i>Contra Arianos</i> 1,9). Su conversión en bandera es obra suya a partir del <i>De decretis</i>, hacia 353, ya en un segundo conflicto."}, "homoiou": {"b": "iv", "x": 47, "xp": null, "l": "<i>Homoioúsios</i>", "q": "Basilio de Ancira, Jorge de Laodicea", "t": "«De sustancia <b>semejante</b>». Una iota de diferencia, y toda la carga del chiste de Gibbon — que sin embargo no describe bien lo que estaba en juego. Rechazaban a la vez el anomeísmo <b>y</b> el <i>homooúsios</i>, al que leían como sabeliano y como no escriturario. El sínodo de Ancira de 358 llegó a prohibir el término.<br><br>Eran, en 359, una de las fuerzas mayoritarias del Oriente. En 381 ya no existen como partido."}, "homoios": {"b": "iv", "x": 60, "xp": null, "l": "<i>Hómoios</i>", "q": "Acacio de Cesarea, Ursacio y Valente", "t": "«Semejante al Padre según las Escrituras», a secas. <b>Y aquí está lo que casi nadie cuenta:</b> el credo homeo de Constantinopla 360 no es «arrianismo», es una <b>moratoria imperial sobre el vocabulario metafísico</b> — prohíbe expresamente usar <i>ousía</i> <b>y</b> <i>hypóstasis</i> respecto del Padre, del Hijo y del Espíritu, por no estar en las Escrituras y haber causado escándalo.<br><br>Fue el credo oficial del Imperio <b>desde 360 hasta 380</b>. Veinte años. Es decir: durante veinte de los cincuenta y seis años que van de Nicea a Constantinopla, la fe oficial del Imperio romano no era la nicena."}, "anomeo": {"b": "iv", "x": 74, "xp": null, "l": "An&oacute;moios", "q": "Aecio y Eunomio", "t": "El Hijo es de sustancia <b>distinta y desemejante</b>. El argumento es fuerte y conviene darlo bien: la esencia divina consiste en ser <i>ingénita</i> (<i>agennesía</i>), lo ingénito no puede engendrar sin dejar de serlo, luego lo engendrado no comparte esa esencia. Eunomio añadía, además, que esa esencia <b>es cognoscible</b> — lo que escandalizó a los capadocios tanto como la cristología."}, "arrio": {"b": "iv", "x": 87, "xp": 67, "l": "Arrio", "q": "Arrio de Alejandr&iacute;a", "t": "<b>Mire el conmutador.</b> Según sus adversarios, Arrio ocupa el extremo: una criatura más, sacada de la nada, mudable. Según sus tres cartas conservadas, está bastante más a la izquierda: el Hijo es «criatura perfecta de Dios, <b>pero no como una de las criaturas</b>», engendrado antes de los tiempos y de los eones, «no en apariencia sino en realidad».<br><br>Incluso la frase con la que se le identifica es ajena: <b>«hubo cuando no era» es la fórmula del anatema de Nicea</b>, no una cita de Arrio. Lo que él escribió fue que el Hijo «no existía antes de ser engendrado». Y evitaba deliberadamente las palabras «tiempo» y «eón», porque para él el Hijo es anterior al tiempo mismo; la versión divulgativa «hubo un <i>tiempo</i> en que no existía» traiciona justo el punto técnico.<br><br><b>Y ahora lo que importa de verdad:</b> al cambiar el conmutador, Arrio se mueve — y <b>sigue fuera</b> de la frontera de 325. Esto no es un descuido de la pieza. Que a alguien lo hayan caricaturizado no significa que tuviera razón, y el lado niceno tenía argumentos de fondo: si solo Dios diviniza, una criatura no puede comunicar lo que no posee; y si el Hijo es criatura, bautizar en su nombre y adorarlo es idolatría. Hasta Rowan Williams, que es quien devolvió a Arrio su estatura de teólogo serio, concede en su postscriptum que Atanasio «tenía razón en lo importante»."}, "adop": {"b": "iv", "x": 96, "xp": null, "l": "Adopcionismo", "q": "Los dos Teodotos, Pablo de Samosata", "t": "Jesús nació <b>hombre</b>, y en él habitó el Logos o descendió el Espíritu en el bautismo. Un hombre que llegó a ser Dios, no Dios hecho hombre.<br><br><b>Y una advertencia de categorías que la pieza está obligada a hacer</b>, porque el propio mapa la induce: colocar esto «abajo» o «al final» de una escala es una herencia nicena. Michael Peppard ha mostrado que en el mundo romano la adopción no era una filiación de segunda, sino la vía normal y prestigiosa de la sucesión al poder — <b>Augusto es hijo divino por adopción</b>. Llamar «adopcionista» a una cristología para situarla en el escalón de abajo usa una jerarquía que el siglo I no tenía."}, "eutiq": {"b": "v", "x": 7, "xp": null, "l": "Eutiquianismo", "q": "Eutiques", "t": "Tras la unión hay <b>una sola naturaleza</b>, ni puramente divina ni puramente humana: la humanidad queda absorbida. <b>Esto, y solo esto, es el monofisismo</b> en sentido propio.<br><br>Condenado en el sínodo de Constantinopla de 448, rehabilitado en el «latrocinio» de Éfeso de 449 y condenado definitivamente en Calcedonia. Y el dato que la entrega siguiente necesita: <b>las iglesias a las que hoy se llama «monofisitas» condenaron a Eutiques igual que Calcedonia</b>."}, "apoli": {"b": "v", "x": 16, "xp": null, "l": "Apolinarismo", "q": "Apolinar de Laodicea", "t": "El Logos ocupa el lugar del alma racional humana. Cristo tiene cuerpo humano, pero no mente humana.<br><br>Condenado en <b>381</b>, no en 451 — por eso se apaga una frontera antes. Y conviene señalar que <b>ninguno de los cuatro adverbios de Calcedonia apunta a Apolinar</b>: a él lo excluye otra cláusula, la que dice que Cristo es «consustancial a nosotros según la humanidad» y tiene alma racional y cuerpo.<br><br>Y su sombra es larguísima. La fórmula bandera del miafisismo —«una naturaleza encarnada del Dios Verbo»— <b>es suya</b>, puesta bajo el nombre de Atanasio. Cirilo la usó de buena fe mientras rechazaba el apolinarismo."}, "miafi": {"b": "v", "x": 29, "xp": null, "l": "Miafisismo", "q": "Cirilo, Dioscoro, Severo", "t": "<i>M&iacute;a ph&yacute;sis tou theo&ucirc; l&oacute;gou sesarkom&eacute;ne</i>: «<b>una</b> naturaleza encarnada del Dios Verbo». Y <i>mía</i> no significa «única y simple» sino «una compuesta»: la humanidad se conserva íntegra y consustancial a la nuestra, sin mezcla, sin confusión y sin cambio.<br><br>Detalle gramatical que casi todas las traducciones estropean: <i>sesarkoméne</i> es femenino y concuerda con <i>ph&yacute;sis</i>, no con <i>l&oacute;gou</i>. <b>Lo encarnado es la naturaleza</b>, no (gramaticalmente) el Verbo.<br><br>En 451 esta posición queda fuera por una preposición: Calcedonia dijo «<b>en</b> dos naturalezas» y no «<b>de</b> dos naturalezas». Para Alejandría eso no era un sinónimo: era abandonar el lenguaje de Cirilo justo donde Cirilo había ganado en 431. <b>El cisma que dura mil quinientos años empieza ahí.</b>"}, "calce": {"b": "v", "x": 56, "xp": null, "l": "Calcedonismo", "q": "La Definici&oacute;n de 451", "t": "Un solo Cristo reconocido <b>en dos naturalezas</b>, sin confusión, sin cambio, sin división y sin separación. Los dos primeros adverbios excluyen a Eutiques; los dos últimos, a lo que se leía bajo el nombre de Nestorio.<br><br>Que se aprobara no significa que se aprobara fácilmente: <b>tres pasajes del <i>Tomo</i> de León fueron impugnados como posiblemente nestorianos</b>, y una comisión presidida por Anatolio necesitó cinco días para declararlo compatible con Cirilo. La aclamación «Pedro ha hablado por León» no fue ni instantánea ni unánime."}, "nesto": {"b": "v", "x": 92, "xp": 63, "l": "Nestorio", "q": "Nestorio de Constantinopla", "t": "<b>Y aquí el conmutador hace lo contrario que con Arrio.</b><br><br>Según sus adversarios: dos sujetos, dos hijos, un hombre en quien el Verbo habita como en un templo. Según su propio libro —el <i>Liber Heraclidis</i>, cuyo texto siríaco se copió en 1889 y publicó Bedjan en 1910—, Nestorio <b>niega haber enseñado dos personas</b>, afirma dos naturalezas en un solo <i>prósopon</i>, <b>acepta que María es madre de Dios</b> en el sentido debido, y considera que Calcedonia lo vindicó.<br><br>Al cambiar el conmutador, <b>Nestorio entra dentro de la frontera de 431 y dentro de la de 451</b>. Esa es la diferencia con Arrio, y no la he puesto yo: está en los textos.<br><br><b>Con dos cautelas.</b> La primera: hay consenso en que el «nestorianismo» de los manuales —dos personas en Cristo— no es la doctrina de Nestorio, pero <b>no hay consenso</b> en que su cristología equivalga a la calcedonense; Grillmeier y Scipioni sostienen que su esquema es estructuralmente insuficiente. La segunda: la pregunta «¿era Nestorio nestoriano?» es buen titular y mala pregunta, porque «nestorianismo» es una construcción de sus adversarios y la respuesta es trivialmente que no. La pregunta sustantiva es si su cristología era <b>adecuada</b>, y ésa sigue abierta."}, "antio": {"b": "v", "x": 79, "xp": null, "l": "Difisismo antioqueno", "q": "Teodoro de Mopsuestia, Teodoreto", "t": "Dos naturalezas íntegras, con acento en la humanidad completa y en la distinción de lo que corresponde a cada una.<br><br><b>Y el detalle que prueba que el conflicto no fue «solo terminológico»:</b> Calcedonia <b>rehabilitó</b> a Teodoreto de Ciro y a Ibas de Edesa, depuestos en 449 y adversarios declarados de Cirilo. Cuando el legado ordenó reponer a Teodoreto y darle asiento, hubo tumulto en la sala. Para los cirilianos, un concilio que absuelve a los enemigos de Cirilo y depone a su sucesor no era un concilio doctrinal neutro.<br><br>Un siglo después, Justiniano y Constantinopla II (553) condenaron a Teodoro, los escritos de Teodoreto contra Cirilo y la carta de Ibas — <b>precisamente para recuperar a los no calcedonianos</b>, y a costa de romper la comunión con medio Occidente. Si hubiera sido solo terminológico, el Imperio no habría pagado ese precio."}}, C=[{"n": "Nicea", "a": "325", "b": "iv", "min": 0, "max": 52, "si": "Que el Hijo no es criatura ni «de otra hip&oacute;stasis o sustancia», y que no hubo cuando no era. Y poco m&aacute;s: el credo de 325 es <b>una declaraci&oacute;n breve que condena unas posiciones concretas</b>.", "no": "Casi todo. No defini&oacute; la relaci&oacute;n entre <i>ous&iacute;a</i> e <i>hyp&oacute;stasis</i> &mdash;al contrario: sus anatemas las <b>identifican</b>&mdash;; no dijo nada del Esp&iacute;ritu m&aacute;s all&aacute; de «y en el Esp&iacute;ritu Santo», sin un solo predicado; <b>no conden&oacute; el modalismo</b>; y la pregunta de la banda de abajo <b>todav&iacute;a no exist&iacute;a</b>. Quien diga que en Nicea se invent&oacute; la Trinidad tiene enfrente el propio texto del credo."}, {"n": "Constantinopla", "a": "381", "b": "iv", "min": 22, "max": 42, "si": "La divinidad del Esp&iacute;ritu, el apolinarismo, el marcelianismo &mdash;con la cl&aacute;usula «y su reino no tendr&aacute; fin»&mdash; y las f&oacute;rmulas intermedias. Aqu&iacute; se cierra de verdad la banda de arriba.", "no": "Que el credo que hoy se recita <b>no es el de Nicea</b>. El de 381 quita «de la sustancia del Padre», quita los cuatro anatemas, a&ntilde;ade «engendrado del Padre antes de todos los siglos», «crucificado bajo Poncio Pilato», «y su reino no tendr&aacute; fin» y todo el art&iacute;culo largo del Esp&iacute;ritu.<br><br>Y un problema historiogr&aacute;fico que conviene no planchar: <b>ning&uacute;n documento conservado cita ese texto antes de las actas de Calcedonia, en 451</b>. &Eacute;feso 431 reafirma el de 325. La posici&oacute;n mayoritaria sigue siendo que se introdujo en 381 &mdash;Kelly observa que el concilio no fue tenido por ecum&eacute;nico hasta 451, as&iacute; que su falta de rastro en el intervalo no prueba nada&mdash;, pero el primer testimonio textual es setenta a&ntilde;os posterior."}, {"n": "&Eacute;feso", "a": "431", "b": "v", "min": 0, "max": 82, "si": "Que Mar&iacute;a es <i>Theot&oacute;kos</i>, y la condena de Nestorio. En <b>una sola jornada</b>: Cirilo abri&oacute; el 22 de junio sin esperar a la delegaci&oacute;n antioquena de Juan, con dos semanas de retraso y sin los legados papales.", "no": "Nada de lo que vendr&iacute;a despu&eacute;s. Juan de Antioqu&iacute;a lleg&oacute; cinco d&iacute;as tarde, celebr&oacute; concilio aparte y <b>depuso a Cirilo</b>; el emperador ratific&oacute; al principio las tres deposiciones. Dos a&ntilde;os despu&eacute;s, la <b>F&oacute;rmula de Uni&oacute;n de 433</b> reconcili&oacute; a Cirilo con Juan sobre un texto de redacci&oacute;n antioquena &mdash;«uni&oacute;n de las dos naturalezas»&mdash; que cada parte pudo leer en su propia clave. Esa ambig&uuml;edad productiva es la que estalla en 451."}, {"n": "Calcedonia", "a": "451", "b": "v", "min": 40, "max": 82, "si": "Un solo Cristo <b>en</b> dos naturalezas, con los cuatro adverbios. Excluye a Eutiques por arriba y a los dos sujetos por abajo.", "no": "La uni&oacute;n. La frontera de 451 deja fuera a Alejandr&iacute;a entera por una preposici&oacute;n, y el resultado dura hasta hoy: las comisiones te&oacute;logicas firmaron en 1984, 1990 y 1994 que la fe profesada es la misma, <b>y treinta y cinco a&ntilde;os despu&eacute;s de Chamb&eacute;sy los anatemas siguen sin levantarse y no hay comuni&oacute;n eucar&iacute;stica</b>. La entrega siguiente es sobre eso."}];
+  var caja=document.getElementById('campo'); if(!caja) return;
+  var det=caja.querySelector('#cadet'), cont=caja.querySelector('#canum');
+  var hasta=-1, propios=false, verNo=false, sel=null;
+
+  function limites(){
+    var L={};
+    for(var i=0;i<=hasta;i++){var c=C[i];
+      var b=c.b, a=L[b]||[0,100];
+      L[b]=[Math.max(a[0],c.min), Math.min(a[1],c.max)];}
+    return L;
+  }
+  function pintar(){
+    var L=limites();
+    caja.querySelectorAll('.ca-frontera').forEach(function(f){
+      var r=L[f.dataset.b];
+      if(!r){f.style.opacity=0;return;}
+      f.style.opacity=1; f.style.left=r[0]+'%'; f.style.width=(r[1]-r[0])+'%';
+    });
+    caja.querySelectorAll('.ca-sombra').forEach(function(s){
+      var r=L[s.dataset.b];
+      if(!r){s.style.opacity=0;return;}
+      s.style.opacity=1;
+      if(s.dataset.lado==='izq'){s.style.left='0%'; s.style.width=r[0]+'%';}
+      else {s.style.left=r[1]+'%'; s.style.width=(100-r[1])+'%';}
+    });
+    var vivas=0, total=0;
+    caja.querySelectorAll('.ca-pos').forEach(function(p){
+      var d=P[p.dataset.id];
+      var x=(propios&&d.xp!==null&&d.xp!==undefined)?d.xp:d.x;
+      p.style.left=x+'%';
+      // Un rotulo centrado sobre una x de 96 se sale de la banda por la
+      // derecha, y la banda tiene overflow:hidden, asi que no desborda la
+      // pagina: se CORTA, que es peor porque no lo detecta el chequeo de
+      // desborde. Los de los extremos se anclan por su lado.
+      var dx = x>=90?88:(x<=8?12:50);
+      p.style.transform='translateX(-'+dx+'%)';
+      p.style.setProperty('--dx', dx+'%');
+      p.classList.toggle('movido', d.xp!==null&&d.xp!==undefined);
+      var r=L[d.b]; total++;
+      var fuera = r ? (x<r[0]||x>r[1]) : false;
+      p.classList.toggle('fuera', fuera);
+      if(!fuera) vivas++;
+    });
+    cont.innerHTML='<span class="big"><b>'+vivas+'</b> / '+total+'</span>'+
+      '<span class="cl">posiciones todav&iacute;a dentro de la frontera</span>'+
+      (hasta<0?'<span class="cl">a&uacute;n no se ha reunido ning&uacute;n concilio</span>'
+              :'<span class="cl">tras '+C[hasta].n+' '+C[hasta].a+'</span>');
+    caja.querySelectorAll('.ca-marca').forEach(function(m){
+      m.style.display = verNo ? 'block' : 'none';
+    });
+    caja.querySelectorAll('.ca-bt[data-c]').forEach(function(b){
+      b.classList.toggle('on', +b.dataset.i<=hasta);
+    });
+  }
+  function detalle(tipo,k){
+    sel=k;
+    caja.querySelectorAll('.ca-pos').forEach(function(p){p.classList.toggle('sel',p.dataset.id===k);});
+    if(tipo==='p'){var d=P[k];
+      det.innerHTML='<div class="dl">'+d.q+'</div><h4>'+d.l+'</h4><p>'+d.t+'</p>';}
+    else{var c=C[k];
+      det.innerHTML='<div class="dl">'+c.n+' '+c.a+'</div><h4>Qu&eacute; cerr&oacute;</h4><p>'+c.si+'</p>'+
+        '<h4>Lo que la frontera no decidi&oacute;</h4><p>'+c.no+'</p>';}
+  }
+  caja.querySelectorAll('.ca-pos').forEach(function(p){
+    p.addEventListener('click',function(){detalle('p',p.dataset.id);});
+  });
+  caja.querySelectorAll('.ca-bt[data-c]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var i=+b.dataset.i;
+      hasta = (hasta===i) ? i-1 : i;
+      pintar(); if(hasta>=0) detalle('c',hasta);
+    });
+  });
+  var bf=caja.querySelector('#cafuente');
+  bf.addEventListener('click',function(){
+    propios=!propios;
+    bf.classList.toggle('on',propios);
+    bf.innerHTML = propios
+      ? 'Seg&uacute;n sus propios textos<small>Arrio y Nestorio se han movido</small>'
+      : 'Seg&uacute;n sus adversarios<small>Pulsa para o&iacute;rlos a ellos</small>';
+    pintar();
+  });
+  var bn=caja.querySelector('#canod');
+  bn.addEventListener('click',function(){
+    verNo=!verNo; bn.classList.toggle('on',verNo); pintar();
+  });
+  pintar();
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4c2c60">↑ <a href="serie-cristo.html" style="color:#4c2c60">Serie: Cómo Jesús se convirtió en Dios</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev" href="cristo-5.html"><span class="lbl">← Anterior</span><span class="ttl" style="color:#4c2c60">Una palabra que nadie quería</span></a>
+    <a class="epnav-btn next" href="cristo-7.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#4c2c60">Las iglesias que dijeron que no</span></a>
+  </div>
+</nav>
+</body></html>

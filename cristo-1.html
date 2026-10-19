@@ -1,0 +1,529 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ungido no quería decir eso — Estratos</title>
+<meta name="description" content="Mashiaj significa «el untado con aceite» y designa una función, no una naturaleza. Se aplica a reyes, a sacerdotes, a los muebles del santuario y a Ciro, rey persa que no adoraba a YHWH. Y no existió una única esperanza mesiánica judía.">
+<style>
+  :root{--ink:#1c1814;--parchment:#f6efe0;--sand-light:#f2ead7;--rule:#cbb994;
+    --shadow:rgba(40,28,16,.18);--deep:#4c2c60;--mid:#704e86;--pale:#5a3d70;
+    --rel:#8a4a2a;--exc:#4c2c60;--pri:#3a4a52;--bib:#6e3546}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    background:var(--parchment);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.09) 1px, transparent 0);
+    background-size:4px 4px;mix-blend-mode:multiply}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  a{color:inherit}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;padding:.9rem 1.4rem;background:rgba(246,239,224,.9);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,150,100,.3)}
+  .topbar a{text-decoration:none}
+  .topbar .home{font-family:"Trebuchet MS",sans-serif;font-weight:700;font-size:.9rem;color:var(--deep)}
+  .topbar .alllink{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;color:#3a4a52;
+    border:1px solid var(--rule);border-radius:2rem;padding:.4rem .9rem;transition:background .3s}
+  .topbar .alllink:hover{background:var(--sand-light)}
+
+  .artmeta{padding:15vh 0 1vh;text-align:center}
+  .artmeta .kicker{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.26em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:1.1rem}
+  .artmeta h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:400;line-height:1.08;margin:0 auto 1.1rem;max-width:840px}
+  .artmeta h1 .em{font-style:italic;color:var(--deep)}
+  .glifos{font-size:clamp(1.25rem,3vw,1.7rem);color:var(--mid);margin:.2rem auto 1.4rem;
+    line-height:1.5;font-family:"Times New Roman","Frank Ruehl CLM",serif}
+  .glifos span{unicode-bidi:isolate}
+  /* La linea de TRANSLITERACION. #8a7a5e daba 3,65:1 sobre pergamino y
+     #9a8a6e 3,08:1: los dos por debajo de AA, en todo el blog y desde el
+     principio. En una casa que escribe sobre palabras, la transliteracion
+     tiene que poder leerse. #5f4a72 da 4,68:1 y es el mismo ocre, mas hondo. */
+  .glifos .tr{font-style:italic;font-size:.78em;color:#5f4a72}
+  .glifos .sep{color:var(--pale);padding:0 .5rem;font-size:.8em;vertical-align:.1em}
+  .artmeta .stand{max-width:640px;margin:0 auto;font-size:1.12rem;color:#4a3f33;font-style:italic}
+  .orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.4rem auto 0;max-width:300px}
+  .orn .l{height:1px;background:var(--rule);flex:1}
+  .orn .d{width:6px;height:6px;background:var(--mid);transform:rotate(45deg)}
+
+  .col-text{max-width:720px;margin:0 auto}
+  .col-text .secnum{font-family:"Trebuchet MS",sans-serif;font-size:.84rem;letter-spacing:.24em;
+    font-weight:700;color:var(--pale);margin:3.2rem 0 .15rem}
+  .col-text h2{font-size:1.62rem;font-weight:400;margin:3rem 0 .9rem;color:var(--deep)}
+  .col-text .secnum + h2{margin-top:0}
+  .col-text h3{font-size:1.18rem;font-weight:400;margin:2rem 0 .6rem;color:var(--deep)}
+  .col-text p{font-size:1.06rem;color:#4a3f33;margin-bottom:1.15rem}
+  .col-text p.first::first-letter{float:left;font-size:3.5rem;line-height:.84;
+    padding:.1rem .5rem .1rem 0;color:var(--deep)}
+  .col-text blockquote{margin:1.7rem 0;padding:.2rem 0 .2rem 1.4rem;border-left:3px solid var(--mid);
+    font-style:italic;color:#4a3f33;font-size:1.06rem}
+  .col-text blockquote cite{display:block;font-style:normal;font-family:"Trebuchet MS",sans-serif;
+    font-size:.72rem;letter-spacing:.08em;color:#5f4a72;margin-top:.6rem;text-transform:uppercase}
+  .col-text strong{font-weight:400;box-shadow:inset 0 -.5em 0 rgba(90,61,112,.24)}
+  .col-text em{font-style:italic}
+  .col-text ul{margin:0 0 1.15rem 1.2rem}
+  .col-text li{font-size:1.04rem;color:#4a3f33;margin-bottom:.5rem}
+
+  figure{margin:2.8rem auto;max-width:900px;background:rgba(242,234,215,.55);
+    border:1px solid rgba(180,150,100,.5);border-radius:10px;padding:10px;
+    box-shadow:0 6px 22px var(--shadow)}
+  figure img{width:100%;height:auto;display:block;border-radius:6px}
+  figcaption{padding:.85rem .6rem .35rem;font-size:.95rem;color:#4a3f33;line-height:1.5}
+  figcaption em{font-style:italic}
+  figcaption .cr{display:block;margin-top:.45rem;font-size:.86rem;color:#5f4a72}
+  figcaption .cr a{color:#5a3d70;text-decoration:underline;text-decoration-color:rgba(90,61,112,.5)}
+  figcaption .cr a:hover{text-decoration-color:#5a3d70}
+
+  .meter{max-width:720px;margin:2.6rem auto;background:var(--sand-light);
+    border:1px solid rgba(180,150,100,.45);border-radius:12px;padding:1.4rem 1.5rem 1.6rem;
+    box-shadow:0 5px 18px var(--shadow)}
+  .meter .q{font-size:1.06rem;margin-bottom:1.1rem}
+  .meter .bar{position:relative;height:12px;border-radius:8px;
+    background:linear-gradient(90deg,#cdc0d8,#9b86ad 42%,#704e86 70%,#4c2c60)}
+  .meter .pin{position:absolute;top:-7px;width:3px;height:26px;background:#2a2418;border-radius:2px}
+  /* La etiqueta del medidor iba en white-space:nowrap, y con un rotulo largo
+     desbordaba la pagina a 390 px. No se habia visto porque todas las
+     etiquetas usadas hasta ahora eran de una o dos palabras. Ahora envuelve
+     y tiene tope de ancho: para las cortas no cambia nada. */
+  .meter .pin::after{content:attr(data-l);position:absolute;top:30px;left:50%;transform:translateX(-50%);
+    font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.06em;color:#3a3320;
+    white-space:normal;width:max-content;max-width:min(13rem,70vw);text-align:center;
+    line-height:1.3;font-weight:700}
+  .meter .scale{display:flex;justify-content:space-between;margin-top:3.1rem;
+    font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72}
+  .meter .why{margin-top:1.1rem;font-size:.94rem;color:#5a4d38}
+
+  .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;
+    max-width:980px;margin:2.4rem auto}
+  .post{background:var(--sand-light);border:1px solid rgba(180,150,100,.45);
+    border-left:4px solid var(--mid);border-radius:10px;padding:1.1rem 1.2rem 1.3rem;
+    box-shadow:0 4px 14px var(--shadow)}
+  .post .who{font-family:"Trebuchet MS",sans-serif;font-size:.74rem;letter-spacing:.05em;
+    font-weight:700;color:var(--deep);margin-bottom:.15rem}
+  .post .what{font-family:"Trebuchet MS",sans-serif;font-size:.63rem;letter-spacing:.1em;
+    text-transform:uppercase;color:#5f4a72;margin-bottom:.6rem}
+  .post p{font-size:.93rem;color:#4a3f33;margin:0}
+  .post.max{border-left-color:#a8663e}
+  .post.min{border-left-color:#3a4a52}
+  .post.mid{border-left-color:#704e86}
+
+  .aviso{max-width:720px;margin:2.4rem auto;background:#efe6d2;border:1px solid rgba(150,130,95,.5);
+    border-left:4px solid var(--pri);border-radius:10px;padding:1.1rem 1.3rem 1.2rem}
+  .aviso .t{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;color:var(--pri);margin-bottom:.5rem}
+  .aviso p{font-size:.96rem;color:#4a3f33;margin:0}
+
+  .piezalink{max-width:720px;margin:2.6rem auto;display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(160deg,#e2dae8,#cdc0d8);border:1px solid rgba(150,130,95,.55);
+    border-radius:12px;padding:1.4rem 1.5rem;box-shadow:0 6px 20px var(--shadow);
+    transition:transform .3s,box-shadow .3s}
+  .piezalink:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(40,28,16,.26)}
+  .piezalink .k{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.45rem}
+  .piezalink h3{font-size:1.32rem;font-weight:400;margin:0 0 .5rem;color:#2f2a1c}
+  .piezalink p{font-size:.96rem;color:#4a3f33;margin:0 0 .8rem}
+  .piezalink .go{font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;color:var(--deep)}
+
+  .rigor{max-width:760px;margin:3.6rem auto 1rem;background:#33383f;border-radius:14px;
+    padding:1.8rem 2rem 1.9rem;box-shadow:0 10px 30px rgba(20,16,10,.28)}
+  .rigor .t{font-family:"Trebuchet MS",sans-serif;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;font-weight:700;font-style:italic;color:#d9a94a;margin-bottom:1.2rem}
+  .rigor p{font-size:1rem;color:#d6d2c8;margin-bottom:1.05rem;line-height:1.68}
+  .rigor p:last-child{margin-bottom:0}
+  .rigor .k{color:#d9a94a}
+  .rigor em{font-style:italic}
+  .rigor strong{font-weight:400;color:#efe9dc}
+  @media(max-width:600px){.rigor{padding:1.4rem 1.3rem 1.5rem;border-radius:12px}}
+
+  .fuentes{max-width:720px;margin:3rem auto 1rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
+  .fuentes h3{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#5f4a72;font-weight:700;margin-bottom:.8rem}
+  .fuentes p{font-size:.88rem;color:#6a5c46;margin-bottom:.6rem}
+  .fuentes a{color:var(--deep)}
+  footer{text-align:center;padding:3rem 0;color:#5f4a72;font-size:.82rem;
+    font-family:"Trebuchet MS",sans-serif;letter-spacing:.05em}
+  footer .glyph{color:var(--mid);font-size:1rem}
+  @media(max-width:600px){.artmeta{padding:13vh 0 1vh}}
+
+  .criba{width:min(1020px,calc(100vw - 48px));margin:3rem 0 3rem 50%;
+    transform:translateX(-50%);background:var(--sand-light);
+    border:1px solid rgba(150,140,160,.45);border-radius:14px;padding:1.7rem 1.7rem 1.4rem;
+    box-shadow:0 8px 26px var(--shadow)}
+  .criba .ck{font-family:"Trebuchet MS",sans-serif;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:700;color:var(--deep);display:block;margin-bottom:.4rem}
+  .criba h3{font-size:1.45rem;font-weight:400;margin:0 0 .5rem;color:var(--deep)}
+  .criba .cs{font-size:.98rem;color:#4a4450;margin:0 0 1.1rem;max-width:68ch}
+  .criba .pregunta{font-family:"Trebuchet MS",sans-serif;font-size:.76rem;font-weight:700;
+    letter-spacing:.04em;color:var(--deep);background:rgba(255,255,255,.55);
+    border:1px solid rgba(120,110,132,.45);border-radius:8px;padding:.6rem .8rem;
+    margin-bottom:1.1rem}
+
+  .cr-banda{font-family:"Trebuchet MS",sans-serif;font-size:.68rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--deep);
+    margin:1.3rem 0 .5rem;padding-bottom:.3rem;border-bottom:2px solid var(--mid)}
+  .cr-banda:first-of-type{margin-top:0}
+  .cr-banda span{display:block;font-weight:400;font-size:.66rem;letter-spacing:0;
+    text-transform:none;color:#5a5464;margin-top:.2rem}
+
+  .cr-fila{display:grid;grid-template-columns:150px minmax(0,1fr) 140px;gap:.6rem;width:100%;
+    text-align:left;background:transparent;border:0;
+    border-bottom:1px solid rgba(120,110,132,.3);padding:.6rem .25rem;cursor:pointer;
+    align-items:center;font-family:inherit;color:inherit;transition:background .2s}
+  .cr-fila:hover{background:rgba(255,255,255,.45)}
+  .cr-fila.on{background:rgba(255,255,255,.72)}
+  .cr-fila .rf{font-family:"Trebuchet MS",sans-serif;font-size:.7rem;color:#5a5464;
+    line-height:1.3}
+  .cr-fila .qn{font-size:.95rem;color:#2f2a38;line-height:1.35}
+  .cr-fila .vd{font-family:"Trebuchet MS",sans-serif;font-size:.64rem;font-weight:700;
+    letter-spacing:.03em;color:#fff;padding:.2rem .55rem;border-radius:20px;
+    justify-self:end;white-space:nowrap}
+
+  .cr-det{margin-top:1.2rem;background:#fbf9fb;border:1px solid rgba(120,110,132,.4);
+    border-left:5px solid var(--mid);border-radius:10px;padding:1rem 1.1rem;min-height:9rem}
+  .cr-det .dl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;margin-bottom:.28rem}
+  .cr-det h4{font-size:1.1rem;font-weight:400;color:var(--deep);margin:0 0 .5rem}
+  .cr-det p{font-size:.95rem;color:#3d3847;margin:0;line-height:1.62}
+  .cr-det i{font-style:italic}
+
+  .cr-pie{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(120,110,132,.4);
+    font-family:"Trebuchet MS",sans-serif;font-size:.78rem;color:#4a4450;line-height:1.6}
+  .cr-pie b{color:var(--deep)}
+
+  @media(max-width:700px){
+    .cr-fila{grid-template-columns:1fr;gap:.25rem}
+    .cr-fila .vd{justify-self:start;margin-top:.2rem}
+  }
+</style></head><body>
+
+<div class="topbar">
+  <a class="home" href="index.html">&#10022; Estratos</a>
+  <a class="alllink" href="indice.html">Ver todos los art&iacute;culos</a>
+</div>
+
+<header class="artmeta"><div class="wrap">
+  <span class="kicker">Cómo Jesús se convirtió en Dios · Entrega I</span>
+  <h1>Ungido no quería decir <span class="em">eso</span></h1>
+  <div class="glifos"><span>מָשִׁיחַ</span><span class="sep">·</span><span class="tr">mashiaj</span><span class="sep">·</span><span>χριστός</span><span class="sep">·</span><span class="tr">el untado con aceite</span></div>
+  <p class="stand">La palabra que traducimos por «Cristo» significa «untado con aceite», y en Éxodo 40 se aplica a la pila de bronce del santuario.</p>
+  <div class="orn"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+</div></header>
+
+
+<div class="wrap">
+<div class="col-text">
+
+<p class="first">Esta serie se llama «Cómo Jesús se convirtió en Dios», y antes de escribir una
+línea conviene decir que ese título lleva algo escondido dentro.</p>
+
+<p>Lleva una escalera. Un abajo, un arriba, y un recorrido entre los dos. La pregunta
+«¿cuándo se convirtió?» solo tiene sentido si existe una escala con un peldaño inferior —un
+hombre— y uno superior —un dios—, y si lo que hay que averiguar es en qué momento se pasó del
+uno al otro.</p>
+
+<p>Esa escala existe: los manuales la llaman «cristología alta» y «cristología baja», y se
+usa en todas partes. Y es <strong>un eje niceno proyectado hacia atrás</strong> sobre textos
+que no funcionaban con él. Los autores del siglo I no se preguntaban cuánta divinidad tenía
+Jesús. Se preguntaban qué lugar ocupaba respecto del Dios de Israel, si se le daba culto, si
+era agente, mediador, sabiduría o imagen. Son preguntas distintas y no se ordenan en una
+escalera.</p>
+
+<p>No vamos a cambiar el título, porque es el que describe la pregunta que trae el lector. Pero
+lo vamos a usar sabiendo lo que hace, igual que en la serie anterior dijimos que «El alma que
+no estaba» era el enunciado de una tesis y no la descripción de un hecho.</p>
+
+<p>Y empezamos por el principio, que es una palabra.</p>
+
+<figure>
+  <img src="david-ungido-dura-europos.jpg" data-alt="dura-europos-david.jpg|samuel-unge-a-david.jpg|dura-synagogue-david.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Fresco de la sinagoga de Dura Europos: Samuel unge a David">
+  <figcaption>Samuel unge a David, fresco de la sinagoga de <strong>Dura Europos</strong>, siglo III. Pintado por judíos, y con figuración humana — lo que ya desmiente de paso otra idea recibida. La escena es la de 1 Samuel 16: un frasco de aceite sobre la cabeza del hijo pequeño de Jesé. <span class="cr">Sinagoga de Dura Europos, Dominio público.</span></figcaption>
+</figure>
+
+<div class="secnum">01</div><h2>Un adjetivo verbal sustantivado</h2>
+
+<p>מָשִׁיחַ, <em>mashiaj</em>, viene de una raíz que significa «untar». Gramaticalmente es un
+adjetivo verbal sustantivado, y se traduce sin misterio: <strong>el untado con aceite</strong>.
+En griego se vertió como χριστός, <em>christós</em>, que significa exactamente lo mismo — y de
+ahí «Cristo», que no es un apellido sino una traducción.</p>
+
+<p>Lo que designa es un estatus ritual y político: alguien investido mediante una unción. No
+tiene, en el hebreo bíblico, ninguna connotación de sobrehumanidad, de preexistencia ni de
+divinidad. Y eso no es una opinión minoritaria: es consenso, y se puede comprobar
+recorriendo los usos.</p>
+
+<p>Los reyes, en primer lugar. Samuel toma un frasco de aceite y lo derrama sobre la cabeza de
+Saúl; después hace lo mismo con David. De ahí sale la fórmula que se repetirá decenas de veces,
+<em>meshiaj YHWH</em>, «el ungido de YHWH».</p>
+
+<p>Después los sumos sacerdotes: <em>ha-kohen ha-mashiaj</em>, «el sacerdote ungido», en el
+Levítico. Guárdese este dato, porque vuelve: cuando en Qumrán aparezcan dos mesías, uno de los
+dos será éste.</p>
+
+<p>También los patriarcas, en el Salmo 105: «no toquéis a mis ungidos», en paralelismo con «no
+hagáis mal a mis profetas». Y un profeta, en 1 Reyes 19, donde Elías recibe el encargo de ungir
+a Eliseo.</p>
+
+<p>Y entonces llega Éxodo 40, y ahí se acaba cualquier discusión sobre si el título dice algo
+de la persona ungida — porque no siempre hay persona. Se unge el tabernáculo. Se ungen sus
+utensilios. Se unge la pila de bronce con su base.</p>
+
+<p><strong>Un mueble puede ser ungido.</strong> Ungir es consagrar para una función.</p>
+
+<div class="criba" id="criba">
+  <span class="ck">Pieza interactiva &middot; la criba del ungido</span>
+  <h3>Todo lo que la Biblia hebrea llama &laquo;ungido&raquo;</h3>
+  <p class="cs">Una sola pregunta, hecha a todo lo que en la Biblia hebrea recibe ese t&iacute;tulo, y
+  despu&eacute;s a lo que esperaban los judai&#769;smos del Segundo Templo. Lo interesante de esta criba no
+  es qu&eacute; pasa el tamiz: es <b>cu&aacute;ntas veces seguidas sale la misma respuesta</b>. Pulsa cualquier
+  fila.</p>
+  <div class="pregunta">Pregunta &uacute;nica: &iquest;implica el t&iacute;tulo que el ungido sea un ser divino?</div>
+
+  <div class="cr-banda">En la Biblia hebrea<span>Los usos del t&eacute;rmino <i>mashiaj</i>, uno por
+  uno</span></div>
+  <button type="button" class="cr-fila" data-id="saul"><span class="rf">1 Samuel 10,1</span><span class="qn">Saúl, primer rey</span><span class="vd" style="background:#4a6b52">No</span></button>
+  <button type="button" class="cr-fila" data-id="david"><span class="rf">1 Samuel 16,13</span><span class="qn">David, pastor y luego rey</span><span class="vd" style="background:#4a6b52">No</span></button>
+  <button type="button" class="cr-fila" data-id="saul2"><span class="rf">1 Samuel 24,7 y 26,9</span><span class="qn">Saúl otra vez, ya rechazado por Dios</span><span class="vd" style="background:#7a5c38">No, y además…</span></button>
+  <button type="button" class="cr-fila" data-id="sacer"><span class="rf">Levítico 4,3.5.16</span><span class="qn">El sumo sacerdote</span><span class="vd" style="background:#4a6b52">No</span></button>
+  <button type="button" class="cr-fila" data-id="patri"><span class="rf">Salmo 105,15</span><span class="qn">Los patriarcas</span><span class="vd" style="background:#4a6b52">No</span></button>
+  <button type="button" class="cr-fila" data-id="eliseo"><span class="rf">1 Reyes 19,16</span><span class="qn">Eliseo, profeta</span><span class="vd" style="background:#4a6b52">No</span></button>
+  <button type="button" class="cr-fila" data-id="objetos"><span class="rf">Éxodo 40,9-11</span><span class="qn">El tabernáculo, el altar y la pila</span><span class="vd" style="background:#7a5c38">No, y además…</span></button>
+  <button type="button" class="cr-fila" data-id="ciro"><span class="rf">Isaías 45,1</span><span class="qn">Ciro, rey de Persia</span><span class="vd" style="background:#7a5c38">No, y además…</span></button>
+
+  <div class="cr-banda">En el Segundo Templo<span>Lo que esperaban los distintos judai&#769;smos, que no
+  era una sola cosa</span></div>
+  <button type="button" class="cr-fila" data-id="qumran"><span class="rf">1QS IX,11 · Regla de la Comunidad</span><span class="qn">Qumrán</span><span class="vd" style="background:#40566b">Ni uno solo: dos</span></button>
+  <button type="button" class="cr-fila" data-id="4q521"><span class="rf">4Q521 · Apocalipsis mesiánico</span><span class="qn">Qumrán</span><span class="vd" style="background:#4a6b52">No</span></button>
+  <button type="button" class="cr-fila" data-id="salmos"><span class="rf">Salmos de Salomón 17</span><span class="qn">c. mediados del s. I a.C.</span><span class="vd" style="background:#4a6b52">No</span></button>
+  <button type="button" class="cr-fila" data-id="4esd"><span class="rf">4 Esdras 7,28-29</span><span class="qn">c. 100 d.C.</span><span class="vd" style="background:#7a5c38">No, y además…</span></button>
+  <button type="button" class="cr-fila" data-id="4q246"><span class="rf">4Q246 · el texto «Hijo de Dios»</span><span class="qn">Qumrán, s. I a.C.</span><span class="vd" style="background:#8a4550">Se acerca</span></button>
+  <button type="button" class="cr-fila" data-id="henoc"><span class="rf">1 Henoc 37-71 · las Similitudes</span><span class="qn">fecha discutida</span><span class="vd" style="background:#8a4550">Se acerca</span></button>
+
+  <div class="cr-det" id="crdet" aria-live="polite"></div>
+  <div class="cr-pie">De las 8 filas de la primera banda, <b>ninguna</b> implica divinidad, y
+  una de ellas ni siquiera implica una persona: en &Eacute;xodo 40 lo ungido es el mobiliario del
+  santuario. <b>Ungir es consagrar para una funci&oacute;n.</b><br><br>Lo cual no resuelve nada por s&iacute;
+  solo, y conviene decirlo aqu&iacute; para que nadie se lleve la impresi&oacute;n contraria: de que
+  &laquo;mes&iacute;as&raquo; no signifique &laquo;Dios&raquo; <b>no se sigue</b> que las afirmaciones cristianas sobre Jes&uacute;s se
+  reduzcan al t&iacute;tulo mesi&aacute;nico. El argumento de quienes sostienen una cristolog&iacute;a alta muy
+  temprana no es &laquo;lo llamaron mes&iacute;as, luego lo cre&iacute;an divino&raquo;: es que <b>otras</b> cosas
+  &mdash;el culto, la aplicaci&oacute;n a Jes&uacute;s de textos que hablaban de YHWH, el himno de Filipenses&mdash;
+  exceden lo que el t&iacute;tulo permit&iacute;a. Quien refuta &laquo;mes&iacute;as &ne; Dios&raquo; no ha refutado el debate
+  real, y la entrega siguiente entra en &eacute;l.</div>
+</div>
+
+<div class="secnum">02</div><h2>El rey persa que no adoraba a YHWH</h2>
+
+<p>Pero el versículo que zanja el asunto no es ninguno de ésos. Es Isaías 45,1.</p>
+
+<blockquote>כֹּה־אָמַר יְהוָה לִמְשִׁיחוֹ לְכוֹרֶשׁ אֲשֶׁר־הֶחֱזַקְתִּי בִימִינוֹ
+<cite>Isaías 45,1</cite></blockquote>
+
+<p>«Así dice YHWH <em>li-meshijó</em> —a su ungido—, <em>le-Koresh</em> —a Ciro—, a quien he
+tomado de la diestra.» Y un versículo antes, en 44,28, lo llama «mi pastor».</p>
+
+<p>Ciro II de Persia. Un rey <strong>extranjero</strong>, <strong>no israelita</strong> y
+<strong>no yahvista</strong>, llamado ungido de YHWH por un profeta de Israel. No se convirtió;
+no hay en el texto la menor sugerencia de que lo hiciera. Es el rey que permitió el regreso de
+los deportados, y por eso el profeta lo llama así.</p>
+
+<figure>
+  <img src="cilindro-de-ciro.jpg" data-alt="cyrus-cylinder.jpg|ciro-cilindro.jpg|cilindro-ciro.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="El cilindro de Ciro, de arcilla, con inscripción cuneiforme">
+  <figcaption>El cilindro de Ciro, Museo Británico. El documento del rey que Isaías 45,1 llama <em>mashiaj</em> de YHWH — un persa que no adoraba al Dios de Israel. El título designa comisión, no naturaleza. <span class="cr">Fotografía de Prioryman, Museo Británico, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</span></figcaption>
+</figure>
+
+<p>De modo que el título designa <strong>comisión</strong>: a quién ha encargado Dios una
+tarea. No naturaleza. No linaje davídico. No piedad. Ni siquiera pertenencia al pueblo.</p>
+
+<p>Hay un segundo dato en la misma dirección y es más incómodo todavía, porque ocurre dentro de
+Israel. En 1 Samuel 24 y 26, David se niega dos veces a matar a Saúl teniéndolo a su merced, y
+la razón que da es que Saúl es «el ungido de YHWH». Pero en ese punto del relato
+<strong>Dios ya ha rechazado a Saúl</strong>. El título sobrevive al favor divino. Es un cargo,
+no un certificado de virtud.</p>
+
+<p>Lo que sí se discute, y conviene decirlo, es el alcance del pasaje de Ciro. Lisbeth Fried
+reseñó tres posiciones: que los pasajes sobre Ciro sean adiciones posteriores; que «ungido» sea
+ahí solo una comisión regia sin carga mesiánica; o —la más interesante— que Ciro sea central a
+la teología del libro de Isaías, y que su unción marque precisamente <strong>el final</strong>
+de la monarquía davídica: Dios haciendo por medio de un persa lo que antes hacía por medio de
+David.</p>
+
+<div class="meter">
+  <div class="q">¿Es firme que el título <i>mashiaj</i> no implicaba divinidad?</div>
+  <div class="bar"><span class="pin" style="left:94%" data-l="Consenso"></span></div>
+  <div class="scale"><span>Especulaci&oacute;n</span><span>Hip&oacute;tesis en debate</span><span>Consenso</span></div>
+  <div class="why">Lo es, y se puede comprobar entero porque el corpus es pequeño y está listado: ni en la Biblia hebrea ni en la literatura del Segundo Templo «mesías» equivale a «ser divino». Llamar mesías a alguien es una afirmación <b>política y escatológica</b>, no metafísica. Lo que sí tiene discusión abierta es el alcance del pasaje de Ciro —si marca el final de la monarquía davídica o es solo una comisión regia— y la datación de las Similitudes de Henoc, que es el único texto judío que se acerca de verdad a una figura mesiánica celestial y que, según cuándo se date, prueba una cosa o la contraria.</div>
+</div>
+
+<div class="secnum">03</div><h2>No había «la» esperanza mesiánica</h2>
+
+<p>Cuando se dice que los judíos del siglo I «esperaban un mesías», se está diciendo algo que
+la investigación de las últimas décadas ha desmontado con cuidado. No había una expectativa:
+había varias, y buena parte de la literatura judía del período apenas se interesa por ningún
+mesías. En la literatura sapiencial casi no aparece. En Filón, tampoco.</p>
+
+<p>Quien ha reorientado el campo es <strong>Matthew Novenson</strong>, y su argumento es de
+método: no existió «la idea mesiánica» judía, un concepto unitario y estable que los textos
+«expresarían». Organizar el estudio alrededor de ese constructo, dice, es organizarlo alrededor
+de un concepto artificial en vez de alrededor de un corpus de textos.</p>
+
+<p>Lo que sí había era un idioma político compartido, con hablantes muy distintos. Y unos
+cuantos mesías reales: Novenson distingue entre los «advenedizos» y los «de sangre azul», y en
+la lista caben Zorobabel, los asmoneos, Herodes, Jesús y Simón bar Kosiba.</p>
+
+<figure>
+  <img src="cueva-4-de-qumran.jpg" data-alt="cuevas-de-qumran.jpg|qumran.jpg|cueva-qumran.jpg" onerror="var a=(this.dataset.alt||'').split('|').filter(Boolean);if(a.length){this.dataset.alt=a.slice(1).join('|');this.src=a[0];}else{this.onerror=null;}" alt="Las cuevas excavadas en el acantilado de Qumrán">
+  <figcaption>Las cuevas de Qumrán, junto al mar Muerto. De aquí salen la Regla de la Comunidad, con sus <em>dos</em> mesías, y 4Q246, el texto arameo donde alguien «será llamado hijo de Dios» un siglo antes de Lucas. <span class="cr">Fotografía de Hoshvilim, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</span></figcaption>
+</figure>
+
+<p>En <strong>Qumrán</strong> no esperaban un mesías: esperaban dos. La Regla de la Comunidad
+dice que se vivirá bajo aquellas normas «hasta que venga el profeta y <em>los mesías de Aarón e
+Israel</em>», en plural: uno sacerdotal y otro real. Y en la Regla de la Congregación el orden
+está claro — el sacerdote bendice antes que «el mesías de Israel».</p>
+
+<p>En los <strong>Salmos de Salomón</strong> 17, de mediados del siglo I antes de nuestra era,
+se pide a Dios que suscite «a su rey, hijo de David» para purgar Jerusalén. Es un rey humano:
+sin pecado, enseñado por Dios, y que no confía en caballo ni en jinete ni en arco. Y el texto se
+cuida de dejar claro quién manda de verdad: «el Señor mismo es su rey».</p>
+
+<p>Y en <strong>4 Esdras</strong>, hacia el año 100, hay un mesías que <strong>se muere</strong>.
+«Será revelado mi hijo el Mesías» con los que están con él; y pasado un tiempo, «morirá mi hijo
+el Mesías», y todo vuelve al silencio primordial antes de la resurrección general. Un dato de
+paso que dice mucho sobre la transmisión de estos textos: el manuscrito latino pone ahí «mi hijo
+Jesús», y es una glosa cristiana — las versiones siríaca, etíope, árabe y armenia no la
+traen.</p>
+
+<div class="wall">
+  <div class="post min">
+    <div class="who">Éxodo 40,9-11</div>
+    <div class="what">Lo que se unge</div>
+    <p>El tabernáculo, el altar, los utensilios y la pila de bronce con su base. <b>Ungir es consagrar para una función</b>, y la función puede ser la de un mueble.</p>
+  </div>
+  <div class="post min">
+    <div class="who">1 Samuel 24,7</div>
+    <div class="what">A quién protege el título</div>
+    <p>David no mata a Saúl porque es «el ungido de YHWH» — <b>y Dios ya lo ha rechazado</b>. El título sobrevive al favor divino.</p>
+  </div>
+  <div class="post mid">
+    <div class="who">Isaías 45,1</div>
+    <div class="what">Hasta dónde llega</div>
+    <p>A un rey persa que no adoraba a YHWH. No hay linaje, no hay piedad, no hay siquiera pertenencia al pueblo. <b>Hay encargo.</b></p>
+  </div>
+  <div class="post mid">
+    <div class="who">1QS IX,11</div>
+    <div class="what">Cuántos se esperaban</div>
+    <p><b>Dos.</b> «Hasta que venga el profeta y los mesías de Aarón e Israel»: uno sacerdotal y otro real — y en la Regla de la Congregación el sacerdote va primero.</p>
+  </div>
+  <div class="post min">
+    <div class="who">4 Esdras 7,29</div>
+    <div class="what">Qué le pasaba al mesías</div>
+    <p>Que <b>se moría</b>. «Morirá mi hijo el Mesías», y todo vuelve al silencio primordial antes de la resurrección general.</p>
+  </div>
+</div>
+
+<div class="secnum">04</div><h2>Lo que este capítulo no demuestra</h2>
+
+<p>Y ahora la parte que separa esto de la divulgación, porque hay una conclusión fácil a mano y
+es falsa.</p>
+
+<p>La conclusión fácil sería: «mesías no significaba Dios, luego llamar mesías a Jesús no
+implicaba nada sobre su divinidad, luego la divinidad se añadió después». Los dos primeros
+pasos son correctos. El tercero <strong>no se sigue</strong>.</p>
+
+<p>Porque el argumento de quienes sostienen que hubo una cristología alta muy temprana no es
+«lo llamaron mesías, luego lo creían divino». Nadie defiende eso. Lo que sostienen —Larry
+Hurtado, Richard Bauckham y otros— es que <strong>otras cosas</strong> exceden lo que el título
+mesiánico permitía: que se le diera <em>culto</em> junto al Dios de Israel de forma
+asombrosamente precoz; que se le aplicaran textos del Antiguo Testamento que hablaban de YHWH;
+y que un himno que Pablo cita —y probablemente no compone— le aplique a Jesús un pasaje de
+Isaías 45, el mismo capítulo del que sale el versículo de Ciro, y que es uno de los textos más
+radicalmente monoteístas de la Biblia hebrea.</p>
+
+<p>Quien refuta «mesías ≠ Dios» ha refutado algo que nadie defiende. El debate real está en
+otro sitio, y es el de la entrega siguiente.</p>
+
+<div class="aviso">
+  <div class="t">La condición de trabajo de toda esta serie, dicha al principio</div>
+  <p>De casi todos los que perdieron estas discusiones <strong>no se conserva prácticamente nada escrito por ellos</strong>. De Arrio sobreviven unos pocos fragmentos, y los cita Atanasio para refutarlos. De Pablo de Samosata, de Noeto, de Práxeas y de Sabelio, casi nada directo. Y de los ebionitas, <strong>nada en absoluto</strong>: el llamado <em>Evangelio de los Ebionitas</em> existe únicamente como siete citas dentro de la obra que los refuta.<br><br>Que las fuentes vengan de los vencedores no las invalida — son las que hay, y con ellas se trabaja. Pero obliga a distinguir en cada caso entre lo que un autor dice de sí mismo y lo que su adversario dice de él. Esta serie lo hará caso por caso, y en la tercera entrega hay una pieza que lo pone en forma de medida.</p>
+</div>
+
+<div class="rigor">
+  <div class="t">Nota sobre el rigor y las fuentes</div>
+  <p>Lo que es <span class="k">consenso</span> en esta entrega: que <em>mashiaj</em> es un adjetivo verbal sustantivado sin connotación de divinidad; que se aplica a reyes, sumos sacerdotes, patriarcas, un profeta y objetos del santuario; que Isaías 45,1 llama <em>mashiaj</em> a Ciro; y que no existió una única expectativa mesiánica judía. Las referencias están verificadas una a una contra el texto masorético.</p>
+  <p>Lo que está en <span class="k">debate abierto</span>: el alcance del pasaje de Ciro, con las tres lecturas que reseña Lisbeth Fried; el referente de 4Q246, que unos leen como figura mesiánica positiva y otros como un usurpador del tipo de Antíoco IV; y sobre todo <strong>la datación de las Similitudes de Henoc</strong>, que no aparecen entre los manuscritos de Qumrán y que, si resultan contemporáneas de Jesús o algo posteriores, dejan de servir para decir «esto ya estaba antes».</p>
+  <p>Y una <span class="k">cautela sobre el propio marco</span> de la serie, que es la que abre esta entrega. Las categorías «cristología alta» y «cristología baja» son cómodas y las vamos a usar, pero son un eje niceno aplicado a textos anteriores a Nicea. La crítica a ese eje lleva años creciendo en la investigación y hoy está cerca de ser consenso. Lo decimos aquí, en la primera entrega, para no tener que descubrirlo en la última.</p>
+  <p>Y lo que esta serie <span class="k">no hace</span>: decidir si Jesús es Dios. Describe cómo se formaron unas definiciones, con qué materiales y en qué fechas. Que una doctrina tenga una formación histórica documentable no dice nada sobre si es verdadera, y confundir las dos cosas tiene nombre propio. Lo daremos con ese nombre en la séptima entrega, y valdrá en las dos direcciones.</p>
+</div>
+
+<p>Queda dicho lo que la palabra no significaba. La entrega II se ocupa de lo que ocurre cuando
+se ordenan por fecha los textos que hablan de Jesús — y de por qué la pendiente ordenada que
+todo el mundo ha visto alguna vez en un manual se rompe con una sola fecha.</p>
+
+<div class="fuentes">
+  <h3>Fuentes</h3>
+  <p>Texto hebreo cotejado contra la edición <em>Miqra according to the Masorah</em>. Los usos de
+  <em>mashiaj</em> en la Biblia hebrea están listados y verificados uno a uno.</p>
+  <p>Matthew V. Novenson, <em>Christ among the Messiahs: Christ Language in Paul and Messiah
+  Language in Ancient Judaism</em>, Oxford University Press, 2012, y <em>The Grammar of
+  Messianism: An Ancient Jewish Political Idiom and Its Users</em>, Oxford University Press,
+  2017 · Lisbeth S. Fried, «Cyrus the Messiah? The Historical Background to Isaiah 45:1»,
+  <em>Harvard Theological Review</em> 95/4 (2002) 373-393.</p>
+  <p><strong>Segundo Templo.</strong> 1QS (Regla de la Comunidad) IX,11 y 1QSa (Regla de la
+  Congregación) II,11-22 · 4Q521 · 4Q246 · 4Q174 (Florilegio) · <em>Salmos de Salomón</em> 17,
+  en la edición de R. B. Wright · <em>4 Esdras</em> 7,28-29, con la edición de Michael E. Stone,
+  <em>Fourth Ezra</em>, Hermeneia, Fortress, 1990 · <em>1 Henoc</em> 37-71, las Similitudes, con
+  la discusión de datación recogida por George W. E. Nickelsburg.</p>
+  <p><strong>Sobre el debate que abre la entrega siguiente.</strong> Larry W. Hurtado, <em>Lord
+  Jesus Christ: Devotion to Jesus in Earliest Christianity</em>, Eerdmans, 2003 · Richard
+  Bauckham, <em>Jesus and the God of Israel</em>, Eerdmans, 2008 · James D. G. Dunn,
+  <em>Christology in the Making</em>, 2.ª ed., 1989 · Bart D. Ehrman, <em>How Jesus Became
+  God</em>, HarperOne, 2014.</p>
+</div>
+
+</div>
+</div>
+
+
+<footer><span class="glyph" aria-hidden="true">&#10022;</span><br>Estratos &middot; Historia de las religiones del Cercano Oriente</footer>
+<script>
+
+(function(){
+  var D={"saul": {"r": "1 Samuel 10,1", "q": "Saúl, primer rey", "v": "no", "t": "Samuel toma el frasco de aceite y lo derrama sobre su cabeza. Es una investidura: un acto que cambia el <b>estatus</b> de un hombre, no su naturaleza. De aquí sale la fórmula que se repetirá docenas de veces, <i>meshiaj YHWH</i>, «el ungido de YHWH»."}, "david": {"r": "1 Samuel 16,13", "q": "David, pastor y luego rey", "v": "no", "t": "El caso que fija el núcleo semántico para todo lo demás. Y conviene notar lo que el texto <b>no</b> dice: que David pase a ser otra cosa. Sigue siendo el hijo pequeño de Jesé, y el capítulo siguiente lo manda a llevarle queso a sus hermanos."}, "saul2": {"r": "1 Samuel 24,7 y 26,9", "q": "Saúl otra vez, ya rechazado por Dios", "v": "ojo", "t": "Aquí está el dato incómodo para cualquiera que quiera cargar el título de contenido religioso. David se niega a matar a Saúl porque es «el ungido de YHWH» — <b>y en ese punto del relato Dios ya lo ha rechazado</b>. El título sobrevive al favor divino. Es un cargo, no un certificado de virtud."}, "sacer": {"r": "Levítico 4,3.5.16", "q": "El sumo sacerdote", "v": "no", "t": "<i>Ha-kohen ha-mashiaj</i>, «el sacerdote ungido». El mismo término, otra institución. Y esto importa más adelante: cuando en Qumrán aparezcan dos mesías, uno será éste."}, "patri": {"r": "Salmo 105,15", "q": "Los patriarcas", "v": "no", "t": "«No toquéis a mis ungidos», en paralelismo con «no hagáis mal a mis profetas». Aquí el plural ya no designa un cargo institucional sino, simplemente, gente bajo protección divina."}, "eliseo": {"r": "1 Reyes 19,16", "q": "Eliseo, profeta", "v": "no", "t": "Elías recibe el encargo de ungir a Eliseo «como profeta en tu lugar». El uso profético es raro y se discute, pero está."}, "objetos": {"r": "Éxodo 40,9-11", "q": "El tabernáculo, el altar y la pila", "v": "ojo", "t": "<b>Y aquí se acaba la discusión sobre si el título implica algo sobre la persona</b>, porque no siempre hay persona. Se unge el santuario, se ungen sus utensilios, se unge la pila de bronce con su base. Ungir es <b>consagrar para una función</b>. Un mueble puede ser ungido."}, "ciro": {"r": "Isaías 45,1", "q": "Ciro, rey de Persia", "v": "ojo", "t": "<b>El versículo que decide el asunto.</b> «Así dice YHWH a su ungido, a Ciro, a quien he tomado de la diestra.» Un rey <b>extranjero</b>, <b>no israelita</b> y <b>no yahvista</b>, llamado <i>mashiaj</i> de YHWH — y un versículo antes, «mi pastor».<br><br>Ciro no se convirtió. No hay en el texto ninguna sugerencia de que lo hiciera. El título designa <b>comisión</b>: a quién ha encargado Dios una tarea. No naturaleza, no linaje davídico, no piedad, ni siquiera pertenencia al pueblo.<br><br>Lo que sí se discute es el alcance: Lisbeth Fried reseña tres lecturas, y una de ellas sostiene que la unción de Ciro marca precisamente <b>el final</b> de la monarquía davídica — Dios haciendo por medio de un persa lo que antes hacía por medio de David."}, "qumran": {"r": "1QS IX,11 · Regla de la Comunidad", "q": "Qumrán", "v": "plural", "t": "La comunidad vive bajo sus normas «hasta que venga el profeta y <b>los mesías de Aarón e Israel</b>». En plural: uno <b>sacerdotal</b> y uno <b>real</b>. Y en 1QSa el sacerdotal va primero — bendice antes que «el mesías de Israel».<br><br>El Documento de Damasco trae en varios pasajes el singular, y se discute si es un colapso redaccional posterior o una concepción distinta."}, "4q521": {"r": "4Q521 · Apocalipsis mesiánico", "q": "Qumrán", "v": "no", "t": "«Los cielos y la tierra obedecerán a su mesías.» El texto asocia al ungido con resucitar muertos y anunciar buenas noticias a los pobres — un paralelo notable con Mateo 11,5, <b>sin que el mesías sea divinizado</b> en ninguna parte."}, "salmos": {"r": "Salmos de Salomón 17", "q": "c. mediados del s. I a.C.", "v": "no", "t": "Pide a Dios que suscite «a su rey, hijo de David» para purgar Jerusalén. Es un rey <b>humano</b>: sin pecado, enseñado por Dios, y que no confía en caballo ni en jinete ni en arco. Y el texto se cuida de dejar claro quién manda: «el Señor mismo es su rey».<br><br>Hay un detalle textual jugoso: en 17,32 los manuscritos traen <i>christós kýrios</i>, «mesías señor», y muchos editores corrigen a <i>christós kyríou</i>, «el ungido del Señor», suponiendo un error de traducción del hebreo."}, "4esd": {"r": "4 Esdras 7,28-29", "q": "c. 100 d.C.", "v": "ojo", "t": "<b>Un mesías que se muere.</b> «Será revelado mi hijo el Mesías» con los que están con él; y pasado un tiempo, «morirá mi hijo el Mesías», y todo vuelve al silencio primordial antes de la resurrección general.<br><br>El texto latino dice «mi hijo Jesús»: es una glosa cristiana, y las versiones siríaca, etíope, árabe y armenia no la traen."}, "4q246": {"r": "4Q246 · el texto «Hijo de Dios»", "q": "Qumrán, s. I a.C.", "v": "cerca", "t": "«Será llamado hijo de Dios, e hijo del Altísimo lo llamarán» — un paralelo verbal casi exacto con Lucas 1,32-35, en arameo y anterior.<br><br><b>Y el referente está en disputa.</b> Unos leen una figura mesiánica positiva; otros, un usurpador del tipo de Antíoco IV, es decir, alguien que <i>se hace llamar</i> así. Con esa discusión abierta, el texto no prueba lo que se le quiere hacer probar — en ninguna de las dos direcciones."}, "henoc": {"r": "1 Henoc 37-71 · las Similitudes", "q": "fecha discutida", "v": "cerca", "t": "<b>El que de verdad se acerca.</b> Una figura celestial llamada «el Elegido», «el Justo», «el Hijo del Hombre» y «su Ungido», preexistente ante el Señor de los espíritus y sentada en el trono de gloria para juzgar. Es lo más parecido a una figura mesiánica celestial y exaltada que hay en la literatura judía.<br><br><b>Y la advertencia que lo decide todo:</b> las Similitudes <b>no aparecen entre los manuscritos de Qumrán</b>. La datación tardía de Milik está hoy descartada, y la mayoría las sitúa a finales del s. I a.C. o en el s. I d.C. — pero si son contemporáneas de Jesús, o algo posteriores, su valor probatorio cambia por completo. No sirven para decir «esto ya estaba antes»."}}, V={"no": ["No", "#4a6b52"], "ojo": ["No, y además…", "#7a5c38"], "cerca": ["Se acerca", "#8a4550"], "plural": ["Ni uno solo: dos", "#40566b"]};
+  var caja=document.getElementById('criba'), det=document.getElementById('crdet');
+  if(!caja||!det) return;
+  function show(id){
+    var d=D[id];
+    caja.querySelectorAll('.cr-fila').forEach(function(f){f.classList.toggle('on',f.dataset.id===id);});
+    var v=V[d.v];
+    det.innerHTML='<div class="dl" style="color:'+v[1]+'">'+v[0]+'  \u00b7  '+d.r+'</div>'+
+      '<h4>'+d.q+'</h4><p>'+d.t+'</p>';
+    det.style.borderLeftColor=v[1];
+  }
+  caja.querySelectorAll('.cr-fila').forEach(function(f){
+    f.addEventListener('click',function(){show(f.dataset.id);});
+  });
+  show('ciro');
+})();
+</script>
+
+<style>
+  .epnav{max-width:760px;margin:3rem auto 0;padding:0 24px 4rem}
+  .epnav-series{text-align:center;font-family:"Trebuchet MS",sans-serif;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+  .epnav-series a{text-decoration:none}
+  .epnav-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media(max-width:560px){.epnav-row{grid-template-columns:1fr}}
+  .epnav-btn{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;padding:1rem 1.2rem;
+    border:1px solid rgba(180,150,100,.4);border-radius:10px;background:#f2ead7;
+    transition:transform .3s,background .3s;min-height:64px;justify-content:center;color:inherit}
+  .epnav-btn:hover{transform:translateY(-3px);background:#fff}
+  /* #8a7a5e daba 3,49:1 sobre el fondo #f2ead7 del boton. #726245 da 4,94:1. */
+  .epnav-btn .lbl{font-family:"Trebuchet MS",sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#726245;font-weight:700}
+  .epnav-btn .ttl{font-size:1rem}
+  .epnav-btn.next{text-align:right}
+  .epnav-btn.disabled{opacity:.45;pointer-events:none}
+</style>
+<nav class="epnav">
+  <div class="epnav-series" style="color:#4c2c60">↑ <a href="serie-cristo.html" style="color:#4c2c60">Serie: Cómo Jesús se convirtió en Dios</a></div>
+  <div class="epnav-row">
+    <a class="epnav-btn prev disabled" href="#"><span class="lbl">← Anterior</span><span class="ttl">Inicio de la serie</span></a>
+    <a class="epnav-btn next" href="cristo-2.html"><span class="lbl">Siguiente →</span><span class="ttl" style="color:#4c2c60">La curva que no existe</span></a>
+  </div>
+</nav>
+</body></html>
